@@ -1,0 +1,21 @@
+Peach Fuzzer Run
+=================
+
+Command line: C:\Peach2.3.9\peach.py --range 505,508 c:\test\XMLs\test_tcp.xml 
+Date of run: Mon Sep 26 10:55:09 2016
+SEED: 1474858508.64
+Pit File: test_tcp.xml
+Run name: DefaultRun
+
+Mon Sep 26 10:55:09 2016: 
+Mon Sep 26 10:55:09 2016: Test starting: NetworkTest
+Mon Sep 26 10:55:09 2016: 
+Mon Sep 26 10:55:09 2016: On test variation # 1
+Mon Sep 26 10:55:09 2016: On test variation # 505
+Mon Sep 26 10:55:09 2016: 
+Mon Sep 26 10:55:09 2016: Test completed: NetworkTest
+Mon Sep 26 10:55:09 2016: 
+
+
+== Run completed ==
+Mon Sep 26 10:55:09 2016

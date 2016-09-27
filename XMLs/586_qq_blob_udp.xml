@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+
+
+	<Include ns="default" src="file:defaults.xml" />
+
+	<DataModel name="HttpRequest">
+       <Blob name="data" valueType="hex" value="023639001719d1114e75cb0004909cc37f63767e305d2189cf0c2525b0135f6042fa1ce58e97387eaa5828d4b9f34bbbeb3fab8500acf8b31205be7f8e109238bb930b7b07cb13ff7e1044a353efa806b8209d9f8bb990eb3b00153900503dee23ec360f0f36d5bf0cf536d39ee14baf41d31defb358c1e05ea11f380b68269caaff003b626a4a7f3bbe1061b39bb1ab19731eaa99a6a9c0b4dbcb1b0efcf99627980e4202b9a91cd78366fa962941764be2d2f0b07bb9b346c15be4941da5821921ebf5cc7912747f6109b00122abf1c5658204253083ff86e7f172f6933d3f4f8bb1fa22a89a74b20be72df30edcc0d88ca8109039d99f63a3bdef9f10ab0c80fb031e40f716dc48cd91a80f507fb9d6ce287c864e05d7314308909955c80b1d2a20fed8a4cf618cf12c821354c2fd737586a26c8f03" isStatic="true" /> 
+	</DataModel>
+	
+	<StateModel name="TheStateModel" initialState="TheState">
+		<State name="TheState">
+			<Action type="output">
+				<DataModel ref="HttpRequest" />
+			</Action>
+		</State>
+	</StateModel>
+
+	<!-- Agents that run localy will be started automatically by Peach -->
+	<Agent name="LocalAgent">
+		<Monitor name="Debugger" class="debugger.WindowsDebugEngine">
+        			<Param name="CommandLine" value="C:\Program Files\Tencent\QQLite\Bin\QQ.exe"/> 
+		</Monitor>
+
+
+	</Agent>
+
+	<Test name="NetworkTest">
+		<Agent ref="LocalAgent" />
+		<StateModel ref="TheStateModel"/>
+
+
+            <Publisher class="udp.Udp">
+                    <Param name="host" value="127.0.0.1" />
+                    <Param name="port" value="4026" />
+            </Publisher>
+
+            
+	</Test>
+
+	<Run name="DefaultRun">
+		<Test ref="NetworkTest" />
+	
+		<Logger class="logger.Filesystem">
+			<Param name="path" value="c://test//logs" />
+		</Logger>
+
+	</Run>
+
+</Peach>
+<!-- end -->
+ 

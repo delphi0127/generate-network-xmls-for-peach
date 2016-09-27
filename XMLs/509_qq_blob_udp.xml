@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+
+
+	<Include ns="default" src="file:defaults.xml" />
+
+	<DataModel name="HttpRequest">
+       <Blob name="data" valueType="hex" value="02363900176719114e75cb0004900333095a45305d91f9532671d5d5d9565367738ffaa96c8cdda98b7d9696537a5b2e71088e72b1acade762d2e6fcc4affc9a334e8d306609f94165f0794e2a8db8c11acf7bba6c1f71395cef27217c9b4d617e20ff3f4a11c2b0c27cd7215b5cd848a437717d8b104b1bfaf8a343ba9f445edfc9a9c3779164dc55ae30a82c67a218afa8879aca1bdfb088580f8d4ef9b73e368d9303ae9a2ab15ab7632fd707395734283455cbb2d16d05aae11b879b38e084dd051cf6a02ce34c347cf220afa148291f4c3f1cab5c9ba8227b31105b42073bf1610a49f58975e08e70272fad73c3e9f0ec2ce97120c28ebb60ed15b1897241a88e2e221b18297dce3e4eea30374bd23d7801b39e85ca71dad4e0ad94b2eb29cb730a188d58b145f4d3d26e30cb48a9b57bfc4737774fcad05d4894ca196e2ead9cf5d3a903" isStatic="true" /> 
+	</DataModel>
+	
+	<StateModel name="TheStateModel" initialState="TheState">
+		<State name="TheState">
+			<Action type="output">
+				<DataModel ref="HttpRequest" />
+			</Action>
+		</State>
+	</StateModel>
+
+	<!-- Agents that run localy will be started automatically by Peach -->
+	<Agent name="LocalAgent">
+		<Monitor name="Debugger" class="debugger.WindowsDebugEngine">
+        			<Param name="CommandLine" value="C:\Program Files\Tencent\QQLite\Bin\QQ.exe"/> 
+		</Monitor>
+
+
+	</Agent>
+
+	<Test name="NetworkTest">
+		<Agent ref="LocalAgent" />
+		<StateModel ref="TheStateModel"/>
+
+
+            <Publisher class="udp.Udp">
+                    <Param name="host" value="127.0.0.1" />
+                    <Param name="port" value="4026" />
+            </Publisher>
+
+            
+	</Test>
+
+	<Run name="DefaultRun">
+		<Test ref="NetworkTest" />
+	
+		<Logger class="logger.Filesystem">
+			<Param name="path" value="c://test//logs" />
+		</Logger>
+
+	</Run>
+
+</Peach>
+<!-- end -->
+ 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+
+
+	<Include ns="default" src="file:defaults.xml" />
+
+	<DataModel name="HttpRequest">
+        <String valueType="hex" value="023639010803d2114e75cb00000072670372b2d18d2528ee9b0e0c1e2b6bb1aa8cbd749b48f1dceae49ef1452ae063751fbfe55e91c526b527e120c4cbc93bb09e6f40239e97ab33649cf6b8694aa3971bc2aba26aa784c29794b5d6b1bf845f80a9c69ac33b8bb3bdac6c81306b6f5956ad932129ef2223be9add83c5aebe48ef084801960aa7de828a8c19dbff0ab3bc5c827d2e5afaa7c4e50af32a43dbc871135e8716d0566f0728ccd12e47aec3e2d05e3d848e4f1b62243d8fe9c940fc92bd177ad4fccd02d1a8792674faa61b48ee74b9228397253172d37a5cb744464fa773229ee6ae4ad56da1affd1ad53b7fb403d5c4f9bbf48cd830ba4e4a8e41d80cd8fe451d80d75ddbb06a364461942a9cb4511708a652fbed30867bccd58344d062c8ef9ddb9766dd7ccff2e03adb52f8f647991b7308f45d87c0df1664ea837c341a35fb02dc0c0a3ac57efb389786dba6c3896cf10f3864111b0d26c10ad95079f9ed60d63fe989164011c1f7a867f28af8d6c1d980e118c50934a2bf5a4a776180a19ba3cf455fb7262bdef586c0dc33107e730036bf877d9dc2a8401eeae7ad3da428b01a21b8df81c45cb4a68b2f8056b01c33ec3333b03f944573cc1c76f2e7596876bf89578346ab0e14636285088f41a070b3405be1ad32f6c13eb6548ef8c947ffdf287333d93e311f9b31aeb5b171aca6adc0fb35944e8f03" /> 
+	</DataModel>
+	
+	<StateModel name="TheStateModel" initialState="TheState">
+		<State name="TheState">
+			<Action type="output">
+				<DataModel ref="HttpRequest" />
+			</Action>
+		</State>
+	</StateModel>
+
+	<!-- Agents that run localy will be started automatically by Peach -->
+	<Agent name="LocalAgent">
+		<Monitor name="Debugger" class="debugger.WindowsDebugEngine">
+        			<Param name="CommandLine" value="C:\Program Files\Tencent\QQLite\Bin\QQ.exe"/> 
+		</Monitor>
+
+
+	</Agent>
+
+	<Test name="NetworkTest">
+		<Agent ref="LocalAgent" />
+		<StateModel ref="TheStateModel"/>
+
+
+            <Publisher class="udp.Udp">
+                    <Param name="host" value="127.0.0.1" />
+                    <Param name="port" value="4026" />
+            </Publisher>
+
+            
+	</Test>
+
+	<Run name="DefaultRun">
+		<Test ref="NetworkTest" />
+	
+		<Logger class="logger.Filesystem">
+			<Param name="path" value="c://test//logs" />
+		</Logger>
+
+	</Run>
+
+</Peach>
+<!-- end -->
+ 

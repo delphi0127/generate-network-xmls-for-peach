@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+
+
+	<Include ns="default" src="file:defaults.xml" />
+
+	<DataModel name="HttpRequest">
+       <Blob name="data" valueType="hex" value="a27603be105b230afc145c561b6c754729cf468e812fcf1cdcbaa7a0a3e1850afe4e47230b4f411692268bde913396613b8152a3a156e8d8480c284d8ad428042ad4d8c7b7c10158d733faa244430d8ef791ea2a7b76801a713364538d8b184eacd3a2d02016217b40c46c35a5a244daa1e87799eac90e6b1bdb08635b15e147a2408766b28d297c1078fdaba67539e33a5aedf0e45c847495d2d0d157a9135a5d4ec3a14c7a1d3c03de285c6615f48bc45564d82d0122932ac8d2640e3ef85e77727b166a163852934f6bd4388960f4255f47c9d734fa2cb4023382ad48ec71d8b87f0a11db21dbbd01dbc2c7992a09f0c01ba15b7de0a0042da76609d51f9fa5e6a2890865369a23f473ace1e484154882e18f0235b37c08dd946e82ba2a5b8d745201c5122ca76a83224128976638601c15a740074a1ed3a643c61bd480605614c55218e9c06a77248b2541e87f96979a9d4f96eb1f460ebefe52a9eca6750fa11161542bc1a010a6aa47449e630cfae12349a00a695967fe85ce2ee345864a1d7c031da7088ffc9614830ec2a4cc82d743772d2a1177557fc8f1482088f61366e04f5a77c52882a83e4769a9ec3b0e42f485a74b182580acfd1c1cc8697aabfcfe0a534783678574756014f84a59d70469785b551f4b69bb15e8042bb2d17637291050d9d305f2145a2220e4c8ebf1a71bf6e421b6be088a35afb6d67c1e4367467c2f8962f6690a0e058208160edf6f5ca26393aac419798092a31a3f80dd3d9d96ac07552f18b0f47ec92c4da02583db93aa76146c1f01d8145d0ef04933efb661d11f65cbc42c53b06ec60eeef4ed38dd0d068d7c1060d0ee93d36520e031dbf505f8d8ca404159225c1244951dd2e06de2368e8674914ba1a4014de6403229daf707faddc1e28598191ede9df452f60627032efe8a0fa80526e4eacd5e031341dab743da672a1309c92f5a9d17a5f89aa94851e4d4f1690e87588ec09e8ce249c589d869dbc25a23031c19690407260326d351d03af34e860a38c1a66d2076cef9b2281453b1ff00b06640e04229609e4bed4e955ffe3942a979c42205ec6746a3bc45221eb50d08bf8151419e3d618680d4130afc6088919c0d87e83bd56033f7b516394faeddda8046d80348671967a3a187d01ff61e5ae8496a2a5f67620c05c3f483048500833f062632bb03d6862287ddcdff00350c186381e0a01e93352a826aaae849c524cc001543b8077d1a1822f1910a0a10fa46cc09496d37228a1acaa26c529a0e5015f10862a70e15622c29d7a260766ba4fc0f9d6e023c15431fe0a0299e2ad74e70ca087d4e88aba0f4480d9c07ac115d15003ac747ca67214fb1d5b4a14cc12373a0588a22d3a955314ea8d23a9df0dd6f41015012a281fa56bdf5342324730314c698aa79c56ee60c2263f034344ac72121eaa8d0d9e22606a8d88267e000fac24b7b46e96bcf30122f75837d68d314ec3d37a12482afe1405c371c2829d2682bda025c0ee23ef2a9a49829557fc706ada74024743304ce200607fe949c01573b0a0a890cf6c14c1e154b003c8a89f014bc4bc27910708110abe081191c09c9d66a1309400cb668f83baa687ab80416e753fa01e2d830812653d52303a2f1cb6c80e27e8a31d8b11ebc5780814821591d8ebbe41c0541e6850ce8a4cfc7846601090c134fc2d1af7dd382c923a06822ad1de021d2f0cf9ac084ae9bd5fc1335c82a3a8802210a0184395b9c0add424acc60f59dbc1e144887401da2d8b63053a5b6003415448b9e94f6f42420de05d10aed674ad61f684cb2cfbba3ea8d1247ae781000180f05576ee498b51d4e400412b26b4f5b8d3c46084d750cea3d5c07af7c8060060e9e30f4fe7f271ba9f992c503fc6ae50f06316598d181a251dfeb85c751ee091f68c468ad19c37326a00e8498f3def8c4eca41bc2c2a3b845c0f6ce13039e8459fd24804403869c00fc54a5d5d901b62f84e00ba1bed02c0105112be7d57095d5fc1adb5a59fbf81c7dd876f4344d466158d278217bc1" isStatic="true" /> 
+	</DataModel>
+	
+	<StateModel name="TheStateModel" initialState="TheState">
+		<State name="TheState">
+			<Action type="output">
+				<DataModel ref="HttpRequest" />
+			</Action>
+		</State>
+	</StateModel>
+
+	<!-- Agents that run localy will be started automatically by Peach -->
+	<Agent name="LocalAgent">
+		<Monitor name="Debugger" class="debugger.WindowsDebugEngine">
+        			<Param name="CommandLine" value="C:\Program Files\Tencent\QQLite\Bin\QQ.exe"/> 
+		</Monitor>
+
+
+	</Agent>
+
+	<Test name="NetworkTest">
+		<Agent ref="LocalAgent" />
+		<StateModel ref="TheStateModel"/>
+
+
+            <Publisher class="tcp.Tcp">
+                    <Param name="host" value="127.0.0.1" />
+                    <Param name="port" value="8083" />
+            </Publisher>
+
+            
+	</Test>
+
+	<Run name="DefaultRun">
+		<Test ref="NetworkTest" />
+	
+		<Logger class="logger.Filesystem">
+			<Param name="path" value="c://test//logs" />
+		</Logger>
+
+	</Run>
+
+</Peach>
+<!-- end -->
+ 

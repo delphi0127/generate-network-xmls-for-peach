@@ -1,0 +1,14 @@
+Peach Fuzzer Run
+=================
+
+Command line: C:\Peach2.3.9\peach.py C:\test\XMLs\0_qq_str_udp.xml 
+Date of run: Sun Sep 25 12:40:30 2016
+SEED: 1474778429.06
+Pit File: 0_qq_str_udp.xml
+Run name: DefaultRun
+
+Sun Sep 25 12:40:30 2016: 
+Sun Sep 25 12:40:30 2016: Test starting: NetworkTest
+Sun Sep 25 12:40:30 2016: 
+Sun Sep 25 12:40:32 2016: On test variation # 1
+Sun Sep 25 12:48:09 2016: On test variation # 512

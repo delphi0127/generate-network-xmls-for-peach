@@ -1,0 +1,15 @@
+Peach Fuzzer Run
+=================
+
+Command line: C:\Peach2.3.9\peach.py C:\test\XMLs\849_qq_str_tcp.xml 
+Date of run: Mon Sep 26 08:42:28 2016
+SEED: 1474850547.67
+Pit File: 849_qq_str_tcp.xml
+Run name: DefaultRun
+
+Mon Sep 26 08:42:28 2016: 
+Mon Sep 26 08:42:28 2016: Test starting: NetworkTest
+Mon Sep 26 08:42:28 2016: 
+Mon Sep 26 08:42:31 2016: On test variation # 1
+Mon Sep 26 08:43:40 2016: FORCED EXIT OR CRASH!
+Mon Sep 26 08:43:40 2016: Last test #: 11

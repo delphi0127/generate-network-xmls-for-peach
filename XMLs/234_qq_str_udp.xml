@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+
+
+	<Include ns="default" src="file:defaults.xml" />
+
+	<DataModel name="HttpRequest">
+        <String valueType="hex" value="0236390360203b114e75cb000400c5e30e11cccb0e811bed953e1d29fb9b218f058d48cd707098d7fb11efc26688ae9d63a9d958d680621a3f3b2919753c2e13d0e1cde7e3c620f6d2d23eee2f97818bea1b3f095eb198cb485e92197fe8c2a5e84cae30bc20d9c7abe094914aa6fe2fd63760842812a8a789340b6a14a5992f48a1b97f1a401054f918b7755ca97e10a2c53dbdf5ca1b51e9dfefe4f47929b90932b5bb8cd934d50b85a0d26a6946f9829bb8510d547b6ff797c1fefa2a9f431669bec6ae454888998a44333fe7a7862f7dbcb64743c3a4bb3c41fb25c7405c6a4a2802ab5ff844a0eda123d1fe8018d7cf5ef449ac5f115cf08f8dd1692f646759bae38996f422efc13c82a390670dd5baf7b8c1f3a3ac863e65d7b7c17c21732d2a242db178634410a680524f03" /> 
+	</DataModel>
+	
+	<StateModel name="TheStateModel" initialState="TheState">
+		<State name="TheState">
+			<Action type="output">
+				<DataModel ref="HttpRequest" />
+			</Action>
+		</State>
+	</StateModel>
+
+	<!-- Agents that run localy will be started automatically by Peach -->
+	<Agent name="LocalAgent">
+		<Monitor name="Debugger" class="debugger.WindowsDebugEngine">
+        			<Param name="CommandLine" value="C:\Program Files\Tencent\QQLite\Bin\QQ.exe"/> 
+		</Monitor>
+
+
+	</Agent>
+
+	<Test name="NetworkTest">
+		<Agent ref="LocalAgent" />
+		<StateModel ref="TheStateModel"/>
+
+
+            <Publisher class="udp.Udp">
+                    <Param name="host" value="127.0.0.1" />
+                    <Param name="port" value="4026" />
+            </Publisher>
+
+            
+	</Test>
+
+	<Run name="DefaultRun">
+		<Test ref="NetworkTest" />
+	
+		<Logger class="logger.Filesystem">
+			<Param name="path" value="c://test//logs" />
+		</Logger>
+
+	</Run>
+
+</Peach>
+<!-- end -->
+ 
