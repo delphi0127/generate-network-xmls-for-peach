@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.XPatternParserc">
+  <modification-date>2006-12-16 15:52:11</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="XPatternParserConsole" id="XPatternParserConsole">
+      <abstract>XPatternParserConsole()
+Starts an interactive parser console.</abstract>
+      <description/>
+      <arguments>
+        <unknown/>
+      </arguments>
+    </function>
+  </functions>
+</module>

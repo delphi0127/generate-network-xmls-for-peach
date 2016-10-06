@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Paolo Milani" description="Path Example">
+
+	<!--
+
+	This is the simplest example of using the Choice + Path features.
+	
+	Syntax:
+	
+	  python peach.py samples\path.xml
+	  
+	Output:
+	
+	  This example will run 2 "tests". 
+	  The first one should output "Hello World!,
+	  the second one "Hello Honey!"
+	
+	Authors:
+	  Paolo Milani (j.s.sebastian@gmail.com)
+	
+	-->
+
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="HelloTemplate">
+		<String name="String0" value="Hello " isStatic="true"/>
+	</DataModel>
+	
+	<DataModel name="WorldTemplate">
+		<String name="String1" value="World!  " isStatic="true" />
+	</DataModel>
+	
+	<DataModel name="HoneyTemplate">
+		<String name="String0" value="Honey!" isStatic="true"/>
+	</DataModel>
+	
+	<StateModel name="StateMachine0" initialState="State1">
+		<State name="State1">
+			<Action type="output">
+				<DataModel ref="HelloTemplate"/>
+			</Action>
+			<Choice>
+				<Action type="changeState" ref="State2"/>
+				<Action type="changeState" ref="State3"/>
+			</Choice>
+		</State>
+		
+		<State name="State2">
+			<Action type="output">
+				<DataModel ref="WorldTemplate"/>
+			</Action>
+		</State>
+		
+		<State name="State3">
+			<Action type="output">
+				<DataModel ref="HoneyTemplate"/>
+			</Action>
+		</State>
+	</StateModel>
+
+	<Test name="HelloWorldTest">
+		<StateModel ref="StateMachine0">
+			<Path ref="State1"/>
+			<Path ref="State2"/>
+		</StateModel>
+		<!-- Display test cases to the console -->
+		<Publisher class="stdout.Stdout" />
+	</Test>
+	
+	<Test name="HelloHoneyTest">
+		<StateModel ref="StateMachine0">
+			<Path ref="State1"/>
+			<Path ref="State3"/>
+		</StateModel>
+		<!-- Display test cases to the console -->
+		<Publisher class="stdout.Stdout" />
+	</Test>
+
+	<!-- Configure a single run -->
+	<Run name="DefaultRun" description="Stdout HelloWorld Run">
+
+		<Test ref="HelloWorldTest" />
+		<Test ref="HelloHoneyTest" />
+
+	</Run>
+
+</Peach>
+<!-- end -->

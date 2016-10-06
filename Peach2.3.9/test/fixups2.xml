@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" author="Michael Eddington">
+	
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<DataModel name="Chunk">
+		<Number name="Length" size="32" signed="false">
+			<Relation type="size" of="Core"/>
+		</Number>
+		<Block name="Core">
+			<String name="Type" length="4"/>
+			<Blob name="Data" value="239082039845"/>
+			<Number name="CRC" size="32" signed="false" isStatic="true" value="9999">
+				<Fixup class="checksums.Crc32Fixup">
+					<Param name="ref" value="Core"/>
+				</Fixup>
+			</Number>
+		</Block>
+		
+		<Transformer class="encode.Base64Encode" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="Chunk" />
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

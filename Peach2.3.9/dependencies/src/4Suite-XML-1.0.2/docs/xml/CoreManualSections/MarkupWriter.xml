@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="mwriter">
+  <title>Streaming XML output</title>
+
+  <para><classname>MarkupWriter</classname> is a streaming
+  <acronym>API</acronym> for generating <acronym>XML</acronym>. The
+  <literal>Ft.Xml.MarkupWriter</literal> class is specialized for creating
+  <acronym>XML</acronym> documents from scratch. Documents written with
+  <classname>MarkupWriter</classname> are written to the output (standard
+  output or another file-like object) as you build them, so if you need to
+  process the document in memory, you may need another tool such as a DOM-like
+  tool (e.g. Domlette, Amara, etc).</para>
+
+  <para>4Suite partitions <acronym>XML</acronym> serializers into two
+  categories: writers and printers.<itemizedlist>
+      <listitem>
+        <para>A writer is a module that exposes a broad public
+        <acronym>API</acronym> for building output incrementally.</para>
+      </listitem>
+
+      <listitem>
+        <para>A printer is a module that simply takes a <acronym>DOM</acronym>
+        and creates output from it as a whole, within one
+        <acronym>API</acronym> invocation.</para>
+      </listitem>
+    </itemizedlist><classname>MarkupWriter</classname> is the primary example
+  of this writer category of <acronym>XML</acronym> serializers.</para>
+
+  <para>The following example uses this class for generating a simple
+  <acronym>XML</acronym> Software Autoupdate (XSA) file. XSA is a
+  <acronym>XML</acronym> data format for listing and describing software
+  packages.</para>
+
+  <programlisting>from <systemitem class="library">Ft.Xml</systemitem> import <classname>MarkupWriter</classname>
+
+# Set the output doc type details (required by XSA)
+SYSID = u"http://www.garshol.priv.no/download/xsa/xsa.dtd"
+PUBID = u"-//LM Garshol//DTD XML Software Autoupdate 1.0//EN//XML"
+writer = MarkupWriter(indent=u"yes", doctypeSystem=SYSID,
+                      doctypePublic=PUBID)
+writer.startDocument()
+writer.startElement(u'xsa')
+writer.startElement(u'vendor')
+
+# Element with simple text (#PCDATA) content
+writer.simpleElement(u'name', content=u'Centigrade systems')
+writer.simpleElement(u'email', content=u"info@centigrade.bogus")
+writer.endElement(u'vendor')
+
+# Element with an attribute
+writer.startElement(u'product', attributes={u'id': u"100\u00B0"})
+writer.simpleElement(u'name', content=u"100\u00B0 Server")
+writer.simpleElement(u'version', content=u"1.0")
+writer.simpleElement(u'last-release')
+writer.text(u"20030401")
+
+# Empty element
+writer.simpleElement(u'changes')
+writer.endElement(u'product')
+writer.endElement(u'xsa')
+writer.endDocument()</programlisting>
+
+  <para>This is the output we get from the code above: <screen>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE xsa PUBLIC "-//LM Garshol//DTD XML Software Autoupdate 1.0//EN//XML" "http://www.garshol.priv.no/download/xsa/xsa.dtd"&gt;
+&lt;xsa&gt;
+  &lt;vendor&gt;
+    &lt;name&gt;Centigrade systems&lt;/name&gt;
+    &lt;email&gt;info@centigrade.bogus&lt;/email&gt;
+  &lt;/vendor&gt;
+  &lt;product id="100°"&gt;
+    &lt;name&gt;100° Server&lt;/name&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;last-release&gt;20030401&lt;/last-release&gt;
+    &lt;changes/&gt;
+  &lt;/product&gt;
+&lt;/xsa&gt;</screen></para>
+
+  <para>The above example illustrates some of the basics of using the
+  <classname>MarkupWriter</classname> class. The following sections describe
+  both the essential and the advanced features of this class. In many cases,
+  there often exists more than one way to output a given document
+  section.</para>
+
+  <section id="mwriter.begin">
+    <title>Starting with MarkupWriter</title>
+
+    <para>After importing the <classname>MarkupWriter</classname> class, you
+    have to create a <classname>MarkupWriter</classname> object instance and
+    then start the new Document. (See below for <link
+    linkend="mwriter.output">output options</link> of
+    <classname>MarkupWriter</classname>.) Remember that you are working with a
+    streaming <acronym>API</acronym>. You must decide what features you want
+    your output to have before you start to write that output.<programlisting>&gt;&gt;&gt; from Ft.Xml import MarkupWriter
+&gt;&gt;&gt; writer = MarkupWriter()
+&gt;&gt;&gt; writer.startDocument() </programlisting></para>
+
+    <para>You are now ready to add data to the new document.</para>
+
+    <important>
+      <para>Make sure that all of your data (element names, attributes,
+      content, etc) are Python unicode objects.</para>
+    </important>
+  </section>
+
+  <section id="mwriter.elements">
+    <title>How to insert elements</title>
+
+    <para>There are two ways to add new elements as children of other document
+    or element nodes.</para>
+
+    <orderedlist>
+      <listitem>
+        <para>When you want to add a new element that will itself have child
+        elements, you can use the
+        <methodname>startElement</methodname>/<methodname>endElement</methodname>
+        method combination to signal the beginning and the ending of an
+        element, respectively.<programlisting>writer.startElement(u'xsa')
+# other document content can be output here
+writer.endElement(u'xsa')</programlisting></para>
+      </listitem>
+
+      <listitem>
+        <para>Alternatively, you can use the
+        <methodname>simpleElement</methodname> method, which is a shortcut for
+        the
+        <methodname>startElement</methodname>/<methodname>endElement</methodname>
+        combination and produces an element with no content or with text
+        content (if you specify the <parameter>content</parameter> parameter).
+        <programlisting>writer.simpleElement(u'xsa')</programlisting></para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="mwriter.attributes">
+    <title>How to insert attributes</title>
+
+    <para>There are two ways to add attributes to elements:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>First, you can use the <parameter>attributes</parameter>
+        parameter of the <methodname>startElement</methodname> method. This
+        parameter is a dictionary which maps each attribute name to the value
+        of that attribute. If an attribute's name is in a namespace, then you
+        must specify the name as a Python tuple, with the attribute's QName as
+        the first member of the tuple, and the namespace URI as the second
+        member of the tuple. For an example of this advanced syntax, see <xref
+        linkend="mwriter.examples.xhtml" />.<programlisting>writer.startElement(u'product', attributes={u'id': u"100\u00B0"}</programlisting></para>
+      </listitem>
+
+      <listitem>
+        <para>Alternatively, you can use a distinct
+        <methodname>attribute</methodname> method with two parameters: the
+        attribute's name and the attribute's value. As with the dictionary
+        approach above, if the attribute's name is in a namespace, then the
+        whole name should be a Python tuple. <programlisting>writer.startElement(u'product')
+writer.attribute(u'id', u"100\u00B0")</programlisting></para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="mwriter.text">
+    <title>How to insert text nodes</title>
+
+    <para>Similarly, there are two ways to add text nodes to elements.</para>
+
+    <orderedlist>
+      <listitem>
+        <para>First, the <methodname>simpleElement</methodname> method takes a
+        <parameter>content</parameter> parameter, which can be used to create
+        a single text node child of the node with the specified
+        name.<programlisting>writer.simpleElement(u'name', content=u'Centigrade systems')</programlisting></para>
+      </listitem>
+
+      <listitem>
+        <para>Alternatively, instances of the
+        <classname>MarkupWriter</classname> class, such as
+        <varname>writer</varname>, have a <methodname>text</methodname> method
+        that inserts a single text node as the <emphasis>next</emphasis> child
+        of the element which was last started with the
+        <methodname>startElement</methodname> method and which has not yet
+        been closed with the <methodname>endElement</methodname>
+        method.<programlisting>writer.startElement(u'product')
+writer.text(u'Centigrade systems')
+writer.endElement(u'product')</programlisting></para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="mwriter.chunk">
+    <title>How to insert a complete chunk</title>
+
+    <para><classname>MarkupWriter</classname> also allows you to insert
+    well-formed <acronym>XML</acronym> entities as complete chunks in the
+    output. This is a very convenient way to emit boilerplate
+    <acronym>XML</acronym> without breaking it down into all the separate
+    element/attribute/content bits. As such the lines:</para>
+
+    <programlisting>writer.simpleElement(u'name', content=u"100\u00B0 Server")
+writer.simpleElement(u'version', content=u"1.0")
+writer.simpleElement(u'last-release', content=u"20030401")</programlisting>
+
+    <para>Could instead be written:</para>
+
+    <programlisting>writer.xmlFragment("""
+&lt;name&gt;100° Server&lt;/name&gt;
+&lt;version&gt;1.0&lt;/version&gt;
+&lt;last-release&gt;20030401&lt;/last-release&gt;""")</programlisting>
+
+    <important>
+      <para>The parameter of <methodname>xmlFragment</methodname> is a string,
+      not a unicode object.</para>
+    </important>
+  </section>
+
+  <section id="mwriter.pi">
+    <title>How to insert processing instructions and comments</title>
+
+    <para>The API provides the <methodname>comment</methodname> and
+    <methodname>processingInstruction</methodname> methods for inserting
+    processing instructions and comments. The <methodname>comment</methodname>
+    method takes a unicode string, which is the intended value of the comment.
+    The <methodname>processingInstruction</methodname> method takes two
+    unicode strings. The first is the name of the processing instruction, and
+    the second is the value of the processing instruction. For example, the
+    following code:<programlisting>writer.comment(u"This is a processing instruction")
+writer.processingInstruction(u'xml-stylesheet', u'type="text/xsl" href="akara.xsl"')</programlisting>produces
+    the following output:<screen>&lt;!--This is a processing instruction--&gt;
+&lt;?xml-stylesheet type="text/xsl" href="akara.xsl"?&gt;</screen></para>
+  </section>
+
+  <section id="mwriter.ns">
+    <title>Using namespaces</title>
+
+    <para>When you create a new element or an attribute, you can use
+    namespaces. See the next program:</para>
+
+    <programlisting>from <systemitem class="library">Ft.Xml</systemitem> import <classname>MarkupWriter</classname>
+
+writer = <classname>MarkupWriter</classname>(indent=u'yes')
+writer.startDocument()
+
+RDFNS = u"http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+writer.startElement(u"rdf:RDF", RDFNS)
+writer.startElement(u"rdf:Description", RDFNS,
+    attributes={(u'rdf:about', RDFNS): u'http://media.example.com/audio/guide.ra'})
+writer.endElement(u'rdf:Description', RDFNS)
+writer.endElement(u'rdf:RDF', RDFNS)</programlisting>
+
+    <para>And this is the output:</para>
+
+    <screen>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"&gt;
+    &lt;rdf:Description rdf:about="http://media.example.com/audio/guide.ra"/&gt;
+&lt;/rdf:RDF&gt;</screen>
+  </section>
+
+  <section id="mwriter.output">
+    <title>Setting up the output</title>
+
+    <para>In the above example, you can see how parameters that control the
+    output are passed into the <classname>MarkupWriter</classname>
+    initializer, including document type info and whether to indent (pretty
+    print).</para>
+
+    <para>You can pass any of the usual controls for XSLT output into the
+    initializer this way.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term><parameter>stream</parameter></term>
+
+        <listitem>
+          <para>By default <classname>MarkupWriter</classname> sends its
+          output to <varname>sys.stdout</varname>, but you can substitute any
+          file-like object by passing in an initializer parameter. This stream
+          parameter should be the first argument to the
+          <classname>MarkupWriter</classname> constructor. For example:
+          <programlisting>output_file = file('output.xml', 'w')
+writer = MarkupWriter(output_file, indent=u"yes")</programlisting></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>indent</parameter></term>
+
+        <listitem>
+          <para>The indent named parameter controls whether or not the output
+          will have whitespace inserted to indent tags in the output. The
+          default is "no".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>doctypeSystem</parameter>,
+        <parameter>doctypePublic</parameter></term>
+
+        <listitem>
+          <para>These two named parameters control the system and public
+          identifiers that will be included in the output.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>omitXmlDeclaration</parameter>=u"yes"</term>
+
+        <listitem>
+          <para>This named parameter can be used to suppress output of the
+          <acronym>XML</acronym> declaration. The default is "no".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>encoding</parameter></term>
+
+        <listitem>
+          <para>This named parameter controls the character encoding to use.
+          (The default is UTF-8.) The writer will automatically use character
+          entities where necessary.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>standalone</parameter></term>
+
+        <listitem>
+          <para>Set this named parameter to "yes" to set standalone in the
+          <acronym>XML</acronym> declaration.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>mediaType</parameter></term>
+
+        <listitem>
+          <para>This parameter sets the media type of the output. You will
+          probably never need this.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>cdataSectionElements</parameter></term>
+
+        <listitem>
+          <para>This named parameter is a list of element names whose output
+          will be wrapped in a CDATA section. This can provide for friendlier
+          output in some cases.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>The <acronym>XSLT</acronym> spec also defines a method parameter to
+    choose between <acronym>XML</acronym>, <acronym>HTML</acronym> or plain
+    text output rules, but for <classname>MarkupWriter</classname> at the
+    moment you should stick to <acronym>XML</acronym>. The result of changing
+    the method is undefined. We'll probably relax this restriction in later
+    releases.</para>
+  </section>
+
+  <section id="mwriter.examples">
+    <title>More examples</title>
+
+    <section id="mwriter.examples.xhtml">
+      <title>Writing XHTML with <classname>MarkupWriter</classname></title>
+
+      <para>Uche Ogbuji provides <ulink
+      url="http://copia.ogbuji.net/blog/2005-08-01/Another_sm">this
+      example</ulink>, which writes a simple XHTML file, in his blog:</para>
+
+      <programlisting>from Ft.Xml.MarkupWriter import MarkupWriter
+from xml.dom import XHTML_NAMESPACE, XML_NAMESPACE
+
+XHTML_NS = unicode(XHTML_NAMESPACE)
+XML_NS = unicode(XML_NAMESPACE)
+XHTML11_SYSID = u"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
+XHTML11_PUBID = u"-//W3C//DTD XHTML 1.1//EN"
+
+writer = MarkupWriter(indent=u"yes", doctypeSystem=XHTML11_SYSID,
+                      doctypePublic=XHTML11_PUBID)
+writer.startDocument()
+writer.startElement(u'html', XHTML_NS, attributes={(u'xml:lang', XML_NS): u'en'})
+writer.startElement(u'head', XHTML_NS)
+writer.simpleElement(u'title', XHTML_NS, content=u'Virtual Library')
+writer.endElement(u'head', XHTML_NS)
+writer.startElement(u'body', XHTML_NS)
+writer.startElement(u'p', XHTML_NS)
+writer.text(u'Moved to ')
+writer.simpleElement(u'a', XHTML_NS,
+                     attributes={u'href': u'http://vlib.org/'},
+                     content=u'vlib.org')
+writer.text(u'.')
+writer.endElement(u'p', XHTML_NS)
+writer.endElement(u'body', XHTML_NS)
+writer.endElement(u'html', XHTML_NS)
+writer.endDocument()</programlisting>
+
+      <para>This example results in the following XHTML document:</para>
+
+      <screen>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Virtual Library&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Moved to &lt;a href="http://vlib.org/"&gt;vlib.org&lt;/a&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;  </screen>
+    </section>
+
+    <section id="mwriter.examples.dirlist">
+      <title>Writing information of directory listing as a
+      <acronym>XML</acronym> document</title>
+
+      <para>This recursive example builds an <acronym>XML</acronym> document
+      with the information of a directory listing. The example has two
+      functions. The first initializes the writer. The second walks through
+      the filesystem and outputs information about the filesystem as
+      <acronym>XML</acronym>. The complete <ulink
+      url="http://copia.ogbuji.net/files/dirlist.py">dirlist.py
+      program</ulink> can be found on Uche Ogbuji's blog.</para>
+
+      <programlisting>def genXML(dir,out):
+    print "Processing %s" % dir
+    writer = MarkupWriter(out, indent=u"yes")
+    writer.startDocument()
+    recurse_dir(dir,writer)
+
+def recurse_dir(path,writer,d):
+    d=d+1
+    for cdir, subdirs, files in os.walk(path):
+        writer.startElement(u'directory', attributes={u'name': unicode(cdir)})
+        for f in files:
+            writer.simpleElement(u'file', attributes={u'name': unicode(f)})
+        for subdir in subdirs: recurse_dir(os.path.join(cdir, subdir), writer,d)
+        writer.endElement(u'directory')
+        break</programlisting>
+    </section>
+
+    <section>
+      <title>Building a bot</title>
+
+      <para>As a more complex example, the <ulink
+      url="http://metacognition.info/Emeka/Emeka.py">Emeka
+      <acronym>IRC</acronym> bot</ulink> uses
+      <classname>MarkupWriter</classname> to build an RDF document. It writes
+      namespaces. See this chunk of the code: <programlisting>DCE_NS = u'http://purl.org/dc/elements/1.1/'
+for nada,category in item['categories']:
+    if len(category.split(' ')) &gt; 0:
+        for category in category.split(' '):
+            writer.startElement(u"dc:subject", DCE_NS)
+            writer.text(category)
+            writer.endElement(u"dc:subject")
+    else:
+        writer.startElement(u"dc:subject", DCE_NS)
+        writer.text(category)
+        writer.endElement(u"dc:subject", DCE_NS)</programlisting></para>
+    </section>
+  </section>
+</section>

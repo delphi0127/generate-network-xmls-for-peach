@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.Context">
+  <modification-date>2006-12-16 17:19:16</modification-date>
+  <abstract>The context of an XPath expression</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Context" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Context" module="Ft.Xml.XPath.Context"/>
+      </method-resolution-order>
+      <methods name="Context" module="Ft.Xml.XPath.Context">
+        <method public="no" name="__init__" id="Context-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="1" name="position"/>
+            <arg default="1" name="size"/>
+            <arg default="None" name="varBindings"/>
+            <arg default="None" name="processorNss"/>
+            <arg default="None" name="extModuleList"/>
+            <arg default="None" name="extFunctionMap"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Context-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="addFunction" id="Context-addFunction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expandedName"/>
+            <arg name="function"/>
+          </arguments>
+        </method>
+        <method public="no" name="clone" id="Context-clone">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="copy" id="Context-copy">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="set" id="Context-set">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="state"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Context" module="Ft.Xml.XPath.Context">
+        <member public="no" name="currentInstruction" id="Context-currentInstruction">
+          <value>None</value>
+        </member>
+        <member public="no" name="functions" id="Context-functions">
+          <value>{(None, 'boolean'): &lt;function Boolean at 0xb76e08b4&gt;, (None, 'ceiling'): &lt;function Ceiling at 0xb76e0a74&gt;, (None, 'concat'): &lt;function Concat at 0xb76d57d4&gt;, (None, 'contains'): &lt;function Contains at 0xb76e072c&gt;, (None, 'count'): &lt;function Count at 0xb76d564c&gt;, (None, 'false'): &lt;function False at 0xb76e095c&gt;, (None, 'floor'): &lt;function Floor at 0xb76e0a3c&gt;, (None, 'id'): &lt;function Id at 0xb76d5684&gt;, (None, 'lang'): &lt;function Lang at 0xb76e0994&gt;, (None, 'last'): &lt;function Last at 0xb76d55dc&gt;, ...}</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['Context']</value>
+    </global>
+  </globals>
+</module>

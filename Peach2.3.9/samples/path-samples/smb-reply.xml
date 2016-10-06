@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0">
+  <DataModel name="reply">
+    <!--
+      There is really a 1 byte "message type" followed by 3 byte length, but I can't currently unpack 24 bit numbers.
+      <Blob valueType="hex" isStatic="true" value="00"/>-->
+    <Number endian="big" name="LengthField0" signed="false" size="32">
+      <Relation of="VariableLengthField0" type="size"/>
+    </Number>
+    <Block name="VariableLengthField0">
+      <String isStatic="true" valueType="literal" value="'\xffSMB'"/>
+      <Blob length="20"/>
+      <Number name="TreeID" size="16" signed="false" endian="little"/>
+      <Number name="ProcessID" size="16" signed="false" endian="little"/>
+      <Number name="UserID" size="16" signed="false" endian="little"/>
+      <Number name="MultiplexID" size="16" signed="false" endian="little"/>
+      <Blob/>
+    </Block>
+  </DataModel>
+</Peach>

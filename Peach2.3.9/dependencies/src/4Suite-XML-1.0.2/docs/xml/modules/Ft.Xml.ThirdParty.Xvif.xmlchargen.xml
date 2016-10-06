@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.xmlchargen">
+  <modification-date>2003-12-07 15:45:34</modification-date>
+  <abstract># From 2nd edition</abstract>
+  <description/>
+  <classes>
+    <class name="CharacterParser" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="CharacterParser" module="Ft.Xml.ThirdParty.Xvif.xmlchargen"/>
+      </method-resolution-order>
+      <methods name="CharacterParser" module="Ft.Xml.ThirdParty.Xvif.xmlchargen">
+        <method public="no" name="__init__" id="CharacterParser-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="chars"/>
+          </arguments>
+        </method>
+        <method public="yes" name="as_array" id="CharacterParser-as_array">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="as_chardict" id="CharacterParser-as_chardict">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="as_re_class" id="CharacterParser-as_re_class">
+          <abstract>Return the character class as a regular expression</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="as_spec_string" id="CharacterParser-as_spec_string">
+          <abstract>Return the character class in the notation of the XML
+recommendation</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="as_sre_class" id="CharacterParser-as_sre_class">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="build_alts" id="CharacterParser-build_alts">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="compatrepr" id="compatrepr">
+      <abstract>Return a repr of a string that is syntactically correct in
+Python 1.5 as well.</abstract>
+      <description/>
+      <arguments>
+        <arg name="s"/>
+      </arguments>
+    </function>
+    <function public="yes" name="uniclass" id="uniclass">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="i"/>
+      </arguments>
+    </function>
+    <function public="yes" name="union" id="union">
+      <abstract/>
+      <description/>
+      <arguments>
+        <var-args name="args"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="BaseChar" id="BaseChar">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="CombiningChar" id="CombiningChar">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="Digit" id="Digit">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="Extender" id="Extender">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="FirstNCNameChar" id="FirstNCNameChar">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="FirstNameChar" id="FirstNameChar">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="Ideographic" id="Ideographic">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="Letter" id="Letter">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="LetterDigit" id="LetterDigit">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="NCNameChar" id="NCNameChar">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="NameChar" id="NameChar">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.xmlchargen.CharacterParser instance&gt;</value>
+    </global>
+    <global public="yes" name="intervall" id="intervall">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="yes" name="single" id="single">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+  </globals>
+</module>

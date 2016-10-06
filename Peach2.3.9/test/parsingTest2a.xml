@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	<Include ns="b" src="file:parsingTest2b.xml" />
+	
+	<DataModel name="Header">
+		<Number name="version" endian="little" size="8" signed="false" value="666" />
+		<Number name="size" endian="little" size="8" signed="false">
+			<Relation type="size" of="Header"/>
+		</Number>
+		<Number name="chunkCount" endian="little" size="8" signed="false" value="1">
+			<Relation type="count" of="chunks" />
+		</Number>
+		<Block name="chunks" ref="b:Chunk" minOccurs="0" />
+	</DataModel>
+	
+</Peach>
+<!-- end -->

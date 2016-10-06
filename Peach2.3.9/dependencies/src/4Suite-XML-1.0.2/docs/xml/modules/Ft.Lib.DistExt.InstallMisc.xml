@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.InstallMisc">
+  <modification-date>2006-08-17 13:09:42</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="InstallMisc" public="yes">
+      <bases>
+        <base documented="no" class="Command" module="distutils.cmd"/>
+      </bases>
+      <abstract>Common base class for installing some files in a subdirectory.
+Currently used by install_data and install_localstate.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="InstallMisc" module="Ft.Lib.DistExt.InstallMisc"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="finalize_options" id="InstallMisc-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="get_filelist_outputs" id="InstallMisc-get_filelist_outputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filelist"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_filelists" id="InstallMisc-get_filelists">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_inputs" id="InstallMisc-get_inputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_outputs" id="InstallMisc-get_outputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_source_files" id="InstallMisc-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="InstallMisc-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="process_filelist" id="InstallMisc-process_filelist">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filelist"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run" id="InstallMisc-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="user_options" id="InstallMisc-user_options">
+          <value>[('force', 'f', 'force installation (overwrite existing files)')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

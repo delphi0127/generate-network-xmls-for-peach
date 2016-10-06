@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt.Strings">
+  <modification-date>2006-12-18 15:29:56</modification-date>
+  <abstract>EXSLT - Strings</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="Align" id="Align">
+      <abstract>The str:align function aligns a string within another string.</abstract>
+      <description>See http://exslt.org/str/functions/align/str.align.html for further
+explanation.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="target"/>
+        <arg name="padding"/>
+        <arg default="''" name="alignment"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Concat" id="Concat">
+      <abstract>The str:concat function takes a node set and returns the concatenation of
+the string values of the nodes in that node set. If the node set is empty,
+it returns an empty string.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DecodeUri" id="DecodeUri">
+      <abstract>The str:decode-uri function decodes a percent-encoded string, such as
+one would find in a URI.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="uri"/>
+        <arg default="u'UTF-8'" name="encoding"/>
+      </arguments>
+    </function>
+    <function public="yes" name="EncodeUri" id="EncodeUri">
+      <abstract>The str:encode-uri function percent-encodes a string for embedding in a URI.
+The second argument is a boolean indicating whether to escape reserved characters;
+if true, the given string can be a URI already, with just some of its characters
+needing to be escaped (not recommended, but users who don't understand the nuances
+of the URI syntax tend to prefer it over assembling a URI piece-by-piece).</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="uri"/>
+        <arg name="escapeReserved"/>
+        <arg default="u'UTF-8'" name="encoding"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Padding" id="Padding">
+      <abstract>The str:padding function creates a padding string of a certain length.</abstract>
+      <description>The second argument gives a string to be used to create the padding.
+This string is repeated as many times as is necessary to create a string
+of the length specified by the first argument; if the string is more than
+a character long, it may have to be truncated to produce the required
+length. If no second argument is specified, it defaults to a space (' ').</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="length"/>
+        <arg default="None" name="chars"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Replace" id="Replace">
+      <abstract>The str:replace function converts a string to a node-set, with
+each instance of a substring from a given list (obtained from the
+string-values of nodes in the second argument) replaced by the
+node at the corresponding position of the node-set given as the
+third argument. Unreplaced substrings become text nodes.</abstract>
+      <description>The second and third arguments can be any type of object; if
+either is not a node-set, it is treated as if it were a node-set
+of just one text node, formed from the object's string-value.
+
+Attribute and namespace nodes in the replacement set are
+erroneous but are treated as empty text nodes.
+
+All occurrences of the longest substrings are replaced first,
+and once a replacement is made, that span of the original string
+is no longer eligible for future replacements.
+
+An empty search string matches between every character of the
+original string.
+
+See http://exslt.org/str/functions/replace/str.replace.html for details.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="s"/>
+        <arg name="searchNodes"/>
+        <arg name="replNodes"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Split" id="Split">
+      <abstract>The str:split function splits up a string and returns a node set of
+token elements, each containing one token from the string.</abstract>
+      <description>The first argument is the string to be split. The second argument is a
+pattern string (default=' '). The string given by the first argument is
+split at any occurrence of this pattern. An empty string pattern will
+result in a split on every character in the string.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="string"/>
+        <arg default="u' '" name="pattern"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Tokenize" id="Tokenize">
+      <abstract>The str:tokenize function splits up a string and returns a node set of
+'token' elements, each containing one token from the string.</abstract>
+      <description>The first argument is the string to be tokenized. The second argument
+is a string consisting of a number of characters. Each character in
+this string is taken as a delimiting character. The string given by the
+first argument is split at any occurrence of any of these characters.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="string"/>
+        <arg default="'\t\n\r '" name="delimiters"/>
+      </arguments>
+    </function>
+    <function public="no" name="_replace" id="_replace">
+      <abstract>Supports str:replace(). s is a string. replmap is a list of tuples,
+where each tuple is a search string and a replacement node or None.
+This recursive function will cause the original string to have
+occurrences of the search strings replaced with the corresponding
+node or deleted. When a replacement is made, that portion of the
+original string is no longer available for further replacements.
+All replacements are made for each search string before moving on
+to the next. Empty search strings match in between every character
+of the original string.</abstract>
+      <description/>
+      <arguments>
+        <arg name="s"/>
+        <arg name="replmap"/>
+        <arg name="processor"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EXSL_STRINGS_NS" id="EXSL_STRINGS_NS">
+      <value>'http://exslt.org/strings'</value>
+    </global>
+    <global public="yes" name="ExtElements" id="ExtElements">
+      <value>{}</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://exslt.org/strings', 'align'): &lt;function Align at 0xb75d256c&gt;, ('http://exslt.org/strings', 'concat'): &lt;function Concat at 0xb75d2534&gt;, ('http://exslt.org/strings', 'decode-uri'): &lt;function DecodeUri at 0xb75d26f4&gt;, ('http://exslt.org/strings', 'encode-uri'): &lt;function EncodeUri at 0xb75d248c&gt;, ('http://exslt.org/strings', 'padding'): &lt;function Padding at 0xb75d2684&gt;, ('http://exslt.org/strings', 'replace'): &lt;function Replace at 0xb75d25dc&gt;, ('http://exslt.org/strings', 'split'): &lt;function Split at 0xb75d24fc&gt;, ('http://exslt.org/strings', 'tokenize'): &lt;function Tokenize at 0xb75d25a4&gt;}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://exslt.org/strings': 'str'}</value>
+    </global>
+    <global public="yes" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+  </globals>
+</module>

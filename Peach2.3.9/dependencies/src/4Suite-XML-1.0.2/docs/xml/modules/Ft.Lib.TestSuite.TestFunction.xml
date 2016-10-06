@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.TestFunction">
+  <modification-date>2002-07-17 16:57:31</modification-date>
+  <abstract>Provides the TestFunction class for wrapping functions.</abstract>
+  <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestFunction" public="yes">
+      <bases>
+        <base documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+      </bases>
+      <abstract>A test object that wraps a testing function.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="TestFunction" module="Ft.Lib.TestSuite.TestFunction"/>
+        <base name="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+      </method-resolution-order>
+      <methods name="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <method public="no" name="__init__" id="TestFunction-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="function"/>
+          </arguments>
+          <overrides documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getModes" public="yes"/>
+        <member-reference name="getTests" public="yes"/>
+        <member-reference name="run" public="yes"/>
+        <member-reference name="showTests" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <member-reference name="modes" public="yes"/>
+        <member-reference name="tests" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Id: TestFunction.py,v 1.1 2002/07/17 22:57:31 jkloth Exp $'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.xmlcomp">
+  <modification-date>2004-10-22 11:49:27</modification-date>
+  <abstract># $Header: /var/local/cvsroot/4Suite/Ft/Xml/ThirdParty/Xvif/xmlcomp.py,v 1.3 2004/10/12 22:59:14 uogbuji Exp $</abstract>
+  <description/>
+  <classes>
+    <class name="XmlComp" public="yes">
+      <abstract>A &quot;checkType&quot; can be a DOM nodeType, ie &quot;An integer representing the 
+node type. Symbolic constants for the types are on the Node object: 
+ELEMENT_NODE, ATTRIBUTE_NODE, TEXT_NODE, CDATA_SECTION_NODE(**), ENTITY_NODE(*), 
+PROCESSING_INSTRUCTION_NODE(*), COMMENT_NODE(*), DOCUMENT_NODE(*), 
+DOCUMENT_TYPE_NODE(*), NOTATION_NODE(*)&quot; or the extra values: 
+&quot;NAMESPACE_PREFIX,WHITESPACES, NAMESPACE_DECLARATION&quot;.</abstract>
+      <description>(*): not supported (yet)
+(**): use TEXT_NODE instead.</description>
+      <method-resolution-order>
+        <base name="XmlComp" module="Ft.Xml.ThirdParty.Xvif.xmlcomp"/>
+      </method-resolution-order>
+      <methods name="XmlComp" module="Ft.Xml.ThirdParty.Xvif.xmlcomp">
+        <method public="no" name="__init__" id="XmlComp-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="d1"/>
+            <arg default="None" name="d2"/>
+            <arg default="[1, 2, 3, 1j, 2j, 3j]" name="checks"/>
+          </arguments>
+        </method>
+        <method public="yes" name="addCheck" id="XmlComp-addCheck">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="check"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compare" id="XmlComp-compare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="d1"/>
+            <arg default="None" name="d2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compareAttributes" id="XmlComp-compareAttributes">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="n1"/>
+            <arg name="n2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compareElements" id="XmlComp-compareElements">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="n1"/>
+            <arg name="n2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compareNamedNodeMaps" id="XmlComp-compareNamedNodeMaps">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodes1"/>
+            <arg name="nodes2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compareNode" id="XmlComp-compareNode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="n1"/>
+            <arg name="n2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compareNodes" id="XmlComp-compareNodes">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodes1"/>
+            <arg name="nodes2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compareText" id="XmlComp-compareText">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="n1"/>
+            <arg name="n2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="removeCheck" id="XmlComp-removeCheck">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="check"/>
+          </arguments>
+        </method>
+        <method public="yes" name="removeJunk" id="XmlComp-removeJunk">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodes"/>
+          </arguments>
+        </method>
+        <method public="yes" name="removeJunkFromNamedNodeMap" id="XmlComp-removeJunkFromNamedNodeMap">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodes"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setDocument1" id="XmlComp-setDocument1">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="d1"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setDocument2" id="XmlComp-setDocument2">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="d2"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="XmlComp" module="Ft.Xml.ThirdParty.Xvif.xmlcomp">
+        <member public="yes" name="EMPTY_TEXT" id="XmlComp-EMPTY_TEXT">
+          <value>4j</value>
+        </member>
+        <member public="yes" name="NAMESPACE_DECLARATION" id="XmlComp-NAMESPACE_DECLARATION">
+          <value>2j</value>
+        </member>
+        <member public="yes" name="NAMESPACE_PREFIX" id="XmlComp-NAMESPACE_PREFIX">
+          <value>1j</value>
+        </member>
+        <member public="yes" name="WHITESPACES" id="XmlComp-WHITESPACES">
+          <value>3j</value>
+        </member>
+        <member public="yes" name="compareFunctions" id="XmlComp-compareFunctions">
+          <value>{1: &lt;function compareElements&gt;, 2: &lt;function compareAttributes&gt;, 3: &lt;function compareText&gt;}</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="normalize_space" id="normalize_space">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="s"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="ascii_letters" id="ascii_letters">
+      <value>'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="ascii_lowercase" id="ascii_lowercase">
+      <value>'abcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="ascii_uppercase" id="ascii_uppercase">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="digits" id="digits">
+      <value>'0123456789'</value>
+    </global>
+    <global public="yes" name="hexdigits" id="hexdigits">
+      <value>'0123456789abcdefABCDEF'</value>
+    </global>
+    <global public="yes" name="letters" id="letters">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="lowercase" id="lowercase">
+      <value>'abcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="octdigits" id="octdigits">
+      <value>'01234567'</value>
+    </global>
+    <global public="yes" name="printable" id="printable">
+      <value>'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~ \t\n\r\x0b\x0c'</value>
+    </global>
+    <global public="yes" name="punctuation" id="punctuation">
+      <value>'!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~'</value>
+    </global>
+    <global public="yes" name="uppercase" id="uppercase">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="whitespace" id="whitespace">
+      <value>'\t\n\x0b\x0c\r '</value>
+    </global>
+  </globals>
+</module>

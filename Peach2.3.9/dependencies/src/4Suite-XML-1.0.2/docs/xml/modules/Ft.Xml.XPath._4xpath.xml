@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath._4xpath">
+  <modification-date>2006-10-16 15:52:39</modification-date>
+  <abstract>Implementation of '4xpath' command
+(functions defined here are used by the Ft.Lib.CommandLine framework)</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="XPathCommandLineApp" public="yes">
+      <bases>
+        <base documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XPathCommandLineApp" module="Ft.Xml.XPath._4xpath"/>
+        <base name="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+        <base name="Command" module="Ft.Lib.CommandLine.Command"/>
+      </method-resolution-order>
+      <methods name="Command" module="Ft.Lib.CommandLine.Command">
+        <method public="yes" name="run" id="XPathCommandLineApp-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+            <arg name="arguments"/>
+          </arguments>
+          <overrides documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+        </method>
+        <method public="yes" name="validate_arguments" id="XPathCommandLineApp-validate_arguments">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+          <overrides documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+        </method>
+      </methods>
+      <members name="Command" module="Ft.Lib.CommandLine.Command">
+        <member public="yes" name="arguments" id="XPathCommandLineApp-arguments">
+          <value>[&lt;Ft.Lib.CommandLine.Arguments.RequiredArgument instance&gt;, &lt;Ft.Lib.CommandLine.Arguments.RequiredArgument instance&gt;]</value>
+        </member>
+        <member public="yes" name="description" id="XPathCommandLineApp-description">
+          <value>'4XPath command-line application'</value>
+        </member>
+        <member public="yes" name="name" id="XPathCommandLineApp-name">
+          <value>'4xpath'</value>
+        </member>
+        <member public="yes" name="options" id="XPathCommandLineApp-options">
+          <value>[[--define=&lt;NAME=VALUE&gt;], [--namespace=&lt;PREFIX=NAMESPACE&gt;], [--stacktrace-on-error], [--string]]</value>
+        </member>
+        <member public="yes" name="project_name" id="XPathCommandLineApp-project_name">
+          <value>'4Suite-XML'</value>
+        </member>
+        <member public="yes" name="project_url" id="XPathCommandLineApp-project_url">
+          <value>'http://4suite.org/'</value>
+        </member>
+        <member public="yes" name="project_version" id="XPathCommandLineApp-project_version">
+          <value>'1.0rc5'</value>
+        </member>
+        <member public="yes" name="summary" id="XPathCommandLineApp-summary">
+          <value>'command-line tool for performing XPath queries on XML documents'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="gen_command_tree" public="yes"/>
+        <member-reference name="gen_usage" public="yes"/>
+        <member-reference name="get_help_doc_info" public="yes"/>
+        <member-reference name="main" public="yes"/>
+        <member-reference name="parse_command_line" public="yes"/>
+        <member-reference name="run_commands" public="yes"/>
+        <member-reference name="validate_options" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp">
+        <member-reference name="commands" public="yes"/>
+        <member-reference name="example" public="yes"/>
+        <member-reference name="global_options" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="Command" module="Ft.Lib.CommandLine.Command">
+        <member-reference name="break_parent_relationship" public="yes"/>
+        <member-reference name="build_parent_relationship" public="yes"/>
+        <member-reference name="flatten_command_tree" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="Run" id="Run">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="options"/>
+        <arg name="args"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="MAX_PYTHON_RECURSION_DEPTH" id="MAX_PYTHON_RECURSION_DEPTH">
+      <value>10000</value>
+    </global>
+    <global public="yes" name="g_nssBindingPattern" id="g_nssBindingPattern">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="yes" name="g_paramBindingPattern" id="g_paramBindingPattern">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+  </globals>
+</module>

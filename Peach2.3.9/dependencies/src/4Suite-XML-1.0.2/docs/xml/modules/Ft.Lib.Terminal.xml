@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Terminal">
+  <modification-date>2006-10-18 13:10:07</modification-date>
+  <abstract>Provides some of the information from the terminfo database.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="AnsiEscapes" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="AnsiEscapes" module="Ft.Lib.Terminal"/>
+      </method-resolution-order>
+      <members name="AnsiEscapes" module="Ft.Lib.Terminal">
+        <member public="yes" name="Colors" id="AnsiEscapes-Colors">
+          <value>&lt;class Ft.Lib.Terminal.Colors at 0xb7899dac&gt;</value>
+        </member>
+      </members>
+    </class>
+    <class name="Terminal" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Terminal" module="Ft.Lib.Terminal"/>
+      </method-resolution-order>
+      <methods name="Terminal" module="Ft.Lib.Terminal">
+        <method public="no" name="__init__" id="Terminal-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg default="True" name="keepAnsiEscapes"/>
+          </arguments>
+        </method>
+        <method public="yes" name="close" id="Terminal-close">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="columns" id="Terminal-columns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="flush" id="Terminal-flush">
+          <abstract># noop method for underlying streams which do not implement it</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isatty" id="Terminal-isatty">
+          <abstract># noop method for underlying streams which do not implement it</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="lines" id="Terminal-lines">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="read" id="Terminal-read">
+          <abstract># noop method for underlying streams which do not implement it</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="-1" name="size"/>
+          </arguments>
+        </method>
+        <method public="yes" name="size" id="Terminal-size">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="write" id="Terminal-write">
+          <abstract># noop method for underlying streams which do not implement it</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="str"/>
+          </arguments>
+        </method>
+        <method public="yes" name="writetty" id="Terminal-writetty">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="bytes"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

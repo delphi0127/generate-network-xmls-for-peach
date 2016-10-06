@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.InstallHtml">
+  <modification-date>2006-08-18 17:28:47</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="InstallHtml" public="yes">
+      <bases>
+        <base documented="yes" class="InstallDocs" module="Ft.Lib.DistExt.InstallDocs"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="InstallHtml" module="Ft.Lib.DistExt.InstallHtml"/>
+        <base name="InstallDocs" module="Ft.Lib.DistExt.InstallDocs"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="finalize_options" id="InstallHtml-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="InstallDocs" module="Ft.Lib.DistExt.InstallDocs"/>
+        </method>
+        <method public="yes" name="get_default_css" id="InstallHtml-get_default_css">
+          <abstract>Returns a mapping of stylesheet names to their associated CSS.</abstract>
+          <description>The CSS file is assumed to be relative to the stylesheet URI.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_default_stylesheets" id="InstallHtml-get_default_stylesheets">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_output_filename" id="InstallHtml-get_output_filename">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="document"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_stylesheet_extras" id="InstallHtml-get_stylesheet_extras">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stylesheet"/>
+            <arg name="base_uri"/>
+          </arguments>
+          <overrides documented="yes" class="InstallDocs" module="Ft.Lib.DistExt.InstallDocs"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="command_name" id="InstallHtml-command_name">
+          <value>'install_html'</value>
+        </member>
+        <member public="yes" name="description" id="InstallHtml-description">
+          <value>'install HTML documentation'</value>
+        </member>
+        <member public="yes" name="output_extension" id="InstallHtml-output_extension">
+          <value>'.html'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="InstallDocs" module="Ft.Lib.DistExt.InstallDocs">
+        <member-reference name="copy_uri" public="yes"/>
+        <member-reference name="get_documents" public="yes"/>
+        <member-reference name="get_inputs" public="yes"/>
+        <member-reference name="get_modification_time" public="yes"/>
+        <member-reference name="get_outputs" public="yes"/>
+        <member-reference name="get_source_files" public="yes"/>
+        <member-reference name="get_stylesheet_obj" public="yes"/>
+        <member-reference name="initialize_options" public="yes"/>
+        <member-reference name="render_document" public="yes"/>
+        <member-reference name="render_documents" public="yes"/>
+        <member-reference name="run" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="InstallDocs" module="Ft.Lib.DistExt.InstallDocs">
+        <member-reference name="boolean_options" public="yes"/>
+        <member-reference name="user_options" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

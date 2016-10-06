@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section>
+  <title>Introduction</title>
+
+  <para>4Suite allows users to take advantage of standard XML technologies
+  rapidly and to develop and integrate Web-based applications. It also puts
+  practical technologies for knowledge management projects in the hands of
+  developers. It is implemented in Python with C extensions.</para>
+
+  <para>At the core of 4Suite is a library of integrated tools (including
+  convenient command-line tools) for XML processing, implementing open
+  technologies such as DOM, SAX, XSLT, XInclude, XPointer, XLink, XPath,
+  XUpdate, RELAX NG, and XML/SGML Catalogs.</para>
+
+  <para>With 4Suite, you can:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><link linkend="domlette">Parse a document into an efficient
+      DOM-like structure (Domlette)</link></para>
+    </listitem>
+
+    <listitem>
+      <para><link linkend="saxlette">Parse a document in event mode based on
+      SAX 2 (Saxlette)</link></para>
+    </listitem>
+
+    <listitem>
+      <para><link linkend="xpath_engine">Run XPath queries over a parsed
+      document</link></para>
+    </listitem>
+
+    <listitem>
+      <para><link linkend="xslt_engine">Apply XSLT to a document, whether or
+      not it has been separately parsed</link></para>
+    </listitem>
+
+    <listitem>
+      <para><link linkend="xupdate">Update a document using an XUpdate
+      script</link></para>
+    </listitem>
+
+    <listitem>
+      <para><link linkend="RELAXNG">Validate a document using RELAX
+      NG</link></para>
+    </listitem>
+  </itemizedlist>
+
+  <para>And much more. These tasks are covered in this manual.</para>
+</section>

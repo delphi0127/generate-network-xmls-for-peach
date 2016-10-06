@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.RtfWriter">
+  <modification-date>2006-08-21 18:38:32</modification-date>
+  <abstract>Result Tree Fragment writer for XSLT output</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="RtfWriter" public="yes">
+      <bases>
+        <base documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </bases>
+      <abstract>A special, simple writer for capturing result-tree fragments</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="RtfWriter" module="Ft.Xml.Xslt.RtfWriter"/>
+        <base name="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </method-resolution-order>
+      <methods name="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <method public="no" name="__init__" id="RtfWriter-__init__">
+          <abstract>Note: The implementation must support createRootNode(baseUri).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="outputParams"/>
+            <arg name="baseUri"/>
+            <arg default="&lt;DOMImplementation at 0xb7dbb448&gt;" name="implementation"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="attribute" id="RtfWriter-attribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="value"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="comment" id="RtfWriter-comment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="endElement" id="RtfWriter-endElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="getResult" id="RtfWriter-getResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="processingInstruction" id="RtfWriter-processingInstruction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="startElement" id="RtfWriter-startElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+            <arg default="None" name="extraNss"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="text" id="RtfWriter-text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+            <arg default="True" name="escapeOutput"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <member-reference name="copyNodes" public="yes"/>
+        <member-reference name="endDocument" public="yes"/>
+        <member-reference name="getMediaType" public="yes"/>
+        <member-reference name="getStream" public="yes"/>
+        <member-reference name="namespace" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="_UnescapedText" public="no">
+      <bases>
+        <base documented="yes" class="Text" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_UnescapedText" module="Ft.Xml.Xslt.RtfWriter"/>
+        <base name="Text" module="Ft.Xml.cDomlette"/>
+        <base name="CharacterData" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="__dict__" id="_UnescapedText-__dict__">
+          <value>&lt;attribute '__dict__' of '_UnescapedText' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="_UnescapedText-__weakref__">
+          <value>&lt;attribute '__weakref__' of '_UnescapedText' objects&gt;</value>
+        </member>
+        <member public="yes" name="xsltOutputEscaping" id="_UnescapedText-xsltOutputEscaping">
+          <value>False</value>
+        </member>
+      </members>
+      <inherited-members documented="yes" class="Text" module="Ft.Xml.cDomlette">
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="nodeType" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="CharacterData" module="Ft.Xml.cDomlette">
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="appendData" public="yes"/>
+        <member-reference name="deleteData" public="yes"/>
+        <member-reference name="insertData" public="yes"/>
+        <member-reference name="replaceData" public="yes"/>
+        <member-reference name="substringData" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="CharacterData" module="Ft.Xml.cDomlette">
+        <member-reference name="data" public="yes"/>
+        <member-reference name="length" public="yes"/>
+        <member-reference name="nodeValue" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="yes"/>
+        <member-reference name="cloneNode" public="yes"/>
+        <member-reference name="hasChildNodes" public="yes"/>
+        <member-reference name="insertBefore" public="yes"/>
+        <member-reference name="isSameNode" public="yes"/>
+        <member-reference name="normalize" public="yes"/>
+        <member-reference name="removeChild" public="yes"/>
+        <member-reference name="replaceChild" public="yes"/>
+        <member-reference name="xpath" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseURI" public="yes"/>
+        <member-reference name="childNodes" public="yes"/>
+        <member-reference name="firstChild" public="yes"/>
+        <member-reference name="lastChild" public="yes"/>
+        <member-reference name="localName" public="yes"/>
+        <member-reference name="namespaceURI" public="yes"/>
+        <member-reference name="nextSibling" public="yes"/>
+        <member-reference name="ownerDocument" public="yes"/>
+        <member-reference name="parentNode" public="yes"/>
+        <member-reference name="prefix" public="yes"/>
+        <member-reference name="previousSibling" public="yes"/>
+        <member-reference name="rootNode" public="yes"/>
+        <member-reference name="xmlBase" public="yes"/>
+        <member-reference name="xpathAttributes" public="yes"/>
+        <member-reference name="xpathNamespaces" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="yes"/>
+        <member-reference name="CDATA_SECTION_NODE" public="yes"/>
+        <member-reference name="COMMENT_NODE" public="yes"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="yes"/>
+        <member-reference name="DOCUMENT_NODE" public="yes"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="yes"/>
+        <member-reference name="ELEMENT_NODE" public="yes"/>
+        <member-reference name="ENTITY_NODE" public="yes"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="yes"/>
+        <member-reference name="NOTATION_NODE" public="yes"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="yes"/>
+        <member-reference name="TEXT_NODE" public="yes"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="yes"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="yes"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="yes"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="yes"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="yes"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="yes"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="implementation" id="implementation">
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <value>&lt;DOMImplementation&gt;</value>
+    </global>
+  </globals>
+</module>

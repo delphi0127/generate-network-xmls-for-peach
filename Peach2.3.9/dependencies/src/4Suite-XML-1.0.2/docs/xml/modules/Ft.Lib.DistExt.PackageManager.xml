@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.PackageManager">
+  <modification-date>2006-10-30 13:44:42</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="PackageManager" public="yes">
+      <bases>
+        <base documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PackageManager" module="Ft.Lib.DistExt.PackageManager"/>
+        <base name="Dist" module="Ft.Lib.DistExt.Dist"/>
+        <base name="Distribution" module="distutils.dist"/>
+      </method-resolution-order>
+      <methods name="Distribution" module="distutils.dist">
+        <method public="no" name="__init__" id="PackageManager-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist"/>
+        </method>
+        <method public="yes" name="check_package_options" id="PackageManager-check_package_options">
+          <abstract>Ensure that the package attributes are valid and the required
+fields are provided.</abstract>
+          <description>Raise DistutilsSetupError if the stucture is invalid anywhere.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finalize_options" id="PackageManager-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist"/>
+        </method>
+        <method public="yes" name="get_distributions" id="PackageManager-get_distributions">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_package_distribution" id="PackageManager-get_package_distribution">
+          <abstract>Return the distribution object for 'package'. Normally this object
+is cached on a previous call to 'get_package_distribution()'; if no
+distribution object is in the cache, then it is created.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="package"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_package_options" id="PackageManager-get_package_options">
+          <abstract>Get the option dictionary for a given package.  If that packages's
+option dictionary hasn't been created yet, then create it and return
+the new dictionary; otherwise, return the existing option dictionary.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="package"/>
+          </arguments>
+        </method>
+        <method public="yes" name="handle_display_options" id="PackageManager-handle_display_options">
+          <abstract>Overrides handle_display_options() to update 'package_defaults'
+and handle the '--help-packages' option.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="option_order"/>
+          </arguments>
+          <overrides documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist"/>
+        </method>
+        <method public="yes" name="parse_command_line" id="PackageManager-parse_command_line">
+          <abstract>Overrides parse_command_line() to validate the '--package' option and
+to add the command-line options to the default package options.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist"/>
+        </method>
+        <method public="yes" name="parse_config_files" id="PackageManager-parse_config_files">
+          <abstract>Overrides parse_config_files() to update 'package_defaults' with
+any global values from the config files and to parse the package
+files to populate the 'package_options' dictionary.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="filenames"/>
+          </arguments>
+          <overrides documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist"/>
+        </method>
+        <method public="yes" name="parse_package_file" id="PackageManager-parse_package_file">
+          <abstract>Returns a dictionary of the options defined in the package definition
+'filename'.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filename"/>
+          </arguments>
+        </method>
+        <method public="yes" name="print_packages" id="PackageManager-print_packages">
+          <abstract>Print out a help message listing all available packages with a
+description of each.  The descriptions come from the package
+definition's 'description' field.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run_commands" id="PackageManager-run_commands">
+          <abstract>Overrides run_commands() to handle multiple source packages in a
+single setup script.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist"/>
+        </method>
+      </methods>
+      <members name="Distribution" module="distutils.dist">
+        <member public="yes" name="display_option_names" id="PackageManager-display_option_names">
+          <value>['help_packages', 'help_commands', 'name', 'version', 'fullname', 'author', 'author_email', 'maintainer', 'maintainer_email', 'contact', 'contact_email', 'url', 'license', 'licence', 'description', 'long_description', 'platforms', 'classifiers', 'keywords', 'provides', ...]</value>
+        </member>
+        <member public="yes" name="display_options" id="PackageManager-display_options">
+          <value>[('help-packages', None, 'list all available packages'), ('help-commands', None, 'list all available commands'), ('name', None, 'print package name'), ('version', 'V', 'print package version'), ('fullname', None, 'print &lt;package name&gt;-&lt;version&gt;'), ('author', None, &quot;print the author's name&quot;), ('author-email', None, &quot;print the author's email address&quot;), ('maintainer', None, &quot;print the maintainer's name&quot;), ('maintainer-email', None, &quot;print the maintainer's email address&quot;), ('contact', None, &quot;print the maintainer's name if known, else the author's&quot;), ('contact-email', None, &quot;print the maintainer's email address if known, else the author's&quot;), ('url', None, 'print the URL for this package'), ('license', None, 'print the license of the package'), ('licence', None, 'alias for --license'), ('description', None, 'print the package description'), ('long-description', None, 'print the long package description'), ('platforms', None, 'print the list of platforms'), ('classifiers', None, 'print the list of classifiers'), ('keywords', None, 'print the list of keywords'), ('provides', None, 'print the list of packages/modules provided'), ...]</value>
+        </member>
+        <member public="yes" name="toplevel_options" id="PackageManager-toplevel_options">
+          <value>[('source-package', 's', 'run as if from a source dist (developer testing)'), ('package=', 'p', 'limit command(s) to a given package')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist">
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="get_allfiles" public="yes"/>
+        <member-reference name="get_command_class" public="yes"/>
+        <member-reference name="get_command_list" public="yes"/>
+        <member-reference name="get_source_files" public="yes"/>
+        <member-reference name="has_bgen" public="yes"/>
+        <member-reference name="has_devel" public="yes"/>
+        <member-reference name="has_docs" public="yes"/>
+        <member-reference name="has_l10n" public="yes"/>
+        <member-reference name="has_localstate" public="yes"/>
+        <member-reference name="has_sysconf" public="yes"/>
+        <member-reference name="has_text" public="yes"/>
+        <member-reference name="print_commands" public="yes"/>
+        <member-reference name="print_option_list" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Dist" module="Ft.Lib.DistExt.Dist">
+        <member-reference name="command_aliases" public="yes"/>
+        <member-reference name="command_mapping" public="yes"/>
+        <member-reference name="source_package" public="yes"/>
+        <member-reference name="standard_commands" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Distribution" module="distutils.dist">
+        <member-reference name="dump_option_dicts" public="yes"/>
+        <member-reference name="find_config_files" public="yes"/>
+        <member-reference name="get_command_obj" public="yes"/>
+        <member-reference name="get_command_packages" public="yes"/>
+        <member-reference name="get_option_dict" public="yes"/>
+        <member-reference name="has_c_libraries" public="yes"/>
+        <member-reference name="has_data_files" public="yes"/>
+        <member-reference name="has_ext_modules" public="yes"/>
+        <member-reference name="has_headers" public="yes"/>
+        <member-reference name="has_modules" public="yes"/>
+        <member-reference name="has_pure_modules" public="yes"/>
+        <member-reference name="has_scripts" public="yes"/>
+        <member-reference name="is_pure" public="yes"/>
+        <member-reference name="print_command_list" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Distribution" module="distutils.dist">
+        <member-reference name="common_usage" public="yes"/>
+        <member-reference name="global_options" public="yes"/>
+        <member-reference name="negative_opt" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="DEBUG" id="DEBUG">
+      <value>None</value>
+    </global>
+    <global public="yes" name="PKGINFO_FORMAT" id="PKGINFO_FORMAT">
+      <value>{'bgen_files': &lt;type 'list'&gt;, 'classifiers': &lt;type 'list'&gt;, 'config_module': &lt;type 'str'&gt;, 'data_files': &lt;type 'list'&gt;, 'description': &lt;type 'str'&gt;, 'devel_files': &lt;type 'list'&gt;, 'doc_files': &lt;type 'list'&gt;, 'download_url': &lt;type 'str'&gt;, 'ext_modules': &lt;type 'list'&gt;, 'headers': &lt;type 'list'&gt;, ...}</value>
+    </global>
+    <global public="yes" name="generators" id="generators">
+      <value>_Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 0)</value>
+    </global>
+  </globals>
+</module>

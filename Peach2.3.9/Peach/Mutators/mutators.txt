@@ -1,0 +1,76 @@
+
+List of mutators that need to be
+created/ported from old 1.0 to 2.0
+by type.
+
+
+data tree
+
+	- Add nodes
+	p Remove nodes
+	p Duplicate nodes
+	p Swap nodes near
+	- Swap nodes far
+
+block
+
+	- 
+
+string
+
+	x string token fuzzer
+
+number
+
+	x variation +/- N of default
+	x edge cases
+	- random values
+
+flags
+
+flag
+
+	- set, not set
+
+blob
+
+	x bit flipper (% flip)
+
+choice
+
+	- change choice
+
+size
+
+	x change size, keep data same  (Handled by NumbericalVariation and NumericalEdgeCases)
+		x variation
+		x edge cases
+		x random values
+		
+	- change data, keep size
+		- variation
+		- edge cases
+	
+	x change size and data
+		x variation
+		x edge cases
+
+index
+
+	- variation
+	- variation near max index
+	- variation near 0
+	- edge cases
+
+count
+
+	x change just count
+		x variation
+		x edge cases
+	- change just array
+		- variation
+		- edge cases
+	x change both
+		x variation
+		x edge cases
+

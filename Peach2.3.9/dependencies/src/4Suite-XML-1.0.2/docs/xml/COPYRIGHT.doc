@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V1.0//EN"
+ "http://www.oasis-open.org/docbook/xml/simple/1.0/sdocbook.dtd"-->
+<article>
+  <title>License and copyright info for <trademark class="trade">4Suite</trademark> software</title>
+  <articleinfo>
+    <title>License and copyright info for <trademark class="trade">4Suite</trademark> software</title>
+    <authorgroup>
+      <author>
+        <firstname>Mike</firstname>
+        <surname>Olson</surname>
+        <affiliation>
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </author>
+      <othercredit>
+        <firstname>Uche</firstname>
+        <surname>Ogbuji</surname>
+        <affiliation>
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </othercredit>
+    </authorgroup>
+    <abstract>
+      <para>License and copyright info for 4Suite software</para>
+    </abstract>
+    <revhistory>
+      <!-- revision numbers are CVS revisions -->
+      <revision>
+        <revnumber>1.1</revnumber>
+        <date>2002-01-21</date>
+        <authorinitials>MO</authorinitials>
+        <revremark>Initial version in post-0.11.1 codebase</revremark>
+      </revision>
+      <revision>
+        <revnumber>1.4</revnumber>
+        <date>2005-03-03</date>
+        <authorinitials>MB</authorinitials>
+        <revremark>Converted source to Simplified DocBook XML 1.0</revremark>
+      </revision>
+    </revhistory>
+    <keywordset>
+      <keyword>4Suite</keyword>
+      <keyword>copyright</keyword>
+      <keyword>license</keyword>
+    </keywordset>
+  </articleinfo>
+  <section id="copyright">
+    <title>4Suite software copyright</title>
+    <para>The copyright on 4Suite as a whole is owned by Fourthought, Inc. (USA). Copyright on the components of 4Suite is indicated in the source code; most files have their own notice of copyright and ownership, and a CVS datestamp to clarify the actual date of authorship or last revision/publication. For purposes of usage and redistribution, the following Apache-based license applies.</para>
+  </section>
+  <section id="license">
+    <title>The 4Suite License, Version 1.1</title>
+    <para>Copyright (c) 2000 Fourthought, Inc..  All rights reserved.</para>
+    <para>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</para>
+    <orderedlist>
+      <listitem>
+        <para>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</para>
+      </listitem>
+      <listitem>
+        <para>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</para>
+      </listitem>
+      <listitem>
+        <para>The end-user documentation included with the redistribution, if any, must include the following acknowledgment: "This product includes software developed by Fourthought, Inc. (http://www.fourthought.com)." Alternately, this acknowledgment may appear in the software itself, if and wherever such third-party acknowledgments normally appear.</para>
+      </listitem>
+      <listitem>
+        <para>The names "4Suite", "4Suite Server" and "Fourthought" must not be used to endorse or promote products derived from this software without prior written permission. For written permission, please contact <ulink url="mailto:info@fourthought.com">info@fourthought.com</ulink>.</para>
+      </listitem>
+      <listitem>
+        <para>Products derived from this software may not be called "4Suite", nor may "4Suite" appear in their name, without prior written permission of Fourthought, Inc.</para>
+      </listitem>
+    </orderedlist>
+
+    <para>THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL FOURTHOGHT, INC. OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para>
+
+    <para>====================================================================</para>
+
+    <para>This license is based on the Apache Software License, Version 1.1, Copyright (c) 2000 The Apache Software Foundation.  All rights reserved.</para>
+
+  </section>
+</article>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine.Command">
+  <modification-date>2006-10-18 13:10:07</modification-date>
+  <abstract>Superclass for a command that can be invoked by a command-line script.</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Command" public="yes">
+      <abstract>Superclass for a command that can be invoked by a command-line script.
+Most commands won't need to subclass this.</abstract>
+      <description>A Command object encapsulates, for a particular command, a description,
+usage example, a set of valid options &amp; arguments, methods for
+validating the actual options and arguments entered, a function for
+command invocation, and an association with subordinate Commands.
+
+A tree of commands can be created by associating each Command instance
+with its subordinates. Typically, only the leaves of the tree will have
+functionality; the branches just provide ways of grouping the leaves
+and will not need to encapsulate the invocation functions themselves.</description>
+      <method-resolution-order>
+        <base name="Command" module="Ft.Lib.CommandLine.Command"/>
+      </method-resolution-order>
+      <methods name="Command" module="Ft.Lib.CommandLine.Command">
+        <method public="no" name="__init__" id="Command-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="description"/>
+            <arg name="example"/>
+            <arg name="verbose_description"/>
+            <arg default="None" name="function"/>
+            <arg default="None" name="options"/>
+            <arg default="None" name="arguments"/>
+            <arg default="None" name="subCommands"/>
+            <arg default="None" name="fileName"/>
+          </arguments>
+        </method>
+        <method public="yes" name="break_parent_relationship" id="Command-break_parent_relationship">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="build_parent_relationship" id="Command-build_parent_relationship">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="flatten_command_tree" id="Command-flatten_command_tree">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="level"/>
+            <arg default="''" name="previousName"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run" id="Command-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+            <arg name="arguments"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate_arguments" id="Command-validate_arguments">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="arglist"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate_options" id="Command-validate_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="CONSOLE_WIDTH" id="CONSOLE_WIDTH">
+      <value>236</value>
+    </global>
+  </globals>
+</module>

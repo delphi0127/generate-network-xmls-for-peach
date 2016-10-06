@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- TODO: Create data model -->
+	<DataModel name="TheDataModel">
+		<Block>
+			<Block name="Offset0">
+				<Block>
+					<String name="Offset1" value="CRAZY STRING!" />
+					<String value="aslkjalskdjas" />
+					<String value="aslkdjalskdjasdkjasdlkjasd" />
+				</Block>
+				<String name="Offset2" value="ALSKJDALKSJD" />
+				<Block>
+					<String name="Offset3" value="1" />
+					<String name="Offset4" value="" />
+					<String name="Offset5" value="1293812093" />
+				</Block>
+			</Block>
+		</Block>
+		
+		<String name="Offset6" value="aslkdjalskdjas" />
+		
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset0" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset1" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset2" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset3" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset4" />
+		</String>
+		
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset5" />
+		</String>
+		
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset6" />
+		</String>
+	</DataModel>
+	
+	<!-- TODO: Create state model -->
+	<StateModel name="TheState" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="TheDataModel"/>
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TheState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<!-- Configure a single run -->
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

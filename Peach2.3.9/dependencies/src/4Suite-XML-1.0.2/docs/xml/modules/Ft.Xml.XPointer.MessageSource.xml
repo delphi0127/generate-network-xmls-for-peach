@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPointer.MessageSource">
+  <modification-date>2004-10-04 16:54:59</modification-date>
+  <abstract>XPointer error codes and messages</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <globals>
+    <global public="yes" name="g_errorMessages" id="g_errorMessages">
+      <value>{1: 'There is an internal bug in 4Suite. Please make .../listinfo/4suite. The error code to report is: %s', 2: 'Syntax error in XPointer expression: %s', 3: 'Invalid resource, or not well-formed XML: %s', 4: 'Expression does not locate a resource'}</value>
+    </global>
+  </globals>
+</module>

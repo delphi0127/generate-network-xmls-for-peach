@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.DomWriter">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>DOM DocumentFragment writer for XSLT output</abstract>
+  <description>Much inspired by RtfWriter.
+
+Copyright (c) 2000-2001 Alexandre Fayolle (France).
+
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee is hereby granted,
+provided that the above copyright notice appear in all copies and that
+both that copyright notice and this permission notice appear in
+supporting documentation.
+
+THIS PROGRAM IS PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</description>
+  <classes>
+    <class name="DomWriter" public="yes">
+      <bases>
+        <base documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DomWriter" module="Ft.Xml.Xslt.DomWriter"/>
+        <base name="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </method-resolution-order>
+      <methods name="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <method public="no" name="__init__" id="DomWriter-__init__">
+          <abstract>Note: if no ownerDoc, there is no way to set the document's base URI.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="ownerDoc"/>
+            <arg default="&lt;DOMImplementation at 0xb7dc3448&gt;" name="implementation"/>
+            <arg default="None" name="outputParams"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="attribute" id="DomWriter-attribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="value"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="comment" id="DomWriter-comment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="endElement" id="DomWriter-endElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="getResult" id="DomWriter-getResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="processingInstruction" id="DomWriter-processingInstruction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="startElement" id="DomWriter-startElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+            <arg default="None" name="extraNss"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="text" id="DomWriter-text">
+          <abstract>The escapeOutput parameter is ignored</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+            <arg default="True" name="escapeOutput"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <member-reference name="copyNodes" public="yes"/>
+        <member-reference name="endDocument" public="yes"/>
+        <member-reference name="getMediaType" public="yes"/>
+        <member-reference name="getStream" public="yes"/>
+        <member-reference name="namespace" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="implementation" id="implementation">
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <value>&lt;DOMImplementation&gt;</value>
+    </global>
+  </globals>
+</module>

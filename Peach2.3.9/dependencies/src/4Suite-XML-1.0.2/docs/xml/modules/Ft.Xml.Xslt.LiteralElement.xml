@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.LiteralElement">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>Implementation of XSLT literal result elements</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="LiteralElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="LiteralElement" module="Ft.Xml.Xslt.LiteralElement"/>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="yes" name="fixupAliases" id="LiteralElement-fixupAliases">
+          <abstract># This will be called by the stylesheet if it contains any
+# xsl:namespace-alias declarations</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceAliases"/>
+          </arguments>
+        </method>
+        <method public="yes" name="instantiate" id="LiteralElement-instantiate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="appendChild" public="yes"/>
+        <member-reference name="expandQName" public="yes"/>
+        <member-reference name="insertChild" public="yes"/>
+        <member-reference name="parseAVT" public="yes"/>
+        <member-reference name="parseExpression" public="yes"/>
+        <member-reference name="parsePattern" public="yes"/>
+        <member-reference name="processChildren" public="yes"/>
+        <member-reference name="splitQName" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="category" public="yes"/>
+        <member-reference name="content" public="yes"/>
+        <member-reference name="legalAttrs" public="yes"/>
+        <member-reference name="validator" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+        <member-reference name="setup" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="doesSetup" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedExpr">
+  <modification-date>2006-12-16 18:44:29</modification-date>
+  <abstract>The implementation of parsed XPath expression tokens.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="FunctionCall" public="yes">
+      <abstract>An object representing a function call expression
+(XPath 1.0 grammar production 16: FunctionCall)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__getinitargs__" id="FunctionCall-__getinitargs__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__getstate__" id="FunctionCall-__getstate__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="FunctionCall-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="key"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="FunctionCall-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="FunctionCall-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="error" id="FunctionCall-error">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="FunctionCall-evaluate">
+          <abstract>Returns the result of calling the function</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getArgumentError" id="FunctionCall-getArgumentError">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="FunctionCall-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="FunctionCall1" public="yes">
+      <bases>
+        <base documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FunctionCall1" module="Ft.Xml.XPath.ParsedExpr"/>
+        <base name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="FunctionCall1-__init__">
+          <abstract># a function call with 1 argument</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="key"/>
+            <arg name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+        <method public="yes" name="evaluate" id="FunctionCall1-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <member-reference name="__getinitargs__" public="no"/>
+        <member-reference name="__getstate__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="error" public="yes"/>
+        <member-reference name="getArgumentError" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="FunctionCall2" public="yes">
+      <bases>
+        <base documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FunctionCall2" module="Ft.Xml.XPath.ParsedExpr"/>
+        <base name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="FunctionCall2-__init__">
+          <abstract># a function call with 2 arguments</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="key"/>
+            <arg name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+        <method public="yes" name="evaluate" id="FunctionCall2-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <member-reference name="__getinitargs__" public="no"/>
+        <member-reference name="__getstate__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="error" public="yes"/>
+        <member-reference name="getArgumentError" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="FunctionCall3" public="yes">
+      <bases>
+        <base documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FunctionCall3" module="Ft.Xml.XPath.ParsedExpr"/>
+        <base name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="FunctionCall3-__init__">
+          <abstract># a function call with 3 arguments</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="key"/>
+            <arg name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+        <method public="yes" name="evaluate" id="FunctionCall3-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <member-reference name="__getinitargs__" public="no"/>
+        <member-reference name="__getstate__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="error" public="yes"/>
+        <member-reference name="getArgumentError" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="FunctionCallN" public="yes">
+      <bases>
+        <base documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FunctionCallN" module="Ft.Xml.XPath.ParsedExpr"/>
+        <base name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="FunctionCallN-__init__">
+          <abstract># a function call with more than 3 arguments</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="key"/>
+            <arg name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+        <method public="yes" name="evaluate" id="FunctionCallN-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FunctionCall" module="Ft.Xml.XPath.ParsedExpr">
+        <member-reference name="__getinitargs__" public="no"/>
+        <member-reference name="__getstate__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="error" public="yes"/>
+        <member-reference name="getArgumentError" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="ParsedAdditiveExpr" public="yes">
+      <abstract>An object representing an additive expression
+(XPath 1.0 grammar production 25: AdditiveExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAdditiveExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedAdditiveExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedAdditiveExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="sign"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedAdditiveExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedAdditiveExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedAdditiveExpr-evaluate">
+          <abstract>Returns a number</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedAdditiveExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedAndExpr" public="yes">
+      <abstract>An object representing an and expression
+(XPath 1.0 grammar production 22: AndExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAndExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedAndExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedAndExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedAndExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedAndExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedAndExpr-evaluate">
+          <abstract>Returns a boolean</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedAndExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedEqualityExpr" public="yes">
+      <abstract>An object representing an equality expression
+(XPath 1.0 grammar production 23: EqualityExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedEqualityExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedEqualityExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__getstate__" id="ParsedEqualityExpr-__getstate__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="ParsedEqualityExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="op"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedEqualityExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__setstate__" id="ParsedEqualityExpr-__setstate__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="state"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedEqualityExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedEqualityExpr-evaluate">
+          <abstract>Returns a boolean</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedEqualityExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedFilterExpr" public="yes">
+      <abstract>An object representing a filter expression
+(XPath 1.0 grammar production 20: FilterExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedFilterExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedFilterExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedFilterExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter_"/>
+            <arg name="predicates"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedFilterExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedFilterExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedFilterExpr-evaluate">
+          <abstract>Returns a node-set</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedFilterExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="shiftContext" id="ParsedFilterExpr-shiftContext">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="index"/>
+            <arg name="set"/>
+            <arg name="len"/>
+            <arg name="func"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedLiteralExpr" public="yes">
+      <abstract>An object representing a string literal expression
+(XPath 1.0 grammar production 29: Literal)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedLiteralExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="literal"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedLiteralExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedLiteralExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedLiteralExpr-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedLiteralExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedMultiplicativeExpr" public="yes">
+      <abstract>An object representing an multiplicative expression
+(XPath 1.0 grammar production 26: MultiplicativeExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedMultiplicativeExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedMultiplicativeExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedMultiplicativeExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="opcode"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedMultiplicativeExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedMultiplicativeExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedMultiplicativeExpr-evaluate">
+          <abstract>Returns a number</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedMultiplicativeExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedNLiteralExpr" public="yes">
+      <bases>
+        <base documented="yes" class="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </bases>
+      <abstract>An object representing a numeric literal expression
+(XPath 1.0 grammar production 30: Number)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedNLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+        <base name="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedNLiteralExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nliteral"/>
+          </arguments>
+          <overrides documented="yes" class="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+        <method public="no" name="__repr__" id="ParsedNLiteralExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+        <method public="no" name="__str__" id="ParsedNLiteralExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+        <method public="yes" name="pprint" id="ParsedNLiteralExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+          <overrides documented="yes" class="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="ParsedLiteralExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <member-reference name="evaluate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="ParsedOrExpr" public="yes">
+      <abstract>An object representing an or expression
+(XPath 1.0 grammar production 21: OrExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedOrExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedOrExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedOrExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedOrExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedOrExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedOrExpr-evaluate">
+          <abstract>Returns a boolean</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedOrExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedPathExpr" public="yes">
+      <abstract>An object representing a path expression
+(XPath 1.0 grammar production 19: PathExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedPathExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedPathExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedPathExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="descendant"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedPathExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedPathExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedPathExpr-evaluate">
+          <abstract>Returns a node-set</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedPathExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedRelationalExpr" public="yes">
+      <abstract>An object representing a relational expression
+(XPath 1.0 grammar production 24: RelationalExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedRelationalExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedRelationalExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__getstate__" id="ParsedRelationalExpr-__getstate__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="ParsedRelationalExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="opcode"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedRelationalExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__setstate__" id="ParsedRelationalExpr-__setstate__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="state"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedRelationalExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedRelationalExpr-evaluate">
+          <abstract>Returns a boolean</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedRelationalExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedUnaryExpr" public="yes">
+      <abstract>An object representing a unary expression
+(XPath 1.0 grammar production 27: UnaryExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedUnaryExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedUnaryExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedUnaryExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="exp"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedUnaryExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedUnaryExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedUnaryExpr-evaluate">
+          <abstract>Returns a number</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedUnaryExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedUnionExpr" public="yes">
+      <abstract>An object representing a union expression
+(XPath 1.0 grammar production 18: UnionExpr)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedUnionExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedUnionExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedUnionExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedUnionExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedUnionExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedUnionExpr-evaluate">
+          <abstract>Returns a node-set</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedUnionExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedVariableReferenceExpr" public="yes">
+      <abstract>An object representing a variable reference expression
+(XPath 1.0 grammar production 36: VariableReference)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedVariableReferenceExpr" module="Ft.Xml.XPath.ParsedExpr"/>
+      </method-resolution-order>
+      <methods name="ParsedVariableReferenceExpr" module="Ft.Xml.XPath.ParsedExpr">
+        <method public="no" name="__init__" id="ParsedVariableReferenceExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedVariableReferenceExpr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedVariableReferenceExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedVariableReferenceExpr-evaluate">
+          <abstract>Returns a string</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedVariableReferenceExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ParsedFunctionCallExpr" id="ParsedFunctionCallExpr">
+      <abstract>Returns an object representing a function call expression
+(XPath 1.0 grammar production 16: FunctionCall)</abstract>
+      <description/>
+      <arguments>
+        <arg name="name"/>
+        <arg name="args"/>
+      </arguments>
+    </function>
+    <function public="no" name="_nodeset_compare" id="_nodeset_compare">
+      <abstract>Applies a comparison function to node-sets a and b
+in order to evaluate equality (=, !=) and relational (&lt;, &lt;=, &gt;=, &gt;)
+expressions in which both objects to be compared are node-sets.</abstract>
+      <description>Returns an XPath boolean indicating the result of the comparison.</description>
+      <arguments>
+        <arg name="compare"/>
+        <arg name="a"/>
+        <arg name="b"/>
+        <arg default="False" name="relational"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="xslt_engine">
+  <title>XSLT processing</title>
+
+  <section id="simple_xslt_api">
+    <title>The super-simple XSLT API</title>
+
+    <para>For basic XSLT transform needs, or to get started quickly, the
+    <systemitem class="library">Ft.Xml.Xslt</systemitem> module offers a quick
+    way to apply transforms XML documents and get back the simple string
+    result. Within this module, the function of interest is
+    <function>Transform</function>.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>Transform</methodname>
+
+            <methodparam>
+              <parameter>fname_or_uri</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>string_stream_fname_uri_isrc</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>[param]</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>[output]</parameter>
+            </methodparam>
+
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>The <function>Transform</function> function takes two
+          arguments, with an optional third. The first is the source XML for the transform. The
+          second is the XSLT document.  Both are given as a string, an object like an
+          open file, a local file path on your computer, an absolute URI, or
+          an InputSource object.  The optional <parameter>params</parameter> is a dictionary of stylesheet parameters, the keys of
+             which may be given as unicode objects if they have no namespace,
+             or as (uri, localname) tuples if they do.  The values are the overriden parameter values. If you do not supply the optional <parameter>output</parameter> parameter the return value is a string with the result
+          of this transform.  If you do supply this parameter it must be a file-like object to which the output will be written, and then the return value is None.</para>
+
+<!--
+      <warning>
+        <para>This function will get you started quickly because it
+        specifically chooses some default values for some of the more advanced
+        parsing features. If you are passing in a string or stream, and the material in <xref linkend="base_URIs" />
+        applies to your parsing situation, then you will want to use the
+        full-featured API. In brief, if your XML document references external
+        resources, you should not use
+            this convenience function. See <xref linkend="full_XSLT_API" />,
+            instead.</para>
+      </warning>
+-->
+
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <programlisting>XML = """
+&lt;ham&gt;
+&lt;eggs n='1'/&gt;
+This is the string content with &lt;em&gt;emphasized text&lt;/em&gt; text
+&lt;/ham&gt;"""
+
+from Ft.Xml.Xslt import Transform
+# URL for the identity transform: reproduces the input XML in the result
+ID_TRANSFORM = 'http://cvs.4suite.org/viewcvs/*checkout*/4Suite/Ft/Data/identity.xslt'
+
+result = Transform(XML, ID_TRANSFORM)
+print result
+
+# If the above XML document were located in the file
+# "target.xml", we could have used `Transform("target.xml", ID_TRANSFORM)`.
+
+#It's more efficient to redirect the processor output to an output stream.  The following does so:
+import sys
+result = Transform(XML, ID_TRANSFORM, output=sys.stdout)
+print result</programlisting>
+  </section>
+
+  <section id="full_XSLT_API">
+    <title>Full XSLT processing API</title>
+
+    <para>Here is the general procedure for using the Python API for XSLT
+    processing:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Create an <classname>Ft.Xml.Xslt.Processor.Processor</classname>
+        instance.</para>
+      </listitem>
+
+      <listitem>
+        <para>Prepare <classname>Ft.Xml.InputSource</classname> instances (via
+        their factory) for the source XML and stylesheet.</para>
+      </listitem>
+
+      <listitem>
+        <para>Call the Processor's <methodname>appendStylesheet</methodname>
+        method, passing it the stylesheet's
+        <classname>InputSource</classname>.</para>
+      </listitem>
+
+      <listitem>
+        <para>Call the Processor's <methodname>run</methodname> method,
+        passing it the source document's
+        <classname>InputSource</classname>.</para>
+      </listitem>
+    </orderedlist>
+
+    <para>For input to our transform, we will use the namespaced example as in
+    the last section.</para>
+
+    <screen>$ cat testNS.xml
+&lt;ham xmlns="http://example.com/ns#"&gt;
+&lt;eggs n='1'/&gt;
+This is the string content with
+ &lt;em type='bold' f='2'&gt;emphasized Namespaced Text&lt;/em&gt;
+text
+&lt;/ham&gt;</screen>
+
+    <para>For our stylesheet, we will again use one of the simplest useful
+    examples, the identity stylesheet.</para>
+
+    <screen>$ cat identity.xsl
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+
+  &lt;xsl:template match="@*|node()"&gt;
+    &lt;xsl:copy&gt;
+      &lt;xsl:apply-templates select="@*|node()"/&gt;
+    &lt;/xsl:copy&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</screen>
+
+    <para>The code below follows the processing outline, having converted the
+    input file and stylesheet to the URI format.</para>
+
+    <programlisting>from Ft.Xml.Xslt import Processor
+# We use the InputSource architecture
+from Ft.Xml import InputSource
+from Ft.Lib.Uri import OsPathToUri  # path to URI conversions
+
+processor = Processor.Processor()
+
+# Prepare an InputSource for the source document
+# Convert from local file to uri
+srcAsUri = OsPathToUri('testNS.xml')
+source = InputSource.DefaultFactory.fromUri(srcAsUri)
+
+# Prepare an InputSource for the stylesheet
+# Convert from local file to uri
+ssAsUri = OsPathToUri('identity.xsl')
+transform = InputSource.DefaultFactory.fromUri(ssAsUri)
+
+processor.appendStylesheet(transform)
+result = processor.run(source)
+
+# result is a string with the serialized transform result
+print result</programlisting>
+
+    <para>You can call <methodname>run</methodname> multiple times on
+    different <classname>InputSource</classname>s. When you're done, the
+    processor's <methodname>reset</methodname> method can be used to restore a
+    clean slate (at which point you would have to append stylesheets to the
+    processor again).</para>
+
+    <para>The following example uses our <varname>processor</varname> from the
+    previous example to transform a new XML document, this one constructed
+    manually.</para>
+
+    <programlisting>XML = """&lt;foo&gt;&lt;bar/&gt;&lt;/foo&gt;"""
+source = InputSource.DefaultFactory.fromString(XML, 'http://example.org/foo')
+
+result = processor.run(source)
+
+# result is a string with the serialized transform result
+print result</programlisting>
+
+    <para>This code continues from the previous example to process the second
+    document, using the same <varname>processor</varname> and stylesheet. This
+    is a useful form when there is a requirement for server side processing of
+    multiple input documents with a common stylesheet.</para>
+  </section>
+
+  <section>
+    <title>Example</title>
+
+    <para>In the example below, strings are used as the source of the
+    transform (stylesheet) and source documents, and we are careful to pass in
+    a URI to identify each of them. In the source document, the URI is needed
+    for resolving external entity references and XIncludes. In the stylesheet,
+    the URI is needed for resolving <function>document</function> function
+    calls, <sgmltag class="element">xsl:include</sgmltag>s and <sgmltag
+    class="element">xsl:import</sgmltag>s.</para>
+
+    <para>If you do not provide a URI and you attempt to use any of these
+    features, you may get an exception.</para>
+
+    <programlisting># The identity transform: duplicates the input to output
+TRANSFORM = """
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+
+  &lt;xsl:template match="@*|node()"&gt;
+    &lt;xsl:copy&gt;
+      &lt;xsl:apply-templates select="@*|node()"/&gt;
+    &lt;/xsl:copy&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;"""
+
+SOURCE = """&lt;spam id="eggs"&gt;I don't like spam&lt;/spam&gt;"""
+
+# The processor class is the core of the XSLT API
+from Ft.Xml.Xslt import Processor
+processor = Processor.Processor()
+
+# We use the InputSource architecture
+from Ft.Xml import InputSource
+
+# Prepare an InputSource for the transform
+transform = InputSource.DefaultFactory.fromString(TRANSFORM,
+  "http://spam.com/identity.xslt")
+
+# Prepare an InputSource for the source document
+source = InputSource.DefaultFactory.fromString(SOURCE,
+  "http://spam.com/doc.xml")
+processor.appendStylesheet(transform)
+result = processor.run(source)
+
+# result is a string with the serialized transform result
+print result</programlisting>
+  </section>
+
+  <section>
+    <title>Using Domlette objects instead of InputSources</title>
+
+    <para>If your documents are already in the form of Domlette documents, you
+    don't need to create <classname>InputSource</classname>s for them; you can
+    just use the <classname>Processor</classname>'s
+    <methodname>appendStylesheetNode</methodname> and
+    <methodname>runNode</methodname> methods instead of
+    <methodname>appendStylesheet</methodname> and
+    <methodname>run</methodname>, respectively.</para>
+
+    <note>
+      <para>It is usually slower to read the stylesheet from a Domlette object
+      than to parse a serialized document.</para>
+    </note>
+
+    <note>
+      <para>The Domlette documents used in the following example are obtained
+      by parsing existing XML, but this approach can just as easily be used on
+      Domlette documents that are built programmatically (i.e. using the DOM
+      API).</para>
+    </note>
+
+    <programlisting># The identity transform: duplicates the input to output
+TRANSFORM = """
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+
+  &lt;xsl:template match="@*|node()"&gt;
+    &lt;xsl:copy&gt;
+      &lt;xsl:apply-templates select="@*|node()"/&gt;
+    &lt;/xsl:copy&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;"""
+
+SOURCE = """&lt;spam id="eggs"&gt;I don't like spam&lt;/spam&gt;"""
+
+from Ft.Xml.Xslt import Processor
+processor = Processor.Processor()
+from Ft.Xml.Domlette import NonvalidatingReader
+
+# Create a DOM for the transform
+transform = NonvalidatingReader.parseString(TRANSFORM,
+  "http://spam.com/identity.xslt")
+
+# Create a DOM for the source document
+source = NonvalidatingReader.parseString(SOURCE, "http://spam.com/doc.xml")
+processor.appendStylesheetNode(transform, "http://spam.com/identity.xslt")
+result = processor.runNode(source, "http://spam.com/doc.xml")
+print result</programlisting>
+
+    <para>If you have objects from another DOM library, you can first convert
+    them to Domlette objects as shown in <xref
+    linkend="converting_DOM" />.</para>
+  </section>
+
+  <section>
+    <title>Top-level parameters</title>
+
+    <subtitle>Passing parameters to a stylesheet</subtitle>
+
+    <para>You can pass in stylesheet parameters as a Python dictionary. Use
+    the parameter names for keys. Values use the 4Suite XPath library's
+    standard type mappings, which are described in <xref
+    linkend="typeMap" />.</para>
+
+    <para>Parameter and variable names in XPath/XSLT are actually
+    expanded-names, which we represent as (namespaceURI, localName) tuples. If
+    your parameter name is in a namespace, you have to use a tuple as the
+    mapping key. Otherwise, you may simply use a unicode string that
+    represents the local-name part only
+    (<constant>Ft.Xml.EMPTY_NAMESPACE</constant> is the default
+    namespace).</para>
+
+    <para>Here is an example, which passes in the computed "date" parameter to
+    the stylesheet from the program:</para>
+
+    <programlisting>SRC = """&lt;?xml version="1.0"?&gt;&lt;dummy/&gt;"""
+
+STY = """&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+  &lt;xsl:param name="date" select="'unknown'"/&gt;
+
+  &lt;xsl:output method="xml" indent="yes" encoding="us-ascii"/&gt;
+
+    &lt;xsl:template match="/"&gt;
+      &lt;result&gt;
+        &lt;xsl:value-of select="$date"/&gt;
+      &lt;/result&gt;
+    &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;"""
+
+from Ft.Xml import InputSource
+from Ft.Xml.Xslt import Processor
+import time
+src_isrc = InputSource.DefaultFactory.fromString(SRC, 'http://foo/dummy.xml')
+sty_isrc = InputSource.DefaultFactory.fromString(STY, 'http://foo/dummy.xsl')
+
+proc = Processor.Processor()
+proc.appendStylesheet(sty_isrc)
+params = {u'date': unicode(time.asctime())}
+result = proc.run(src_isrc, topLevelParams=params)
+print result</programlisting>
+  </section>
+
+  <section>
+    <title>Using xml-stylesheet processing instructions</title>
+
+    <para>4Suite honors the <ulink
+    url="http://www.w3.org/TR/xml-stylesheet/">Associating Stylesheets with
+    XML Documents</ulink> W3C Recommendation and <ulink
+    url="http://www.faqs.org/rfcs/rfc3023.html">RFC 3023: XML Media
+    Types</ulink>. Instead of (or in addition to) using the processor's
+    explicit APIs to establish the stylesheet to be used for the
+    transformation, the source document may contain an xml-stylesheet
+    processing instruction (PI) that refers to a stylesheet via a URI
+    reference.</para>
+
+    <para>The xml-stylesheet PI must meet the following criteria:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>It must appear in the document prolog.</para>
+      </listitem>
+
+      <listitem>
+        <para>It must contain a "type" pseudo-attribute having one of the
+        following values: <itemizedlist>
+            <listitem>
+              <para>application/xslt+xml</para>
+            </listitem>
+
+            <listitem>
+              <para>application/xslt</para>
+            </listitem>
+
+            <listitem>
+              <para>text/xml</para>
+            </listitem>
+
+            <listitem>
+              <para>application/xml</para>
+            </listitem>
+          </itemizedlist></para>
+      </listitem>
+
+      <listitem>
+        <para>It must contain an "href" pseudo-attribute that is a URI
+        reference for the stylesheet. It will be resolved relative to the base
+        URI of the source document that contains the xml-stylesheet PI.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>This example shows a PI being used to refer to the identity
+    stylesheet mentioned earlier</para>
+
+    <programlisting>&lt;?xml-stylesheet type="application/xslt" href="identity.xsl"?&gt;</programlisting>
+
+    <para>If you need to add to the supported media types, e.g., to add the
+    nonstandard "text/xsl", then follow the example given in <ulink
+    url="http://mail.python.org/pipermail/xml-sig/2004-January/010090.html">this
+    mailing list message</ulink>.</para>
+
+    <para>If the PI contains "alternate" and "media" pseudo-attributes, the
+    package will do its best to handle them. See <ulink
+    url="http://lists.fourthought.com/pipermail/4suite/2003-September/012218.html">this
+    message</ulink> for details and examples.</para>
+  </section>
+
+  <section>
+    <title>Alternative output destinations</title>
+
+    <para>Normally, the processor buffers all output, then returns it as a
+    byte string. If you want to write directly to some other stream (any
+    Python file-like object that has a <methodname>write</methodname> method),
+    you can supply the stream as the optional
+    <parameter>outputStream</parameter> argument to the Processor's
+    <methodname>run</methodname> method. When you supply your own output
+    stream, the <methodname>run</methodname> method will return
+    <literal>None</literal>. Here is an example that writes directly to
+    <constant>stdout</constant>:</para>
+
+    <example id="ex.stdout">
+      <title>Transform output sent to standard out</title>
+
+      <programlisting>SRC = """&lt;?xml version="1.0"?&gt;&lt;dummy/&gt;"""
+
+STY = """&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+  &lt;xsl:output method="xml" indent="yes" encoding="us-ascii"/&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;result&gt;hello world&lt;/result&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;"""
+
+import sys
+from Ft.Xml import InputSource
+from Ft.Xml.Xslt import Processor
+
+src_isrc = InputSource.DefaultFactory.fromString(SRC, 'http://foo/dummy.xml')
+sty_isrc = InputSource.DefaultFactory.fromString(STY, 'http://foo/dummy.xsl')
+
+proc = Processor.Processor()
+proc.appendStylesheet(sty_isrc)
+result = proc.run(src_isrc, outputStream=sys.stdout)</programlisting>
+    </example>
+
+    <para>You also have the option of other kinds of output. Just set the
+    <literal>writer</literal> argument of the processor's
+    <methodname>run</methodname> method to an instance of an XSLT output
+    writer, which is a handler of SAX-like events coming from the processor as
+    it generates the result tree. 4Suite provides several writer classes for
+    alternative output:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>If you want the XSLT output as SAX events, use an instance of
+        <classname>Ft.Xml.Xslt.SaxWriter.SaxWriter</classname>. Give its
+        constructor a <parameter>saxHandler</parameter> keyword argument that
+        is your own PyXML SAX2 event handler.</para>
+      </listitem>
+
+      <listitem>
+        <para>If you want the XSLT output as a Domlette document, use an
+        instance of <classname>Ft.Xml.Xslt.RtfWriter.RtfWriter</classname>.
+        Give its constructor a second argument: the base URI of the document
+        to create. Obtain the document by calling the writer's
+        <methodname>getResult</methodname> method after XSLT processing is
+        finished.</para>
+      </listitem>
+
+      <listitem>
+        <para>If you want the XSLT output as any other kind of Python DOM
+        document, use an instance of
+        <classname>Ft.Xml.Xslt.DomWriter.DomWriter</classname>. Give its
+        constructor an <parameter>implementation</parameter> keyword argument
+        that is your desired DOM implementation. Also try to set the
+        <parameter>ownerDoc</parameter> to an existing Document node (from the
+        same implementation) from which a base URI for the new document can be
+        obtained.</para>
+      </listitem>
+
+      <listitem>
+        <para>If you want the XSLT output in a regular file, open a file for
+        writing then pass this file object to the
+        <function>proc.run</function> as the
+        <parameter>outputStream</parameter> parameter value, in the same way
+        as the example above which used the <constant>sys.stdout</constant>
+        file object. An example is shown below.</para>
+      </listitem>
+
+      <listitem>
+        <para>If you want to make a custom output writer, just make your class
+        extend <classname>Ft.Xml.Xslt.NullWriter.NullWriter</classname>. If it
+        needs access to the XSLT output parameters, then the constructor
+        should take an instance of
+        <classname>Ft.Xml.Xslt.OutputParameters.OutputParameters</classname>,
+        which will have the data attributes method, version, encoding,
+        omitXmlDeclaration, standalone, doctypeSystem, doctypePublic,
+        mediaType, cdataSectionElements, and indent, which your writer can act
+        upon, if appropriate. See the <literal>NullWriter</literal> API
+        documentation for further info.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Here is an example of writing to a regular Domlette document:</para>
+
+    <programlisting>SRC = """&lt;?xml version="1.0"?&gt;&lt;dummy/&gt;"""
+
+STY = """&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+  &lt;xsl:output method="xml" indent="yes" encoding="us-ascii"/&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;result&gt;hello world&lt;/result&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;"""
+
+import sys
+from Ft.Xml import InputSource
+from Ft.Xml.Xslt import Processor
+from Ft.Xml.Xslt.DomWriter import DomWriter
+from Ft.Xml.Domlette import PrettyPrint
+
+src_isrc = InputSource.DefaultFactory.fromString(SRC, 'http://foo/dummy.xml')
+sty_isrc = InputSource.DefaultFactory.fromString(STY, 'http://foo/dummy.xsl')
+
+from Ft.Xml.Domlette import implementation as impl
+domlette_writer = DomWriter(implementation=impl)
+
+proc = Processor.Processor()
+proc.appendStylesheet(sty_isrc)
+proc.run(src_isrc, writer=domlette_writer)
+
+result_doc = domlette_writer.getResult()
+PrettyPrint(result_doc)</programlisting>
+
+    <para>This example writes the transform output to a file. This is a
+    variant of <link linkend="ex.stdout">the earlier one</link>. Output is
+    written to <filename>tmp.xml</filename>.</para>
+
+    <programlisting>SRC = """&lt;?xml version="1.0"?&gt;&lt;dummy/&gt;"""
+
+STY = """&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+  &lt;xsl:output method="xml" indent="yes" encoding="us-ascii"/&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;result&gt;hello world&lt;/result&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;"""
+
+import sys
+from Ft.Xml import InputSource
+from Ft.Xml.Xslt import Processor
+
+src_isrc = InputSource.DefaultFactory.fromString(SRC, 'http://foo/dummy.xml')
+sty_isrc = InputSource.DefaultFactory.fromString(STY, 'http://foo/dummy.xsl')
+
+proc = Processor.Processor()
+proc.appendStylesheet(sty_isrc)
+
+f = open('tmp.xml', mode='w')
+result = proc.run(src_isrc, outputStream=f)
+f.close()</programlisting>
+
+    <para>There are many more options available for customizing XSLT
+    development; see the <classname>Processor</classname> module documentation
+    for details:</para>
+
+    <screen>&gt;&gt;&gt; from Ft.Xml.Xslt import Processor
+&gt;&gt;&gt; help(Processor)</screen>
+  </section>
+
+  <section>
+    <title>Transform chaining</title>
+
+    <para>4Suite provides some hooks for scenarios where the output from one
+    transform becomes the source document for another. This is called
+    transform chaining. The user still has to write the sequence of transform
+    invocations in the Python API (the 4xslt command can perform chaining for
+    the user). This section shows how.</para>
+
+    <para>In the following example the next transform in the chain is set from
+    within XSLT.</para>
+
+    <programlisting># The first transform: just reproduces all para elements within a wrapper
+TRANSFORM = """
+&lt;xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:f="http://xmlns.4suite.org/ext"
+  extension-element-prefixes="f"
+&gt;
+
+&lt;!-- Top level param so that user can pass in the next transform in the
+     chain.  By default, use the identity transform --&gt;
+&lt;xsl:param name="next-xslt"/&gt;
+
+&lt;!-- grab just the first paras for the output --&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;parawrapper&gt;
+    &lt;xsl:apply-templates select="//para"/&gt;
+  &lt;/parawrapper&gt;
+  &lt;!-- Set the next transform in the chain.  You can also set to a
+       hard-coded string --&gt;
+  &lt;!-- notice that this is within a template, for instantiation --&gt;
+  &lt;f:chain-to href="{$next-xslt}"/&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="para"&gt;
+  &lt;xsl:copy-of select="."/&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;"""
+
+DOC = """&lt;doc&gt;a&lt;para&gt;1&lt;/para&gt;b&lt;para&gt;2&lt;/para&gt;c&lt;/doc&gt;"""
+
+from Ft.Xml.Xslt import Processor
+from Ft.Xml import InputSource
+
+transform = InputSource.DefaultFactory.fromString(TRANSFORM, "urn:x-bogus:main.xslt")
+
+IDT = u'http://cvs.4suite.org/viewcvs/*checkout*/4Suite/Ft/Data/identity.xslt'
+
+processor = Processor.Processor()
+processor.appendStylesheet(transform)
+source = InputSource.DefaultFactory.fromString(DOC, "urn:x-bogus:doc.xml")
+result = processor.run(source, topLevelParams={(None, 'next-xslt'): IDT})
+print result
+
+# processor.chainTo is the fully-resolved absolute URI of the next transform,
+# or None if there was no f:chain-to element instantiated in the transform that
+# the processor last processed.
+next = processor.chainTo
+
+processor = Processor.Processor()
+processor.appendStylesheet(InputSource.DefaultFactory.fromUri(next))
+source = InputSource.DefaultFactory.fromString(DOC, "urn:x-bogus:doc.xml")
+result = processor.run(source)
+print result
+
+next = processor.chainTo                      # Should now be None
+print "chainTo:", processor.chainTo</programlisting>
+
+    <para>Note: There is not yet an API for automating the transform chain
+    loop above. Ideas were discussed and an experiment was conducted <ulink
+    url="http://mail.python.org/pipermail/xml-sig/2004-February/010146.html">here</ulink>.
+    If you have ideas for a good API, please submit them to the mailing
+    list.</para>
+  </section>
+
+  <section>
+    <title>XSLT patterns</title>
+
+    <para>XSLT defines a pattern language based on XPath which is used to
+    declare rules for matching patterns in the XML source against which to
+    fire XSLT templates. The pattern implementation that 4Suite's XSLT library
+    uses is also exposed as a library of its own. XSLT patterns are useful
+    when your task is not so much to compute arbitrary information from a
+    given node but, rather, to choose quickly from a collection of nodes the
+    ones that meet some basic rules. This might seem a subtle difference. The
+    following example might help illustrate it.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>XPath task: extract the class attribute from all the child
+        elements of the context node</para>
+      </listitem>
+
+      <listitem>
+        <para>XSLT pattern task: given a list of nodes, sort them into piles
+        of those that have a class attribute and those that have a title
+        child</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>The main API for pattern processing in 4Suite is
+    <classname>Ft.Xml.Xslt.PatternList</classname>. The following is a code
+    snippet that takes a node and returns a list of patterns it
+    matches.</para>
+
+    <programlisting>from <systemitem class="library">Ft.Xml.Xslt</systemitem> import <classname>PatternList</classname>
+from <systemitem class="library">Ft.Xml.Domlette</systemitem> import <classname>NonvalidatingReader</classname>
+
+# first pattern matches nodes with an href attribute
+# the second matches elements with a title child
+PATTERNS = ["*[@class]", "*[title]"]
+
+# Second parameter is a dictionary of prefix to namespace mappings
+plist = PatternList(PATTERNS, {})
+
+DOC = """
+&lt;spam&gt;
+  &lt;e1 class="1"/&gt;
+  &lt;e2&gt;&lt;title&gt;A&lt;/title&gt;&lt;/e2&gt;
+  &lt;e3 class="2"&gt;&lt;title&gt;B&lt;/title&gt;&lt;/e3&gt;
+&lt;/spam&gt;"""
+
+doc = NonvalidatingReader.parseString(DOC, "file:foo.xml")
+for node in doc.documentElement.childNodes:
+    # Don't forget that the white space text nodes before and after
+    # e1, e2 and e3 elements are also child nodes of the spam element
+    if node.nodeName[0] == "e":
+        print plist.lookup(node)</programlisting>
+
+    <para>The <classname>PatternList</classname> initializer takes my list of
+    strings, which it conveniently converts to a list of compiled pattern
+    objects. Such objects have a <methodname>match</methodname> method that
+    returns a boolean value, but I don't use these methods directly in this
+    example. The <classname>PatternList</classname> initializer also takes a
+    dictionary that makes up the namespace mapping. In this example, we use no
+    namespaces, so the dictionary is empty. The
+    <methodname>lookup</methodname> method is applied to a selection of the
+    children of the <sgmltag class="element">spam</sgmltag> element (all the
+    nodes whose name starts with "e", which happens to be all the element
+    nodes). The output of listing 4 follows:</para>
+
+    <screen>[*[attribute::class]]
+[*[child::title]]
+[*[attribute::class], *[child::title]]</screen>
+
+    <para>The output is a list of the representations of the pattern objects
+    that matched each node. Notice how the axis abbreviations have been
+    expanded in the pattern object representation.</para>
+  </section>
+</section>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Formatters.XmlFormatter">
+  <modification-date>2006-08-17 13:09:43</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="XmlFormatter" public="yes">
+      <bases>
+        <base documented="yes" class="XmlRepr" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XmlFormatter" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+        <base name="XmlRepr" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+        <base name="TextRepr" module="pydoc"/>
+        <base name="Repr" module="repr"/>
+      </method-resolution-order>
+      <methods name="Repr" module="repr">
+        <method public="no" name="__init__" id="XmlFormatter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="dist_command"/>
+          </arguments>
+          <overrides documented="yes" class="XmlRepr" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+        </method>
+        <method public="yes" name="document" id="XmlFormatter-document">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="object"/>
+          </arguments>
+        </method>
+        <method public="yes" name="end_element" id="XmlFormatter-end_element">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tagname"/>
+          </arguments>
+        </method>
+        <method public="yes" name="format" id="XmlFormatter-format">
+          <abstract>Print documentation for a Python object to a stream.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="object"/>
+            <arg name="stream"/>
+            <arg default="None" name="encoding"/>
+          </arguments>
+        </method>
+        <method public="yes" name="section" id="XmlFormatter-section">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="title"/>
+            <arg name="list"/>
+            <arg name="format"/>
+          </arguments>
+        </method>
+        <method public="yes" name="start_element" id="XmlFormatter-start_element">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tagname"/>
+            <arg default="{}" name="attributes"/>
+          </arguments>
+        </method>
+        <method public="yes" name="warn" id="XmlFormatter-warn">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="write_element" id="XmlFormatter-write_element">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tagname"/>
+            <arg default="{}" name="attributes"/>
+            <arg default="''" name="content"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Repr" module="repr">
+        <member public="yes" name="document_type" id="XmlFormatter-document_type">
+          <value>None</value>
+        </member>
+        <member public="yes" name="indent" id="XmlFormatter-indent">
+          <value>'  '</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XmlRepr" module="Ft.Lib.DistExt.Formatters.XmlFormatter">
+        <member-reference name="escape" public="yes"/>
+        <member-reference name="repr" public="yes"/>
+        <member-reference name="repr_str" public="yes"/>
+        <member-reference name="repr_unicode" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="TextRepr" module="pydoc">
+        <member-reference name="repr1" public="yes"/>
+        <member-reference name="repr_instance" public="yes"/>
+        <member-reference name="repr_string" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Repr" module="repr">
+        <member-reference name="repr_array" public="yes"/>
+        <member-reference name="repr_deque" public="yes"/>
+        <member-reference name="repr_dict" public="yes"/>
+        <member-reference name="repr_frozenset" public="yes"/>
+        <member-reference name="repr_list" public="yes"/>
+        <member-reference name="repr_long" public="yes"/>
+        <member-reference name="repr_set" public="yes"/>
+        <member-reference name="repr_tuple" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="XmlRepr" public="yes">
+      <bases>
+        <base documented="no" class="TextRepr" module="pydoc"/>
+      </bases>
+      <abstract>Class for safely making a XML representation of a Python object.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XmlRepr" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+        <base name="TextRepr" module="pydoc"/>
+        <base name="Repr" module="repr"/>
+      </method-resolution-order>
+      <methods name="Repr" module="repr">
+        <method public="yes" name="escape" id="XmlRepr-escape">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+          </arguments>
+        </method>
+        <method public="yes" name="repr" id="XmlRepr-repr">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="object"/>
+          </arguments>
+          <overrides documented="no" class="TextRepr" module="pydoc"/>
+        </method>
+        <method public="yes" realid="XmlRepr-repr_string" name="repr_str" realname="repr_string" id="XmlRepr-repr_str">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="x"/>
+            <arg name="level"/>
+          </arguments>
+          <overrides documented="no" class="TextRepr" module="pydoc"/>
+        </method>
+        <method public="yes" realid="XmlRepr-repr_string" name="repr_unicode" realname="repr_string" id="XmlRepr-repr_unicode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="x"/>
+            <arg name="level"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="TextRepr" module="pydoc">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="repr1" public="yes"/>
+        <member-reference name="repr_instance" public="yes"/>
+        <member-reference name="repr_string" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Repr" module="repr">
+        <member-reference name="repr_array" public="yes"/>
+        <member-reference name="repr_deque" public="yes"/>
+        <member-reference name="repr_dict" public="yes"/>
+        <member-reference name="repr_frozenset" public="yes"/>
+        <member-reference name="repr_list" public="yes"/>
+        <member-reference name="repr_long" public="yes"/>
+        <member-reference name="repr_set" public="yes"/>
+        <member-reference name="repr_tuple" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+</module>

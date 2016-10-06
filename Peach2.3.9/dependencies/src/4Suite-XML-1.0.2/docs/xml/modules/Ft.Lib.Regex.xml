@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Regex">
+  <modification-date>2005-01-26 21:47:36</modification-date>
+  <abstract>Tools to manage the many different flavors of regex</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="W3cRegexToPyRegex" id="W3cRegexToPyRegex">
+      <abstract>Convert W3C regex to Python regex
+e.g.:
+&gt;&gt;&gt; from Ft.Lib.Regex import W3cRegexToPyRegex
+&gt;&gt;&gt; print repr(W3cRegexToPyRegex(u&quot;(foo){5,}&quot;))
+u'((foo)){5}(foo)*'</abstract>
+      <description/>
+      <arguments>
+        <arg name="w3cregex"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="MIN_LENGTH_SEQ_PAT" id="MIN_LENGTH_SEQ_PAT">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+  </globals>
+</module>

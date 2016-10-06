@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="saxlette">
+  <title>SAX</title>
+
+  <para>Saxlette is a fast SAX implementation, all written in C. Its API is
+  similar to those of <ulink
+  url="http://docs.python.org/lib/content-handler-objects.html">Python's
+  built-in SAX</ulink>.</para>
+
+  <programlisting>from xml import sax
+from Ft.Xml import CreateInputSource
+
+class element_counter(sax.ContentHandler):
+    def startDocument(self):
+        self.ecount = 0
+
+    def startElementNS(self, name, qname, attribs):
+        self.ecount += 1
+
+parser = sax.make_parser(['Ft.Xml.Sax'])
+handler = element_counter()
+parser.setContentHandler(handler)
+#'file:ot.xml' or file('ot.xml') or file('ot.xml').read() would work just as well, of course
+parser.parse(CreateInputSource('ot.xml'))
+print "Elements counted:", handler.ecount</programlisting>
+
+  <para>If you don't care about PySax compatibility, you can use the more
+  specialized API, which involves the following lines in place of the
+  equivalents above:</para>
+
+  <programlisting>from <systemitem class="library">Ft.Xml</systemitem> import <classname>Sax</classname>
+...
+class element_counter:
+....
+parser = Sax.CreateParser()</programlisting>
+
+  <para>The biggest API differences between Saxlette and PySax are that
+  Saxlette only supports SAX 2. For example,
+  <literal>feature_namespaces</literal> is hard-wired to
+  <literal>True</literal> and <literal>feature_namespace_prefixes</literal> to
+  <literal>False</literal> (which is exactly what SAX2 says is required).
+  Saxlette also combines all adgacent text events, which eliminates one of the
+  pain points of PySax.</para>
+
+  <para>The argument to the <function>parse</function> method is a URI, a SAX
+  input source or a 4Suite input source. In the example above a URI was used.
+  The following example shows similar code using 4Suite's <systemitem
+  class="library">Ft.Xml.InputSource</systemitem>.</para>
+
+  <programlisting>from Ft.Xml import InputSource, Sax
+factory = InputSource.DefaultFactory
+isrc = factory.fromUri("file:ot.xml")
+doc1 = NonvalidatingReader.parse(isrc)
+
+class element_counter:
+    def startDocument(self):
+        self.ecount = 0
+
+    def startElementNS(self, name, qname, attribs):
+        self.ecount += 1
+
+parser = Sax.CreateParser()
+handler = element_counter()
+parser.setContentHandler(handler)
+parser.parse(isrc)
+print "Elements counted:", handler.ecount</programlisting>
+
+  <section>
+    <title>Validating a document while parsing it using SAX</title>
+
+    <para>To enable validation of your documents while otherwise parsing them
+    normally with SAX, set the
+    <constant>xml.sax.handler.feature_validation</constant> feature to
+    <literal>True</literal> on your parser using a line similar to
+    <code>parser.setFeature(xml.sax.handler.feature_validation, True)</code>.
+    The parser will then throw an
+    <classname>xml.sax._exceptions.SAXParseException</classname> exception if
+    it determines that the document is invalid, and it will stop parsing the
+    document. Handlers for document components that have been parsed will be
+    called, however. The following example illustrates these concepts.</para>
+
+    <programlisting>from Ft.Xml import InputSource, Sax
+factory = InputSource.DefaultFactory
+
+XML = """&lt;!DOCTYPE a [
+  &lt;!ELEMENT a (b, b)&gt;
+  &lt;!ELEMENT b EMPTY&gt;
+]&gt;
+&lt;a&gt;&lt;b/&gt;&lt;b/&gt;&lt;/a&gt;"""
+
+isrc = factory.fromString(XML, 'urn:x-example:valid-a')
+
+class element_counter:
+    def startDocument(self):
+        self.scount = 0
+        self.ecount = 0
+
+    def startElementNS(self, name, qname, attribs):
+        self.scount += 1
+
+    def endElementNS(self, name, qname):
+        self.ecount += 1
+
+parser = Sax.CreateParser()
+handler = element_counter()
+parser.setContentHandler(handler)
+# And now, to enable validation...
+import xml
+parser.setFeature(xml.sax.handler.feature_validation, True)
+parser.parse(isrc)
+print "Saw", handler.scount, "start tags"
+print "Saw", handler.ecount, "end tags"
+
+# And now we show what happens on an invalid document:
+XML = """&lt;!DOCTYPE a [
+  &lt;!ELEMENT a (b, b)&gt;
+  &lt;!ELEMENT b EMPTY&gt;
+]&gt;
+&lt;a&gt;&lt;b/&gt;&lt;b/&gt;&lt;b/&gt;&lt;/a&gt;"""
+
+isrc = factory.fromString(XML, 'urn:x-example:invalid-a')
+parser.parse(isrc)
+print "Saw", handler.scount, "start tags"
+print "Saw", handler.ecount, "end tags"
+# The above document is invalid; it has one more `b` element than is
+# allowed by the DTD.  The handlers have still been called for those
+# parts of the document that have been parsed.</programlisting>
+  </section>
+
+  <section id="saxlette_domwalker">
+    <title>Walking a DOM to fire SAX events</title>
+
+    <para>Saxlette has the ability to walk a Domlette tree, firing off events
+    to a handler as if from a source document parse. This ability used to be
+    too well, hidden, though, and I made an API addition to make it more
+    readily available. This is the new
+    <classname>Ft.Xml.Domlette.SaxWalker</classname>. The following example
+    should show how easy it is to use:</para>
+
+    <programlisting>from Ft.Xml.Domlette import SaxWalker
+from Ft.Xml import Parse
+
+XML = "&lt;a&gt;&lt;b/&gt;&lt;b/&gt;&lt;/a&gt;"
+
+class element_counter:
+    def startDocument(self):
+        self.ecount = 0
+
+    def startElementNS(self, name, qname, attribs):
+        self.ecount += 1
+
+#First get a Domlette document node
+doc = Parse(XML)
+#Then SAX "parse" it
+parser = SaxWalker(doc)
+handler = element_counter()
+parser.setContentHandler(handler)
+#You can set any properties or features, or do whatever
+#you would to a regular SAX2 parser instance here
+parser.parse() #called without any argument
+print "Elements counted:", handler.ecount</programlisting>
+  </section>
+
+  <section id="saxlette_dombuilder">
+    <title>Building a Domlette from SAX events</title>
+
+    <para>Saxlette includes a convenience ContentHandler
+    (<classname>Ft.Xml.Sax.DomBuilder</classname>) which listens for SAX
+    events and constructs Domlette Documents.</para>
+  </section>
+
+  <section id="saxlette_generator">
+    <title>Feeding a generator from SAX events</title>
+
+    <para>Python's generators are special functions that can produce a series
+    of partial results within the course of running. The calling program can
+    start up a generator, which is suspended when a partial result is yielded,
+    and resumed explicitly by the program when the next result is required.
+    This capability is mirrored in the Expat parser that is the basis of
+    Saxlette. Saxlette has a feature, <literal>FEATURE_GENERATOR</literal>
+    which you can set on a parser object to enable generator semantics. If
+    this feature is set, the <literal>parse()</literal> method returns an
+    iterator. This iterator yields results set by the the SAX handlers. The
+    handlers specify the partial results by setting the property
+    <literal>PROPERTY_YIELD_RESULT</literal> with the value to be yielded. As
+    an example, the following code reports the name of all attributes used in
+    the document.</para>
+
+    <programlisting>class report_attributes:
+    def __init__(self, parser):
+        self.parser = parser
+        return
+
+    def startElementNS(self, name, qname, attribs):
+        self.parser.setProperty(Sax.PROPERTY_YIELD_RESULT, attribs)
+        return
+
+from Ft.Xml import Sax, CreateInputSource
+
+parser = Sax.CreateParser()
+parser.setFeature(Sax.FEATURE_GENERATOR, True)
+handler = report_attributes(parser)
+parser.setContentHandler(handler)
+attribs_iterator = parser.parse(CreateInputSource('test.xhtml'))
+for attribs in attribs_iterator:
+     for name in attribs.keys(): print name</programlisting>
+  </section>
+
+  <section>
+    <title>SAX filters</title>
+
+    <para>In SAX processing, the parser passes to the application a stream of events that represents the XML content. An important aspect of SAX is the user's ability to create SAX filters, which accept a stream of SAX events and pass on a modified stream. For example, you might use a SAX filter to take look for DOcbook <literal>sect1</literal>,  <literal>sect2</literal> etc. elements, and rename them to <literal>section</literal> elements before passing them on for further processing (presumably by a SAX handler that only understands how to deal with the latter form).  You can chain SAX filters as well, and the idea behind SAX filters is usually reuse across a broad array of applications, focusing each filter they on a single task that can be cleanly separated from upstream and downstream processing.  SAX filters can thus be useful building blocks for XML pipelines.</para>
+
+  <programlisting><![CDATA[from xml import sax
+from xml.sax.saxutils import XMLFilterBase
+from Ft.Xml import CreateInputSource, XML_NAMESPACE as XMLNS
+from Ft.Xml.Sax import SaxPrinter
+
+XML = """<?xml version="1.0" encoding="utf-8"?>
+<menu>
+  <item id="A" xml:lang="en">Orange juice</item>
+  <item id="A" xml:lang="es">Jugo de naranja</item>
+  <item id="B" xml:lang="en">Toast</item>
+  <item id="B" xml:lang="es">Pan tostada
+    <note xml:lang="en">Wheat bread only, please</note>
+  </item>
+</menu>
+"""
+
+#Define constants for the two states we care about
+ALLOW_CONTENT = 1
+SUPPRESS_CONTENT = 2
+
+class english_only_filter(XMLFilterBase):
+    def __init__(self, downstream):
+        XMLFilterBase.__init__(self, downstream)
+        return
+
+    def startDocument(self):
+        #Set the initial state, and set up the stack of states
+        self._state_stack = [ALLOW_CONTENT]
+        XMLFilterBase.startDocument(self)
+        return
+
+    def startElementNS(self, name, qname, attrs):
+        #Check if there is any language attribute
+        lang = attrs.get((XMLNS, 'lang'))
+        if lang:
+            #Set the state as appropriate
+            if lang[:2] == 'en':
+	        self._state_stack.append(ALLOW_CONTENT)
+            else:
+	        self._state_stack.append(SUPPRESS_CONTENT)
+        #Always update the stack with the current state
+        #Even if it has not changed
+        
+        #Only forward the event if the state warrants it
+        if self._state_stack[-1] == ALLOW_CONTENT:
+            XMLFilterBase.startElementNS(self, name, qname, attrs)
+        return
+
+    def endElementNS(self, name, qname):
+        self._state_stack.pop()
+        #Only forward the event if the state warrants it
+        if self._state_stack[-1] == ALLOW_CONTENT:
+            XMLFilterBase.endElementNS(self, name, qname)
+        return
+
+    def characters(self, content):
+        #Only forward the event if the state warrants it
+        if self._state_stack[-1] == ALLOW_CONTENT:
+            XMLFilterBase.characters(self, content)
+        return
+
+if __name__ == "__main__":
+    parser = sax.make_parser(['Ft.Xml.Sax'])
+    #SaxPrinter is a special SAX handler that merely writes
+    #SAX events back into an XML document
+    filtered_parser = english_only_filter(parser)
+    handler = SaxPrinter()
+    filtered_parser.setContentHandler(handler)
+    filtered_parser.parse(CreateInputSource(XML))
+]]></programlisting>
+
+    <para>Most SAX handlers operate as state machines, meaning they manage some variables based on the stream of events that come in, and change behavior based on these variables. english_only_filter is set up to be in one of two states: one in which content is passed on to the downstream handler, and one in which content is suppressed. This state is marked in the self._state_stack. The state is initially set to <literal>ALLOW_CONTENT</literal>, and changed to <literal>SUPPRESS_CONTENT</literal> if the filter encounters an xml:lang attribute that represents a language other than English (which can be done by checking the first two characters of the value, according to the rules of standard language codes).  It has to be a stack because XML language specifications are scoped, so that in the example XML at the top of the listing the string "Pan tostada" is within the scope of the element with the attribute xml:lang="es", and so it is marked as being in Spanish. The entire note element, however, is marked as being in English by an overriding xml:lang="en" attribute.</para>
+
+    <para>The SAX handler is set to <classname>Ft.Xml.SaxPrinter</classname>, which channels the final SAX evenis onto a 4Suite printer which creates a serialized XML document.  It's quite easy to chain filters.  If you wanted the parser to send events to a filter of class <classname>some_other_filter</classname> which then passed on events to <classname>english_only_filter</classname> the relevant line would look as follows:</para>
+
+<!-- Expected Output:
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+  <item xml:lang="en" id="A">Orange juice</item>
+  <item xml:lang="en" id="B">Toast</item>
+  <note xml:lang="en">Wheat bread only, please</note>
+  </menu>
+-->
+
+  <programlisting><![CDATA[    filtered_parser = english_only_filter(some_other_filter(parser))
+]]></programlisting>
+
+  </section>
+
+  <section>
+    <title>Streaming canonicalization</title>
+
+  <para>The combination of streaming parsing using Saxlette and streaming serialization using <classname>Ft.Xml.Lib.CanonicalXmlPrinter</classname> allows for
+very efficient XML canonicalization (c14n).
+</para>
+
+  <para></para>
+
+  <programlisting><![CDATA[import sys
+from xml import sax
+from Ft.Xml import CreateInputSource
+from Ft.Xml.Sax import SaxPrinter
+from Ft.Xml.Lib.XmlPrinter import CanonicalXmlPrinter
+
+parser = sax.make_parser(['Ft.Xml.Sax'])
+handler = SaxPrinter(CanonicalXmlPrinter(sys.stdout))
+parser.setContentHandler(handler)
+parser.parse(CreateInputSource('   <a><b b="1" a="2"/></a>   '))
+
+]]></programlisting>
+
+<!-- Expected Output:
+<a><b a="2" b="1"></b></a>
+-->
+
+  </section>
+
+</section>

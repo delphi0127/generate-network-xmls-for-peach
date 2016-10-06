@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Paolo Milani" description="Path Example">
+
+	<!--
+
+	This is an example of using the path features in the presence of conditional changeState actions.
+	
+	Syntax:
+	
+	  python peach.py mysamples\path-when.xml
+	  
+	Output:
+	
+	  This example is derived from TutorialStateMachine_Choice.xml
+	   
+	  It outputs 1 of 2 messages depending on what you type ('1', or something else)
+	  but if you do not type 1, it finds itself in wrong path and quits.
+	  
+	  This should cause different behavior if it is in first fuzzing iteration (hard failure)
+	  or in a later iteration (soft failure)
+	
+	Authors:
+	  Paolo Milani (j.s.sebastian@gmail.com)
+	
+	-->
+
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	
+	<DataModel name="WelcomeMessage">
+		<String value="Welcome to example #1!\n\n  [1] - Say 'Hello World'\n  [anything else] - Say 'End of the World'\n\nEnter you choice: " isStatic="true"/>
+	</DataModel>
+	
+	<DataModel name="UserChoice">
+		<String name="data" length="1"/>
+	</DataModel>
+	
+	<DataModel name="Response">
+		<String name="response" value="This is the default response" isStatic="true"/>
+	</DataModel>
+	
+	<StateModel name="TestStateMachine" initialState="WelcomeState">
+		<State name="WelcomeState">
+			<Action name="WelcomeMessage" type="output">
+				<DataModel ref="WelcomeMessage"/>
+			</Action>
+			
+			<Action name="GetData" type="input">
+				<DataModel ref="UserChoice"/>
+			</Action>
+			
+			<Action name="ChangeToHelloWorld" type="changeState" ref="StateHelloWorld" when="StateModel['WelcomeState']['GetData'].value == '1'"/>
+			<Action name="ChangeToEndOfTheWorld" type="changeState" ref="StateEndOfTheWorld"/>
+			<Choice>
+				<Action ref="StateHelloWorld" type="changeState"/>
+			</Choice>
+		</State>
+		
+		<State name="StateHelloWorld">
+			<Action type="output" name="SendHelloWorld">
+				<DataModel ref="Response"/>
+				<Data name="HelloWorldData">
+					<Field name="response" value="\n\nHello World\n\n"/>
+				</Data>
+			</Action>
+			<Action name="GotoEnd" type="changeState" ref="end"/>
+		</State>
+		
+		<State name="StateEndOfTheWorld">
+			<Action type="output" name="SendEndOfTheWorld">
+				<DataModel ref="Response"/>
+				<Data name="EndOfTheWorldData">
+					<Field name="response" value="\n\nEnd of the World\n\n"/>
+				</Data>
+			</Action>
+			<Action name="GotoEnd" type="changeState" ref="end"/>
+		</State>
+		<State name="end">
+			<Action type="close"/>
+			<Action type="stop"/>
+		</State>
+	</StateModel>
+	
+	<!-- if user did not input "1", It will be in wrong state "StateEndOfTheWorld" now!-->
+	
+	<Test name="HelloWorldTest">
+		<StateModel ref="TestStateMachine">
+			<Path ref="WelcomeState"/>
+			<Path ref="StateHelloWorld"/>
+		</StateModel>
+		
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+			<Param name="timeout" value="100"/>
+		</Publisher>
+	</Test>
+	
+	
+	<!-- run this test instead of the one above to see behavior without <Path> elements -->
+	<!--
+	<Test name="HelloWorldTest">
+		<StateModel ref="TestState"/>
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+			<Param name="timeout" value="100"/>
+		</Publisher>
+	</Test>
+	-->
+	<!-- Configure a single run -->
+	<Run name="DefaultRun" description="Stdout HelloWorld Run">
+		
+		<Test ref="HelloWorldTest" />
+		
+	</Run>
+
+</Peach>
+<!-- end -->

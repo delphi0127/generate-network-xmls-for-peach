@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Dist">
+  <modification-date>2006-10-20 13:54:38</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Dist" public="yes">
+      <bases>
+        <base documented="no" class="Distribution" module="distutils.dist"/>
+      </bases>
+      <abstract>An enhanced version of core Distutils' Distribution class.</abstract>
+      <description>Currently supported features, for *all* Python (2.2+) versions:
+(from Python 2.3+)
+download_url, classifiers - PEP 314 metadata fields
+
+(from Python 2.5+)
+install_egg_info command - for setuptools
+requires, provides, obsoletes - PEP 314 metadata fields
+
+(only available in 4Suite)
+requires_python - [PEP 345] a list of version restrictions for Python
+requires_external - [PEP 345] a list of external requirements
+command_mapping - maps command names to a module/class name that differs
+                  from the actual command name</description>
+      <method-resolution-order>
+        <base name="Dist" module="Ft.Lib.DistExt.Dist"/>
+        <base name="Distribution" module="distutils.dist"/>
+      </method-resolution-order>
+      <methods name="Distribution" module="distutils.dist">
+        <method public="no" name="__init__" id="Dist-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="no" class="Distribution" module="distutils.dist"/>
+        </method>
+        <method public="yes" name="announce" id="Dist-announce">
+          <abstract>If the current verbosity level is of greater than or equal to
+'level' print 'msg' to stdout.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+            <arg default="1" name="level"/>
+          </arguments>
+          <overrides documented="no" class="Distribution" module="distutils.dist"/>
+        </method>
+        <method public="yes" name="finalize_options" id="Dist-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Distribution" module="distutils.dist"/>
+        </method>
+        <method public="yes" name="get_allfiles" id="Dist-get_allfiles">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_command_class" id="Dist-get_command_class">
+          <abstract>Extends Distribution.get_command_class() to search 'command_mapping'
+for modules that implement that requested command.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="command"/>
+          </arguments>
+          <overrides documented="no" class="Distribution" module="distutils.dist"/>
+        </method>
+        <method public="yes" name="get_command_list" id="Dist-get_command_list">
+          <abstract>Overridden to add the commands defined by 'command_mapping' to the
+list of (command, description) tuples.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Distribution" module="distutils.dist"/>
+        </method>
+        <method public="yes" name="get_source_files" id="Dist-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_bgen" id="Dist-has_bgen">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_devel" id="Dist-has_devel">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_docs" id="Dist-has_docs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_l10n" id="Dist-has_l10n">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_localstate" id="Dist-has_localstate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_sysconf" id="Dist-has_sysconf">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_text" id="Dist-has_text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="print_commands" id="Dist-print_commands">
+          <abstract>Overridden to add the commands defined by 'command_mapping' to the
+list of &quot;standard commands&quot;.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Distribution" module="distutils.dist"/>
+        </method>
+        <method public="yes" name="print_option_list" id="Dist-print_option_list">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+            <arg name="header"/>
+            <arg name="max_length"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Distribution" module="distutils.dist">
+        <member public="yes" name="command_aliases" id="Dist-command_aliases">
+          <value>{'bdist_wininst': 'bdist_inno', 'install_docs': 'install_html'}</value>
+        </member>
+        <member public="yes" name="command_mapping" id="Dist-command_mapping">
+          <value>{'bdist': 'BDist', 'bdist_dumb': None, 'bdist_egg': 'BDistEgg', 'bdist_inno': 'BDistInno', 'bdist_msi': None, 'bdist_rpm': 'BDistRpm', 'build': 'Build', 'build_clib': None, 'build_docs': 'BuildDocs', 'build_ext': 'BuildExt', ...}</value>
+        </member>
+        <member public="yes" name="source_package" id="Dist-source_package">
+          <value>False</value>
+        </member>
+        <member public="yes" name="standard_commands" id="Dist-standard_commands">
+          <value>['config', 'build', 'clean', 'install', 'sdist', 'register', 'bdist', 'upload', 'generate']</value>
+        </member>
+        <member public="yes" name="toplevel_options" id="Dist-toplevel_options">
+          <value>[('source-package', 's', 'run as if from a source dist (developer testing)')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Distribution" module="distutils.dist">
+        <member-reference name="dump_option_dicts" public="yes"/>
+        <member-reference name="find_config_files" public="yes"/>
+        <member-reference name="get_command_obj" public="yes"/>
+        <member-reference name="get_command_packages" public="yes"/>
+        <member-reference name="get_option_dict" public="yes"/>
+        <member-reference name="handle_display_options" public="yes"/>
+        <member-reference name="has_c_libraries" public="yes"/>
+        <member-reference name="has_data_files" public="yes"/>
+        <member-reference name="has_ext_modules" public="yes"/>
+        <member-reference name="has_headers" public="yes"/>
+        <member-reference name="has_modules" public="yes"/>
+        <member-reference name="has_pure_modules" public="yes"/>
+        <member-reference name="has_scripts" public="yes"/>
+        <member-reference name="is_pure" public="yes"/>
+        <member-reference name="parse_command_line" public="yes"/>
+        <member-reference name="parse_config_files" public="yes"/>
+        <member-reference name="print_command_list" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="run_commands" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Distribution" module="distutils.dist">
+        <member-reference name="common_usage" public="yes"/>
+        <member-reference name="display_option_names" public="yes"/>
+        <member-reference name="display_options" public="yes"/>
+        <member-reference name="global_options" public="yes"/>
+        <member-reference name="negative_opt" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="DistributionMetadata" public="yes">
+      <bases>
+        <base documented="no" class="DistributionMetadata" module="distutils.dist"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DistributionMetadata" module="Ft.Lib.DistExt.Dist"/>
+        <base name="DistributionMetadata" module="distutils.dist"/>
+      </method-resolution-order>
+      <methods name="DistributionMetadata" module="distutils.dist">
+        <class-method public="yes" name="from_filename" id="DistributionMetadata-from_filename">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+        <class-method public="yes" name="from_stream" id="DistributionMetadata-from_stream">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+        <class-method public="yes" name="from_string" id="DistributionMetadata-from_string">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+        <method public="yes" name="get_requires_external" id="DistributionMetadata-get_requires_external">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_requires_python" id="DistributionMetadata-get_requires_python">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_requires_external" id="DistributionMetadata-set_requires_external">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_requires_python" id="DistributionMetadata-set_requires_python">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="write_pkg_file" id="DistributionMetadata-write_pkg_file">
+          <abstract>Write the PKG-INFO format data to a file object.</abstract>
+          <description>Supports metadata version 1.2 (PEP 345), 1.1 (PEP 314) and
+1.0 (PEP 241) in a lowest common denominator fashion.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="file"/>
+          </arguments>
+          <overrides documented="no" class="DistributionMetadata" module="distutils.dist"/>
+        </method>
+      </methods>
+      <members name="DistributionMetadata" module="distutils.dist">
+        <member public="yes" name="copyright" id="DistributionMetadata-copyright">
+          <value>None</value>
+        </member>
+        <member public="yes" name="requires_external" id="DistributionMetadata-requires_external">
+          <value>None</value>
+        </member>
+        <member public="yes" name="requires_python" id="DistributionMetadata-requires_python">
+          <value>None</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="DistributionMetadata" module="distutils.dist">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="get_author" public="yes"/>
+        <member-reference name="get_author_email" public="yes"/>
+        <member-reference name="get_classifiers" public="yes"/>
+        <member-reference name="get_contact" public="yes"/>
+        <member-reference name="get_contact_email" public="yes"/>
+        <member-reference name="get_description" public="yes"/>
+        <member-reference name="get_download_url" public="yes"/>
+        <member-reference name="get_fullname" public="yes"/>
+        <member-reference name="get_keywords" public="yes"/>
+        <member-reference name="get_licence" public="yes"/>
+        <member-reference name="get_license" public="yes"/>
+        <member-reference name="get_long_description" public="yes"/>
+        <member-reference name="get_maintainer" public="yes"/>
+        <member-reference name="get_maintainer_email" public="yes"/>
+        <member-reference name="get_name" public="yes"/>
+        <member-reference name="get_obsoletes" public="yes"/>
+        <member-reference name="get_platforms" public="yes"/>
+        <member-reference name="get_provides" public="yes"/>
+        <member-reference name="get_requires" public="yes"/>
+        <member-reference name="get_url" public="yes"/>
+        <member-reference name="get_version" public="yes"/>
+        <member-reference name="set_obsoletes" public="yes"/>
+        <member-reference name="set_provides" public="yes"/>
+        <member-reference name="set_requires" public="yes"/>
+        <member-reference name="write_pkg_info" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="DEBUG" id="DEBUG">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

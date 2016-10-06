@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DbUtil">
+  <modification-date>2006-04-28 13:54:39</modification-date>
+  <abstract>Utilities for database connections</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="EscapeQuotes" realname="escape" id="EscapeQuotes">
+      <abstract>escape(string)</abstract>
+      <description>Replace all ' with \' and \ with \\</description>
+      <arguments>
+        <unknown>string</unknown>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="__all__" id="__all__">
+      <value>['EscapeQuotes']</value>
+    </global>
+  </globals>
+</module>

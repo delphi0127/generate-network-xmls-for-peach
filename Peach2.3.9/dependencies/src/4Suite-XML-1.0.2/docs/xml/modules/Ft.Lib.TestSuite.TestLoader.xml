@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.TestLoader">
+  <modification-date>2006-08-11 09:50:12</modification-date>
+  <abstract>Provides the TestLoader class for loading test modules or packages.</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestLoader" public="yes">
+      <bases>
+        <base documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+        <base name="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+      </method-resolution-order>
+      <methods name="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <method public="no" name="__init__" id="TestLoader-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="path"/>
+            <arg name="addModes"/>
+            <arg name="skipModes"/>
+            <arg name="allModes"/>
+          </arguments>
+          <overrides documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+        </method>
+        <method public="yes" name="addTest" id="TestLoader-addTest">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getTests" id="TestLoader-getTests">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+        </method>
+        <method public="yes" name="loadTest" id="TestLoader-loadTest">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getModes" public="yes"/>
+        <member-reference name="run" public="yes"/>
+        <member-reference name="showTests" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <member-reference name="modes" public="yes"/>
+        <member-reference name="tests" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

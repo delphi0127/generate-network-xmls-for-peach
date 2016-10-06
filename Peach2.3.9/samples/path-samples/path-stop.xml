@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+    author="Hanifi Gunes" description="Path Stop Example">
+    
+    <!--
+        
+        Another simple path example but this time shows the usage of Stop element.
+        
+        Syntax:
+        
+        python peach.py samples\path-stop.xml
+        
+        Output:
+        
+        This example will run 2 "tests". 
+        The first one should output "One Two Three",
+        the second one should print "One Two"
+        
+        Authors:
+        Hanifi Gunes (hanifigunes@gmail.com)
+        
+    -->
+    
+    <!-- Import defaults for Peach instance -->
+    <Include ns="default" src="file:defaults.xml" />
+    
+    <!-- Create a simple data template containing a single string -->
+    <DataModel name="OneTemplate">
+        <String name="String0" value="One! " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="TwoTemplate">
+        <String name="String1" value="Two!  " isStatic="true" />
+    </DataModel>
+    
+    <DataModel name="ThreeTemplate">
+        <String name="String2" value="Three!" isStatic="true"/>
+    </DataModel>
+    
+    <StateModel name="StateMachine0" initialState="State1">
+        <State name="State1">
+            <Action type="output">
+                <DataModel ref="OneTemplate"/>
+            </Action>
+            <Action type="changeState" ref="State2"/>
+        </State>
+        
+        <State name="State2">
+            <Action type="output">
+                <DataModel ref="TwoTemplate"/>
+            </Action>
+            <Action type="changeState" ref="State3"/>
+        </State>
+        
+        <State name="State3">
+            <Action type="output">
+                <DataModel ref="ThreeTemplate"/>
+            </Action>
+        </State>
+        
+    </StateModel>
+    
+    <Test name="OneTwoThreeTest">
+        <StateModel ref="StateMachine0">
+            <Path ref="State1"/>
+            <Path ref="State2"/>
+        </StateModel>
+        <!-- Display test cases to the console -->
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <Test name="OneTwoTest">
+        <StateModel ref="StateMachine0">
+            <Path ref="State1"/>
+            <Path ref="State2"/>
+            <Stop/>
+        </StateModel>
+        <!-- Display test cases to the console -->
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <!-- Configure a single run -->
+    <Run name="DefaultRun" description="Stdout Stop Run">
+        
+        <Test ref="OneTwoThreeTest" />
+        <Test ref="OneTwoTest" />
+        
+    </Run>
+    
+</Peach>

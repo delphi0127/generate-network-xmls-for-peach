@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<DataModel name="swfSlap">
+		<Block name="Everything">
+			<Block name="Header">
+				<Blob name="Magic" valueType="hex" value="46 57 53" length="3" /> <!-- FWS -->
+				<Number name="Version" size="8" signed="true" value="5" />
+				<Number name="FileLength" size="32" signed="false">
+					<!-- <Relation type="size" of="Everything"/> -->
+				</Number>
+				<Blob name="FrameSize" length="8" />
+				<Number name="FrameRate" size="16" signed="false" />
+				<Number name="FrameCount" size="16" signed="false" />
+			</Block>
+			
+			<Block name="Tag" maxOccurs="2">
+				<Number name="Code" size="16" />
+				<Blob name="Data" lengthType="calc" length="int(self.parent['Code'].getInternalValue()) &amp; 0x3f" />
+			</Block>
+			
+			<Block name="TagLong" maxOccurs="12">
+				<Number name="Code" size="16" />
+				<Number name="Length" size="32">
+					<Relation type="size" of="Data"/>
+				</Number>
+				<Blob name="Data" />
+			</Block>
+			
+			<Blob name="TheRest" length="13886" />
+		</Block>
+	</DataModel>
+	
+	<StateModel name="State" initialState="Initial">
+		<State name="Initial">
+			<Action name="WriteFile" type="output">
+				<DataModel ref="swfSlap" />
+				<Data name="SampleData" fileName="miscSwf.bin"/>
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" /> 
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent" />
+		<StateModel ref="State"/>
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

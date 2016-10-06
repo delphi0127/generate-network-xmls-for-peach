@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Sax">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract>Abstraction module for Domlette SAX usage.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Attributes" public="yes">
+      <abstract>Interface for a set of XML attributes.</abstract>
+      <description>Contains a set of XML attributes, accessible by expanded name.</description>
+      <method-resolution-order>
+        <base name="Attributes" module="Ft.Xml.Sax"/>
+      </method-resolution-order>
+      <methods name="Attributes" module="Ft.Xml.Sax">
+        <method public="no" name="__contains__" id="Attributes-__contains__">
+          <abstract>Alias for has_key.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__delitem__" id="Attributes-__delitem__">
+          <abstract>Removes the attribute with the given name.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__getitem__" id="Attributes-__getitem__">
+          <abstract>Alias for getValue.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__len__" id="Attributes-__len__">
+          <abstract>Returns the number of attributes in the list.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get" id="Attributes-get">
+          <abstract>Return the value associated with attribute name; if it is not
+available, then return the alternative.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="alternative"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQNameByName" id="Attributes-getQNameByName">
+          <abstract>Returns the qualified name of the attribute with the given name.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getValue" id="Attributes-getValue">
+          <abstract>Returns the value of the attribute with the given name.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_key" id="Attributes-has_key">
+          <abstract>Returns True if the attribute name is in the list,
+False otherwise.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="items" id="Attributes-items">
+          <abstract>Return a list of (attribute_name, value) pairs.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="keys" id="Attributes-keys">
+          <abstract>Returns a list of the names of all attribute in the list.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="values" id="Attributes-values">
+          <abstract>Return a list of all attribute values.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ContentHandler" public="yes">
+      <abstract>Interface for receiving logical document content events.</abstract>
+      <description>This is the main callback interface for the Parser. The order of
+events in this interface mirrors the order of the information in the
+document.</description>
+      <method-resolution-order>
+        <base name="ContentHandler" module="Ft.Xml.Sax"/>
+      </method-resolution-order>
+      <methods name="ContentHandler" module="Ft.Xml.Sax">
+        <method public="yes" name="characters" id="ContentHandler-characters">
+          <abstract>Receive notification of character data.</abstract>
+          <description>The parser will call this method to report each chunk of
+character data.   The parser will return all contiguous
+character data in a single chunk.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endDocument" id="ContentHandler-endDocument">
+          <abstract>Receive notification of the end of a document.</abstract>
+          <description>The parser will invoke this method only once, and it will
+be the last method invoked during the parse. The parser shall
+not invoke this method until it has either abandoned parsing
+(because of an unrecoverable error) or reached the end of
+input.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElementNS" id="ContentHandler-endElementNS">
+          <abstract>Signals the end of an element.</abstract>
+          <description>The uri parameter is None for elements which have no namespace,
+the qualifiedName parameter is the raw XML name used in the source
+document.</description>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="localName"/>
+            </sequence>
+            <arg name="qualifiedName"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endPrefixMapping" id="ContentHandler-endPrefixMapping">
+          <abstract>End the scope of a prefix-URI mapping.</abstract>
+          <description>See startPrefixMapping for details. This event will always
+occur after the corresponding endElementNS event, but the order
+of endPrefixMapping events is not otherwise guaranteed.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setDocumentLocator" id="ContentHandler-setDocumentLocator">
+          <abstract>Called by the parser to give the application a locator for
+locating the origin of document events.</abstract>
+          <description>The locator allows the application to determine the end
+position of any document-related event, even if the parser is
+not reporting an error. Typically, the application will use
+this information for reporting its own errors (such as
+character content that does not match an application's
+business rules). The information returned by the locator is
+probably not sufficient for use with a search engine.
+
+Note that the locator will return correct information only
+during the invocation of the events in this interface. The
+application should not attempt to use it at any other time.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="locator"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startDocument" id="ContentHandler-startDocument">
+          <abstract>Receive notification of the beginning of a document.</abstract>
+          <description>The parser will invoke this method only once, before any
+other methods in this interface.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="ContentHandler-startElementNS">
+          <abstract>Signals the start of an element.</abstract>
+          <description>The uri parameter is None for elements which have no namespace,
+the qualifiedName parameter is the raw XML name used in the source
+document, and the atts parameter holds an instance of the
+Attributes class containing the attributes of the element.</description>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="localName"/>
+            </sequence>
+            <arg name="qualifiedName"/>
+            <arg name="atts"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startPrefixMapping" id="ContentHandler-startPrefixMapping">
+          <abstract>Begin the scope of a prefix-URI Namespace mapping.</abstract>
+          <description>The information from this event is not necessary for normal
+Namespace processing: the XmlParser will automatically replace
+prefixes for element and attribute names.
+
+There are cases, however, when applications need to use
+prefixes in character data or in attribute values, where they
+cannot safely be expanded automatically; the
+start/endPrefixMapping event supplies the information to the
+application to expand prefixes in those contexts itself, if
+necessary.
+
+Note that start/endPrefixMapping events are not guaranteed to
+be properly nested relative to each-other: all
+startPrefixMapping events will occur before the corresponding
+startElementNS event, and all endPrefixMapping events will occur
+after the corresponding endElementNS event, but their order is
+not guaranteed.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="uri"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="DomBuilder" public="yes">
+      <bases>
+        <base documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+      </bases>
+      <abstract>A ContentHandler that is used to construct a Domlette Document.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="DomBuilder" module="Ft.Xml.Sax"/>
+        <base name="ContentHandler" module="Ft.Xml.Sax"/>
+      </method-resolution-order>
+      <methods name="ContentHandler" module="Ft.Xml.Sax">
+        <method public="no" name="__init__" id="DomBuilder-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="characters" id="DomBuilder-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="endDocument" id="DomBuilder-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="endElementNS" id="DomBuilder-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expandedName"/>
+            <arg name="qualifiedName"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="getDocument" id="DomBuilder-getDocument">
+          <abstract>Returns the newly constructed Document instance.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startDocument" id="DomBuilder-startDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="startElementNS" id="DomBuilder-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expandedName"/>
+            <arg name="qualifiedName"/>
+            <arg name="attributes"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="startPrefixMapping" id="DomBuilder-startPrefixMapping">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="uri"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="ContentHandler" module="Ft.Xml.Sax">
+        <member-reference name="endPrefixMapping" public="yes"/>
+        <member-reference name="setDocumentLocator" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Locator" public="yes">
+      <abstract>Interface for associating a parse event with a document
+location. A locator object will return valid results only during
+calls to ContentHandler methods; at any other time, the results are
+unpredictable.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Locator" module="Ft.Xml.Sax"/>
+      </method-resolution-order>
+      <methods name="Locator" module="Ft.Xml.Sax">
+        <method public="yes" name="getColumnNumber" id="Locator-getColumnNumber">
+          <abstract>Return the column number where the current event ends.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getLineNumber" id="Locator-getLineNumber">
+          <abstract>Return the line number where the current event ends.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getSystemId" id="Locator-getSystemId">
+          <abstract>Return the system identifier for the current event.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="SaxPrinter" public="yes">
+      <bases>
+        <base documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+      </bases>
+      <abstract>A ContentHandler that serializes the result using a 4Suite printer</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="SaxPrinter" module="Ft.Xml.Sax"/>
+        <base name="ContentHandler" module="Ft.Xml.Sax"/>
+      </method-resolution-order>
+      <methods name="ContentHandler" module="Ft.Xml.Sax">
+        <method public="no" name="__init__" id="SaxPrinter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.Lib.XmlPrinter.XmlPrinter instance at 0xb76bcb0c&gt;" name="printer"/>
+          </arguments>
+        </method>
+        <method public="yes" name="characters" id="SaxPrinter-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="endDocument" id="SaxPrinter-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="endElementNS" id="SaxPrinter-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="namespaceURI"/>
+              <arg name="localName"/>
+            </sequence>
+            <arg name="qualifiedName"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="startDocument" id="SaxPrinter-startDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="startElementNS" id="SaxPrinter-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="namespaceURI"/>
+              <arg name="localName"/>
+            </sequence>
+            <arg name="qualifiedName"/>
+            <arg name="attributes"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+        <method public="yes" name="startPrefixMapping" id="SaxPrinter-startPrefixMapping">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="uri"/>
+          </arguments>
+          <overrides documented="yes" class="ContentHandler" module="Ft.Xml.Sax"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="ContentHandler" module="Ft.Xml.Sax">
+        <member-reference name="endPrefixMapping" public="yes"/>
+        <member-reference name="setDocumentLocator" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="FEATURE_GENERATOR" id="FEATURE_GENERATOR">
+      <value>'http://4suite.org/sax/features/generator'</value>
+    </global>
+    <global public="yes" name="FEATURE_PROCESS_XINCLUDES" id="FEATURE_PROCESS_XINCLUDES">
+      <value>'http://4suite.org/sax/features/process-xincludes'</value>
+    </global>
+    <global public="yes" name="PROPERTY_WHITESPACE_RULES" id="PROPERTY_WHITESPACE_RULES">
+      <value>'http://4suite.org/sax/properties/whitespace-rules'</value>
+    </global>
+    <global public="yes" name="PROPERTY_YIELD_RESULT" id="PROPERTY_YIELD_RESULT">
+      <value>'http://4suite.org/sax/properties/yield-result'</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+  </globals>
+</module>

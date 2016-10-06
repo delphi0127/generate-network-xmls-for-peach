@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V1.1//EN"
+   "http://docbook.org/xml/simple/1.1/sdocbook.dtd">
+<article class="whitepaper" status="draft">
+  <title>Obtaining Developmental Versions of <trademark
+  class="trade">4Suite</trademark> via CVS</title>
+
+  <articleinfo>
+    <title>Obtaining Developmental Versions of <trademark
+    class="trade">4Suite</trademark> via CVS</title>
+
+    <authorgroup>
+      <author>
+        <firstname>Mike</firstname>
+
+        <surname>Brown</surname>
+
+        <affiliation>
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </author>
+
+      <othercredit>
+        <firstname>Shatin</firstname>
+
+        <surname>Rai</surname>
+
+        <affiliation>
+          <jobtitle>Intern</jobtitle>
+
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </othercredit>
+
+      <othercredit>
+        <firstname>Uche</firstname>
+
+        <surname>Ogbuji</surname>
+
+        <affiliation>
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </othercredit>
+    </authorgroup>
+
+    <legalnotice>
+      <para>This document can be freely translated and distributed. It is
+      released under the <ulink type="off-site"
+      url="http://www.linuxdoc.org/manifesto.html">LDP License</ulink>.</para>
+    </legalnotice>
+
+    <abstract>
+      <para>This document provides step-by step instructions for users to
+      obtain developmental versions of <trademark
+      class="trade">4Suite</trademark> from the project's public CVS
+      repository.</para>
+
+      <para>4Suite is a Python-based toolkit for XML and RDF application
+      development. It features a library of integrated tools for XML
+      processing, implementing open technologies such as DOM, RDF, XSLT,
+      XInclude, XPointer, XLink, XPath, XUpdate, RELAX NG, and XML/SGML
+      Catalogs. Layered upon this is an XML and RDF data repository and
+      server, which supports multiple methods of data access, query, indexing,
+      transformation, rich linking, and rule processing, and provides the data
+      infrastructure of a full database system, including transactions,
+      concurrency, access control, and management tools. It also supports HTTP
+      (including SOAP and WebDAV), RPC, FTP, and CORBA.</para>
+    </abstract>
+
+    <revhistory>
+      <revision>
+        <revnumber>0.0</revnumber>
+
+        <date>2000-12-20</date>
+
+        <authorinitials>UO</authorinitials>
+
+        <revremark>Initial Release</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>0.1</revnumber>
+
+        <date>2002-01-27</date>
+
+        <authorinitials>SR</authorinitials>
+
+        <revremark>0.12 Alpha release</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>0.2</revnumber>
+
+        <date>2002-07-01</date>
+
+        <authorinitials>UO</authorinitials>
+
+        <revremark>0.12a3 release</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>0.3</revnumber>
+
+        <date>2002-11-22</date>
+
+        <authorinitials>MB</authorinitials>
+
+        <revremark>Conversion to Simplified DocBook V1.0CR1; minor
+        edits</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>0.4</revnumber>
+
+        <date>2003-02-28</date>
+
+        <authorinitials>MB</authorinitials>
+
+        <revremark>minor edits</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>0.5</revnumber>
+
+        <date>2003-03-27</date>
+
+        <authorinitials>MB</authorinitials>
+
+        <revremark>minor edits</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>1.0</revnumber>
+
+        <date>2003-08-21</date>
+
+        <authorinitials>MB</authorinitials>
+
+        <revremark>added intro, TortoiseCVS info, many other
+        things</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>1.0.1</revnumber>
+
+        <date>2004-10-27</date>
+
+        <authorinitials>MB</authorinitials>
+
+        <revremark>noted Python requirement of 2.2.1 or higher</revremark>
+      </revision>
+
+      <revision>
+        <revnumber>1.0.2</revnumber>
+
+        <date>2005-12-11</date>
+
+        <authorinitials>JLC</authorinitials>
+
+        <revremark>minor edits</revremark>
+      </revision>
+    </revhistory>
+
+    <keywordset>
+      <keyword>4Suite</keyword>
+
+      <keyword>CVS</keyword>
+
+      <keyword>HOWTO</keyword>
+
+      <keyword>install</keyword>
+
+      <keyword>Windows</keyword>
+
+      <keyword>Linux</keyword>
+
+      <keyword>UNIX</keyword>
+    </keywordset>
+  </articleinfo>
+
+  <section>
+    <title>Introduction and Conventions</title>
+
+    <para>This document contains instructions for using CVS to keep up-to-date
+    with the latest 4Suite source code. There is no guarantee that this code
+    will be free of bugs, or that it will even build, so please consider it to
+    be of strictly "alpha" quality.</para>
+
+    <section>
+      <title>About CVS</title>
+
+      <para>CVS is a free, mature <emphasis role="bold">version control
+      system</emphasis>: a client/server software system that developers use
+      to store and track changes to source code. Fourthought maintains a CVS
+      server that allows public access, so anyone can get the same code that
+      the developers are using to test bug fixes &amp; feature enhancements
+      for the next version of 4Suite.</para>
+    </section>
+
+    <section>
+      <title>Conventions</title>
+
+      <para>Some command-line examples in this document may use
+      "<computeroutput>$</computeroutput>" or something like
+      "<computeroutput>C:\dev&gt;</computeroutput>" to represent the command
+      shell prompt. The actual prompt varies from system to system, so please
+      just consider them to be placeholders. And obviously, they aren't
+      something that you're supposed to type.</para>
+
+      <para>Some command-line examples in this document may use the text
+      "SNIP" in place of a great deal of output from an instruction.</para>
+    </section>
+  </section>
+
+  <section id="maillist">
+    <title>Mailing Lists</title>
+
+    <para>If you are going to be keeping up with 4Suite via CVS, then you
+    should consider subscribing to the <ulink
+    url="http://lists.fourthought.com/mailman/listinfo/4suite-dev">4suite-dev
+    mailing list</ulink>. This is the mailing list on which the developers and
+    other interested parties discuss issues pertaining to the development
+    code, whereas the regular <ulink
+    url="http://lists.fourthought.com/mailman/listinfo/4suite">4suite mailing
+    list</ulink> is mainly for users of release versions.</para>
+
+    <para>You may also want to know about the <ulink
+    url="http://lists.fourthought.com/mailman/listinfo/4suite-checkins">4suite-checkins
+    mailing list</ulink>. This read-only list announces each commit to the CVS
+    repository as it is made. At times, it can be high volume, and not very
+    interesting reading, but its <ulink
+    url="http://lists.fourthought.com/pipermail/4suite-checkins/">archives</ulink>
+    have proven useful for quickly locating diffs and patches.</para>
+  </section>
+
+  <section>
+    <title>Viewing the 4Suite CVS Repository on-line</title>
+
+    <para>The 4Suite project CVS repository can be browsed on the web at
+    <ulink
+    url="http://cvs.4suite.org/cgi-bin/viewcvs.cgi/4Suite/">http://cvs.4suite.org/</ulink>.</para>
+  </section>
+
+  <section>
+    <title>Prerequisite: a standard C compiler</title>
+
+    <para>Before proceeding, please note that you need an ANSI/ISO C compiler
+    in order to build 4Suite from source. This is not a problem for most Unix
+    users, since gcc is now standard on most POSIX platforms, including most
+    (if not all) Linux distributions, all of the BSDs, Mac OS X, and
+    Cygwin.</para>
+
+    <para>Windows, however, does not come with a C compiler; if you are on
+    this platform, you must provide your own. 4Suite's developers usually use
+    Microsoft <trademark class="registered">Visual C++ 6.0</trademark>. Other
+    compilers are supported, but not widely tested. Please report any
+    difficulties to the mailing list. After you have downloaded the 4Suite
+    source code, you can invoke <userinput>setup.py
+    --help-compilers</userinput> to see what compilers are supported.</para>
+  </section>
+
+  <section>
+    <title>Prerequisite: Python 2.2.1 or newer</title>
+
+    <para>The development version of 4Suite will not work on versions of
+    Python older than 2.2.1.</para>
+  </section>
+
+  <section>
+    <title>Obtaining the Source Code</title>
+
+    <para>You have two options for obtaining the current 4Suite source
+    code.</para>
+
+    <para>One option (the one we recommend) is to download the source code
+    with a <emphasis role="bold">CVS client</emphasis>. For an end user, the
+    main advantage to using a CVS client is that you only download the
+    complete source code once. Thereafter, you can use the client to easily
+    download and automatically apply patches for only the files that have
+    changed since your last update.</para>
+
+    <para>The other option is to use anonymous FTP to get one of the nightly
+    <emphasis role="bold">CVS snapshots</emphasis>. A snapshot is the complete
+    source code in one standard .tar.gz file. A new snapshot is generated
+    daily. The downside of getting a snapshot is that you have to download an
+    entire snapshot each time you want to get an update, and it's difficult to
+    tell what changed. Also, if you get a snapshot, you can't just switch to
+    using a CVS client to get updates, because you need some special files
+    that are created only the first time you get the code via a CVS
+    client.</para>
+
+    <section>
+      <title>Getting a CVS Snapshot of the Source Code</title>
+
+      <para>If you prefer to get a CVS snapshot, then this is all you need to
+      do:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>Get the latest snapshot at <ulink
+          url="ftp://ftp.4suite.org/pub/cvs-snapshots/4Suite-CVS.tar.gz">ftp://ftp.4suite.org/pub/cvs-snapshots/4Suite-CVS.tar.gz</ulink>.
+          Or, if you are specifically looking for an older snapshot, feel free
+          to browse <ulink
+          url="ftp://ftp.4suite.org/pub/cvs-snapshots/">ftp://ftp.4suite.org/pub/cvs-snapshots/</ulink>.</para>
+        </listitem>
+
+        <listitem>
+          <para>Unzip the file somewhere. For example, on UNIX, the command
+          <userinput>tar xzf 4Suite-CVS.tar.gz</userinput> should suffice.
+          Windows users can use a third-party zip utility; the popular ones
+          all support this format. Those who download with IE 5 may find that
+          the filename loses its .gz extension, so be sure to correct the name
+          before trying to unzip it.</para>
+        </listitem>
+
+        <listitem>
+          <para>Windows users, consult the <link linkend="building">Building
+          4Suite on Windows</link> section of this document to see how to do
+          the build.</para>
+
+          <para>Everyone else, consult the <ulink url="UNIX.xml">Installing
+          4Suite on UNIX</ulink> document.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section>
+      <title>Getting the Source Code with a CVS Client</title>
+
+      <section>
+        <title>Quick Summary for Power Users (any platform)</title>
+
+        <para>If you know your way around a CVS client, then here's a summary
+        of the info you need:</para>
+
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para>CVS host: <emphasis
+            role="bold">cvs.4suite.org</emphasis></para>
+          </listitem>
+
+          <listitem>
+            <para>CVS root: <emphasis
+            role="bold">/var/local/cvsroot</emphasis></para>
+          </listitem>
+
+          <listitem>
+            <para>Authentication type: <emphasis role="bold">password server
+            (pserver</emphasis>)</para>
+          </listitem>
+
+          <listitem>
+            <para>Username: <emphasis role="bold">anonymous</emphasis></para>
+          </listitem>
+
+          <listitem>
+            <para>Password: <emphasis role="bold">(no
+            password)</emphasis></para>
+          </listitem>
+        </itemizedlist>
+
+        <para>The above translates to the CVSROOT <emphasis
+        role="bold">:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot</emphasis></para>
+
+        <para>The module to checkout is: <emphasis
+        role="bold">4Suite</emphasis></para>
+
+        <para>For example, if you are using a command-line version of CVS
+        (e.g. standard cvs on Unix or Cygwin, or CVSNT on Windows), simply run
+        these commands from a shell prompt, pressing Enter when prompted for a
+        password:</para>
+
+        <para><userinput>cvs
+        -d:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot
+        login</userinput></para>
+
+        <para><userinput>cvs
+        -d:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot get
+        4Suite</userinput></para>
+
+        <para>A <computeroutput>4Suite</computeroutput> folder will be created
+        in the current directory, and the source code will be downloaded into
+        it.</para>
+
+        <para>In the future, you can get the latest changes by simply running
+        <userinput>cvs update -dP</userinput>.</para>
+
+        <para>Next step: Windows users, consult the <link
+        linkend="building">Building 4Suite on Windows</link> section of this
+        document to see how to do the build. Everyone else, consult the <ulink
+        url="UNIX.xml">Installing 4Suite on UNIX</ulink> document.</para>
+      </section>
+
+      <section>
+        <title>Detailed Instructions for Windows Users</title>
+
+        <section>
+          <title>Using Windows CVS clients to get 4Suite source code</title>
+
+          <para>There are several very good CVS clients available for Windows.
+          The sections below explain where to get and how to use the clients
+          that the 4Suite developers recommend for Windows users. If you want
+          to use a CVS client to download 4Suite, then please pick a client
+          from the list below and follow the appropriate instructions.</para>
+
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para><link linkend="TortoiseCVS">TortoiseCVS</link> -
+              integrates into the Windows file explorer</para>
+            </listitem>
+
+            <listitem>
+              <para><link linkend="CVSNT">CVSNT</link> - command-line
+              interface, just like on Unix</para>
+            </listitem>
+          </itemizedlist>
+
+          <section id="TortoiseCVS">
+            <title>TortoiseCVS</title>
+
+            <para>TortoiseCVS is a free CVS client that works from context
+            (right-click) menus in the Windows Explorer shell. It's quite
+            good, sporting many more features than are mentioned here.</para>
+
+            <!--
+            <figure>
+              <title>TortoiseCVS in action</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="/include/TortoiseCVS_screenshot.png" format="PNG" width="605" depth="525" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </figure>
+            -->
+
+            <orderedlist>
+              <listitem>
+                <para>Download and install TortoiseCVS. You can get it from
+                <ulink
+                url="http://www.tortoisecvs.org/">tortoisecvs.org</ulink>.</para>
+              </listitem>
+
+              <listitem>
+                <para>In Windows Explorer, navigate to a location where you'd
+                like the 4Suite code to live. For example,
+                <computeroutput>C:\dev</computeroutput>.</para>
+              </listitem>
+
+              <listitem>
+                <para>At this point, you may wish to familiarize yourself with
+                TortoiseCVS and adjust its configuration a bit.</para>
+
+                <para>Right-click in the Explorer window somewhere, not on a
+                file. On the context menu, navigate to CVS and then to
+                Preferences. A TortoiseCVS Preferences dialog will open. In
+                this dialog, there are a couple of things you'll probably want
+                to change. None of these changes are absolutely necessary, but
+                they are recommended.</para>
+
+                <itemizedlist>
+                  <listitem>
+                    <para>Pick visually pleasing overlay icons. Click on the
+                    first "Browse" button in the "Main" tab and pick an
+                    overlay set that you like. Your 4Suite source code files
+                    will have these overlays on their icons, and chances are,
+                    the default overlays are not what you'd prefer.
+                    TortoiseCVS will say that you need to reboot to see the
+                    new icons, but if you know how to kill the Explorer
+                    process and start a new Explorer from the Task Manager,
+                    you can just do that.</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>If you typically edit text files in something other
+                    than Notepad, and especially if there's a chance that
+                    you'll be submitting patches to the developers, then do
+                    the following: In the "Advanced" tab of the preferences
+                    dialog, set "Unix line endings", and unset "Check not Unix
+                    sandbox". This ensures that the text files you download
+                    with TortoiseCVS will contain single-character newlines
+                    (LF, rather than CR+LF), which is the convention the
+                    developers use.</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>You might want to install a diff application
+                    (something that shows the differences between two text
+                    files), so that you can compare different versions of
+                    files. The FAQ on the TortoiseCVS site has
+                    recommendations. Configure TortoiseCVS to use the one you
+                    installed by entering the path to the appropriate file in
+                    the "External diff application" box on the "Main" tab of
+                    the preferences dialog.</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+
+              <listitem>
+                <para>Now you can do the checkout. Don't worry —"checkout" is
+                CVS's terminology for "download a copy". It's not like other
+                version control systems where the server marks files as being
+                checked out by you and uneditable by others.</para>
+
+                <para>Right-click in the Explorer window somewhere, not on a
+                file. On the context menu, pick "CVS Checkout...". The
+                Checkout Module dialog will appear.</para>
+              </listitem>
+
+              <listitem>
+                <para>In the Checkout Module dialog's "Module" tab, enter the
+                following in the CVSROOT box:</para>
+
+                <para><userinput>:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot</userinput></para>
+
+                <para>In the "Module" box at the bottom, enter "4Suite". Be
+                sure to capitalize the S in 4Suite. You don't need to set
+                anything in the other tabs, but you might want to look at them
+                to see what is in them, for future reference. Click the "OK"
+                button.</para>
+              </listitem>
+
+              <listitem>
+                <para>A new window, titled "Checking out in C:\dev -
+                TortoiseCVS", will appear, and the 4Suite source code should
+                begin downloading. When it's finished, it should say "Success,
+                CVS operation completed". Click "OK".</para>
+
+                <!--
+                <figure>
+                  <title>A successful TortoiseCVS checkout</title>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="/include/TortoiseCVS_checkout.png" format="PNG" width="637" depth="479" align="center"/>
+                    </imageobject>
+                  </mediaobject>
+                </figure>
+                -->
+              </listitem>
+            </orderedlist>
+
+            <para>That's it! You now have a
+            <computeroutput>C:\dev\4Suite</computeroutput> folder with all the
+            source code. The folder and its contents will have the overlay
+            icons, identifying the files as having come from a CVS repository.
+            If you modify a file, the overlay icon will change.</para>
+
+            <para>From now on, whenever you want to get the latest code, just
+            navigate to the <computeroutput>4Suite</computeroutput> folder,
+            right-click on the folder (or in the folder window, if it's open),
+            and choose "CVS Update".</para>
+
+            <para>Go ahead and skip down to the <link
+            linkend="building">Building 4Suite on Windows</link> section of
+            this document to see how to do the build.</para>
+          </section>
+
+          <section id="CVSNT">
+            <title>CVSNT</title>
+
+            <para>If you are familiar with the command-line version of CVS,
+            you might want to use CVSNT. CVSNT is a complete native Windows
+            port of the standard CVS server and client, just like on Unix. You
+            can use just the client portion of it.</para>
+
+            <orderedlist>
+              <listitem>
+                <para>Download the latest stable version of CVSNT from <ulink
+                url="http://www.cvsnt.com/">http://www.cvsnt.com/</ulink>.</para>
+
+                <para>Go to <ulink
+                url="http://www.cvsnt.com/">http://www.cvsnt.com/</ulink> and
+                download and install the stable version. Use the 'Windows
+                install (.exe)' link.</para>
+              </listitem>
+
+              <listitem>
+                <para>Check your environment variables and make sure that your
+                PATH contains <computeroutput>C:\Program
+                Files\CVS</computeroutput> for NT (or wherever you installed
+                the software). The installer sometimes has trouble modifying
+                your PATH, so you might need to do this yourself.</para>
+              </listitem>
+
+              <listitem>
+                <para>You should now be able to run cvs from the command line.
+                Open a command shell prompt and change to the directory where
+                you want to download the source (e.g.,
+                <computeroutput>C:\dev</computeroutput>).</para>
+              </listitem>
+
+              <listitem>
+                <para>Run the following commands. Just press Enter when
+                prompted for a password.</para>
+
+                <para><userinput>cvs
+                -d:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot
+                login</userinput></para>
+
+                <para><userinput>cvs
+                -d:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot get
+                4Suite</userinput></para>
+
+                <para>A <computeroutput>4Suite</computeroutput> folder will be
+                created in the current directory, and the source code will be
+                downloaded into it.</para>
+              </listitem>
+            </orderedlist>
+
+            <para>That's it! You now have a
+            <computeroutput>C:\dev\4Suite</computeroutput> folder with all the
+            source code.</para>
+
+            <para>In the future, you can get the latest changes by simply
+            running <userinput>cvs update -dP</userinput> in that
+            folder.</para>
+
+            <para>Go ahead and skip down to the <link
+            linkend="building">Building 4Suite on Windows</link> section of
+            this document to see how to do the build.</para>
+          </section>
+        </section>
+      </section>
+
+      <section id="Unix">
+        <title>Detailed Instructions for Unix Users</title>
+
+        <para>CVS comes standard on nearly all Unix systems, so there is no
+        extra software to install. Any user should have access to the
+        <computeroutput>cvs</computeroutput> command-line client.</para>
+
+        <orderedlist>
+          <listitem>
+            <para>Open a command shell prompt and change to the directory
+            where you want to download the source (e.g.,
+            <computeroutput>~/devel</computeroutput>).</para>
+          </listitem>
+
+          <listitem>
+            <para>Run the following commands. Just press Enter when prompted
+            for a password.</para>
+
+            <para><userinput>cvs
+            -d:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot
+            login</userinput></para>
+
+            <para><userinput>cvs
+            -d:pserver:anonymous@cvs.4suite.org:/var/local/cvsroot get
+            4Suite</userinput></para>
+
+            <para>A <computeroutput>4Suite</computeroutput> folder will be
+            created in the current directory, and the source code will be
+            downloaded into it.</para>
+          </listitem>
+        </orderedlist>
+
+        <para>That's it! You now have a
+        <computeroutput>~/devel/4Suite</computeroutput> folder with all the
+        source code.</para>
+
+        <para>In the future, you can get the latest changes by simply running
+        <userinput>cvs update -dP</userinput> in that folder.</para>
+
+        <para>Now consult the <ulink url="UNIX.xml">Installing 4Suite on
+        UNIX</ulink> document to see how to do the build.</para>
+      </section>
+
+      <section id="Cygwin">
+        <title>Notes for Cygwin Users</title>
+
+        <para>You need to follow the <link linkend="Unix">instructions for
+        Unix users</link>, but first take note:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Although obtaining the source code with CVS is relatively
+            painless, when building on Cygwin, there are several prerequisites
+            and package incompatibilities to watch out for. For now, these are
+            detailed in the <ulink
+            url="http://twistedmatrix.com/users/jh.twistd/xml-sig/moin.cgi/FtSuiteWiki_2fUserNotes">user-contributed
+            notes and documentation</ulink> in the <ulink
+            url="http://twistedmatrix.com/users/jh.twistd/xml-sig/moin.cgi">4Suite
+            Wiki</ulink>.</para>
+          </listitem>
+
+          <listitem>
+            <para>It is recommended that you only use the command-line CVS
+            client from Cygwin's <computeroutput>cvs</computeroutput> package,
+            rather than one of the native Windows clients, due to the
+            trickiness of end-of-line conventions between Windows and Cygwin.
+            The <computeroutput>cvs</computeroutput> package is available from
+            the 'devel' section of the Cygwin installer (setup.exe). You can
+            run the installer even if you already have Cygwin installed; it
+            will allow you to modify your existing installation.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
+  </section>
+
+  <section id="building">
+    <title>Building 4Suite on Windows</title>
+
+    <para>As mentioned above, you need a C compiler. You also need:</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>An appropriate version of Python (2.2.1 or higher). If PyXML is
+        not installed, your Python must have pyexpat and expat support
+        compiled in. This is usually not a problem, but occasionally, people
+        don't have it.</para>
+      </listitem>
+
+      <listitem>
+        <para>An appropriate version of PyXML, if you want to use it (it's not
+        a prerequisite). Acceptable PyXML versions are 0.7.1 or higher, with
+        0.8.2 or higher recommended. Avoid 0.8.1, which causes crashes. Also,
+        if you are going to install PyXML, but haven't yet, it is recommended
+        that you use the <userinput>--without-xpath</userinput> and
+        <userinput>--without-xslt</userinput> options when running PyXML's
+        setup.py.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Ensure that your C compiler executables are in your PATH and will
+    run from the command line. The default compiler assumed by the installer
+    is MS Visual C++, which uses the executable
+    <computeroutput>cl.exe</computeroutput>. This compiler happens to require
+    LIB and INCLUDE environment variables be set to point to MSVC's
+    <computeroutput>Lib</computeroutput> and <computeroutput>Include
+    directories</computeroutput>, respectively. Other compilers may have
+    different requirements.</para>
+
+    <para>You can specify a different compiler by passing an appropriate
+    <userinput>--compiler=<replaceable>compilerID</replaceable></userinput>
+    argument to 4Suite's setup.py. To see what other compilers are supported,
+    change to the directory where the source code was downloaded, e.g.
+    <computeroutput>C:\dev\4Suite</computeroutput>, and run <userinput>python
+    setup.py --help-compilers</userinput>.</para>
+
+    <para>Once you have the compiler ready, all you have to do is this:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Ensure that you don't already have a 4ssd instance
+        running.</para>
+      </listitem>
+
+      <listitem>
+        <para>Open a command shell, and change to the directory where the
+        source code was downloaded, e.g.
+        <computeroutput>C:\dev\4Suite</computeroutput>.</para>
+      </listitem>
+
+      <listitem>
+        <para>Run <userinput>python setup.py install</userinput>.</para>
+
+        <para>If you got the source with a CVS client, then the installer will
+        detect that you are in 'developer mode' due to the presence of CVS
+        directories, and will turn off verbose output by default. This
+        non-verbose output, which can be enforced by passing the
+        <userinput>-q</userinput> flag to setup.py, will look like the
+        following, if all goes well:</para>
+
+        <programlisting role="sample.IO"><computeroutput>running install
+running build
+running config
+running build_py
+running build_ext
+number.c
+   Creating library build\temp.win32-2.2\Release\Ft.Lib.number\number.lib
+   and object build\temp.win32-2.2\Release\Ft.Lib.number\number.exp
+escapequotes.c
+   Creating library build\temp.win32-2.2\Release\Ft.Lib.EscapeQuotesc\EscapeQuotesc.lib
+   and object build\temp.win32-2.2\Release\Ft.Lib.EscapeQuotesc\EscapeQuotesc.exp
+</computeroutput><emphasis role="italics">SNIP</emphasis>
+<computeroutput>running build_scripts
+stubmain.c
+running build_tests
+running build_l10n
+running install_lib
+running install_scripts
+running install_data
+running install_sysconf
+running install_localstate
+running install_tests
+</computeroutput></programlisting>
+
+        <para>If in developer mode, in order to build with verbose output
+        you'll want to append a <userinput>-v</userinput> flag to setup.py.
+        That is, run <userinput>python setup.py -v install</userinput>.</para>
+
+        <para>If you have trouble with the build or install, post to the
+        4suite or 4suite-dev <link linkend="maillist">mailing
+        lists</link>.</para>
+
+        <para>4Suite on Windows will all go into one
+        <computeroutput>Ft</computeroutput> directory. Typically, this will be
+        placed in <computeroutput>C:\Python21</computeroutput>,
+        <computeroutput>C:\Python22\Lib\site-packages</computeroutput>, or
+        <computeroutput>C:\Python23\Lib\site-packages</computeroutput>,
+        depending on the version of Python in use. You can specify a different
+        base directory by passing the
+        <userinput>--root=<replaceable>otherDirectory</replaceable></userinput>
+        option to the install command, e.g. <userinput>python setup.py install
+        --root=C:\dev\otherPython\Lib\site-packages</userinput>.</para>
+      </listitem>
+
+      <listitem>
+        <para>The last thing to do is to set your PATH environment variable so
+        that the 4Suite command-line tools can be run from anywhere. The place
+        where you configure the path varies with each version of Windows, but
+        is generally available through the System control panel. Right-click
+        on My Computer on the desktop and choose Properties to jump straight
+        to the control panel, and then navigate to the environment variable
+        section from there.</para>
+
+        <para>The path to add, as of 4Suite 1.0a4, is
+        <computeroutput>{PYTHONHOME}\Scripts</computeroutput>. So for a
+        typical Python 2.3 install, you would want to add
+        <userinput>C:\Python23\Scripts</userinput> to your PATH. <emphasis
+        role="bold">Note: This location is different than it was in all
+        versions of 4Suite through 1.0a3</emphasis>. So if you are upgrading,
+        remove the old <computeroutput>{PYTHONHOME or
+        site-packages}\Ft\Share\Bin</computeroutput> directory from your
+        PATH.</para>
+
+        <para>Alternatively, you could just copy the files from the Scripts
+        directory to another location that is already in your PATH.</para>
+      </listitem>
+    </orderedlist>
+
+    <!-- copied from the Windows install doc, but updated -->
+
+    <section>
+      <title>Test the installation</title>
+
+      <para>You should now be able to test the installation. Change to a
+      directory outside of the 4Suite source, and start the Python interactive
+      interpreter:</para>
+
+      <programlisting role="sample.IO"><computeroutput>C:\dev\4Suite&gt;<userinput>cd ..</userinput>
+C:\dev&gt;<userinput>python</userinput>
+Python 2.2.2 (#37, Oct 14 2002, 17:02:34) [MSC 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; <userinput>from Ft.Xml import Domlette</userinput>
+&gt;&gt;&gt; <userinput>from Ft.Xml.Xslt import Processor</userinput>
+&gt;&gt;&gt; <userinput>print Processor</userinput>
+&lt;module 'Ft.Xml.Xslt.Processor' from 'C:\Python22\Lib\site-packages\Ft\Xml\Xslt\Processor.pyc'&gt;
+&gt;&gt;&gt;</computeroutput></programlisting>
+
+      <para>If there are any problems, report them on the 4suite <link
+      linkend="maillist">mailing list</link>.</para>
+
+      <para>If all you wish to use in 4Suite are the basic command-line tools
+      and Python libraries, then you are done with installation and can
+      proceed to use them. To make sure things are working, try running a few
+      of the command-line tools with the <computeroutput>-h</computeroutput>
+      option to get usage information.</para>
+
+      <para><userinput>4xml -h</userinput></para>
+
+      <para><userinput>4xslt -h</userinput></para>
+
+      <para><userinput>4xpath -h</userinput></para>
+
+      <para><userinput>4rdf -h</userinput></para>
+
+      <para>More thorough regression test suites for the 4Suite Python
+      libraries are included with 4Suite, and you are welcome to try them out.
+      Ideally, in a regular release version of 4Suite, they should all run to
+      completion without errors. Warnings are OK. In alpha and beta versions
+      or CVS snapshots, some errors are to be expected, and do not need to be
+      reported unless the tests cannot even run to completion.</para>
+
+      <programlisting role="sample.IO"><computeroutput>C:\&gt;<userinput>cd \Python22\Share\4Suite\tests</userinput>
+C:\&gt;<userinput>python test.py -v</userinput>
+SNIP</computeroutput></programlisting>
+
+      <para>Be prepared for a lot of output. Omit the
+      <computeroutput>-v</computeroutput> if you want somewhat less detail.
+      You can also specify certain tests by appending the relative path to a
+      subdirectory or .py file.</para>
+
+      <para>If you want to use the XML/RDF repository and server features of
+      4Suite, then you will need to customize and install a configuration
+      file, initialize a repository, and do some further tests. These topics
+      are covered in the <ulink url="../QuickStart.xml">Quick Start</ulink>
+      documentation.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Building 4Suite on Unix</title>
+
+    <para>The procedure for building from source on Unix is the same, no
+    matter how the source was obtained, and no matter whether the source is
+    for a release or developmental version.</para>
+
+    <para>Consult the <ulink
+    url="http://4suite.org/docs/howto/UNIX.xml">Installing 4Suite on
+    UNIX</ulink> document to see how to do the build.</para>
+  </section>
+
+  <section>
+    <title>Resources</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="http://sourceforge.net/projects/foursuite/">4Suite
+        Project Page</ulink> - Bug Reports, Feature Requests, Patches</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="http://4suite.org/">4suite.org</ulink> -
+        Documentation, Downloads, News, CVS, Developer Resources</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink
+        url="http://lists.fourthought.com/mailman/listinfo/4suite">4Suite
+        Users Mailing List</ulink> - Peer &amp; Developer Support</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink
+        url="http://lists.fourthought.com/mailman/listinfo/4suite-ann">4Suite
+        Announcement Mailing List</ulink> - Infrequent Announcements about
+        4Suite</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="http://fourthought.com/">Fourthought, Inc.</ulink> -
+        Commercial Development, Consulting &amp; Support</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+</article>

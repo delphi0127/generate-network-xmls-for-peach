@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine">
+  <modification-date>2004-10-04 16:54:56</modification-date>
+  <abstract>Things to set up before importing other Ft.Lib.CommandLine modules</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="Arguments" realname="Ft.Lib.CommandLine.Arguments">
+      <abstract>Classes that support advanced arg processing for command-line scripts</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Command" realname="Ft.Lib.CommandLine.Command">
+      <abstract>Superclass for a command that can be invoked by a command-line script.</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CommandLineApp" realname="Ft.Lib.CommandLine.CommandLineApp">
+      <abstract>Base class for a command-line application, which is a type of Command</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CommandLineTestUtil" realname="Ft.Lib.CommandLine.CommandLineTestUtil">
+      <abstract>Command-line script related extensions to the test suite framework</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CommandLineUtil" realname="Ft.Lib.CommandLine.CommandLineUtil">
+      <abstract>Utility functions used by command-line scripts</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="FancyGetOpt" realname="Ft.Lib.CommandLine.FancyGetOpt">
+      <abstract>Advanced argument &amp; option processing for command-line scripts</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Options" realname="Ft.Lib.CommandLine.Options">
+      <abstract>Classes that support advanced option processing for command-line scripts</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+  </modules>
+  <globals>
+    <global public="yes" name="CONSOLE_WIDTH" id="CONSOLE_WIDTH">
+      <value>206</value>
+    </global>
+  </globals>
+</module>

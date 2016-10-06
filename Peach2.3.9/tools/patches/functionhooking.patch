@@ -1,0 +1,449 @@
+Index: agent.py
+===================================================================
+--- agent.py	(revision 2138)
++++ agent.py	(working copy)
+@@ -159,6 +159,7 @@
+ 	## Monitors
+ 	
+ 	GetMonitorData = 11
++	GetHookData = 30
+ 	DetectFault = 8
+ 	OnFault = 9
+ 	OnShutdown = 10			#: Test completed, shutting down
+@@ -389,6 +390,31 @@
+ 		
+ 		return pickle.dumps(msg)
+ 	
++	def xmlrpc_getHookData(self, msg):
++		msg = pickle.loads(msg)
++		if self._id == None or msg.id != self._id:
++			return pickle.dumps(_Msg(None, _MsgType.Nack))
++		
++		if msg.type != _MsgType.GetHookData:
++			return pickle.dumps(_Msg(None, _MsgType.Nack))
++		
++		print "Agent: getHookData()"
++		
++		msg = _Msg(None, _MsgType.Ack)
++		msg.results = []
++		
++		for m in self._monitors:
++			try:
++				data = m.GetHookData()
++				if data != None:
++					msg.results.append(data)
++				
++			except:
++				print "Agent: getHookData: Failure getting data from:", m.monitorName
++				raise
++		
++		return pickle.dumps(msg)
++	
+ 	def xmlrpc_onFault(self, msg):
+ 		msg = pickle.loads(msg)
+ 		if self._id == None or msg.id != self._id:
+@@ -901,6 +927,29 @@
+ 		
+ 		return msg.results
+ 	
++	def GetHookData(self):
++		'''
++		Get any hook data.
++		'''
++		
++		Debug("> GetHookData")
++		
++		msg = _Msg(self._id, _MsgType.GetHookData)
++		
++		try:
++			msg = pickle.loads(self._agent.getHookData(pickle.dumps(msg)))
++			
++		except:
++			self.Reconnect()
++			raise RedoTestException("Communication error with Agent %s" % self._name)
++		
++		if msg.type != _MsgType.Ack:
++			raise PeachException("Lost connection to Agent %s during GetHookData call." % self._name)
++		
++		Debug("< GetHookData")
++		
++		return msg.results
++	
+ 	def DetectedFault(self):
+ 		'''
+ 		Check if a fault was detected.
+@@ -1099,6 +1148,16 @@
+ 		
+ 		return ret
+ 	
++	def GetHookData(self):
++		'''
++		Get any hook data.
++		'''
++		ret = []
++		for name in self._agents.keys():
++			ret.append(self._agents[name].GetHookData())
++		
++		return ret
++	
+ 	def DetectedFault(self):
+ 		'''
+ 		Check if a fault was detected.
+Index: Agent/debugger.py
+===================================================================
+--- Agent/debugger.py	(revision 2138)
++++ Agent/debugger.py	(working copy)
+@@ -32,6 +32,7 @@
+ 
+ # Authors:
+ #   Michael Eddington (mike@phed.org)
++#	Arris Huijgen (https://www.fox-it.com/): Added function hooking/logging functionality
+ 
+ # $Id$
+ 
+@@ -112,7 +113,7 @@
+ 		def Output(self, this, Mask, Text):
+ 			self.buff += Text
+ 			
+-		def LoadModule(self, unknown, imageFileHandle, baseOffset, moduleSize, moduleName, imageName, checkSum, timeDateStamp = None):
++		def LoadModule(self, dbg, imageFileHandle, baseOffset, moduleSize, moduleName, imageName, checkSum, timeDateStamp = None):
+ 			if self.pid == None:
+ 				self.dbg.idebug_control.Execute(DbgEng.DEBUG_OUTCTL_THIS_CLIENT,
+ 										   c_char_p("|."),
+@@ -126,6 +127,33 @@
+ 					fd = open(self.TempfilePid, "wb+")
+ 					fd.write(str(self.pid))
+ 					fd.close()
++			
++			## Function Hooking ##
++			# Grab libraryname
++			librarydll = imageName.rpartition('\\')[2].lower()
++			library = librarydll.rpartition('.')[0]
++			
++			# Add hooks per library
++			if dbg.FunctionsToHook.has_key(library):
++				print "Adding hooks to \"%s\"..." % library
++				
++				# Iterate through functions of library
++				for hook in dbg.FunctionsToHook[library]:
++					print "\tHooking \"%s\"..." % hook.function
++					
++					try:
++						address = dbg.resolve_symbol(hook.function)
++					except:
++						print "Error: function \"%s\" cannot be found!" % hook.function
++					
++					# Create new hook on function entry
++					self.Hooks.add(
++							dbg = dbg,
++							address = address,
++							num_args = hook.numargs,
++							entry_hook = interceptParameters,
++							exit_hook = None)
++					
+ 		
+ 		def GetInterestMask(self):
+ 			return PyDbgEng.DbgEng.DEBUG_EVENT_EXCEPTION | PyDbgEng.DbgEng.DEBUG_FILTER_INITIAL_BREAKPOINT | \
+@@ -303,6 +331,65 @@
+ 			return DbgEng.DEBUG_STATUS_BREAK
+ 
+ 
++	def interceptParameters(dbg, args):
++		# Get hooked function name from stack
++		stackframe = dbg.get_stack_trace(1)
++		hook = dbg.get_symbol(stackframe[0].InstructionOffset)
++		(library, function) = hook.split("!")
++		
++		try:
++			# Construct text representation of called function
++			for item in dbg.FunctionsToHook[library]:
++				if item.function == function:
++					# Function name with opening bracelet
++					buf = "%s(" % hook
++					
++					# Arguments
++					for pos in xrange(0, item.numargs):
++						
++						# View argument only if it has to be displayed
++						found = False
++						for interarg in item.interestingargs:
++							if interarg[1] == pos:
++								found = True
++								pointertype = interarg[0]
++								
++								# Try to use given parameter as pointer to a string, otherwise present as a hexadecimal value
++								try:
++									if pointertype == 'a':	# ANSI Characters
++										param = dbg.read_char_string(args[pos], 260).replace("\r", "\\r").replace("\n", "\\n")
++									elif pointertype == 'w':
++										param = dbg.read_wchar_string(args[pos], 260).replace("\r", "\\r").replace("\n", "\\n")
++									elif pointertype == 'u':# Unicode Characters
++										param = dbg.read_unicode_string(args[pos]).replace("\r", "\\r").replace("\n", "\\n")
++									else:
++										raise Exception('unknownPointertype')
++										
++									buf += "\"%s\", " % param
++								except:
++									buf += "0x%x, " % args[pos]
++						
++						if not found:
++							buf += "-, "
++					
++					# Append closing bracelet
++					if item.numargs > 0:
++						buf = buf[:len(buf)-2] + ")"
++					else:
++						buf = buf + ")"
++					
++					##print buf
++		except:
++			import traceback
++			print "Error while hooking function: \"%s\"\n---- STACKTRACE ----" % function
++			traceback.print_exc()
++			print "---- END STACKTRACE ----\n"
++		
++		# Write to file
++		fd = open(dbg.TempHookLog, "ab")
++		fd.write(pickle.dumps(buf))
++		fd.close()
++	
+ 	def WindowsDebugEngineProcess_run(*args, **kwargs):
+ 		
+ 		started = kwargs['Started']
+@@ -319,6 +406,8 @@
+ 		quit = kwargs['Quit']
+ 		Tempfile = kwargs['Tempfile']
+ 		TempfilePid = kwargs['TempfilePid']
++		FunctionsToHook = kwargs['Hooks']
++		TempHookLog = kwargs['TempHookLog']
+ 		dbg = None
+ 		
+ 		print "WindowsDebugEngineProcess_run"
+@@ -336,6 +425,7 @@
+ 			_eventHandler.quit = quit
+ 			_eventHandler.Tempfile = Tempfile
+ 			_eventHandler.TempfilePid = TempfilePid
++			_eventHandler.Hooks = PyDbgEng.Hooking.hook_container()
+ 			
+ 			if KernelConnectionString:
+ 				dbg = PyDbgEng.KernelAttacher(  connection_string = KernelConnectionString,
+@@ -413,6 +503,8 @@
+ 			
+ 			_eventHandler.dbg = dbg
+ 			started.set()
++			dbg.FunctionsToHook = FunctionsToHook
++			dbg.TempHookLog = TempHookLog
+ 			dbg.event_loop_with_quit_event(quit)
+ 			
+ 		finally:
+@@ -465,6 +557,12 @@
+ 		
+ 		return None
+ 	
++	class FunctionHook(object):
++		def __init__(self, function=None, numargs=-1, interestingargs=[]):
++			self.function=function
++			self.numargs=numargs
++			self.interestingargs=interestingargs
++	
+ 	class WindowsDebugEngine(Monitor):
+ 		'''
+ 		Windows debugger agent.  This debugger agent is based on the windbg engine and
+@@ -536,6 +634,41 @@
+ 			else:
+ 				self.IgnoreSecondChanceGardPage = False
+ 			
++			self.hooks = {}
++			for param in args:
++				if param.startswith("Hook"):
++					# imagename!function;#params;#interestingIndices(1,2,..)
++					hookstring = args[param].strip('\'').split(';')
++
++					if len(hookstring) == 3:
++						newhook = FunctionHook()
++						
++						# Extract values from hook-string
++						(imagename, newhook.function) = hookstring[0].split('!')
++						imagename = imagename.lower()
++						newhook.numargs = int(hookstring[1])
++						if len(hookstring[2]) > 0:
++							
++							newhook.interestingargs = []							
++							for s in hookstring[2].split(','):
++								
++								# type given
++								if len(s) == 1:
++									newhook.interestingargs.append((None, int(s[0])))
++								elif len(s) == 2:
++									newhook.interestingargs.append((str.lower(s[0]), int(s[1])))
++								else:
++									print("Skipped hooking argument \"%s\" because of improper format" % s)
++						
++						# Create empty array for every library
++						if not self.hooks.has_key(imagename):
++							self.hooks[imagename] = []
++						
++						# Add function to library
++						self.hooks[imagename].append(newhook)
++					else:
++						print "Warning: skipping hook \"%s\": need 3 params!" % param
++			
+ 			if args.has_key("NoCpuKill"):
+ 				self.NoCpuKill = True
+ 			else:
+@@ -574,6 +707,8 @@
+ 			os.close(fd)
+ 			(fd, self.tempfilepid) = tempfile.mkstemp()
+ 			os.close(fd)
++			(fd, self.temphooklog) = tempfile.mkstemp()
++			os.close(fd)
+ 			
+ 			try:
+ 				os.unlink(self.tempfile)
+@@ -594,7 +729,9 @@
+ 				'IgnoreSecondChanceGardPage':self.IgnoreSecondChanceGardPage,
+ 				'Quit':self.quit,
+ 				'Tempfile':self.tempfile,
+-				'TempfilePid':self.tempfilepid
++				'TempfilePid':self.tempfilepid,
++				'TempHookLog':self.temphooklog,
++				'Hooks':self.hooks
+ 				})
+ 			
+ 			# Kick off our thread:
+@@ -688,9 +825,9 @@
+ 								print "PublisherCall: Stopping debugger, CPU:", cpu
+ 								self._StopDebugger()
+ 								return False
++			
++				return not self.quit.is_set()
+ 				
+-				return not self.quit.is_set()
+-			
+ 			return None
+ 			
+ 		def getProcessCpuTimeWindows(self, process):
+@@ -829,6 +966,31 @@
+ 			
+ 			return None
+ 		
++		def GetHookData(self):
++			print "GetHookData(): Loading from file"
++			
++			if os.path.isfile(self.temphooklog):
++				# Read data from file
++				fd = open(self.temphooklog, "rb")
++				hookdata = []
++				while True:
++					try: hookdata.append(pickle.load(fd))
++					except EOFError: break;
++				fd.close()
++
++				# Clear file
++				try:
++					os.unlink(self.temphooklog)
++				except:
++					pass
++				
++				# Return data
++				print "GetHookData(): Got it!"			
++				return hookdata
++			else:
++				print "GetHookData(): There is currently no hookdata available."
++				return None
++		
+ 		def DetectedFault(self):
+ 			'''
+ 			Check if a fault was detected.
+Index: Engine/engine.py
+===================================================================
+--- Engine/engine.py	(revision 2138)
++++ Engine/engine.py	(working copy)
+@@ -143,6 +143,12 @@
+ 	
+ 	def OnStopRun(self, run, test, variationCount, monitorData, value):
+ 		pass
++	
++	def WriteHooksLog(self, engine):
++		'''
++		Collect hooking-data from agents and write to hooks-logfile.
++		'''
++		pass
+ 
+ class EngineWatchPlexer(EngineWatcher):
+ 	'''
+@@ -208,7 +214,10 @@
+ 	def OnActionComplete(self, action):
+ 		for w in self.watchers:
+ 			w.OnActionComplete(action)
+-	
++			
++	def WriteHooksLog(self, engine):
++		for w in self.watchers:
++			w.WriteHooksLog(engine)
+ 
+ 
+ class StdoutWatcher(EngineWatcher):
+@@ -695,6 +704,10 @@
+ 					
+ 					self.agent.OnTestFinished()
+ 					
++					# Once in a while collect functionhooking-data from agents and write to logfile
++					if testCount % 64 == 0:
++						self.watcher.WriteHooksLog(self)
++					
+ 					# Check for faults
+ 					if self.agent.DetectedFault():
+ 						# Collect data
+@@ -765,6 +778,8 @@
+ 			raise
+ 		
+ 		finally:
++			# Flush functionhooks buffer to log
++			self.watcher.WriteHooksLog(self)
+ 			
+ 			# We no longer actually save our state as it's not needed
+ 			# instead, we will clean up.
+Index: logger.py
+===================================================================
+--- logger.py	(revision 2138)
++++ logger.py	(working copy)
+@@ -96,6 +96,12 @@
+ 	
+ 	def OnStopRun(self, run, test, variationCount, monitorData, value):
+ 		pass
++	
++	def WriteHooksLog(self, engine):
++		'''
++		Collect hooking-data from and write to hooks-logfile.
++		'''
++		pass
+ 
+ import os,uuid
+ from time import *
+@@ -255,7 +261,25 @@
+ 		'''
+ 		if variationCount % self.heartBeat == 0:
+ 			self._writeMsg("On test variation # %d" % variationCount)
++			
++	def WriteHooksLog(self, engine):
++		# Collect hookdata
++		alldata = []		
++		agentshookdata = engine.agent.GetHookData()
++		
++		# Join data
++		for agent in agentshookdata:
++				for dataset in agent:
++					for line in dataset:
++						alldata.append(line)
+ 
++		# Write to functionhooks.txt logfile
++		if len(alldata) > 0:
++			functionhooks = open(os.path.join(self.path, "functionhooks.txt"), "a")
++			for line in alldata:
++				functionhooks.write(line + '\n')
++			functionhooks.close()
++
+ import xmlrpclib
+ 
+ class PeachManagerLogger(Logger):

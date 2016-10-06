@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.TestCoverage">
+  <modification-date>2006-08-17 13:09:43</modification-date>
+  <abstract>A class that uses Python's profiler to help TestModule know which
+functions have been called in a particular module.</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestCoverage" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestCoverage" module="Ft.Lib.TestSuite.TestCoverage"/>
+      </method-resolution-order>
+      <methods name="TestCoverage" module="Ft.Lib.TestSuite.TestCoverage">
+        <method public="no" name="__init__" id="TestCoverage-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="moduleName"/>
+            <arg default="None" name="ignored"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

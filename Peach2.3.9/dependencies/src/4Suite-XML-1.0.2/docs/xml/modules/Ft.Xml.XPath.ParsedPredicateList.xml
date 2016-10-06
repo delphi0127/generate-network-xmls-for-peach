@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedPredicateList">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>A parsed token that represents a predicate list.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="ParsedPredicateList" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedPredicateList" module="Ft.Xml.XPath.ParsedPredicateList"/>
+      </method-resolution-order>
+      <methods name="ParsedPredicateList" module="Ft.Xml.XPath.ParsedPredicateList">
+        <method public="no" name="__getitem__" id="ParsedPredicateList-__getitem__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="index"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="ParsedPredicateList-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="preds"/>
+          </arguments>
+        </method>
+        <method public="no" name="__len__" id="ParsedPredicateList-__len__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedPredicateList-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedPredicateList-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="append" id="ParsedPredicateList-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="pred"/>
+          </arguments>
+        </method>
+        <method public="no" name="filter" id="ParsedPredicateList-filter">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodeList"/>
+            <arg name="context"/>
+            <arg name="reverse"/>
+          </arguments>
+        </method>
+        <method public="no" name="pprint" id="ParsedPredicateList-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="NumberTypes" id="NumberTypes">
+      <value>{&lt;type 'float'&gt;: True, &lt;type 'int'&gt;: True, &lt;type 'long'&gt;: True}</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['ParsedPredicateList']</value>
+    </global>
+    <global public="no" name="g_xpathPrimitiveTypes" id="g_xpathPrimitiveTypes">
+      <value>{&lt;type 'float'&gt;: 'number', &lt;type 'int'&gt;: 'number', &lt;type 'list'&gt;: 'node-set', &lt;type 'long'&gt;: 'number', &lt;type 'str'&gt;: 'string', &lt;type 'object'&gt;: 'object', &lt;type 'unicode'&gt;: 'string', &lt;type 'bool'&gt;: 'boolean', &lt;type 'boolean'&gt;: 'boolean'}</value>
+    </global>
+  </globals>
+</module>

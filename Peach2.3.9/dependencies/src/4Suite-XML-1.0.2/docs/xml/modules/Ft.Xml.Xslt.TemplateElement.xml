@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.TemplateElement">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>Implementation of the XSLT Spec template stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+  <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+  <classes>
+    <class name="TemplateElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TemplateElement" module="Ft.Xml.Xslt.TemplateElement"/>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="yes" name="getTemplateInfo" id="TemplateElement-getTemplateInfo">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="position"/>
+          </arguments>
+        </method>
+        <method public="yes" name="instantiate" id="TemplateElement-instantiate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+            <arg default="None" name="params"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="category" id="TemplateElement-category">
+          <value>1</value>
+        </member>
+        <member public="yes" name="content" id="TemplateElement-content">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Seq instance&gt;</value>
+        </member>
+        <member public="yes" name="legalAttrs" id="TemplateElement-legalAttrs">
+          <value>{'match': &lt;Ft.Xml.Xslt.AttributeInfo.Pattern instance&gt;, 'mode': &lt;Ft.Xml.Xslt.AttributeInfo.QName instance&gt;, 'name': &lt;Ft.Xml.Xslt.AttributeInfo.QName instance&gt;, 'priority': &lt;Ft.Xml.Xslt.AttributeInfo.Number instance&gt;}</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="appendChild" public="yes"/>
+        <member-reference name="expandQName" public="yes"/>
+        <member-reference name="insertChild" public="yes"/>
+        <member-reference name="parseAVT" public="yes"/>
+        <member-reference name="parseExpression" public="yes"/>
+        <member-reference name="parsePattern" public="yes"/>
+        <member-reference name="processChildren" public="yes"/>
+        <member-reference name="splitQName" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="validator" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+        <member-reference name="setup" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="doesSetup" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,38 @@
+Known bugs in 4Suite 1.0rc3
+
+Last updated: 2006-08-27
+
+The ID numbers are from the bug tracker on SourceForge. Visit
+http://bugs.4suite.org/ to access the tracker and see details about each
+issue. http://bugs.4suite.org/NNNN redirects to the tracker item NNNN.
+
+Some bugs may have been fixed in the development code already. In such
+cases, the corresponding bug on SourceForge will have status 'Closed'.
+
+Please report new bugs to the general support mailing list for users
+of 4Suite: http://lists.fourthought.com/mailman/listinfo/4suite
+
+========================================================================
+4Suite XML:
+   1465283  CanonicalPrinter ignores arg, emits ns decl too high in tree
+    608685  QName checks in XSLT functions need work
+
+4Suite RDF:
+    666528  4rdf command line args are fragile
+
+4Suite Repository:
+    660860  Doc def change and content updates in wrong order
+    677269  incomplete resource deletion via traversed alias
+    712008  Oddments in 4SS config XML not handled gracefully
+    713208  Many repo paths need to be ftss URIs in RDF model
+    717309  disposition of abandoned repo resources uncertain
+    798358  bad Users, Groups links in Dashboard sidebar
+    798359  Dashboard tracebacks when ACL prevents metadata access
+    809085  $fres:user-name always initialized to "Anonymous"
+    831968  XPath docdef BaseNames: inexplicable xlink ns prefix error
+    842369  docdef-generated statements disappear erroneously on update
+   1008254  metadata not removed for descendants of deleted resources
+   1011488  Stylesheet dependency checking in repository can traceback
+   1168872  HTTP cookies expire even when sub-paths recently visited
+
+------------------------------------------------------------------------

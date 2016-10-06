@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Debugger.DebugController">
+  <modification-date>2002-08-11 22:20:42</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="DebugController" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DebugController" module="Ft.Xml.Xslt.Debugger.DebugController"/>
+      </method-resolution-order>
+      <methods name="DebugController" module="Ft.Xml.Xslt.Debugger.DebugController">
+        <method public="no" name="__init__" id="DebugController-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="avt" id="DebugController-avt">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="backTrace" id="DebugController-backTrace">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="deleteBreak" id="DebugController-deleteBreak">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="doPrint" id="DebugController-doPrint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endCall" id="DebugController-endCall">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="context"/>
+            <arg name="endState"/>
+            <arg name="result"/>
+          </arguments>
+        </method>
+        <method public="yes" name="eval" id="DebugController-eval">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getCommand" id="DebugController-getCommand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getCurrentElement" id="DebugController-getCurrentElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="help" id="DebugController-help">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="listBreak" id="DebugController-listBreak">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="listSheet" id="DebugController-listSheet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="listTemplate" id="DebugController-listTemplate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="DebugController-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="process" id="DebugController-process">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cmd"/>
+            <arg name="args"/>
+            <arg name="dc"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setBreak" id="DebugController-setBreak">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startCall" id="DebugController-startCall">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="test" id="DebugController-test">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="DebugState" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DebugState" module="Ft.Xml.Xslt.Debugger.DebugController"/>
+      </method-resolution-order>
+      <members name="DebugState" module="Ft.Xml.Xslt.Debugger.DebugController">
+        <member public="yes" name="RUN" id="DebugState-RUN">
+          <value>2</value>
+        </member>
+        <member public="yes" name="STOP_END" id="DebugState-STOP_END">
+          <value>5</value>
+        </member>
+        <member public="yes" name="STOP_NEXT" id="DebugState-STOP_NEXT">
+          <value>1</value>
+        </member>
+        <member public="yes" name="STOP_TEMPLATE" id="DebugState-STOP_TEMPLATE">
+          <value>4</value>
+        </member>
+        <member public="yes" name="TEST" id="DebugState-TEST">
+          <value>100</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+  </globals>
+</module>

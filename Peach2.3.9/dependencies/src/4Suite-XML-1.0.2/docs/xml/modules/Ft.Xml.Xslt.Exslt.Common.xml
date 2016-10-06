@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt.Common">
+  <modification-date>2006-08-21 16:34:44</modification-date>
+  <abstract>EXSLT 2.0 - Common (http://www.exslt.org/exsl/index.html)</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="DocumentElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract>For the basic specification, see:
+http://www.exslt.org/exsl/elements/document/index.html
+The only URI scheme supported by 4Suite currently is 'file:'
+Security note:
+As a precaution, if you try to overwrite an existing file, it will be
+saved to a temporary file (there will be a warning with the file name).
+If this this precaution fails, the instruction will abort.  You can
+override this precaution, always allowing the function to overwrite
+a document by using the f:overwrite-okay extension attribute.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="DocumentElement" module="Ft.Xml.Xslt.Exslt.Common"/>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="yes" name="instantiate" id="DocumentElement-instantiate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+        <method public="yes" name="setup" id="DocumentElement-setup">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="content" id="DocumentElement-content">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Rep instance&gt;</value>
+        </member>
+        <member public="yes" name="doesSetup" id="DocumentElement-doesSetup">
+          <value>True</value>
+        </member>
+        <member public="yes" name="legalAttrs" id="DocumentElement-legalAttrs">
+          <value>{'cdata-section-elements': &lt;Ft.Xml.Xslt.AttributeInfo.QNamesAvt instance&gt;, 'doctype-public': &lt;Ft.Xml.Xslt.AttributeInfo.StringAvt instance&gt;, 'doctype-system': &lt;Ft.Xml.Xslt.AttributeInfo.StringAvt instance&gt;, 'encoding': &lt;Ft.Xml.Xslt.AttributeInfo.StringAvt instance&gt;, 'f:overwrite-safeguard': &lt;Ft.Xml.Xslt.AttributeInfo.YesNoAvt instance&gt;, 'f:utfbom': &lt;Ft.Xml.Xslt.AttributeInfo.YesNoAvt instance&gt;, 'href': &lt;Ft.Xml.Xslt.AttributeInfo.UriReferenceAvt instance&gt;, 'indent': &lt;Ft.Xml.Xslt.AttributeInfo.YesNoAvt instance&gt;, 'media-type': &lt;Ft.Xml.Xslt.AttributeInfo.StringAvt instance&gt;, 'method': &lt;Ft.Xml.Xslt.AttributeInfo.QNameAvt instance&gt;, ...}</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="appendChild" public="yes"/>
+        <member-reference name="expandQName" public="yes"/>
+        <member-reference name="insertChild" public="yes"/>
+        <member-reference name="parseAVT" public="yes"/>
+        <member-reference name="parseExpression" public="yes"/>
+        <member-reference name="parsePattern" public="yes"/>
+        <member-reference name="processChildren" public="yes"/>
+        <member-reference name="splitQName" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="category" public="yes"/>
+        <member-reference name="validator" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="NodeSet" id="NodeSet">
+      <abstract>The purpose of the exsl:node-set function is to return a node-set from a
+result tree fragment. If the argument is a node-set already, it is simply
+returned as is. If the argument to exsl:node-set is not a node-set or a
+result tree fragment, then it is converted to a string as by the string()
+function, and the function returns a node-set consisting of a single text
+node with that string value.</abstract>
+      <description>The exsl:node-set function does not have side-effects: the result tree
+fragment used as an argument is still available as a result tree fragment
+after it is passed as an argument to exsl:node-set.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="obj"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ObjectType" id="ObjectType">
+      <abstract>The exsl:object-type function returns a string giving the type of the
+object passed as the argument. The possible object types are: 'string',
+'number', 'boolean', 'node-set', 'RTF' or 'external'.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="obj"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EXSL_COMMON_NS" id="EXSL_COMMON_NS">
+      <value>'http://exslt.org/common'</value>
+    </global>
+    <global public="yes" name="ExtElements" id="ExtElements">
+      <value>{('http://exslt.org/common', 'document'): &lt;class Ft.Xml.Xslt.Exslt.Common.DocumentElement&gt;}</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://exslt.org/common', 'node-set'): &lt;function NodeSet&gt;, ('http://exslt.org/common', 'object-type'): &lt;function ObjectType&gt;}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://exslt.org/common': 'exsl'}</value>
+    </global>
+    <global public="yes" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V1.1//EN"
+          "http://docbook.org/xml/simple/1.1/sdocbook.dtd">
+<?ftdb-ignore-namespace http://xmlns.4suite.org/reserved?>
+<article>
+  <title>4Suite Document Index</title>
+  <section id="preamble">
+    <title>Preamble</title>
+    <para>Copyright 2001-2006 Fourthought, Inc., USA.  Please read the <ulink url="licenses.html#copyright" type="generate">4Suite software copyright</ulink> for terms of license.</para>
+
+    <para>For release notes and news, see the <ulink url="http://4suite.org/">4Suite home page</ulink>.</para>
+
+    <para>For complete installation instructions, see the following documents listed in the <link linkend="general">General</link> section below: Installing 4Suite on UNIX/Windows, and 4Suite CVS access.</para>
+
+    <para>If you have questions not answered by the documents, first stop is the <ulink url="http://4suite.org/docs/FAQ.xml">FAQ</ulink>.  Next try the Akara pages on <ulink url="http://uche.ogbuji.net/tech/akara/pyxml/">Python/XML</ulink> and <ulink url="http://uche.ogbuji.net/tech/akara/4suite/">4Suite</ulink>.  Then check the <ulink url="http://lists.fourthought.com/pipermail/4suite/">mailing archives</ulink> of the 4Suite list or post there.  Or drop by on IRC (#4suite on <ulink url="http://freenode.net/irc_servers.shtml">irc.freenode.net</ulink>).</para>
+
+   <para>People interested in participating in or closely following the development process of 4Suite can join the <ulink url="http://lists.fourthought.com/mailman/listinfo/4suite-dev">mailing list for core 4Suite developers</ulink>, which is open (as are its <ulink url="http://lists.fourthought.com/pipermail/4suite-dev/">archives</ulink>).</para>
+
+  <para>These links and others are also provided on <ulink url="http://uche.ogbuji.net/tech/4Suite/">Uche Ogbuji's 4Suite page</ulink>.</para>
+  </section> <!-- preamble -->
+
+
+  <section id="general">
+    <title>General</title>
+    <itemizedlist>
+      <!-- 4Suite-XML documents -->
+      <xi:include href="index-4Suite-XML.xml"
+                  xpointer="xpointer(section[@id='general']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+      <!-- 4Suite-RDF documents -->
+      <xi:include href="index-4Suite-RDF.xml"
+                  xpointer="xpointer(section[@id='general']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+      <!-- 4Suite-Server documents -->
+      <xi:include href="index-4Suite-Server.xml"
+                  xpointer="xpointer(section[@id='general']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+    </itemizedlist>
+  </section> <!-- general -->
+
+  <section id="extensions">
+    <title>XPath/XSLT Extensions</title>
+    <itemizedlist>
+      <!-- 4Suite-XML documents -->
+      <xi:include href="index-4Suite-XML.xml"
+                  xpointer="xpointer(section[@id='extensions']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+      <!-- 4Suite-RDF documents -->
+      <xi:include href="index-4Suite-RDF.xml"
+                  xpointer="xpointer(section[@id='extensions']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+      <!-- 4Suite-Server documents -->
+      <xi:include href="index-4Suite-Server.xml"
+                  xpointer="xpointer(section[@id='extensions']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+    </itemizedlist>
+  </section> <!-- extensions -->
+
+  <section id="commandline">
+    <title>Command-line Applications</title>
+    <itemizedlist>
+      <!-- 4Suite-XML documents -->
+      <xi:include href="index-4Suite-XML.xml"
+                  xpointer="xpointer(section[@id='commandline']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+      <!-- 4Suite-RDF documents -->
+      <xi:include href="index-4Suite-RDF.xml"
+                  xpointer="xpointer(section[@id='commandline']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+      <!-- 4Suite-Server documents -->
+      <xi:include href="index-4Suite-Server.xml"
+                  xpointer="xpointer(section[@id='commandline']/itemizedlist/*)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:fallback/>
+      </xi:include>
+    </itemizedlist>
+  </section> <!-- commandline -->
+
+
+  <f:sources xmlns:f="http://xmlns.4suite.org/reserved">
+    <!-- 4Suite-XML documents -->
+    <xi:include href="index-4Suite-XML.xml"
+                xpointer="xmlns(f=http://xmlns.4suite.org/reserved)
+                          xpointer(f:sources/*)"
+                xmlns:xi="http://www.w3.org/2001/XInclude">
+      <xi:fallback/>
+    </xi:include>
+    <!-- 4Suite-RDF documents -->
+    <xi:include href="index-4Suite-RDF.xml"
+                xpointer="xmlns(f=http://xmlns.4suite.org/reserved)
+                          xpointer(f:sources/*)"
+                xmlns:xi="http://www.w3.org/2001/XInclude">
+      <xi:fallback/>
+    </xi:include>
+    <!-- 4Suite-Server documents -->
+    <xi:include href="index-4Suite-Server.xml"
+                xpointer="xmlns(f=http://xmlns.4suite.org/reserved)
+                          xpointer(f:sources/*)"
+                xmlns:xi="http://www.w3.org/2001/XInclude">
+      <xi:fallback/>
+    </xi:include>
+  </f:sources>
+
+</article>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Stylesheet">
+  <modification-date>2006-08-17 13:09:46</modification-date>
+  <abstract>xsl:stylesheet / xsl:transform implementation;
+various stylesheet internals</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="StylesheetElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="StylesheetElement" module="Ft.Xml.Xslt.Stylesheet"/>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="no" name="__getstate__" id="StylesheetElement-__getstate__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="StylesheetElement-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="root"/>
+            <arg name="namespaceUri"/>
+            <arg name="localName"/>
+            <arg name="baseUri"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+        <method public="no" name="applyTemplates" id="StylesheetElement-applyTemplates">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+            <arg default="None" name="params"/>
+            <arg default="None" name="maxImport"/>
+          </arguments>
+        </method>
+        <method public="no" name="getGlobalVariables" id="StylesheetElement-getGlobalVariables">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="getInitialFunctions" id="StylesheetElement-getInitialFunctions">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="getNamedTemplates" id="StylesheetElement-getNamedTemplates">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="idle" id="StylesheetElement-idle">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="contextNode"/>
+            <arg name="processor"/>
+            <arg default="None" name="baseUri"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+        <method public="no" name="primeStylesheet" id="StylesheetElement-primeStylesheet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="contextNode"/>
+            <arg name="processor"/>
+            <arg name="topLevelParams"/>
+            <arg name="docUri"/>
+          </arguments>
+        </method>
+        <method public="no" name="reset" id="StylesheetElement-reset">
+          <abstract>Called whenever the processor is reset, i.e. after each run
+Also called whenever multiple stylesheets are appended to
+a processor, because the new top-level elements from the
+new stylesheet need to be processed into the main one</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="reset1" id="StylesheetElement-reset1">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="reset2" id="StylesheetElement-reset2">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="setup" id="StylesheetElement-setup">
+          <abstract>Called only once, at the first initialization</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+        <method public="no" name="updateAllKeys" id="StylesheetElement-updateAllKeys">
+          <abstract>Update all the keys for all documents in the context
+Only used as an override for the default lazy key eval</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+        </method>
+        <method public="no" name="updateKey" id="StylesheetElement-updateKey">
+          <abstract>Update a particular key for a new document</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="doc"/>
+            <arg name="keyName"/>
+            <arg name="processor"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="no" name="category" id="StylesheetElement-category">
+          <value>None</value>
+        </member>
+        <member public="no" name="content" id="StylesheetElement-content">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Seq instance&gt;</value>
+        </member>
+        <member public="no" name="doesIdle" id="StylesheetElement-doesIdle">
+          <value>0</value>
+        </member>
+        <member public="no" name="doesPrime" id="StylesheetElement-doesPrime">
+          <value>0</value>
+        </member>
+        <member public="no" name="doesSetup" id="StylesheetElement-doesSetup">
+          <value>0</value>
+        </member>
+        <member public="no" name="legalAttrs" id="StylesheetElement-legalAttrs">
+          <value>{'exclude-result-prefixes': &lt;Ft.Xml.Xslt.AttributeInfo.Prefixes instance&gt;, 'extension-element-prefixes': &lt;Ft.Xml.Xslt.AttributeInfo.Prefixes instance&gt;, 'id': &lt;Ft.Xml.Xslt.AttributeInfo.Id instance&gt;, 'version': &lt;Ft.Xml.Xslt.AttributeInfo.Number instance&gt;}</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="expandQName" public="no"/>
+        <member-reference name="insertChild" public="no"/>
+        <member-reference name="instantiate" public="no"/>
+        <member-reference name="parseAVT" public="no"/>
+        <member-reference name="parseExpression" public="no"/>
+        <member-reference name="parsePattern" public="no"/>
+        <member-reference name="processChildren" public="no"/>
+        <member-reference name="splitQName" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="validator" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="isLastChild" public="no"/>
+        <member-reference name="isPseudoNode" public="no"/>
+        <member-reference name="pprint" public="no"/>
+        <member-reference name="prime" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseUri" public="no"/>
+        <member-reference name="children" public="no"/>
+        <member-reference name="columnNumber" public="no"/>
+        <member-reference name="expandedName" public="no"/>
+        <member-reference name="importIndex" public="no"/>
+        <member-reference name="lineNumber" public="no"/>
+        <member-reference name="nodeName" public="no"/>
+        <member-reference name="parent" public="no"/>
+        <member-reference name="root" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="MatchTree" id="MatchTree">
+      <abstract>Returns all nodes, from context on down, that match the patterns</abstract>
+      <description/>
+      <arguments>
+        <arg name="patterns"/>
+        <arg name="context"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="no" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['MatchTree', 'StylesheetElement']</value>
+    </global>
+  </globals>
+</module>

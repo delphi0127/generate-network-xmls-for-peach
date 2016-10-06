@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.SaxWriter">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>SAX2 event writer for XSLT output</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="ElementData" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ElementData" module="Ft.Xml.Xslt.SaxWriter"/>
+      </method-resolution-order>
+      <methods name="ElementData" module="Ft.Xml.Xslt.SaxWriter">
+        <method public="no" name="__init__" id="ElementData-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="attrs"/>
+            <arg default="None" name="extraNss"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="SaxWriter" public="yes">
+      <abstract>Requires PyXML (will be checked at instantiation time).</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="SaxWriter" module="Ft.Xml.Xslt.SaxWriter"/>
+      </method-resolution-order>
+      <methods name="SaxWriter" module="Ft.Xml.Xslt.SaxWriter">
+        <method public="no" name="__init__" id="SaxWriter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="outputParams"/>
+            <arg default="None" name="saxHandler"/>
+            <arg default="False" name="fragment"/>
+          </arguments>
+        </method>
+        <method public="yes" name="attribute" id="SaxWriter-attribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="value"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+        </method>
+        <method public="yes" name="comment" id="SaxWriter-comment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="body"/>
+          </arguments>
+        </method>
+        <method public="yes" name="complete" id="SaxWriter-complete">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endDocument" id="SaxWriter-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElement" id="SaxWriter-endElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getResult" id="SaxWriter-getResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="processingInstruction" id="SaxWriter-processingInstruction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startDocument" id="SaxWriter-startDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElement" id="SaxWriter-startElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+            <arg default="None" name="extraNss"/>
+          </arguments>
+        </method>
+        <method public="yes" name="text" id="SaxWriter-text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+            <arg default="True" name="escapeOutput"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+    <global public="yes" name="implementation" id="implementation">
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <value>&lt;DOMImplementation&gt;</value>
+    </global>
+  </globals>
+</module>

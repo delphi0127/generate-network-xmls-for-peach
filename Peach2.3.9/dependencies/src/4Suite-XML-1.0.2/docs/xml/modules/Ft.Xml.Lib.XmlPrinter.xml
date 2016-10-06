@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.XmlPrinter">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract>This module supports document serialization in XML syntax.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="CanonicalXmlPrinter" public="yes">
+      <bases>
+        <base documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+      </bases>
+      <abstract>CanonicalXmlPrinter emits only c14n XML.
+http://www.ibm.com/developerworks/xml/library/x-c14n/
+http://www.w3.org/TR/xml-c14n
+Does not yet:
+* Normalize all attribute values
+* Specify all default attributes
+Note: this class is fully compatible with exclusive c14n:
+http://www.w3.org/TR/xml-exc-c14n/
+whether or not the operation is exclusive depends on preprocessing
+operations appplied by the caller.  See Ft.Xml.Lib.Print, for example</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="CanonicalXmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        <base name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+      </method-resolution-order>
+      <methods name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter">
+        <method public="no" name="__init__" id="CanonicalXmlPrinter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg default="None" name="encoding"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="attribute" id="CanonicalXmlPrinter-attribute">
+          <abstract>Handles an attribute event.</abstract>
+          <description>Writes an attribute to the stream as a space followed by
+the name, '=', and quote-delimited value. It is the caller's
+responsibility to ensure that this is called in the correct
+context, if well-formed output is desired.
+
+The delimiter is always a quote (&quot;), as required by c14n
+The elementName arguments are not used by default,
+but may be used by subclasses.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="elementUri"/>
+            <arg name="elementName"/>
+            <arg name="name"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="cdataSection" id="CanonicalXmlPrinter-cdataSection">
+          <abstract>Handles a cdataSection event.</abstract>
+          <description>No CDATA sections in c14n, so just commute to the text event</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="comment" id="CanonicalXmlPrinter-comment">
+          <abstract>Handles a comment event.</abstract>
+          <description>Writes a comment to the stream.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="doctype" id="CanonicalXmlPrinter-doctype">
+          <abstract>Handles a doctype event.  No output in c14n.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="publicId"/>
+            <arg name="systemId"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="endDocument" id="CanonicalXmlPrinter-endDocument">
+          <abstract>Writes any necessary final output to the stream.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="endElement" id="CanonicalXmlPrinter-endElement">
+          <abstract>Handles an endElement event.</abstract>
+          <description>Writes the closing tag for an element to the stream.
+The namespaceUri argument is ignored in this class.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceUri"/>
+            <arg name="tagName"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="processingInstruction" id="CanonicalXmlPrinter-processingInstruction">
+          <abstract>Handles a processingInstruction event.</abstract>
+          <description>Writes a processing instruction to the stream.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="reset" id="CanonicalXmlPrinter-reset">
+          <abstract>Sets the writer state as if it were a brand new instance</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="startDocument" id="CanonicalXmlPrinter-startDocument">
+          <abstract>No XML declaration is generated</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="'1.0'" name="version"/>
+            <arg default="None" name="standalone"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="startElement" id="CanonicalXmlPrinter-startElement">
+          <abstract>Handles a startElement event.</abstract>
+          <description>Writes part of an element's start-tag or empty-element tag to
+the stream, and closes the start tag of the previous element,
+if one remained open. Writes the xmlns attributes for the given
+dictionary of namespaces, and invokes attribute() as neeeded to
+write the given dictionary of attributes.
+
+The namespaceUri argument is ignored in this class.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceUri"/>
+            <arg name="tagName"/>
+            <arg name="namespaces"/>
+            <arg name="attributes"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+        <method public="yes" name="text" id="CanonicalXmlPrinter-text">
+          <abstract>Handles a text event.</abstract>
+          <description>Writes character data to the stream.  All characters should be
+suitable for encoding (UTF-8 only); &quot;&amp;&quot; and &quot;&lt;&quot; are escaped as &quot;&amp;amp;&quot;
+and &quot;&amp;lt;&quot;; and &quot;&gt;&quot; is escaped as &quot;&amp;gt;&quot; if it is preceded by
+&quot;]]&quot;.
+
+disableEscaping is ignored.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+            <arg default="0" name="disableEscaping"/>
+          </arguments>
+          <overrides documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+        </method>
+      </methods>
+      <members name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter">
+        <member public="yes" name="attrEntitiesApos" id="CanonicalXmlPrinter-attrEntitiesApos">
+          <value>&lt;cEntityMap&gt;</value>
+        </member>
+        <member public="yes" name="attrEntitiesQuot" id="CanonicalXmlPrinter-attrEntitiesQuot">
+          <value>&lt;cEntityMap&gt;</value>
+        </member>
+        <member public="yes" name="attrNormPattern" id="CanonicalXmlPrinter-attrNormPattern">
+          <value>&lt;_sre.SRE_Pattern object&gt;</value>
+        </member>
+        <member public="yes" name="textEntities" id="CanonicalXmlPrinter-textEntities">
+          <value>&lt;cEntityMap&gt;</value>
+        </member>
+      </members>
+    </class>
+    <class name="XmlPrinter" public="yes">
+      <abstract>An XmlPrinter instance provides functions for serializing an XML or
+XML-like document to a stream, based on SAX-like event calls
+initiated by an Ft.Xml.Lib.Print.PrintVisitor instance.</abstract>
+      <description>The methods in this base class attempt to emit a well-formed parsed
+general entity conformant to XML 1.0 syntax, with no extra
+whitespace added for visual formatting. Subclasses may emit
+documents conformant to other syntax specifications or with
+additional whitespace for indenting.
+
+The degree of well-formedness of the output depends on the data
+supplied in the event calls; no checks are done for conditions that
+would result in syntax errors, such as two attributes with the same
+name, &quot;--&quot; in a comment, etc. However, attribute() will do nothing
+if the previous event was not startElement(), thus preventing
+spurious attribute serializations.</description>
+      <method-resolution-order>
+        <base name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+      </method-resolution-order>
+      <methods name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter">
+        <method public="no" name="__init__" id="XmlPrinter-__init__">
+          <abstract>stream must be a file-like object open for writing binary
+data. encoding specifies the encoding which is to be used for
+writing to the stream.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg name="encoding"/>
+          </arguments>
+        </method>
+        <method public="yes" name="attribute" id="XmlPrinter-attribute">
+          <abstract>Handles an attribute event.</abstract>
+          <description>Writes an attribute to the stream as a space followed by
+the name, '=', and quote-delimited value. It is the caller's
+responsibility to ensure that this is called in the correct
+context, if well-formed output is desired.
+
+Preference is given to quotes (&quot;) around attribute values, in
+accordance with the DomWriter interface in DOM Level 3 Load and
+Save (25 July 2002 WD), although a value that contains quotes
+but no apostrophes will be delimited by apostrophes (') instead.
+The elementName arguments are not used by default,
+but may be used by subclasses.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="elementUri"/>
+            <arg name="elementName"/>
+            <arg name="name"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="cdataSection" id="XmlPrinter-cdataSection">
+          <abstract>Handles a cdataSection event.</abstract>
+          <description>Writes character data to the stream as a CDATA section.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="yes" name="comment" id="XmlPrinter-comment">
+          <abstract>Handles a comment event.</abstract>
+          <description>Writes a comment to the stream.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="yes" name="doctype" id="XmlPrinter-doctype">
+          <abstract>Handles a doctype event.</abstract>
+          <description>Writes a document type declaration to the stream.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="publicId"/>
+            <arg name="systemId"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endDocument" id="XmlPrinter-endDocument">
+          <abstract>Handles an endDocument event.</abstract>
+          <description>Writes any necessary final output to the stream.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElement" id="XmlPrinter-endElement">
+          <abstract>Handles an endElement event.</abstract>
+          <description>Writes the closing tag for an element to the stream, or, if the
+element had no content, finishes writing the empty element tag.
+
+The namespaceUri argument is ignored in this class.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceUri"/>
+            <arg name="tagName"/>
+          </arguments>
+        </method>
+        <method public="yes" name="processingInstruction" id="XmlPrinter-processingInstruction">
+          <abstract>Handles a processingInstruction event.</abstract>
+          <description>Writes a processing instruction to the stream.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="yes" name="reset" id="XmlPrinter-reset">
+          <abstract>Sets the writer state as if it were a brand new instance</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startDocument" id="XmlPrinter-startDocument">
+          <abstract>Handles a startDocument event.</abstract>
+          <description>Writes XML declaration or text declaration to the stream.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg default="'1.0'" name="version"/>
+            <arg default="None" name="standalone"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElement" id="XmlPrinter-startElement">
+          <abstract>Handles a startElement event.</abstract>
+          <description>Writes part of an element's start-tag or empty-element tag to
+the stream, and closes the start tag of the previous element,
+if one remained open. Writes the xmlns attributes for the given
+dictionary of namespaces, and invokes attribute() as neeeded to
+write the given dictionary of attributes.
+
+The namespaceUri argument is ignored in this class.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceUri"/>
+            <arg name="tagName"/>
+            <arg name="namespaces"/>
+            <arg name="attributes"/>
+          </arguments>
+        </method>
+        <method public="yes" name="text" id="XmlPrinter-text">
+          <abstract>Handles a text event.</abstract>
+          <description>Writes character data to the stream. If the disableEscaping flag
+is not set, then unencodable characters are replaced with
+numeric character references; &quot;&amp;&quot; and &quot;&lt;&quot; are escaped as &quot;&amp;amp;&quot;
+and &quot;&amp;lt;&quot;; and &quot;&gt;&quot; is escaped as &quot;&amp;gt;&quot; if it is preceded by
+&quot;]]&quot;. If the disableEscaping flag is set, then the characters
+are written to the stream with no escaping of any kind, which
+will result in an exception if there are unencodable characters.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+            <arg default="0" name="disableEscaping"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter">
+        <member public="yes" name="attrEntitiesApos" id="XmlPrinter-attrEntitiesApos">
+          <value>&lt;cEntityMap&gt;</value>
+        </member>
+        <member public="yes" name="attrEntitiesQuot" id="XmlPrinter-attrEntitiesQuot">
+          <value>&lt;cEntityMap&gt;</value>
+        </member>
+        <member public="yes" name="textEntities" id="XmlPrinter-textEntities">
+          <value>&lt;cEntityMap&gt;</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+  </globals>
+</module>

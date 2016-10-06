@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Version">
+  <modification-date>2006-10-18 13:10:10</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="CommonVersion" public="yes">
+      <bases>
+        <base documented="no" class="Version" module="distutils.version"/>
+      </bases>
+      <abstract>Version numbering that handles most version numbering schemes.
+Implements the standard interface for version number classes as
+described by distutils.version.Version.</abstract>
+      <description>A version consists of an alternating series of release numbers followed
+by an optional series of pre-release or post-release tags. A release
+number is a series of dot-separated numeric components. Release tags are
+a series of letters optionally followed by a release number. The
+pre-release tag name is alphabetically before &quot;final&quot;. The post-release
+tag name is alphabetically greater than or equal to &quot;final&quot;.
+
+For example, &quot;1.0b2.dev-r41475&quot; could denote Subversion revision 41475 of
+the in-development version of the second beta of release 1.0. Notice that
+&quot;dev&quot; is a pre-release tag, so this version is a lower version number
+than 1.0b2, which would be the actual second beta of release 1.0. But
+the &quot;-r41475&quot; is a post-release tag, so this version is newer than
+&quot;1.0b2.dev&quot;.</description>
+      <method-resolution-order>
+        <base name="CommonVersion" module="Ft.Lib.DistExt.Version"/>
+        <base name="Version" module="distutils.version"/>
+      </method-resolution-order>
+      <methods name="Version" module="distutils.version">
+        <method public="no" name="__cmp__" id="CommonVersion-__cmp__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="other"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="CommonVersion-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="parse" id="CommonVersion-parse">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="vstring"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Version" module="distutils.version">
+        <member public="no" name="tag_aliases" id="CommonVersion-tag_aliases">
+          <value>{'pr': 'c', 'pre': 'c', 'preview': 'c', 'rc': 'c'}</value>
+        </member>
+        <member public="no" name="tag_re" id="CommonVersion-tag_re">
+          <value>&lt;_sre.SRE_Pattern object at 0x8253a60&gt;</value>
+        </member>
+        <member public="no" name="version_re" id="CommonVersion-version_re">
+          <value>&lt;_sre.SRE_Pattern object at 0xb7d6d920&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Version" module="distutils.version">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="VersionPredicate" public="yes">
+      <abstract>Parse and test package version predicates.</abstract>
+      <description>&gt;&gt;&gt; v = VersionPredicate('pyepat.abc (&gt;1.0, &lt;3333.3a1, !=1555.1b3)')
+
+The `name` attribute provides the full dotted name that is given::
+
+&gt;&gt;&gt; v.name
+'pyepat.abc'
+
+The str() of a `VersionPredicate` provides a normalized
+human-readable version of the expression::
+
+&gt;&gt;&gt; print v
+pyepat.abc (&gt; 1.0, &lt; 3333.3a1, != 1555.1b3)
+
+The `satisfied_by()` method can be used to determine with a given
+version number is included in the set described by the version
+restrictions::
+
+&gt;&gt;&gt; v.satisfied_by('1.1')
+True
+&gt;&gt;&gt; v.satisfied_by('1.4')
+True
+&gt;&gt;&gt; v.satisfied_by('1.0')
+False
+&gt;&gt;&gt; v.satisfied_by('4444.4')
+False
+&gt;&gt;&gt; v.satisfied_by('1555.1b3')
+False
+
+`VersionPredicate` is flexible in accepting extra whitespace::
+
+&gt;&gt;&gt; v = VersionPredicate(' pat( ==  0.1  )  ')
+&gt;&gt;&gt; v.name
+'pat'
+&gt;&gt;&gt; v.satisfied_by('0.1')
+True
+&gt;&gt;&gt; v.satisfied_by('0.2')
+False
+
+If any version numbers passed in do not conform to the
+restrictions of `StrictVersion`, a `ValueError` is raised::
+
+&gt;&gt;&gt; v = VersionPredicate('p1.p2.p3.p4(&gt;=1.0, &lt;=1.3a1, !=1.2zb3)')
+Traceback (most recent call last):
+  ...
+ValueError: invalid version number '1.2zb3'
+
+It the module or package name given does not conform to what's
+allowed as a legal module or package name, `ValueError` is
+raised::
+
+&gt;&gt;&gt; v = VersionPredicate('foo-bar')
+Traceback (most recent call last):
+  ...
+ValueError: expected parenthesized list: '-bar'
+
+&gt;&gt;&gt; v = VersionPredicate('foo bar (12.21)')
+Traceback (most recent call last):
+  ...
+ValueError: expected parenthesized list: 'bar (12.21)'</description>
+      <method-resolution-order>
+        <base name="VersionPredicate" module="distutils.versionpredicate"/>
+      </method-resolution-order>
+      <methods name="VersionPredicate" module="distutils.versionpredicate">
+        <method public="no" name="__init__" id="VersionPredicate-__init__">
+          <abstract>Parse a version predicate string.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="versionPredicateStr"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="VersionPredicate-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="satisfied_by" id="VersionPredicate-satisfied_by">
+          <abstract>True if version is compatible with all the predicates in self.
+The parameter version must be acceptable to the StrictVersion
+constructor.  It may be either a string or StrictVersion.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="version"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="SplitComparison" realname="splitUp" id="SplitComparison">
+      <abstract>Parse a single version comparison.</abstract>
+      <description>Return (comparison string, StrictVersion)</description>
+      <arguments>
+        <arg name="pred"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SplitProvision" realname="split_provision" id="SplitProvision">
+      <abstract>Return the name and optional version number of a provision.</abstract>
+      <description>The version number, if given, will be returned as a `StrictVersion`
+instance, otherwise it will be `None`.
+
+&gt;&gt;&gt; split_provision('mypkg')
+('mypkg', None)
+&gt;&gt;&gt; split_provision(' mypkg( 1.2 ) ')
+('mypkg', StrictVersion ('1.2'))</description>
+      <arguments>
+        <arg name="value"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="__all__" id="__all__">
+      <value>['CommonVersion', 'VersionPredicate', 'SplitProvision', 'SplitComparison']</value>
+    </global>
+  </globals>
+</module>

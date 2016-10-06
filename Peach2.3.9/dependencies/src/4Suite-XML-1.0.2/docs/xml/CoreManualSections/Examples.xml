@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section>
+  <title>Comprehensive examples</title>
+
+  <para>This section contains a set of examples that transcend the boundaries
+  of individual topics. These examples combine multiple different techniques
+  and often address more common use-cases found "in the wild".</para>
+
+  <section>
+    <title>Transforming DocBook using the DocBook XSL stylesheets</title>
+
+    <para>In the XML universe, one common use-case is converting <ulink
+    url="http://www.docbook.org/">DocBook</ulink> (a common XML application)
+    to various output formats for publishing using the <ulink
+    url="http://docbook.sourceforge.net/projects/xsl/index.html">DocBook
+    XSL</ulink> set of XSLT scripts. If you have the DocBook XSL distribution
+    installed (or if you have an Internet connection), you can transform
+    DocBook files completely within the 4Suite XML API. The following example
+    illustrates how this can be done, and in the process this example touches
+    on a wide variety of 4Suite XML techniques. These are listed below.</para>
+
+    <itemizedlist>
+      <title>4Suite techniques used in this example</title>
+
+      <listitem>
+        <para>Building a Domlette XML model manually</para>
+      </listitem>
+
+      <listitem>
+        <para>Parsing XML into a Domlette XML model</para>
+      </listitem>
+
+      <listitem>
+        <para>Using XSLT in 4Suite XML</para>
+      </listitem>
+
+      <listitem>
+        <para>Using <classname>InputSource</classname>s with automatic XML
+        Catalog resolution</para>
+      </listitem>
+
+      <listitem>
+        <para>Managing URIs</para>
+      </listitem>
+
+      <listitem>
+        <para>Writing XML from a Domlette XML model</para>
+      </listitem>
+
+      <listitem>
+        <para>And a bonus feature unrelated to 4Suite: i18n with the DocBook
+        XSL scripts!</para>
+      </listitem>
+    </itemizedlist>
+
+    <programlisting>from Ft.Xml.Domlette import implementation, PrettyPrint, NonvalidatingReader
+from Ft.Xml.Xslt import Processor
+from Ft.Xml import Catalog, InputSource, EMPTY_NAMESPACE
+from Ft.Lib import Uri, UriException
+
+# New processor
+processor = Processor.Processor()
+
+# If you have the DocBook XSL scripts installed in your system, then they are likely
+# integrated into the system catalog, which is often at `/etc/xml/catalog` on
+# Unix-like systems.  If you have a catalog which resolves the DocBook XSL URIs
+# located in a different filename, you can change this filename below.  Otherwise,
+# this example will access the DocBook XSL scripts directly (i.e. over the network).
+catalog_filename = '/etc/xml/catalog'
+# Turn the catalog filename into the corresponding `file` URI.
+catalog_URI = Uri.OsPathToUri(catalog_filename)
+# Try to load the catalog, moving right along if it doesn't exist.
+theCatalog = None
+try:
+  theCatalog = Catalog.Catalog(catalog_URI)
+except UriException, e:
+  pass
+
+# Create a new `InputSourceFactory` object to use our catalog.
+inputSourceFactory = InputSource.InputSourceFactory(catalog = theCatalog)
+docbook_xsl_URI = 'http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl'
+# Set up an `InputSource` for the DocBook XSL stylesheets.
+docbook_xsl_source = inputSourceFactory.fromUri(docbook_xsl_URI)
+# Build a DOM of our stylesheet, then load the stylesheet into the XSLT processor.
+transform = NonvalidatingReader.parse(docbook_xsl_source)
+processor.appendStylesheetNode(transform, docbook_xsl_URI)
+
+# Now we build our DocBook DOM, with a document root of myDoc.
+myDoc = implementation.createRootNode('file:///article.xml')
+article = myDoc.createElementNS(EMPTY_NAMESPACE,  'article')
+myDoc.appendChild(article)
+article.setAttributeNS(None, 'lang', "es")
+myDoc.publicId="-//OASIS//DTD DocBook XML V4.2//EN"
+myDoc.systemId="http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"
+
+element = myDoc.createElementNS(EMPTY_NAMESPACE, 'title')
+element.appendChild(myDoc.createTextNode('Title of article'))
+article.appendChild(element)
+
+section = myDoc.createElementNS(EMPTY_NAMESPACE, 'section')
+article.appendChild(section)
+
+element = myDoc.createElementNS(EMPTY_NAMESPACE, 'title')
+element.appendChild(myDoc.createTextNode('Title of section'))
+section.appendChild(element)
+
+element = myDoc.createElementNS(EMPTY_NAMESPACE, 'para')
+element.appendChild(myDoc.createTextNode('paragraph of section'))
+section.appendChild(element)
+
+print '************************ xml *******************************'
+# Serialize the source document as XML.
+PrettyPrint(myDoc)
+
+print '************************ html *******************************'
+# Print the result of transforming the document.
+result = processor.runNode(myDoc)
+print result</programlisting>
+  </section>
+</section>

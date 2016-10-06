@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPointer.ParsedXPointer">
+  <modification-date>2003-01-18 22:08:30</modification-date>
+  <abstract>A Parsed Token that represents a list of XPointers
+WWW: http://4suite.org/XPointer        e-mail: support@4suite.org</abstract>
+  <description>Copyright (c) 2000-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+  <classes>
+    <class name="BareName" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="BareName" module="Ft.Xml.XPointer.ParsedXPointer"/>
+      </method-resolution-order>
+      <methods name="BareName" module="Ft.Xml.XPointer.ParsedXPointer">
+        <method public="no" name="__init__" id="BareName-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="BareName-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="BareName-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="BareName-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="select" id="BareName-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ChildSequence" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ChildSequence" module="Ft.Xml.XPointer.ParsedXPointer"/>
+      </method-resolution-order>
+      <methods name="ChildSequence" module="Ft.Xml.XPointer.ParsedXPointer">
+        <method public="no" name="__init__" id="ChildSequence-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="sequence"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ChildSequence-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ChildSequence-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ChildSequence-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="select" id="ChildSequence-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="FullXPtr" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FullXPtr" module="Ft.Xml.XPointer.ParsedXPointer"/>
+      </method-resolution-order>
+      <methods name="FullXPtr" module="Ft.Xml.XPointer.ParsedXPointer">
+        <method public="no" name="__init__" id="FullXPtr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parts"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="FullXPtr-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="FullXPtr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="FullXPtr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="select" id="FullXPtr-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="document"/>
+            <arg name="contextNode"/>
+            <arg default="None" name="nss"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

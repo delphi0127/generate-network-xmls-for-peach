@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.routines">
+  <modification-date>2006-12-16 15:51:26</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="FormatNumber" id="FormatNumber">
+      <abstract>FormatNumber(number, pattern[, symbols]) -&gt; string</abstract>
+      <description>Converts the number argument to a string using the format pattern string
+from the pattern argument.  The symbols argument is a 10-item tuple which
+specifies the special characters used from interpreting the format pattern.
+The tuple format is (decimal-separator, grouping-separator, infinity,
+minus-sign, NaN, percent, per-mille, zero-digit, digit, pattern-separator).
+See the XSLT 1.0 Recommendation Section 12.3 for the meanings of these.</description>
+      <arguments>
+        <unknown>number, pattern[, symbols]</unknown>
+      </arguments>
+    </function>
+  </functions>
+</module>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Build">
+  <modification-date>2006-08-24 12:50:23</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Build" public="yes">
+      <bases>
+        <base documented="no" class="build" module="distutils.command.build"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Build" module="Ft.Lib.DistExt.Build"/>
+        <base name="build" module="distutils.command.build"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="finalize_options" id="Build-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="build" module="distutils.command.build"/>
+        </method>
+        <method public="yes" name="get_source_files" id="Build-get_source_files">
+          <abstract>Called by 'sdist' command.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_docs" id="Build-has_docs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_l10n" id="Build-has_l10n">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="Build-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="build" module="distutils.command.build"/>
+        </method>
+        <method public="yes" name="run" id="Build-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="build" module="distutils.command.build"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="Build-boolean_options">
+          <value>['debug', 'force', 'with-docs', 'without-docs']</value>
+        </member>
+        <member public="yes" name="command_name" id="Build-command_name">
+          <value>'build'</value>
+        </member>
+        <member public="yes" name="description" id="Build-description">
+          <value>'build everything needed to install'</value>
+        </member>
+        <member public="yes" name="help_options" id="Build-help_options">
+          <value>[('help-compiler', None, 'list available compilers', &lt;function show_compilers&gt;)]</value>
+        </member>
+        <member public="yes" name="negative_opt" id="Build-negative_opt">
+          <value>{'without-docs': 'with-docs'}</value>
+        </member>
+        <member public="yes" name="sub_commands" id="Build-sub_commands">
+          <value>[('build_py', &lt;function has_pure_modules&gt;), ('build_clib', &lt;function has_c_libraries&gt;), ('build_ext', &lt;function has_ext_modules&gt;), ('build_scripts', &lt;function has_scripts&gt;), ('build_docs', &lt;function has_docs&gt;), ('build_l10n', &lt;function has_l10n&gt;)]</value>
+        </member>
+        <member public="yes" name="user_options" id="Build-user_options">
+          <value>[('build-base=', 'b', 'base directory for build library'), ('build-lib=', None, 'build directory for all distributions'), ('build-scripts=', None, 'build directory for scripts'), ('build-temp=', 't', 'temporary build directory'), ('build-docs=', None, 'build directory for documents'), ('build-l10n=', None, 'build directory for binary message catalogs'), ('compiler=', 'c', 'specify the compiler type'), ('ldflags=', 'l', 'specify additional linker options'), ('debug', 'g', 'compile with debugging information'), ('force', 'f', 'forcibly build everything (ignore file timestamps)'), ('with-docs', None, 'ignored; maintained for compatability'), ('without-docs', None, 'ignored; maintained for compatability')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="build" module="distutils.command.build">
+        <member-reference name="has_c_libraries" public="yes"/>
+        <member-reference name="has_ext_modules" public="yes"/>
+        <member-reference name="has_pure_modules" public="yes"/>
+        <member-reference name="has_scripts" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+</module>

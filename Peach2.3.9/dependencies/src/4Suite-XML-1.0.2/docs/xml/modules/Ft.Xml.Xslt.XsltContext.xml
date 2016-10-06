@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.XsltContext">
+  <modification-date>2006-12-16 17:19:16</modification-date>
+  <abstract>Context and state information for XSLT processing</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="XsltContext" public="yes">
+      <bases>
+        <base documented="yes" class="Context" module="Ft.Xml.XPath.Context"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltContext" module="Ft.Xml.Xslt.XsltContext"/>
+        <base name="Context" module="Ft.Xml.XPath.Context"/>
+      </method-resolution-order>
+      <methods name="Context" module="Ft.Xml.XPath.Context">
+        <method public="no" name="__init__" id="XsltContext-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="1" name="position"/>
+            <arg default="1" name="size"/>
+            <arg default="None" name="currentNode"/>
+            <arg default="None" name="varBindings"/>
+            <arg default="None" name="processorNss"/>
+            <arg default="None" name="stylesheet"/>
+            <arg default="None" name="processor"/>
+            <arg default="None" name="mode"/>
+            <arg default="None" name="extModuleList"/>
+            <arg default="None" name="extFunctionMap"/>
+          </arguments>
+          <overrides documented="yes" class="Context" module="Ft.Xml.XPath.Context"/>
+        </method>
+        <method public="no" name="__repr__" id="XsltContext-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Context" module="Ft.Xml.XPath.Context"/>
+        </method>
+        <method public="yes" name="addDocument" id="XsltContext-addDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="document"/>
+            <arg default="None" name="documentUri"/>
+          </arguments>
+        </method>
+        <method public="yes" name="clone" id="XsltContext-clone">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Context" module="Ft.Xml.XPath.Context"/>
+        </method>
+        <method public="yes" name="expandQName" id="XsltContext-expandQName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setProcessState" id="XsltContext-setProcessState">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="execNode"/>
+          </arguments>
+        </method>
+        <method public="yes" name="splitQName" id="XsltContext-splitQName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Context" module="Ft.Xml.XPath.Context">
+        <member public="yes" name="functions" id="XsltContext-functions">
+          <value>{(None, 'boolean'): &lt;function Boolean at 0xb76e08b4&gt;, (None, 'ceiling'): &lt;function Ceiling at 0xb76e0a74&gt;, (None, 'concat'): &lt;function Concat at 0xb76d57d4&gt;, (None, 'contains'): &lt;function Contains at 0xb76e072c&gt;, (None, 'count'): &lt;function Count at 0xb76d564c&gt;, (None, 'current'): &lt;function Current at 0xb75e31ec&gt;, (None, 'document'): &lt;function Document at 0xb75d4d4c&gt;, (None, 'element-available'): &lt;function ElementAvailable at 0xb75e3304&gt;, (None, 'false'): &lt;function False at 0xb76e095c&gt;, (None, 'floor'): &lt;function Floor at 0xb76e0a3c&gt;, ...}</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Context" module="Ft.Xml.XPath.Context">
+        <member-reference name="addFunction" public="yes"/>
+        <member-reference name="copy" public="yes"/>
+        <member-reference name="set" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Context" module="Ft.Xml.XPath.Context">
+        <member-reference name="currentInstruction" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

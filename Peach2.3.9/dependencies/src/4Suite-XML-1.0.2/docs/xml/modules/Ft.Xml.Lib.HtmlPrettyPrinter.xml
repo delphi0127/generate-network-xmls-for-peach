@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.HtmlPrettyPrinter">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>This module supports formatted document serialization in HTML syntax.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="HtmlPrettyPrinter" public="yes">
+      <bases>
+        <base documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter"/>
+      </bases>
+      <abstract>An HtmlPrettyPrinter instance provides functions for serializing an
+XML or XML-like document to a stream, based on SAX-like event calls
+initiated by an Ft.Xml.Lib.Print.PrintVisitor instance.</abstract>
+      <description>The methods in this subclass of HtmlPrinter attempt to emit a
+document conformant to the HTML 4.01 syntax, with extra whitespace
+added for visual formatting. The indent attribute is the string used
+for each level of indenting. It defaults to 2 spaces.</description>
+      <method-resolution-order>
+        <base name="HtmlPrettyPrinter" module="Ft.Xml.Lib.HtmlPrettyPrinter"/>
+        <base name="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter"/>
+        <base name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter"/>
+      </method-resolution-order>
+      <methods name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter">
+        <method public="no" name="__init__" id="HtmlPrettyPrinter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg name="encoding"/>
+          </arguments>
+          <overrides documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter"/>
+        </method>
+        <method public="yes" name="comment" id="HtmlPrettyPrinter-comment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter"/>
+        </method>
+        <method public="yes" name="endElement" id="HtmlPrettyPrinter-endElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceUri"/>
+            <arg name="tagName"/>
+          </arguments>
+          <overrides documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter"/>
+        </method>
+        <method public="yes" name="processingInstruction" id="HtmlPrettyPrinter-processingInstruction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter"/>
+        </method>
+        <method public="yes" name="startElement" id="HtmlPrettyPrinter-startElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceUri"/>
+            <arg name="tagName"/>
+            <arg name="namespaces"/>
+            <arg name="attributes"/>
+          </arguments>
+          <overrides documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter"/>
+        </method>
+      </methods>
+      <members name="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter">
+        <member public="yes" name="indent" id="HtmlPrettyPrinter-indent">
+          <value>'  '</value>
+        </member>
+        <member public="yes" name="inlineElements" id="HtmlPrettyPrinter-inlineElements">
+          <value>{(None, 'a'): True, (None, 'abbr'): True, (None, 'acronym'): True, (None, 'applet'): True, (None, 'b'): True, (None, 'basefont'): True, (None, 'bdo'): True, (None, 'big'): True, (None, 'button'): True, (None, 'cite'): True, ...}</value>
+        </member>
+        <member public="yes" name="noIndentElements" id="HtmlPrettyPrinter-noIndentElements">
+          <value>{(None, 'pre'): True, (None, 'script'): True, (None, 'style'): True, (None, 'textarea'): True, (None, 'xmp'): True}</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter">
+        <member-reference name="attribute" public="yes"/>
+        <member-reference name="doctype" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+        <member-reference name="text" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="HtmlPrinter" module="Ft.Xml.Lib.HtmlPrinter">
+        <member-reference name="attrEntitiesApos" public="yes"/>
+        <member-reference name="attrEntitiesQuot" public="yes"/>
+        <member-reference name="booleanAttributes" public="yes"/>
+        <member-reference name="forbiddenEndElements" public="yes"/>
+        <member-reference name="noEscapeElements" public="yes"/>
+        <member-reference name="textEntities" public="yes"/>
+        <member-reference name="uriAttributes" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XmlPrinter" module="Ft.Xml.Lib.XmlPrinter">
+        <member-reference name="cdataSection" public="yes"/>
+        <member-reference name="endDocument" public="yes"/>
+        <member-reference name="reset" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach>
+  <Include src="file:defaults.xml" ns="default"/>
+  <Import from="Peach.Generators.dictionary" import="*" />
+  <DataModel name="TestTemplate">
+    <String name="TestString">
+      <Generator class="Dictionary">
+        <Param name="group" valueType="literal" value="None" />
+        <Param name="fileName" value="test1.txt"/>
+      </Generator>
+    </String>
+  </DataModel>
+  <Test name="DictTest">
+    <Publisher class="stdout.Stdout"/>
+  </Test>
+  <Run name="DefaultRun">
+    <Test ref="DictTest"/>
+  </Run>
+</Peach>

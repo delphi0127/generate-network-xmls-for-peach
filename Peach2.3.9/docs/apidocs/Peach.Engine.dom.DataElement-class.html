@@ -1,0 +1,2321 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.Engine.dom.DataElement</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        <a href="Peach.Engine-module.html">Package&nbsp;Engine</a> ::
+        <a href="Peach.Engine.dom-module.html">Module&nbsp;dom</a> ::
+        Class&nbsp;DataElement
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class DataElement</h1><p class="nomargin-top"><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement">source&nbsp;code</a></span></p>
+<center>
+
+</center>
+<hr />
+<p>Data elements compose the Data Modle.  This is the base class for 
+  String, Number, Block, Template, etc.</p>
+  <p>When iterating over the Peach DOM if an element isinstance(obj, 
+  DataElement) it is part of a data model.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_DefaultValue"></a><span class="summary-sig-name">get_DefaultValue</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_DefaultValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_DefaultValue"></a><span class="summary-sig-name">set_DefaultValue</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_DefaultValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_CurrentValue"></a><span class="summary-sig-name">get_CurrentValue</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_CurrentValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_CurrentValue"></a><span class="summary-sig-name">set_CurrentValue</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_CurrentValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_Value"></a><span class="summary-sig-name">get_Value</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_Value">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_Value"></a><span class="summary-sig-name">set_Value</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_Value">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_FinalValue"></a><span class="summary-sig-name">get_FinalValue</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_FinalValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_FinalValue"></a><span class="summary-sig-name">set_FinalValue</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_FinalValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#get_pos" class="summary-sig-name">get_pos</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Getter for pos property.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_pos">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_pos"></a><span class="summary-sig-name">set_pos</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Setter for pos property</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_pos">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#get_possiblePos" class="summary-sig-name">get_possiblePos</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Getter for pos property.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_possiblePos">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_possiblePos"></a><span class="summary-sig-name">set_possiblePos</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Setter for pos property</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_possiblePos">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clone"></a><span class="summary-sig-name">clone</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.clone">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="asCType"></a><span class="summary-sig-name">asCType</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a ctypes module type for this DataElement.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.asCType">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="pickleModel"></a><span class="summary-sig-name">pickleModel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">model</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.pickleModel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="unpickleModel"></a><span class="summary-sig-name">unpickleModel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dump</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.unpickleModel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_pickleAddInstanceMethods"></a><span class="summary-sig-name">_pickleAddInstanceMethods</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">model</span>)</span><br />
+      Add back in the non-pickleable instancemethods.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._pickleAddInstanceMethods">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_pickleRemoveInstanceMethods"></a><span class="summary-sig-name">_pickleRemoveInstanceMethods</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">model</span>)</span><br />
+      Remove any instance methods.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._pickleRemoveInstanceMethods">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setDefaults"></a><span class="summary-sig-name">setDefaults</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">dontCrack</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">mustPass</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Set data elements defaultValue based on a Data object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.setDefaults">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="BuildFullNameCache"></a><span class="summary-sig-name">BuildFullNameCache</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Figure out our fullname and fullname in data model</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.BuildFullNameCache">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="BuildRelationCache"></a><span class="summary-sig-name">BuildRelationCache</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Build the relation cache for this data element and it's children.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.BuildRelationCache">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_minOccurs"></a><span class="summary-sig-name">get_minOccurs</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_minOccurs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_minOccurs"></a><span class="summary-sig-name">set_minOccurs</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_minOccurs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_maxOccurs"></a><span class="summary-sig-name">get_maxOccurs</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_maxOccurs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_maxOccurs"></a><span class="summary-sig-name">set_maxOccurs</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.set_maxOccurs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#getAllChildDataElements" class="summary-sig-name">getAllChildDataElements</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ret</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Get all children data elements.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getAllChildDataElements">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="hasRelation"></a><span class="summary-sig-name">hasRelation</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Does this element have a size, count or offset relation?</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.hasRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_HasSizeofRelation"></a><span class="summary-sig-name">_HasSizeofRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._HasSizeofRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_HasOffsetRelation"></a><span class="summary-sig-name">_HasOffsetRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._HasOffsetRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_GetOffsetRelation"></a><span class="summary-sig-name">_GetOffsetRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._GetOffsetRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_GetSizeofRelation"></a><span class="summary-sig-name">_GetSizeofRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._GetSizeofRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetWhenRelation"></a><span class="summary-sig-name">GetWhenRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.GetWhenRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="HasWhenRelation"></a><span class="summary-sig-name">HasWhenRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.HasWhenRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_HasCountofRelation"></a><span class="summary-sig-name">_HasCountofRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._HasCountofRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_GetCountofRelation"></a><span class="summary-sig-name">_GetCountofRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._GetCountofRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getFullnameInDataModel"></a><span class="summary-sig-name">getFullnameInDataModel</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      This will get fully qualified name of this element starting with the 
+      root node of the data model.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getFullnameInDataModel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#getRootOfDataMap" class="summary-sig-name">getRootOfDataMap</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return the root of this data map.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRootOfDataMap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">DataElement</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#findArrayByName" class="summary-sig-name">findArrayByName</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Will find first element in array named &quot;name&quot;.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.findArrayByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_findArrayByName"></a><span class="summary-sig-name">_findArrayByName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      A generator that returns each instance of name in a data model.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._findArrayByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">DataElement</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#findDataElementByName" class="summary-sig-name">findDataElementByName</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Will find a data element in this data map by name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.findDataElementByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">DataElement</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#find" class="summary-sig-name">find</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Alias for findDataElementByName.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.find">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_findAllBlocksGoingUp"></a><span class="summary-sig-name">_findAllBlocksGoingUp</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Generator that locates all blocks by walking up our tree.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._findAllBlocksGoingUp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_findDataElementByName"></a><span class="summary-sig-name">_findDataElementByName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      A generator that returns each instance of name in a data model.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._findDataElementByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_checkDottedName"></a><span class="summary-sig-name">_checkDottedName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">names</span>)</span><br />
+      Internal helper method, not for use!</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._checkDottedName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getAllPlacementsInDataModel"></a><span class="summary-sig-name">getAllPlacementsInDataModel</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      As the name says, recurse looking for placements</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getAllPlacementsInDataModel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getDataElementByName"></a><span class="summary-sig-name">getDataElementByName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Get an element relative to here with a qualified name</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getDataElementByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getRelationOfThisElement"></a><span class="summary-sig-name">getRelationOfThisElement</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">type</span>)</span><br />
+      Locate and return a relation of this element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRelationOfThisElement">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getRelationByName"></a><span class="summary-sig-name">getRelationByName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRelationByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getRelationsOfThisElement"></a><span class="summary-sig-name">getRelationsOfThisElement</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Locate and return a relation of this element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRelationsOfThisElement">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#getLastNamePart" class="summary-sig-name">getLastNamePart</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Return the last part of a name:</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getLastNamePart">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_genRelationsInDataModelFromHere"></a><span class="summary-sig-name">_genRelationsInDataModelFromHere</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">useCache</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Instead of returning all relations starting with root we will walk up
+      looking for relations.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._genRelationsInDataModelFromHere">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_getAllRelationsInDataModel"></a><span class="summary-sig-name">_getAllRelationsInDataModel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">useCache</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Generator that gets all relations in data model.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._getAllRelationsInDataModel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="isArray"></a><span class="summary-sig-name">isArray</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Check if this data element is part of an array.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.isArray">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getArrayCount"></a><span class="summary-sig-name">getArrayCount</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return number of elements in array.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getArrayCount">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getArrayElementAt"></a><span class="summary-sig-name">getArrayElementAt</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">num</span>)</span><br />
+      Return array element at position num.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getArrayElementAt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#getCount" class="summary-sig-name">getCount</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return how many times this element occurs.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getCount">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#getInternalValue" class="summary-sig-name">getInternalValue</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return the internal value of this date element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getInternalValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string or number</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#getRelationValue" class="summary-sig-name">getRelationValue</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      This is common logic that was being duplicated across several data 
+      elements.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRelationValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getRawValue"></a><span class="summary-sig-name">getRawValue</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">sout</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Get the value of this data element pre-transformers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRawValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#isInvalidated" class="summary-sig-name">isInvalidated</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Check if we need to reproduce this value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.isInvalidated">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#getSize" class="summary-sig-name">getSize</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determine length in bytes of this element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getValue"></a><span class="summary-sig-name">getValue</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">sout</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Get the value of this data element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setDefaultValue"></a><span class="summary-sig-name">setDefaultValue</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Set the default value for this data element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.setDefaultValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setValue"></a><span class="summary-sig-name">setValue</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Set the current value for this data element</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.setValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="reset"></a><span class="summary-sig-name">reset</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reset the value of this data element back to the default.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.reset">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="resetDataModel"></a><span class="summary-sig-name">resetDataModel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Reset the entire data model.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.resetDataModel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#_fixRealParent" class="summary-sig-name" onclick="show_private();">_fixRealParent</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Look for realParent attributes and enable that nodes correct parent.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._fixRealParent">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.dom.DataElement-class.html#_unFixRealParent" class="summary-sig-name" onclick="show_private();">_unFixRealParent</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Locate any realParent attributes in our parent chain and enable them 
+      by setting that nodes parent to None.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._unFixRealParent">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="calcLength"></a><span class="summary-sig-name">calcLength</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculate length</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.calcLength">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.Mutatable-class.html">Mutatable</a></code></b>:
+      <code><a href="Peach.Engine.dom.Mutatable-class.html#setMutable">setMutable</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.ElementWithChildren-class.html">ElementWithChildren</a></code></b>:
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#__contains__">__contains__</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#__delitem__">__delitem__</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#__iter__">__iter__</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#__len__">__len__</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#__setitem__">__setitem__</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#append">append</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#firstChild">firstChild</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#getByName">getByName</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#getElementsByType">getElementsByType</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#has_key">has_key</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#index">index</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#insert">insert</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#lastChild">lastChild</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#printDomMap">printDomMap</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#toXmlDom">toXmlDom</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#toXmlDomLight">toXmlDomLight</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#updateFromXmlDom">updateFromXmlDom</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#verifyDomMap">verifyDomMap</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.Element-class.html">Element</a></code></b>:
+      <code><a href="Peach.Engine.dom.Element-class.html#__deepcopy__">__deepcopy__</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#compareTree">compareTree</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#copy">copy</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#getFullDataName">getFullDataName</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#getFullname">getFullname</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#getRoot">getRoot</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#nextSibling">nextSibling</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#previousSibling">previousSibling</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#updateRelationParents">updateRelationParents</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.Element-class.html">Element</a></code></b> (private):
+      <code><a href="Peach.Engine.dom.Element-class.html#_FixParents" onclick="show_private();">_FixParents</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#_getXmlAttribute" onclick="show_private();">_getXmlAttribute</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#_setAttribute" onclick="show_private();">_setAttribute</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#_setXmlAttribute" onclick="show_private();">_setXmlAttribute</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#_xmlHadChild" onclick="show_private();">_xmlHadChild</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.Element-class.html">Element</a></code></b>:
+      <code><a href="Peach.Engine.dom.Element-class.html#getUniqueName">getUniqueName</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="defaultValue"></a><span class="summary-name">defaultValue</span> = <code title="property(get_DefaultValue, set_DefaultValue, None)">property(get_DefaultValue, set_DefaultValue, None)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="currentValue"></a><span class="summary-name">currentValue</span> = <code title="property(get_CurrentValue, set_CurrentValue, None)">property(get_CurrentValue, set_CurrentValue, None)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="value"></a><span class="summary-name">value</span> = <code title="property(get_Value, set_Value, None)">property(get_Value, set_Value, None)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="finalValue"></a><span class="summary-name">finalValue</span> = <code title="property(get_FinalValue, set_FinalValue, None)">property(get_FinalValue, set_FinalValue, None)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="pos"></a><span class="summary-name">pos</span> = <code title="property(get_pos, set_pos, None)">property(get_pos, set_pos, None)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="possiblePos"></a><span class="summary-name">possiblePos</span> = <code title="property(get_possiblePos, set_possiblePos, None)">property(get_possiblePos, set_possiblePos, None)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="minOccurs"></a><span class="summary-name">minOccurs</span> = <code title="property(get_minOccurs, set_minOccurs)">property(get_minOccurs, set_minOccurs)</code><br />
+      Minimum occurences (property)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="maxOccurs"></a><span class="summary-name">maxOccurs</span> = <code title="property(get_maxOccurs, set_maxOccurs)">property(get_maxOccurs, set_maxOccurs)</code><br />
+      Maximum occurences (property)
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.Element-class.html">Element</a></code></b>:
+      <code><a href="Peach.Engine.dom.Element-class.html#GuidRegex">GuidRegex</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="isDataElement"></a><span class="summary-name">isDataElement</span><br />
+      Used instead of isinstance which is slow
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="isElementWithChildren"></a><span class="summary-name">isElementWithChildren</span><br />
+      Used instead of isinstance which is slow
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="isElement"></a><span class="summary-name">isElement</span><br />
+      Used instead of isinstance which is slow
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="isPointer"></a><span class="summary-name">isPointer</span><br />
+      Is this a ctypes pointer to something? (Defaults to False)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Engine.dom.DataElement-class.html#pointerDepth" class="summary-name">pointerDepth</a><br />
+      What is out pointer depth? (e.g.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="constraint"></a><span class="summary-name">constraint</span><br />
+      Optional constraint used during data cracking, python expression
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="isMutable"></a><span class="summary-name">isMutable</span><br />
+      Should element be mutated?
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="modelHasOffsetRelation"></a><span class="summary-name">modelHasOffsetRelation</span><br />
+      Does data model have an offset relation?
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Engine.dom.DataElement-class.html#relationCache" class="summary-name">relationCache</a><br />
+      Cache of relation, list of full data names (String) of each relation 
+      from here down.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Engine.dom.DataElement-class.html#relationOfCache" class="summary-name">relationOfCache</a><br />
+      Key is full data name of &quot;of&quot; element (string), value is 
+      list of relation full data names (String).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="onArrayNext"></a><span class="summary-name">onArrayNext</span><br />
+      Event that occurs prior to parsing the next array element.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="transformer"></a><span class="summary-name">transformer</span><br />
+      Transformers to apply
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="fixup"></a><span class="summary-name">fixup</span><br />
+      Fixup if any
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="placement"></a><span class="summary-name">placement</span><br />
+      Placement if any
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="relations"></a><span class="summary-name">relations</span><br />
+      Relations this element has
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="hints"></a><span class="summary-name">hints</span><br />
+      Mutator Hints
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="occurs"></a><span class="summary-name">occurs</span><br />
+      Fixed occurs
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_minOccurs"></a><span class="summary-name">_minOccurs</span><br />
+      Minimum occurences
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_maxOccurs"></a><span class="summary-name">_maxOccurs</span><br />
+      Maximum occurences
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_defaultValue"></a><span class="summary-name">_defaultValue</span><br />
+      Default value to use
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_currentValue"></a><span class="summary-name">_currentValue</span><br />
+      Mutated value prior to packing and transformers
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_finalValue"></a><span class="summary-name">_finalValue</span><br />
+      Mutated value after everything but transformers
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_value"></a><span class="summary-name">_value</span><br />
+      Current value
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="when"></a><span class="summary-name">when</span><br />
+      Expression used by data cracker to determin if element should be 
+      included in cracking.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_inInternalValue"></a><span class="summary-name">_inInternalValue</span><br />
+      Used to prevent recursion
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Engine.dom.DataElement-class.html#array" class="summary-name">array</a><br />
+      Name of array.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="arrayPosition"></a><span class="summary-name">arrayPosition</span><br />
+      Our position in the array.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="arrayMinOccurs"></a><span class="summary-name">arrayMinOccurs</span><br />
+      The min occurences in the array
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="arrayMaxOccurs"></a><span class="summary-name">arrayMaxOccurs</span><br />
+      The max occurences in the array
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_pos"></a><span class="summary-name">_pos</span><br />
+      Position in data stream item was parsed at
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="rating"></a><span class="summary-name">rating</span><br />
+      Parse rating for element
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="isStatic"></a><span class="summary-name">isStatic</span><br />
+      Is this element a static token?
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="relationStringBuffer"></a><span class="summary-name">relationStringBuffer</span><br />
+      A StringBuffer used to determin offset relations
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="fullNameDataModel"></a><span class="summary-name">fullNameDataModel</span><br />
+      Fullname in data model
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.ElementWithChildren-class.html">ElementWithChildren</a></code></b>:
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#children">children</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.ElementWithChildren-class.html">ElementWithChildren</a></code></b> (private):
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#_children" onclick="show_private();">_children</a></code>,
+      <code><a href="Peach.Engine.dom.ElementWithChildren-class.html#_childrenHash" onclick="show_private();">_childrenHash</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Peach.Engine.dom.Element-class.html">Element</a></code></b>:
+      <code><a href="Peach.Engine.dom.Element-class.html#elementType">elementType</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#fullName">fullName</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#hasChildren">hasChildren</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#name">name</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#parent">parent</a></code>,
+      <code><a href="Peach.Engine.dom.Element-class.html#ref">ref</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">parent</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_pos"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_pos</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_pos">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Getter for pos property.  If we have a string buffer associated with 
+  the root node, use that for the correct position.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_possiblePos"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_possiblePos</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.get_possiblePos">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Getter for pos property.  If we have a string buffer associated with 
+  the root node, use that for the correct position.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getAllChildDataElements"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getAllChildDataElements</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ret</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getAllChildDataElements">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get all children data elements.  Recursive</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getRootOfDataMap"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getRootOfDataMap</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRootOfDataMap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the root of this data map.  This should always return a 
+  Template object.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="findArrayByName"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">findArrayByName</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.findArrayByName">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Will find first element in array named &quot;name&quot;.</p>
+  <p>This method should allow for more natural reuse of Blocks/Templates 
+  w/o the user needing to think about it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (string) - Array to find.  Does not support dotted name.</li>
+    </ul></dd>
+    <dt>Returns: DataElement</dt>
+        <dd>DataElement or None</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="findDataElementByName"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">findDataElementByName</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.findDataElementByName">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Will find a data element in this data map by name.  The search pattern
+  we use is to locate each block we are a member of starting with the 
+  nearest.  At each block we look down to see if we can resolve the name.  
+  If not we move closer towards the root of the data model.</p>
+  <p>This method should allow for more natural reuse of Blocks/Templates 
+  w/o the user needing to think about it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (string) - Name of element to find.  Can be full or relative.</li>
+    </ul></dd>
+    <dt>Returns: DataElement</dt>
+        <dd>DataElement or None</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="find"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">find</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.find">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Alias for findDataElementByName.</p>
+  <p>Will find a data element in this data map by name.  The search pattern
+  we use is to locate each block we are a member of starting with the 
+  nearest.  At each block we look down to see if we can resolve the name.  
+  If not we move closer towards the root of the data model.</p>
+  <p>This method should allow for more natural reuse of Blocks/Templates 
+  w/o the user needing to think about it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (string) - Name of element to find.  Can be full or relative.</li>
+    </ul></dd>
+    <dt>Returns: DataElement</dt>
+        <dd>DataElement or None</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getLastNamePart"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getLastNamePart</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getLastNamePart">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the last part of a name:</p>
+  <p>foo.bar.hello -- return hello</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getCount"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getCount</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getCount">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return how many times this element occurs.  If it is part of an array 
+  the array size is returned, otherwise we will look at the min/max and any
+  count relations.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getInternalValue"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getInternalValue</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getInternalValue">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the internal value of this date element.  This value comes 
+  before any modifications such as packing, padding, truncating, etc.</p>
+  <p>For Numbers this is the python int or long value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getRelationValue"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getRelationValue</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getRelationValue">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is common logic that was being duplicated across several data 
+  elements.  The logic is used in getInternalValue() to check if a relation
+  of size-of or count-of should modify the value.</p>
+  <dl class="fields">
+    <dt>Returns: string or number</dt>
+        <dd>the value passed in or an integer if the value needed to be 
+          changed.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="isInvalidated"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">isInvalidated</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.isInvalidated">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Check if we need to reproduce this value.</p>
+  <p>If we have a relation always True. Otherwise False.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getSize</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement.getSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determine length in bytes of this element.  Please override me and 
+  make faster :)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_fixRealParent"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_fixRealParent</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._fixRealParent">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Look for realParent attributes and enable that nodes correct 
+  parent.</p>
+  <p>We could have multiple layers of realParents to deal with, so keep 
+  going until we find no more.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_unFixRealParent"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_unFixRealParent</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.dom-pysrc.html#DataElement._unFixRealParent">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Locate any realParent attributes in our parent chain and enable them 
+  by setting that nodes parent to None.</p>
+  <p>We could have several layers of realParents so check out each of our 
+  parents back to root.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="pointerDepth"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">pointerDepth</h3>
+  <p>What is out pointer depth? (e.g. void** p is 2), (Defaults to 1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="relationCache"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">relationCache</h3>
+  <p>Cache of relation, list of full data names (String) of each relation 
+  from here down.  cache is build post incoming.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="relationOfCache"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">relationOfCache</h3>
+  <p>Key is full data name of &quot;of&quot; element (string), value is 
+  list of relation full data names (String). cache is bulid post 
+  incoming.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="array"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">array</h3>
+  <p>Name of array.  The origional name of the data element.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:29 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

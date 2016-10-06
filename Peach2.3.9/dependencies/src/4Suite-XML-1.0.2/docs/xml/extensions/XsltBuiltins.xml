@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ext-module name="XsltBuiltins">
+  <description/>
+  <namespaces>
+    <namespace prefix="dyn" namespace-uri="http://exslt.org/dynamic"/>
+    <namespace prefix="date" namespace-uri="http://exslt.org/dates-and-times"/>
+    <namespace prefix="f" namespace-uri="http://xmlns.4suite.org/ext"/>
+    <namespace prefix="func" namespace-uri="http://exslt.org/functions"/>
+    <namespace prefix="regexp" namespace-uri="http://exslt.org/regular-expressions"/>
+    <namespace prefix="exsl" namespace-uri="http://exslt.org/common"/>
+    <namespace prefix="math" namespace-uri="http://exslt.org/math"/>
+    <namespace prefix="set" namespace-uri="http://exslt.org/sets"/>
+    <namespace prefix="str" namespace-uri="http://exslt.org/strings"/>
+  </namespaces>
+  <functions>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:lookup">
+      <description>f:lookup() queries an index as defined by f:create-index.</description>
+      <result>unknown</result>
+      <argument required="yes" type="name" name="name"/>
+      <argument required="yes" type="key" name="key"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:time">
+      <description>The date:time function returns the time portion of the dateTime
+argument if present, or of the current local date/time. The
+argument can be given in xs:dateTime or xs:time format.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:day-abbreviation">
+      <description>The date:day-abbreviation function returns the English abbreviation
+for the day name of a given date.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:format-date">
+      <description>The date:format-date function formats a date/time according to a pattern.
+
+The first argument to date:format-date specifies the date/time to be
+formatted. It must be right or left-truncated date/time strings in one of
+the formats defined in XML Schema Part 2: Datatypes.  The permitted
+formats are as follows: xs:dateTime, xs:date, xs:time, xs:gYearMonth,
+xs:gYear, xs:gMonthDay, xs:gMonth and xs:gDay.
+
+The second argument is a string that gives the format pattern used to
+format the date. The format pattern must be in the syntax specified by
+the JDK 1.1 SimpleDateFormat class. The format pattern string is
+interpreted as described for the JDK 1.1 SimpleDateFormat class.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument required="yes" type="dateTime" name="dateTime"/>
+      <argument required="yes" type="pattern" name="pattern"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:acos">
+      <description>The math:acos function returns the arccosine value of a number.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:seconds">
+      <description>The date:seconds function returns the number of seconds specified by the
+argument string. If no argument is given, then the current local
+date/time, as returned by date:date-time is used as a default argument.
+
+Implements version 1.</description>
+      <result>unknown</result>
+      <argument type="string" name="string"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:doc-as-string">
+      <description>Retrieves a document, similar to the document() function, but
+returns the document as an XPath string object rather than as a
+node-set.
+
+Security note: if the associated URI resolver allows file: URLs,
+this extension could be used to read arbitrary system files</description>
+      <result>unknown</result>
+      <argument required="yes" type="obj" name="obj"/>
+      <argument type="encoding" name="encoding"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:key">
+      <description>Query an XSLT key, but allow the user to override the context node for
+purposes of determining which source document to check.
+realContextNode is a node set from which the first node is extracted
+And used as the context node</description>
+      <result>unknown</result>
+      <argument required="yes" type="qname" name="qname"/>
+      <argument required="yes" type="keyList" name="keyList"/>
+      <argument type="realContextNode" name="realContextNode"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:day-in-week">
+      <description>The date:day-in-week function returns a number representing the
+weekday of a given date. Sunday is 1, Saturday is 7.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/sets" name="set:has-same-node">
+      <description>The set:has-same-node function returns true if the node set passed as the
+first argument shares any nodes with the node set passed as the second
+argument. If there are no nodes that are in both node sets, then it
+returns false.</description>
+      <result>unknown</result>
+      <argument required="yes" type="ns1" name="ns1"/>
+      <argument required="yes" type="ns2" name="ns2"/>
+    </function>
+    <function namespace-uri="http://exslt.org/regular-expressions" name="regexp:test">
+      <description>The regexp:test function returns true if the string given as the first
+argument matches the regular expression given as the second argument.
+
+The second argument is a regular expression that follows the Javascript
+regular expression syntax.
+
+The third argument is a string consisting of flags to be used by the test.
+If a character is present then that flag is true. The flags are:
+  g: global test - has no effect on this function, but is retained for
+                   consistency with regexp:match and regexp:replace.
+  i: case insensitive - the regular expression is treated as case
+                        insensitive. If this character is not present,
+                        then the regular expression is case sensitive.</description>
+      <result>unknown</result>
+      <argument required="yes" type="source" name="source"/>
+      <argument required="yes" type="pattern" name="pattern"/>
+      <argument type="flags" name="flags"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:year">
+      <description>The date:year function returns the year portion of the
+dateTime supplied, or of the current year, as an integer.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:constant">
+      <description>The math:constant function returns the specified constant to a set precision.</description>
+      <result>unknown</result>
+      <argument required="yes" type="name" name="name"/>
+      <argument required="yes" type="precision" name="precision"/>
+    </function>
+    <function namespace-uri="http://exslt.org/sets" name="set:leading">
+      <description>The set:leading function returns the nodes in the node set passed as the
+first argument that precede, in document order, the first node in the node
+set passed as the second argument. If the first node in the second node
+set is not contained in the first node set, then an empty node set is
+returned. If the second node set is empty, then the first node set is
+returned.</description>
+      <result>unknown</result>
+      <argument required="yes" type="ns1" name="ns1"/>
+      <argument required="yes" type="ns2" name="ns2"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:min">
+      <description>The math:min function returns the minimum value of the nodes passed as
+the argument.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+    </function>
+    <function namespace-uri="http://exslt.org/common" name="exsl:node-set">
+      <description>The purpose of the exsl:node-set function is to return a node-set from a
+result tree fragment. If the argument is a node-set already, it is simply
+returned as is. If the argument to exsl:node-set is not a node-set or a
+result tree fragment, then it is converted to a string as by the string()
+function, and the function returns a node-set consisting of a single text
+node with that string value.
+
+The exsl:node-set function does not have side-effects: the result tree
+fragment used as an argument is still available as a result tree fragment
+after it is passed as an argument to exsl:node-set.</description>
+      <result>unknown</result>
+      <argument required="yes" type="obj" name="obj"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:search-re">
+      <description>Do a regular expression search against the argument (i.e. get all matches)</description>
+      <result>unknown</result>
+      <argument required="yes" type="pattern" name="pattern"/>
+      <argument type="arg" name="arg"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:sum">
+      <description>The date:sum function adds a set of durations together. The string values
+of the nodes in the node set passed as an argument are interpreted as
+durations and added together as if using the date:add-duration function.
+
+Implements version 1.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:replace">
+      <description>The str:replace function converts a string to a node-set, with
+each instance of a substring from a given list (obtained from the
+string-values of nodes in the second argument) replaced by the
+node at the corresponding position of the node-set given as the
+third argument. Unreplaced substrings become text nodes.
+
+The second and third arguments can be any type of object; if
+either is not a node-set, it is treated as if it were a node-set
+of just one text node, formed from the object's string-value.
+
+Attribute and namespace nodes in the replacement set are
+erroneous but are treated as empty text nodes.
+
+All occurrences of the longest substrings are replaced first,
+and once a replacement is made, that span of the original string
+is no longer eligible for future replacements.
+
+An empty search string matches between every character of the
+original string.
+
+See http://exslt.org/str/functions/replace/str.replace.html for details.</description>
+      <result>unknown</result>
+      <argument required="yes" type="s" name="s"/>
+      <argument required="yes" type="searchNodes" name="searchNodes"/>
+      <argument required="yes" type="replNodes" name="replNodes"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:add-duration">
+      <description>The date:add-duration function returns the duration resulting from adding
+two durations together.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument required="yes" type="duration1" name="duration1"/>
+      <argument required="yes" type="duration2" name="duration2"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:minute-in-hour">
+      <description>The date:minute-in-hour function returns the minute portion of a
+date-time string as an integer.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dynamic" name="dyn:closure">
+      <description>The dyn:closure function creates a node set resulting from transitive
+closure of evaluating the expression passed as the second argument on
+each of the nodes passed as the first argument, then on the node set
+resulting from that and so on until no more nodes are found.
+
+http://www.exslt.org/dyn/functions/closure/index.html</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+      <argument required="yes" type="string" name="string"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:month-name">
+      <description>The date:month-name function returns the full English name
+of the month portion of a date.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/sets" name="set:trailing">
+      <description>The set:trailing function returns the nodes in the node set passed as the
+first argument that follow, in document order, the first node in the node
+set passed as the second argument. If the first node in the second node
+set is not contained in the first node set, then an empty node set is
+returned. If the second node set is empty, then the first node set is
+returned.</description>
+      <result>unknown</result>
+      <argument required="yes" type="ns1" name="ns1"/>
+      <argument required="yes" type="ns2" name="ns2"/>
+    </function>
+    <function namespace-uri="http://exslt.org/regular-expressions" name="regexp:replace">
+      <description>The regexp:replace function replaces the parts of a string that match
+a regular expression with another string.
+
+The first argument is the string to be matched and replaced. The second
+argument is a regular expression that follows the Javascript regular
+expression syntax. The fourth argument is the string to replace the
+matched parts of the string.
+
+The third argument is a string consisting of character flags to be used
+by the match. If a character is present then that flag is true. The flags
+are:
+  g: global replace - all occurrences of the regular expression in the
+                      string are replaced. If this character is not
+                      present, then only the first occurrence of the
+                      regular expression is replaced.
+  i: case insensitive - the regular expression is treated as case
+                        insensitive. If this character is not present,
+                        then the regular expression is case sensitive.</description>
+      <result>unknown</result>
+      <argument required="yes" type="source" name="source"/>
+      <argument required="yes" type="pattern" name="pattern"/>
+      <argument required="yes" type="flags" name="flags"/>
+      <argument required="yes" type="repl" name="repl"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:split">
+      <description>The str:split function splits up a string and returns a node set of
+token elements, each containing one token from the string.
+
+The first argument is the string to be split. The second argument is a
+pattern string (default=' '). The string given by the first argument is
+split at any occurrence of this pattern. An empty string pattern will
+result in a split on every character in the string.</description>
+      <result>unknown</result>
+      <argument required="yes" type="string" name="string"/>
+      <argument type="pattern" name="pattern"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:serialize-xml">
+      <description>f:serialize-xml() takes a node set and turns it into a string
+representing the serialization of the node set, obtained
+by concatenating the serialization of each node in the
+node set in document order.
+
+See also: XPath (not XSLT) extension function f:parse-xml()</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+      <argument type="method" name="method"/>
+      <argument type="omitxmldecl" name="omitxmldecl"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dynamic" name="dyn:evaluate">
+      <description>The dyn:evaluate function evaluates a string as an XPath expression and
+returns the resulting value, which might be a boolean, number, string,
+node set, result tree fragment or external object. The sole argument is
+the string to be evaluated. If the string is an invalid XPath expression,
+an empty node-set is returned.
+
+http://www.exslt.org/dyn/functions/evaluate/index.html</description>
+      <result>unknown</result>
+      <argument required="yes" type="string" name="string"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:split">
+      <description>DEPRECATED.
+Equivalent to EXSLT's str:split().
+Splits a string according to a sub-string and return a node set
+of elements nodes, each of which is named &quot;Split&quot; and contains the
+split text
+For example f:split('A,B,C,') returns a node set of &quot;Split&quot; nodes
+having text nodes with values &quot;A&quot;, &quot;B&quot; and &quot;C&quot;
+arg - converted to a string, is the string to split up
+delim - the delimiter upon which to split, defaults to &quot; &quot;</description>
+      <result>unknown</result>
+      <argument required="yes" type="arg" name="arg"/>
+      <argument type="delim" name="delim"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:month-in-year">
+      <description>The date:month-in-year function returns the month portion of
+the dateTime argument (defaults to current month) as an integer.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:date">
+      <description>The date:date function returns the date portion of the dateTime
+argument if present, or of the current local date/time. The
+argument can be given in xs:dateTime or xs:date format.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:atan">
+      <description>The math:atan function returns the arctangent value of a number.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:add">
+      <description>The date:add function returns the result of adding a duration to a dateTime.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument required="yes" type="dateTime" name="dateTime"/>
+      <argument required="yes" type="duration" name="duration"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:day-name">
+      <description>The date:day-name function returns the full English day name of
+a given date.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:exp">
+      <description>The math:exp function returns e (the base of natural logarithms) raised to
+a power.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:hour-in-day">
+      <description>The date:hour-in-date function returns the hour portion of a date-
+time string as an integer.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:map">
+      <description>Apply the function serially over the given node sets.
+In iteration i, the function is passed N parameters
+where N is the number of argument node sets.  Each
+parameter is a node set of size 1, whose node is
+the ith node of the corresponding argument node set.
+The return value is a node set consisting of a series
+of result-tree nodes, each of which is a text node
+whose value is the string value of the result of the
+ith function invocation.
+Warning: this function uses the implied ordering of the node set
+Based on its implementation as a Python list.  But in reality
+There is no reliable ordering of XPath node sets.
+Therefore this function is not recommended for use with
+more than one node set parameter.</description>
+      <result>unknown</result>
+      <argument required="yes" type="funcname" name="funcname"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:month-abbreviation">
+      <description>The date:month-abbreviation function returns the abbreviation
+of the month of a date.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:difference">
+      <description>The date:difference function returns the difference between the first date
+and the second date as a duration in string form.
+
+Implements version 1.</description>
+      <result>unknown</result>
+      <argument required="yes" type="start" name="start"/>
+      <argument required="yes" type="end" name="end"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:highest">
+      <description>The math:highest function returns the nodes in the node set whose value is
+the maximum value for the node set. The maximum value for the node set is
+the same as the value as calculated by math:max. A node has this maximum
+value if the result of converting its string value to a number as if by the
+number function is equal to the maximum value, where the equality
+comparison is defined as a numerical comparison using the = operator.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:leap-year">
+      <description>The date:leap-year function returns true if the year argument
+(defaults to current year) is a leap year, false otherwise.
+
+Implements version 1.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:tokenize">
+      <description>The str:tokenize function splits up a string and returns a node set of
+'token' elements, each containing one token from the string.
+
+The first argument is the string to be tokenized. The second argument
+is a string consisting of a number of characters. Each character in
+this string is taken as a delimiting character. The string given by the
+first argument is split at any occurrence of any of these characters.</description>
+      <result>unknown</result>
+      <argument required="yes" type="string" name="string"/>
+      <argument type="delimiters" name="delimiters"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:week-in-month">
+      <description>The date:week-in-month function returns the week in a month of a date as
+a number. If no argument is given, then the current local date/time, as
+returned by date:date-time is used the default argument. For the purposes
+of numbering, the first day of the month is in week 1 and new weeks begin
+on a Monday (so the first and last weeks in a month will often have less
+than 7 days in them).
+
+Implements version 3.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/sets" name="set:intersection">
+      <description>The set:intersection function returns a node set comprising the nodes that
+are within both the node sets passed as arguments to it.</description>
+      <result>unknown</result>
+      <argument required="yes" type="ns1" name="ns1"/>
+      <argument required="yes" type="ns2" name="ns2"/>
+    </function>
+    <function namespace-uri="http://exslt.org/sets" name="set:difference">
+      <description>The set:difference function returns the difference between two node
+sets - those nodes that are in the node set passed as the first argument
+that are not in the node set passed as the second argument.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodes1" name="nodes1"/>
+      <argument required="yes" type="nodes2" name="nodes2"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:random">
+      <description>The math:random function returns a random number from 0 to 1.</description>
+      <result>unknown</result>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:duration">
+      <description>The date:duration function returns a duration string representing the
+number of seconds specified by the argument string. If no argument is
+given, then the result of calling date:seconds without any arguments is
+used as a default argument.
+
+Implements version 1.</description>
+      <result>unknown</result>
+      <argument type="seconds" name="seconds"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:week-in-year">
+      <description>The date:week-in-year function returns a number representing
+the week of the year a date is in.
+
+Implements version 3.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:sqrt">
+      <description>The math:sqrt function returns the square root of a number.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:align">
+      <description>The str:align function aligns a string within another string.
+
+See http://exslt.org/str/functions/align/str.align.html for further
+explanation.</description>
+      <result>unknown</result>
+      <argument required="yes" type="target" name="target"/>
+      <argument required="yes" type="padding" name="padding"/>
+      <argument type="alignment" name="alignment"/>
+    </function>
+    <function namespace-uri="http://exslt.org/common" name="exsl:object-type">
+      <description>The exsl:object-type function returns a string giving the type of the
+object passed as the argument. The possible object types are: 'string',
+'number', 'boolean', 'node-set', 'RTF' or 'external'.</description>
+      <result>unknown</result>
+      <argument required="yes" type="obj" name="obj"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:tan">
+      <description>The math:tan function returns the tangent of the number passed as
+an argument.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:day-of-week-in-month">
+      <description>The date:day-of-week-in-month function returns the day-of-the-week
+in a month of a date as a number (e.g. 3 for the 3rd Tuesday in May).
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:sin">
+      <description>The math:sin function returns the sine of the number.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:power">
+      <description>The math:power function returns the value of a base expression taken to
+a specified power.</description>
+      <result>unknown</result>
+      <argument required="yes" type="base" name="base"/>
+      <argument required="yes" type="exponent" name="exponent"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:decode-uri">
+      <description>The str:decode-uri function decodes a percent-encoded string, such as
+one would find in a URI.</description>
+      <result>unknown</result>
+      <argument required="yes" type="uri" name="uri"/>
+      <argument type="encoding" name="encoding"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dynamic" name="dyn:map">
+      <description>The dyn:map function evaluates the expression passed as the second
+argument for each of the nodes passed as the first argument, and returns
+a node set of those values.
+
+http://www.exslt.org/dyn/functions/map/index.html</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+      <argument required="yes" type="string" name="string"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:cos">
+      <description>The math:cos function returns cosine of the passed argument.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:second-in-minute">
+      <description>The date:second-in-minute function returns the seconds portion
+of a date-time string as an integer.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/sets" name="set:distinct">
+      <description>The set:distinct function returns a subset of the nodes contained in the
+node-set NS passed as the first argument. Specifically, it selects a node
+N if there is no node in NS that has the same string value as N, and that
+precedes N in document order.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:atan2">
+      <description>The math:atan2 function returns the angle ( in radians ) from the X axis
+to a point (y,x).</description>
+      <result>unknown</result>
+      <argument required="yes" type="y" name="y"/>
+      <argument required="yes" type="x" name="x"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:day-in-year">
+      <description>The date:day-in-year function returns a number representing
+the position of a date in the year.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:abs">
+      <description>The math:abs function returns the absolute value of a number.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dynamic" name="dyn:min">
+      <description>The dyn:min function calculates the minimum value for the nodes passed as
+the first argument, where the value of each node is calculated dynamically
+using an XPath expression passed as a string as the second argument.
+
+http://www.exslt.org/dyn/functions/min/index.html</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+      <argument required="yes" type="string" name="string"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dynamic" name="dyn:max">
+      <description>The dyn:max function calculates the maximum value for the nodes passed as
+the first argument, where the value of each node is calculated dynamically
+using an XPath expression passed as a string as the second argument.
+
+http://www.exslt.org/dyn/functions/max/index.html</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+      <argument required="yes" type="string" name="string"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:encode-uri">
+      <description>The str:encode-uri function percent-encodes a string for embedding in a URI.
+The second argument is a boolean indicating whether to escape reserved characters;
+if true, the given string can be a URI already, with just some of its characters
+needing to be escaped (not recommended, but users who don't understand the nuances
+of the URI syntax tend to prefer it over assembling a URI piece-by-piece).</description>
+      <result>unknown</result>
+      <argument required="yes" type="uri" name="uri"/>
+      <argument required="yes" type="escapeReserved" name="escapeReserved"/>
+      <argument type="encoding" name="encoding"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:asin">
+      <description>The math:asin function returns the arcsine value of a number.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:date-time">
+      <description>The date:date-time function returns the current local date/time as an
+ISO 8601 formatted date/time string, with a time zone.
+
+Implements version 1.</description>
+      <result>unknown</result>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:lowest">
+      <description>The math:lowest function returns the nodes in the node set whose value is
+the minimum value for the node set. The minimum value for the node set is
+the same as the value as calculated by math:min. A node has this minimum
+value if the result of converting its string value to a number as if by the
+number function is equal to the minimum value, where the equality
+comparison is defined as a numerical comparison using the = operator.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:max">
+      <description>The math:max function returns the maximum value of the nodes passed as
+the argument.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:concat">
+      <description>The str:concat function takes a node set and returns the concatenation of
+the string values of the nodes in that node set. If the node set is empty,
+it returns an empty string.</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+    </function>
+    <function namespace-uri="http://exslt.org/math" name="math:log">
+      <description>The math:log function returns the natural logarithm of a number.</description>
+      <result>unknown</result>
+      <argument required="yes" type="num" name="num"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dates-and-times" name="date:day-in-month">
+      <description>The date:day-in-month function returns the numerical date, i.e.
+27 for the 27th of March.
+
+Implements version 2.</description>
+      <result>unknown</result>
+      <argument type="dateTime" name="dateTime"/>
+    </function>
+    <function namespace-uri="http://exslt.org/regular-expressions" name="regexp:match">
+      <description>The regexp:match function lets you get hold of the substrings of the
+string passed as the first argument that match the captured parts of
+the regular expression passed as the second argument.
+
+The second argument is a regular expression that follows the Javascript
+regular expression syntax.
+
+The third argument is a string consisting of character flags to be used
+by the match. If a character is present then that flag is true. The
+flags are:
+  g: global match - the submatches from all the matches in the string
+                    are returned. If this character is not present, then
+                    only the submatches from the first match in the
+                    string are returned.
+  i: case insensitive - the regular expression is treated as case
+                        insensitive. If this character is not present,
+                        then the regular expression is case sensitive.
+
+The regexp:match function returns a node set of 'match' elements, each of
+whose string value is equal to a portion of the first argument string
+that was captured by the regular expression. If the match is not global,
+the first match element has a value equal to the portion of the string
+matched by the entire regular expression.</description>
+      <result>unknown</result>
+      <argument required="yes" type="source" name="source"/>
+      <argument required="yes" type="pattern" name="pattern"/>
+      <argument type="flags" name="flags"/>
+    </function>
+    <function namespace-uri="http://exslt.org/strings" name="str:padding">
+      <description>The str:padding function creates a padding string of a certain length.
+
+The second argument gives a string to be used to create the padding.
+This string is repeated as many times as is necessary to create a string
+of the length specified by the first argument; if the string is more than
+a character long, it may have to be truncated to produce the required
+length. If no second argument is specified, it defaults to a space (' ').</description>
+      <result>unknown</result>
+      <argument required="yes" type="length" name="length"/>
+      <argument type="chars" name="chars"/>
+    </function>
+    <function namespace-uri="http://exslt.org/dynamic" name="dyn:sum">
+      <description>The dyn:sum function calculates the sum for the nodes passed as the first
+argument, where the value of each node is calculated dynamically using an
+XPath expression passed as a string as the second argument.
+
+http://www.exslt.org/dyn/functions/sum/index.html</description>
+      <result>unknown</result>
+      <argument required="yes" type="nodeset" name="nodeset"/>
+      <argument required="yes" type="string" name="string"/>
+    </function>
+  </functions>
+  <elements>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:gettext">
+      <description/>
+      <content>/template/</content>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:apply-templates">
+      <description>The f:apply-templates element is an extension of the xsl:apply-templates
+element. It differs from xsl:apply-templates in the following way:
+The value of the mode attribute is an attribute value template
+rather than a static string. Thus, the mode can be computed at
+run time.</description>
+      <content>(xsl:sort | xsl:with-param)*</content>
+      <attribute content="{ qname }" required="no" name="mode">
+        <description>The mode to be used for template application.  In this variation the mode is an AVT and thus can be computed at run time.</description>
+      </attribute>
+      <attribute content="expression" required="no" name="select">
+        <description/>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:dump-vars">
+      <description/>
+      <content>/template/</content>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" default="no" required="no" name="raw">
+        <description>Present variables and values in a compact non-XML format</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:replace">
+      <description>f:replace performs a search and replace on a string, placing the results
+in the output.  The content is treated as a template.  The string value
+of the output from this template is the replacement string.
+All instances of the string given by the 'substring' attribute
+are replaced with the replacement string.</description>
+      <content>/template/</content>
+      <attribute content="string-expression" required="yes" name="substring">
+        <description>The sub-string to be replaced.</description>
+      </attribute>
+      <attribute content="string-expression" required="no" name="string">
+        <description>The string to be processed.  If not given, the string value of the context node is used.</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:uri-to-element">
+      <description>Extends xsl:element by deriving the constructed element's QName and
+namespace from the supplied URI reference. The URI reference is
+first resolved to absolute form. Then, if the resulting URI begins
+with an in-scope namespace, that namespace will be used as if it had
+been supplied as the 'namespace' attribute to xsl:element, and the
+remainder of the URI will be combined with a prefix from the
+in-scope namespace bindings and used as if supplied as the 'name'
+attribute to xsl:element.
+
+Otherwise, the supplied default-name and default-namespace will be
+used, effecting the same result as calling xsl:element with these
+values.
+
+The intent is to allow an RDF resource, as identified by a URI with
+a fragment component, to be easily converted into an element.</description>
+      <content>/template/</content>
+      <attribute content="{ uri-reference }" required="no" name="default-namespace">
+        <description>Used if the given URI cannot be broken down using in-scope namespaces</description>
+      </attribute>
+      <attribute content="{ uri-reference }" required="yes" name="uri">
+        <description>A URI to be used to create the element.  An attempt will be made to split the URI into a head and a tail such that the head matches an in-scope namespace URI.  If matched a qname will be constructed from the prefix of that namespace declaration and the tail of the URI and the namespace from the declaration will be used to complete an output element.</description>
+      </attribute>
+      <attribute content="qnames" required="no" name="use-attribute-sets">
+        <description/>
+      </attribute>
+      <attribute content="{ qname }" required="yes" name="default-name">
+        <description>Used if the given URI cannot be broken down using in-scope namespaces</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:apply-imports">
+      <description>The f:apply-imports element is an extension of the xsl:apply-imports
+element. It differs from xsl:apply-imports in the following way:
+The element accepts xsl:with-param children that designate
+parameters that will be passed to the applied templates.</description>
+      <content>xsl:with-param*</content>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:raw-text-output">
+      <description>Given a foreign XPath object, f:raw-text-output creates a text node
+based on the object, just like xsl:value-of with
+disable-output-escaping=&quot;yes&quot;. Unlike xsl:value-of, however, this
+element does not use the string-value of the object; it instead
+feeds the object directly to the current output writer. Therefore,
+unless a custom output writer is used, the object must be a Python
+Unicode string.
+
+The intent is to provide a way to serialize a Unicode string that may
+contain characters that are not permitted in an XPath string object.
+For example, another extension can convert raw binary data to a
+Unicode string, and then this extension can reserialize that string
+through the XSLT output stream, without risk of losing any data due
+to XPath's restrictions on string content.</description>
+      <content>/template/</content>
+      <attribute content="expression" required="yes" name="select">
+        <description>An XPath expression that returns a Python Unicode object.</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://exslt.org/functions" name="func:result">
+      <description>When an func:result element is instantiated, during the
+instantiation of a func:function element, the function returns
+with its value.</description>
+      <content>/template/</content>
+      <attribute content="expression" required="no" name="select">
+        <description/>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:setup-translations">
+      <description/>
+      <content>/template/</content>
+      <attribute content="{ string }" required="yes" name="domain">
+        <description>The domain name of the message catalog</description>
+      </attribute>
+      <attribute content="{ string }" required="no" name="localedir">
+        <description>The message catalog path</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:output">
+      <description>f:output is similar to xsl:output, but it allows you to compute the
+output parameters dynamically (as attribute value templates). Unlike
+xsl:output, this element is not expected to be empty; the output
+parameters apply only to the serialization of the element's content.</description>
+      <content>/template/</content>
+      <attribute content="{ string }" required="no" name="media-type">
+        <description/>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" required="no" name="indent">
+        <description/>
+      </attribute>
+      <attribute content="{ string }" required="no" name="doctype-system">
+        <description/>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" required="no" name="standalone">
+        <description/>
+      </attribute>
+      <attribute content="{ string }" required="no" name="encoding">
+        <description/>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" required="no" name="omit-xml-declaration">
+        <description/>
+      </attribute>
+      <attribute content="{ string }" required="no" name="doctype-public">
+        <description/>
+      </attribute>
+      <attribute content="{ nmtoken }" required="no" name="version">
+        <description/>
+      </attribute>
+      <attribute content="{ qname }" required="no" name="method">
+        <description/>
+      </attribute>
+      <attribute content="{ qnames }" required="no" name="cdata-section-elements">
+        <description/>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:message-control">
+      <description>f:msg-control provides, as a side effect, context-sensitive control
+over whether messages (i.e., those produced by xsl:message) and
+warnings are output by the processor.</description>
+      <content>/template/</content>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" default="no" required="no" name="suppress">
+        <description>Disable display of all XSLT messages.</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://exslt.org/common" name="exsl:document">
+      <description>For the basic specification, see:
+http://www.exslt.org/exsl/elements/document/index.html
+The only URI scheme supported by 4Suite currently is 'file:'
+Security note:
+As a precaution, if you try to overwrite an existing file, it will be
+saved to a temporary file (there will be a warning with the file name).
+If this this precaution fails, the instruction will abort.  You can
+override this precaution, always allowing the function to overwrite
+a document by using the f:overwrite-okay extension attribute.</description>
+      <content>/template/</content>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" default="no" required="no" name="f:overwrite-safeguard">
+        <description>Whether or not to make backup copies of any file before it's overwritten.</description>
+      </attribute>
+      <attribute content="{ string }" required="no" name="media-type">
+        <description/>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" required="no" name="indent">
+        <description/>
+      </attribute>
+      <attribute content="{ nmtoken }" required="no" name="version">
+        <description/>
+      </attribute>
+      <attribute content="{ string }" required="no" name="doctype-system">
+        <description/>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" required="no" name="standalone">
+        <description/>
+      </attribute>
+      <attribute content="{ string }" required="no" name="encoding">
+        <description/>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" required="no" name="omit-xml-declaration">
+        <description/>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" default="no" required="no" name="f:utfbom">
+        <description>Whether to force output of a byte order mark (BOM).  Usually used to generate a UTF-8 BOM.  Do not use this unless you're sure you know what you're doing</description>
+      </attribute>
+      <attribute content="{ string }" required="no" name="doctype-public">
+        <description/>
+      </attribute>
+      <attribute content="{ uri-reference }" required="yes" name="href">
+        <description/>
+      </attribute>
+      <attribute content="{ qname }" required="no" name="method">
+        <description/>
+      </attribute>
+      <attribute content="{ qnames }" required="no" name="cdata-section-elements">
+        <description/>
+      </attribute>
+    </element>
+    <element namespace-uri="http://exslt.org/functions" name="func:function">
+      <description/>
+      <content>(xsl:param*, /template/)</content>
+      <attribute content="qname-but-not-ncname" required="yes" name="name">
+        <description/>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:assign">
+      <description>The f:assign element works like xsl:variable, but forces both a local
+and a global variable binding, replacing any other in-scope bindings
+having the same expanded-name. Thus, it can be used to circumvent XSLT's
+restriction on variables not being reassignable. However, its use is not
+recommended, for reasons explained below.
+
+As with xsl:variable, the name of the variable is given in the mandatory
+name attribute, and the new value may be given either by an expression in
+the select attribute, or by instantiating the content of the element.
+
+If no select attribute is given, then a body-as-ns attribute may be used
+to indicate whether to assign the variable to the contents as a node-set
+(value 'yes') or as a result tree fragment (default, or value 'no').
+In either case, be aware that the node-set or result tree fragment will
+have a root node.
+
+Note that reassignment of variables is generally never actually needed.
+Before using f:assign, read the XSL FAQ or ask on xsl-list if there is a
+better, more portable way to solve your problem.
+
+XSLT is designed as a language that is free of side-effects, which is
+why assignment is not allowed and variables have very specific scope.
+When variable assignment is allowed, certain optimizations in the XSLT
+processor become impossible. Also, there are some circumstances in which
+the order of execution may not be quite what you expect, in which case
+f:assign may show anomalous behavior. It does not work predictably when
+called from within a tail-recursive template, for example.
+
+That said, f:assign can be a convenient way to create a node-set from
+a result tree fragment in XSLT 1.0. The proper way to do this is with
+EXSLT: &lt;xsl:variable name=&quot;rtf&quot;&gt;&lt;foo/&gt;&lt;/xsl:variable&gt;
+&lt;xsl:variable name=&quot;ns&quot; select=&quot;exsl:node-set($rtf)&quot; xmlns:exsl=&quot;http://exslt.org/common&quot;/&gt;
+but f:assign can do it in one step:
+&lt;f:assign name=&quot;ns&quot; body-as-ns=&quot;yes&quot;&gt;&lt;foo/&gt;&lt;/f:assign&gt;</description>
+      <content>/template/</content>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" default="no" required="no" name="body-as-ns">
+        <description/>
+      </attribute>
+      <attribute content="qname" required="yes" name="name">
+        <description/>
+      </attribute>
+      <attribute content="expression" required="no" name="select">
+        <description/>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:create-index">
+      <description>f:create-index allows one to create an arbitrary key at run time using
+any node data.  It is similar to xsl:key, except that it is computed
+on demand at run-time, and uses an XPath selection rather than an XSLT
+match, which gives more flexibility over what is indexed.
+
+These keys can be accessed using the extension function f:lookup().
+
+Avoid making a dynamic index have the same name as a proper xsl:key.
+In particular this will confuse tools such as the &lt;f:dump-keys/&gt;
+diagnostic extension.</description>
+      <content>/template/</content>
+      <attribute content="expression" required="yes" name="use">
+        <description>The expression that computes the index key value for each node</description>
+      </attribute>
+      <attribute content="{ string }" required="yes" name="name">
+        <description>The name of the key to create</description>
+      </attribute>
+      <attribute content="expression" required="yes" name="select">
+        <description>Selects which nodes are to be indexed</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:dump-keys">
+      <description/>
+      <content>/template/</content>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" default="no" required="no" name="raw">
+        <description>Present keys in a compact non-XML format</description>
+      </attribute>
+      <attribute content="{ &quot;yes&quot; | &quot;no&quot; }" default="no" required="no" name="force-update">
+        <description>Force evaluation of all keys on all loaded documents</description>
+      </attribute>
+    </element>
+    <element namespace-uri="http://xmlns.4suite.org/ext" name="f:chain-to">
+      <description>f:chain-to tells the processor to apply the output of the current
+stylsheet as the input of another stylesheet, establishing a chain of
+transforms.  The next stylesheet in the chain is specified using an
+AVT, which allows for dynamically constructed chains.
+
+Children can be xsl:with-param elements, in which case the specified
+values are passed on to the next stylesheet as top-level parameters
+
+Warning: if the href attribute is blank, it will chain back to this
+same stylesheet and could lead to an infinite loop.
+FIXME: Trap this condition</description>
+      <content>xsl:with-param*</content>
+      <attribute content="{ uri-reference }" required="yes" name="href">
+        <description>The URI of the next stylesheet in the chain</description>
+      </attribute>
+    </element>
+  </elements>
+</ext-module>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.Errors">
+  <modification-date>2002-07-17 16:57:31</modification-date>
+  <abstract>Exceptions used in TestSuite modules.</abstract>
+  <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestSuiteArgumentError" public="yes">
+      <bases>
+        <base documented="yes" class="TestSuiteError" module="Ft.Lib.TestSuite.Errors"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestSuiteArgumentError" module="Ft.Lib.TestSuite.Errors"/>
+        <base name="TestSuiteError" module="Ft.Lib.TestSuite.Errors"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="TestSuiteError" public="yes">
+      <bases>
+        <base documented="no" class="Exception"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestSuiteError" module="Ft.Lib.TestSuite.Errors"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="TestSuiteInternalError" public="yes">
+      <bases>
+        <base documented="yes" class="TestSuiteError" module="Ft.Lib.TestSuite.Errors"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestSuiteInternalError" module="Ft.Lib.TestSuite.Errors"/>
+        <base name="TestSuiteError" module="Ft.Lib.TestSuite.Errors"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="TestSuiteSetupError" public="yes">
+      <bases>
+        <base documented="yes" class="TestSuiteError" module="Ft.Lib.TestSuite.Errors"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestSuiteSetupError" module="Ft.Lib.TestSuite.Errors"/>
+        <base name="TestSuiteError" module="Ft.Lib.TestSuite.Errors"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Id: Errors.py,v 1.1 2002/07/17 22:57:31 jkloth Exp $'</value>
+    </global>
+  </globals>
+</module>

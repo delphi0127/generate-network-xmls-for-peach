@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.AttributeValueTemplate">
+  <modification-date>2006-08-17 13:09:45</modification-date>
+  <abstract>Implementation of XSLT attribute value templates</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="AttributeValueTemplate" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="AttributeValueTemplate" module="Ft.Xml.Xslt.AttributeValueTemplate"/>
+      </method-resolution-order>
+      <methods name="AttributeValueTemplate" module="Ft.Xml.Xslt.AttributeValueTemplate">
+        <method public="no" name="__init__" id="AttributeValueTemplate-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="source"/>
+            <arg default="None" name="validator"/>
+            <arg default="None" name="element"/>
+          </arguments>
+        </method>
+        <method public="no" name="__nonzero__" id="AttributeValueTemplate-__nonzero__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="AttributeValueTemplate-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isConstant" id="AttributeValueTemplate-isConstant">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

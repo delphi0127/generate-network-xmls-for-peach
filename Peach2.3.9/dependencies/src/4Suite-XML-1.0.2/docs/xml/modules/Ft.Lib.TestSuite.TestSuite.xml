@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.TestSuite">
+  <modification-date>2006-08-17 13:09:43</modification-date>
+  <abstract>Provides the TestSuite class, which represents the package(s) to test.</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestSuite" public="yes">
+      <abstract>A command-line program that runs a set of tests; this is primarily
+for making test modules conveniently executable.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="TestSuite" module="Ft.Lib.TestSuite.TestSuite"/>
+      </method-resolution-order>
+      <methods name="TestSuite" module="Ft.Lib.TestSuite.TestSuite">
+        <method public="no" name="__init__" id="TestSuite-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="attrs"/>
+          </arguments>
+        </method>
+        <method public="yes" name="addTests" id="TestSuite-addTests">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="packages"/>
+          </arguments>
+        </method>
+        <method public="yes" name="generateUsage" id="TestSuite-generateUsage">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="parseCommandLine" id="TestSuite-parseCommandLine">
+          <abstract>Parse the test script's command line, taken from the 'script_args'
+instance attribute (which defaults to 'sys.argv[1:]').  This is
+first processed for options that set attributes of the TestSuite
+instance.  Then, it is scanned for test arguments.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="runTests" id="TestSuite-runTests">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="showHelp" id="TestSuite-showHelp">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tests"/>
+          </arguments>
+        </method>
+        <method public="yes" name="showTests" id="TestSuite-showTests">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="TestSuite" module="Ft.Lib.TestSuite.TestSuite">
+        <member public="yes" name="boolean_opts" id="TestSuite-boolean_opts">
+          <value>('full', 'stop', 'nocolor', 'noreport', 'offline', 'help', 'help-tests')</value>
+        </member>
+        <member public="yes" name="negative_opts" id="TestSuite-negative_opts">
+          <value>{'nocolor': 'color', 'noreport': 'report', 'quiet': 'verbose'}</value>
+        </member>
+        <member public="yes" name="options" id="TestSuite-options">
+          <value>[('help', 'h', 'Show detailed help message'), ('help-tests', 't', 'List all available tests'), ('verbose', 'v', 'Increase display verbosity'), ('quiet', 'q', 'Decrease display verbosity'), ('mode=', 'm', 'Add mode to default modes to run'), ('skip=', 'k', 'Remove a mode from the modes to run'), ('full', 'f', 'Use all modes'), ('stop', 's', 'Stop on errors'), ('nocolor', 'n', 'Disable ANSI color sequences'), ('noreport', 'r', 'Disable report generation'), ('outfile=', 'o', 'Specify an output file for all results'), ('offline', 'l', 'Skip tests requiring internet connection')]</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="StringTypes" id="StringTypes">
+      <value>(&lt;type 'str'&gt;, &lt;type 'unicode'&gt;)</value>
+    </global>
+    <global public="yes" name="USAGE" id="USAGE">
+      <value>&quot;Usage:\n  %(script)s [options] [test] [...]\n  %(s...p)sfile         run just 'file' from 'directory'\n&quot;</value>
+    </global>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Id: TestSuite.py,v 1.13 2006/08/11 15:50:12 jkloth Exp $'</value>
+    </global>
+  </globals>
+</module>

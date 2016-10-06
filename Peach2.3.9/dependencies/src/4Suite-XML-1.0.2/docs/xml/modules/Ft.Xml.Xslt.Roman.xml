@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Roman">
+  <modification-date>2001-12-27 13:25:58</modification-date>
+  <abstract>Light-weight functions to convert from Roman-Numerals to ints,
+and vice-versa.</abstract>
+  <description/>
+  <functions>
+    <function public="yes" name="IToRoman" id="IToRoman">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="num"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="factor_list" id="factor_list">
+      <value>[1000, 500, 100, 50, 10, 5, 1]</value>
+    </global>
+    <global public="yes" name="roman_equiv" id="roman_equiv">
+      <value>{1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'}</value>
+    </global>
+  </globals>
+</module>

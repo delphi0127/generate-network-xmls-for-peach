@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.Transformers.fcrypt</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        <a href="Peach.Transformers-module.html">Package&nbsp;Transformers</a> ::
+        Module&nbsp;fcrypt
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module fcrypt</h1><p class="nomargin-top"><span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+Unix crypt(3) password hash algorithm.
+
+This is a port to Python of the standard Unix password crypt function.
+It's a single self-contained source file that works with any version
+of Python from version 1.5 or higher.  The code is based on Eric
+Young's optimised crypt in C.
+
+Python fcrypt is intended for users whose Python installation has not
+had the crypt module enabled, or whose C library doesn't include the
+crypt function.  See the documentation for the Python crypt module for
+more information:
+
+  http://www.python.org/doc/current/lib/module-crypt.html
+
+An alternative Python crypt module that uses the MD5 algorithm and is
+more secure than fcrypt is available from michal j wallace at:
+
+  http://www.sabren.net/code/python/crypt/index.php3
+
+The crypt() function is a one-way hash function, intended to hide a
+password such that the only way to find out the original password is
+to guess values until you get a match.  If you need to encrypt and
+decrypt data, this is not the module for you.
+
+There are at least two packages providing Python cryptography support:
+M2Crypto at &lt;http://www.pobox.org.sg/home/ngps/m2/&gt;, and amkCrypto at
+&lt;http://www.amk.ca/python/code/crypto.html&gt;.
+
+Functions:
+
+  crypt() -- return hashed password
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        1.3.1
+      </p>
+      <p><strong>Date:</strong>
+        21 February 2004
+      </p>
+      <p><strong>Author:</strong>
+        Carey Evans &lt;careye@spamcop.net&gt;
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_HPERM_OP"></a><span class="summary-sig-name">_HPERM_OP</span>(<span class="summary-sig-arg">a</span>)</span><br />
+      Clever bit manipulation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html#_HPERM_OP">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_PERM_OP"></a><span class="summary-sig-name">_PERM_OP</span>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">m</span>)</span><br />
+      Cleverer bit manipulation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html#_PERM_OP">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_set_key"></a><span class="summary-sig-name">_set_key</span>(<span class="summary-sig-arg">password</span>)</span><br />
+      Generate DES key schedule from ASCII password.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html#_set_key">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_body"></a><span class="summary-sig-name">_body</span>(<span class="summary-sig-arg">ks</span>,
+        <span class="summary-sig-arg">E0</span>,
+        <span class="summary-sig-arg">E1</span>)</span><br />
+      Use the key schedule ks and salt E0, E1 to create the password hash.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html#_body">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Transformers.fcrypt-module.html#crypt" class="summary-sig-name">crypt</a>(<span class="summary-sig-arg">password</span>,
+        <span class="summary-sig-arg">salt</span>)</span><br />
+      Generate an encrypted hash from the passed password.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html#crypt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_test"></a><span class="summary-sig-name">_test</span>()</span><br />
+      Run doctest on fcrypt module.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html#_test">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Transformers.fcrypt-module.html#__credits__" class="summary-name">__credits__</a> = <code title="'''michal j wallace for inspiring me to write this.
+Eric Young for the C code this module was copied from.'''">'''michal j wallace for inspiring me to write th<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_ITERATIONS"></a><span class="summary-name">_ITERATIONS</span> = <code title="16">16</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Transformers.fcrypt-module.html#_SPtrans" class="summary-name" onclick="show_private();">_SPtrans</a> = <code title="[0x00820200, 0x00020000, 0x80800000, 0x80820200, 0x00800000, 0x8002020\
+0, 0x80020000, 0x80800000, 0x80020200, 0x00820200, 0x00820000, 0x80000\
+200, 0x80800200, 0x00800000, 0x00000000, 0x80020000, 0x00020000, 0x800\
+00000, 0x00800200, 0x00020200, 0x80820200, 0x00820000, 0x80000200, 0x0\
+0800200, 0x80000000, 0x00000200, 0x00020200, 0x80820000, 0x00000200, 0\
+x80800200, 0x80820000, 0x00000000, 0x00000000, 0x80820200, 0x00800200,\
+ 0x80020000, 0x00820200, 0x00020000, 0x80000200, 0x00800200, 0x8082000\
+0, 0x00000200, 0x00020200, 0x80800000, 0x80020200, 0x80000000, 0x80800\
+...">[0x00820200, 0x00020000, 0x80800000, 0x80820200, 0x<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Transformers.fcrypt-module.html#_skb" class="summary-name" onclick="show_private();">_skb</a> = <code title="[0x00000000, 0x00000010, 0x20000000, 0x20000010, 0x00010000, 0x0001001\
+0, 0x20010000, 0x20010010, 0x00000800, 0x00000810, 0x20000800, 0x20000\
+810, 0x00010800, 0x00010810, 0x20010800, 0x20010810, 0x00000020, 0x000\
+00030, 0x20000020, 0x20000030, 0x00010020, 0x00010030, 0x20010020, 0x2\
+0010030, 0x00000820, 0x00000830, 0x20000820, 0x20000830, 0x00010820, 0\
+x00010830, 0x20010820, 0x20010830, 0x00080000, 0x00080010, 0x20080000,\
+ 0x20080010, 0x00090000, 0x00090010, 0x20090000, 0x20090010, 0x0008080\
+0, 0x00080810, 0x20080800, 0x20080810, 0x00090800, 0x00090810, 0x20090\
+...">[0x00000000, 0x00000010, 0x20000000, 0x20000010, 0x0001<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_shifts2"></a><span class="summary-name">_shifts2</span> = <code title="0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0">0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Transformers.fcrypt-module.html#_con_salt" class="summary-name" onclick="show_private();">_con_salt</a> = <code title="[0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0xDA, 0xDB, 0xDC, 0xD\
+D, 0xDE, 0xDF, 0xE0, 0xE1, 0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0\
+xE9, 0xEA, 0xEB, 0xEC, 0xED, 0xEE, 0xEF, 0xF0, 0xF1, 0xF2, 0xF3, 0xF4,\
+ 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF, 0x0\
+0, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0\
+x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10,\
+ 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1\
+C, 0x1D, 0x1E, 0x1F, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x20, 0x21, 0\
+...">[0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.Transformers.fcrypt-module.html#_cov_2char" class="summary-name" onclick="show_private();">_cov_2char</a> = <code title="'./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'">'./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="crypt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">crypt</span>(<span class="sig-arg">password</span>,
+        <span class="sig-arg">salt</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Transformers.fcrypt-pysrc.html#crypt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Generate an encrypted hash from the passed password.  If the password 
+  is longer than eight characters, only the first eight will be used.</p>
+  <p>The first two characters of the salt are used to modify the encryption
+  algorithm used to generate in the hash in one of 4096 different ways. The
+  characters for the salt should be upper- and lower-case letters A to Z, 
+  digits 0 to 9, '.' and '/'.</p>
+  <p>The returned hash begins with the two characters of the salt, and 
+  should be passed as the salt to verify the password.</p>
+  <p>Example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> fcrypt <span class="py-keyword">import</span> crypt
+<span class="py-prompt">&gt;&gt;&gt; </span>password = <span class="py-string">'AlOtBsOl'</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>salt = <span class="py-string">'cE'</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hash = crypt(password, salt)
+<span class="py-prompt">&gt;&gt;&gt; </span>hash
+<span class="py-output">'cEpWz5IUCShqM'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>crypt(password, hash) == hash
+<span class="py-output">1</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>crypt(<span class="py-string">'IaLaIoK'</span>, hash) == hash
+<span class="py-output">0</span></pre>
+  <p>In practice, you would read the password using something like the 
+  getpass module, and generate the salt randomly:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random, string
+<span class="py-prompt">&gt;&gt;&gt; </span>saltchars = string.letters + string.digits + <span class="py-string">'./'</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>salt = random.choice(saltchars) + random.choice(saltchars)</pre>
+  <p>Note that other ASCII characters are accepted in the salt, but the 
+  results may not be the same as other versions of crypt.  In particular, 
+  '_', '$1' and '$2' do not select alternative hash algorithms such as the 
+  extended passwords, MD5 crypt and Blowfish crypt supported by the OpenBSD
+  C library.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__credits__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__credits__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+'''michal j wallace for inspiring me to write this.
+Eric Young for the C code this module was copied from.'''
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_SPtrans"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_SPtrans</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+[0x00820200, 0x00020000, 0x80800000, 0x80820200, 0x00800000, 0x8002020<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0, 0x80020000, 0x80800000, 0x80020200, 0x00820200, 0x00820000, 0x80000<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+200, 0x80800200, 0x00800000, 0x00000000, 0x80020000, 0x00020000, 0x800<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+00000, 0x00800200, 0x00020200, 0x80820200, 0x00820000, 0x80000200, 0x0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0800200, 0x80000000, 0x00000200, 0x00020200, 0x80820000, 0x00000200, 0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+x80800200, 0x80820000, 0x00000000, 0x00000000, 0x80820200, 0x00800200,<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ 0x80020000, 0x00820200, 0x00020000, 0x80000200, 0x00800200, 0x8082000<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0, 0x00000200, 0x00020200, 0x80800000, 0x80020200, 0x80000000, 0x80800<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_skb"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_skb</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+[0x00000000, 0x00000010, 0x20000000, 0x20000010, 0x00010000, 0x0001001<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0, 0x20010000, 0x20010010, 0x00000800, 0x00000810, 0x20000800, 0x20000<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+810, 0x00010800, 0x00010810, 0x20010800, 0x20010810, 0x00000020, 0x000<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+00030, 0x20000020, 0x20000030, 0x00010020, 0x00010030, 0x20010020, 0x2<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0010030, 0x00000820, 0x00000830, 0x20000820, 0x20000830, 0x00010820, 0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+x00010830, 0x20010820, 0x20010830, 0x00080000, 0x00080010, 0x20080000,<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ 0x20080010, 0x00090000, 0x00090010, 0x20090000, 0x20090010, 0x0008080<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0, 0x00080810, 0x20080800, 0x20080810, 0x00090800, 0x00090810, 0x20090<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_con_salt"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_con_salt</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+[0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0xDA, 0xDB, 0xDC, 0xD<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+D, 0xDE, 0xDF, 0xE0, 0xE1, 0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+xE9, 0xEA, 0xEB, 0xEC, 0xED, 0xEE, 0xEF, 0xF0, 0xF1, 0xF2, 0xF3, 0xF4,<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF, 0x0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10,<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+C, 0x1D, 0x1E, 0x1F, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x20, 0x21, 0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_cov_2char"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_cov_2char</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+'./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:28 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

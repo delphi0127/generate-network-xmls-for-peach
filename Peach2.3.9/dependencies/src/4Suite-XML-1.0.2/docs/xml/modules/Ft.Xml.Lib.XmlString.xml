@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.XmlString">
+  <modification-date>2006-12-16 15:51:34</modification-date>
+  <abstract>Miscellaneous XML-specific string functions</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="IsNCName" id="IsNCName">
+      <abstract>IsNCName(s) -&gt; bool</abstract>
+      <description>Returns True if the given string matches the NCName production as defined
+by the W3C's Namespaces in XML Recommendation.</description>
+      <arguments>
+        <unknown>s</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="IsName" id="IsName">
+      <abstract>IsName(s) -&gt; bool</abstract>
+      <description>Returns True if the given string matches the Name production as defined
+by the W3C's XML 1.0 Recommendation.</description>
+      <arguments>
+        <unknown>s</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="IsNmtoken" id="IsNmtoken">
+      <abstract>IsNmtoken(s) -&gt; bool</abstract>
+      <description>Returns True if the given string matches the Nmtoken production as defined
+by the W3C's XML 1.0 Recommendation.</description>
+      <arguments>
+        <unknown>s</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="IsQName" id="IsQName">
+      <abstract>IsQName(s) -&gt; bool</abstract>
+      <description>Returns True if the given string matches the QName production as defined
+by the W3C's Namespaces in XML Recommendation.</description>
+      <arguments>
+        <unknown>s</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="IsXml" id="IsXml">
+      <abstract>IsXml(S) -&gt; bool</abstract>
+      <description>Return True if the given bytes represent a (possibly) well-formed XML
+document. (see http://www.w3.org/TR/REC-xml/#sec-guessing).</description>
+      <arguments>
+        <unknown>S</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="IsXmlSpace" id="IsXmlSpace">
+      <abstract>IsXmlSpace(S) -&gt; bool</abstract>
+      <description>Return True if there are only whitespace characters in S, False otherwise.</description>
+      <arguments>
+        <unknown>S</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="SplitQName" id="SplitQName">
+      <abstract>SplitQName(qualifiedName) -&gt; (prefix, localName)</abstract>
+      <description>where 'qualifiedName' is a QName according to XML Namespaces 1.0
+&lt;http://www.w3.org/TR/REC-xml-names&gt;.
+returns the name parts according to the spec.</description>
+      <arguments>
+        <unknown>qualifiedName</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="XmlStrLStrip" id="XmlStrLStrip">
+      <abstract>XmlStrLStrip(S) -&gt; unicode</abstract>
+      <description>Return a copy of the string S with leading whitespace removed.</description>
+      <arguments>
+        <unknown>S</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="XmlStrRStrip" id="XmlStrRStrip">
+      <abstract>XmlStrRStrip(S) -&gt; unicode</abstract>
+      <description>Return a copy of the string S with trailing whitespace removed.</description>
+      <arguments>
+        <unknown>S</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="XmlStrStrip" id="XmlStrStrip">
+      <abstract>XmlStrStrip(S) -&gt; unicode</abstract>
+      <description>Return a copy of the string S with leading and trailing whitespace removed.</description>
+      <arguments>
+        <unknown>S</unknown>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="CAPI" id="CAPI">
+      <value>&lt;PyCObject object at 0xb78a8668&gt;</value>
+    </global>
+  </globals>
+</module>

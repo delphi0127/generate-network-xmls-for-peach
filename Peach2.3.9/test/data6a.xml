@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="TestCase">
+		<Block name="Block1">
+			<String name="data" isStatic="true" value="foo" />
+		</Block>
+	</DataModel>
+	
+</Peach>
+<!-- end -->

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.TestMode">
+  <modification-date>2002-07-18 12:15:58</modification-date>
+  <abstract>Provides the TestMode base class for testing modes.</abstract>
+  <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="DefaultMode" public="yes">
+      <bases>
+        <base documented="yes" class="TestMode" module="Ft.Lib.TestSuite.TestMode"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DefaultMode" module="Ft.Lib.TestSuite.TestMode"/>
+        <base name="TestMode" module="Ft.Lib.TestSuite.TestMode"/>
+      </method-resolution-order>
+      <methods name="TestMode" module="Ft.Lib.TestSuite.TestMode">
+        <method public="no" name="__init__" id="DefaultMode-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="TestMode" module="Ft.Lib.TestSuite.TestMode"/>
+        </method>
+        <method public="yes" name="finish" id="DefaultMode-finish">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+          <overrides documented="yes" class="TestMode" module="Ft.Lib.TestSuite.TestMode"/>
+        </method>
+        <method public="yes" name="initialize" id="DefaultMode-initialize">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+          <overrides documented="yes" class="TestMode" module="Ft.Lib.TestSuite.TestMode"/>
+        </method>
+        <method public="yes" name="start" id="DefaultMode-start">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+          <overrides documented="yes" class="TestMode" module="Ft.Lib.TestSuite.TestMode"/>
+        </method>
+      </methods>
+    </class>
+    <class name="TestMode" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestMode" module="Ft.Lib.TestSuite.TestMode"/>
+      </method-resolution-order>
+      <methods name="TestMode" module="Ft.Lib.TestSuite.TestMode">
+        <method public="no" name="__init__" id="TestMode-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="default"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finish" id="TestMode-finish">
+          <abstract>Called when all tests have run to completion (or exception).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize" id="TestMode-initialize">
+          <abstract>Called the first time this mode is used. A return value of false
+signals that this mode is not to be used.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+        </method>
+        <method public="yes" name="start" id="TestMode-start">
+          <abstract>Called before beginning any tests.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Id: TestMode.py,v 1.2 2002/07/18 18:15:58 molson Exp $'</value>
+    </global>
+  </globals>
+</module>

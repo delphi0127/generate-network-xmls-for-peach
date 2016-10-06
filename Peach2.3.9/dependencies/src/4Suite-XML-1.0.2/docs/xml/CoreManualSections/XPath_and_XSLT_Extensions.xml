@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>XPath and XSLT extensions</title>
+
+  <para>Sometimes the built-in facilities of XPath and XSLT aren't quite
+  enough to meet your processing needs. Luckily it's easy to extend the
+  function of these libraries using user extension functions and elements,
+  which are written in Python.</para>
+
+  <section>
+    <title>Extension functions (XPath and XSLT)</title>
+
+    <para>To define your own extension functions for XPath and XSLT, you write
+    corresponding Python function in a module, and provide a mapping from the
+    desired XPath function names to Python function objects (or any callables).  Start with a simple example.  The following is a complete module which defines a single XPath function, <methodname>unichr(s)</methodname>  a simple example that takes a string and returns the Unicode code point number for the first character in that string.</para>
+
+    <programlisting>#ord.py
+from Ft.Xml.XPath import Conversions
+
+def Ord(context, s):
+    '''
+    Available in XPath as ord() as defined by ExtFunctions mapping below
+    Takes an object, which is coerced to string
+    Returns the Unicode code point number for the first character in that string    Or returns -1 if it's an empty string
+    '''
+    s = Conversions.StringValue(s)  #Coerce the passed object to string
+    if s:
+        return ord(s[0])
+    else:
+        return -1
+
+ExtFunctions = {
+    (u'urn:x-4suite:x', u'ord'): Ord,
+}
+
+</programlisting>
+
+    <para>As this simple example illustrates, The
+    basic way to map XPath function names to Python function objects is in
+    dictionary named "ExtFunctions", global to the module in which the
+    extension function is defined.   The XPath/XSLT extension names are
+    expressed as a Python tuple of two Unicode objects.  If you're familiar
+    with XPath, this is just a Python representation of an expanded name.
+    The first item in the expanded name tuple is
+    the namespace URI for the element, and the second is the local name.
+    The namespace URI cannot be an empty string.</para>
+
+    <para>You have to actually tell the processor to load your extension modules.  There are several ways to do so.</para>
+
+    <orderedlist>
+      <listitem>
+        <para>From Python code you can register them in a context object used for XPath processing
+        by using the optional
+        <parameter>extModuleList</parameter> to pass in a list of module
+        objects.</para>
+      </listitem>
+
+      <programlisting><![CDATA[from Ft.Xml import Parse
+from Ft.Xml.XPath.Context import Context
+from Ft.Xml.XPath import Evaluate
+import ord #The code listed above
+
+doc = Parse('<doc>abc</doc>')
+ctx = Context(doc, extModuleList=[ord],
+              processorNss={u'ext': u'urn:x-4suite:x'})
+nodes = Evaluate(u'ext:ord(.)', ctx)
+      ]]></programlisting>
+
+      <listitem>
+        <para>You can also register particular functions rather than a
+complete module in a XPath context object using the
+        optional <parameter>extFunctionMap</parameter> argument.  It takes
+        a mapping dictionary similar to the <constant>ExtFunctions</constant> dictionary shown in the above sample module.</para>
+      </listitem>
+
+      <programlisting><![CDATA[from Ft.Xml import Parse
+from Ft.Xml.XPath.Context import Context
+from Ft.Xml.XPath import Evaluate
+from ord import Ord #The code listed above
+
+doc = Parse('<doc>abc</doc>')
+ctx = Context(doc, extFunctionMap={(u'urn:x-4suite:x', u'ord'): Ord},
+              processorNss={u'ext': u'urn:x-4suite:x'})
+nodes = Evaluate(u'ext:ord(.)', ctx)
+      ]]></programlisting>
+
+      <listitem>
+        <para>If you are using the XSLT processor you can register extension functions on a processor object using
+        the <methodname>registerExtensionModules()</methodname> method.</para>
+      </listitem>
+
+      <programlisting><![CDATA[from Ft.Xml.Xslt import Processor
+import ord #The code listed above
+
+processor = Processor.Processor()
+processor.registerExtensionModules([ord])
+#Now continue to append stylesheets and run against source docs.  The
+#extensions i the module ord will be available
+      ]]></programlisting>
+
+      <listitem>
+        <para>When using the XSLT processor you can also register individual extension functions on a processor object using
+        <methodname>registerExtentionFunction()</methodname> method.  It takes
+        the namespace and
+        localName for the extension function and the callable object that implements it).</para>
+      </listitem>
+
+      <programlisting><![CDATA[from Ft.Xml.Xslt import Processor
+from ord import Ord #The code listed above
+
+processor = Processor.Processor()
+processor.registerExtensionFunction(u'urn:x-4suite:x', u'ord', Ord)
+#Now continue to append stylesheets and run against source docs.  The
+#ext:ord() function will be available
+      ]]></programlisting>
+
+      <listitem>
+        <para>In some cases the user can list extension modules using
+        the environment variable "EXTMODULES". "EXTMODULES" is a
+        colon-separated list of Python modules names. This works for the 4xslt
+        command line and for <classname>Ft.Xml.XPath.Evaluate</classname>. For
+        other APIs, use one of the other two methods, which can easily be
+        extended to read the "EXTMODULES" variable.  In general the other methods for registering extensions are preferable.</para>
+      </listitem>
+    </orderedlist>
+
+    <para>Note that extension modules will automatically be
+    searched for XSLT extension elements as well as functions.</para>
+
+    <para>The following is a longer example, a module that implements two functions are. One returns
+    the current time and the other creates a hash of the context node name:</para>
+
+    <programlisting># demo.py
+import time, urlparse
+from Ft.Xml.XPath import Conversions
+
+def GetCurrentTime(context):
+    '''available in XPath as get-current-time()'''
+    return time.asctime(time.localtime())
+
+def HashContextName(context, maxkey):
+    '''
+    available in XPath as hash-context-name(maxkey),
+    where maxkey is an object converted to number
+    '''
+    # It is a good idea to use the appropriate core function to coerce
+    # arguments to the expected type
+    maxkey = Conversions.NumberValue(maxkey)
+    key = reduce(lambda a, b: a + b, context.node.nodeName)
+    return key % maxkey
+
+ExtFunctions = {
+    ('urn:x-4suite:x', 'get-current-time'): GetCurrentTime,
+    ('urn:x-4suite:x', 'hash-context-name'): HashContextName
+}
+
+</programlisting>
+
+    <para>You can use this in plain XPath as follows:</para>
+
+    <programlisting>from <systemitem class="library">Ft.Xml.XPath.Context</systemitem> import <classname>Context</classname>
+from <systemitem class="library">Ft.Xml.XPath</systemitem> import <classname>Compile</classname>, <classname>Evaluate</classname>
+from <systemitem class="library">Ft.Xml.Domlette</systemitem> import <classname>NonvalidatingReader</classname>
+
+DOC = "&lt;spam xmlns='http://spam.com'&gt;eggs&lt;/spam&gt;"
+
+ctx = Context(None, extFunctionMap=demo.ExtFunctions,
+              processorNss={"a": "http://spam.com"})
+expr = Compile("get-current-time()")
+
+doc = NonvalidatingReader.parseString(DOC, "http://spam.com/base")
+print Evaluate(expr, doc, ctx)</programlisting>
+
+    <para>Notice that you might choose to use None for the extension function
+    namespaces. If so, you don't need to specify the processorNss context
+    attribute, but you might want to watch out for clashes with other
+    extenstion function names, including the built-in library. Again, if you
+    plan to use an extension function from within XSLT, its namespace URI must
+    not be None.</para>
+
+    <para>You can use this in XSLT just as easily:</para>
+
+    <programlisting># useextfunc.py
+
+TRANSFORM = """&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:s="urn:x-4suite:x"
+  version="1.0"&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;xsl:value-of select="s:get-current-time()"/&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+"""
+
+SOURCE = """&lt;dummy/&gt;"""
+
+from <systemitem class="library">Ft.Xml.Xslt</systemitem> import <classname>Processor</classname>
+processor = Processor.Processor()
+
+# Register the extension function using method (3)
+processor.registerExtensionModules(['demo'])
+from Ft.Xml import InputSource
+transform = InputSource.DefaultFactory.fromString(TRANSFORM, "http://foo.com")
+source = InputSource.DefaultFactory.fromString(SOURCE, "http://foo.com")
+processor.appendStylesheet(transform)
+result = processor.run(source)
+print result</programlisting>
+
+<!-- Not sure why this example is needed, and besides, it hardcodes UNIX environment separator
+    <para>You could also add the demo module to the enviroment, in
+    "EXTMODULES", and still ensure that it is loaded by using the following
+    code:</para>
+
+    <programlisting>module_list = os.environ.get("EXTMODULES")
+if module_list:
+    processor.registerExtensionModules(moduleList.split(":"))</programlisting>
+-->
+
+    <para>For good examples of modules with extension elements, see the source code for the modules
+    <classname>Ft.Xml.XPath.BuiltInExtFunctions</classname>,
+    <classname>Ft.Xml.Xslt.BuiltInExtFunctions</classname> and the modules in
+    <systemitem class="library">Ft.Xml.Xslt.Exslt</systemitem>. The latter are
+    especially good examples given their diversity and detailed specifications
+    at <ulink url="http://exslt.org">exslt.org</ulink>.</para>
+
+  </section>
+
+  <section>
+    <title>Extension elements (XSLT)</title>
+
+    <para>To define your own extension elements, define a class derived from
+    <classname>Ft.Xml.Xslt.XsltElement</classname>. The module in which it is
+    defined should have a global dictionary named "ExtElements" mapping element
+    expanded names to element class objects.</para>
+
+    <para>Finally, modules containing any extension elements used must be
+    indicated as such to the processor in one of several ways.</para>
+
+    <orderedlist>
+      <listitem>
+        <para>You can register all extension functions and elements in a module by using a processor object's
+        <methodname>registerExtensionModules()</methodname> method.</para>
+      </listitem>
+
+      <programlisting><![CDATA[from Ft.Xml.Xslt import Processor
+import ord #The code listed above
+
+processor = Processor.Processor()
+processor.registerExtensionModules([ord])
+#Now continue to append stylesheets and run against source docs.  The
+#extensions i the module ord will be available
+      ]]></programlisting>
+
+      <listitem>
+        <para>You can also register individual extension elements on a processor object using
+        <methodname>registerExtensionElement()</methodname> method.  It takes
+        the namespace and
+        localName for the extension function and the callable object that implements it).</para>
+      </listitem>
+
+<!--
+      <programlisting><![CDATA[from Ft.Xml.Xslt import Processor
+from ord import Ord #The code listed above
+
+processor = Processor.Processor()
+processor.registerExtensionElement(u'urn:x-4suite:x', u'ord', Ord)
+#Now continue to append stylesheets and run against source docs.  The
+#ext:ord() function will be available
+      ]]></programlisting>
+-->
+
+      <listitem>
+        <para>In some cases the user can list extension modules using
+        the environment variable "EXTMODULES". "EXTMODULES" is a
+        colon-separated list of Python modules names. This works for the 4xslt
+        command line and for <classname>Ft.Xml.XPath.Evaluate</classname>. For
+        other APIs, use one of the other two methods, which can easily be
+        extended to read the "EXTMODULES" variable.  In general the other methods for registering extensions are preferable.</para>
+      </listitem>
+    </orderedlist>
+
+
+    <para>Note that extension modules will automatically be
+    searched for XPath extension functions as well as Extension
+    elements.</para>
+
+<!--
+    <para>For example:</para>
+
+    <programlisting># extelement.py
+
+import os
+from <systemitem class="library">Ft.Xml.Xslt</systemitem> import <constant>XSL_NAMESPACE</constant>, <classname>XsltElement</classname>, <classname>XsltException</classname>, <classname>Error</classname>
+from <systemitem class="library">Ft.Xml.Xslt</systemitem> import <classname>ContentInfo</classname>, <classname>AttributeInfo</classname>
+
+EXT_NAMESPACE = 'http://foo.org/namespaces/ext-xslt'
+
+class SystemElement(XsltElement):
+    """
+    Execute an arbitrary operating system command.
+    Because of the security issues, use at your risk  :-)
+    """
+    content = ContentInfo.Empty   #Specify that this must be an empty element
+    legalAttrs = {
+      'command': AttributeInfo.StringAvt(description='The command to be executed'),
+    }
+
+    def instantiate(self, context, processor):
+        command = self._command.evaluate(context)
+        os.system(command)
+        return (context,)
+
+# The global dictionary that must be present in all extensions
+ExtElements = {
+  (EXT_NAMESPACE, 'system'): SystemElement,
+}
+
+# And optional dictionary, purely for documentation purposes,
+# Which gives the prefix to use for extension namespaces in documentation
+ExtNamespaces = {
+  EXT_NAMESPACE : 'e',
+}</programlisting>
+
+    <para>And a little script that demonstrates using it (with registration
+    method (2):</para>
+
+    <programlisting># useext.py
+
+TRANSFORM = """&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:ext="http://foo.org/namespaces/ext-xslt"
+  extension-element-prefixes="ext"
+  version="1.0"&gt;
+
+  &lt;xsl:template match="execute-command"&gt;
+    &lt;ext:system command="{@cmd}"/&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+"""
+
+SOURCE = """&lt;execute-command cmd="dir"/&gt;"""
+
+from <systemitem class="library">Ft.Xml.Xslt</systemitem> import <classname>Processor</classname>
+processor = Processor.Processor()
+# Register the extension element
+processor.registerExtensionModules(['extelement'])
+from Ft.Xml import InputSource
+transform = InputSource.DefaultFactory.fromString(TRANSFORM, "http://foo.com")
+source = InputSource.DefaultFactory.fromString(SOURCE, "http://foo.com")
+processor.appendStylesheet(transform)
+result = processor.run(source)
+print result</programlisting>
+-->
+
+  </section>
+
+  <section>
+    <title>Extension element API</title>
+
+    <para>There are several aspects of the extension element API worth
+    discussing in more detail.</para>
+
+    <para>The class-level "content" variable specifies a content model to be
+    enforced by the XSLT processor. If the element is used in a way that
+    doesn't meet the specified content model, the user will get an error
+    message. The content model is a structure that uses certain special
+    classes, including:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>ContentInfo.Empty - matches no content at all (empty
+        element)</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Text - matches plain text content</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Seq - matches the given sequence of
+        sub-patterns</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Alt - matches one of the given choice of
+        sub-patterns</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Rep - matches 0 or more repeated instances of the
+        given sub-pattern</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Rep1 - matches 0 or more repeated instances of the
+        given sub-pattern</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Opt - matches zero or one of the given
+        sub-pattern</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.ResultElements - matches elements not in the XSL
+        namespace</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Instructions - matches any sequence of XSLT elements
+        categorized as instructions in the spec</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.Template - matches an XSLT template body according
+        to the spec</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.TopLevelElements - matches any sequence of XSLT
+        elements categorized as top level in the spec</para>
+      </listitem>
+
+      <listitem>
+        <para>ContentInfo.QName - matches a particular element by giving its
+        namespace and node name (the prefix in the node name is only used for
+        documentation and error messages)</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>So, for instance, the xsl:choose element would be described
+    as</para>
+
+    <programlisting>content = ContentInfo.Seq(
+    ContentInfo.Rep1(ContentInfo.QName(XSL_NAMESPACE, 'xsl:when')),
+    ContentInfo.Opt(ContentInfo.QName(XSL_NAMESPACE, 'xsl:otherwise')),
+    )</programlisting>
+
+    <para>The class-level "legalAttrs" variable specifies the attributes
+    allowed or required on the element. It is a Python dictionary mapping
+    attribute name to its specification. The specification is a class
+    according o the type of attribute.</para>
+
+    <para>The following are the supported attribute classes. The parameters
+    specified are for the initializer. Note that most general patterns have a
+    plain variant and an attribute value template (AVT) variant:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>AttributeInfo.String - any XPath string</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.StringAvt - an AVT yielding any string</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Char - any XPath string of length 1</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.CharAvt - AVT version of Char</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Choice - a string which must be one of a number of
+        given values. The values are given by a list of strings with is the
+        first parameter</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.ChoiceAvt - AVT version of Choice</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.YesNo - Abbreviation for AttributeInfo.Choice (
+        See <ulink
+        url="http://www.oasis-open.org/committees/relax-ng/tutorial-20011203.html">Oasis
+        web site</ulink>)</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.YesNoAvt - AVT version of YesNo</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Number - any XPath number</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NumberAvt - AVT version of Number</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.UriReference - XPath string that is syntactically
+        a URI reference</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.UriReferenceAvt - AVT version of
+        UriReference</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Id - XPath string that is syntactically an XML
+        ID</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.IdAvt - AVT version of Id</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.QName - XPath string that is syntactically an XML
+        namespaces qualified name</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.QNameAvt - AVT version of QName</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NCName - XPath string that is syntactically an XML
+        namespaces "no colon" name</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NCNameAvt - AVT version of NCName</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Prefix - Same as NCName</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.PrefixAvt - Same as NCNameAvt</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NMToken - XPath string that is syntactically an
+        XML Name token</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NMTokenAvt - AVT version of NMToken</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.QNameButNotNCName - A QName that contains a
+        colon</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.QNameButNotNCNameAvt - AVT version of
+        QNameButNotNCName</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Token - XPath string that is syntactically an
+        XPath name test (i.e. "foo", "ns:foo", ns:<emphasis role="strong">" or
+        "</emphasis>")</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.TokenAvt - AVT version of Token</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Expression - XPath string that is syntactically an
+        XPath expression</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.ExpressionAvt - AVT version of Expression</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.StringExpression - XPath string that is
+        syntactically an XPath expression, which would be expected to return a
+        string value</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.StringExpressionAvt - AVT version of
+        StringExpression</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NodeSetExpression - XPath string that is
+        syntactically an XPath expression, which would be expected to return a
+        node set value</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NodeSetExpressionAvt - AVT version of
+        NodeSetExpression</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NumberExpression - XPath string that is
+        syntactically an XPath expression, which would be expected to return a
+        number value</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.NumberExpressionAvt - AVT version of
+        NumberExpression</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.BooleanExpression - XPath string that is
+        syntactically an XPath expression, which would be expected to return a
+        boolean value</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.BooleanExpressionAvt - AVT version of
+        BooleanExpression</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Pattern - XPath string that is syntactically an
+        XSLY pattern</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.PatternAvt - AVT version of Pattern</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Tokens - XPath string that is syntactically a
+        space-delimited series of tokens</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.TokensAvt - AVT version of Tokens</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.QNames - XPath string that is syntactically a
+        space-delimited series of QNames</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.QNamesAvt - AVT version of QNames</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.Prefixes - XPath string that is syntactically a
+        space-delimited series of NCNames</para>
+      </listitem>
+
+      <listitem>
+        <para>AttributeInfo.PrefixesAvt - AVT version of Prefixes</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>All of these classes take the following optional keyword
+    parameters:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>description - for documentation</para>
+      </listitem>
+
+      <listitem>
+        <para>default - the default value of the attribute to be used if
+        omitted</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Some examples from the XSLT spec:</para>
+
+    <para>xsl:output</para>
+
+    <programlisting>content = ContentInfo.Empty
+legalAttrs = {
+    'method' : AttributeInfo.QName(),
+    'version' : AttributeInfo.NMToken(),
+    'encoding' : AttributeInfo.String(),
+    'omit-xml-declaration' : AttributeInfo.YesNo(),
+    'standalone' : AttributeInfo.YesNo(),
+    'doctype-public' : AttributeInfo.String(),
+    'doctype-system' : AttributeInfo.String(),
+    'cdata-section-elements' : AttributeInfo.QNames(),
+    'indent' : AttributeInfo.YesNo(),
+    'media-type' : AttributeInfo.String(),
+    }</programlisting>
+
+    <para>xsl:sort</para>
+
+    <programlisting>content = ContentInfo.Empty
+legalAttrs = {
+    'select' : AttributeInfo.StringExpression(default='.'),
+    'lang' : AttributeInfo.NMTokenAvt(),
+    # We don't support any additional data-types, hence no
+    # AttributeInfo.QNameButNotNCName()
+    'data-type' : AttributeInfo.ChoiceAvt(['text', 'number'],
+                                          default='text'),
+    'order' : AttributeInfo.ChoiceAvt(['ascending', 'descending'],
+                                      default='ascending'),
+    'case-order' : AttributeInfo.ChoiceAvt(['upper-first', 'lower-first']),
+    }</programlisting>
+
+    <para>xsl:number</para>
+
+    <programlisting>content = ContentInfo.Empty
+legalAttrs = {
+    'level' : AttributeInfo.Choice(['single', 'multiple', 'any'],
+                                   default='single'),
+    'count' : AttributeInfo.Pattern(),
+    'from' : AttributeInfo.Pattern(),
+    'value' : AttributeInfo.Expression(),
+    'format' : AttributeInfo.StringAvt(default='1'),
+    'lang' : AttributeInfo.NMToken(),
+    'letter-value' : AttributeInfo.ChoiceAvt(['alphabetic', 'traditional']),
+    'grouping-separator' : AttributeInfo.CharAvt(),
+    'grouping-size' : AttributeInfo.NumberAvt(default=0),
+    }</programlisting>
+
+    <para>Of course, it's always a good idea to use descriptions, which the
+    above do not.</para>
+
+    <!-- Perhaps add links to modules on viewcvs -->
+
+    <para>For good examples of modules with extension elements, see the source code for the modules
+    Ft.Xml.Xslt.BuiltInExtElements and Ft.Xml.Xslt.Exslt.Common . The various
+    modules in Ft.Xml.Xslt.Exslt have a strong diversity and make good
+    examples, especially given their detailed specifications at <ulink
+    url="http://exslt.org">exslt.org</ulink></para>
+
+    <section>
+      <title>Controlling output from XSLT extensions</title>
+
+      <para>The most common special need for XSLT extensions is to generate
+      XSLT output. For extension elements this is easy enough to do using the
+      API on the procssor instance that is passed to the instantiate() method
+      of extension element classes. For example</para>
+
+      <programlisting>class SpamElement(XsltElement):
+    legalAttrs = {}
+    def instantiate(self, context, processor):
+        processor.output().startElement('title')
+        processor.output().text('Life of Brian'))
+        processor.output().endElement('title')
+        return (context,)</programlisting>
+
+      <para>Extension functions are not passed a processor instance directly,
+      but context objects hold a reference to the processor in effect, so the
+      following example works:</para>
+
+      <programlisting>def Spam(context):
+    context.processor.output().startElement('title')
+    context.processor.output().text('Life of Brian'))
+    context.processor.output().endElement('title')
+    return</programlisting>
+
+      <para>However, it is probably better design to reserve such side effects
+      as output for extension elements rather than functions.</para>
+
+      <para>In the above examples the elements and text out out just use the
+      current output parameters. In order to change output parameters or
+      change the output stream, you can stack a new output handler:</para>
+
+      <programlisting>stream = cStringIO.StringIO()
+
+# Clone the current outputparameters
+op = processor.writers[-1]._outputParams.clone()
+
+# Force XML output method with XML declaration
+# Output method is a qualified name, so must flag null ns
+# to use standard xml method
+op.method = (EMPTY_NAMESPACE, 'xml')
+op.omitXmlDeclaration = "yes"
+
+# Push the new handler to the top of the writer stack
+processor.addHandler(op, stream)
+processor.output().startElement('title')
+processor.output().text('Life of Brian'))
+processor.output().endElement('title')
+
+# Pop back to the previous handler stream.getvalue()
+# now contains the new  output
+processor.removeHandler()</programlisting>
+    </section>
+
+    <section>
+      <title>Creating result tree fragments</title>
+
+      <para>Another common need is to treat the body of an extension element
+      as a template so that something can be done with the RTF that results
+      from it. The following example demonstrates this:</para>
+
+      <programlisting>try:
+    # Set the output to an RTF riter, which wll create an RTF for us
+    processor.pushResultTree(self.baseUri)
+
+    # The template is manifested as children of the extension element
+    # node.  Instantiate each in turn
+    for child in self.children:
+        child.instantiate(context, processor)
+# You want to be sure you re-balance the stack even in case of error
+finally:
+    # Retrieve the resulting RTF
+    result_rtf = processor.popResult()</programlisting>
+    </section>
+
+    <section>
+      <title>Comunicating with the external code that invokes XSLT</title>
+
+      <para>You can set and communicate state information with external code
+      by using the processor.extensionParams attribute. For example, the
+      following sents a time stamp of precisely when the extension was
+      instantiated, which can later be retrieved from the processor after the
+      XSLT process, or even by later extensions. In a similar way, state can
+      be set up by calling functions and retrieved by extensions.</para>
+
+      <programlisting># Extension parameters have fully qualified names, so you must come up
+# with a namespace to set them
+processor.extensionParams[(SPAM_NAMESPACE, 'tstamp')] = time.time()</programlisting>
+    </section>
+  </section>
+</section>

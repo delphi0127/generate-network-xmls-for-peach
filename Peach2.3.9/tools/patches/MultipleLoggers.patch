@@ -1,0 +1,43 @@
+Index: Peach/Engine/dom.py
+===================================================================
+--- Peach/Engine/dom.py	(revision 2172)
++++ Peach/Engine/dom.py	(working copy)
+@@ -2663,13 +2663,17 @@
+ 		self.parent = None
+ 		self.waitTime = 0
+ 	
+-	def getLogger(self):
++	def getLoggers(self):
++		ret = []
+ 		
+ 		for child in self:
+ 			if child.elementType == 'logger':
+-				return child
++				ret.append(child)
+ 		
+-		return None
++		if len(ret) == 0:
++			return None
++		
++		return ret
+ 
+ 
+ class Agent(ElementWithChildren):
+Index: Peach/Engine/engine.py
+===================================================================
+--- Peach/Engine/engine.py	(revision 2172)
++++ Peach/Engine/engine.py	(working copy)
+@@ -422,9 +422,10 @@
+ 			raise PeachException("Must specify a run name")
+ 			#run = self.peach.runs[0]
+ 		
+-		logger = run.getLogger()
+-		if logger != None:
+-			self.watcher.watchers.append(logger)
++		loggers = run.getLoggers()
++		if loggers != None:
++			for logger in loggers:
++				self.watcher.watchers.append(logger)
+ 		
+ 		try:
+ 			self.watcher.OnRunStarting(run)

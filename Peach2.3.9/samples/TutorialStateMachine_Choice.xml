@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="StateMachine Tutorial, Example #1">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<DataModel name="WelcomeMessage">
+		<String value="Welcome to example #1!\n\n  [1] - Say 'Hello World'\n  [2] - Say 'End of the World'\n\nEnter you choice: " isStatic="true" />
+	</DataModel>
+	
+	<DataModel name="UserChoice">
+		<String name="data" length="1" />
+	</DataModel>
+	
+	<DataModel name="Response">
+		<String name="response" value="This is the default response" isStatic="true" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action name="GotoAcceptConnection" type="changeState" ref="AcceptConnection" />
+		</State>
+		
+		<State name="AcceptConnection">
+			<Action type="close" />
+			<Action type="accept" />
+			
+			<Action name="WelcomeMessage" type="output">
+				<DataModel ref="WelcomeMessage"/>
+			</Action>
+			
+			<Action name="GetData" type="input">
+				<DataModel ref="UserChoice" />
+			</Action>
+			
+			<Action name="ChangeToHelloWorld" type="changeState" ref="StateHelloWorld" when="State['GetData']['UserChoice']['data'].getInternalValue() == '1'" />
+			<Action name="ChangeToEndOfTheWorld" type="changeState" ref="StateEndOfTheWorld" when="State['GetData']['UserChoice']['data'].getInternalValue() == '2'" />
+			
+			<Action name="SendUnknownEntry" type="output">
+				<DataModel ref="Response" />
+				<Data name="HelloWorldData">
+					<Field name="response" value="\n\nIncorrect choice was made!\n\n"/>
+				</Data>
+			</Action>
+			
+			<Action name="GotoEnd" type="changeState" ref="end" />
+		</State>
+		
+		<State name="StateHelloWorld">
+			<Action type="output" name="SendHelloWorld">
+				<DataModel ref="Response" />
+				<Data name="HelloWorldData">
+					<Field name="response" value="\n\nHello World\n\n"/>
+				</Data>
+			</Action>
+			<!-- This makes netcat happy! -->
+			<Action type="output" name="Flusher">
+				<DataModel ref="Response" />
+				<Data name="FlushData">
+					<Field name="response" value="            "/>
+				</Data>
+			</Action>
+			<Action name="GotoAcceptConnection" type="changeState" ref="AcceptConnection" />
+		</State>
+		
+		<State name="StateEndOfTheWorld">
+			<Action type="output" name="SendEndOfTheWorld">
+				<DataModel ref="Response" />
+				<Data name="EndOfTheWorldData">
+					<Field name="response" value="\n\nEnd of the World\n\n"/>
+				</Data>
+			</Action>
+			<!-- This makes netcat happy! -->
+			<Action type="output" name="Flusher">
+				<DataModel ref="Response" />
+				<Data name="FlushData">
+					<Field name="response" value="            "/>
+				</Data>
+			</Action>
+			<Action name="GotoAcceptConnection" type="changeState" ref="AcceptConnection" />
+		</State>
+		
+		<State name="end">
+			<Action type="close" />
+			<Action type="stop" />
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.TcpListener">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+			<Param name="tiemout" value="100" />
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

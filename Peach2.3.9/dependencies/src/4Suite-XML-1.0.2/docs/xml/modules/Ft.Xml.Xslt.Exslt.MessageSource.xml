@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt.MessageSource">
+  <modification-date>2006-08-21 15:15:41</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Error" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Error" module="Ft.Xml.Xslt.Exslt.MessageSource"/>
+      </method-resolution-order>
+      <members name="Error" module="Ft.Xml.Xslt.Exslt.MessageSource">
+        <member public="yes" name="ABORTED_EXSLDOCUMENT_OVERWRITE" id="Error-ABORTED_EXSLDOCUMENT_OVERWRITE">
+          <value>3010</value>
+        </member>
+        <member public="yes" name="ILLEGAL_DURATION_FORMAT" id="Error-ILLEGAL_DURATION_FORMAT">
+          <value>3100</value>
+        </member>
+        <member public="yes" name="ILLEGAL_RESULT_SIBLINGS" id="Error-ILLEGAL_RESULT_SIBLINGS">
+          <value>3201</value>
+        </member>
+        <member public="yes" name="NO_EXSLTDOCUMENT_BASE_URI" id="Error-NO_EXSLTDOCUMENT_BASE_URI">
+          <value>3020</value>
+        </member>
+        <member public="yes" name="RESULT_NOT_IN_FUNCTION" id="Error-RESULT_NOT_IN_FUNCTION">
+          <value>3200</value>
+        </member>
+        <member public="yes" name="UNSUPPORTED_DOCUMENT_URI_SCHEME" id="Error-UNSUPPORTED_DOCUMENT_URI_SCHEME">
+          <value>3000</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="g_errorMessages" id="g_errorMessages">
+      <value>{20: 'No stylesheets to process.', 22: 'Document root element must have a xsl:version attribute.  (see XSLT 1.0 sec. 2.3).', 23: 'Error parsing stylesheet (%s): %s', 24: 'Error parsing source document (%s): %s', 27: &quot;Illegal element '%s' in XSLT Namespace (see XSLT 1.0 sec. 2.1).&quot;, 29: 'Circular variable reference error (see XSLT 1.0 sec. 11.4) for variable or parameter: (%s, %s)', 30: 'Top level variable %s has duplicate definitions ...e same import precedence.  (see XSLT 1.0 sec. 11)', 31: 'The namespace for &quot;%s&quot; has duplicate namespace a...ame import precedence.  (see XSLT 1.0 sec. 2.6.2)', 50: &quot;Illegal child '%s' within element '%s'&quot;, 51: &quot;Illegal literal text %s within element '%s'&quot;, ...}</value>
+    </global>
+    <global public="yes" name="g_exsltErrorMessages" id="g_exsltErrorMessages">
+      <value>{3000: '4Suite\'s implementation of exsl:document only su...me, which may be implicit. Scheme &quot;%s&quot; was found.', 3010: 'An attempt was made to write to %s, which alread...-okay attribute to the exsl:document instruction.', 3020: 'An `exsl:document` element referred to a relativ... URI in order to resolve this relative reference.', 3100: 'Duration string &quot;%s&quot; not in xs:duration format.', 3200: 'An EXSLT func:result element must occur within a func:function element.', 3201: 'An EXSLT func:result element must not have following sibling elements besides xsl:fallback.'}</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine.FancyGetOpt">
+  <modification-date>2004-10-04 16:54:56</modification-date>
+  <abstract>Advanced argument &amp; option processing for command-line scripts</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="FancyGetopt" id="FancyGetopt">
+      <abstract>Parses command line options and parameter list. args is the argument list
+to be parsed, without the leading reference to the running program.
+Typically, this means &quot;sys.argv[1:]&quot;. option_table is an instance of
+Ft.Lib.CommandLine.Options.Options. Raises an exception if args contains
+syntax errors. Returns a tuple of (options, args) where options is a
+dictionary and args is the list of args after the first arg that wasn't
+in option_table. Note the options return value is different than what
+getopt.getopt() returns.</abstract>
+      <description>cmd is an Ft.Lib.CommandLine.Command instance, and is only used
+in reporting errors.</description>
+      <arguments>
+        <arg name="cmd"/>
+        <arg name="option_table"/>
+        <arg name="args"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

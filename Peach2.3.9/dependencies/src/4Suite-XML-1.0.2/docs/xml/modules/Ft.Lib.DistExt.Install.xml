@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Install">
+  <modification-date>2006-12-01 12:24:51</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Install" public="yes">
+      <bases>
+        <base documented="no" class="install" module="distutils.command.install"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Install" module="Ft.Lib.DistExt.Install"/>
+        <base name="install" module="distutils.command.install"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="change_roots" id="Install-change_roots">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="names"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="convert_paths" id="Install-convert_paths">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="names"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="expand_basedirs" id="Install-expand_basedirs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="expand_dirs" id="Install-expand_dirs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="finalize_options" id="Install-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="finalize_other" id="Install-finalize_other">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="finalize_unix" id="Install-finalize_unix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="get_installation_report" id="Install-get_installation_report">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_scheme" id="Install-get_scheme">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_scheme_keys" id="Install-get_scheme_keys">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_source_files" id="Install-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_config" id="Install-has_config">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_devel" id="Install-has_devel">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_docs" id="Install-has_docs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_l10n" id="Install-has_l10n">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_localstate" id="Install-has_localstate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_sysconf" id="Install-has_sysconf">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="has_text" id="Install-has_text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="Install-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="run" id="Install-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+        <method public="yes" name="select_scheme" id="Install-select_scheme">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+          <overrides documented="no" class="install" module="distutils.command.install"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="Install-boolean_options">
+          <value>['compile', 'force', 'skip-build', 'with-docs', 'local', 'system']</value>
+        </member>
+        <member public="yes" name="command_name" id="Install-command_name">
+          <value>'install'</value>
+        </member>
+        <member public="yes" name="index" id="Install-index">
+          <value>14</value>
+        </member>
+        <member public="yes" name="negative_opt" id="Install-negative_opt">
+          <value>{'no-compile': 'compile', 'without-docs': 'with-docs'}</value>
+        </member>
+        <member public="yes" name="sub_commands" id="Install-sub_commands">
+          <value>[('install_lib', &lt;function has_lib at 0xb7bd6bc4&gt;), ('install_headers', &lt;function has_headers at 0xb7bd6bfc&gt;), ('install_scripts', &lt;function has_scripts at 0xb7bd6c34&gt;), ('install_data', &lt;function has_data at 0xb7bd6c6c&gt;), ('install_egg_info', &lt;function &lt;lambda&gt; at 0xb7bd6ca4&gt;), ('install_sysconf', &lt;function has_sysconf at 0xb7b92dbc&gt;), ('install_localstate', &lt;function has_localstate at 0xb7b92df4&gt;), ('install_devel', &lt;function has_devel at 0xb7b92e9c&gt;), ('install_text', &lt;function has_text at 0xb7b92e2c&gt;), ('install_html', &lt;function has_docs at 0xb7b92e64&gt;), ('install_l10n', &lt;function has_l10n at 0xb7b92ed4&gt;), ('install_config', &lt;function has_config at 0xb7b92f0c&gt;)]</value>
+        </member>
+        <member public="yes" name="user_options" id="Install-user_options">
+          <value>[('prefix=', None, 'installation prefix'), ('exec-prefix=', None, '(Unix only) prefix for platform-specific files'), ('local', None, '(Unix only) Use FHS /usr/local installation scheme [default]'), ('system', None, '(Unix only) Use FHS /usr system installation scheme'), ('home=', None, '(Unix only) home directory to install under'), ('install-base=', None, 'base installation directory (instead of --prefix or --home)'), ('install-platbase=', None, 'base installation directory for platform-specific files (instead of --exec-prefix or --home)'), ('root=', None, 'install everything relative to this alternate root directory'), ('install-purelib=', None, 'installation directory for pure Python module distributions'), ('install-platlib=', None, 'installation directory for non-pure module distributions'), ('install-lib=', None, 'installation directory for all module distributi...verrides --install-purelib and --install-platlib)'), ('install-headers=', None, 'installation directory for C/C++ headers'), ('install-scripts=', None, 'installation directory for Python scripts'), ('install-data=', None, 'installation directory for data files'), ('install-sysconf=', None, 'installation directory for read-only host-specific data'), ('install-localstate=', None, 'installation directory for modifiable host-specific data'), ('install-devel=', None, 'installation directory for development files (regression tests)'), ('install-l10n=', None, 'installation directory for message catalogs'), ('install-docs=', None, 'installation directory for documentation files'), ('compile', 'c', 'compile .py to .pyc [default]'), ...]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="install" module="distutils.command.install">
+        <member-reference name="create_path_file" public="yes"/>
+        <member-reference name="dump_dirs" public="yes"/>
+        <member-reference name="get_inputs" public="yes"/>
+        <member-reference name="get_outputs" public="yes"/>
+        <member-reference name="handle_extra_path" public="yes"/>
+        <member-reference name="has_data" public="yes"/>
+        <member-reference name="has_headers" public="yes"/>
+        <member-reference name="has_lib" public="yes"/>
+        <member-reference name="has_scripts" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="install" module="distutils.command.install">
+        <member-reference name="description" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="GetBundleScheme" id="GetBundleScheme">
+      <abstract/>
+      <description/>
+      <arguments>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DEBUG" id="DEBUG">
+      <value>None</value>
+    </global>
+    <global public="yes" name="INSTALL_LOCATIONS" id="INSTALL_LOCATIONS">
+      <value>{'install_data': 'Examples, demos and other miscellaneous data files', 'install_devel': 'Developer files (regression tests)', 'install_headers': 'C/C++ header files', 'install_html': 'HTML documentation', 'install_l10n': 'Natural language message catalogs', 'install_lib': 'Python modules (including C extensions)', 'install_localstate': 'Machine-specific variable data space', 'install_scripts': 'Executable scripts (for PATH environment variable)', 'install_sysconf': 'Configuration files', 'install_text': 'Text documentation'}</value>
+    </global>
+    <global public="yes" name="INSTALL_SCHEMES" id="INSTALL_SCHEMES">
+      <value>{'default': {'base': '$exec', 'data': '$datadir', 'devel': '$libdir', 'docs': '$docdir', 'headers': '$includedir', 'l10n': '$localedir', 'localstate': '$localstatedir', 'man': '$mandir', 'platbase': '$exec_prefix', 'platlib': '$pythonlibdir', ...}, 'mac': {'data': '$base/Share/$dist_name', 'devel': '$base/Share/$dist_name', 'docs': '$base/Share/Doc/$dist_name', 'headers': '$base/Include/$dist_name', 'l10n': '$base/Share/Locale', 'localstate': '$base/Share/$dist_name', 'man': '$base/Share/Help', 'platlib': '$base/Lib/site-packages', 'purelib': '$base/Lib/site-packages', 'scripts': '$base/Scripts', ...}, 'nt': {'data': '$base/Share/$dist_name', 'devel': '$base/Share/$dist_name', 'docs': '$base/Share/Doc/$dist_name', 'headers': '$base/Include/$dist_name', 'l10n': '$base/Share/Locale', 'localstate': '$base/Share/$dist_name', 'man': '$base/Share/Help', 'platlib': '$base/Lib/site-packages', 'purelib': '$base/Lib/site-packages', 'scripts': '$base/Scripts', ...}, 'os2': {'data': '$base/Share/$dist_name', 'devel': '$base/Share/$dist_name', 'docs': '$base/Share/Doc/$dist_name', 'headers': '$base/Include/$dist_name', 'l10n': '$base/Share/Locale', 'localstate': '$base/Share/$dist_name', 'man': '$base/Share/Help', 'platlib': '$base/Lib/site-packages', 'purelib': '$base/Lib/site-packages', 'scripts': '$base/Scripts', ...}, 'unix_home': {'data': '$base/share/$dist_name', 'devel': '$base/lib/$dist_name', 'docs': '$base/share/doc/$dist_name', 'headers': '$base/include/python/$dist_name', 'l10n': '$base/share/locale', 'localstate': '$base/share/var/$dist_name', 'man': '$base/share/man', 'platlib': '$base/lib/python$py_version_short', 'purelib': '$base/lib/python$py_version_short', 'scripts': '$base/bin', ...}, 'unix_local': {'data': '/usr/local/share/$dist_name', 'devel': '/usr/local/lib/$dist_name', 'docs': '/usr/local/share/doc/$dist_name', 'headers': '/usr/local/include/$dist_name', 'l10n': '/usr/local/share/locale', 'localstate': '/var/local/lib/$dist_name', 'man': '/usr/local/share/man', 'platlib': '/usr/local/lib/python$py_version_short/site-packages', 'purelib': '/usr/local/lib/python$py_version_short/site-packages', 'scripts': '/usr/local/bin', ...}, 'unix_prefix': {'data': '$base/share/$dist_name', 'devel': '$platbase/lib/$dist_name', 'docs': '$base/share/doc/$dist_name', 'headers': '$base/include/python$py_version_short/$dist_name', 'l10n': '$base/share/locale', 'localstate': '$platbase/var/$dist_name', 'man': '$base/man', 'platlib': '$platbase/lib/python$py_version_short/site-packages', 'purelib': '$base/lib/python$py_version_short/site-packages', 'scripts': '$base/bin', ...}, 'unix_system': {'data': '/usr/share/$dist_name', 'devel': '/usr/lib/$dist_name', 'docs': '/usr/share/doc/$dist_name', 'headers': '/usr/include/$dist_name', 'l10n': '/usr/share/locale', 'localstate': '/var/lib/$dist_name', 'man': '/usr/share/man', 'platlib': '/usr/lib/python$py_version_short/site-packages', 'purelib': '/usr/lib/python$py_version_short/site-packages', 'scripts': '/usr/bin', ...}, 'zip': {'base': '', 'data': '$base/Share', 'devel': None, 'docs': None, 'headers': None, 'l10n': '$base/Share/Locale', 'localstate': None, 'man': None, 'platbase': '', 'platlib': '$base', ...}}</value>
+    </global>
+    <global public="yes" name="SCHEME_KEYS" id="SCHEME_KEYS">
+      <value>('purelib', 'platlib', 'headers', 'scripts', 'data', 'sysconf', 'localstate', 'devel', 'l10n', 'man', 'docs')</value>
+    </global>
+    <global public="yes" name="name" id="name">
+      <value>'unix_home'</value>
+    </global>
+    <global public="yes" name="scheme" id="scheme">
+      <value>{'data': '$base/share/$dist_name', 'devel': '$base/lib/$dist_name', 'docs': '$base/share/doc/$dist_name', 'headers': '$base/include/python/$dist_name', 'l10n': '$base/share/locale', 'localstate': '$base/share/var/$dist_name', 'man': '$base/share/man', 'platlib': '$base/lib/python$py_version_short', 'purelib': '$base/lib/python$py_version_short', 'scripts': '$base/bin', ...}</value>
+    </global>
+  </globals>
+</module>

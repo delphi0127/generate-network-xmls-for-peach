@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.Engine.path</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        <a href="Peach.Engine-module.html">Package&nbsp;Engine</a> ::
+        Module&nbsp;path
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Peach.Engine.path-module.html">Module Peach.Engine.path</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Peach=Peach-module.html,Class Peach.Engine.dom.Peach=Peach.Engine.dom.Peach-class.html"><a title="Peach
+Peach.Engine.dom.Peach" class="py-name" href="#" onclick="return doclink('link-0', 'Peach', 'link-0');">Peach</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package Peach.Engine=Peach.Engine-module.html,Class Peach.Engine.engine.Engine=Peach.Engine.engine.Engine-class.html"><a title="Peach.Engine
+Peach.Engine.engine.Engine" class="py-name" href="#" onclick="return doclink('link-1', 'Engine', 'link-1');">Engine</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module Peach.Engine.common=Peach.Engine.common-module.html"><a title="Peach.Engine.common" class="py-name" href="#" onclick="return doclink('link-2', 'common', 'link-2');">common</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#Deactivate strategies</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#from Peach.strategy import *</tt> </tt>
+<a name="_Path"></a><div id="_Path-def"><a name="L5"></a><tt class="py-lineno">  5</tt> <a class="py-toggle" href="#" id="_Path-toggle" onclick="return toggle('_Path');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Engine.path._Path-class.html">_Path</a><tt class="py-op">:</tt> </tt>
+</div><div id="_Path-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_Path-expanded"><a name="_Path.__init__"></a><div id="_Path.__init__-def"><a name="L6"></a><tt class="py-lineno">  6</tt> <a class="py-toggle" href="#" id="_Path.__init__-toggle" onclick="return toggle('_Path.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path._Path-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">domPath</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_Path.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="_Path.__init__-expanded"><a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt> <tt class="py-op">=</tt> <tt class="py-name">domPath</tt><tt class="py-op">.</tt><tt class="py-name">ref</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Variable Peach.Engine.common.DomBackgroundCopier.stop=Peach.Engine.common.DomBackgroundCopier-class.html#stop,Method Peach.Publishers.com.Com.stop()=Peach.Publishers.com.Com-class.html#stop,Method Peach.Publishers.dll.Dll.stop()=Peach.Publishers.dll.Dll-class.html#stop,Method Peach.Publishers.file.FilePerIteration.stop()=Peach.Publishers.file.FilePerIteration-class.html#stop,Method Peach.Publishers.file.FileReader.stop()=Peach.Publishers.file.FileReader-class.html#stop,Method Peach.Publishers.file.FileWriter.stop()=Peach.Publishers.file.FileWriter-class.html#stop,Method Peach.Publishers.file.FileWriterAS3NumberRecorder.stop()=Peach.Publishers.file.FileWriterAS3NumberRecorder-class.html#stop,Method Peach.Publishers.file.FileWriterAS3StringRecorder.stop()=Peach.Publishers.file.FileWriterAS3StringRecorder-class.html#stop,Method Peach.Publishers.file.FileWriterLauncher.stop()=Peach.Publishers.file.FileWriterLauncher-class.html#stop,Method Peach.Publishers.file.FileWriterLauncherGui.stop()=Peach.Publishers.file.FileWriterLauncherGui-class.html#stop,Method Peach.Publishers.http.HttpBasicAuth.stop()=Peach.Publishers.http.HttpBasicAuth-class.html#stop,Method Peach.Publishers.http.HttpDigestAuth.stop()=Peach.Publishers.http.HttpDigestAuth-class.html#stop,Method Peach.Publishers.http.HttpPost.stop()=Peach.Publishers.http.HttpPost-class.html#stop,Method Peach.Publishers.icmp.Icmp.stop()=Peach.Publishers.icmp.Icmp-class.html#stop,Method Peach.Publishers.raw.Raw.stop()=Peach.Publishers.raw.Raw-class.html#stop,Method Peach.Publishers.remote.RemotePublisher.stop()=Peach.Publishers.remote.RemotePublisher-class.html#stop,Method Peach.Publishers.sql.Odbc.stop()=Peach.Publishers.sql.Odbc-class.html#stop,Method Peach.Publishers.tcp.Tcp.stop()=Peach.Publishers.tcp.Tcp-class.html#stop,Method Peach.Publishers.tcp.TcpListener.stop()=Peach.Publishers.tcp.TcpListener-class.html#stop,Method Peach.Publishers.tcp.TcpListenerLaunchGui.stop()=Peach.Publishers.tcp.TcpListenerLaunchGui-class.html#stop,Method Peach.Publishers.udp.Udp.stop()=Peach.Publishers.udp.Udp-class.html#stop,Method Peach.Publishers.udp.Udp6.stop()=Peach.Publishers.udp.Udp6-class.html#stop,Method Peach.Publishers.udp.UdpListener.stop()=Peach.Publishers.udp.UdpListener-class.html#stop,Method Peach.Publishers.wifi.Wifi.stop()=Peach.Publishers.wifi.Wifi-class.html#stop,Method Peach.publisher.Publisher.stop()=Peach.publisher.Publisher-class.html#stop"><a title="Peach.Engine.common.DomBackgroundCopier.stop
+Peach.Publishers.com.Com.stop
+Peach.Publishers.dll.Dll.stop
+Peach.Publishers.file.FilePerIteration.stop
+Peach.Publishers.file.FileReader.stop
+Peach.Publishers.file.FileWriter.stop
+Peach.Publishers.file.FileWriterAS3NumberRecorder.stop
+Peach.Publishers.file.FileWriterAS3StringRecorder.stop
+Peach.Publishers.file.FileWriterLauncher.stop
+Peach.Publishers.file.FileWriterLauncherGui.stop
+Peach.Publishers.http.HttpBasicAuth.stop
+Peach.Publishers.http.HttpDigestAuth.stop
+Peach.Publishers.http.HttpPost.stop
+Peach.Publishers.icmp.Icmp.stop
+Peach.Publishers.raw.Raw.stop
+Peach.Publishers.remote.RemotePublisher.stop
+Peach.Publishers.sql.Odbc.stop
+Peach.Publishers.tcp.Tcp.stop
+Peach.Publishers.tcp.TcpListener.stop
+Peach.Publishers.tcp.TcpListenerLaunchGui.stop
+Peach.Publishers.udp.Udp.stop
+Peach.Publishers.udp.Udp6.stop
+Peach.Publishers.udp.UdpListener.stop
+Peach.Publishers.wifi.Wifi.stop
+Peach.publisher.Publisher.stop" class="py-name" href="#" onclick="return doclink('link-3', 'stop', 'link-3');">stop</a></tt> <tt class="py-op">=</tt> <tt class="py-name">domPath</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="Peach.Engine.common.DomBackgroundCopier.stop
+Peach.Publishers.com.Com.stop
+Peach.Publishers.dll.Dll.stop
+Peach.Publishers.file.FilePerIteration.stop
+Peach.Publishers.file.FileReader.stop
+Peach.Publishers.file.FileWriter.stop
+Peach.Publishers.file.FileWriterAS3NumberRecorder.stop
+Peach.Publishers.file.FileWriterAS3StringRecorder.stop
+Peach.Publishers.file.FileWriterLauncher.stop
+Peach.Publishers.file.FileWriterLauncherGui.stop
+Peach.Publishers.http.HttpBasicAuth.stop
+Peach.Publishers.http.HttpDigestAuth.stop
+Peach.Publishers.http.HttpPost.stop
+Peach.Publishers.icmp.Icmp.stop
+Peach.Publishers.raw.Raw.stop
+Peach.Publishers.remote.RemotePublisher.stop
+Peach.Publishers.sql.Odbc.stop
+Peach.Publishers.tcp.Tcp.stop
+Peach.Publishers.tcp.TcpListener.stop
+Peach.Publishers.tcp.TcpListenerLaunchGui.stop
+Peach.Publishers.udp.Udp.stop
+Peach.Publishers.udp.Udp6.stop
+Peach.Publishers.udp.UdpListener.stop
+Peach.Publishers.wifi.Wifi.stop
+Peach.publisher.Publisher.stop" class="py-name" href="#" onclick="return doclink('link-4', 'stop', 'link-3');">stop</a></tt> </tt>
+</div></div><a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="PathFinder"></a><div id="PathFinder-def"><a name="L11"></a><tt class="py-lineno"> 11</tt> <a class="py-toggle" href="#" id="PathFinder-toggle" onclick="return toggle('PathFinder');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html">PathFinder</a><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PathFinder-expanded"><a name="PathFinder.__init__"></a><div id="PathFinder.__init__-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="PathFinder.__init__-toggle" onclick="return toggle('PathFinder.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">stateMachine</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.__init__-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">stateMachine</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-5" class="py-name" targets="Class Peach.Engine.path.PathException=Peach.Engine.path.PathException-class.html"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-5', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathFinder:: parameter 'stateMachine' cannot be None"</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">                 </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt> <tt class="py-op">=</tt> <tt class="py-name">stateMachine</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method Peach.Engine.common.ArraySetParent.index()=Peach.Engine.common.ArraySetParent-class.html#index,Method Peach.Engine.dom.ElementWithChildren.index()=Peach.Engine.dom.ElementWithChildren-class.html#index"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-6', 'index', 'link-6');">index</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">paths</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">         </tt>
+<a name="PathFinder.firstPath"></a><div id="PathFinder.firstPath-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="PathFinder.firstPath-toggle" onclick="return toggle('PathFinder.firstPath');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#firstPath">firstPath</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.firstPath-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.firstPath-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">                <tt id="link-7" class="py-name" targets="Method Peach.Engine.path.PathFinder.firstPath()=Peach.Engine.path.PathFinder-class.html#firstPath"><a title="Peach.Engine.path.PathFinder.firstPath" class="py-name" href="#" onclick="return doclink('link-7', 'firstPath', 'link-7');">firstPath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method Peach.Engine.dom.StateMachine.getRoute()=Peach.Engine.dom.StateMachine-class.html#getRoute,Method Peach.Engine.path.PathFinder.getRoute()=Peach.Engine.path.PathFinder-class.html#getRoute,Method Peach.strategy.Strategy.getRoute()=Peach.strategy.Strategy-class.html#getRoute,Method Peach.strategy.StrategyCollection.getRoute()=Peach.strategy.StrategyCollection-class.html#getRoute"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-8', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">&gt;</tt><tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">                        <tt id="link-9" class="py-name"><a title="Peach.Engine.path.PathFinder.firstPath" class="py-name" href="#" onclick="return doclink('link-9', 'firstPath', 'link-7');">firstPath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-10', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">                 </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-11" class="py-name"><a title="Peach.Engine.path.PathFinder.firstPath" class="py-name" href="#" onclick="return doclink('link-11', 'firstPath', 'link-7');">firstPath</a></tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="PathFinder.lastPath"></a><div id="PathFinder.lastPath-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="PathFinder.lastPath-toggle" onclick="return toggle('PathFinder.lastPath');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#lastPath">lastPath</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.lastPath-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.lastPath-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">                <tt id="link-12" class="py-name" targets="Method Peach.Engine.path.PathFinder.lastPath()=Peach.Engine.path.PathFinder-class.html#lastPath"><a title="Peach.Engine.path.PathFinder.lastPath" class="py-name" href="#" onclick="return doclink('link-12', 'lastPath', 'link-12');">lastPath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-13', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">&gt;</tt><tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                        <tt id="link-14" class="py-name"><a title="Peach.Engine.path.PathFinder.lastPath" class="py-name" href="#" onclick="return doclink('link-14', 'lastPath', 'link-12');">lastPath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-15', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                 </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-16" class="py-name"><a title="Peach.Engine.path.PathFinder.lastPath" class="py-name" href="#" onclick="return doclink('link-16', 'lastPath', 'link-12');">lastPath</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">         </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">                <tt class="py-string">'''</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-string">                lastPath = [path for path in self.getRoute() if path.stop == True]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-string">                if len(lastPath) &gt; 0:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-string">                        return lastPath[0].ref</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-string">        </tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-string">                if len(self.getRoute())&gt;0:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-string">                        return self.getRoute()[-1]</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-string">        </tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-string">                return None</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-string">                '''</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">         </tt>
+<a name="PathFinder.canMove"></a><div id="PathFinder.canMove-def"><a name="L45"></a><tt class="py-lineno"> 45</tt> <a class="py-toggle" href="#" id="PathFinder.canMove-toggle" onclick="return toggle('PathFinder.canMove');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#canMove">canMove</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.canMove-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.canMove-expanded"><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-17', 'index', 'link-6');">index</a></tt> <tt class="py-op">&lt;</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-18', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="PathFinder.next"></a><div id="PathFinder.next-def"><a name="L48"></a><tt class="py-lineno"> 48</tt> <a class="py-toggle" href="#" id="PathFinder.next-toggle" onclick="return toggle('PathFinder.next');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#next">next</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.next-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.next-expanded"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method Peach.Engine.path.PathFinder.canMove()=Peach.Engine.path.PathFinder-class.html#canMove"><a title="Peach.Engine.path.PathFinder.canMove" class="py-name" href="#" onclick="return doclink('link-19', 'canMove', 'link-19');">canMove</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-20" class="py-name"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-20', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathFinder:: End of paths reached :: unable to move to next path"</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">         </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                <tt class="py-name">nextPath</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-21', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-22', 'index', 'link-6');">index</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-23', 'index', 'link-6');">index</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">nextPath</tt> </tt>
+</div><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">         </tt>
+<a name="PathFinder.current"></a><div id="PathFinder.current-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="PathFinder.current-toggle" onclick="return toggle('PathFinder.current');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#current">current</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.current-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.current-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-24', 'index', 'link-6');">index</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                 </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-25', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-26', 'index', 'link-6');">index</a></tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">         </tt>
+<a name="PathFinder.reset"></a><div id="PathFinder.reset-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="PathFinder.reset-toggle" onclick="return toggle('PathFinder.reset');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#reset">reset</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.reset-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.reset-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-27', 'index', 'link-6');">index</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                 </tt>
+<a name="PathFinder.getRoute"></a><div id="PathFinder.getRoute-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="PathFinder.getRoute-toggle" onclick="return toggle('PathFinder.getRoute');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathFinder-class.html#getRoute">getRoute</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathFinder.getRoute-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PathFinder.getRoute-expanded"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">paths</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">paths</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-28" class="py-name" targets="Class Peach.Engine.path._Path=Peach.Engine.path._Path-class.html"><a title="Peach.Engine.path._Path" class="py-name" href="#" onclick="return doclink('link-28', '_Path', 'link-28');">_Path</a></tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">p</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-29', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                         </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">paths</tt> </tt>
+</div></div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-string">@note: this part will be implemented soon to add Strategy functionality</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-string">class PathFinderWithStrategy(PathFinder):</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-string">        </tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-string">        def __init__(self, stateMachine):</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-string">                PathFinder.__init__(self, stateMachine)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-string">                self.strategyColl = self._getStrategyCollection()</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-string">        </tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-string">        def getRoute(self):</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-string">                return self.strategyColl.getRoute()</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-string">        </tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-string">        #Returns the collection of strategies that are defined in XML</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-string">        #If no strategy is declared then default one(staticStrategy) will be used.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-string">        </tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-string">        </tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-string">        def _getStrategyCollection(self):</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-string">                coll = StrategyCollection()</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-string">                factory = StrategyFactory()</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-string">                routeDescriptor = RouteDescriptor()</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-string">                for child in self.stateMachine:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-string">                        if child.elementType == 'path':</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-string">                                routeDescriptor.addPath(child)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-string">                                </tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-string">                        elif child.elementType == 'strategy':</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-string">                                if not routeDescriptor.hasNextSingle():</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-string">                                        PeachException("At least one Path must be defined previous to a Strategy!")</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-string">                                strategy = factory.createStrategy(self.stateMachine, routeDescriptor, child.classStr, child.params)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-string">                                coll.addStrategy(strategy)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-string">                                </tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-string">                                #renew routeDescriptor since it is used by this strategy</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-string">                                routeDescriptor = RouteDescriptor()</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-string">                </tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-string">                </tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-string">                if routeDescriptor.hasNextSingle() or routeDescriptor.hasNextPair():</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-string">                        # create default strategy</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-string">                        strategy =  factory.createStrategy(self.stateMachine, routeDescriptor)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-string">                        coll.addStrategy(strategy)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-string">                        </tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-string">                return coll </tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">     </tt>
+<a name="PathValidator"></a><div id="PathValidator-def"><a name="L113"></a><tt class="py-lineno">113</tt> <a class="py-toggle" href="#" id="PathValidator-toggle" onclick="return toggle('PathValidator');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Engine.path.PathValidator-class.html">PathValidator</a><tt class="py-op">:</tt> </tt>
+</div><div id="PathValidator-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PathValidator-expanded"><a name="PathValidator.__init__"></a><div id="PathValidator.__init__-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="PathValidator.__init__-toggle" onclick="return toggle('PathValidator.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathValidator-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">pathFinder</tt><tt class="py-op">,</tt> <tt class="py-param">validationMutator</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathValidator.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PathValidator.__init__-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">pathFinder</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-30" class="py-name"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-30', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathValidator: parameter 'pathFinder' must be assigned"</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">         </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt> <tt class="py-op">=</tt> <tt class="py-name">pathFinder</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">validationMutator</tt> <tt class="py-op">=</tt> <tt class="py-name">validationMutator</tt> </tt>
+</div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">         </tt>
+<a name="PathValidator.validate"></a><div id="PathValidator.validate-def"><a name="L121"></a><tt class="py-lineno">121</tt> <a class="py-toggle" href="#" id="PathValidator.validate-toggle" onclick="return toggle('PathValidator.validate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathValidator-class.html#validate">validate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathValidator.validate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PathValidator.validate-expanded"><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                <tt class="py-comment"># Reset pathFinder to guarantee</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method Peach.Engine.dom.DataElement.reset()=Peach.Engine.dom.DataElement-class.html#reset,Method Peach.Engine.dom.Template.reset()=Peach.Engine.dom.Template-class.html#reset,Method Peach.Engine.path.PathFinder.reset()=Peach.Engine.path.PathFinder-class.html#reset,Method Peach.Generators.block.Block.reset()=Peach.Generators.block.Block-class.html#reset,Method Peach.Generators.block.Block2.reset()=Peach.Generators.block.Block2-class.html#reset,Method Peach.Generators.block.Block3.reset()=Peach.Generators.block.Block3-class.html#reset,Method Peach.Generators.block.BlockRandomizer.reset()=Peach.Generators.block.BlockRandomizer-class.html#reset,Method Peach.Generators.block.MultiBlock.reset()=Peach.Generators.block.MultiBlock-class.html#reset,Method Peach.Generators.data.BadDerEncodedOctetString.reset()=Peach.Generators.data.BadDerEncodedOctetString-class.html#reset,Method Peach.Generators.data.NumberVariance.reset()=Peach.Generators.data.NumberVariance-class.html#reset,Method Peach.Generators.data._AsInt.reset()=Peach.Generators.data._AsInt-class.html#reset,Method Peach.Generators.dictionary.Dictionary.reset()=Peach.Generators.dictionary.Dictionary-class.html#reset,Method Peach.Generators.dictionary.GeneratorChoice.reset()=Peach.Generators.dictionary.GeneratorChoice-class.html#reset,Method Peach.Generators.dictionary.GeneratorList.reset()=Peach.Generators.dictionary.GeneratorList-class.html#reset,Method Peach.Generators.dictionary.GeneratorList2.reset()=Peach.Generators.dictionary.GeneratorList2-class.html#reset,Method Peach.Generators.dictionary.GeneratorListGroupMaster.reset()=Peach.Generators.dictionary.GeneratorListGroupMaster-class.html#reset,Method Peach.Generators.dictionary.GeneratorListGroupSlave.reset()=Peach.Generators.dictionary.GeneratorListGroupSlave-class.html#reset,Method Peach.Generators.dictionary.List.reset()=Peach.Generators.dictionary.List-class.html#reset,Method Peach.Generators.dictionary._ArrayList.reset()=Peach.Generators.dictionary._ArrayList-class.html#reset,Method Peach.Generators.flipper.PartialFlipper.reset()=Peach.Generators.flipper.PartialFlipper-class.html#reset,Method Peach.Generators.flipper.SequentialFlipper.reset()=Peach.Generators.flipper.SequentialFlipper-class.html#reset,Method Peach.Generators.incrementor.Incrementor.reset()=Peach.Generators.incrementor.Incrementor-class.html#reset,Method Peach.Generators.incrementor.PerCallIncrementor.reset()=Peach.Generators.incrementor.PerCallIncrementor-class.html#reset,Method Peach.Generators.incrementor.PerRoundIncrementor.reset()=Peach.Generators.incrementor.PerRoundIncrementor-class.html#reset,Method Peach.Generators.repeater.Repeater.reset()=Peach.Generators.repeater.Repeater-class.html#reset,Method Peach.Generators.repeater.RepeaterGI.reset()=Peach.Generators.repeater.RepeaterGI-class.html#reset,Method Peach.Generators.unicode.OverLongUtf8.reset()=Peach.Generators.unicode.OverLongUtf8-class.html#reset,Method Peach.Generators.untidy.XmlFuzzer.reset()=Peach.Generators.untidy.XmlFuzzer-class.html#reset,Method Peach.Generators.xmlstuff.XmlCreateElements.reset()=Peach.Generators.xmlstuff.XmlCreateElements-class.html#reset,Method Peach.Generators.xmlstuff.XmlCreateNodes.reset()=Peach.Generators.xmlstuff.XmlCreateNodes-class.html#reset,Method Peach.Generators.xmlstuff.XmlParserTestsGeneric.reset()=Peach.Generators.xmlstuff.XmlParserTestsGeneric-class.html#reset,Method Peach.generator.Generator.reset()=Peach.generator.Generator-class.html#reset,Method Peach.generator.SimpleGenerator.reset()=Peach.generator.SimpleGenerator-class.html#reset,Method Peach.group.Group.reset()=Peach.group.Group-class.html#reset,Method Peach.group.GroupForeachDo.reset()=Peach.group.GroupForeachDo-class.html#reset,Method Peach.group.GroupForever.reset()=Peach.group.GroupForever-class.html#reset,Method Peach.group.GroupSequence.reset()=Peach.group.GroupSequence-class.html#reset,Method Peach.strategy.RouteDescriptor.reset()=Peach.strategy.RouteDescriptor-class.html#reset"><a title="Peach.Engine.dom.DataElement.reset
+Peach.Engine.dom.Template.reset
+Peach.Engine.path.PathFinder.reset
+Peach.Generators.block.Block.reset
+Peach.Generators.block.Block2.reset
+Peach.Generators.block.Block3.reset
+Peach.Generators.block.BlockRandomizer.reset
+Peach.Generators.block.MultiBlock.reset
+Peach.Generators.data.BadDerEncodedOctetString.reset
+Peach.Generators.data.NumberVariance.reset
+Peach.Generators.data._AsInt.reset
+Peach.Generators.dictionary.Dictionary.reset
+Peach.Generators.dictionary.GeneratorChoice.reset
+Peach.Generators.dictionary.GeneratorList.reset
+Peach.Generators.dictionary.GeneratorList2.reset
+Peach.Generators.dictionary.GeneratorListGroupMaster.reset
+Peach.Generators.dictionary.GeneratorListGroupSlave.reset
+Peach.Generators.dictionary.List.reset
+Peach.Generators.dictionary._ArrayList.reset
+Peach.Generators.flipper.PartialFlipper.reset
+Peach.Generators.flipper.SequentialFlipper.reset
+Peach.Generators.incrementor.Incrementor.reset
+Peach.Generators.incrementor.PerCallIncrementor.reset
+Peach.Generators.incrementor.PerRoundIncrementor.reset
+Peach.Generators.repeater.Repeater.reset
+Peach.Generators.repeater.RepeaterGI.reset
+Peach.Generators.unicode.OverLongUtf8.reset
+Peach.Generators.untidy.XmlFuzzer.reset
+Peach.Generators.xmlstuff.XmlCreateElements.reset
+Peach.Generators.xmlstuff.XmlCreateNodes.reset
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.reset
+Peach.generator.Generator.reset
+Peach.generator.SimpleGenerator.reset
+Peach.group.Group.reset
+Peach.group.GroupForeachDo.reset
+Peach.group.GroupForever.reset
+Peach.group.GroupSequence.reset
+Peach.strategy.RouteDescriptor.reset" class="py-name" href="#" onclick="return doclink('link-31', 'reset', 'link-31');">reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">         </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                <tt class="py-comment"># Do we have a path declared in XML?</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="Peach.Engine.path.PathFinder.canMove" class="py-name" href="#" onclick="return doclink('link-32', 'canMove', 'link-19');">canMove</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-33" class="py-name"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-33', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathValidator: No path definition found for the stateMachine[%s]."</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Variable Peach.MutateStrategies.rand._RandomMutator.name=Peach.MutateStrategies.rand._RandomMutator-class.html#name,Variable Peach.MutateStrategies.sequencial._RandomMutator.name=Peach.MutateStrategies.sequencial._RandomMutator-class.html#name,Variable Peach.MutateStrategies.sequencial._Unknown.name=Peach.MutateStrategies.sequencial._Unknown-class.html#name"><a title="Peach.MutateStrategies.rand._RandomMutator.name
+Peach.MutateStrategies.sequencial._RandomMutator.name
+Peach.MutateStrategies.sequencial._Unknown.name" class="py-name" href="#" onclick="return doclink('link-34', 'name', 'link-34');">name</a></tt><tt class="py-op">)</tt>  </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">         </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-comment"># Okay then check if stateMachine's initialState is the same</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># with the first path reference or not!</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="Peach.Engine.path.PathFinder.firstPath" class="py-name" href="#" onclick="return doclink('link-35', 'firstPath', 'link-7');">firstPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt> <tt class="py-op">!=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt class="py-name">initialState</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-36" class="py-name"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-36', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathValidator: Initial state name[%s] of the StateMachine[%s] must be the same with the first path reference[%s]."</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt class="py-name">initialState</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="Peach.MutateStrategies.rand._RandomMutator.name
+Peach.MutateStrategies.sequencial._RandomMutator.name
+Peach.MutateStrategies.sequencial._Unknown.name" class="py-name" href="#" onclick="return doclink('link-37', 'name', 'link-34');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="Peach.Engine.path.PathFinder.firstPath" class="py-name" href="#" onclick="return doclink('link-38', 'firstPath', 'link-7');">firstPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                <tt class="py-comment"># Check if final state contains Choice node or not</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># if it is then basically we don't know what to do</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># raise an exception  </tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt id="link-39" class="py-name"><a title="Peach.Engine.path.PathFinder.lastPath" class="py-name" href="#" onclick="return doclink('link-39', 'lastPath', 'link-12');">lastPath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="Peach.Engine.path.PathFinder.lastPath" class="py-name" href="#" onclick="return doclink('link-40', 'lastPath', 'link-12');">lastPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-41" class="py-name"><a title="Peach.Engine.path.PathFinder.lastPath" class="py-name" href="#" onclick="return doclink('link-41', 'lastPath', 'link-12');">lastPath</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="Peach.Engine.common.DomBackgroundCopier.stop
+Peach.Publishers.com.Com.stop
+Peach.Publishers.dll.Dll.stop
+Peach.Publishers.file.FilePerIteration.stop
+Peach.Publishers.file.FileReader.stop
+Peach.Publishers.file.FileWriter.stop
+Peach.Publishers.file.FileWriterAS3NumberRecorder.stop
+Peach.Publishers.file.FileWriterAS3StringRecorder.stop
+Peach.Publishers.file.FileWriterLauncher.stop
+Peach.Publishers.file.FileWriterLauncherGui.stop
+Peach.Publishers.http.HttpBasicAuth.stop
+Peach.Publishers.http.HttpDigestAuth.stop
+Peach.Publishers.http.HttpPost.stop
+Peach.Publishers.icmp.Icmp.stop
+Peach.Publishers.raw.Raw.stop
+Peach.Publishers.remote.RemotePublisher.stop
+Peach.Publishers.sql.Odbc.stop
+Peach.Publishers.tcp.Tcp.stop
+Peach.Publishers.tcp.TcpListener.stop
+Peach.Publishers.tcp.TcpListenerLaunchGui.stop
+Peach.Publishers.udp.Udp.stop
+Peach.Publishers.udp.Udp6.stop
+Peach.Publishers.udp.UdpListener.stop
+Peach.Publishers.wifi.Wifi.stop
+Peach.publisher.Publisher.stop" class="py-name" href="#" onclick="return doclink('link-42', 'stop', 'link-3');">stop</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                        <tt class="py-name">lastState</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method Peach.Engine.dom.StateMachine.findStateByName()=Peach.Engine.dom.StateMachine-class.html#findStateByName"><a title="Peach.Engine.dom.StateMachine.findStateByName" class="py-name" href="#" onclick="return doclink('link-43', 'findStateByName', 'link-43');">findStateByName</a></tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="Peach.Engine.path.PathFinder.lastPath" class="py-name" href="#" onclick="return doclink('link-44', 'lastPath', 'link-12');">lastPath</a></tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt><tt class="py-op">)</tt>  </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">lastState</tt><tt class="py-op">.</tt><tt class="py-name">getChoice</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt id="link-45" class="py-name"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-45', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathValidator: Invalid path definition. Final state[%s] must not contain Choice element."</tt> <tt class="py-op">%</tt> <tt class="py-name">lastState</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="Peach.MutateStrategies.rand._RandomMutator.name
+Peach.MutateStrategies.sequencial._RandomMutator.name
+Peach.MutateStrategies.sequencial._Unknown.name" class="py-name" href="#" onclick="return doclink('link-46', 'name', 'link-34');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                 </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">                <tt class="py-comment"># Validate state transition references</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">thisState</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method Peach.Engine.path.PathFinder.next()=Peach.Engine.path.PathFinder-class.html#next,Method Peach.Generators.block.Block.next()=Peach.Generators.block.Block-class.html#next,Method Peach.Generators.block.Block2.next()=Peach.Generators.block.Block2-class.html#next,Method Peach.Generators.block.Block3.next()=Peach.Generators.block.Block3-class.html#next,Method Peach.Generators.block.BlockRandomizer.next()=Peach.Generators.block.BlockRandomizer-class.html#next,Method Peach.Generators.block.MultiBlock.next()=Peach.Generators.block.MultiBlock-class.html#next,Method Peach.Generators.data.BadDerEncodedOctetString.next()=Peach.Generators.data.BadDerEncodedOctetString-class.html#next,Method Peach.Generators.data.NumberVariance.next()=Peach.Generators.data.NumberVariance-class.html#next,Method Peach.Generators.data._AsInt.next()=Peach.Generators.data._AsInt-class.html#next,Method Peach.Generators.dictionary.Dictionary.next()=Peach.Generators.dictionary.Dictionary-class.html#next,Method Peach.Generators.dictionary.Flags.next()=Peach.Generators.dictionary.Flags-class.html#next,Method Peach.Generators.dictionary.Flags2.next()=Peach.Generators.dictionary.Flags2-class.html#next,Method Peach.Generators.dictionary.GeneratorChoice.next()=Peach.Generators.dictionary.GeneratorChoice-class.html#next,Method Peach.Generators.dictionary.GeneratorList.next()=Peach.Generators.dictionary.GeneratorList-class.html#next,Method Peach.Generators.dictionary.GeneratorList2.next()=Peach.Generators.dictionary.GeneratorList2-class.html#next,Method Peach.Generators.dictionary.GeneratorListGroupMaster.next()=Peach.Generators.dictionary.GeneratorListGroupMaster-class.html#next,Method Peach.Generators.dictionary.GeneratorListGroupSlave.next()=Peach.Generators.dictionary.GeneratorListGroupSlave-class.html#next,Method Peach.Generators.dictionary.List.next()=Peach.Generators.dictionary.List-class.html#next,Method Peach.Generators.dictionary._ArrayList.next()=Peach.Generators.dictionary._ArrayList-class.html#next,Method Peach.Generators.flipper.PartialFlipper.next()=Peach.Generators.flipper.PartialFlipper-class.html#next,Method Peach.Generators.flipper.SequentialFlipper.next()=Peach.Generators.flipper.SequentialFlipper-class.html#next,Method Peach.Generators.incrementor.Incrementor.next()=Peach.Generators.incrementor.Incrementor-class.html#next,Method Peach.Generators.incrementor.PerCallIncrementor.next()=Peach.Generators.incrementor.PerCallIncrementor-class.html#next,Method Peach.Generators.incrementor.PerRoundIncrementor.next()=Peach.Generators.incrementor.PerRoundIncrementor-class.html#next,Method Peach.Generators.null.PrintStderr.next()=Peach.Generators.null.PrintStderr-class.html#next,Method Peach.Generators.null.PrintStdout.next()=Peach.Generators.null.PrintStdout-class.html#next,Method Peach.Generators.repeater.Repeater.next()=Peach.Generators.repeater.Repeater-class.html#next,Method Peach.Generators.repeater.RepeaterGI.next()=Peach.Generators.repeater.RepeaterGI-class.html#next,Method Peach.Generators.static.Static.next()=Peach.Generators.static.Static-class.html#next,Method Peach.Generators.unicode.OverLongUtf8.next()=Peach.Generators.unicode.OverLongUtf8-class.html#next,Method Peach.Generators.untidy.XmlFuzzer.next()=Peach.Generators.untidy.XmlFuzzer-class.html#next,Method Peach.Generators.xmlstuff.XmlCreateElements.next()=Peach.Generators.xmlstuff.XmlCreateElements-class.html#next,Method Peach.Generators.xmlstuff.XmlCreateNodes.next()=Peach.Generators.xmlstuff.XmlCreateNodes-class.html#next,Method Peach.Generators.xmlstuff.XmlParserTests.next()=Peach.Generators.xmlstuff.XmlParserTests-class.html#next,Method Peach.Generators.xmlstuff.XmlParserTestsGeneric.next()=Peach.Generators.xmlstuff.XmlParserTestsGeneric-class.html#next,Method Peach.MutateStrategies.rand.RandomMutationStrategy.next()=Peach.MutateStrategies.rand.RandomMutationStrategy-class.html#next,Method Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy.next()=Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy-class.html#next,Method Peach.MutateStrategies.sequencial.ReproStrategy.next()=Peach.MutateStrategies.sequencial.ReproStrategy-class.html#next,Method Peach.MutateStrategies.sequencial.SequencialMutationStrategy.next()=Peach.MutateStrategies.sequencial.SequencialMutationStrategy-class.html#next,Method Peach.Mutators.array.ArrayNumericalEdgeCasesMutator.next()=Peach.Mutators.array.ArrayNumericalEdgeCasesMutator-class.html#next,Method Peach.Mutators.array.ArrayRandomizeOrderMutator.next()=Peach.Mutators.array.ArrayRandomizeOrderMutator-class.html#next,Method Peach.Mutators.array.ArrayReverseOrderMutator.next()=Peach.Mutators.array.ArrayReverseOrderMutator-class.html#next,Method Peach.Mutators.array.ArrayVarianceMutator.next()=Peach.Mutators.array.ArrayVarianceMutator-class.html#next,Method Peach.Mutators.blob.BitFlipperMutator.next()=Peach.Mutators.blob.BitFlipperMutator-class.html#next,Method Peach.Mutators.blob.DWORDSliderMutator.next()=Peach.Mutators.blob.DWORDSliderMutator-class.html#next,Method Peach.Mutators.datatree.DataTreeDuplicateMutator.next()=Peach.Mutators.datatree.DataTreeDuplicateMutator-class.html#next,Method Peach.Mutators.datatree.DataTreeRemoveMutator.next()=Peach.Mutators.datatree.DataTreeRemoveMutator-class.html#next,Method Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.next()=Peach.Mutators.datatree.DataTreeSwapNearNodesMutator-class.html#next,Method Peach.Mutators.number.FiniteRandomNumbersMutator.next()=Peach.Mutators.number.FiniteRandomNumbersMutator-class.html#next,Method Peach.Mutators.number.NumericalEdgeCaseMutator.next()=Peach.Mutators.number.NumericalEdgeCaseMutator-class.html#next,Method Peach.Mutators.number.NumericalVarianceMutator.next()=Peach.Mutators.number.NumericalVarianceMutator-class.html#next,Method Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.next()=Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator-class.html#next,Method Peach.Mutators.size.SizedDataVaranceMutator.next()=Peach.Mutators.size.SizedDataVaranceMutator-class.html#next,Method Peach.Mutators.size.SizedNumericalEdgeCasesMutator.next()=Peach.Mutators.size.SizedNumericalEdgeCasesMutator-class.html#next,Method Peach.Mutators.size.SizedVaranceMutator.next()=Peach.Mutators.size.SizedVaranceMutator-class.html#next,Method Peach.Mutators.string.StringCaseMutator.next()=Peach.Mutators.string.StringCaseMutator-class.html#next,Method Peach.Mutators.string.StringMutator.next()=Peach.Mutators.string.StringMutator-class.html#next,Method Peach.Mutators.string.UnicodeBadUtf8Mutator.next()=Peach.Mutators.string.UnicodeBadUtf8Mutator-class.html#next,Method Peach.Mutators.string.UnicodeBomMutator.next()=Peach.Mutators.string.UnicodeBomMutator-class.html#next,Method Peach.Mutators.string.UnicodeStringsMutator.next()=Peach.Mutators.string.UnicodeStringsMutator-class.html#next,Method Peach.Mutators.string.ValidValuesMutator.next()=Peach.Mutators.string.ValidValuesMutator-class.html#next,Method Peach.Mutators.string._SimpleGeneratorMutator.next()=Peach.Mutators.string._SimpleGeneratorMutator-class.html#next,Method Peach.generator.Generator.next()=Peach.generator.Generator-class.html#next,Method Peach.generator.SimpleGenerator.next()=Peach.generator.SimpleGenerator-class.html#next,Method Peach.group.Group.next()=Peach.group.Group-class.html#next,Method Peach.group.GroupFixed.next()=Peach.group.GroupFixed-class.html#next,Method Peach.group.GroupForeachDo.next()=Peach.group.GroupForeachDo-class.html#next,Method Peach.group.GroupForever.next()=Peach.group.GroupForever-class.html#next,Method Peach.group.GroupSequence.next()=Peach.group.GroupSequence-class.html#next,Method Peach.mutatestrategies.MutationStrategy.next()=Peach.mutatestrategies.MutationStrategy-class.html#next,Method Peach.mutator.Mutator.next()=Peach.mutator.Mutator-class.html#next"><a title="Peach.Engine.path.PathFinder.next
+Peach.Generators.block.Block.next
+Peach.Generators.block.Block2.next
+Peach.Generators.block.Block3.next
+Peach.Generators.block.BlockRandomizer.next
+Peach.Generators.block.MultiBlock.next
+Peach.Generators.data.BadDerEncodedOctetString.next
+Peach.Generators.data.NumberVariance.next
+Peach.Generators.data._AsInt.next
+Peach.Generators.dictionary.Dictionary.next
+Peach.Generators.dictionary.Flags.next
+Peach.Generators.dictionary.Flags2.next
+Peach.Generators.dictionary.GeneratorChoice.next
+Peach.Generators.dictionary.GeneratorList.next
+Peach.Generators.dictionary.GeneratorList2.next
+Peach.Generators.dictionary.GeneratorListGroupMaster.next
+Peach.Generators.dictionary.GeneratorListGroupSlave.next
+Peach.Generators.dictionary.List.next
+Peach.Generators.dictionary._ArrayList.next
+Peach.Generators.flipper.PartialFlipper.next
+Peach.Generators.flipper.SequentialFlipper.next
+Peach.Generators.incrementor.Incrementor.next
+Peach.Generators.incrementor.PerCallIncrementor.next
+Peach.Generators.incrementor.PerRoundIncrementor.next
+Peach.Generators.null.PrintStderr.next
+Peach.Generators.null.PrintStdout.next
+Peach.Generators.repeater.Repeater.next
+Peach.Generators.repeater.RepeaterGI.next
+Peach.Generators.static.Static.next
+Peach.Generators.unicode.OverLongUtf8.next
+Peach.Generators.untidy.XmlFuzzer.next
+Peach.Generators.xmlstuff.XmlCreateElements.next
+Peach.Generators.xmlstuff.XmlCreateNodes.next
+Peach.Generators.xmlstuff.XmlParserTests.next
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.next
+Peach.MutateStrategies.rand.RandomMutationStrategy.next
+Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy.next
+Peach.MutateStrategies.sequencial.ReproStrategy.next
+Peach.MutateStrategies.sequencial.SequencialMutationStrategy.next
+Peach.Mutators.array.ArrayNumericalEdgeCasesMutator.next
+Peach.Mutators.array.ArrayRandomizeOrderMutator.next
+Peach.Mutators.array.ArrayReverseOrderMutator.next
+Peach.Mutators.array.ArrayVarianceMutator.next
+Peach.Mutators.blob.BitFlipperMutator.next
+Peach.Mutators.blob.DWORDSliderMutator.next
+Peach.Mutators.datatree.DataTreeDuplicateMutator.next
+Peach.Mutators.datatree.DataTreeRemoveMutator.next
+Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.next
+Peach.Mutators.number.FiniteRandomNumbersMutator.next
+Peach.Mutators.number.NumericalEdgeCaseMutator.next
+Peach.Mutators.number.NumericalVarianceMutator.next
+Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedDataVaranceMutator.next
+Peach.Mutators.size.SizedNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedVaranceMutator.next
+Peach.Mutators.string.StringCaseMutator.next
+Peach.Mutators.string.StringMutator.next
+Peach.Mutators.string.UnicodeBadUtf8Mutator.next
+Peach.Mutators.string.UnicodeBomMutator.next
+Peach.Mutators.string.UnicodeStringsMutator.next
+Peach.Mutators.string.ValidValuesMutator.next
+Peach.Mutators.string._SimpleGeneratorMutator.next
+Peach.generator.Generator.next
+Peach.generator.SimpleGenerator.next
+Peach.group.Group.next
+Peach.group.GroupFixed.next
+Peach.group.GroupForeachDo.next
+Peach.group.GroupForever.next
+Peach.group.GroupSequence.next
+Peach.mutatestrategies.MutationStrategy.next
+Peach.mutator.Mutator.next" class="py-name" href="#" onclick="return doclink('link-47', 'next', 'link-47');">next</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                <tt class="py-keyword">while</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="Peach.Engine.path.PathFinder.canMove" class="py-name" href="#" onclick="return doclink('link-48', 'canMove', 'link-19');">canMove</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">                        <tt class="py-name">nextState</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="Peach.Engine.path.PathFinder.next
+Peach.Generators.block.Block.next
+Peach.Generators.block.Block2.next
+Peach.Generators.block.Block3.next
+Peach.Generators.block.BlockRandomizer.next
+Peach.Generators.block.MultiBlock.next
+Peach.Generators.data.BadDerEncodedOctetString.next
+Peach.Generators.data.NumberVariance.next
+Peach.Generators.data._AsInt.next
+Peach.Generators.dictionary.Dictionary.next
+Peach.Generators.dictionary.Flags.next
+Peach.Generators.dictionary.Flags2.next
+Peach.Generators.dictionary.GeneratorChoice.next
+Peach.Generators.dictionary.GeneratorList.next
+Peach.Generators.dictionary.GeneratorList2.next
+Peach.Generators.dictionary.GeneratorListGroupMaster.next
+Peach.Generators.dictionary.GeneratorListGroupSlave.next
+Peach.Generators.dictionary.List.next
+Peach.Generators.dictionary._ArrayList.next
+Peach.Generators.flipper.PartialFlipper.next
+Peach.Generators.flipper.SequentialFlipper.next
+Peach.Generators.incrementor.Incrementor.next
+Peach.Generators.incrementor.PerCallIncrementor.next
+Peach.Generators.incrementor.PerRoundIncrementor.next
+Peach.Generators.null.PrintStderr.next
+Peach.Generators.null.PrintStdout.next
+Peach.Generators.repeater.Repeater.next
+Peach.Generators.repeater.RepeaterGI.next
+Peach.Generators.static.Static.next
+Peach.Generators.unicode.OverLongUtf8.next
+Peach.Generators.untidy.XmlFuzzer.next
+Peach.Generators.xmlstuff.XmlCreateElements.next
+Peach.Generators.xmlstuff.XmlCreateNodes.next
+Peach.Generators.xmlstuff.XmlParserTests.next
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.next
+Peach.MutateStrategies.rand.RandomMutationStrategy.next
+Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy.next
+Peach.MutateStrategies.sequencial.ReproStrategy.next
+Peach.MutateStrategies.sequencial.SequencialMutationStrategy.next
+Peach.Mutators.array.ArrayNumericalEdgeCasesMutator.next
+Peach.Mutators.array.ArrayRandomizeOrderMutator.next
+Peach.Mutators.array.ArrayReverseOrderMutator.next
+Peach.Mutators.array.ArrayVarianceMutator.next
+Peach.Mutators.blob.BitFlipperMutator.next
+Peach.Mutators.blob.DWORDSliderMutator.next
+Peach.Mutators.datatree.DataTreeDuplicateMutator.next
+Peach.Mutators.datatree.DataTreeRemoveMutator.next
+Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.next
+Peach.Mutators.number.FiniteRandomNumbersMutator.next
+Peach.Mutators.number.NumericalEdgeCaseMutator.next
+Peach.Mutators.number.NumericalVarianceMutator.next
+Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedDataVaranceMutator.next
+Peach.Mutators.size.SizedNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedVaranceMutator.next
+Peach.Mutators.string.StringCaseMutator.next
+Peach.Mutators.string.StringMutator.next
+Peach.Mutators.string.UnicodeBadUtf8Mutator.next
+Peach.Mutators.string.UnicodeBomMutator.next
+Peach.Mutators.string.UnicodeStringsMutator.next
+Peach.Mutators.string.ValidValuesMutator.next
+Peach.Mutators.string._SimpleGeneratorMutator.next
+Peach.generator.Generator.next
+Peach.generator.SimpleGenerator.next
+Peach.group.Group.next
+Peach.group.GroupFixed.next
+Peach.group.GroupForeachDo.next
+Peach.group.GroupForever.next
+Peach.group.GroupSequence.next
+Peach.mutatestrategies.MutationStrategy.next
+Peach.mutator.Mutator.next" class="py-name" href="#" onclick="return doclink('link-49', 'next', 'link-47');">next</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">                         </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method Peach.Engine.path.PathValidator._isNextState()=Peach.Engine.path.PathValidator-class.html#_isNextState"><a title="Peach.Engine.path.PathValidator._isNextState" class="py-name" href="#" onclick="return doclink('link-50', '_isNextState', 'link-50');">_isNextState</a></tt><tt class="py-op">(</tt><tt class="py-name">thisState</tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt><tt class="py-op">,</tt> <tt class="py-name">nextState</tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt id="link-51" class="py-name"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-51', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathValidator: Invalid path definition at StateMachine[%s]. State[%s] does not contain state[%s] in its choice list."</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="Peach.MutateStrategies.rand._RandomMutator.name
+Peach.MutateStrategies.sequencial._RandomMutator.name
+Peach.MutateStrategies.sequencial._Unknown.name" class="py-name" href="#" onclick="return doclink('link-52', 'name', 'link-34');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">thisState</tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt><tt class="py-op">,</tt> <tt class="py-name">nextState</tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                         </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">                        <tt class="py-comment"># Advancing to the next state so equate thisState to nextState </tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-comment"></tt>                        <tt class="py-name">thisState</tt> <tt class="py-op">=</tt> <tt class="py-name">nextState</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                 </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">                <tt class="py-comment"># Now check traced route        </tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="Peach.Engine.dom.DataElement.reset
+Peach.Engine.dom.Template.reset
+Peach.Engine.path.PathFinder.reset
+Peach.Generators.block.Block.reset
+Peach.Generators.block.Block2.reset
+Peach.Generators.block.Block3.reset
+Peach.Generators.block.BlockRandomizer.reset
+Peach.Generators.block.MultiBlock.reset
+Peach.Generators.data.BadDerEncodedOctetString.reset
+Peach.Generators.data.NumberVariance.reset
+Peach.Generators.data._AsInt.reset
+Peach.Generators.dictionary.Dictionary.reset
+Peach.Generators.dictionary.GeneratorChoice.reset
+Peach.Generators.dictionary.GeneratorList.reset
+Peach.Generators.dictionary.GeneratorList2.reset
+Peach.Generators.dictionary.GeneratorListGroupMaster.reset
+Peach.Generators.dictionary.GeneratorListGroupSlave.reset
+Peach.Generators.dictionary.List.reset
+Peach.Generators.dictionary._ArrayList.reset
+Peach.Generators.flipper.PartialFlipper.reset
+Peach.Generators.flipper.SequentialFlipper.reset
+Peach.Generators.incrementor.Incrementor.reset
+Peach.Generators.incrementor.PerCallIncrementor.reset
+Peach.Generators.incrementor.PerRoundIncrementor.reset
+Peach.Generators.repeater.Repeater.reset
+Peach.Generators.repeater.RepeaterGI.reset
+Peach.Generators.unicode.OverLongUtf8.reset
+Peach.Generators.untidy.XmlFuzzer.reset
+Peach.Generators.xmlstuff.XmlCreateElements.reset
+Peach.Generators.xmlstuff.XmlCreateNodes.reset
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.reset
+Peach.generator.Generator.reset
+Peach.generator.SimpleGenerator.reset
+Peach.group.Group.reset
+Peach.group.GroupForeachDo.reset
+Peach.group.GroupForever.reset
+Peach.group.GroupSequence.reset
+Peach.strategy.RouteDescriptor.reset" class="py-name" href="#" onclick="return doclink('link-53', 'reset', 'link-31');">reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">                 </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">validationMutator</tt><tt class="py-op">.</tt><tt class="py-name">states</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">len</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="Peach.Engine.dom.StateMachine.getRoute
+Peach.Engine.path.PathFinder.getRoute
+Peach.strategy.Strategy.getRoute
+Peach.strategy.StrategyCollection.getRoute" class="py-name" href="#" onclick="return doclink('link-54', 'getRoute', 'link-8');">getRoute</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-55" class="py-name" targets="Class Peach.Engine.common.PeachException=Peach.Engine.common.PeachException-class.html"><a title="Peach.Engine.common.PeachException" class="py-name" href="#" onclick="return doclink('link-55', 'PeachException', 'link-55');">PeachException</a></tt><tt class="py-op">(</tt><tt class="py-string">"Invalid path. StateMachine[%s] violated path definition declared in XML file."</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="Peach.MutateStrategies.rand._RandomMutator.name
+Peach.MutateStrategies.sequencial._RandomMutator.name
+Peach.MutateStrategies.sequencial._Unknown.name" class="py-name" href="#" onclick="return doclink('link-56', 'name', 'link-34');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">                 </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">                <tt class="py-keyword">while</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="Peach.Engine.path.PathFinder.canMove" class="py-name" href="#" onclick="return doclink('link-57', 'canMove', 'link-19');">canMove</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">                        <tt class="py-name">currPath</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="Peach.Engine.path.PathFinder.next
+Peach.Generators.block.Block.next
+Peach.Generators.block.Block2.next
+Peach.Generators.block.Block3.next
+Peach.Generators.block.BlockRandomizer.next
+Peach.Generators.block.MultiBlock.next
+Peach.Generators.data.BadDerEncodedOctetString.next
+Peach.Generators.data.NumberVariance.next
+Peach.Generators.data._AsInt.next
+Peach.Generators.dictionary.Dictionary.next
+Peach.Generators.dictionary.Flags.next
+Peach.Generators.dictionary.Flags2.next
+Peach.Generators.dictionary.GeneratorChoice.next
+Peach.Generators.dictionary.GeneratorList.next
+Peach.Generators.dictionary.GeneratorList2.next
+Peach.Generators.dictionary.GeneratorListGroupMaster.next
+Peach.Generators.dictionary.GeneratorListGroupSlave.next
+Peach.Generators.dictionary.List.next
+Peach.Generators.dictionary._ArrayList.next
+Peach.Generators.flipper.PartialFlipper.next
+Peach.Generators.flipper.SequentialFlipper.next
+Peach.Generators.incrementor.Incrementor.next
+Peach.Generators.incrementor.PerCallIncrementor.next
+Peach.Generators.incrementor.PerRoundIncrementor.next
+Peach.Generators.null.PrintStderr.next
+Peach.Generators.null.PrintStdout.next
+Peach.Generators.repeater.Repeater.next
+Peach.Generators.repeater.RepeaterGI.next
+Peach.Generators.static.Static.next
+Peach.Generators.unicode.OverLongUtf8.next
+Peach.Generators.untidy.XmlFuzzer.next
+Peach.Generators.xmlstuff.XmlCreateElements.next
+Peach.Generators.xmlstuff.XmlCreateNodes.next
+Peach.Generators.xmlstuff.XmlParserTests.next
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.next
+Peach.MutateStrategies.rand.RandomMutationStrategy.next
+Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy.next
+Peach.MutateStrategies.sequencial.ReproStrategy.next
+Peach.MutateStrategies.sequencial.SequencialMutationStrategy.next
+Peach.Mutators.array.ArrayNumericalEdgeCasesMutator.next
+Peach.Mutators.array.ArrayRandomizeOrderMutator.next
+Peach.Mutators.array.ArrayReverseOrderMutator.next
+Peach.Mutators.array.ArrayVarianceMutator.next
+Peach.Mutators.blob.BitFlipperMutator.next
+Peach.Mutators.blob.DWORDSliderMutator.next
+Peach.Mutators.datatree.DataTreeDuplicateMutator.next
+Peach.Mutators.datatree.DataTreeRemoveMutator.next
+Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.next
+Peach.Mutators.number.FiniteRandomNumbersMutator.next
+Peach.Mutators.number.NumericalEdgeCaseMutator.next
+Peach.Mutators.number.NumericalVarianceMutator.next
+Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedDataVaranceMutator.next
+Peach.Mutators.size.SizedNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedVaranceMutator.next
+Peach.Mutators.string.StringCaseMutator.next
+Peach.Mutators.string.StringMutator.next
+Peach.Mutators.string.UnicodeBadUtf8Mutator.next
+Peach.Mutators.string.UnicodeBomMutator.next
+Peach.Mutators.string.UnicodeStringsMutator.next
+Peach.Mutators.string.ValidValuesMutator.next
+Peach.Mutators.string._SimpleGeneratorMutator.next
+Peach.generator.Generator.next
+Peach.generator.SimpleGenerator.next
+Peach.group.Group.next
+Peach.group.GroupFixed.next
+Peach.group.GroupForeachDo.next
+Peach.group.GroupForever.next
+Peach.group.GroupSequence.next
+Peach.mutatestrategies.MutationStrategy.next
+Peach.mutator.Mutator.next" class="py-name" href="#" onclick="return doclink('link-58', 'next', 'link-47');">next</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">currPath</tt><tt class="py-op">.</tt><tt class="py-name">stateName</tt> <tt class="py-op">!=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">validationMutator</tt><tt class="py-op">.</tt><tt class="py-name">states</tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="Peach.Engine.common.ArraySetParent.index
+Peach.Engine.dom.ElementWithChildren.index" class="py-name" href="#" onclick="return doclink('link-59', 'index', 'link-6');">index</a></tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt id="link-60" class="py-name"><a title="Peach.Engine.common.PeachException" class="py-name" href="#" onclick="return doclink('link-60', 'PeachException', 'link-55');">PeachException</a></tt><tt class="py-op">(</tt><tt class="py-string">"Invalid path. StateMachine[%s] violated path definition declared in XML file."</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="Peach.MutateStrategies.rand._RandomMutator.name
+Peach.MutateStrategies.sequencial._RandomMutator.name
+Peach.MutateStrategies.sequencial._Unknown.name" class="py-name" href="#" onclick="return doclink('link-61', 'name', 'link-34');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                        <tt class="py-comment">#elif currPath.stop and (len(mutator.states) &gt; stateEngine.pathFinder.index):</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-comment"></tt>                        <tt class="py-comment">#       raise PeachException("Invalid path. StateMachine[%s] must stop at the State[%s]." % (stateMachine.name, currPath.ref))</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-comment"></tt>                 </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">                <tt class="py-comment"># Clear ;)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-comment"></tt>                                    </tt>
+<a name="PathValidator._isNextState"></a><div id="PathValidator._isNextState-def"><a name="L169"></a><tt class="py-lineno">169</tt> <a class="py-toggle" href="#" id="PathValidator._isNextState-toggle" onclick="return toggle('PathValidator._isNextState');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathValidator-class.html#_isNextState">_isNextState</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">stateName</tt><tt class="py-op">,</tt> <tt class="py-param">nextStateName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathValidator._isNextState-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PathValidator._isNextState-expanded"><a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">                <tt id="link-62" class="py-name" targets="Variable Peach.Engine.webwatcher.WebHandler.ret=Peach.Engine.webwatcher.WebHandler-class.html#ret"><a title="Peach.Engine.webwatcher.WebHandler.ret" class="py-name" href="#" onclick="return doclink('link-62', 'ret', 'link-62');">ret</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                <tt id="link-63" class="py-name" targets="Module Peach.Engine.state=Peach.Engine.state-module.html"><a title="Peach.Engine.state" class="py-name" href="#" onclick="return doclink('link-63', 'state', 'link-63');">state</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pathFinder</tt><tt class="py-op">.</tt><tt class="py-name">stateMachine</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="Peach.Engine.dom.StateMachine.findStateByName" class="py-name" href="#" onclick="return doclink('link-64', 'findStateByName', 'link-43');">findStateByName</a></tt><tt class="py-op">(</tt><tt class="py-name">stateName</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">                <tt class="py-name">choice</tt> <tt class="py-op">=</tt> <tt id="link-65" class="py-name"><a title="Peach.Engine.state" class="py-name" href="#" onclick="return doclink('link-65', 'state', 'link-63');">state</a></tt><tt class="py-op">.</tt><tt class="py-name">getChoice</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">choice</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">choice</tt><tt class="py-op">.</tt><tt class="py-name">findActionByRef</tt><tt class="py-op">(</tt><tt class="py-name">nextStateName</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">                                <tt id="link-66" class="py-name"><a title="Peach.Engine.webwatcher.WebHandler.ret" class="py-name" href="#" onclick="return doclink('link-66', 'ret', 'link-62');">ret</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">                        <tt class="py-comment"># Basically if we have only one changeState action </tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-comment"></tt>                        <tt class="py-comment"># then we already know the nextState</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-comment"></tt>                        <tt class="py-name">actions</tt> <tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-name">action</tt> <tt class="py-keyword">for</tt> <tt class="py-name">action</tt> <tt class="py-keyword">in</tt> <tt id="link-67" class="py-name"><a title="Peach.Engine.state" class="py-name" href="#" onclick="return doclink('link-67', 'state', 'link-63');">state</a></tt> <tt class="py-keyword">if</tt> <tt class="py-name">action</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name" targets="Variable Peach.mutator.Mutator.elementType=Peach.mutator.Mutator-class.html#elementType"><a title="Peach.mutator.Mutator.elementType" class="py-name" href="#" onclick="return doclink('link-68', 'elementType', 'link-68');">elementType</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'action'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">action</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name" targets="Module Peach.Transformers.type=Peach.Transformers.type-module.html"><a title="Peach.Transformers.type" class="py-name" href="#" onclick="return doclink('link-69', 'type', 'link-69');">type</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'changeState'</tt><tt class="py-op">]</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">actions</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">                                <tt id="link-70" class="py-name"><a title="Peach.Engine.webwatcher.WebHandler.ret" class="py-name" href="#" onclick="return doclink('link-70', 'ret', 'link-62');">ret</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">actions</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">ref</tt> <tt class="py-op">==</tt> <tt class="py-name">nextStateName</tt><tt class="py-op">)</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                                 </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">actions</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">1</tt> <tt class="py-keyword">or</tt> <tt class="py-keyword">not</tt> <tt id="link-71" class="py-name"><a title="Peach.Engine.webwatcher.WebHandler.ret" class="py-name" href="#" onclick="return doclink('link-71', 'ret', 'link-62');">ret</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">                                        <tt class="py-keyword">raise</tt> <tt id="link-72" class="py-name"><a title="Peach.Engine.path.PathException" class="py-name" href="#" onclick="return doclink('link-72', 'PathException', 'link-5');">PathException</a></tt><tt class="py-op">(</tt><tt class="py-string">"PathValidator: State[%s] must have only one changeState action referenced to state[%s] or explicitly declare a choice list containing a path reference to state[%s]"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">stateName</tt><tt class="py-op">,</tt> <tt class="py-name">nextStateName</tt><tt class="py-op">,</tt> <tt class="py-name">nextStateName</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">                         </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-73" class="py-name"><a title="Peach.Engine.webwatcher.WebHandler.ret" class="py-name" href="#" onclick="return doclink('link-73', 'ret', 'link-62');">ret</a></tt> </tt>
+</div></div><a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                  </tt>
+<a name="PathException"></a><div id="PathException-def"><a name="L188"></a><tt class="py-lineno">188</tt> <a class="py-toggle" href="#" id="PathException-toggle" onclick="return toggle('PathException');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Engine.path.PathException-class.html">PathException</a><tt class="py-op">:</tt> </tt>
+</div><div id="PathException-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PathException-expanded"><a name="PathException.__init__"></a><div id="PathException.__init__-def"><a name="L189"></a><tt class="py-lineno">189</tt> <a class="py-toggle" href="#" id="PathException.__init__-toggle" onclick="return toggle('PathException.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathException-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">msg</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathException.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PathException.__init__-expanded"><a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-op">=</tt> <tt class="py-name">msg</tt> </tt>
+</div><a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">         </tt>
+<a name="PathException.__str__"></a><div id="PathException.__str__-def"><a name="L192"></a><tt class="py-lineno">192</tt> <a class="py-toggle" href="#" id="PathException.__str__-toggle" onclick="return toggle('PathException.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Engine.path.PathException-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PathException.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PathException.__str__-expanded"><a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> </tt>
+</div></div><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:43 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

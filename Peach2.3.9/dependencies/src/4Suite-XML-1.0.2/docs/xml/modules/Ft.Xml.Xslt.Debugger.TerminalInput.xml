@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Debugger.TerminalInput">
+  <modification-date>2001-09-15 15:28:41</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="TerminalInputHandler" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TerminalInputHandler" module="Ft.Xml.Xslt.Debugger.TerminalInput"/>
+      </method-resolution-order>
+      <methods name="TerminalInputHandler" module="Ft.Xml.Xslt.Debugger.TerminalInput">
+        <method public="no" name="__init__" id="TerminalInputHandler-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getNextCommand" id="TerminalInputHandler-getNextCommand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="outputHandler"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="g_commandDict" id="g_commandDict">
+      <value>{'a': 12, 'avt': 12, 'b': 14, 'break': 14, 'bt': 6, 'db': 16, 'e': 10, 'eval': 10, 'h': 100, 'help': 100, ...}</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine.Options">
+  <modification-date>2005-04-18 16:46:56</modification-date>
+  <abstract>Classes that support advanced option processing for command-line scripts</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="BaseOption" public="yes">
+      <abstract>An option that is available to be used in an invocation of a
+command-line script, plus related functions.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+      </method-resolution-order>
+      <methods name="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <method public="no" realid="BaseOption-__str__" name="__repr__" realname="__str__" id="BaseOption-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="BaseOption-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="apply_options" id="BaseOption-apply_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+        </method>
+        <method public="yes" name="displayLength" id="BaseOption-displayLength">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="gen_command_line" id="BaseOption-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="gen_description" id="BaseOption-gen_description">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getForGetOpt" id="BaseOption-getForGetOpt">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="short2long"/>
+            <arg name="takes_arg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getName" id="BaseOption-getName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isApplied" id="BaseOption-isApplied">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="BaseOption-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <member public="yes" name="multiple" id="BaseOption-multiple">
+          <value>False</value>
+        </member>
+      </members>
+    </class>
+    <class name="ExclusiveOptions" public="yes">
+      <bases>
+        <base documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ExclusiveOptions" module="Ft.Lib.CommandLine.Options"/>
+        <base name="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+      </method-resolution-order>
+      <methods name="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <method public="no" name="__init__" id="ExclusiveOptions-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="choices"/>
+          </arguments>
+        </method>
+        <method public="yes" name="apply_options" id="ExclusiveOptions-apply_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="displayLength" id="ExclusiveOptions-displayLength">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="gen_command_line" id="ExclusiveOptions-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="getForGetOpt" id="ExclusiveOptions-getForGetOpt">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="short2long"/>
+            <arg name="takes_arg"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="getName" id="ExclusiveOptions-getName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="isApplied" id="ExclusiveOptions-isApplied">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="validate" id="ExclusiveOptions-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="gen_description" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <member-reference name="multiple" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="Option" public="yes">
+      <bases>
+        <base documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Option" module="Ft.Lib.CommandLine.Options"/>
+        <base name="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+      </method-resolution-order>
+      <methods name="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <method public="no" name="__init__" id="Option-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="shortName"/>
+            <arg name="longName"/>
+            <arg name="description"/>
+            <arg default="None" name="subOptions"/>
+            <arg default="False" name="multiple"/>
+          </arguments>
+        </method>
+        <method public="yes" name="apply_options" id="Option-apply_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="displayLength" id="Option-displayLength">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="gen_command_line" id="Option-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="getForGetOpt" id="Option-getForGetOpt">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="short2long"/>
+            <arg name="takes_arg"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="getName" id="Option-getName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="isApplied" id="Option-isApplied">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="validate" id="Option-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="gen_description" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <member-reference name="multiple" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="Options" public="yes">
+      <bases>
+        <base documented="no" class="list"/>
+      </bases>
+      <abstract>A set of options that are available to be used in an invocation of a
+command-line script, plus related functions.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Options" module="Ft.Lib.CommandLine.Options"/>
+        <base name="list"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="Options-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="options"/>
+          </arguments>
+          <overrides documented="no" class="list"/>
+        </method>
+        <method public="yes" name="findMaxOption" id="Options-findMaxOption">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="level"/>
+          </arguments>
+        </method>
+        <method public="yes" name="generate_help" id="Options-generate_help">
+          <abstract>Generate help text (a list of strings, one per suggested line of
+output) from the option table for this FancyGetopt object.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="1" name="level"/>
+            <arg default="0" name="max_opt"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="Options-__dict__">
+          <value>&lt;attribute '__dict__' of 'Options' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="Options-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'Options' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="list">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__delitem__" public="no"/>
+        <member-reference name="__delslice__" public="no"/>
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iadd__" public="no"/>
+        <member-reference name="__imul__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__reversed__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__setitem__" public="no"/>
+        <member-reference name="__setslice__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="extend" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="insert" public="yes"/>
+        <member-reference name="pop" public="yes"/>
+        <member-reference name="remove" public="yes"/>
+        <member-reference name="reverse" public="yes"/>
+        <member-reference name="sort" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="TypedOption" public="yes">
+      <bases>
+        <base documented="yes" class="Option" module="Ft.Lib.CommandLine.Options"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TypedOption" module="Ft.Lib.CommandLine.Options"/>
+        <base name="Option" module="Ft.Lib.CommandLine.Options"/>
+        <base name="BaseOption" module="Ft.Lib.CommandLine.Options"/>
+      </method-resolution-order>
+      <methods name="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <method public="no" name="__init__" id="TypedOption-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="shortName"/>
+            <arg name="longName"/>
+            <arg name="description"/>
+            <arg name="allowed"/>
+            <arg default="None" name="subOptions"/>
+          </arguments>
+          <overrides documented="yes" class="Option" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="apply_options" id="TypedOption-apply_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+          <overrides documented="yes" class="Option" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="gen_command_line" id="TypedOption-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Option" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+        <method public="yes" name="validate" id="TypedOption-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Option" module="Ft.Lib.CommandLine.Options"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Option" module="Ft.Lib.CommandLine.Options">
+        <member-reference name="displayLength" public="yes"/>
+        <member-reference name="getForGetOpt" public="yes"/>
+        <member-reference name="getName" public="yes"/>
+        <member-reference name="isApplied" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="gen_description" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="BaseOption" module="Ft.Lib.CommandLine.Options">
+        <member-reference name="multiple" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="CONSOLE_WIDTH" id="CONSOLE_WIDTH">
+      <value>206</value>
+    </global>
+  </globals>
+</module>

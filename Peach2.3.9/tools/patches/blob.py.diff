@@ -1,0 +1,19 @@
+Index: C:/peach/Peach/Mutators/blob.py
+===================================================================
+--- C:/peach/Peach/Mutators/blob.py	(revision 2007)
++++ C:/peach/Peach/Mutators/blob.py	(working copy)
+@@ -166,13 +166,7 @@
+ 	
+ 	def sequencialMutation(self, node):
+ 		self.changedName = node.getFullnameInDataModel()
+-		for i in range(self._random.randint(0, 10)):
+-			if self._len - 1 <= 0:
+-				count = 0
+-			else:
+-				count = self._random.randint(0, self._len-1)
+-				
+-			node.currentValue = self._performMutation(node, count)
++		self._performMutation(node, self._current)
+ 	
+ 	def randomMutation(self, node):
+ 		self.changedName = node.getFullnameInDataModel()

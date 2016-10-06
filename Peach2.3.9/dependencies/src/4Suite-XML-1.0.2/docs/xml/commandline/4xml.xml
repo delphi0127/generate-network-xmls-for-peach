@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<application name="4xml">
+  <description>command-line tool for working with XML documents</description>
+  <verbose-description>4XML command-line application</verbose-description>
+  <options>
+    <option short-name="h" long-name="help">
+      <description>show detailed help message</description>
+    </option>
+    <option short-name="V" long-name="version">
+      <description>display version information and exit</description>
+    </option>
+    <option short-name="v" long-name="validate">
+      <description>DTD validate the input file as it is being parsed</description>
+    </option>
+    <option short-name="e" long-name="encoding">
+      <description>The encoding to use for output</description>
+      <argument name="ENC">
+      </argument>
+    </option>
+    <option long-name="input-encoding">
+      <description>The encoding to assume for input</description>
+      <argument name="ENC">
+      </argument>
+    </option>
+    <option short-name="o" long-name="outfile">
+      <description>Direct output to FILE (file will be overwritten if it exists)</description>
+      <argument name="FILE">
+      </argument>
+    </option>
+    <option short-name="p" long-name="pretty">
+      <description>Pretty-print the result</description>
+    </option>
+    <option short-name="n" long-name="noserialize">
+      <description>Do not serialize; just parse</description>
+    </option>
+    <option long-name="html">
+      <description>Use HTML mode when pretty-printing (emit XHTML as HTML)</description>
+    </option>
+    <option long-name="noxinclude">
+      <description>Do not expand XIncludes</description>
+    </option>
+    <option long-name="rng">
+      <description>Apply RELAX NG from the given file (technically RNG with XVIF features)</description>
+      <argument name="FILE">
+      </argument>
+    </option>
+  </options>
+  <arguments>
+    <argument required="yes" multiple="no" name="source-uri">
+      <description>The URI of the XML document to parse, or &quot;-&quot; to indicate standard input.</description>
+    </argument>
+  </arguments>
+</application>

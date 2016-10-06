@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.StylesheetTree">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>Node classes for the stylesheet tree</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="XsltElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract># implements default behaviour for extension elements</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="no" name="__init__" id="XsltElement-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="root"/>
+            <arg name="namespaceUri"/>
+            <arg name="localName"/>
+            <arg name="baseUri"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="XsltElement-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendChild" id="XsltElement-appendChild">
+          <abstract>INTERNAL USE ONLY</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="child"/>
+          </arguments>
+        </method>
+        <method public="yes" name="expandQName" id="XsltElement-expandQName">
+          <abstract>DEPRECATED: specify an attribute in 'legalAttrs' instead.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="qname"/>
+            <arg default="None" name="refNode"/>
+          </arguments>
+        </method>
+        <method public="yes" name="insertChild" id="XsltElement-insertChild">
+          <abstract>INTERNAL USE ONLY</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="index"/>
+            <arg name="child"/>
+          </arguments>
+        </method>
+        <method public="yes" name="instantiate" id="XsltElement-instantiate">
+          <abstract>Implements default behavior of instantiating each child in the order
+that they appear in the stylesheet.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+          <overrides documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+        <method public="yes" name="parseAVT" id="XsltElement-parseAVT">
+          <abstract>DEPRECATED: specify an attribute in 'legalAttrs' instead.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="avt"/>
+          </arguments>
+        </method>
+        <method public="yes" name="parseExpression" id="XsltElement-parseExpression">
+          <abstract>DEPRECATED: specify an attribute in 'legalAttrs' instead.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expression"/>
+          </arguments>
+        </method>
+        <method public="yes" name="parsePattern" id="XsltElement-parsePattern">
+          <abstract>DEPRECATED: specify an attribute in 'legalAttrs' instead.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="pattern"/>
+          </arguments>
+        </method>
+        <method public="yes" name="processChildren" id="XsltElement-processChildren">
+          <abstract>Iterates over the children, instantiating them in the order that they
+appear in the stylesheet.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+        </method>
+        <method public="yes" name="splitQName" id="XsltElement-splitQName">
+          <abstract>DEPRECATED: specify an attribute in 'legalAttrs' instead.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="category" id="XsltElement-category">
+          <value>2</value>
+        </member>
+        <member public="yes" name="content" id="XsltElement-content">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Rep instance&gt;</value>
+        </member>
+        <member public="yes" name="legalAttrs" id="XsltElement-legalAttrs">
+          <value>None</value>
+        </member>
+        <member public="yes" name="validator" id="XsltElement-validator">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Validator instance&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+        <member-reference name="setup" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="doesSetup" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="XsltNode" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="yes" name="idle" id="XsltNode-idle">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="processor"/>
+          </arguments>
+        </method>
+        <method public="yes" name="instantiate" id="XsltNode-instantiate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isLastChild" id="XsltNode-isLastChild">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isPseudoNode" id="XsltNode-isPseudoNode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="XsltNode-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="_indent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="prime" id="XsltNode-prime">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="processor"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setup" id="XsltNode-setup">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="attributes" id="XsltNode-attributes">
+          <value>None</value>
+        </member>
+        <member public="yes" name="baseUri" id="XsltNode-baseUri">
+          <value>''</value>
+        </member>
+        <member public="yes" name="children" id="XsltNode-children">
+          <value>None</value>
+        </member>
+        <member public="yes" name="columnNumber" id="XsltNode-columnNumber">
+          <value>'??'</value>
+        </member>
+        <member public="yes" name="doesIdle" id="XsltNode-doesIdle">
+          <value>False</value>
+        </member>
+        <member public="yes" name="doesPrime" id="XsltNode-doesPrime">
+          <value>False</value>
+        </member>
+        <member public="yes" name="doesSetup" id="XsltNode-doesSetup">
+          <value>False</value>
+        </member>
+        <member public="yes" name="expandedName" id="XsltNode-expandedName">
+          <value>(None, None)</value>
+        </member>
+        <member public="yes" name="importIndex" id="XsltNode-importIndex">
+          <value>-1</value>
+        </member>
+        <member public="yes" name="lineNumber" id="XsltNode-lineNumber">
+          <value>'??'</value>
+        </member>
+        <member public="yes" name="nodeName" id="XsltNode-nodeName">
+          <value>None</value>
+        </member>
+        <member public="yes" name="parent" id="XsltNode-parent">
+          <value>None</value>
+        </member>
+        <member public="yes" name="root" id="XsltNode-root">
+          <value>None</value>
+        </member>
+      </members>
+    </class>
+    <class name="XsltRoot" public="yes">
+      <bases>
+        <base documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltRoot" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="no" name="__init__" id="XsltRoot-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="baseUri"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="XsltRoot-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendChild" id="XsltRoot-appendChild">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="child"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="content" id="XsltRoot-content">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Alt instance&gt;</value>
+        </member>
+        <member public="yes" name="nodeName" id="XsltRoot-nodeName">
+          <value>u'#document'</value>
+        </member>
+        <member public="yes" name="validator" id="XsltRoot-validator">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Validator instance&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="instantiate" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+        <member-reference name="setup" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="doesSetup" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="XsltText" public="yes">
+      <bases>
+        <base documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltText" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="no" name="__init__" id="XsltText-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="root"/>
+            <arg name="baseUri"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="XsltText-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="instantiate" id="XsltText-instantiate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+          <overrides documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="nodeName" id="XsltText-nodeName">
+          <value>u'#text'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+        <member-reference name="setup" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="doesSetup" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+  </globals>
+</module>

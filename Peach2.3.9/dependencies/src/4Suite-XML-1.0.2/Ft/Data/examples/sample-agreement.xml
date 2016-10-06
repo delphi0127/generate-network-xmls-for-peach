@@ -1,0 +1,71 @@
+<?xml version = "1.0"?>
+<c:Agreement
+  xmlns:ft="http://namespaces.fourthought.com/common"
+  xmlns:contact="http://namespaces.fourthought.com/contact"
+  xmlns:c="http://namespaces.fourthought.com/contractual"
+  xmlns:doc="http://docbook.org/docbook/xml/4.0/namespace"
+  title='Fourthought Agreement Template'
+>
+
+  <c:Header initDate="29 March 2000" desc="Fourthought Agreement Template">
+
+    <c:Client name='XYZ Company'>
+      <c:Contact desc='Primary'>
+        <c:Name>Mr. Big</c:Name>
+        <c:Phone desc='voice'>+1 800 ABC DEFG</c:Phone>
+        <c:Email>mrbig@xyzco.com</c:Email>
+        <c:Address>404 URL Error Way, Browser, WW, USA</c:Address>
+      </c:Contact>
+    </c:Client>
+
+    <c:Consultants>
+      <c:Contact desc='Primary'>
+        <c:Name>Mike Olson</c:Name>
+        <c:Phone desc='voice'>+1 303 583 9900 x 101</c:Phone>
+        <c:Phone desc='cell'>+1 720 253 4662</c:Phone>
+        <c:Phone desc='fax'>+1 303 583 9909</c:Phone>
+        <c:Email>mike.olson@fourthought.com</c:Email>
+      </c:Contact>
+    </c:Consultants>
+
+  </c:Header>
+
+  <c:Clause id='preamble'/>
+                                                                                
+  <c:Clause id='services'/>
+
+  <c:Clause id='relationship'/>
+
+  <c:Clause id='termAndTermination'/>
+
+  <c:Clause id='assignment'/>
+
+  <c:Clause id='compensation'/>
+
+  <c:Clause id='costsAndExpenses'/>
+
+  <c:Clause id='intellectualProperty'/>
+
+  <c:Clause id='confidentialInformation'/>
+
+  <c:Clause id='scopeOfAgreement'/>
+
+  <c:Clause id='cancellationAndModifications'/>
+
+  <c:Clause id='suspensionAndTermination'/>
+
+  <c:Clause id='taxes'/>
+
+  <c:Clause id='governingLaw'/>
+
+  <c:Clause id='indemnification'/>
+
+  <c:Clause id='otherWork'/>
+
+  <c:Clause id='placeOfWork'/>
+
+  <c:Clause id='arbitration'/>
+
+  <c:Clause id='transferOfEmployees'/>
+
+</c:Agreement>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Debugger.DebugCommands">
+  <modification-date>2001-09-15 15:28:41</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="ExitException" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ExitException" module="Ft.Xml.Xslt.Debugger.DebugCommands"/>
+      </method-resolution-order>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="AVT" id="AVT">
+      <value>12</value>
+    </global>
+    <global public="yes" name="BACK_TRACE" id="BACK_TRACE">
+      <value>6</value>
+    </global>
+    <global public="yes" name="DELETE_BREAK" id="DELETE_BREAK">
+      <value>16</value>
+    </global>
+    <global public="yes" name="EVAL" id="EVAL">
+      <value>10</value>
+    </global>
+    <global public="yes" name="HELP" id="HELP">
+      <value>100</value>
+    </global>
+    <global public="yes" name="LIST_BREAK" id="LIST_BREAK">
+      <value>15</value>
+    </global>
+    <global public="yes" name="LIST_SHEET" id="LIST_SHEET">
+      <value>5</value>
+    </global>
+    <global public="yes" name="LIST_TEMPLATE" id="LIST_TEMPLATE">
+      <value>13</value>
+    </global>
+    <global public="yes" name="MATCH" id="MATCH">
+      <value>11</value>
+    </global>
+    <global public="yes" name="NEXT" id="NEXT">
+      <value>8</value>
+    </global>
+    <global public="yes" name="PRINT" id="PRINT">
+      <value>3</value>
+    </global>
+    <global public="yes" name="QUIT" id="QUIT">
+      <value>2</value>
+    </global>
+    <global public="yes" name="RUN" id="RUN">
+      <value>1</value>
+    </global>
+    <global public="yes" name="SET_BREAK" id="SET_BREAK">
+      <value>14</value>
+    </global>
+    <global public="yes" name="STEP" id="STEP">
+      <value>7</value>
+    </global>
+    <global public="yes" name="TEMPLATE" id="TEMPLATE">
+      <value>4</value>
+    </global>
+    <global public="yes" name="TEST" id="TEST">
+      <value>9</value>
+    </global>
+    <global public="yes" name="g_runCommands" id="g_runCommands">
+      <value>[1, 4, 7, 8]</value>
+    </global>
+  </globals>
+</module>

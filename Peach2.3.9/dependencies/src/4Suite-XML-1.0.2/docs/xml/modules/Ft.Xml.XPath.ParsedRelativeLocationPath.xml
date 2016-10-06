@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedRelativeLocationPath">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>A parsed token that represents a relative location path in the parsed result tree.
+    
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</abstract>
+  <description/>
+  <classes>
+    <class name="ParsedRelativeLocationPath" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedRelativeLocationPath" module="Ft.Xml.XPath.ParsedRelativeLocationPath"/>
+      </method-resolution-order>
+      <methods name="ParsedRelativeLocationPath" module="Ft.Xml.XPath.ParsedRelativeLocationPath">
+        <method public="no" name="__init__" id="ParsedRelativeLocationPath-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedRelativeLocationPath-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedRelativeLocationPath-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedRelativeLocationPath-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedRelativeLocationPath-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="ParsedRelativeLocationPath-evaluate" name="select" realname="evaluate" id="ParsedRelativeLocationPath-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.InstallDocs">
+  <modification-date>2006-12-16 13:41:38</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="InstallDocs" public="yes">
+      <bases>
+        <base documented="no" class="Command" module="distutils.cmd"/>
+      </bases>
+      <abstract>Base class for install sub-commands which install documentation.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="InstallDocs" module="Ft.Lib.DistExt.InstallDocs"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="copy_uri" id="InstallDocs-copy_uri">
+          <abstract>Copies the contents of the resource given by 'uri' to 'filename'.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="filename"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finalize_options" id="InstallDocs-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="get_documents" id="InstallDocs-get_documents">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_inputs" id="InstallDocs-get_inputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_modification_time" id="InstallDocs-get_modification_time">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="False" name="xslt"/>
+            <arg default="None" name="_mtimes"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_outputs" id="InstallDocs-get_outputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_source_files" id="InstallDocs-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_stylesheet_extras" id="InstallDocs-get_stylesheet_extras">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stylesheet"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_stylesheet_obj" id="InstallDocs-get_stylesheet_obj">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stylesheet"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="InstallDocs-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="render_document" id="InstallDocs-render_document">
+          <abstract>This method is responsible for using 'stylesheet' to transform
+'document' to the file 'outfile'.</abstract>
+          <description>Override this method to use a different XSLT rendering engine.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="document"/>
+            <arg name="stylesheet"/>
+            <arg name="outfile"/>
+          </arguments>
+        </method>
+        <method public="yes" name="render_documents" id="InstallDocs-render_documents">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run" id="InstallDocs-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="InstallDocs-boolean_options">
+          <value>['force', 'skip-build']</value>
+        </member>
+        <member public="yes" name="user_options" id="InstallDocs-user_options">
+          <value>[('install-dir=', 'd', 'directory to install documentation to'), ('build-dir=', 'b', 'build directory (where to install from)'), ('force', 'f', 'force installation (overwrite existing files)'), ('skip-build', None, 'skip the build steps')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="Stylesheet" public="yes">
+      <abstract>Class used to hold various attributes of an XSLT stylesheet.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Stylesheet" module="Ft.Lib.DistExt.InstallDocs"/>
+      </method-resolution-order>
+      <methods name="Stylesheet" module="Ft.Lib.DistExt.InstallDocs">
+        <method public="no" name="__init__" id="Stylesheet-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="None" name="extra_outputs"/>
+            <arg default="None" name="mtime"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="DEBUG" id="DEBUG">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

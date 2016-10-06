@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" author="Michael Eddington">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<PythonPath path="c:\peach\test"/>
+	<Import import="helpers"/>
+	
+	<DataModel name="GetTemplate">
+		<Number size="16" value="200" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action name="GetData" type="output">
+				<DataModel ref="GetTemplate" />
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Test name="TheTest">
+		<StateModel ref="TestState" />
+		<Publisher class="helpers.UnittestPublisher"/>
+		<Mutator class="number.NumericalVarianceMutator"/>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

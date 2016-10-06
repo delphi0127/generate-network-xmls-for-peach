@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V1.1//EN"
+   "http://docbook.org/xml/simple/1.1/sdocbook.dtd">
+<article>
+  <title>Installing <trademark class="trade">4Suite</trademark> on UNIX</title>
+  <articleinfo>
+    <title>Installing <trademark class="trade">4Suite</trademark> on UNIX</title>
+    <authorgroup>
+      <author>
+        <firstname>Shatin</firstname>
+        <surname>Rai</surname>
+        <affiliation>
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </author>
+      <othercredit>
+        <firstname>Uche</firstname>
+        <surname>Ogbuji</surname>
+        <affiliation>
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </othercredit>
+      <othercredit>
+        <firstname>Mike</firstname>
+        <surname>Brown</surname>
+        <affiliation>
+          <orgname>Fourthought, Inc.</orgname>
+        </affiliation>
+      </othercredit>
+    </authorgroup>
+    <legalnotice>
+      <para>This document can be freely translated and distributed. It's released under the <ulink url='http://www.linuxdoc.org/manifesto.html'>LDP License</ulink>.</para>
+    </legalnotice>
+    <abstract>
+      <para><trademark class="trade">4Suite</trademark> is a platform for XML and RDF application development. This document gives step-by step instructions for installing 4Suite on a UNIX-like system such as Linux, FreeBSD, or Mac OS X.</para>
+    </abstract>
+    <revhistory>
+      <!-- these revision numbers don't refer to anything -->
+      <revision>
+        <revnumber>0.0</revnumber>
+        <date>2000-12-20</date>
+        <authorinitials>UO</authorinitials>
+        <revremark>Initial Release</revremark>
+      </revision>
+      <revision>
+        <revnumber>0.1</revnumber>
+        <date>2002-01-27</date>
+        <authorinitials>SR</authorinitials>
+        <revremark>0.12 Alpha release</revremark>
+      </revision>
+      <revision>
+        <revnumber>0.2</revnumber>
+        <date>2002-07-01</date>
+        <authorinitials>UO</authorinitials>
+        <revremark>0.12a3 release</revremark>
+      </revision>
+      <revision>
+        <revnumber>0.2.1</revnumber>
+        <date>2002-07-06</date>
+        <authorinitials>MJB</authorinitials>
+        <revremark>minor updates and clarifications</revremark>
+      </revision>
+      <revision>
+        <revnumber>0.3</revnumber>
+        <date>2003-07-13</date>
+        <authorinitials>MJB</authorinitials>
+        <revremark>major updates and clarifications</revremark>
+      </revision>
+      <revision>
+        <revnumber>0.3.1</revnumber>
+        <date>2004-10-27</date>
+        <authorinitials>MJB</authorinitials>
+        <revremark>minor updates and clarifications</revremark>
+      </revision>
+      <revision>
+        <revnumber>0.4</revnumber>
+        <date>2005-03-03</date>
+        <authorinitials>MJB</authorinitials>
+        <revremark>minor updates; removed outdated info; converted source to Simplified DocBook</revremark>
+      </revision>
+      <revision>
+        <revnumber>0.4</revnumber>
+        <date>2005-12-08</date>
+        <authorinitials>MJB</authorinitials>
+        <revremark>minor updates for 1.0b3 and sync w/Windows.doc</revremark>
+      </revision>
+    </revhistory>
+    <keywordset>
+      <keyword>4Suite</keyword>
+      <keyword>HOWTO</keyword>
+      <keyword>install</keyword>
+      <keyword>UNIX</keyword>
+      <keyword>Linux</keyword>
+      <keyword>FreeBSD</keyword>
+      <keyword>Solaris</keyword>
+      <keyword>Mac OS X</keyword>
+      <keyword>HP-UX</keyword>
+      <keyword>OpenBSD</keyword>
+      <keyword>NetBSD</keyword>
+    </keywordset>
+  </articleinfo>
+
+  <section>
+    <title>Introduction and Conventions</title>
+    <para>These instructions were originally written for Red Hat 7.1 Linux, but should work for most Linux distributions and other UNIX variants with few, if any, modifications.</para>
+    <para>Ordinarily, the installation will occur in directories under <computeroutput>/usr/local</computeroutput> and <computeroutput>/var/local</computeroutput>. Ideally, you should perform these steps as a user who has write access in these directories.</para>
+    <para>Some instructions require the user to modify their shell environment. If multiple users will be running and accessing the repository servers, you'll want to be careful to ensure the environment is set up correctly for each user.</para>
+    <para>In command-line examples, "$" is used to represent the shell's command prompt. The actual prompt will vary from system to system. The part you are supposed to type is to the right of the "$".</para>
+    <para>Sometimes there will be a great deal of output from an instruction. If there is nothing of particular interest in the output, it will be omitted and replaced with the text "SNIP".</para>
+    <para>There are useful third-party resources mentioned in this document. Those that are necessary to follow instructions are directly linked from the text. Others are marked as endnotes and the links are available in the Resources section.</para>
+  </section>
+
+  <section>
+    <title>Quick Installation Steps</title>
+    <para>The Detailed Installation Guide sections that follow this section will further explain these steps.</para>
+    <orderedlist>
+      <listitem>
+        <para><emphasis role='full'>Install Python 2.2.1 or newer</emphasis></para>
+        <para>Python comes pre-installed on many operating systems now, but on some systems, the 'python' user binary is linked to an outdated version of Python (happens on many Linux distros) or Python was built without PyExpat (as happened on FreeBSD for a while).</para>
+        <para>While it is OK to install/upgrade Python via your operating system's native package or ports system (RPMs, BSD packages/ports collection, etc.), if you run into any problems, the 4Suite developers prefer that you install Python from source, if you can. Just get the appropriate Python tarball from <ulink url='http://www.python.org/download/'>python.org</ulink>, build and install via the usual "untar; configure; make" procedure.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role='full'>Install 4Suite</emphasis></para>
+        <para>Download the latest tarball from <ulink url='ftp://ftp.4suite.org/pub/4Suite/'>ftp://ftp.4suite.org/pub/4Suite/</ulink>.</para>
+        <para>Untar the source, then build and install via the usual procedure for installing a python application: invoke "python setup.py install" in the top-level source directory.</para>
+      </listitem>
+      <listitem>
+        <para>If you want to use Triclops, the RDF graph visualization tool that comes with 4Suite, then <emphasis role='full'>install GraphViz</emphasis>.<!-- You may also want to install the Times New Roman fonts.--></para>
+        <para>GraphViz tarball - <ulink url='http://www.research.att.com/sw/tools/graphviz/download.html'>http://www.research.att.com/sw/tools/graphviz/download.html</ulink>. It is not really necessary to do this before installing 4Suite, though.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section>
+    <title>CVS: bleeding-edge 4Suite</title>
+    <para>If you need up-to-the-minute features or fixes for 4Suite, then you can install the latest version from the developers' CVS repository. It should be considered an unstable work-in-progress preview of the next official release; it is not recommended for ordinary users.</para>
+    <orderedlist>
+      <listitem>
+        <para><emphasis role='full'>4Suite CVS snapshots</emphasis></para>
+        <para>CVS snapshots are a way to get bug fixes and experimental new features between full releases of the software. They are tarballs and zipfiles generated from Fourthought's internal CVS repository nightly.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role='full'>4Suite anonymous CVS</emphasis></para>
+        <para>If you want to keep closer track of the 4Suite development, you can use anonymous CVS (pserver). The main advantage of this approach is that you can get fixes quite easily when checked in by the developers, and keeping up-to-date afterward is easy. The main disadvantage is that you can also pick up bugs that the developers sometimes accidentally check in.</para>
+        <para>For more information about 4Suite CVS, refer to the <ulink url='../4SuiteCVS.xml'>Obtaining 4Suite with CVS</ulink> documentation.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section>
+    <title>Detailed Installation Guide</title>
+      <section id='Python'>
+        <title>Python</title>
+        <para>4Suite is written mostly in Python: a mature, robust, efficient programming language well-suited to object-oriented programming, functional programming, and procedural tasks of any complexity. In the few cases where Python is not sufficiently speedy, certain 4Suite components are implemented in C. Therefore, you need both an appropriate version of Python <emphasis>and</emphasis> an ANSI C compiler installed if you want to be able to use 4Suite. C compilers are standard on most UNIX systems, but Python is not always available.</para>
+        <para>Specifically, <emphasis role='bold'>Python 2.2.1 or higher is required for 4Suite.</emphasis> For best results, use Python 2.3 or 2.4. Your system might not have Python at all, or it might only have an older version, or it may have more than one version installed &#8212; some Linux distributions install Python 2.x as "python2", for example. You can have other versions of Python installed alongside the one you need for 4Suite, as long as when you use 4Suite's Python API, you be sure to load the modules with the interpreter that they were built for, and as long as the directory containing the correct <computeroutput>python</computeroutput> executable comes first in your executable path. Test that you have a good version of python in your path by issuing this command in your command shell: <computeroutput>python -V</computeroutput> (that's a capital V).</para>
+        <para>The installation of Python is not covered in this guide.</para>
+      </section>
+      
+      <section id='_4Suite'>
+        <title>4Suite</title>
+        <para>Download the latest tarball from <ulink url='ftp://ftp.4suite.org/pub/4Suite/'>ftp://ftp.4suite.org/pub/4Suite/</ulink>.</para>
+        <para>Untar the source, then build and install via the usual procedure for installing a python application: invoke <computeroutput>setup.py install</computeroutput> in the top-level source directory.</para>
+        <para>4Suite will be installed in your python site-packages directory, the actual location of which will vary from system to system, but is usually in either /usr/lib/python2.x/site-packages or /usr/local/lib/python2.x/site-packages. It is possible to customize the installation locations by running <computeroutput>setup.py config</computeroutput> with certain arguments prior to running <computeroutput>setup.py install</computeroutput>; see the <ulink url="http://4suite.org/docs/installation-locations.xhtml">4Suite Installation Locations</ulink> documentation for details.</para>
+        <para>An example of an installation session follows.</para>
+        <programlisting role="sample.IO">
+<computeroutput>$ <userinput>cd /usr/local/src</userinput>
+$ <userinput>tar xzvf 4Suite-XML-1.0b3.tar.gz; cd 4Suite-1.0b3</userinput>
+SNIP
+
+$ <userinput>python setup.py install</userinput>
+SNIP
+</computeroutput>
+</programlisting>
+      </section>
+      <section id='Final_Step'>
+        <title>Final Step</title>
+        <para>Now you can perform a quick test to make sure everything is installed correctly. First, open up a command prompt. From any directory outside of the 4Suite source or installation directories, run the following (you enter '<computeroutput>python</computeroutput> and then the text to the right of the '<computeroutput>&gt;&gt;&gt;</computeroutput> prompts):</para>
+        <programlisting role="sample.IO">
+<computeroutput>$ <userinput>python</userinput>
+Python 2.2.1 (#1, Jul  1 2002, 19:51:59)
+[GCC 2.96 20000731 (Red Hat Linux 7.1 2.96-98)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> <userinput>from Ft.Xml import Domlette</userinput>
+>>> <userinput>from Ft.Xml.Xslt import Processor</userinput>
+>>> <userinput>print Processor</userinput>
+&lt;module 'Ft.Xml.Xslt.Processor' from '/usr/local/lib/python2.2/site-packages/Ft/Xml/Xslt/Processor.pyc'&gt;
+>>>
+</computeroutput>
+</programlisting>
+        <para>The imports and the print should complete without error. Report any problems to the <ulink url="http://lists.fourthought.com/mailman/listinfo/4suite">4Suite mailing list</ulink>.</para>
+      </section>
+      <section>
+        <title>Tests and Further Setup</title>
+        <para>If all you wish to use in 4Suite are the basic command-line tools and Python libraries, then you are done with installation and can proceed to use them. To make sure things are working, try running a few of the command-line tools with the <computeroutput>-h</computeroutput> option to get usage information.</para>
+        <programlisting role="sample.IO">
+<computeroutput>$ <userinput>4xml -h</userinput>
+SNIP
+$ <userinput>4xslt -h</userinput>
+SNIP
+$ <userinput>4xpath -h</userinput>
+SNIP
+$ <userinput>4rdf -h</userinput>
+SNIP
+</computeroutput>
+</programlisting>
+<!--
+        <para>More thorough regression test suites for the 4Suite Python libraries are included with 4Suite, and you are welcome to try them out. Ideally, in a regular release version of 4Suite, they should all run to completion without errors. Warnings are OK. In alpha and beta versions or CVS snapshots, some errors are to be expected, and do not need to be reported unless the tests cannot even run to completion.</para>
+        <programlisting role="sample.IO">
+<computeroutput>$ <userinput>cd /usr/local/lib/4Suite/tests</userinput>
+$ <userinput>cat README</userinput>
+SNIP
+$ <userinput>python test.py -v</userinput>
+SNIP
+</computeroutput>
+</programlisting>
+        <para>Be prepared for a lot of output. Omit the <computeroutput>-v</computeroutput> if you want somewhat less detail. You can also specify certain tests by appending the relative path to a subdirectory or .py file.</para>
+-->
+        <para><emphasis role='full'>If you want to use the XML/RDF repository and server features of 4Suite, then you will need to customize and install a configuration file, initialize a repository, and do some further tests.</emphasis> These topics are covered in the <ulink url='../QuickStart.xml'>Quick Start</ulink> documentation.</para>
+      </section>
+    </section>
+
+<!--
+    <section>
+      <title><anchor id='Triclops'>Triclops</anchor></title>
+      <para>Triclops is a web-based tool for RDF graph visualization. It is part of the 4Suite Repository Dashboard, which comprises of a GUI interface to manage servers, users, groups, repository and the configuration. For more information on how to use it, refer to the 4Suite Quick Start Guide.</para>
+      <para>Triclops uses GraphViz to display a dynamically generated and interactive graph (nodes on the graphs can be clicked in order to browse their corresponding graphs).  This requires that you have GraphViz installed and setup properly on your system.  Here are the necessary steps:</para>
+      <orderedlist>
+        <listitem><para>Download the appropriate GraphViz binary bundle from: <ulink url='http://www.research.att.com/sw/tools/graphviz/download.html'>http://www.research.att.com/sw/tools/graphviz/download.html</ulink></para></listitem>
+        <listitem><para>Extract this bundle to a location on your machine taking note of the path (we'll call this [graphVizPath]</para>
+          <para><emphasis>Step 3 is for unix/linux users. Skip the next step if you are a unix/linux user who has installed Times and Times New Roman</para>
+        </listitem>
+        <listitem><para>Download True Type fonts from: <ulink url='http://www.microsoft.com/typography/fontpack/default.htm'>http://www.microsoft.com/typography/fontpack/default.htm</para></ulink>
+          <itemizedlist spacing="compact">
+            <listitem><para>You will only need the Times New Roman fonts</para></listitem>
+            <listitem><para>You will want to open these font packs with a zip tool and extract its contents to anywhere in GraphViz true type font search path: /windows/fonts:/dos/windows/fonts:/usr/lib/fonts:/usr/local/lib/fonts:/usr/local/lib/fonts/ttf:/usr/add-on/share/ttf:.</para></listitem>
+            <listitem><para>The contents of the font packages have the file extension in uppercase (TTF, you will want this changed to all lower case)</para></listitem>
+            <listitem><para>Finally you will need to copy the Times.ttf font file to
+  Times-Roman.ttf (this step is optional)</para></listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem><para>In order to use Triclops in the dashboard you will need to configure it appropriately.  If you click on the 'configure' link on the left navigation section, you will be taken to a form where you will need to enter the location of the 'dot' executable (comes bundled with GraphViz).  You will also need to specify a temporary workspace, which will be used to generate the GraphViz RDF graphs.</para></listitem>
+      </orderedlist>
+    </section>
+  </section>
+-->
+
+  <section>
+    <title>Resources</title>
+    <section>
+      <title>4Suite @ SourceForge</title>
+      <para><ulink url="http://sourceforge.net/projects/foursuite/">4Suite Project Page</ulink> - Bug Reports, Feature Requests, Patches</para>
+    </section>
+    <section>
+      <title>Additional Links</title>
+      <para><ulink url="http://4suite.org/">4suite.org</ulink> - Documentation, Downloads, News, CVS, Developer Resources</para>
+      <para><ulink url="http://lists.fourthought.com/mailman/listinfo/4suite">4Suite Users Mailing List</ulink> - Peer &amp; Developer Support</para>
+      <para><ulink url="http://lists.fourthought.com/mailman/listinfo/4suite-ann">4Suite Announcement Mailing List</ulink> - Infrequent Announcements about 4Suite</para>
+      <para><ulink url="http://fourthought.com/">Fourthought, Inc.</ulink> - Commercial Development, Consulting &amp; Support</para>
+    </section>
+  </section>
+
+  <section id="PyXML">
+    <title>Appendix A: Notes on PyXML and 4Suite</title>
+    <para>PyXML is a collection of XML processing libraries for Python. 4Suite and PyXML are complementary projects developed in tandem. There is minimal overlap in functionality. For example, where PyXML has a compliant, pure Python implementation of DOM Level 1, 4Suite has a lightweight, "Domlette" optimized for XPath processing and implemented mostly in C.</para>
+    <para>Prior to the 4Suite 0.12.0a1 release, PyXML was required to use 4Suite. This is no longer the case with modern versions of 4Suite; PyXML is not needed at all.</para>
+    <para>If you decide to install PyXML, you must install PyXML 0.8 or higher (try to install the most recent version) for compatibility with 4Suite. Avoid PyXML 0.8.1 &#8212; that specific version integrates a buggy version of Expat (1.95.5), which leads to core dumps in some situations. When installing PyXML, it is recommended that you use the <computeroutput>--without-xpath --without-xslt</computeroutput> options for <computeroutput>setup.py install</computeroutput> in order to ensure that the very old, deprecated XPath and XSLT implementations included with PyXML will not be installed. These implementations are ported from 4Suite 0.11.1 and using them alongside newer versions of 4Suite may be problematic.</para>
+  </section>
+
+
+</article>

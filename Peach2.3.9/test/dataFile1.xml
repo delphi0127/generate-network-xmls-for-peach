@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="TestCase">
+		<String name="data" />
+	</DataModel>
+	
+	<Data name="TheData" DataModel="TestCase" fileName="dataFile1.bin"/>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action type="output" name="HeaderIn">
+				<DataModel ref="TestCase" />
+				<Data name="TestData" ref="TheData" />
+			</Action>			
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

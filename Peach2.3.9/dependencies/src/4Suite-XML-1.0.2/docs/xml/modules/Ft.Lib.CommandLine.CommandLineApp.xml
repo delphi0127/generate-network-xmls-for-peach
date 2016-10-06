@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine.CommandLineApp">
+  <modification-date>2006-12-01 12:21:15</modification-date>
+  <abstract>Base class for a command-line application, which is a type of Command</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="CommandLineApp" public="yes">
+      <bases>
+        <base documented="yes" class="Command" module="Ft.Lib.CommandLine.Command"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+        <base name="Command" module="Ft.Lib.CommandLine.Command"/>
+      </method-resolution-order>
+      <methods name="Command" module="Ft.Lib.CommandLine.Command">
+        <method public="no" name="__init__" id="CommandLineApp-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Command" module="Ft.Lib.CommandLine.Command"/>
+        </method>
+        <method public="yes" name="gen_command_tree" id="CommandLineApp-gen_command_tree">
+          <abstract>Generate the command tree (a show all commands look)</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="gen_usage" id="CommandLineApp-gen_usage">
+          <abstract>Generate usage info. This includes description, command line,
+options, and subcommands or arguments.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="command"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_help_doc_info" id="CommandLineApp-get_help_doc_info">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <class-method public="yes" name="main" id="CommandLineApp-main">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+        <method public="yes" name="parse_command_line" id="CommandLineApp-parse_command_line">
+          <abstract>Parse the command line.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run_commands" id="CommandLineApp-run_commands">
+          <abstract>Parse the command line and attempt to run the command.
+Typically overridden in the subclasses.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="script_name"/>
+            <arg default="None" name="script_args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate_options" id="CommandLineApp-validate_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+          <overrides documented="yes" class="Command" module="Ft.Lib.CommandLine.Command"/>
+        </method>
+      </methods>
+      <members name="Command" module="Ft.Lib.CommandLine.Command">
+        <member public="yes" name="arguments" id="CommandLineApp-arguments">
+          <value>None</value>
+        </member>
+        <member public="yes" name="commands" id="CommandLineApp-commands">
+          <value>None</value>
+        </member>
+        <member public="yes" name="description" id="CommandLineApp-description">
+          <value>None</value>
+        </member>
+        <member public="yes" name="example" id="CommandLineApp-example">
+          <value>None</value>
+        </member>
+        <member public="yes" name="global_options" id="CommandLineApp-global_options">
+          <value>[[--help], [--version]]</value>
+        </member>
+        <member public="yes" name="name" id="CommandLineApp-name">
+          <value>None</value>
+        </member>
+        <member public="yes" name="options" id="CommandLineApp-options">
+          <value>None</value>
+        </member>
+        <member public="yes" name="project_name" id="CommandLineApp-project_name">
+          <value>None</value>
+        </member>
+        <member public="yes" name="project_url" id="CommandLineApp-project_url">
+          <value>None</value>
+        </member>
+        <member public="yes" name="project_version" id="CommandLineApp-project_version">
+          <value>None</value>
+        </member>
+        <member public="yes" name="summary" id="CommandLineApp-summary">
+          <value>None</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Command" module="Ft.Lib.CommandLine.Command">
+        <member-reference name="break_parent_relationship" public="yes"/>
+        <member-reference name="build_parent_relationship" public="yes"/>
+        <member-reference name="flatten_command_tree" public="yes"/>
+        <member-reference name="run" public="yes"/>
+        <member-reference name="validate_arguments" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="CONSOLE_WIDTH" id="CONSOLE_WIDTH">
+      <value>236</value>
+    </global>
+  </globals>
+</module>

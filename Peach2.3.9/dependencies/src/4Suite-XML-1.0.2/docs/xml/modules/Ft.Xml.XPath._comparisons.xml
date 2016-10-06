@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath._comparisons">
+  <modification-date>2006-12-16 15:51:33</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="eq" id="eq">
+      <abstract>eq(a, b) -- Same as a == b</abstract>
+      <description/>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="ge" id="ge">
+      <abstract>ge(a, b) -- Same as a &gt;= b</abstract>
+      <description/>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="gt" id="gt">
+      <abstract>gt(a, b) -- Same as a &gt; b</abstract>
+      <description/>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="le" id="le">
+      <abstract>le(a, b) -- Same as a &lt;= b</abstract>
+      <description/>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="lt" id="lt">
+      <abstract>lt(a, b) -- Same as a &lt; b</abstract>
+      <description/>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="ne" id="ne">
+      <abstract>ne(a, b) -- Same as a != b</abstract>
+      <description/>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+  </functions>
+</module>

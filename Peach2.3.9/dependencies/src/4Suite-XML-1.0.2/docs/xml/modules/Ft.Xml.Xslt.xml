@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt">
+  <modification-date>2006-08-24 08:51:02</modification-date>
+  <abstract>4XSLT initialization and XSLT pattern tools</abstract>
+  <description>These are the most common steps for using this XSLT engine:
+
+  1. Create an Ft.Xml.Xslt.Processor.Processor instance:
+
+     from Ft.Xml.Xslt import Processor
+     processor = Processor.Processor()
+
+  2. Prepare Ft.Xml.InputSource instances (via their factory)
+     for the source XML and for the stylesheet.
+
+  3. Call the Processor's appendStylesheet() method, passing it
+     the stylesheet's InputSource.
+
+  4. Call the Processor's run() method, passing it the source
+     document's InputSource.
+
+You can call run() multiple times on different InputSources. When you're
+done, the processor's reset() method can be used to restore a clean slate
+(at which point you would have to append stylesheets to the processor
+again), but in most circumstances it is actually less expensive to just
+create a new Processor instance.
+
+Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="ApplyImportsElement" realname="Ft.Xml.Xslt.ApplyImportsElement">
+      <abstract>Implementation of the XSLT Spec apply-imports stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ApplyTemplatesElement" realname="Ft.Xml.Xslt.ApplyTemplatesElement">
+      <abstract>Implementation of xsl:apply-templates instruction</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="AttributeElement" realname="Ft.Xml.Xslt.AttributeElement">
+      <abstract>Implementation of xsl:attribute element</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="AttributeInfo" realname="Ft.Xml.Xslt.AttributeInfo">
+      <abstract>Classes that support validation and evaluation of attribute values in
+XSLT instruction elements</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="AttributeSetElement" realname="Ft.Xml.Xslt.AttributeSetElement">
+      <abstract>Implementation of the XSLT Spec attribute-set stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="AttributeValueTemplate" realname="Ft.Xml.Xslt.AttributeValueTemplate">
+      <abstract>Implementation of XSLT attribute value templates</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="AvtParserc" realname="Ft.Xml.Xslt.AvtParserc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BuiltInExtElements" realname="Ft.Xml.Xslt.BuiltInExtElements">
+      <abstract>Fourthought proprietary XSLT extension elements</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BuiltInExtFunctions" realname="Ft.Xml.Xslt.BuiltInExtFunctions">
+      <abstract>4XSLT specific extension functions (i.e. ones that create a node set)</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CallTemplateElement" realname="Ft.Xml.Xslt.CallTemplateElement">
+      <abstract>Implementation of the XSLT Spec call-template stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ChooseElement" realname="Ft.Xml.Xslt.ChooseElement">
+      <abstract>Implementation of the XSLT Spec choose instruction
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CommentElement" realname="Ft.Xml.Xslt.CommentElement">
+      <abstract>xsl:comment instruction implementation</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ContentInfo" realname="Ft.Xml.Xslt.ContentInfo">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CopyElement" realname="Ft.Xml.Xslt.CopyElement">
+      <abstract>Implementation of the XSLT Spec copy stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CopyOfElement" realname="Ft.Xml.Xslt.CopyOfElement">
+      <abstract>Implementation of the XSLT Spec copy-of element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Debugger" realname="Ft.Xml.Xslt.Debugger">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="DomWriter" realname="Ft.Xml.Xslt.DomWriter">
+      <abstract>DOM DocumentFragment writer for XSLT output</abstract>
+      <description>Much inspired by RtfWriter.
+
+Copyright (c) 2000-2001 Alexandre Fayolle (France).
+
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee is hereby granted,
+provided that the above copyright notice appear in all copies and that
+both that copyright notice and this permission notice appear in
+supporting documentation.
+
+THIS PROGRAM IS PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ElementElement" realname="Ft.Xml.Xslt.ElementElement">
+      <abstract>Implementation of xsl:element element</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Exslt" realname="Ft.Xml.Xslt.Exslt">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ExtendedProcessingElements" realname="Ft.Xml.Xslt.ExtendedProcessingElements">
+      <abstract>Extended versions of XSLT elements for debugging and execution tracing</abstract>
+      <description>These subclasses typically just override the .instantiate method of the
+original class, doing something before calling the original method, like
+writing debug or trace output and maintaining whatever state info is
+necessary in the process.
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ForEachElement" realname="Ft.Xml.Xslt.ForEachElement">
+      <abstract>Implementation of the XSLT Spec for-each stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="GenericVariable" realname="Ft.Xml.Xslt.GenericVariable">
+      <abstract>Base implementation of XSLT variable assigning elements</abstract>
+      <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="HtmlWriter" realname="Ft.Xml.Xslt.HtmlWriter">
+      <abstract>HTML writer for XSLT processor output</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="IfElement" realname="Ft.Xml.Xslt.IfElement">
+      <abstract>Implementation of the XSLT Spec if instruction
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="LiteralElement" realname="Ft.Xml.Xslt.LiteralElement">
+      <abstract>Implementation of XSLT literal result elements</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="MessageElement" realname="Ft.Xml.Xslt.MessageElement">
+      <abstract>Implementation of the XSLT Spec import stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="MessageSource" realname="Ft.Xml.Xslt.MessageSource">
+      <abstract>XSLT error codes and messages</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="NullWriter" realname="Ft.Xml.Xslt.NullWriter">
+      <abstract>Interface definition for XSLT output writers</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="NumberElement" realname="Ft.Xml.Xslt.NumberElement">
+      <abstract>Implementation of xsl:number</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="NumberFormatter" realname="Ft.Xml.Xslt.NumberFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="OtherXslElement" realname="Ft.Xml.Xslt.OtherXslElement">
+      <abstract>Non-template instructions from the XSLT spec
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="OutputHandler" realname="Ft.Xml.Xslt.OutputHandler">
+      <abstract>Manages XSLT output parameters governed by the xsl:output instruction
+See also Ft.Xml.Xslt.OutputParameters</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="OutputParameters" realname="Ft.Xml.Xslt.OutputParameters">
+      <abstract>Represents XSLT output parameters governed by the xsl:output instruction
+See also Ft.Xml.Xslt.OutputHandler</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParamElement" realname="Ft.Xml.Xslt.ParamElement">
+      <abstract>Implementation of the XSLT Spec param stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="PlainTextWriter" realname="Ft.Xml.Xslt.PlainTextWriter">
+      <abstract>Plain text writer for XSLT processor output</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ProcessingInstructionElement" realname="Ft.Xml.Xslt.ProcessingInstructionElement">
+      <abstract>Implementation of the XSLT Spec processing-instruction stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Processor" realname="Ft.Xml.Xslt.Processor">
+      <abstract>XSLT processing engine</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Roman" realname="Ft.Xml.Xslt.Roman">
+      <abstract>Light-weight functions to convert from Roman-Numerals to ints,
+and vice-versa.</abstract>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="RtfWriter" realname="Ft.Xml.Xslt.RtfWriter">
+      <abstract>Result Tree Fragment writer for XSLT output</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="SaxWriter" realname="Ft.Xml.Xslt.SaxWriter">
+      <abstract>SAX2 event writer for XSLT output</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="SortElement" realname="Ft.Xml.Xslt.SortElement">
+      <abstract>xsl:sort implementation
+    
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</abstract>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="StringWriter" realname="Ft.Xml.Xslt.StringWriter">
+      <abstract>A specialized XSLT output writer that only captures text output events</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Stylesheet" realname="Ft.Xml.Xslt.Stylesheet">
+      <abstract>xsl:stylesheet / xsl:transform implementation;
+various stylesheet internals</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="StylesheetHandler" realname="Ft.Xml.Xslt.StylesheetHandler">
+      <abstract>Stylesheet tree generator</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="StylesheetReader" realname="Ft.Xml.Xslt.StylesheetReader">
+      <abstract>Classes for the creation of a stylesheet object</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="StylesheetTree" realname="Ft.Xml.Xslt.StylesheetTree">
+      <abstract>Node classes for the stylesheet tree</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TemplateElement" realname="Ft.Xml.Xslt.TemplateElement">
+      <abstract>Implementation of the XSLT Spec template stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TextElement" realname="Ft.Xml.Xslt.TextElement">
+      <abstract>Implementation of the xsl:text element.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TextSax" realname="Ft.Xml.Xslt.TextSax">
+      <abstract>Components for reading Text files from a SAX-like producer.
+WWW: http://4suite.org/4DOM         e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="UndefinedElements" realname="Ft.Xml.Xslt.UndefinedElements">
+      <abstract>Node classes for the stylesheet tree</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ValueOfElement" realname="Ft.Xml.Xslt.ValueOfElement">
+      <abstract>Implementation of the xsl:value-of element.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="VariableElement" realname="Ft.Xml.Xslt.VariableElement">
+      <abstract>Implementation of the XSLT Spec variable stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="WhitespaceElements" realname="Ft.Xml.Xslt.WhitespaceElements">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="WithParamElement" realname="Ft.Xml.Xslt.WithParamElement">
+      <abstract>Implementation of the XSLT Spec with-param stylesheet element.
+WWW: http://4suite.org/4XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 1999-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPathExtensions" realname="Ft.Xml.Xslt.XPathExtensions">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPatternParserc" realname="Ft.Xml.Xslt.XPatternParserc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPatterns" realname="Ft.Xml.Xslt.XPatterns">
+      <abstract>Implement Patterns according to the XSLT spec</abstract>
+      <description>Copyright 1999-2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XmlWriter" realname="Ft.Xml.Xslt.XmlWriter">
+      <abstract>XML writer for XSLT output</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XsltContext" realname="Ft.Xml.Xslt.XsltContext">
+      <abstract>Context and state information for XSLT processing</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XsltFunctions" realname="Ft.Xml.Xslt.XsltFunctions">
+      <abstract>Standard XSLT functions</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="no" documented="yes" name="_4xslt" realname="Ft.Xml.Xslt._4xslt">
+      <abstract>Implementation of '4xslt' command
+(functions defined here are used by the Ft.Lib.CommandLine framework)</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+  </modules>
+  <classes>
+    <class name="CategoryTypes" public="yes">
+      <abstract>Collection of constants making up the categories of XSLT element</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="CategoryTypes" module="Ft.Xml.Xslt"/>
+      </method-resolution-order>
+      <members name="CategoryTypes" module="Ft.Xml.Xslt">
+        <member public="yes" name="INSTRUCTION" id="CategoryTypes-INSTRUCTION">
+          <value>0</value>
+        </member>
+        <member public="yes" name="RESULT_ELEMENT" id="CategoryTypes-RESULT_ELEMENT">
+          <value>2</value>
+        </member>
+        <member public="yes" name="TOP_LEVEL_ELEMENT" id="CategoryTypes-TOP_LEVEL_ELEMENT">
+          <value>1</value>
+        </member>
+      </members>
+    </class>
+    <class name="PatternList" public="yes">
+      <abstract>PatternList is a class that is useful for people writing code to
+process XSLT patterns, especially in groups.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="PatternList" module="Ft.Xml.Xslt"/>
+      </method-resolution-order>
+      <methods name="PatternList" module="Ft.Xml.Xslt">
+        <method public="no" name="__init__" id="PatternList-__init__">
+          <abstract>patterns - A list of strings that make up either compiled pattern
+           objects or valid XSLT patterns in string form.
+           It must be either all of one form or all of another
+namespaces - A namespace dictionary - { prefix: uri, ... } -
+             to be used for setting up expressions in the pattern</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="patterns"/>
+            <arg default="None" name="namespaces"/>
+          </arguments>
+        </method>
+        <method public="yes" name="lookup" id="PatternList-lookup">
+          <abstract>Return the patterns that match the node (as a list)</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="None" name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="lookupAsSet" id="PatternList-lookupAsSet">
+          <abstract>Returns the patterns that match the node (as a set [dictionary])</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="None" name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="xsltKeyPrep" id="PatternList-xsltKeyPrep">
+          <abstract>A special utility used for XSLT key preparation.
+A list of lists is returned.  The outer list corresponds
+to the patterns.  Each inner list is either [node] or []
+depending on whether or not the node matched the corresponding
+pattern.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="PatternList" module="Ft.Xml.Xslt">
+        <member public="yes" name="PARSER" id="PatternList-PARSER">
+          <value>&lt;Ft.Xml.Xslt.XPatternParser object&gt;</value>
+        </member>
+      </members>
+    </class>
+    <class name="XsltException" public="yes">
+      <bases>
+        <base documented="yes" class="FtException" module="Ft"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltException" module="Ft.Xml.Xslt"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="XsltException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <var-args name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="XsltParserException" public="yes">
+      <bases>
+        <base documented="yes" class="XsltException" module="Ft.Xml.Xslt"/>
+      </bases>
+      <abstract>The exception raised when an error is encountered during the parsing
+of a stylesheet.  This eliminates the need for location information
+within each error message.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltParserException" module="Ft.Xml.Xslt"/>
+        <base name="XsltException" module="Ft.Xml.Xslt"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="XsltParserException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="code"/>
+            <arg name="locator"/>
+            <var-args name="args"/>
+          </arguments>
+          <overrides documented="yes" class="XsltException" module="Ft.Xml.Xslt"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="XsltRuntimeException" public="yes">
+      <bases>
+        <base documented="yes" class="XsltException" module="Ft.Xml.Xslt"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltRuntimeException" module="Ft.Xml.Xslt"/>
+        <base name="XsltException" module="Ft.Xml.Xslt"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="XsltRuntimeException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="code"/>
+            <arg name="xsltelement"/>
+            <var-args name="args"/>
+          </arguments>
+          <overrides documented="yes" class="XsltException" module="Ft.Xml.Xslt"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="Transform" id="Transform">
+      <abstract>Convenience function for applying an XSLT transform.  Returns
+a string.</abstract>
+      <description>source - XML source document in the form of a a string (not Unicode
+         object), file-like object (stream), file path, URI or
+         Ft.Xml.InputSource.InputSource instance.  If string or stream
+         it must be self-contained  XML (i.e. not requiring access to
+         any other resource such as external entities or includes)
+stylesheet - XSLT document in the form of a string, stream, URL,
+             file path or Ft.Xml.InputSource.InputSource instance
+params - optional dictionary of stylesheet parameters, the keys of
+         which may be given as unicode objects if they have no namespace,
+         or as (uri, localname) tuples if they do.
+output - optional file-like object to which output is written (incrementally, as processed)</description>
+      <arguments>
+        <arg name="source"/>
+        <arg name="stylesheet"/>
+        <arg default="None" name="params"/>
+        <arg default="None" name="output"/>
+      </arguments>
+    </function>
+    <function public="yes" name="TransformPath" id="TransformPath">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="source"/>
+        <arg name="stylesheet"/>
+      </arguments>
+    </function>
+    <function public="no" name="_AttachStylesheetToProcessor" id="_AttachStylesheetToProcessor">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="stylesheet"/>
+        <arg name="processor"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+  </globals>
+</module>

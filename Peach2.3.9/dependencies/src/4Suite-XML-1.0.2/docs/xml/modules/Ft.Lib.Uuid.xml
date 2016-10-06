@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Uuid">
+  <modification-date>2004-10-04 16:54:56</modification-date>
+  <abstract>Functions for generating and comparing Universal Unique Identifiers
+(UUIDs), based on ideas from e2fsprogs.</abstract>
+  <description>A UUID is essentially a 128-bit random number that has a string
+representation of 28 hexadecimal digits, hyphenated in groups of
+8-4-4-12. The value could be greater than the number of atoms in the
+universe; it's extremely unlikely that the same number would ever be
+generated twice.
+
+UUIDs are defined by ISO/IEC 11578:1996 (Remote Procedure Call)
+and The Open Group's DCE 1.1 (Distributed Computing Environment) spec
+(the ISO version was based on an earlier version of the DCE spec).
+See http://www.opengroup.org/onlinepubs/009629399/apdxa.htm#tagcjh_20
+for the current version, and also see the expired IETF Internet-Draft
+http://www.opengroup.org/dce/info/draft-leach-uuids-guids-01.txt for
+a version with more informative prose and examples.
+
+Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="CompareUuids" id="CompareUuids">
+      <abstract>Compares, as with cmp(), two UUID strings case-insensitively</abstract>
+      <description/>
+      <arguments>
+        <arg name="u1"/>
+        <arg name="u2"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GenerateUuid" id="GenerateUuid">
+      <abstract>Returns a new UUID as a long int</abstract>
+      <description/>
+      <arguments>
+      </arguments>
+    </function>
+    <function public="yes" name="UuidAsString" id="UuidAsString">
+      <abstract>Formats a long int representing a UUID as a UUID string:
+32 hex digits in hyphenated groups of 8-4-4-4-12.</abstract>
+      <description/>
+      <arguments>
+        <arg name="uuid"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

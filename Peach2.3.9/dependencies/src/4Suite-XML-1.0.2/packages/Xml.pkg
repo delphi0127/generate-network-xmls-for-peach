@@ -1,0 +1,246 @@
+# -*- mode: python; coding: iso-8859-1 -*-
+# -*- kate: syntax python; indent-mode python; encoding iso-8859-1; -*-
+
+# See diskutils.pkg.sample for a more complete description.
+
+# -- Prepare expat for cDomlette (inspired by PyXML) -------------------
+
+import sys
+
+# We cannot coexist with a staticly linked expat (symbol clashes).
+# Exit if Python was compilied with a built-in expat.
+if 'pyexpat' in sys.builtin_module_names:
+    raise SystemExit("""
+ERROR: Your Python installation has pyexpat built-in statically, which will
+cause conflicts with the Expat library 4Suite uses.  Please re-build Python
+so that the pyexpat module is created as a dynamic module.  This is the
+default if you build from source on most platforms.
+""")
+
+if not hasattr(sys, 'maxunicode'):
+    raise SystemExit("""
+ERROR: Your Python installation is built without Unicode support.  Please
+re-build Python so the Unicode support is enabled.  This is the default if
+you build from source on most platforms.
+""")
+
+# -- setup ------------------------------------------------------------
+
+package = "XML"
+version = "1.0.2"
+description = 'An open-source platform for XML processing'
+long_description = ("XML tools and libraries for Python: Domlette, XPath,"
+                    " XSLT, XPointer, XLink, XUpdate")
+
+keywords = ['XML', 'XSLT', 'XPath', 'DOM', 'XInclude', 'XPointer', 'XLink',
+            'XUpdate', 'RELAX', 'XML Catalogs', 'DTD',
+            ]
+
+classifiers = [
+    'Topic :: Text Processing :: Markup :: XML',
+    #'Development Status :: 3 - Alpha',
+    #'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Production/Stable',
+    ]
+
+# require xml.sax as some distros provide it in a separate package
+requires = ['xml.sax']
+provides = ['Ft.Lib', 'Ft.Xml']
+obsoletes = ['Ft.Xml (<=1.0b1)'] # aka 4Suite-1.0b1
+
+# -- sdist ------------------------------------------------------------
+
+validate_templates = ['exclude po/4Suite.pot',
+                      ]
+
+manifest_templates = ['include packages/distutils.pkg.sample',
+                      'include docs/*.txt',
+                      'include Ft/Xml/src/domlette/README',
+                      'include Ft/Xml/src/expat/COPYING',
+                      'include Ft/Xml/src/expat/README',
+                      'include Ft/Xml/src/gencharset.py',
+                      ]
+
+# -- generate ---------------------------------------------------------
+
+bgen_files = ['Ft/Xml/XPath/XPath.bgen',
+              'Ft/Xml/XPointer/XPointer.bgen',
+              'Ft/Xml/XPointer/XPtrExpr.bgen',
+              'Ft/Xml/Xslt/XPattern.bgen',
+              'Ft/Xml/Xslt/AvtParser.bgen',
+              ]
+
+# -- build ------------------------------------------------------------
+
+packages = ['Ft',
+            'Ft.Lib',
+            'Ft.Lib.CommandLine',
+            'Ft.Lib.DistExt',
+            'Ft.Lib.DistExt.Formatters',
+            'Ft.Lib.TestSuite',
+            'Ft.Xml',
+            'Ft.Xml.Lib',
+            'Ft.Xml.XPath',
+            'Ft.Xml.XPointer',
+            'Ft.Xml.Xslt',
+            'Ft.Xml.Xslt.Exslt',
+            'Ft.Xml.Xslt.Debugger',
+            'Ft.Xml.XLink',
+
+            'Ft.Xml.ThirdParty',
+            'Ft.Xml.ThirdParty.Xvif',
+            ]
+
+package_data = {'Ft.Lib.DistExt' : ['stubmain.exe'],
+                }
+
+ext_modules = [
+    Extension('Ft.Lib.number',
+              sources=['Ft/Lib/src/number.c'],
+              ),
+    Extension('Ft.Lib.EscapeQuotesc',
+              sources=['Ft/Lib/src/escapequotes.c'],
+              ),
+    Extension('Ft.Lib.boolean',
+              sources=['Ft/Lib/src/boolean.c'],
+              ),
+    Extension('Ft.Lib.Set',
+              sources=['Ft/Lib/src/set.c'],
+              ),
+    Extension('Ft.Xml.Lib.routines',
+              include_dirs=['Ft/Xml/src','Ft/Lib/src'],
+              sources=['Ft/Xml/src/routines.c'],
+              ),
+    Extension('Ft.Xml.Lib.cStreamWriter',
+              sources=['Ft/Xml/src/StreamWriter.c'],
+              ),
+    Extension('Ft.Xml.XPath.XPathParserc',
+              sources=['Ft/Xml/XPath/XPathParser.c'],
+              ),
+    Extension('Ft.Xml.XPath._conversions',
+              include_dirs=['Ft/Xml/src', 'Ft/Lib/src'],
+              sources=['Ft/Xml/XPath/_conversions.c'],
+              ),
+    Extension('Ft.Xml.XPath._comparisons',
+              include_dirs=['Ft/Xml/src', 'Ft/Lib/src'],
+              sources=['Ft/Xml/XPath/_comparisons.c'],
+              ),
+    Extension('Ft.Xml.Lib.XmlString',
+              sources=['Ft/Xml/src/xmlstring.c'],
+              ),
+    Extension('Ft.Xml.cDomlettec',
+              define_macros=[('HAVE_EXPAT_CONFIG_H', None),
+                             ('Domlette_BUILDING_MODULE', None),
+                             ],
+              include_dirs=['Ft/Xml/src',
+                            'Ft/Xml/src/expat/lib',
+                            ],
+              sources=['Ft/Xml/src/expat/lib/xmlparse.c',
+                       'Ft/Xml/src/expat/lib/xmlrole.c',
+                       'Ft/Xml/src/expat/lib/xmltok.c',
+
+                       'Ft/Xml/src/domlette/domlette.c',
+                       'Ft/Xml/src/domlette/exceptions.c',
+                       'Ft/Xml/src/domlette/reader.c',
+                       'Ft/Xml/src/domlette/nss.c',
+                       'Ft/Xml/src/domlette/namednodemap.c',
+                       # NodeType implementations
+                       'Ft/Xml/src/domlette/node.c',
+                       'Ft/Xml/src/domlette/attr.c',
+                       'Ft/Xml/src/domlette/element.c',
+                       'Ft/Xml/src/domlette/processinginstruction.c',
+                       'Ft/Xml/src/domlette/characterdata.c',
+                       'Ft/Xml/src/domlette/comment.c',
+                       'Ft/Xml/src/domlette/text.c',
+                       'Ft/Xml/src/domlette/document.c',
+                       'Ft/Xml/src/domlette/documentfragment.c',
+                       'Ft/Xml/src/domlette/domimplementation.c',
+                       'Ft/Xml/src/domlette/xpathnamespace.c',
+                       # Python refcount testing
+                       'Ft/Xml/src/domlette/refcounts.c',
+                       # DOMString routines
+                       'Ft/Xml/src/domlette/util.c',
+                       # StateTable implementation
+                       'Ft/Xml/src/domlette/state_machine.c',
+                       # XML_Char <-> PyUnicode support
+                       'Ft/Xml/src/domlette/xmlchar.c',
+                       # ContentModel implementation,
+                       'Ft/Xml/src/domlette/content_model.c',
+                       # StateTable Expat handler
+                       'Ft/Xml/src/domlette/expat_module.c',
+                       # Domlette Document builder
+                       'Ft/Xml/src/domlette/parse_event_handler.c',
+                       # Domlette event (SAX-like) parser
+                       'Ft/Xml/src/domlette/xmlparser.c',
+                       ],
+              ),
+    Extension('Ft.Xml.XPointer.XPtrExprParserc',
+              sources=['Ft/Xml/XPointer/XPtrExprParser.c'],
+              ),
+    Extension('Ft.Xml.XPointer.XPointerParserc',
+              sources=['Ft/Xml/XPointer/XPointerParser.c'],
+              ),
+    Extension('Ft.Xml.Xslt.XPatternParserc',
+              sources=['Ft/Xml/Xslt/XPatternParser.c'],
+              ),
+    Extension('Ft.Xml.Xslt.AvtParserc',
+              sources=['Ft/Xml/Xslt/AvtParser.c'],
+              ),
+    ]
+
+if sys.platform == 'win32':
+    ext_modules.append(Extension('Ft.Lib._win32con',
+                                 ['Ft/Lib/src/win32con.c']))
+else:
+    manifest_templates.append('include Ft/Lib/src/win32con.c')
+
+scripts = [
+    Script('4xml', 'Ft.Xml._4xml',
+           application='XmlCommandLineApp'),
+    Script('4xpath', 'Ft.Xml.XPath._4xpath',
+           application='XPathCommandLineApp'),
+    Script('4xslt', 'Ft.Xml.Xslt._4xslt',
+           application='XsltCommandLineApp'),
+    Script('4xupdate', 'Ft.Xml.Lib._4xupdate',
+           application='XUpdateCommandLineApp'),
+    ]
+
+# -- install ----------------------------------------------------------
+
+data_files = [
+    # Install the default catalog and its mapped entries
+    FileList('', ['Ft/Data/*.cat']),
+    FileList('Schemata', ['Ft/Data/Schemata'], recursive=True),
+
+    # Install the stylesheets and their associated files
+    FileList('Data/Stylesheets', ['Ft/Data/*.xsl*',
+                                  'Ft/Data/*.css',
+                                  'Ft/Data/*.gif',
+                                  ]),
+    FileList('Data/Stylesheets/examples', ['Ft/Data/examples'],
+             recursive=True),
+    ]
+
+sysconf_files = []
+
+localstate_files = []
+
+devel_files = [
+    # Install everything in top-level test directory
+    FileList('tests', ['test/*']),
+
+    # Install Ft.Lib tests
+    FileList('tests/Lib', ['test/Lib'], recursive=True),
+
+    # Install Ft.Xml tests
+    FileList('tests/Xml', ['test/Xml'], recursive=True),
+
+    # Install everything in top-level test directory
+    FileList('profiles', ['profile/*']),
+
+    # Install Ft.Xml profiles
+    FileList('profiles/Xml', ['profile/Xml'], recursive=True),
+]
+
+config_module = 'Ft.__config__'
+

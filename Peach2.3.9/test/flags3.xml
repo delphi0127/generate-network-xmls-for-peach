@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd" author="Michael Eddington">
+	
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- 11000010 11111111 -->
+	<DataModel name="Chunk">
+		<Flags size="16" endian="big">
+			<Flag position="0" size="2" value="3"/>
+			<Flag position="6" size="2" value="2"/>
+			<Flag position="8" size="8" value="255" />
+		</Flags>
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="Chunk" />
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

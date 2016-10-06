@@ -1,0 +1,27 @@
+<?xml version='1.0'?>
+<bisongen version='1.0' name='XPathParser' project='Ft.Xml.XPath'>
+
+  <!-- Python modules to import -->
+  <modules>
+    <?include XPathModules.bgen.frag?>
+  </modules>
+
+  <!-- Token declarations -->
+  <tokens>
+    <?include XPathTokens.bgen.frag?>
+  </tokens>
+
+  <!-- Parser grammer definition -->
+  <grammar start="expr">
+    <?include XPathBase.bgen.frag?>
+  </grammar>
+
+  <!-- Lexical scanner definition -->
+  <lexer>
+    <defines>
+      <?include XPathLexerDefines.bgen.frag?>
+    </defines>
+    <?include XPathLexerPatterns.bgen.frag?>
+  </lexer>
+
+</bisongen>

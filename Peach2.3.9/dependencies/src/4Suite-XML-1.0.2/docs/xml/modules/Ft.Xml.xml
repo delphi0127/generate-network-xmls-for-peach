@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml">
+  <modification-date>2006-09-18 11:05:26</modification-date>
+  <abstract>Module providing utilities for processing XML files</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <version>0.0</version>
+  <modules>
+    <module-reference public="yes" documented="yes" name="Catalog" realname="Ft.Xml.Catalog">
+      <abstract>Classes and functions that help implement OASIS XML and TR9401 Catalogs.
+Resolution with Catalogs is handled via the Ft.Xml.InputSource module.</abstract>
+      <description>Based on a contribution to PyXML from Tarn Weisner Burton
+&lt;twburton@users.sf.net&gt;. See
+http://sourceforge.net/tracker/index.php?func=detail&amp;aid=490069&amp;group_id=6473&amp;atid=306473
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Domlette" realname="Ft.Xml.Domlette">
+      <abstract>Abstraction module for Domlette usage.
+Domlette is a DOM-like library tailored for use in XPath/XSLT.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InputSource" realname="Ft.Xml.InputSource">
+      <abstract>Classes providing a standard interface and encapsulation of metadata for
+document/entity streams intended for input to various XML processors.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Lib" realname="Ft.Xml.Lib">
+      <abstract>Module providing XML support utilities (including serialization and tree comparison)</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="no" name="MarkupWriter" realname="MarkupWriter">
+      <abstract>General-purpose utility class for generating XML (may eventually be
+expanded to produce more output types)</abstract>
+      <description>Sample usage:
+
+from Ft.Xml import MarkupWriter
+writer = MarkupWriter(indent=u&quot;yes&quot;)
+writer.startDocument()
+writer.startElement(u'xsa')
+writer.startElement(u'vendor')
+#Element with simple text (#PCDATA) content
+writer.simpleElement(u'name', content=u'Centigrade systems')
+#Note writer.text(content) still works
+writer.simpleElement(u'email', content=u&quot;info@centigrade.bogus&quot;)
+writer.endElement(u'vendor')
+#Element with an attribute
+writer.startElement(u'product', attributes={u'id': u&quot;100\u00B0&quot;})
+#Note writer.attribute(name, value, namespace=None) still works
+writer.simpleElement(u'name', content=u&quot;100\u00B0 Server&quot;)
+#XML fragment
+writer.xmlFragment('&lt;version&gt;1.0&lt;/version&gt;&lt;last-release&gt;20030401&lt;/last-release&gt;')
+#Empty element
+writer.simpleElement(u'changes')
+writer.endElement(u'product')
+writer.endElement(u'xsa')
+writer.endDocument()
+
+Note on the difference between 4Suite writers and printers
+Writer  - module that exposes a broad public API for building output
+          bit by bit
+Printer - module that simply takes a DOM and creates output from it
+          as a whole, within one API invokation</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="MessageSource" realname="Ft.Xml.MessageSource">
+      <abstract>Localizable message strings</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Sax" realname="Ft.Xml.Sax">
+      <abstract>Abstraction module for Domlette SAX usage.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ThirdParty" realname="Ft.Xml.ThirdParty">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XInclude" realname="Ft.Xml.XInclude">
+      <abstract>XInclude processing</abstract>
+      <description>XInclude processing is normally controlled via the Domlette reader APIs
+and is implemented within Domlette itself. This module just provides
+constants and classes to support XInclude processing.
+
+XInclude is defined at http://www.w3.org/TR/xinclude
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XLink" realname="Ft.Xml.XLink">
+      <abstract>XLink processing package</abstract>
+      <description>See http://www.w3.org/TR/xlink/
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPath" realname="Ft.Xml.XPath">
+      <abstract>4XPath initialization and principal functions</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPointer" realname="Ft.Xml.XPointer">
+      <abstract>Module for XPointer processing</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XUpdate" realname="Ft.Xml.XUpdate">
+      <abstract>XUpdate request processing</abstract>
+      <description>XUpdate is specified (poorly) at
+http://xmldb-org.sourceforge.net/xupdate/xupdate-wd.html
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Xslt" realname="Ft.Xml.Xslt">
+      <abstract>4XSLT initialization and XSLT pattern tools</abstract>
+      <description>These are the most common steps for using this XSLT engine:
+
+  1. Create an Ft.Xml.Xslt.Processor.Processor instance:
+
+     from Ft.Xml.Xslt import Processor
+     processor = Processor.Processor()
+
+  2. Prepare Ft.Xml.InputSource instances (via their factory)
+     for the source XML and for the stylesheet.
+
+  3. Call the Processor's appendStylesheet() method, passing it
+     the stylesheet's InputSource.
+
+  4. Call the Processor's run() method, passing it the source
+     document's InputSource.
+
+You can call run() multiple times on different InputSources. When you're
+done, the processor's reset() method can be used to restore a clean slate
+(at which point you would have to append stylesheets to the processor
+again), but in most circumstances it is actually less expensive to just
+create a new Processor instance.
+
+Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Xvif" realname="Ft.Xml.Xvif">
+      <abstract>XVIF integration for 4Suite.  Includes basic RELAX NG support</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="no" documented="yes" name="_4xml" realname="Ft.Xml._4xml">
+      <abstract>Implementation of '4xml' command
+(functions defined here are used by the Ft.Lib.CommandLine framework)</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="cDomlette" realname="Ft.Xml.cDomlette">
+      <abstract>cDomlette implementation: a very fast DOM-like library tailored for use in XPath/XSLT</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="cDomlettec" realname="Ft.Xml.cDomlettec">
+      <abstract>cDomlette implementation: a very fast DOM-like library tailored for use in XPath/XSLT</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+  </modules>
+  <classes>
+    <class name="MarkupWriter" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract>General-purpose utility class for generating XML (may eventually be
+expanded to produce more output types)</abstract>
+      <description>Sample usage:
+
+from Ft.Xml import MarkupWriter
+writer = MarkupWriter(indent=u&quot;yes&quot;)
+writer.startDocument()
+writer.startElement(u'xsa')
+writer.startElement(u'vendor')
+#Element with simple text (#PCDATA) content
+writer.simpleElement(u'name', content=u'Centigrade systems')
+#Note writer.text(content) still works
+writer.simpleElement(u'email', content=u&quot;info@centigrade.bogus&quot;)
+writer.endElement(u'vendor')
+#Element with an attribute
+writer.startElement(u'product', attributes={u'id': u&quot;100\u00B0&quot;})
+#Note writer.attribute(name, value, namespace=None) still works
+writer.simpleElement(u'name', content=u&quot;100\u00B0 Server&quot;)
+#XML fragment
+writer.xmlFragment('&lt;version&gt;1.0&lt;/version&gt;&lt;last-release&gt;20030401&lt;/last-release&gt;')
+#Empty element
+writer.simpleElement(u'changes')
+writer.endElement(u'product')
+writer.endElement(u'xsa')
+writer.endDocument()
+
+Note on the difference between 4Suite writers and printers
+Writer  - module that exposes a broad public API for building output
+          bit by bit
+Printer - module that simply takes a DOM and creates output from it
+          as a whole, within one API invokation</description>
+      <method-resolution-order>
+        <base name="MarkupWriter" module="Ft.Xml.MarkupWriter"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__getattr__" id="MarkupWriter-__getattr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="MarkupWriter-__init__">
+          <abstract>Convenience factory function for Markup writers (based on
+xsl:output in XSLT)</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7d98068&gt;" name="stream"/>
+            <var-keywords name="wargs"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="simpleElement" id="MarkupWriter-simpleElement">
+          <abstract>Create a simple tag with optional attributes and content.  The
+complete element, start tag, optional text content, end tag, will
+all be generated by this one call.  Must *not* be matched with
+an endElement call.</abstract>
+          <description>Note: all &quot;strings&quot; in these parameters must be unicode objects
+tagName - qualified name of the element
+namespace - optional namespace URI
+attributes - optional dictionary mapping name to unicode value
+            the name can either be a unicode QName or a tuple
+            of (QName, namespace URI)
+content   - optional unicode object with the text body of the
+            simple element
+extraNss - optional dictionary (defaults to an empty one) that
+           creates additional namespace declarations that the
+           user wants to place on the specific element. Each key
+           is a ns prefix, and each value a ns name (URI).
+           You do not need to use extraNss if you will be using
+           a similar namespace parameter.  In fact, most people
+           will never need this parameter.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tagName"/>
+            <arg default="None" name="namespace"/>
+            <arg default="None" name="extraNss"/>
+            <arg default="None" name="attributes"/>
+            <arg default="u''" name="content"/>
+          </arguments>
+        </method>
+        <method public="no" name="startElement" id="MarkupWriter-startElement">
+          <abstract>Create a start tag with optional attributes.  Must eventually
+be matched with an endElement call</abstract>
+          <description>Note: all &quot;strings&quot; in these parameters must be unicode objects
+tagName - qualified name of the element (must be unicode)
+namespace - optional namespace URI
+attributes - optional dictionary mapping name to unicode value
+            the name can either be a unicode QName or a tuple
+            of (QName, namespace URI)
+extraNss - optional dictionary (defaults to an empty one) that
+           creates additional namespace declarations that the
+           user wants to place on the specific element. Each key
+           is a ns prefix, and each value a ns name (URI).
+           You do not need to use extraNss if you will be using
+           a similar namespace parameter.  In fact, most people
+           will never need this parameter.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tagName"/>
+            <arg default="None" name="namespace"/>
+            <arg default="None" name="extraNss"/>
+            <arg default="None" name="attributes"/>
+          </arguments>
+        </method>
+        <method public="no" name="xmlFragment" id="MarkupWriter-xmlFragment">
+          <abstract>Incorporate a well-formed general entity into the output.
+fragment of
+fragment - string (must not be a Unicode object) to be incorporated
+           verbatim into the output, after testing for wellp-formedness</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="fragment"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="MarkupWriter-__dict__">
+          <value>&lt;attribute '__dict__' of 'MarkupWriter' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="MarkupWriter-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'MarkupWriter' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ReaderException" public="yes">
+      <bases>
+        <base documented="yes" class="FtException" module="Ft"/>
+      </bases>
+      <abstract>Exception class for errors specific to XML reading
+(at a level above standard, non-namespace-aware parsing)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ReaderException" module="Ft.Xml"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="ReaderException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <arg name="systemId"/>
+            <arg name="lineNumber"/>
+            <arg name="columnNumber"/>
+            <var-keywords name="kwords"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+        <method public="no" name="__str__" id="ReaderException-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+      </methods>
+      <members name="Exception">
+        <member public="no" name="ASYNC_ENTITY" id="ReaderException-ASYNC_ENTITY">
+          <value>13</value>
+        </member>
+        <member public="no" name="ATTRIBUTES_WITHOUT_ELEMENT" id="ReaderException-ATTRIBUTES_WITHOUT_ELEMENT">
+          <value>2000</value>
+        </member>
+        <member public="no" name="ATTRIBUTE_DECLARED" id="ReaderException-ATTRIBUTE_DECLARED">
+          <value>2001</value>
+        </member>
+        <member public="no" name="ATTRIBUTE_EXTERNAL_ENTITY_REF" id="ReaderException-ATTRIBUTE_EXTERNAL_ENTITY_REF">
+          <value>16</value>
+        </member>
+        <member public="no" name="ATTRIBUTE_UNDECLARED_NOTATION" id="ReaderException-ATTRIBUTE_UNDECLARED_NOTATION">
+          <value>1023</value>
+        </member>
+        <member public="no" name="BAD_CHAR_REF" id="ReaderException-BAD_CHAR_REF">
+          <value>14</value>
+        </member>
+        <member public="no" name="BINARY_ENTITY_REF" id="ReaderException-BINARY_ENTITY_REF">
+          <value>15</value>
+        </member>
+        <member public="no" name="DUPLICATE_ATTRIBUTE" id="ReaderException-DUPLICATE_ATTRIBUTE">
+          <value>8</value>
+        </member>
+        <member public="no" name="DUPLICATE_ELEMENT_DECL" id="ReaderException-DUPLICATE_ELEMENT_DECL">
+          <value>1013</value>
+        </member>
+        <member public="no" name="DUPLICATE_ID" id="ReaderException-DUPLICATE_ID">
+          <value>1007</value>
+        </member>
+        <member public="no" name="DUPLICATE_ID_DECL" id="ReaderException-DUPLICATE_ID_DECL">
+          <value>1014</value>
+        </member>
+        <member public="no" name="ENTITY_DECLARED" id="ReaderException-ENTITY_DECLARED">
+          <value>2002</value>
+        </member>
+        <member public="no" name="ENTITY_DECLARED_IN_PE" id="ReaderException-ENTITY_DECLARED_IN_PE">
+          <value>24</value>
+        </member>
+        <member public="no" name="ENTITY_UNDECLARED_NOTATION" id="ReaderException-ENTITY_UNDECLARED_NOTATION">
+          <value>1024</value>
+        </member>
+        <member public="no" name="EXTERNAL_ENTITY_HANDLING" id="ReaderException-EXTERNAL_ENTITY_HANDLING">
+          <value>21</value>
+        </member>
+        <member public="no" name="ID_ATTRIBUTE_DEFAULT" id="ReaderException-ID_ATTRIBUTE_DEFAULT">
+          <value>1015</value>
+        </member>
+        <member public="no" name="ILLEGAL_PARAM_ENTITY_REF" id="ReaderException-ILLEGAL_PARAM_ENTITY_REF">
+          <value>10</value>
+        </member>
+        <member public="no" name="INCOMPLETE_ELEMENT" id="ReaderException-INCOMPLETE_ELEMENT">
+          <value>1004</value>
+        </member>
+        <member public="no" name="INCOMPLETE_PE" id="ReaderException-INCOMPLETE_PE">
+          <value>29</value>
+        </member>
+        <member public="no" name="INCORRECT_ENCODING" id="ReaderException-INCORRECT_ENCODING">
+          <value>19</value>
+        </member>
+        <member public="no" name="INVALID_ELEMENT" id="ReaderException-INVALID_ELEMENT">
+          <value>1001</value>
+        </member>
+        <member public="no" name="INVALID_ENTITY" id="ReaderException-INVALID_ENTITY">
+          <value>1009</value>
+        </member>
+        <member public="no" name="INVALID_ENUM_VALUE" id="ReaderException-INVALID_ENUM_VALUE">
+          <value>1022</value>
+        </member>
+        <member public="no" name="INVALID_NAME_SEQ_VALUE" id="ReaderException-INVALID_NAME_SEQ_VALUE">
+          <value>1019</value>
+        </member>
+        <member public="no" name="INVALID_NAME_VALUE" id="ReaderException-INVALID_NAME_VALUE">
+          <value>1018</value>
+        </member>
+        <member public="no" name="INVALID_NMTOKEN_SEQ_VALUE" id="ReaderException-INVALID_NMTOKEN_SEQ_VALUE">
+          <value>1021</value>
+        </member>
+        <member public="no" name="INVALID_NMTOKEN_VALUE" id="ReaderException-INVALID_NMTOKEN_VALUE">
+          <value>1020</value>
+        </member>
+        <member public="no" name="INVALID_PUBLICID" id="ReaderException-INVALID_PUBLICID">
+          <value>32</value>
+        </member>
+        <member public="no" name="INVALID_TEXT" id="ReaderException-INVALID_TEXT">
+          <value>1005</value>
+        </member>
+        <member public="no" name="INVALID_TEXT_DECL" id="ReaderException-INVALID_TEXT_DECL">
+          <value>31</value>
+        </member>
+        <member public="no" name="INVALID_TOKEN" id="ReaderException-INVALID_TOKEN">
+          <value>4</value>
+        </member>
+        <member public="no" name="INVALID_XML_DECL" id="ReaderException-INVALID_XML_DECL">
+          <value>30</value>
+        </member>
+        <member public="no" name="JUNK_AFTER_DOCUMENT_ELEMENT" id="ReaderException-JUNK_AFTER_DOCUMENT_ELEMENT">
+          <value>9</value>
+        </member>
+        <member public="no" name="MISPLACED_XML_PI" id="ReaderException-MISPLACED_XML_PI">
+          <value>17</value>
+        </member>
+        <member public="no" name="MISSING_ATTRIBUTE" id="ReaderException-MISSING_ATTRIBUTE">
+          <value>1011</value>
+        </member>
+        <member public="no" name="MISSING_DOCTYPE" id="ReaderException-MISSING_DOCTYPE">
+          <value>1000</value>
+        </member>
+        <member public="no" name="NOT_STANDALONE" id="ReaderException-NOT_STANDALONE">
+          <value>22</value>
+        </member>
+        <member public="no" name="NO_ELEMENTS" id="ReaderException-NO_ELEMENTS">
+          <value>3</value>
+        </member>
+        <member public="no" name="PARTIAL_CHAR" id="ReaderException-PARTIAL_CHAR">
+          <value>6</value>
+        </member>
+        <member public="no" name="RECURSIVE_ENTITY_REF" id="ReaderException-RECURSIVE_ENTITY_REF">
+          <value>12</value>
+        </member>
+        <member public="no" name="RECURSIVE_PARSE_ERROR" id="ReaderException-RECURSIVE_PARSE_ERROR">
+          <value>101</value>
+        </member>
+        <member public="no" name="RESERVED_NAMESPACE_URI" id="ReaderException-RESERVED_NAMESPACE_URI">
+          <value>40</value>
+        </member>
+        <member public="no" name="RESERVED_PREFIX_XML" id="ReaderException-RESERVED_PREFIX_XML">
+          <value>38</value>
+        </member>
+        <member public="no" name="RESERVED_PREFIX_XMLNS" id="ReaderException-RESERVED_PREFIX_XMLNS">
+          <value>39</value>
+        </member>
+        <member public="no" name="ROOT_ELEMENT_MISMATCH" id="ReaderException-ROOT_ELEMENT_MISMATCH">
+          <value>1002</value>
+        </member>
+        <member public="no" name="SYNTAX_ERROR" id="ReaderException-SYNTAX_ERROR">
+          <value>2</value>
+        </member>
+        <member public="no" name="TAG_MISMATCH" id="ReaderException-TAG_MISMATCH">
+          <value>7</value>
+        </member>
+        <member public="no" name="UNBOUND_PREFIX" id="ReaderException-UNBOUND_PREFIX">
+          <value>27</value>
+        </member>
+        <member public="no" name="UNCLOSED_CDATA_SECTION" id="ReaderException-UNCLOSED_CDATA_SECTION">
+          <value>20</value>
+        </member>
+        <member public="no" name="UNCLOSED_TOKEN" id="ReaderException-UNCLOSED_TOKEN">
+          <value>5</value>
+        </member>
+        <member public="no" name="UNDECLARED_ATTRIBUTE" id="ReaderException-UNDECLARED_ATTRIBUTE">
+          <value>1006</value>
+        </member>
+        <member public="no" name="UNDECLARED_ELEMENT" id="ReaderException-UNDECLARED_ELEMENT">
+          <value>1003</value>
+        </member>
+        <member public="no" name="UNDECLARED_ENTITY" id="ReaderException-UNDECLARED_ENTITY">
+          <value>1008</value>
+        </member>
+        <member public="no" name="UNDECLARED_NOTATION" id="ReaderException-UNDECLARED_NOTATION">
+          <value>1010</value>
+        </member>
+        <member public="no" name="UNDECLARED_PREFIX" id="ReaderException-UNDECLARED_PREFIX">
+          <value>28</value>
+        </member>
+        <member public="no" name="UNDEFINED_ENTITY" id="ReaderException-UNDEFINED_ENTITY">
+          <value>11</value>
+        </member>
+        <member public="no" name="UNDEFINED_ID" id="ReaderException-UNDEFINED_ID">
+          <value>1012</value>
+        </member>
+        <member public="no" name="UNKNOWN_ENCODING" id="ReaderException-UNKNOWN_ENCODING">
+          <value>18</value>
+        </member>
+        <member public="no" name="XML_PARSE_ERROR" id="ReaderException-XML_PARSE_ERROR">
+          <value>100</value>
+        </member>
+        <member public="no" name="XML_SPACE_DECL" id="ReaderException-XML_SPACE_DECL">
+          <value>1016</value>
+        </member>
+        <member public="no" name="XML_SPACE_VALUES" id="ReaderException-XML_SPACE_VALUES">
+          <value>1017</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="XIncludeException" public="yes">
+      <bases>
+        <base documented="yes" class="FtException" module="Ft"/>
+      </bases>
+      <abstract>Exception class for errors specific to XInclude processing</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XIncludeException" module="Ft.Xml"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="XIncludeException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <var-args name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+      </methods>
+      <members name="Exception">
+        <member public="no" name="FALLBACK_NOT_IN_INCLUDE" id="XIncludeException-FALLBACK_NOT_IN_INCLUDE">
+          <value>16</value>
+        </member>
+        <member public="no" name="FRAGMENT_IDENTIFIER" id="XIncludeException-FRAGMENT_IDENTIFIER">
+          <value>13</value>
+        </member>
+        <member public="no" name="INCLUDE_IN_INCLUDE" id="XIncludeException-INCLUDE_IN_INCLUDE">
+          <value>15</value>
+        </member>
+        <member public="no" name="INVALID_PARSE_ATTR" id="XIncludeException-INVALID_PARSE_ATTR">
+          <value>11</value>
+        </member>
+        <member public="no" name="MISSING_HREF" id="XIncludeException-MISSING_HREF">
+          <value>10</value>
+        </member>
+        <member public="no" name="MULTIPLE_FALLBACKS" id="XIncludeException-MULTIPLE_FALLBACKS">
+          <value>17</value>
+        </member>
+        <member public="no" name="TEXT_XPOINTER" id="XIncludeException-TEXT_XPOINTER">
+          <value>12</value>
+        </member>
+        <member public="no" name="UNSUPPORTED_XPOINTER" id="XIncludeException-UNSUPPORTED_XPOINTER">
+          <value>14</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ApplyXUpdate" id="ApplyXUpdate">
+      <abstract>#Wrap this so that we can import it later</abstract>
+      <description/>
+      <arguments>
+        <var-args name="args"/>
+        <var-keywords name="kw_args"/>
+      </arguments>
+    </function>
+    <function public="no" name="ApplyXupdate" id="ApplyXupdate">
+      <abstract>#Good ol' backward compatibility for creative spellings</abstract>
+      <description/>
+      <arguments>
+        <var-args name="args"/>
+        <var-keywords name="kw_args"/>
+      </arguments>
+    </function>
+    <function public="no" name="CheckVersion" id="CheckVersion">
+      <abstract>PyXML is required by some features of 4Suite (e.g., validating parsing,
+and 4XSLT's SaxWriter). This is a common function to test whether a
+correct version of PyXML is installed. It raises a SystemExit if the
+test result is negative, and returns None otherwise.</abstract>
+      <description>The feature argument is a string indicating which feature in 4Suite
+requires PyXML. It is output as part of the SystemExit message.</description>
+      <arguments>
+        <arg default="None" name="feature"/>
+      </arguments>
+    </function>
+    <function public="no" name="CreateInputSource" id="CreateInputSource">
+      <abstract>Convenience function for creating an InputSource.
+obj - a string, Unicode object (only if you really know what you're doing),
+      file-like object (stream), file path or URI.  You can also pass an
+      InputSource object, in which case the return value is just the same
+      object, possibly with the URI modified
+uri - optional override URI.  The base URI for the IS will be set to this
+      value</abstract>
+      <description>Returns an InputSource which can be passed to 4Suite APIs.</description>
+      <arguments>
+        <arg name="obj"/>
+        <arg default="None" name="uri"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Parse" id="Parse">
+      <abstract>Convenience function for parsing XML.  Use this function with a single
+argument, which must either be a string (not Unicode object), file-like
+object (stream), file path or URI.</abstract>
+      <description>Returns a Domlette node.
+
+Only pass strings or streams to this function if the XML is self-contained
+XML (i.e. not requiring access to any other resource such as external
+entities or includes).  If you get URI resolution errors, do not use this
+function: use the lower-level APIs instead.  As an example, if you want
+such resolution to use the current working directory as a base, parse
+as follows for strings:
+
+from Ft.Xml.Domlette import NonvalidatingReader
+from Ft.Lib import Uri
+
+XML = &quot;&lt;!DOCTYPE a [ &lt;!ENTITY b &quot;b.xml&quot;&gt; ]&gt;&lt;a&gt;&amp;b;&lt;/a&gt;&quot;
+
+base = Uri.OsPathToUri('')  #Turn CWD into a file: URL
+doc = NonvalidatingReader.parseString(XML, base)
+# during parsing, the replacement text for &amp;b;
+# will be obtained from b.xml in the CWD
+
+For streams, use &quot;parseStream&quot; rather than &quot;parseString&quot; in the above.</description>
+      <arguments>
+        <arg name="source"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ParsePath" id="ParsePath">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="source"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SplitQName" id="SplitQName">
+      <abstract>SplitQName(qualifiedName) -&gt; (prefix, localName)</abstract>
+      <description>where 'qualifiedName' is a QName according to XML Namespaces 1.0
+&lt;http://www.w3.org/TR/REC-xml-names&gt;.
+returns the name parts according to the spec.</description>
+      <arguments>
+        <unknown>qualifiedName</unknown>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="EMPTY_PREFIX" id="EMPTY_PREFIX">
+      <value>None</value>
+    </global>
+    <global public="yes" name="HAS_PYEXPAT" id="HAS_PYEXPAT">
+      <value>True</value>
+    </global>
+    <global public="yes" name="READ_EXTERNAL_DTD" id="READ_EXTERNAL_DTD">
+      <value>True</value>
+    </global>
+    <global public="yes" name="XHTML_NAMESPACE" id="XHTML_NAMESPACE">
+      <value>u'http://www.w3.org/1999/xhtml'</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['EMPTY_NAMESPACE', 'EMPTY_PREFIX', 'XML_NAMESPACE', 'XMLNS_NAMESPACE', 'XHTML_NAMESPACE', 'READ_EXTERNAL_DTD', 'HAS_PYEXPAT', 'ReaderException', 'XIncludeException', 'SplitQName', 'ApplyXUpdate', 'MarkupWriter', 'Parse', 'ParsePath']</value>
+    </global>
+    <global public="no" name="__version__" id="__version__">
+      <value>'0.0'</value>
+    </global>
+    <global public="no" name="pyxml_required" id="pyxml_required">
+      <value>StrictVersion ('0.8')</value>
+    </global>
+  </globals>
+</module>

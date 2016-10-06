@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	
+	<DataModel name="Chunk">
+		<Number name="Length" size="32" endian="network" signed="false">
+			<Relation type="size" of="Core.Data"/>
+		</Number>
+		<Block name="Core">
+			<String name="Type" length="4"/>
+			<Blob name="Data" value=""/>
+		</Block>
+		<Number name="CRC" size="32" signed="false" endian="network">
+			<Fixup class="checksums.Crc32Fixup">
+				<Param name="ref" value="Core"/>
+			</Fixup>
+		</Number>
+	</DataModel>
+	
+	<DataModel name="ChunkIHDR" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="IHDR" isStatic="true"/>
+			<Block name="Data">
+				<Number name="Width" size="32" endian="network" signed="false" />
+				<Number name="Height" size="32" endian="network" signed="false" />
+				<Number name="BitDepth" size="8" endian="network" signed="false" />
+				<Number name="ColorType" size="8" endian="network" signed="false" />
+				<Number name="CompressMethod" size="8" endian="network" signed="false" />
+				<Number name="FilterMethod" size="8" endian="network" signed="false" />
+				<Number name="InterlaceMethod" size="8" endian="network" signed="false" />
+			</Block>
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkgAMA" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="gAMA" isStatic="true"/>
+			<Block name="Data">
+				<Number size="8" signed="false" endian="big" />
+				<Number size="8" signed="false" endian="big" />
+				<Number size="8" signed="false" endian="big" />
+				<Number size="8" signed="false" endian="big" />
+			</Block>
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkcHRM" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="cHRM" isStatic="true"/>
+			<Block name="Data">
+				<Number size="32" signed="false" endian="big" />
+				<Number size="32" signed="false" endian="big" />
+				
+				<Number size="32" signed="false" endian="big" />
+				<Number size="32" signed="false" endian="big" />
+				
+				<Number size="32" signed="false" endian="big" />
+				<Number size="32" signed="false" endian="big" />
+				
+				<Number size="32" signed="false" endian="big" />
+				<Number size="32" signed="false" endian="big" />
+			</Block>
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkPLTE" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="PLTE" isStatic="true"/>
+			<Block name="Data">
+				<Block name="PalettePixel" minOccurs="246" maxOccurs="246">
+					<Number size="8" signed="false" endian="big" />
+					<Number size="8" signed="false" endian="big" />
+					<Number size="8" signed="false" endian="big" />
+				</Block>
+			</Block>
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkIDAT" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="IDAT" isStatic="true"/>
+			<Blob name="Data"/>
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkIEND" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="IEND" isStatic="true"/>
+			<Blob name="Data" value=""/>
+		</Block>
+	</DataModel>
+	
+	<DataModel name="Png">
+		<Blob name="Magic" length="8" valueType="hex" value="0x89 0x50 0x4e 0x47 0x0d 0x0a 0x1a 0x0a"/>
+		<Choice minOccurs="1" maxOccurs="2000">
+			<Block name="TheChunkIHDR" ref="ChunkIHDR" />
+			<Block name="TheChunkgAMA" ref="ChunkgAMA" />
+			<Block name="TheChunkcHRM" ref="ChunkcHRM" />
+			<Block name="TheChunkPLTE" ref="ChunkPLTE" />
+			<Block name="TheChunkIDAT" ref="ChunkIDAT" />
+			<Block name="TheChunkIEND" ref="ChunkIEND" />
+		</Choice>
+	</DataModel>
+	
+	<!-- To pass a parameter to call -->
+	<DataModel name="Param">
+		<String name="Value" isStatic="true" />
+	</DataModel>
+	
+	<StateModel name="State" initialState="Initial">
+		
+		<State name="Initial">
+			
+			<Action name="WritePng" type="output">
+				<DataModel ref="Png"/>
+				<Data name="data" fileName="C:\Peach2.3.9\png\samples\basn0g01.png" />
+			</Action>
+			
+
+			<Action type="close" />
+
+			<Action type="call" method="ScoobySnacks" />
+			
+		</State>
+		
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<!-- <Monitor class="test.TestStopOnFirst" /> -->
+		
+		<!--
+		
+		<Monitor class="debugger.WindowsAppVerifier">
+			<Param name="Application" value="VisualPng.exe"/>
+		</Monitor>
+		
+		<Monitor class="process.PageHeap">
+			<Param name="Executable" value="VisualPng.exe"/>
+		</Monitor>
+		
+		-->
+		
+
+		<Monitor name="Debugger" class="debugger.WindowsDebugEngine">
+        			<Param name="CommandLine" value="C:\Program Files\Tencent\QQLite\Bin\QQ.exe"/>
+				<Param name="StartOnCall" value="ScoobySnacks" />
+				<Param name="WinDbg" value="C:\Program Files\Debugging Tools for Windows (x86)\windbg.exe"/>
+		</Monitor>		
+		
+		
+	</Agent>
+	
+	<Test name="HelloWorldTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="State"/>
+		<Publisher class="file.FileWriterLauncherGui">
+			<Param name="Filename" value="c:\\test\\peach.png"/>
+			<Param name="WindowName" value="VisualPng" />
+		</Publisher>
+	</Test>
+	
+	<!-- Configure a single run -->
+	<Run name="DefaultRun" description="Stdout HelloWorld Run">
+		
+		<Test ref="HelloWorldTest" />
+		<Logger class="logger.Filesystem">
+			<Param name="path" value="c://test//logs"/>
+		</Logger>
+		
+	</Run>
+	
+</Peach>
+<!-- end -->

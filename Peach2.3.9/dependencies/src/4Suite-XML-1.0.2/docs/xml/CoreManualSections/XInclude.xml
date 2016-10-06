@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="xinclude">
+  <title>XInclude processing</title>
+
+  <section id="about_xinclude">
+    <title>About XInclude</title>
+
+    <para><ulink url="http://www.w3.org/TR/xinclude/">XML Inclusions
+    (XInclude)</ulink> is a W3C Recommendation that provides XML document
+    authors with a robust way of supporting document modularity via the use
+    of <ulink
+    url="http://en.wikipedia.org/wiki/Transclusion">transclusions</ulink>
+    (inclusions by reference). Such modularity would otherwise require using
+    references to external entities declared in a DTD, a system which has
+    various limitations inherited from SGML.</para>
+
+    <para>Unlike XML's built-in entity-reference system, the processing of
+    XIncludes is, fundamentally, an XML Infoset transformation, not strictly
+    an operation performed on the serialized (textual) form of a document.
+    Therefore, there is no requirement for when and where XInclude
+    processing should occur; it could happen at parse time if the parser
+    supports it, or could occur on an already-parsed document.</para>
+
+    <para>XInclude references consist of two special elements that are
+    placed in the XML document into which external content is to be
+    included: <code>&lt;include&gt;</code> and
+    <code>&lt;fallback&gt;</code>, both in the namespace
+    <literal>http://www.w3.org/2001/XInclude</literal>. When processed,
+    these elements are replaced with the content they reference, which can
+    be XML or any other text.</para>
+  </section>
+
+  <section id="xinclude_in_4suite">
+    <title>XInclude support in 4Suite</title>
+
+    <para>4Suite supports XInclude processing only at parse time, as an
+    optional feature of the Domlette readers. It is turned on by default, so
+    if you want to suppress it, you must use the full parsing API — not
+    the <methodname>Ft.Xml.Parse</methodname> and
+    <methodname>Ft.Xml.CreateInputSource</methodname> convenience functions
+    — and set the parameter <parameter>processIncludes</parameter> to
+    <literal>False</literal> either when creating an
+    <classname>InputSource</classname> or when calling the
+    <methodname>parseString</methodname>, <methodname>parseUri</methodname>,
+    or <methodname>parseStream</methodname> method of the Domlette
+    reader.</para>
+  </section>
+
+  <section id="xinclude_examples" revisionflag="added">
+    <title>Examples</title>
+
+    <para>The following example includes one section stub into a larger
+    article but has to use the fallback for the second section stub, where
+    resolution fails. <xref linkend="xinclude.example.main_doc" /> lists the
+    contents of the file <filename>article.xml</filename>, which references
+    two sections using XInclude and provides a fallback for each in case
+    they fail to load. <xref linkend="xinclude.example.included_section" />
+    lists the contents of <filename>section1.xml</filename>, but this
+    example purposefully does not provide a
+    <filename>section2.xml</filename> in order to illustrate the fallback
+    behaviour. <xref linkend="xinclude.example.load" /> lists the Python
+    code used to parse and print this document; note that XInclude
+    processing is done automatically by default.</para>
+
+    <figure id="xinclude.example.main_doc">
+      <title>Document using XInclude</title>
+
+      <programlisting>&lt;article&gt;
+  &lt;title&gt;My important article&lt;/title&gt;
+  &lt;xi:include href="section1.xml" xmlns:xi="http://www.w3.org/2001/XInclude"&gt;
+    &lt;xi:fallback&gt;&lt;!-- Section 1 failed to load! --&gt;&lt;/xi:fallback&gt;
+  &lt;/xi:include&gt;
+  &lt;xi:include href="section2.xml" xmlns:xi="http://www.w3.org/2001/XInclude"&gt;
+    &lt;xi:fallback&gt;&lt;!-- Section 2 failed to load! --&gt;&lt;/xi:fallback&gt;
+  &lt;/xi:include&gt;
+&lt;/article&gt;</programlisting>
+    </figure>
+
+    <figure id="xinclude.example.included_section">
+      <title>Section to be included</title>
+
+      <programlisting>&lt;section&gt;
+  &lt;title&gt;Section 1&lt;/title&gt;
+  &lt;!-- Write me! --&gt;
+&lt;/section&gt;</programlisting>
+    </figure>
+
+    <figure id="xinclude.example.load">
+      <title>Loading the document</title>
+
+      <programlisting>from Ft.Xml import Parse
+from Ft.Xml.Domlette import PrettyPrint
+doc = Parse("article.xml")
+PrettyPrint(doc)</programlisting>
+    </figure>
+
+    <para><xref linkend="xinclude.example.complete" /> is very similar to
+    the above example, only this version is self-contained; the resources
+    are stored in Python strings and resolved using a custom
+    resolver.</para>
+
+    <figure id="xinclude.example.complete">
+      <title>Self-contained example</title>
+
+      <programlisting>article = """&lt;article&gt;&lt;title&gt;My important article&lt;/title&gt;
+&lt;xi:include href="ex:section" xmlns:xi="http://www.w3.org/2001/XInclude"&gt;
+  &lt;xi:fallback&gt;&lt;!-- Section 1 failed to load! --&gt;&lt;/xi:fallback&gt;
+&lt;/xi:include&gt;
+&lt;xi:include href="ex:section2" xmlns:xi="http://www.w3.org/2001/XInclude"&gt;
+  &lt;xi:fallback&gt;&lt;!-- Section 2 failed to load! --&gt;&lt;/xi:fallback&gt;
+&lt;/xi:include&gt;
+&lt;/article&gt;"""
+
+section = "&lt;section&gt;&lt;title&gt;Section 1&lt;/title&gt;&lt;!-- Write me! --&gt;&lt;/section&gt;"
+
+from Ft.Lib.Uri import FtUriResolver, Absolutize
+from Ft.Lib import UriException
+from cStringIO import StringIO
+class MyResolver (FtUriResolver):
+  def normalize(self, uriRef, baseUri):
+    return Absolutize(uriRef, baseUri)
+  def resolve(self, uri):
+    if uri == "ex:article":
+      return StringIO(article)
+    elif uri == "ex:section":
+      return StringIO(section)
+    else:
+      raise UriException(UriException.RESOURCE_ERROR,
+                         loc=uri, msg="not found, sorry")
+
+myResolver = MyResolver()
+
+from Ft.Xml.InputSource import InputSourceFactory
+from Ft.Xml.Domlette import NonvalidatingReader, PrettyPrint
+factory = InputSourceFactory(resolver=myResolver)
+isrc = factory.fromUri("ex:article")
+doc = NonvalidatingReader.parse(isrc)
+PrettyPrint(doc)</programlisting>
+    </figure>
+
+    <para>To turn off XInclude behavior in <xref
+    linkend="xinclude.example.complete" />, replace the last three lines
+    with these three lines:</para>
+
+    <programlisting>isrc = factory.fromUri("ex:article", processIncludes=False)
+doc = NonvalidatingReader.parse(isrc)
+PrettyPrint(doc)</programlisting>
+
+    <para><xref linkend="xinclude.example.load" /> uses the "super simple"
+    parsing API; we need to use the full parsing API in order to disable
+    XInclude expansion (which, paradoxically, takes one less line):</para>
+
+    <programlisting>from Ft.Xml.Domlette import NonvalidatingReader, PrettyPrint
+doc = NonvalidatingReader.parseStream(file("article.xml"), processIncludes=False)
+PrettyPrint(doc)</programlisting>
+  </section>
+</section>

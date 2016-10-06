@@ -1,0 +1,272 @@
+Peach Changelist
+================
+
+v2.3.9
+------
+
+ - New: LinuxApport monitor that replaces UnixDebugger.
+ - New: Windows debugger has new paramter "WinDbg" or path to windows debugger
+ - Change: Optimized minset, much faster now.
+ - Change: minset now supported parameters with "-" to get target program
+ - Change: getElementsByType checks Fixups off of DataElements
+ - Change: _fixParents now updates .fixup if it exists
+ - Bug: Fixed bug in size.py mutator.
+ - Bug: Fixed a couple bugs in peach-apport on Fedora
+ - Bug: Fixed HttpPost publisher to have correct parent
+ - Bug: Fixed when spawning local agent, agent would have a file handle to log
+ - Bug: Fixed non-working fault on exit parameter to windows debug engine
+ - Bug: Fixed small bug when re-naming elements.
+ - Bug: Fixed xpath issue were "ref" name was used instead of "name"
+ - Bug: Fixed slurp issue with slurping directly to a block
+ - Bug: Fixed edge-case issue in parser
+ - Bug: Fixed issue with Placement and fixups
+ - Bug: Fixed issue killing hung process on Windows
+ - Bug: Fixed several Linux related issues in PeachValidator.pyw
+ - Bug: Fixed cracking bug with padded strings
+ - Bug: Made some fixes to the COM publisher regarding Numbers
+ - Bug: Fixed incoming parsing when unsized blob next to choice with tokens
+ - Bug: Fixed a bug with 24 bit Numbers causing crash
+ - Bug: Early termination of process could cause psutil exception
+
+v2.3.8
+------
+
+ - New: Moving to Python 2.7, this is the final python 2 version.
+ - New: Peach filesystem logger now always writes out first test case #
+ - New: Peach filesystem logger logs test case skipping
+ - New: Peach logging better detects crashes/ctrl+c and logs last test case #
+ - New: CleanupRegistry monitor added
+ - New: FilePerIteration publisher supports "##FILEBASE##" in filename
+ - New: Publishers now have self.parent set by parser code.
+ - New: DataModel can be defined inside of Action
+ - New: Timeout and iteration repeat when debugger hangs
+ - New: Windows Kernel module for fuzzing in Kernel space
+ - New: Nice error message for some Publisher parsing exceptions
+ - New: --seed paramter to set random seed
+ - New: <Strategy> element added to <Test>
+ - New: file system logger now logs command line
+ - New: file system logger now logs pit file name
+ - Change: Aliased internal analyzers to XmlAnalyzer, Asn1Analyzer, BinaryAnalyzer,
+           PitXmlAnalyzer, WireSharkAnalyzer, StringTokenAnalyzer
+ - Change: --strategy command line argument depricated
+ - Change: No longer warn when Unix debugger does not load
+ - Change: Now using psutil module to get cpu time
+ - Change: Added <Agent/> back to template.xml
+ - Change: Removed warning about vtrace/windbg not loading
+ - Change: Random SEED now logged
+ - Change: You can now --skipto in Random Strategy
+ - Change: Added Udp6Listener publisher
+ - Change: First iteration must work, else we stop
+ - Change: Updated peach.xsd to include raw.* publishers and udp.UdpListener
+ - Bug: COM publisher was not using "WithNode" mode to get Python data type
+ - Bug: Capture more stack traces when Publisher miss-configured
+ - Bug: Fixed parsing of hex values from XML
+ - Bug: Bug loading analyzers
+ - Bug: Not loading custom analyzer modules when asCommandLine enabled.
+ - Bug: valueType of literal was not always evaulated
+ - Bug: Fixed several bugs in Peach Shark.
+ - Bug: When a count relation goes into an array that can be 0, remove
+        relation-ship when array is 0, but only if a count is providing the 0.
+ - Bug: Inconsistent behaviour with exceptions and watchers/agents/publishers
+ - Bug: EngineWatcher.OnStopRun/Logger.OnStopRun was not being called correctly
+ - New: New IPv6 Raw publisher (raw.Raw6) added.
+ - Bug: Fixed ValidValues mutator/hint to work with Numbers
+ - Bug: XmlElement/XmlAttributes: xmlns:n attributes moving to parent element.
+        fixed by moving to internal python xml module instead of 4suite.
+        Also not pretty printing :)
+
+v2.3.7
+------
+
+ - New: UdpMonitor monitor will trigger fault when UDP packet received.
+ - New: Tool mincrash.py will try to locate the min change for cash.
+ - New: Exposing new Asn1 data element that used to be internal only.
+ - New: Windows debugger will use processor CPU time to close the process earlier
+        for file fuzzing.
+ - New: Peach now logs the file name of the origional file if one was used
+        as the data source.  This makes matching up files easier when using
+        a large sample set.
+ - New: Added monitor for OS X that uses Crash Wrangler to detect faults
+        and perform bucketing (osx.CrashWrangler).
+ - New: Added new publishers under process called Launcher, LauncherGui,
+        DebuggerLauncher, and DebuggerLauncherGui.  Implemented to better
+        support multi publisher capabilities in Peach.
+ - Change: Updated minset to work better
+ - Change: Updated some of the samples to reflect multiple publishers
+ - Change: Depricated several Publishers such as FileWriterLauncher*.  Should
+           now make use of multiple publishers and use Launcher* and DebuggerLauncher*
+ - Change: New version of PyDbgEng used (v0.14).
+ - Change: Added ProcessName to CrashReporter
+ - Change: OS X: Kill Finder, Dock, and SystemUIServer every 1,000 iterations
+ - Bug: Fixed stupid error with logger path
+ - Bug: "Path" feature broken, fixed
+ - Bug: Patch for bug in shark applied
+ - Bug: Fixed small crash bug in binary analyzer related to shorts
+ - Bug: Changed number of stack frames to display due to DOS issue.
+ - Bug: Fixed crash in agent when mutator ran outo f memory
+ - Bug: Random strategy may miss removing some non-mutable elements
+ - Bug: Random sequence fixup now checks the underlying Number's size.
+ - Bug: Fixed messages for unfound references to show unfound reference
+ - Bug: Fixed Data expression handling to allow for external imports
+ - Bug: Fixed odd bug with size relations and non-relation arrays.
+ - Bug: Fixed bug in Dual CRC Fixup
+ - Bug: Fixed some bugs around Windows kernel debugging
+ - Bug: Fixed bug in process.Process causing the process to always be restarted
+ - Bug: Placement after/before reference found via data model, not placement
+        causing placements to be at the wrong element sometimes.
+ - Bug: Fixed some slow mutations in BlobMutator
+ - Bug: Small bug-fix added to struct2peach.pl script.
+ - Bug: Will now try to import the module prefix of a custom strategy.
+ - Bug: Fixed a couple bugs related to opening and closing processes
+        on OS X using the FileWriterLauncher.
+ - Bug: Fixed couple bugs in XmlAnalyzer when attached to a String
+
+
+v2.3.6
+------
+
+ - New: Multiple Publishers are now supported by adding a "name" attribute
+        to the <Publisher> element and a "publisher" attribute to <Action>.
+ - Changed: Improved Agent to Publisher communication, increasing fuzzing speed
+ - Changed: Improved osx.CrashReporter monitor.  More reliable now.
+ - Bug: Fixed issue were Peach Validator would not always run analyzers
+ - Bug: Updated WireShark Analyzer to use <DataModel> instead of <Template>
+ - Bug: Fixed bug with ASCII strings containing char values over 127
+ - Bug: Fixed bug in <Choice> fast checking.
+ - Bug: Fixed minor issue with <Result> cracking (marked data as haveAll).
+ - Bug: Fixed two bugs in UdpListener
+ - Bug: StringMutator changed to set currentValue instead of finalValue.
+        fixes bugs related to NULL termination or Unicode encodings.
+ - Bug: Windows Debugger module didn't have CRLF line feeds causing
+        notepad to display stacktrace wrong.
+ - Bug: Random freeze while calculating frames in stack trace
+ - Bug: Strings loose NULL termination when being mutated
+
+
+v2.3.5
+------
+
+ - New: minset promoted to first tier tool, now compiled
+ - New: Action when attribute has a new method available, 'getXml()'
+        to allow for using xpaths in when expressions.
+ - New: Action when attribute has access to the 'random' module
+ - New: Windows Debugger now has IgnoreSecondChanceGardPage option
+ - New: New reproduction strategy for running pre-fuzzed files.
+ - New: New default strategy is deterministic and random
+ - New: New more agressive Blob mutator
+ - New: Data fileName attribute can now specify multiple files.
+        This will only work with the random mutation strategy.
+        Files will be switched every 100 iterations by default,
+        but switchCount attribute can change that.  Unix glob
+        support ("folder/*/*.gif"), filename, or folder path.
+ - New: Tcp publisher has new "throttle" parameter to specify wait
+        time between connections.
+ - New: Windows debugger module now suppoerts attaching by PID
+ - New: !exploitable windbg module included in distribution
+ - New: Flags now supported enabling padding to behave like structs
+ - New: Cracking optimizations for Choice blocks added
+ - Changed: Updated minset.py to use pydbgeng
+ - Changed: Use random filename to move data between debugger threads
+ - Changed: Xml Analyzer, default string type now utf8
+ - Changed: Windows Debugger no longer takes mini-dump
+ - Changed: Enabled mutator ValidValuesMutator by default
+ - Changed: UnixDebugger updated to support new file fuzzing model
+ - Changed: Cracker will throw exception if it cannot size a Blob
+ - Changed: Optmized test cases for small Numbers
+ - Changed: Binary analyzer changes how it locates strings as needed
+ - Changed: Random mutation strategy more agressive
+ - Changed: Data loaded by <Data fileName=""/> failes we will exit
+ - Changed: Improved accuracy of count vs. actual rounds
+ - Changed: Unix Debugger now uses multiprocessing module
+ - Bug: Fixed a couple odd bugs in Flags/Flag
+ - Bug: Fixed bug in Memory agent
+ - Bug: Fixed bug in Network Pcap agent
+ - Bug: Fixed checksum fixup to alwasy return positive crc32
+ - Bug: Fixed bug were sequencial mutator strategy would throw an exception
+ - Bug: Cracker updated to better handle Choices inside of Choices
+ - Bug: Fixed bug in UnixDebugger & vtrace where threads are not 
+        being released.
+ - Bug: Fixed bug in UnixDebugger were vtrace file handles were not
+        being released.
+ - Bug: Fixed bug with relations and complex Choice blocks
+
+
+v2.3.4
+------
+
+ - New: Pech Validator now runs Analyzers
+ - Changed: Moved Flags to use a bit buffer class
+ - Changed: Listening for ExitProcess event in Debugger
+ - Changed: Improved random mutation weighting system
+ - Changed: Improved paired token support in StringTokenizer
+
+
+v2.3.3
+------
+
+ - Bug: Fixed bug with Numerical mutators and Flags
+ - Bug: Flags parsing backwards
+ - Changed: Console output now shows element being modified
+
+
+v2.3.2
+------
+
+ - Change: Windows debugger runs in seprate process
+ - Change: Patch for Linux Ping Monitor support
+
+
+v2.3.1
+------
+
+ - New: Added --range parameter to commandline
+ - New: Improved start time of mutators
+ - New: SMTP Publisher
+ - New: AirPcap publisher
+ - New: Generate fault log when agent connection fails.
+ - Change: Estimated complete time updated every 20 iterations instead of 40.
+ - Depricated: Peach Builder -- To far out of date currently
+ - Bug: Fixed command line parsing for -p from batch files
+ - Bug: Win32 Dependencies batch files, fixed broken names
+ - Bug: Removed assert checks from mutators
+ - Bug: Reset debugger log buffer on each test
+ - Bug: Misc bugs found testing with complex fuzzer definitions
+ - Bug: Unicode bug fixes
+ - Bug: self.find('element') failed when inside of two sized Blocks.
+ - Bug: Fixed off-by-one error on --skipto
+
+
+v2.3
+----
+
+ - Analyzers.  Asn1, Xml, Binary, StringToken, WireShark
+ - Mutation Strategies.  Sequencial is default, also "random"
+ - Standardized common methods in expressions
+ - XmlElement and XmlAttribute type
+ - Asn1Type
+ - Hint: NumericalString
+ - Binary Analyzer checks to see if string is number and apply
+   NumericalString hint
+ - StringToken Analyzer adds NumericalString hint
+ - XmlElement/XmlAttribute add NumericalString hint
+ - Constraints (v2.2? or 2.3?)
+ - Complex structures with pointers using CTypes
+ - Data sets can set arrays
+ - Data sets can select Choice child
+ - Unicode mutators
+ - Added true unicode support
+ - UTF8 support
+ - Internally all strings are unicode
+ 
+ - Bug fixes.  More bug fixes than you can shake a stick at.
+
+
+v2.2
+----
+
+ [ Incomplete ]
+
+ - Removed Application Verifier support
+
+
+= END =

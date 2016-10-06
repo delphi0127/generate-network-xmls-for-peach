@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty">
+  <modification-date>2003-12-07 15:49:48</modification-date>
+  <abstract/>
+  <description/>
+  <modules>
+    <module-reference public="yes" documented="yes" name="Xvif" realname="Ft.Xml.ThirdParty.Xvif">
+      <abstract>#empty file</abstract>
+      <description/>
+    </module-reference>
+  </modules>
+  <globals>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Revision: 1.1 $'</value>
+    </global>
+  </globals>
+</module>

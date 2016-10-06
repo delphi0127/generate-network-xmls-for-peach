@@ -1,0 +1,1615 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.AttributeInfo">
+  <modification-date>2006-08-17 13:09:45</modification-date>
+  <abstract>Classes that support validation and evaluation of attribute values in
+XSLT instruction elements</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="AnyAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="AnyAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="AnyAvt-display">
+          <value>'any avt'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="AttributeInfo" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="no" name="__init__" id="AttributeInfo-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="required"/>
+            <arg default="None" name="default"/>
+            <arg default="''" name="description"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="AttributeInfo-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="prepare" id="AttributeInfo-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="AttributeInfo-prepare" name="reprocess" realname="prepare" id="AttributeInfo-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="AttributeInfo-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validation"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="AttributeInfo-display">
+          <value>'unknown'</value>
+        </member>
+      </members>
+    </class>
+    <class name="Avt" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="no" name="__str__" id="Avt-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="prepare" id="Avt-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="BooleanExpression" public="yes">
+      <bases>
+        <base documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="BooleanExpression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="BooleanExpression-display">
+          <value>'boolean-expression'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Char" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract>A string value with a length of one</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Char" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Char-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Char-prepare" name="reprocess" realname="prepare" id="Char-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Char-display">
+          <value>'char'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="CharAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Char" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="CharAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Char" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="Char" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Char" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Choice" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Choice" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="no" name="__init__" id="Choice-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="values"/>
+            <arg default="0" name="required"/>
+            <arg default="None" name="default"/>
+            <arg default="''" name="description"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="no" name="__str__" id="Choice-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" name="prepare" id="Choice-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Choice-prepare" name="reprocess" realname="prepare" id="Choice-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ChoiceAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Choice" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ChoiceAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Choice" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="no" name="__str__" id="ChoiceAvt-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="Choice" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="Expression" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract>An attribute whose value is used as an XPath expression</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Expression-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Expression-display">
+          <value>'expression'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="ExpressionWrapper" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ExpressionWrapper" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="ExpressionWrapper" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="no" name="__getattr__" id="ExpressionWrapper-__getattr__">
+          <abstract>Make this behave as if it was the expression object itself.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="attr"/>
+          </arguments>
+        </method>
+        <method public="no" name="__getstate__" id="ExpressionWrapper-__getstate__">
+          <abstract># Provide the copy/pickle helpers so as to not get them from the
+# wrapped expression.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="ExpressionWrapper-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expression"/>
+            <arg name="element"/>
+            <arg name="original"/>
+          </arguments>
+        </method>
+        <method public="no" name="__nonzero__" id="ExpressionWrapper-__nonzero__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__setstate__" id="ExpressionWrapper-__setstate__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="state"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ExpressionWrapper-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Id" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Id" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Id-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Id-prepare" name="reprocess" realname="prepare" id="Id-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Id-display">
+          <value>'id'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="IdAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Id" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="IdAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Id" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="Id" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Id" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NCName" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NCName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="NCName-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="NCName-prepare" name="reprocess" realname="prepare" id="NCName-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="NCName-display">
+          <value>'ncname'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NCNameAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="NCName" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NCNameAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="NCName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="NCName" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NCName" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NMToken" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NMToken" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="NMToken-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="NMToken-prepare" name="reprocess" realname="prepare" id="NMToken-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="NMToken-display">
+          <value>'nmtoken'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NMTokenAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="NMToken" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NMTokenAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="NMToken" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="NMToken" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NMToken" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NodeSetExpression" public="yes">
+      <bases>
+        <base documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NodeSetExpression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="NodeSetExpression-display">
+          <value>'node-set-expression'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Number" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Number" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Number-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Number-prepare" name="reprocess" realname="prepare" id="Number-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Number-display">
+          <value>'number'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NumberAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Number" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NumberAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Number" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="reprocess" realname="prepare" id="NumberAvt-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="Number" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Number" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NumberExpression" public="yes">
+      <bases>
+        <base documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NumberExpression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="NumberExpression-display">
+          <value>'number-expression'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Pattern" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract>An attribute whose value is used as an XPattern expression</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Pattern" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Pattern-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Pattern-display">
+          <value>'pattern'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Prefix" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Prefix-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Prefix-prepare" name="reprocess" realname="prepare" id="Prefix-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Prefix-display">
+          <value>'prefix'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="PrefixAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PrefixAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="Prefix" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Prefix" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Prefixes" public="yes">
+      <bases>
+        <base documented="yes" class="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract>A whitespace separated list of prefixes (see Prefix for more information)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Prefixes" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Prefixes-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Prefixes-prepare" name="reprocess" realname="prepare" id="Prefixes-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Prefixes-display">
+          <value>'prefixes'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="PrefixesAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Prefixes" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PrefixesAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Prefixes" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Prefix" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="Prefixes" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Prefixes" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="QName" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="QName-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="QName-prepare" name="reprocess" realname="prepare" id="QName-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="QName-display">
+          <value>'qname'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="QNameAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="QNameAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="QNameButNotNCName" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="QNameButNotNCName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="QNameButNotNCName-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="QNameButNotNCName-prepare" name="reprocess" realname="prepare" id="QNameButNotNCName-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="QNameButNotNCName-display">
+          <value>'qname-but-not-ncname'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="QNames" public="yes">
+      <bases>
+        <base documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract>A whitespace separated list of qnames (see QName for description of a qname)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="QNames" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="QNames-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="QNames-prepare" name="reprocess" realname="prepare" id="QNames-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="QNames-display">
+          <value>'qnames'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="QNamesAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="QNames" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="QNamesAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="QNames" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="QNames" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="QNames" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="RawQName" public="yes">
+      <bases>
+        <base documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RawQName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="RawQName-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="RawQName-prepare" name="reprocess" realname="prepare" id="RawQName-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <inherited-members documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="RawQNameAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="RawQName" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RawQNameAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="RawQName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="QName" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="RawQName" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="QName" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="String" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="String" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="String-display">
+          <value>'string'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="StringAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="String" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="StringAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="String" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="String" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="StringExpression" public="yes">
+      <bases>
+        <base documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="StringExpression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Expression" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="StringExpression-display">
+          <value>'string-expression'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Expression" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Token" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract>An attribute whose value is used as an XPath NameTest</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Token-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Token-prepare" name="reprocess" realname="prepare" id="Token-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Token-display">
+          <value>'token'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="TokenAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TokenAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="Token" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Token" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Tokens" public="yes">
+      <bases>
+        <base documented="yes" class="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract>A whitespace separated list of tokens (see Token for description of a token)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Tokens" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="Tokens-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="Tokens-prepare" name="reprocess" realname="prepare" id="Tokens-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="Tokens-display">
+          <value>'tokens'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="TokensAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="Tokens" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TokensAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Tokens" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Token" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="Tokens" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Tokens" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="UriReference" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="UriReference" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="no" name="__init__" id="UriReference-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="required"/>
+            <arg default="None" name="default"/>
+            <arg default="''" name="description"/>
+            <arg default="0" name="isNsName"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" name="prepare" id="UriReference-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="UriReference-prepare" name="reprocess" realname="prepare" id="UriReference-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="UriReference-display">
+          <value>'uri-reference'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="UriReferenceAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="UriReference" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="UriReferenceAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="UriReference" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="UriReference" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="UriReference" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="YesNo" public="yes">
+      <bases>
+        <base documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="YesNo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="yes" name="prepare" id="YesNo-prepare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+        <method public="yes" realid="YesNo-prepare" name="reprocess" realname="prepare" id="YesNo-reprocess">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        </method>
+      </methods>
+      <members name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member public="yes" name="display" id="YesNo-display">
+          <value>'&quot;yes&quot; | &quot;no&quot;'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="YesNoAvt" public="yes">
+      <bases>
+        <base documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base documented="yes" class="YesNo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="YesNoAvt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="Avt" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="YesNo" module="Ft.Xml.Xslt.AttributeInfo"/>
+        <base name="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="Avt" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="prepare" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="YesNo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="reprocess" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="YesNo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="display" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="AttributeInfo" module="Ft.Xml.Xslt.AttributeInfo">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="validate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="_ConstantValue" public="no">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_ConstantValue" module="Ft.Xml.Xslt.AttributeInfo"/>
+      </method-resolution-order>
+      <methods name="_ConstantValue" module="Ft.Xml.Xslt.AttributeInfo">
+        <method public="no" name="__init__" id="_ConstantValue-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="no" name="__nonzero__" id="_ConstantValue-__nonzero__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="_ConstantValue-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="_ConstantValue-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isConstant" id="_ConstantValue-isConstant">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+    author="Hanifi Gunes" description="Path Data Example">
+    
+    <!--
+        
+        This sample shows the usage of data element at test-level
+        
+        Syntax:
+        
+        python peach.py samples\path-data.xml
+        
+        Output:
+        
+        This example will run 2 "tests". 
+        The first one should output "Action Level Hello World!",
+        and the other one "Test Level World!"
+        
+        Authors:
+        Hanifi Gunes (hanifigunes@gmail.com)
+        
+    -->
+    
+    <!-- Import defaults for Peach instance -->
+    <Include ns="default" src="file:defaults.xml" />
+    
+    <!-- Create a simple data template containing a single string -->
+    <DataModel name="LevelTemplate">
+        <String name="String0" value="This shouldn't be displayed ;)" isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="HelloTemplate">
+        <String name="String0" value="Hello " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="WorldTemplate">
+        <String name="String0" value="World!  " isStatic="true" />
+    </DataModel>
+    
+    
+    
+    <StateModel name="StateMachine0" initialState="State1">
+        <State name="State1">
+            <Action type="output">
+                <DataModel ref="LevelTemplate"/>
+                <Data name="Data0">
+                    <Field name="String0" value="Action Level " valueType="string"/>
+                </Data>
+            </Action>
+            <Choice>
+                <Action type="changeState" ref="State2"/>
+                <Action type="changeState" ref="State3"/>
+            </Choice>
+        </State>
+        
+        <State name="State2">
+            <Action type="output">
+                <DataModel ref="HelloTemplate"/>
+            </Action>
+            <Action type="changeState" ref="State3"/>
+        </State>
+        
+        <State name="State3">
+            <Action type="output">
+                <DataModel ref="WorldTemplate"/>
+            </Action>
+        </State>
+    </StateModel>
+    
+    <Test name="ActionLevelDataTest">
+        <StateModel ref="StateMachine0">
+            <Path ref="State1"/>
+            <Path ref="State2"/>
+        </StateModel>
+        <!-- Display test cases to the console -->
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <Test name="TestLevelDataTest">
+        <StateModel ref="StateMachine0">
+            <Path ref="State1">
+                <Data name="Data0">
+                    <Field name="String0" valueType="string" value="Test Level "/>
+                </Data>
+            </Path>
+            <Path ref="State3"/>
+        </StateModel>
+        <!-- Display test cases to the console -->
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <!-- Configure a single run -->
+    <Run name="DefaultRun" description="Stdout Data Run">
+        
+        <Test ref="ActionLevelDataTest" />
+        <Test ref="TestLevelDataTest" />
+        
+    </Run>
+    
+</Peach>
+<!-- end -->

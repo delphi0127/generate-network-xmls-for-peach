@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+    author="Hanifi Gunes" description="Mutatable Example">
+    
+    <!-- 
+
+         This example shows how to use Include/Exclude elements to specify elements being fuzzed or not.
+         
+         
+         Syntax:
+         python peach.py mysamples\mutatable.xml
+         
+         
+         Output:
+         
+         <Include ref="..."/>
+         <Exclude ref="..."/>
+         
+         Instead of ref attribute, an xpath definition can also be given but for simplicity, only ref is used 
+         in this example (a mixture can be also possible; no restriction at all).
+         
+         This sample should do:
+         1) Exclude everything 
+         2) Include(fuzz) StateMachine->Action0->OneTemplate->Block0->Block1
+         3) Include StateMachine->Action0->TwoTemplate->Block2 
+         4) Exclude StateMachine->Action0->TwoTemplate->Block2->Block3->String1
+         
+         Note that all inclusions and exclusions are evaluated with respect to their parent's scope 
+             and they take effect recursively.  
+         
+         Authors:
+         Hanifi Gunes (hanifigunes@gmail.com)
+     
+    -->
+    
+    <!-- Import defaults for Peach instance -->
+    <Include ns="default" src="file:defaults.xml" />
+    
+    <!-- Create a simple data template containing a single string -->
+    <DataModel name="OneTemplate">
+        <Block name="Block0">
+            <String name="String0" value="1_Block0 " isStatic="true" />    
+            <Block name="Block1">
+                <String name="String0" value="1_Block1 " isStatic="true" />
+            </Block>
+        </Block>
+    </DataModel>
+    
+    <DataModel name="TwoTemplate">
+        <Block name="Block0">
+            <String name="String0" isStatic="true" value="2_Block0 "/>
+            <Block name="Block1">
+                <String name="String0" isStatic="true" value="2_Block1 "/>
+            </Block>
+        </Block>
+        <Block name="Block2">
+            <String name="String0" isStatic="true" value="2_Block2 "/>
+            <Block name="Block3">
+                <String name="String0" isStatic="true" value="2_Block3_String0 "/>
+                <String name="String1" isStatic="true" value="2_Block3_String1 "/>
+            </Block>
+        </Block>
+    </DataModel>
+    
+    <DataModel name="ThreeTemplate">
+        <String name="String0" value="Three " />
+    </DataModel>
+    
+    <StateModel name="StateMachine" initialState="State1">
+        <State name="State1">
+            <Action name="Action0" type="output">
+                <DataModel ref="OneTemplate"/>
+            </Action>
+            <Choice>
+                <Action type="changeState" ref="State2"/>
+                <Action type="changeState" ref="State3"/>
+            </Choice>
+        </State>
+        
+        <State name="State2">
+            <Action name="Action0" type="output">
+                <DataModel ref="TwoTemplate"/>
+            </Action>
+            <Action type="changeState" ref="State3"/>
+        </State>
+        
+        <State name="State3">
+            <Action name="Action0" type="output">
+                <DataModel ref="ThreeTemplate"/>
+            </Action>
+        </State>
+    </StateModel>
+    
+    <Test name="FirstTest">
+        <Exclude/>
+        
+        <StateModel ref="StateMachine">
+            <Path ref="State1">
+                <Include ref="Action0.OneTemplate.Block0.Block1"/>
+            </Path>
+            <Path ref="State2">
+                <Include ref="Action0.TwoTemplate.Block2"/>
+                <Exclude ref="Action0.TwoTemplate.Block2.Block3.String1"/>
+            </Path>
+            <Stop/>
+        </StateModel>
+        
+        <!-- Display test cases to the console -->
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <!-- Configure a single run -->
+    <Run name="DefaultRun" description="Stdout Run">
+        <Test ref="FirstTest" />
+    </Run>
+    
+</Peach>
+<!-- end -->

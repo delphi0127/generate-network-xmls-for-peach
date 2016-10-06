@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="TestCase">
+		<Block name="Seq1">
+			<Block name="Block2">
+				<String name="data" isStatic="true" value="foo" />
+			</Block>
+		</Block>
+	</DataModel>
+	
+	<Data name="TheData" DataModel="TestCase">
+		<Field name="Seq1.Block2.data" value="DataForPeach" />
+	</Data>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action type="start" />
+			<Action type="connect" />
+			
+			<Action type="output" name="HeaderIn">
+				<DataModel ref="TestCase" />
+				<Data name="TestData" ref="TheData" />
+			</Action>			
+			
+			<Action type="close" />
+			<Action type="stop" />
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

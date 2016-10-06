@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>4XPath initialization and principal functions</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="BuiltInExtFunctions" realname="Ft.Xml.XPath.BuiltInExtFunctions">
+      <abstract>4XPath-specific extension functions</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/
+
+Extension functions are implemented by a module, such as this one,
+that defines an ExtFunctions global dictionary that maps (namespace,
+local-name) string tuples to a corresponding Python function. The
+function must take a Context object as the first argument, and any
+additional arguments accepted will correspond to the arguments passed
+in. See other API docs to see how to make use of modules that contain
+ExtFunctions.</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Context" realname="Ft.Xml.XPath.Context">
+      <abstract>The context of an XPath expression</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Context" realname="Ft.Xml.XPath.Context">
+      <abstract>The context of an XPath expression</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Conversions" realname="Ft.Xml.XPath.Conversions">
+      <abstract>The implementation of the XPath object type conversions.</abstract>
+      <description>Copyright 2000-2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CoreFunctions" realname="Ft.Xml.XPath.CoreFunctions">
+      <abstract>The implementation of the core functions from XPath 1.0.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="MathFunctions" realname="Ft.Xml.XPath.MathFunctions">
+      <abstract>4XPath-specific math extension functions</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="MessageSource" realname="Ft.Xml.XPath.MessageSource">
+      <abstract>XPath error codes and messages</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedAbbreviatedAbsoluteLocationPath" realname="Ft.Xml.XPath.ParsedAbbreviatedAbsoluteLocationPath">
+      <abstract>A parsed token that represents an abbreviated absolute location path.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedAbbreviatedRelativeLocationPath" realname="Ft.Xml.XPath.ParsedAbbreviatedRelativeLocationPath">
+      <abstract>A parsed token that represents a abbreviated relative location path.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedAbsoluteLocationPath" realname="Ft.Xml.XPath.ParsedAbsoluteLocationPath">
+      <abstract>A Parsed Token that represents a absolute location path in the parsed tree.
+WWW: http://4suite.org/XPATH        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2000-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedAxisSpecifier" realname="Ft.Xml.XPath.ParsedAxisSpecifier">
+      <abstract>A parsed token that represents an axis specifier.</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedExpr" realname="Ft.Xml.XPath.ParsedExpr">
+      <abstract>The implementation of parsed XPath expression tokens.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedNodeTest" realname="Ft.Xml.XPath.ParsedNodeTest">
+      <abstract>A parsed token that represents a node test.</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedPredicateList" realname="Ft.Xml.XPath.ParsedPredicateList">
+      <abstract>A parsed token that represents a predicate list.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedRelativeLocationPath" realname="Ft.Xml.XPath.ParsedRelativeLocationPath">
+      <abstract>A parsed token that represents a relative location path in the parsed result tree.
+    
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</abstract>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedStep" realname="Ft.Xml.XPath.ParsedStep">
+      <abstract>A parsed token that represents a step.</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Util" realname="Ft.Xml.XPath.Util">
+      <abstract>General utilities for XPath applications</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPathParserc" realname="Ft.Xml.XPath.XPathParserc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPathTypes" realname="Ft.Xml.XPath.XPathTypes">
+      <abstract>Mappings between Python types and standard XPath object types</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="no" documented="yes" name="_4xpath" realname="Ft.Xml.XPath._4xpath">
+      <abstract>Implementation of '4xpath' command
+(functions defined here are used by the Ft.Lib.CommandLine framework)</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="no" documented="yes" name="_comparisons" realname="Ft.Xml.XPath._comparisons">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="no" documented="yes" name="_conversions" realname="Ft.Xml.XPath._conversions">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="g_parser" realname="Ft.Xml.XPath.XPathParserc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="parser" realname="Ft.Xml.XPath.XPathParserc">
+      <abstract/>
+      <description/>
+    </module-reference>
+  </modules>
+  <classes>
+    <class name="CompiletimeException" public="yes">
+      <bases>
+        <base documented="yes" class="XPathException" module="Ft.Xml.XPath"/>
+      </bases>
+      <abstract>The exception raised when an error is encountered during the
+parsing or compilation of an XPath expression.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="CompiletimeException" module="Ft.Xml.XPath"/>
+        <base name="XPathException" module="Ft.Xml.XPath"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="CompiletimeException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <var-args name="args"/>
+          </arguments>
+          <overrides documented="yes" class="XPathException" module="Ft.Xml.XPath"/>
+        </method>
+      </methods>
+      <members name="Exception">
+        <member public="no" name="INTERNAL" id="CompiletimeException-INTERNAL">
+          <value>1</value>
+        </member>
+        <member public="no" name="SYNTAX" id="CompiletimeException-SYNTAX">
+          <value>2</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="RuntimeException" public="yes">
+      <bases>
+        <base documented="yes" class="XPathException" module="Ft.Xml.XPath"/>
+      </bases>
+      <abstract>The exception raised when an error is encountered during the
+parsing or evaluation of an XPath expression.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="RuntimeException" module="Ft.Xml.XPath"/>
+        <base name="XPathException" module="Ft.Xml.XPath"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="RuntimeException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <var-args name="args"/>
+          </arguments>
+          <overrides documented="yes" class="XPathException" module="Ft.Xml.XPath"/>
+        </method>
+      </methods>
+      <members name="Exception">
+        <member public="no" name="ARGCOUNT_ATLEAST" id="RuntimeException-ARGCOUNT_ATLEAST">
+          <value>202</value>
+        </member>
+        <member public="no" name="ARGCOUNT_ATMOST" id="RuntimeException-ARGCOUNT_ATMOST">
+          <value>204</value>
+        </member>
+        <member public="no" name="ARGCOUNT_EXACT" id="RuntimeException-ARGCOUNT_EXACT">
+          <value>203</value>
+        </member>
+        <member public="no" name="ARGCOUNT_NONE" id="RuntimeException-ARGCOUNT_NONE">
+          <value>201</value>
+        </member>
+        <member public="no" name="INTERNAL" id="RuntimeException-INTERNAL">
+          <value>1</value>
+        </member>
+        <member public="no" name="NO_CONTEXT" id="RuntimeException-NO_CONTEXT">
+          <value>10</value>
+        </member>
+        <member public="no" name="UNDEFINED_FUNCTION" id="RuntimeException-UNDEFINED_FUNCTION">
+          <value>102</value>
+        </member>
+        <member public="no" name="UNDEFINED_PREFIX" id="RuntimeException-UNDEFINED_PREFIX">
+          <value>101</value>
+        </member>
+        <member public="no" name="UNDEFINED_VARIABLE" id="RuntimeException-UNDEFINED_VARIABLE">
+          <value>100</value>
+        </member>
+        <member public="no" name="WRONG_ARGUMENTS" id="RuntimeException-WRONG_ARGUMENTS">
+          <value>200</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="XPathException" public="yes">
+      <bases>
+        <base documented="yes" class="FtException" module="Ft"/>
+      </bases>
+      <abstract>Base class for exceptions specific to XPath processing</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XPathException" module="Ft.Xml.XPath"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="XPathException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <arg name="messages"/>
+            <arg name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="Compile" id="Compile">
+      <abstract>Given an XPath expression as a string, returns an object that allows
+an evaluation engine to operate on the expression efficiently.
+This &quot;compiled&quot; expression object can be passed to the Evaluate
+function instead of a string, in order to shorten the amount of time
+needed to evaluate the expression.</abstract>
+      <description/>
+      <arguments>
+        <arg name="expr"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Evaluate" id="Evaluate">
+      <abstract>Evaluates the given XPath expression.</abstract>
+      <description>Two arguments are required: the expression (as a string or compiled
+expression object), and a context. The context can be given as a
+Domlette node via the 'contextNode' named argument, or can be given as
+an Ft.Xml.XPath.Context.Context object via the 'context' named
+argument.
+
+If namespace bindings or variable bindings are needed, use a
+Context object. If extension functions are needed, either use a
+Context object, or set the EXTMODULES environment variable to be a
+':'-separated list of names of Python modules that implement
+extension functions.
+
+The return value will be one of the following:
+node-set: list of Domlette node objects (xml.dom.Node based);
+string: Unicode string type;
+number: float type;
+boolean: Ft.Lib.boolean C extension object;
+or a non-XPath object (i.e. as returned by an extension function).</description>
+      <arguments>
+        <arg name="expr"/>
+        <arg default="None" name="contextNode"/>
+        <arg default="None" name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NormalizeNode" id="NormalizeNode">
+      <abstract>NormalizeNode is used to prepare a DOM for XPath evaluation.</abstract>
+      <description>1.  Convert CDATA Sections to Text Nodes.
+2.  Normalize all text nodes (adjacent nodes are merged into the first one).</description>
+      <arguments>
+        <arg name="node"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SimpleEvaluate" id="SimpleEvaluate">
+      <abstract>Designed to be the most simple/brain-dead interface to using XPath
+Usually invoked through Node objects using:
+  node.xpath(expr[, explicitNss])</abstract>
+      <description>expr - XPath expression in string or compiled form
+node - the node to be used as core of the context for evaluating the XPath
+explicitNss - (optional) any additional or overriding namespace mappings
+              in the form of a dictionary of prefix: namespace
+              the base namespace mappings are taken from in-scope
+              declarations on the given node.  This explicit dictionary
+              is suprimposed on the base mappings</description>
+      <arguments>
+        <arg name="expr"/>
+        <arg name="node"/>
+        <arg default="None" name="explicitNss"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+    <global public="yes" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+    <global public="yes" name="XPATH_NAMESPACE_NODE" id="XPATH_NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['XPATH_NAMESPACE_NODE', 'NAMESPACE_NODE', 'FT_EXT_NAMESPACE', 'XPathException', 'CompiletimeException', 'RuntimeException', 'g_parser', 'parser', 'Context', 'Compile', 'Evaluate', 'SimpleEvaluate', 'NormalizeNode']</value>
+    </global>
+  </globals>
+</module>

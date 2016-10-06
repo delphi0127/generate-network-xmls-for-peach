@@ -1,0 +1,220 @@
+########################################################################
+# $Header: /var/local/cvsroot/4Suite/README,v 1.12.4.3 2006/10/19 22:02:59 mbrown Exp $
+#
+# 4Suite README
+#
+
+4SUITE CONTENTS
+===============
+4Suite is a suite of Python modules for XML and RDF processing.
+Its major components include the following:
+
+ * Ft.Xml.Domlette: A very fast, lightweight XPath-oriented DOM.
+ * Ft.Xml.Sax: A very fast SAX 2 parser.
+ * Ft.Xml.XPath: An XPath 1.0 implementation for Domlette documents.
+ * Ft.Xml.Xslt: A robust XSLT 1.0 processor.
+ * Ft.Xml.XUpdate: An XUpdate processor.
+ * Ft.Lib: Various support libraries that can be used independently.
+ * Ft.Rdf: RDF processing tools, including a query/inference language.
+ * Ft.Server: An integrated document & RDF repository with web access.
+
+4Suite also includes convenient command-line tools:
+ * 4xml: XML document parsing and reserialization.
+ * 4xpath: XPath expression evaluation.
+ * 4xslt: XSLT processing engine.
+ * 4xupdate: XUpdate processing.
+ * 4rdf: RDF/XML parsing, persistence, querying and reserialization.
+ * 4ss_manager: Document/RDF repository administration.
+ * 4ss: Document/RDF repository user commands.
+
+Effective version 1.0b2, Ft.Lib and Ft.Xml are distributed as the
+"4Suite XML" release package. The Ft.Rdf and Ft.Server components will
+be packaged as separate add-ons after the 4Suite XML 1.0 release.
+If you need RDF or repository functionality before then, you must use
+the monolithic 4Suite 1.0b1 release for now.
+
+
+MINIMUM PREREQUISITES
+=====================
+* General requirements:
+  (1) The underlying platform must be either POSIX or Windows.
+      POSIX means any Unix-like OS, such as a major Linux distro,
+      FreeBSD, OpenBSD, NetBSD, Solaris, Cygwin, Mac OS X, etc.
+      Windows means Windows 2000, XP, or Server 2003. Windows 98, Me,
+      or NT might work, but no guarantees.
+  (2) Python 2.2.1 or higher.
+  (3) If building from source, a C compiler is required.
+
+* Additional requirements for certain features:
+  * Triclops (RDF graph visualizer in repository Dashboard) - GraphViz
+    (any version with the executable 'dot' or 'dot.exe').
+
+
+RECOMMENDATIONS
+===============
+* Use Python 2.3.5 or 2.4.4.
+* Use an official python.org Python distribution, not ActiveState's.
+* If PyXML is installed, make sure it is the latest version.
+* If installing PyXML after 4Suite, install PyXML with --without-xpath.
+
+
+OS-SPECIFIC INSTALLATION NOTES
+==============================
+* On POSIX, if building from source, the install step will result in a
+  build, if it hasn't been done already. The user doing the install
+  must have permission to write to all of the installation directories,
+  so it is typical to do the install, if not also the build, as root.
+  If you want to do the build step as a regular user, do it first with
+  'python setup.py build' as the regular user, then su to root, and run
+  'python setup.py install'.
+* Some Linux distros come with old versions of 4Suite. Try to remove
+  all traces of the old versions before installing the new.
+* Some POSIX platforms come with prebuilt versions of Python. Ensure
+  that the version you are using meets 4Suite's minimum prerequisites.
+  Some Python installations are missing libs and C headers, were built
+  with unusual options, or have other quirks that interfere with
+  building and using 4Suite. Affected users may need to replace their
+  Python installation, perhaps by building Python from source.
+* On Windows, if installing with the self-extracting .exe, keys from a
+  standard Python distribution from python.org must be present in the
+  Registry.
+* On Mac OS X, it is recommended by the pythonmac-sig to use the
+  universal installer for both PPC and Intel Macs instead of the system
+  supplied (Apple's) Python.
+
+
+GENERAL INSTALLATION
+====================
+On Windows, if installing from self-extracting .exe:
+  1. Just run the installer.
+
+On Red Hat Linux, if installing from .rpm archive:
+  1. Use 'rpm' in the normal way.
+
+On POSIX or Windows, if building from source:
+  1. Unpack the source distribution.
+  2. cd 4Suite
+  3. As root, run 'python setup.py install'
+
+  For custom build and installation options, see
+    'python setup.py --help'
+    'python setup.py config --help'
+    'python setup.py build --help'
+    'python setup.py install --help'
+
+  See more detailed instructions at
+    http://4suite.org/docs/UNIX.xml (POSIX)
+    http://4Suite.org/docs/Windows.xml (Windows)
+
+
+POST-INSTALL TESTING
+====================
+Extensive regression tests are bundled with 4Suite. After installation,
+you can go to the Tests directory (its installed location varies by
+platform) and follow the instructions in the README there.
+
+
+DOCUMENTATION
+=============
+Documentation is piecemeal and always a work-in-progress; sorry.
+As mentioned, detailed instructions for installation are on 4suite.org.
+
+Detailed instructions for setting up and using some of the repository
+features of 4Suite are at http://4suite.org/docs/QuickStart.xml
+
+An installation layout guide that describes common install locations
+and how the current installation system works is available at
+http://4suite.org/docs/installation-locations.xhtml
+
+Python API docs (in XML and HTML) can be generated when building from
+source by adding the option '--with-docs' to the setup.py invocation.
+These will end up in a documentation directory during the install;
+the exact location varies depending on the '--docdir'
+
+Pre-generated API docs (HTML only) can be downloaded from 4suite.org
+or from the 4Suite project page on SourceForge.
+
+A detailed users' manual covering 4Suite's XML processing features is
+available for viewing online at http://4suite.org/docs/CoreManual.xml.
+The HTML version is generated and distributed with the API docs.
+
+Many helpful and important docs can be found in Uche's Akara at
+http://uche.ogbuji.net/tech/akara/4suite/
+
+Any questions not answered by these docs should be asked on the 4Suite
+mailing list. See http://lists.fourthought.com/mailman/listinfo/4suite
+
+Developers and users can also confer via IRC on irc.freenode.net
+channel #4suite.
+
+
+ENVIRONMENT VARIABLES
+=====================
+None of these are necessary for a basic installation to work;
+this list is just for reference.
+
+FTSERVER_CONFIG_FILE = The absolute path of the repository config file.
+  Required if you want to use the repository features of 4Suite.
+
+FT_DATABASE_DIR = The directory to use for filesystem-based repository
+  database. Optional (will default) but recommended if using the
+  FlatFile repository driver.
+
+FTSS_USERNAME = Repository username to use when invoking 4ss command-
+  line tools, to avoid being prompted. This is overridden by
+  '4ss agent' or '4ss login' settings. Optional.
+
+FTSS_PASSWORD_FILE = The absolute path of the file in which to store
+  4ss command-line tool login information. Used by '4ss login'.
+  Optional (will default to a file in the user's home directory, or
+  the Windows folder on Windows).
+
+XML_CATALOG_FILES = The absolute paths or URIs of XML or TR9401 Catalogs
+  to use. Optional. Used by Ft.Xml.Catalog at import time. Items in the
+  list must be separated by os.pathsep (";" on Windows, ":" on POSIX).
+
+XSLTINCLUDE = The absolute paths from which alternative URIs for the
+  XSLT stylesheet will be derived, for the purpose of extending the
+  resolution capability of xsl:include and xsl:import instructions.
+  Optional. Used by the 4xslt command-line tool only.
+
+EXTMODULES = The names of Python modules that define XPath extension
+  functions and/or XSLT extension elements. Multiple modules must be
+  separated in the list by ":". Optional (this info can also be set
+  directly on instances of Ft.Xml.XPath.Context.Context or
+  Ft.Xml.Xslt.Processor.Processor).
+
+
+UPGRADING
+=========
+Detailed instructions are not available, sorry.
+
+Upgrading 4Suite from 0.11.1:
+  Remove all traces of 0.11.1 *and* PyXML first, since they were
+  integrated. Unset environment variables that were related to the
+  old version of 4Suite. Check your PATH; 4Suite 0.11.1 installed
+  command-line scripts to a different location than what you need now.
+  Also, update any Python scripts that you may have that rely on the
+  old APIs to use the new; for example, use Ft.Xml.XPath and Ft.Xml.Xslt
+  instead of xml.xpath and xml.xslt.
+
+Upgrading from 0.12.0a1, 0.12.0a2, 0.12.0a3, 1.0a1, 1.0a3:
+  Installation locations varied; remove as much as you can first.
+  Check your PATH; as of 4Suite 1.0a4, the command-line scripts
+  are installed to a different location than before, but the old
+  scripts will not be removed when the new ones are installed.
+
+  Repository users:
+  Upgrading can be tricky. First read
+  http://lists.fourthought.com/pipermail/4suite/2004-October/012933.html
+  Also, if there is a 4ss.conf in the same location as the where
+  the default server config file will be installed (e.g., in
+  /usr/local/lib/4Suite on Unix), it will be renamed, so be sure
+  that your FTSERVER_CONFIG_FILE still points to your own config file
+  (it's a good idea to move it out of the way of future upgrades).
+
+Upgrading from 1.0a4, 1.0b1, 1.0b2, 1.0b3, 1.0rc1, 1.0rc2:
+  There are no special instructions for upgrading from these versions.
+
+Keeping up-to-date with current development code:
+  See the CVS instructions at http://4suite.org/docs/4SuiteCVS.xml

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- TODO: Create data model -->
+	<DataModel name="TheDataModel">
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset0" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset1" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset2" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset3" />
+		</String>
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset4" />
+		</String>
+		
+		<String length="4" padCharacter=" ">
+			<Relation type="offset" of="Offset5" relative="true" />
+		</String>
+		
+		<Block name="Offset0">
+			<String name="Offset1" value="CRAZY STRING!" />
+			<Number name="Offset2" size="32" value="600" />
+			<Blob name="Offset3" value="aslkdjalskdjasdla" />
+			<Choice name="Offset4">
+				<String value="Foo Me!" />
+			</Choice>
+			<Flags name="Offset5" size="8">
+				<Flag position="0" size="4"/>
+			</Flags>
+		</Block>
+		
+	</DataModel>
+	
+	<!-- TODO: Create state model -->
+	<StateModel name="TheState" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="TheDataModel"/>
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TheState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<!-- Configure a single run -->
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+    author="Hanifi Gunes" description="Multiple Strategy Example">
+    
+    <!--
+        
+        This sample shows how to use multiple strategies.
+        
+        Syntax:
+        
+        python peach.py mysamples\multi-strategy.xml
+        
+        Output:
+        
+        This sample will run one test
+        and should output "First Second Third Fourth"
+        
+        Authors:
+        Hanifi Gunes (hanifigunes@gmail.com)
+        
+    -->
+    
+    <!-- Import defaults for Peach instance -->
+    <Include ns="default" src="file:defaults.xml" />
+    
+    <!-- Create a simple data template containing a single string -->
+    <DataModel name="FirstData">
+        <String name="String0" value="First " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="SecondData">
+        <String name="String1" value="Second  " isStatic="true" />
+    </DataModel>
+    
+    <DataModel name="ThirdData">
+        <String name="String0" value="Third " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="FourthData">
+        <String name="String0" value="Fourth" isStatic="true"/>
+    </DataModel>
+    
+    <StateModel name="StateMachine0" initialState="FirstState">
+        <State name="FirstState">
+            <Action type="output">
+                <DataModel ref="FirstData"/>
+            </Action>
+           
+            <Choice>
+                <Action type="changeState" ref="SecondState"/>
+                <Action type="changeState" ref="ThirdState"/>
+            </Choice>
+            <!-- -->
+        </State>
+        
+        <State name="SecondState">
+            <Action type="output">
+                <DataModel ref="SecondData"/>
+            </Action>
+            <Action type="changeState" ref="ThirdState"/>
+        </State>
+        
+        <State name="ThirdState">
+            <Action type="output">
+                <DataModel ref="ThirdData"/>
+            </Action>
+            <Choice>
+                <Action ref="FourthState" type="changeState"/>
+            </Choice>
+        </State>
+        
+        <State name="FourthState">
+            <Action type="output">
+                <DataModel ref="FourthData"/>
+            </Action>
+        </State>
+    </StateModel>
+    
+    <Test name="StrategyTest">
+        <StateModel ref="StateMachine0">
+            <Path ref="FirstState"/>
+            <Path ref="SecondState"/>
+            <Strategy class="random.RandomStrategy" >
+                <Param name="maxsteps" value="4"/>
+            </Strategy>
+            <Path ref="ThirdState"/>
+            <Path ref="FourthState"/>
+            <!-- We don't need to explicitly state this, we did it just to clarify things ;) -->
+            <Strategy class="default.StaticStrategy"/>
+        </StateModel>
+        <!-- Display test cases to the console -->
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <!-- Configure a single run -->
+    <Run name="DefaultRun" description="Stdout StrategyTest Run">
+        <Test ref="StrategyTest" />
+    </Run>
+    
+</Peach>
+<!-- end -->

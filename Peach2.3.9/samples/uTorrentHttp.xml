@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+    author="Michael Eddington">
+    
+    <!--
+        
+        Example fuzzing uTorrent HTTP
+        
+        Syntax:
+        
+        python peach.py -a
+        
+        python peach.py samples\uTorrentHttp.xml
+        
+        Output:
+        
+        
+        
+        Authors:
+        
+        Michael Eddington (mike@phed.org)
+        
+        $Id: uTorrentHttp.xml 1762 2009-06-11 23:46:24Z meddingt $
+        
+    -->
+    
+    <!-- Import defaults for Peach instance -->
+    <Include ns="default" src="file:defaults.xml" />
+    
+    <DataModel name="HttpRequest">
+        <String value="GET /gui/?list=1&amp;cid=2049540159&amp;getmsg=1 HTTP/1.1\r\nVia: 1.1 Snark\r\nHost: 127.0.0.1:8181\r\nUser-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11\r\nAccept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Language: en-us,en;q=0.5\r\nAccept-Encoding: gzip,deflate\r\nAccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\nKeep-Alive: 300\r\nReferer: http://127.0.0.1:8181/gui/\r\nAuthorization: Basic YWRtaW46aGVscG1l\r\nConnection: keep-alive\r\n\r\n" />
+    </DataModel>
+    
+	<StateModel name="State" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="HttpRequest" />
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://10.10.100.20:9000">
+    	<Monitor class="process.PageHeap">
+    		<Param name="Executable" value="utorrent.exe"/>
+    	</Monitor>
+    	<Monitor class="debugger.WindowsDebugger">
+            <Param name="Command" value="C:\Program Files\uTorrent\utorrent.exe" />
+            <Param name="Params" value="" />
+        </Monitor>
+    </Agent>
+    
+    <Test name="HttpRequestTest">
+        <StateModel ref="State" />
+        <Agent ref="LocalAgent" />
+        
+        <Publisher class="tcp.Tcp">
+            <Param name="host" value="10.10.100.20" />
+            <Param name="port" value="8181" />
+        </Publisher>
+    </Test>
+    
+    <Run name="DefaultRun">
+        <Test ref="HttpRequestTest" />
+        
+        <Logger class="logger.Filesystem">
+            <Param name="path" value="c:\peach\logUTorrentHttp" />
+        </Logger>
+    </Run>
+    
+</Peach>
+<!-- end -->

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.MessageSource">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>XSLT error codes and messages</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Error" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Error" module="Ft.Xml.Xslt.MessageSource"/>
+      </method-resolution-order>
+      <members name="Error" module="Ft.Xml.Xslt.MessageSource">
+        <member public="yes" name="APPLYIMPORTS_WITH_NULL_CURRENT_TEMPLATE" id="Error-APPLYIMPORTS_WITH_NULL_CURRENT_TEMPLATE">
+          <value>100</value>
+        </member>
+        <member public="yes" name="ATTRIBUTE_ADDED_TOO_LATE" id="Error-ATTRIBUTE_ADDED_TOO_LATE">
+          <value>150</value>
+        </member>
+        <member public="yes" name="ATTRIBUTE_ADDED_TO_NON_ELEMENT" id="Error-ATTRIBUTE_ADDED_TO_NON_ELEMENT">
+          <value>152</value>
+        </member>
+        <member public="yes" name="AVT_EMPTY" id="Error-AVT_EMPTY">
+          <value>84</value>
+        </member>
+        <member public="yes" name="AVT_SYNTAX" id="Error-AVT_SYNTAX">
+          <value>83</value>
+        </member>
+        <member public="yes" name="BAD_ATTRIBUTE_NAME" id="Error-BAD_ATTRIBUTE_NAME">
+          <value>154</value>
+        </member>
+        <member public="yes" name="CHOOSE_REQUIRES_WHEN" id="Error-CHOOSE_REQUIRES_WHEN">
+          <value>121</value>
+        </member>
+        <member public="yes" name="CIRCULAR_ATTRIBUTE_SET" id="Error-CIRCULAR_ATTRIBUTE_SET">
+          <value>222</value>
+        </member>
+        <member public="yes" name="CIRCULAR_INCLUDE" id="Error-CIRCULAR_INCLUDE">
+          <value>113</value>
+        </member>
+        <member public="yes" name="CIRCULAR_VAR" id="Error-CIRCULAR_VAR">
+          <value>29</value>
+        </member>
+        <member public="yes" name="DOC_FUNC_EMPTY_NODESET" id="Error-DOC_FUNC_EMPTY_NODESET">
+          <value>1000</value>
+        </member>
+        <member public="yes" name="DUPLICATE_DECIMAL_FORMAT" id="Error-DUPLICATE_DECIMAL_FORMAT">
+          <value>270</value>
+        </member>
+        <member public="yes" name="DUPLICATE_NAMED_TEMPLATE" id="Error-DUPLICATE_NAMED_TEMPLATE">
+          <value>142</value>
+        </member>
+        <member public="yes" name="DUPLICATE_NAMESPACE_ALIAS" id="Error-DUPLICATE_NAMESPACE_ALIAS">
+          <value>31</value>
+        </member>
+        <member public="yes" name="DUPLICATE_TOP_LEVEL_VAR" id="Error-DUPLICATE_TOP_LEVEL_VAR">
+          <value>30</value>
+        </member>
+        <member public="yes" name="FWD_COMPAT_WITHOUT_FALLBACK" id="Error-FWD_COMPAT_WITHOUT_FALLBACK">
+          <value>320</value>
+        </member>
+        <member public="yes" name="ILLEGAL_APPLYTEMPLATE_NODESET" id="Error-ILLEGAL_APPLYTEMPLATE_NODESET">
+          <value>212</value>
+        </member>
+        <member public="yes" name="ILLEGAL_CHOOSE_CHILD" id="Error-ILLEGAL_CHOOSE_CHILD">
+          <value>120</value>
+        </member>
+        <member public="yes" name="ILLEGAL_ELEMENT_CHILD" id="Error-ILLEGAL_ELEMENT_CHILD">
+          <value>50</value>
+        </member>
+        <member public="yes" name="ILLEGAL_IMPORT" id="Error-ILLEGAL_IMPORT">
+          <value>110</value>
+        </member>
+        <member public="yes" name="ILLEGAL_NULL_NAMESPACE_ATTR" id="Error-ILLEGAL_NULL_NAMESPACE_ATTR">
+          <value>71</value>
+        </member>
+        <member public="yes" name="ILLEGAL_NUMBER_FORMAT_VALUE" id="Error-ILLEGAL_NUMBER_FORMAT_VALUE">
+          <value>293</value>
+        </member>
+        <member public="yes" name="ILLEGAL_SHADOWING" id="Error-ILLEGAL_SHADOWING">
+          <value>232</value>
+        </member>
+        <member public="yes" name="ILLEGAL_TEXT_CHILD" id="Error-ILLEGAL_TEXT_CHILD">
+          <value>200</value>
+        </member>
+        <member public="yes" name="ILLEGAL_TEXT_CHILD_PARSE" id="Error-ILLEGAL_TEXT_CHILD_PARSE">
+          <value>51</value>
+        </member>
+        <member public="yes" name="ILLEGAL_XML_PI" id="Error-ILLEGAL_XML_PI">
+          <value>250</value>
+        </member>
+        <member public="yes" name="ILLEGAL_XSL_NAMESPACE_ATTR" id="Error-ILLEGAL_XSL_NAMESPACE_ATTR">
+          <value>72</value>
+        </member>
+        <member public="yes" name="INCLUDE_NOT_FOUND" id="Error-INCLUDE_NOT_FOUND">
+          <value>112</value>
+        </member>
+        <member public="yes" name="INVALID_ATTR_CHOICE" id="Error-INVALID_ATTR_CHOICE">
+          <value>73</value>
+        </member>
+        <member public="yes" name="INVALID_AVT" id="Error-INVALID_AVT">
+          <value>85</value>
+        </member>
+        <member public="yes" name="INVALID_CHAR_ATTR" id="Error-INVALID_CHAR_ATTR">
+          <value>74</value>
+        </member>
+        <member public="yes" name="INVALID_EXPRESSION" id="Error-INVALID_EXPRESSION">
+          <value>87</value>
+        </member>
+        <member public="yes" name="INVALID_FOREACH_SELECT" id="Error-INVALID_FOREACH_SELECT">
+          <value>170</value>
+        </member>
+        <member public="yes" name="INVALID_ID_ATTR" id="Error-INVALID_ID_ATTR">
+          <value>77</value>
+        </member>
+        <member public="yes" name="INVALID_NCNAME_ATTR" id="Error-INVALID_NCNAME_ATTR">
+          <value>79</value>
+        </member>
+        <member public="yes" name="INVALID_NMTOKEN_ATTR" id="Error-INVALID_NMTOKEN_ATTR">
+          <value>81</value>
+        </member>
+        <member public="yes" name="INVALID_NS_URIREF_ATTR" id="Error-INVALID_NS_URIREF_ATTR">
+          <value>76</value>
+        </member>
+        <member public="yes" name="INVALID_NUMBER_ATTR" id="Error-INVALID_NUMBER_ATTR">
+          <value>75</value>
+        </member>
+        <member public="yes" name="INVALID_PATTERN" id="Error-INVALID_PATTERN">
+          <value>86</value>
+        </member>
+        <member public="yes" name="INVALID_PREFIX_ATTR" id="Error-INVALID_PREFIX_ATTR">
+          <value>80</value>
+        </member>
+        <member public="yes" name="INVALID_QNAME_ARGUMENT" id="Error-INVALID_QNAME_ARGUMENT">
+          <value>2002</value>
+        </member>
+        <member public="yes" name="INVALID_QNAME_ATTR" id="Error-INVALID_QNAME_ATTR">
+          <value>78</value>
+        </member>
+        <member public="yes" name="LITERAL_RESULT_MISSING_VERSION" id="Error-LITERAL_RESULT_MISSING_VERSION">
+          <value>22</value>
+        </member>
+        <member public="yes" name="MISSING_REQUIRED_ATTRIBUTE" id="Error-MISSING_REQUIRED_ATTRIBUTE">
+          <value>70</value>
+        </member>
+        <member public="yes" name="MULTIPLE_MATCH_TEMPLATES" id="Error-MULTIPLE_MATCH_TEMPLATES">
+          <value>141</value>
+        </member>
+        <member public="yes" name="NAMED_TEMPLATE_NOT_FOUND" id="Error-NAMED_TEMPLATE_NOT_FOUND">
+          <value>131</value>
+        </member>
+        <member public="yes" name="NONTEXT_IN_ATTRIBUTE" id="Error-NONTEXT_IN_ATTRIBUTE">
+          <value>153</value>
+        </member>
+        <member public="yes" name="NONTEXT_IN_COMMENT" id="Error-NONTEXT_IN_COMMENT">
+          <value>310</value>
+        </member>
+        <member public="yes" name="NONTEXT_IN_PI" id="Error-NONTEXT_IN_PI">
+          <value>251</value>
+        </member>
+        <member public="yes" name="NO_STYLESHEET" id="Error-NO_STYLESHEET">
+          <value>20</value>
+        </member>
+        <member public="yes" name="QNAME_BUT_NOT_NCNAME" id="Error-QNAME_BUT_NOT_NCNAME">
+          <value>82</value>
+        </member>
+        <member public="yes" name="RESTRICTED_OUTPUT_VIOLATION" id="Error-RESTRICTED_OUTPUT_VIOLATION">
+          <value>7000</value>
+        </member>
+        <member public="yes" name="SOURCE_PARSE_ERROR" id="Error-SOURCE_PARSE_ERROR">
+          <value>24</value>
+        </member>
+        <member public="yes" name="STYLESHEET_PARSE_ERROR" id="Error-STYLESHEET_PARSE_ERROR">
+          <value>23</value>
+        </member>
+        <member public="yes" name="STYLESHEET_REQUESTED_TERMINATION" id="Error-STYLESHEET_REQUESTED_TERMINATION">
+          <value>241</value>
+        </member>
+        <member public="yes" name="UNDEFINED_ATTRIBUTE_SET" id="Error-UNDEFINED_ATTRIBUTE_SET">
+          <value>160</value>
+        </member>
+        <member public="yes" name="UNDEFINED_DECIMAL_FORMAT" id="Error-UNDEFINED_DECIMAL_FORMAT">
+          <value>271</value>
+        </member>
+        <member public="yes" name="UNDEFINED_PREFIX" id="Error-UNDEFINED_PREFIX">
+          <value>52</value>
+        </member>
+        <member public="yes" name="UNKNOWN_EXTENSION_ELEMENT" id="Error-UNKNOWN_EXTENSION_ELEMENT">
+          <value>321</value>
+        </member>
+        <member public="yes" name="UNKNOWN_NODE_BASE_URI" id="Error-UNKNOWN_NODE_BASE_URI">
+          <value>1001</value>
+        </member>
+        <member public="yes" name="UNKNOWN_OUTPUT_METHOD" id="Error-UNKNOWN_OUTPUT_METHOD">
+          <value>260</value>
+        </member>
+        <member public="yes" name="UNSUPPORTED_NUMBER_LANG_VALUE" id="Error-UNSUPPORTED_NUMBER_LANG_VALUE">
+          <value>294</value>
+        </member>
+        <member public="yes" name="UNSUPPORTED_NUMBER_LETTER_FOR_LANG" id="Error-UNSUPPORTED_NUMBER_LETTER_FOR_LANG">
+          <value>295</value>
+        </member>
+        <member public="yes" name="VAR_WITH_CONTENT_AND_SELECT" id="Error-VAR_WITH_CONTENT_AND_SELECT">
+          <value>233</value>
+        </member>
+        <member public="yes" name="WRONG_ARGUMENT_TYPE" id="Error-WRONG_ARGUMENT_TYPE">
+          <value>2001</value>
+        </member>
+        <member public="yes" name="XSLT_ILLEGAL_ELEMENT" id="Error-XSLT_ILLEGAL_ELEMENT">
+          <value>27</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="BUILTIN_TEMPLATE_WITH_PARAMS" id="BUILTIN_TEMPLATE_WITH_PARAMS">
+      <value>'Built-in template invoked with params that will ...This message will only appear once per transform.'</value>
+    </global>
+    <global public="yes" name="DEFAULT_MESSAGE_PREFIX" id="DEFAULT_MESSAGE_PREFIX">
+      <value>'STYLESHEET MESSAGE:\n'</value>
+    </global>
+    <global public="yes" name="DEFAULT_MESSAGE_SUFFIX" id="DEFAULT_MESSAGE_SUFFIX">
+      <value>'\nEND STYLESHEET MESSAGE\n'</value>
+    </global>
+    <global public="yes" name="EXPRESSION_POSITION_INFO" id="EXPRESSION_POSITION_INFO">
+      <value>'In stylesheet %s, line %s, column %s in &quot;%s&quot;:\n%s'</value>
+    </global>
+    <global public="yes" name="POSITION_INFO" id="POSITION_INFO">
+      <value>'In stylesheet %s, line %s, column %s:\n%s'</value>
+    </global>
+    <global public="yes" name="TEMPLATE_CONFLICT_LOCATION" id="TEMPLATE_CONFLICT_LOCATION">
+      <value>'In stylesheet %s, line %s, column %s, pattern %s'</value>
+    </global>
+    <global public="yes" name="XSLT_EXPRESSION_POSITION_INFO" id="XSLT_EXPRESSION_POSITION_INFO">
+      <value>'%s\nThe error occurred in the expression &quot;%s&quot;.'</value>
+    </global>
+    <global public="yes" name="g_errorMessages" id="g_errorMessages">
+      <value>{20: 'No stylesheets to process.', 22: 'Document root element must have a xsl:version attribute.  (see XSLT 1.0 sec. 2.3).', 23: 'Error parsing stylesheet (%s): %s', 24: 'Error parsing source document (%s): %s', 27: &quot;Illegal element '%s' in XSLT Namespace (see XSLT 1.0 sec. 2.1).&quot;, 29: 'Circular variable reference error (see XSLT 1.0 sec. 11.4) for variable or parameter: (%s, %s)', 30: 'Top level variable %s has duplicate definitions ...e same import precedence.  (see XSLT 1.0 sec. 11)', 31: 'The namespace for &quot;%s&quot; has duplicate namespace a...ame import precedence.  (see XSLT 1.0 sec. 2.6.2)', 50: &quot;Illegal child '%s' within element '%s'&quot;, 51: &quot;Illegal literal text %s within element '%s'&quot;, ...}</value>
+    </global>
+  </globals>
+</module>

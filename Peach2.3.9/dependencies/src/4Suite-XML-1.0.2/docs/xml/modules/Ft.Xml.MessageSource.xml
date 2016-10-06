@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.MessageSource">
+  <modification-date>2006-04-28 13:54:48</modification-date>
+  <abstract>Localizable message strings</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <globals>
+    <global public="yes" name="READER" id="READER">
+      <value>{2: 'syntax error', 3: 'no element found', 4: 'not well-formed (invalid token)', 5: 'unclosed token', 6: 'partial character', 7: 'mismatched tag', 8: 'duplicate attribute', 9: 'junk after document element', 10: 'illegal parameter entity reference', 11: 'undefined entity', ...}</value>
+    </global>
+    <global public="yes" name="XINCLUDE" id="XINCLUDE">
+      <value>{10: 'Missing or empty href attribute', 11: 'Invalid value %r for parse attribute', 12: 'xpointer attribute forbidden for parse=&quot;text&quot;', 13: 'Fragment identifier not allowed in URI %r; use the xpointer attribute', 14: 'Unsupported XPointer %r', 15: 'xi:include has an xi:include child', 16: 'xi:fallback is not the child of an xi:include', 17: 'xi:include with multiple xi:fallback children'}</value>
+    </global>
+  </globals>
+</module>

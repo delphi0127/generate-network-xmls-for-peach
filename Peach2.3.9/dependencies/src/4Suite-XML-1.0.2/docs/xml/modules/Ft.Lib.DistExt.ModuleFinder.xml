@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.ModuleFinder">
+  <modification-date>2006-11-25 16:33:28</modification-date>
+  <abstract>Utilities to help applications using modulefinder get all of the modules
+and data files used throughout 4Suite.</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="AddHiddenModules" id="AddHiddenModules">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="finder"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetModuleIncludes" id="GetModuleIncludes">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="modules"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DATA_FILES" id="DATA_FILES">
+      <value>{'Ft.Lib.DistExt.BuildDocs': ['$data/Data/Stylesheets/docbook_html.xslt', '$data/Data/Stylesheets/docbook_html.css', '$data/Data/Stylesheets/sdocbook_html.xslt', '$data/Data/Stylesheets/sdocbook_html.css', '$data/Data/Stylesheets/modules_html.xslt', '$data/Data/Stylesheets/modules.css', '$data/Data/Stylesheets/extensions_html.xslt', '$data/Data/Stylesheets/extensions.xslt', '$data/Data/Stylesheets/commandline_html.xslt', '$data/Data/Stylesheets/commandline.xslt'], 'Ft.Lib.DistExt.BuildScripts': ['$lib/Ft/Lib/DistExt/stubmain.exe'], 'Ft.Xml.Catalog': ['$data/default.cat', '$data/Schemata/catalog.dtd', '$data/Schemata/sdocbook.dtd', '$data/Schemata/xbel-1.0.dtd', '$data/Schemata/xhtml1-strict.dtd', '$data/Schemata/xhtml1-transitional.dtd', '$data/Schemata/xhtml-lat1.ent', '$data/Schemata/xhtml-special.ent', '$data/Schemata/xhtml-symbol.ent', '$data/Schemata/xsa.dtd']}</value>
+    </global>
+    <global public="yes" name="HIDDEN_IMPORTS" id="HIDDEN_IMPORTS">
+      <value>{'Ft.Lib.DistExt.Dist': ['Ft.Lib.DistExt.BDistRpm', 'Ft.Lib.DistExt.InstallL10n', 'Ft.Lib.DistExt.BuildDocs', 'Ft.Lib.DistExt.SDist', 'Ft.Lib.DistExt.GenerateL10n', 'Ft.Lib.DistExt.BuildL10n', 'Ft.Lib.DistExt.BuildExt', 'Ft.Lib.DistExt.BuildPy', 'Ft.Lib.DistExt.InstallDevel', 'Ft.Lib.DistExt.GenerateBisonGen', 'Ft.Lib.DistExt.Build', 'Ft.Lib.DistExt.Config', 'Ft.Lib.DistExt.InstallLocalState', 'Ft.Lib.DistExt.InstallScripts', 'Ft.Lib.DistExt.Install', 'Ft.Lib.DistExt.BDist', 'Ft.Lib.DistExt.InstallEggInfo', 'Ft.Lib.DistExt.BuildScripts', 'Ft.Lib.DistExt.Generate', 'Ft.Lib.DistExt.InstallData', ...], 'Ft.Ods.Parsers.OqlParserc': ['re'], 'Ft.Rdf.Parsers.Versa.VersaParserc': ['cmd', 'Ft.Rdf.Parsers.Versa.ResourceExpressions', 'Ft.Rdf.Parsers.Versa.BooleanExpressions', 'Ft.Rdf.Parsers.Versa.Traversal', 'Ft.Rdf.Parsers.Versa.Literals', 'Ft.Rdf.Parsers.Versa.DataTypes', 'Ft.Rdf.Parsers.Versa.NamedExpressions', 'Ft.Lib.boolean'], 'Ft.Xml.Lib.cStringWriter': ['cStringIO'], 'Ft.Xml.ThirdParty.Xvif.iframe': ['Ft.Xml.ThirdParty.Xvif.iFrameRNG', 'Ft.Xml.ThirdParty.Xvif.iFrameXSLT', 'Ft.Xml.ThirdParty.Xvif.iFrameTypes', 'Ft.Xml.ThirdParty.Xvif.iFrameRegFrag'], 'Ft.Xml.ThirdParty.Xvif.rng': ['Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib', 'Ft.Xml.ThirdParty.Xvif.wxsTypeLib'], 'Ft.Xml.XPath.XPathParserc': ['cmd', 'Ft.Xml.XPath.ParsedAbsoluteLocationPath', 'Ft.Xml.XPath.ParsedRelativeLocationPath', 'Ft.Xml.XPath.ParsedPredicateList', 'Ft.Xml.XPath.ParsedStep', 'Ft.Xml.XPath.ParsedAxisSpecifier', 'Ft.Xml.XPath.ParsedNodeTest', 'Ft.Xml.XPath.ParsedAbbreviatedAbsoluteLocationPath', 'Ft.Xml.XPath.ParsedAbbreviatedRelativeLocationPath', 'Ft.Xml.XPath.ParsedExpr'], 'Ft.Xml.XPath._conversions': ['Ft.Lib.boolean', 'Ft.Lib.number'], 'Ft.Xml.XPointer.XPointerParserc': ['cmd', 'Ft.Xml.XPointer.XPointer'], 'Ft.Xml.XPointer.XPtrExprParserc': ['cmd', 'Ft.Xml.XPath.ParsedAbsoluteLocationPath', 'Ft.Xml.XPath.ParsedRelativeLocationPath', 'Ft.Xml.XPath.ParsedPredicateList', 'Ft.Xml.XPath.ParsedStep', 'Ft.Xml.XPath.ParsedAxisSpecifier', 'Ft.Xml.XPath.ParsedNodeTest', 'Ft.Xml.XPath.ParsedAbbreviatedAbsoluteLocationPath', 'Ft.Xml.XPath.ParsedAbbreviatedRelativeLocationPath', 'Ft.Xml.XPath.ParsedExpr'], ...}</value>
+    </global>
+    <global public="yes" name="name" id="name">
+      <value>'BDistInno'</value>
+    </global>
+  </globals>
+</module>

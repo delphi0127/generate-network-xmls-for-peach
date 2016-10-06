@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine.Arguments">
+  <modification-date>2005-04-18 16:46:56</modification-date>
+  <abstract>Classes that support advanced arg processing for command-line scripts</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Argument" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </method-resolution-order>
+      <methods name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <method public="no" name="__init__" id="Argument-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="description"/>
+            <arg default="None" name="validationFunc"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="OneOrMoreArgument" public="yes">
+      <bases>
+        <base documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="OneOrMoreArgument" module="Ft.Lib.CommandLine.Arguments"/>
+        <base name="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </method-resolution-order>
+      <methods name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <method public="yes" name="gen_command_line" id="OneOrMoreArgument-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="OneOrMoreArgument-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cmd"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member public="yes" name="requirements" id="OneOrMoreArgument-requirements">
+          <value>4</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="OptionalArgument" public="yes">
+      <bases>
+        <base documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="OptionalArgument" module="Ft.Lib.CommandLine.Arguments"/>
+        <base name="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </method-resolution-order>
+      <methods name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <method public="yes" name="gen_command_line" id="OptionalArgument-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="OptionalArgument-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cmd"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member public="yes" name="requirements" id="OptionalArgument-requirements">
+          <value>2</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="RequiredArgument" public="yes">
+      <bases>
+        <base documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RequiredArgument" module="Ft.Lib.CommandLine.Arguments"/>
+        <base name="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </method-resolution-order>
+      <methods name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <method public="yes" name="gen_command_line" id="RequiredArgument-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="RequiredArgument-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cmd"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member public="yes" name="requirements" id="RequiredArgument-requirements">
+          <value>1</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="ZeroOrMoreArgument" public="yes">
+      <bases>
+        <base documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ZeroOrMoreArgument" module="Ft.Lib.CommandLine.Arguments"/>
+        <base name="Argument" module="Ft.Lib.CommandLine.Arguments"/>
+      </method-resolution-order>
+      <methods name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <method public="yes" name="gen_command_line" id="ZeroOrMoreArgument-gen_command_line">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="ZeroOrMoreArgument-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cmd"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member public="yes" name="requirements" id="ZeroOrMoreArgument-requirements">
+          <value>3</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Argument" module="Ft.Lib.CommandLine.Arguments">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="ONE_OR_MORE" id="ONE_OR_MORE">
+      <value>4</value>
+    </global>
+    <global public="yes" name="OPTIONAL" id="OPTIONAL">
+      <value>2</value>
+    </global>
+    <global public="yes" name="REQUIRED" id="REQUIRED">
+      <value>1</value>
+    </global>
+    <global public="yes" name="ZERO_OR_MORE" id="ZERO_OR_MORE">
+      <value>3</value>
+    </global>
+  </globals>
+</module>

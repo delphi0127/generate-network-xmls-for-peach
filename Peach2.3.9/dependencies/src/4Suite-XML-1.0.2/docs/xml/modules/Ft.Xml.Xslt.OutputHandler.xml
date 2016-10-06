@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.OutputHandler">
+  <modification-date>2006-08-21 18:38:32</modification-date>
+  <abstract>Manages XSLT output parameters governed by the xsl:output instruction
+See also Ft.Xml.Xslt.OutputParameters</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="OutputHandler" public="yes">
+      <bases>
+        <base documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="OutputHandler" module="Ft.Xml.Xslt.OutputHandler"/>
+        <base name="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </method-resolution-order>
+      <methods name="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <method public="no" name="__init__" id="OutputHandler-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="outputParams"/>
+            <arg name="stream"/>
+            <arg default="None" name="notifyFunc"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="comment" id="OutputHandler-comment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kw"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="endDocument" id="OutputHandler-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kw"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="getResult" id="OutputHandler-getResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="getStream" id="OutputHandler-getStream">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="processingInstruction" id="OutputHandler-processingInstruction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kw"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="startDocument" id="OutputHandler-startDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="startElement" id="OutputHandler-startElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+            <var-args name="args"/>
+            <var-keywords name="kw"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="text" id="OutputHandler-text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kw"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <member-reference name="attribute" public="yes"/>
+        <member-reference name="copyNodes" public="yes"/>
+        <member-reference name="endElement" public="yes"/>
+        <member-reference name="getMediaType" public="yes"/>
+        <member-reference name="namespace" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+  </globals>
+</module>

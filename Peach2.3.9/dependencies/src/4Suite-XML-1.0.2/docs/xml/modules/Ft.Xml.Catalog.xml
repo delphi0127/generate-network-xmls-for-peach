@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Catalog">
+  <modification-date>2006-08-17 13:09:44</modification-date>
+  <abstract>Classes and functions that help implement OASIS XML and TR9401 Catalogs.
+Resolution with Catalogs is handled via the Ft.Xml.InputSource module.</abstract>
+  <description>Based on a contribution to PyXML from Tarn Weisner Burton
+&lt;twburton@users.sf.net&gt;. See
+http://sourceforge.net/tracker/index.php?func=detail&amp;aid=490069&amp;group_id=6473&amp;atid=306473
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Catalog" public="yes">
+      <abstract>Reads and provides access to a catalog, providing mappings of public
+and system IDs to URIs, etc.</abstract>
+      <description>It is implemented as a SAX ContentHandler and is able to read
+OASIS TR 9401 Catalogs &lt;http://www.oasis-open.org/specs/a401.htm&gt;
+and OASIS XML Catalogs &lt;http://www.oasis-open.org/committees/entity/spec.html&gt;</description>
+      <method-resolution-order>
+        <base name="Catalog" module="Ft.Xml.Catalog"/>
+      </method-resolution-order>
+      <methods name="Catalog" module="Ft.Xml.Catalog">
+        <method public="no" name="__init__" id="Catalog-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="True" name="quiet"/>
+          </arguments>
+        </method>
+        <method public="no" name="endElementNS" id="Catalog-endElementNS">
+          <abstract>Handle an element end event for the XML parser.
+This is a SAX ContentHandler method.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="namespace"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qualifiedName"/>
+          </arguments>
+        </method>
+        <method public="no" name="resolveEntity" id="Catalog-resolveEntity">
+          <abstract>Return the applicable URI.</abstract>
+          <description>If an external identifier (PUBLIC or SYSTEM) entry exists in the
+Catalog for the identifier(s) specified, return the mapped value.
+
+External identifiers identify the external subset, entities, and
+notations of an XML document.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="publicId"/>
+            <arg name="systemId"/>
+          </arguments>
+        </method>
+        <method public="no" name="resolveURI" id="Catalog-resolveURI">
+          <abstract>Return the applicable URI.</abstract>
+          <description>If a URI entry exists in the Catalog for the URI specified, return
+the mapped value.
+
+URI references, for example namespace names, stylesheets, included
+files, graphics, and hypertext references, simply identify other
+resources.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+          </arguments>
+        </method>
+        <method public="no" name="startElementNS" id="Catalog-startElementNS">
+          <abstract>Handle an element start event for the XML parser.
+This is a SAX ContentHandler method.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="namespace"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qualifiedName"/>
+            <arg name="attrs"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="GetDefaultCatalog" id="GetDefaultCatalog">
+      <abstract>Load the default catalog file(s).</abstract>
+      <description/>
+      <arguments>
+        <arg default="'default.cat'" name="basename"/>
+      </arguments>
+    </function>
+    <function public="no" name="UnwrapUrn" id="UnwrapUrn">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="urn"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="TR9401" id="TR9401">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="no" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['Catalog', 'GetDefaultCatalog']</value>
+    </global>
+  </globals>
+</module>

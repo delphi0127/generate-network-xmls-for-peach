@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.TimeLib">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="parse_isodate" id="parse_isodate">
+      <abstract>st - string or Unicode with ISO 8601 date</abstract>
+      <description/>
+      <arguments>
+        <arg name="st"/>
+      </arguments>
+    </function>
+    <function public="yes" name="parse_isotime" id="parse_isotime">
+      <abstract>st - string or Unicode with ISO 8601 time</abstract>
+      <description/>
+      <arguments>
+        <arg name="st"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DATETIME_PAT" id="DATETIME_PAT">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="yes" name="TIME_PAT" id="TIME_PAT">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+  </globals>
+</module>

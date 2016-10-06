@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="TestCase">
+		<String name="data" value="1234567890" length="10" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action type="start" />
+			
+			<Action name="SetProperty1" type="setprop" property="Property1" >
+				<Param name="value" type="in">
+					<DataModel ref="TestCase"/>
+				</Param>
+			</Action>
+			
+			<Action name="GetProperty1" type="getprop" property="Property1">
+				<DataModel ref="TestCase"/>
+			</Action>
+			
+			<Action type="stop" />
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="com.Com">
+			<Param name="clsid" value="{8FAEEEE1-AAA5-4B77-8CBA-BFDCE3E3C7E8}"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

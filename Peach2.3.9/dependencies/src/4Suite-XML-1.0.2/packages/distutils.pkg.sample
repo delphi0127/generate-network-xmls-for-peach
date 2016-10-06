@@ -1,0 +1,117 @@
+# -*- mode: python; coding: iso-8859-1 -*-
+# -*- kate: syntax python; indent-mode python; encoding iso-8859-1; -*-
+
+# A package definition file.
+# This file describes the format for a PackageManager package.
+
+# NOTES:
+# - The classes used for the various lists are pre-defined in the namespace
+#   of this file (Extension, Document, Script, ...)
+#
+# - Any variable prefixed by an underscore or any imported modules will be
+#   ignored when creating the package definition.
+
+# -- setup ------------------------------------------------------------
+
+# sub-package name (setup)
+# The complete package name (if not supplied) is built from joining
+# the setup keyword 'name' and this value by a hyphen (NAME-PACKAGE).
+package = ""
+
+# complete package name (setup)
+# If defined, this will be used as the complete name for the package
+# (i.e., the name for distributions created by sdist and bdist commands)
+name = ""
+
+# sub-package version (setup)
+# If not defined, the version from the setup keywords will be used.
+version = ""
+
+# sub-package summary description (setup)
+description = ""
+
+# sub-package verbose description (setup)
+long_description = ""
+
+# list of keywords to be used to assist searching for the package in a larger
+# catalog. (setup)
+keywords = []
+
+# list of strings each giving a single classification value (setup)
+classifiers = []
+
+# list of strings each describing some other module or package required by
+# this package (setup)
+requires = []
+
+# list of strings each describing a package or module that will be provided
+# by this package once it is installed (setup)
+provides = []
+
+# list of strings each describing a package or module that this package
+# renders obsolete, meaning that the two packages should not be installed
+# at the same time (setup)
+obsoletes = []
+
+# -- sdist ------------------------------------------------------------
+
+# list of file templates that should be ignored during validation of
+# the source distribution filelist. (sdist)
+validate_templates = []
+
+# list of file templates to include in source distribution (sdist)
+manifest_templates = []
+
+# -- generate ---------------------------------------------------------
+
+# list of BisonGen filenames (generate_bgen)
+bgen_files = []
+
+# -- build ------------------------------------------------------------
+
+# module name for storing configuration values (build_py)
+config_module = ""
+
+# mapping of package name to source directory (build_py)
+package_dir = {}
+
+# list of Python packages names (build_py)
+packages = []
+
+# list of individual Python modules (build_py)
+py_modules = []
+
+# list of support libraries as 2-item tuples (build_clib)
+libraries = []
+
+# list of Extension instances (build_ext)
+ext_modules = []
+
+# list of Script/ExecutableScript/Executable instances (build_scripts)
+scripts = []
+
+# list of Document instances (build_docs)
+doc_files = []
+
+# list of Localization instances (build_l10n)
+l10n = []
+
+# -- install ----------------------------------------------------------
+
+# list of tuples, (<dest-dir>, [<source-pattern>...]), which install
+# relative to datadir from config command. (install_data)
+data_files = []
+
+# sysconf_files is a list of tuples, (<dest-name>, <source-name>), which
+# install to the sysconfdir from config command.  Their content is considered
+# as a template where $varname is replaced with the configuration variable
+# 'varname'. (install_sysconf)
+sysconf_files = []
+
+# list of tuples, (<dest-dir>, <source-filename>), which install
+# relative to localstatedir from config command. (install_localstate)
+localstate_files = []
+
+# list of package names relative to 'test' directory which install
+# relative to libdir from config command. (install_devel)
+devel_files = []

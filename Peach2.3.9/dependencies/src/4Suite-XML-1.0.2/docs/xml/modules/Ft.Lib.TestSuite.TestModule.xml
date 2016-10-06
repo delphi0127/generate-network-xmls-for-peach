@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.TestModule">
+  <modification-date>2006-08-17 13:09:43</modification-date>
+  <abstract>Provides the TestModule class for wrapping modules/packages.</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestModule" public="yes">
+      <bases>
+        <base documented="yes" class="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+      </bases>
+      <abstract>Test object for a module or package.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="TestModule" module="Ft.Lib.TestSuite.TestModule"/>
+        <base name="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+        <base name="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+      </method-resolution-order>
+      <methods name="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <method public="no" name="__init__" id="TestModule-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="module"/>
+            <arg name="addModes"/>
+            <arg name="skipModes"/>
+            <arg name="allModes"/>
+          </arguments>
+          <overrides documented="yes" class="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+        </method>
+        <method public="yes" name="getModes" id="TestModule-getModes">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="addModes"/>
+            <arg name="skipModes"/>
+            <arg name="allModes"/>
+          </arguments>
+          <overrides documented="yes" class="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+        </method>
+        <method public="yes" name="getTests" id="TestModule-getTests">
+          <abstract>Get the test objects contained within this module.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+        </method>
+        <method public="yes" name="run" id="TestModule-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+          <overrides documented="yes" class="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+        </method>
+        <method public="yes" name="runTest" id="TestModule-runTest">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+            <arg name="testObject"/>
+          </arguments>
+        </method>
+        <method public="yes" name="showTests" id="TestModule-showTests">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="indent"/>
+          </arguments>
+          <overrides documented="yes" class="TestLoader" module="Ft.Lib.TestSuite.TestLoader"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="TestLoader" module="Ft.Lib.TestSuite.TestLoader">
+        <member-reference name="addTest" public="yes"/>
+        <member-reference name="loadTest" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <member-reference name="modes" public="yes"/>
+        <member-reference name="tests" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

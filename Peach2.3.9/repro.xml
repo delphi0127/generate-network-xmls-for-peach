@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- TODO: Create data model -->
+	<DataModel name="TheDataModel">
+		<Blob />
+	</DataModel>
+	
+	<!-- TODO: Create state model -->
+	<StateModel name="TheState" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="TheDataModel" />
+				<Data fileName="repros" />
+			</Action>
+		</State>
+	</StateModel>
+	
+	<!-- TODO: Configure agent/monitors
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	-->
+	
+	<Test name="TheTest">
+		<!-- <Agent ref="LocalAgent"/> -->
+		<StateModel ref="TheState"/>
+		
+		<!-- TODO: Complete publisher -->
+		<Publisher />
+		
+		<!-- Use the Repro Strategy -->
+		<Strategy class="sequencial.ReproStrategy"/>
+	</Test>
+	
+	<!-- Configure a single run -->
+	<Run name="DefaultRun">
+		
+		<!-- TODO: Change log path if needed -->
+		<Logger class="logger.Filesystem">
+			<Param name="path" value="logs"/>
+		</Logger>
+		
+		<Test ref="TheTest" />
+		
+	</Run>
+	
+</Peach>
+<!-- end -->

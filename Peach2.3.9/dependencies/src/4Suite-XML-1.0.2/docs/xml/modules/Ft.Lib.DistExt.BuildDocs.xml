@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.BuildDocs">
+  <modification-date>2006-11-25 16:28:28</modification-date>
+  <abstract>Main distutils extensions for generating documentation</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="BuildDocs" public="yes">
+      <bases>
+        <base documented="no" class="Command" module="distutils.cmd"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="BuildDocs" module="Ft.Lib.DistExt.BuildDocs"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="build_api" id="BuildDocs-build_api">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="build_commandline" id="BuildDocs-build_commandline">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="build_extensions" id="BuildDocs-build_extensions">
+          <abstract>Create XML documentation for XPath/XSLT extensions</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="build_index" id="BuildDocs-build_index">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="documents"/>
+          </arguments>
+        </method>
+        <method public="yes" name="build_static" id="BuildDocs-build_static">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="document" id="BuildDocs-document">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="category"/>
+            <arg name="name"/>
+            <arg name="sources"/>
+            <arg name="object"/>
+            <arg name="formatter"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finalize_options" id="BuildDocs-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="find_xml_includes" id="BuildDocs-find_xml_includes">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="None" name="_includes"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_modules" id="BuildDocs-get_modules">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_output_filename" id="BuildDocs-get_output_filename">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="category"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_outputs" id="BuildDocs-get_outputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_source_files" id="BuildDocs-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="BuildDocs-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="prepare_modules" id="BuildDocs-prepare_modules">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run" id="BuildDocs-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="BuildDocs-boolean_options">
+          <value>['inplace', 'force']</value>
+        </member>
+        <member public="yes" name="command_name" id="BuildDocs-command_name">
+          <value>'build_docs'</value>
+        </member>
+        <member public="yes" name="description" id="BuildDocs-description">
+          <value>'build documentation files (copy or generate XML sources)'</value>
+        </member>
+        <member public="yes" name="user_options" id="BuildDocs-user_options">
+          <value>[('build-dir=', 'd', 'directory to &quot;build&quot; (generate) to'), ('force', 'f', 'forcibly build everything (ignore file timestamps)')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="FindIncludes" id="FindIncludes">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="source_uri"/>
+        <arg default="None" name="_includes"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ProcessIncludes" id="ProcessIncludes">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="source"/>
+        <arg name="callback"/>
+        <arg default="False" name="xslt"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DEBUG" id="DEBUG">
+      <value>None</value>
+    </global>
+    <global public="yes" name="INDEX_LISTITEM" id="INDEX_LISTITEM">
+      <value>'      &lt;listitem&gt;\n        &lt;ulink url=&quot;%(url)s&quot; type=&quot;generate&quot;&gt;%(title)s&lt;/ulink&gt;\n      &lt;/listitem&gt;\n'</value>
+    </global>
+    <global public="yes" name="INDEX_SECTION" id="INDEX_SECTION">
+      <value>'\n  &lt;section id=&quot;%(category)s&quot;&gt;\n    &lt;title&gt;%(titl...itemizedlist&gt;\n  &lt;/section&gt; &lt;!-- %(category)s --&gt;\n'</value>
+    </global>
+    <global public="yes" name="INDEX_SOURCE" id="INDEX_SOURCE">
+      <value>'    &lt;f:source&gt;\n      &lt;f:title&gt;%(title)s&lt;/f:title...et&gt;%(stylesheet)s&lt;/f:stylesheet&gt;\n    &lt;/f:source&gt;\n'</value>
+    </global>
+    <global public="yes" name="INDEX_TEMPLATE" id="INDEX_TEMPLATE">
+      <value>'&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;\n&lt;!DO...space)s&quot;&gt;\n%(sources)s\n  &lt;/f:sources&gt;\n\n&lt;/article&gt;\n'</value>
+    </global>
+    <global public="no" name="__zipsafe__" id="__zipsafe__">
+      <value>True</value>
+    </global>
+  </globals>
+</module>

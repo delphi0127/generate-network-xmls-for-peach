@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<contact:Resume
+  xmlns:doc="http://docbook.org/docbook/xml/4.0/namespace"
+  xmlns:ft="http://FourThought.com/namespaces/Common"
+  xmlns:contact="http://Fourthought.com/namespaces/Contact"
+  version="1.0"
+>
+  <contact:Contact>
+    <contact:Name>Uche Ogbuji</contact:Name>
+    <contact:Phone desc='work'>303-583-9900</contact:Phone>
+    <contact:Company>Fourthought, Inc.</contact:Company>
+    <contact:E-mail>uche.ogbuji@fourthought.com</contact:E-mail>
+    <contact:Address>
+4735 East Walnut Street, Suite C
+Boulder CO 80301-2357
+    </contact:Address>
+  </contact:Contact>
+
+  <contact:Qualification>Experience managing Internet systems development in a competitive environment</contact:Qualification>
+  <contact:Qualification>Profit and loss responsibility in a product-management role</contact:Qualification>
+  <contact:Qualification>Experience managing applications development; excellent communication skills</contact:Qualification>
+  <contact:Qualification>Experience with systems integration and standardization</contact:Qualification>
+  <contact:Qualification>Experience evaluating hardware, systems and development software for purchase</contact:Qualification>
+  <contact:Qualification>Exceptional knowledge of object-oriented design methodologies</contact:Qualification>
+  <contact:Qualification>Experience with advanced software engineering methods, such as Design Patterns and design by contract</contact:Qualification>
+  <contact:Qualification>Experience designing coursework and instructing professionals in advanced software development</contact:Qualification>
+
+  <contact:Employment>
+    <contact:Company href='http://Fourthought.com'>Fourthought, Inc.</contact:Company>
+    <contact:Location>Boulder, CO</contact:Location>
+    <contact:Period>June 1998 -- Present</contact:Period>
+    <contact:Title>Principal Consultant</contact:Title>
+    <contact:Role>
+<doc:para>
+Co-founded an IT consulting firm. Responsible for business
+development, and technological development. Designed a powerful n-tier
+Intranet, Extranet, and E-commerce application development system.
+Full-lifecycle development. Technologies utilized include XML, CORBA,
+Object transaction system (OTS), Enterprise Java beans, HTML, Unix, Python,
+Java (applets and servlets), LDAP, ODMG object databases,
+and Object-relational databases (Oracle, DB2, Postgres).
+Also consulting on client projects ranging from artificial-intelligence
+knowledge-bases to Web-based distributed applications.
+</doc:para>
+<doc:para>Projects Included:</doc:para>
+  <doc:itemizedlist>
+    <doc:listitem>
+A large-scale heterogenous data-storage system, known as the datacenter,
+with middleware for business rules and access management. Implemented
+CORBA COS Transaction system (OTS), CORBA COS Concurrency system for resource
+locking and an Oracle RDBMS adapter for FourThought's internal object-database
+system (4ODS).  The datacenter exchanged low-level
+data in XML format and used LDAP to manage user preferences.
+    </doc:listitem>
+    <doc:listitem>
+Knowledge layer for comprehensive health-care e-business application involving XML data-management with RDF meta-data and Schematron validation; also involving CORBA connectivity and Oracle database query.  Java front-end.
+    </doc:listitem>
+    <doc:listitem>
+<doc:link linkend='http://FourThought.com/4Suite/'>4Suite</doc:link>:
+Implementations of the World-Wide-Web consortium's DOM, XSLT and XPath specifications for advanced HTML and XML processing, and ODMG's object-database standard, including CORBA support and Postgres and Oracle Database integration.
+    </doc:listitem>
+    <doc:listitem>
+Time and attendance/billing: Enterprise-wide (1000+ users) Intranet-based
+system for logging employee work hours to database for integration into
+JD Edwards One-World.
+    </doc:listitem>
+    <doc:listitem>
+QuiClip: a search engine for Usenet newsgroups and electronic mailing lists
+with database storage, a sophisticated Web-based front-end for human examination and optional clipping and categorization, and comprehensive reports.
+    </doc:listitem>
+    <doc:listitem>
+InferCS: A knowledge-base system implementing a custom rule-based
+inference-engine for on-line customer support, allowing a Web-based user
+to run through an automated support-query, and allowing easy, web-based
+management of support items.
+    </doc:listitem>
+    <doc:listitem>
+Document-Management System: XML and Java servlet-based system for managing
+FourThought form documents such as statements of work and time-sheets.  Based on custom XML DTDs.
+    </doc:listitem>
+  </doc:itemizedlist>
+    </contact:Role>
+  </contact:Employment>
+
+  <contact:Employment>
+    <contact:Company>Affina</contact:Company>
+    <contact:Location>Peoria, IL</contact:Location>
+    <contact:Period>April 1997 -- June 1998</contact:Period>
+    <contact:Title>Manager of Internet Services</contact:Title>
+    <contact:Role>
+<doc:para>
+<doc:emph>Management</doc:emph>
+</doc:para>
+
+<doc:para>
+Led the Internet services division of a prominent call-center outsourcer.
+Grew the Internet business at Ruppman from an afterthought to an independent,
+profit-generating division. Inherited three Internet-based products
+and developed seven more, including E-commerce, customer self-help, and
+a geographic information system. Planned and hired for an Internet operations
+center where representatives answered consumer e-mail. Oversaw the
+development of an enterprise information system for Ruppman based on Intranet
+technologies. Developed usage policies and security standards. Increased
+Internet revenue 850% over tenure at Ruppman.
+</doc:para>
+
+<doc:para>
+<doc:emph>Technical</doc:emph>
+</doc:para>
+
+<doc:para>
+Developed, alone and with a colleague, various applications:
+</doc:para>
+
+  <doc:itemizedlist>
+    <doc:listitem>
+Geographic Information System: "where-to-buy" search engine for spatial
+address database with an Internet front-end and custom report-generation
+system.
+    </doc:listitem>
+    <doc:listitem>
+Time and attendance/billing: Enterprise-wide Intranet-based system for
+logging employee work hours to database for integration into JD Edwards
+One-World.
+    </doc:listitem>
+    <doc:listitem>
+Internet usage billing: System to analyze various Unix log-files of Internet
+and security usage against accounting business rules for internal billing.
+    </doc:listitem>
+    <doc:listitem>
+Project deployment tool: Database of software projects with relevant
+files, revision control, development, test, and production locations, and
+tools for promotion.
+    </doc:listitem>
+  </doc:itemizedlist>
+
+<doc:para>
+Technologies: <doc:emph>Java (applets and servlets), C++, Python, RDBMS
+(Oracle and Postgres), JDBC, CORBA, Apache Web server with CGI scripting
+and Javascript, all on Unix (Linux, Solaris and SCO)</doc:emph>. Also
+consulted in the development of a standards-based infrastructure
+for LAN and WAN connectivity.
+</doc:para>
+    </contact:Role>
+  </contact:Employment>
+
+
+  <contact:Employment>
+    <contact:Company>Decision Consultants Incorporated</contact:Company>
+    <contact:Location>Dallas TX</contact:Location>
+    <contact:Period>May 1994 -- April 1997</contact:Period>
+    <contact:Title>Software Design Consultant</contact:Title>
+    <contact:Role>
+<doc:para>
+Consulted in architecture and development of critical software
+projects at various clients including IBM and Sabre Decision Technologies.
+Client projects were all customer-information, product configuration, and
+sales-support systems written in C++, HTML or Java, with Oracle and proprietary
+databases, running on Internet, UNIX, Windows NT, and OS/2 platforms.
+</doc:para>
+<doc:para>
+Developed professional coursework for employees and customers in
+Object-Oriented Development, HTML, C++, Java and Javascript and
+instructed DCI employees and clients in these topics.
+</doc:para>
+    </contact:Role>
+  </contact:Employment>
+
+
+  <contact:Employment>
+    <contact:Company>Zenith Electronics Corporation</contact:Company>
+    <contact:Location>Glenview IL</contact:Location>
+    <contact:Period>May 1994 -- November 1994</contact:Period>
+    <contact:Title>Software Engineer</contact:Title>
+    <contact:Role>
+<doc:para>
+Designed and implemented OS/2 Presentation Manager front-ends
+and DB2/SQL database management software in C for a cable television management
+system.
+</doc:para>
+    </contact:Role>
+  </contact:Employment>
+
+
+  <contact:Employment>
+    <contact:Company>Dept. of Macromolecular Sciences, Case Western Reserve University</contact:Company>
+    <contact:Location>Cleveland, OH</contact:Location>
+    <contact:Period>May 1993 -- January 1994</contact:Period>
+    <contact:Title>Consultant Programmer</contact:Title>
+    <contact:Role>
+<doc:para>
+Designed and implemented IBM PC-based control code in C++ and
+Assembly language for fatigue-testing machinery, involving motor control
+and reading feedback from an analog to digital converter.
+</doc:para>
+    </contact:Role>
+  </contact:Employment>
+
+
+  <contact:Employment>
+    <contact:Company>OLTECH Corp</contact:Company>
+    <contact:Location>Cleveland, OH</contact:Location>
+    <contact:Period>May 1992 -- May 1993</contact:Period>
+    <contact:Title>Consultant Programmer</contact:Title>
+    <contact:Role>
+<doc:para>
+Designed a graphical interface in cellular automaton design in C++ on UNIX (SunOS) and MS-DOS, encapsulating the low-level video architecture for DOS in an object-oriented manner, and creating a framework for automata rules design.
+</doc:para>
+    </contact:Role>
+  </contact:Employment>
+
+
+<!--
+  <contact:Employment>
+    <contact:Company>/contact:Company>
+    <contact:Location></contact:Location>
+    <contact:Period></contact:Period>
+    <contact:Title></contact:Title>
+    <contact:Role>
+      <doc:para>
+      </doc:para>
+    </contact:Role>
+  </contact:Employment>
+-->
+
+
+  <ft:Publication title="A practical guide to Oracle8i for Linux"
+                  author="Uche Ogbuji"
+                  date="2000-04-00"
+                  organization="Linux World"
+                  link="http://www.linuxworld.com/linuxworld/lw-2000-04/lw-04-oracle8i.html">
+If you've been having trouble installing Oracle8i, be bewildered no longer. Uche Ogbuji
+                              explains why Oracle8i is one of the wildest, wooliest installs ever, and how to work around
+                              its quirks. (3,300 words) 
+</ft:Publication>
+
+  <ft:Publication title="A developer's introduction to Sybase SQL Anywhere Studio"
+                  author="Uche Ogbuji"
+                  date="1999-10-00"
+                  organization="Linux World"
+                  link="http://linuxworld.com/linuxworld/lw-1999-10/lw-10-sqlanywhere.html">
+    LinuxWorld author Uche Ogbuji applies his considerable database knowledge
+    to this review of the new release of Sybase's SQL Anywhere. Features,
+    strengths, weaknesses, and installation and management tips are
+    highlighted as Uche gives Sybase a thorough database workout, which
+    includes a SQLC primer to get you started with database programming with C.
+    (3,500 words)
+  </ft:Publication>
+
+  <ft:Publication title="Practical XML with Linux, Part 1"
+                  author="Uche Ogbuji"
+                  date="1999-09-00"
+                  organization="Linux World"
+                  link="http://linuxworld.com/linuxworld/lw-1999-09/lw-09-xml2.html">
+    Uche Ogbuji shows you how to make use of XML to create a better platform
+    for data and document exchange in your enterprise. (3,200 words)
+  </ft:Publication>
+
+  <ft:Publication title="Getting down to business at LinuxWorld"
+                  author="Uche Ogbuji"
+                  date="1999-08-00"
+                  organization="Linux World"
+                  link="http://www.linuxworld.com/linuxworld/lw-1999-08/lw-08-business.html">
+    Is business embracing open source, or is open source embracing business?
+    At the recent LinuxWorld Conference and Expo, Uche Ogbuji asked several
+    business vendors about their commercial Linux products, and how they've
+    adapted open source methodologies within the enterprise. Find out how
+    they answered in this special report. (2,000 words) 
+  </ft:Publication>
+
+  <ft:Publication title="Intranet Python [column]: Python Tools for the Enterprise Intranet"
+                  author="Uche Ogbuji"
+                  date="1999-07-00"
+                  organization="Python Journal"
+                  link="http://www.pythonjournal.com/volume1/issue2/col-intranetpython/">
+    A broad survey of Python tools for development of enterprise Intranets.
+  </ft:Publication>
+
+  <ft:Publication title="Manipulating HTML Using 4DOM"
+                  author="Uche Ogbuji"
+                  date="1999-07-00"
+                  organization="Python Journal"
+                  link="http://www.pythonjournal.com/volume1/issue2/art-4dom/">
+    Description of the 4DOM module for XML and HTML manipulation,
+    with the emphasis on the HTML API.
+  </ft:Publication>
+
+  <ft:Publication title="Linux in an ERP World"
+                  author="Uche Ogbuji"
+                  date="1999-06-00"
+                  organization="Linux Journal (link requires subscription)"
+                  link="http://interactive.linuxjournal.com/Magazines/LJ62/3178.html">
+    "Mr. Ogbuji takes a look at enterprise resource
+    planning and Linux's place in this market."
+  </ft:Publication>
+
+  <ft:Publication title="How to get Oracle up and running on your Linux box"
+                  author="Uche Ogbuji"
+                  date="1999-06-00"
+                  organization="LinuxWorld"
+                  link="http://www.linuxworld.com/linuxworld/lw-1999-06/lw-06-oracle.html">
+    "When Oracle announced its port of Oracle 8 and Oracle Application Server
+    for Linux late last year, it was an unmistakable sign that the world
+    must now reckon with Linux as a serious operating system for enterprise
+    use. Uche Ogbuji explains how to install, configure, and begin to work
+    and play with this powerful database tool. (3,500 words)"
+  </ft:Publication>
+
+  <ft:Publication title="There is more to XML than roll-your-own HTML"
+                  author="Uche Ogbuji"
+                  date="1999-03-00"
+                  organization="LinuxWorld"
+                  link="http://www.linuxworld.com/linuxworld/lw-1999-03/lw-03-xml.html">
+    Explaination of various XML-related standards and XML implementations
+    available to Linux users, and why Linux must adopt XML now if it is to
+    become a premiere data- and document-exchange platform for the enterprise.
+  </ft:Publication>
+
+  <ft:Publication title="XML: The future of EDI?"
+                  author="Uche Ogbuji"
+                  date="1999-02-00"
+                  organization="SunWorld"
+                  link="http://www.sunworld.com/swol-02-1999/swol-02-xmledi.html">
+    IT managers have long complained about the complexity and expense of EDI
+    A vocal and growing group of professionals is advancing XML as the
+    solution to these woes, and the key to the broader adoption of EDI.
+    Is this just another car in the hype train, or does XML have a legitimate
+    chance to revamp EDI? As in many areas where Internet technologies
+    collide with traditional business, change is inevitable, but the results
+    are rarely as clear as anticipated.
+  </ft:Publication>
+
+  <ft:Publication title="Linux for Internet Business Applications"
+                  author="Uche Ogbuji"
+                  date="1998-11-00"
+                  organization="Linux Journal"
+                  link="http://www.linuxjournal.com">
+Experiences putting together an Internet and Intranet for a medium-sized call-center outsourcing firm.
+  </ft:Publication>
+
+  <ft:Publication title="Linux in the New Millennium"
+                  author="Uche Ogbuji"
+                  date="1998-10-00"
+                  organization="LinuxWorld"
+                  link="http://www.linuxworld.com/linuxworld/lw-1998-10/lw-10-y2k.html">
+How the infamous year-2000 bug affects Linux professionals.
+  </ft:Publication>
+
+  <ft:Publication title="Object Oriented Programming (DCI Training Manual)"
+                  author="Uche Ogbuji"
+                  date="April 1996"
+                  organization="Decision Consultants, Inc."
+                  link="">
+  </ft:Publication>
+
+  <ft:Publication title="An Object-Oriented Language Engine"
+                  author="Uche Ogbuji"
+                  date="November 1995"
+                  organization="PC Techniques"
+                  link="">
+  </ft:Publication>
+
+  <contact:Skills>
+<doc:para>
+<doc:emph>Languages: </doc:emph>C++, C, Java, Python, XML, HTML, Javascript/ECMAScript,
+SQL, assembler etc.
+</doc:para>
+<doc:para>
+<doc:emph>Systems: </doc:emph>UNIX (Linux, Solaris), Windows, DOS
+</doc:para>
+<doc:para>
+<doc:emph>General: </doc:emph>Internet protocols and standards, Unified modeling language, Design patterns, Genetic algorithms, Cellular automata, Compiler design and parsing, Geographic information systems, Operating systems, Computer architecture
+</doc:para>
+  </contact:Skills>
+
+  <contact:Affiliation><doc:link linkend='http://www.ieee.org'>Institute of Electrical and Electronic Engineers</doc:link></contact:Affiliation>
+
+  <contact:Affiliation><doc:link linkend='http://www.python.org/psa'>Python Software Association</doc:link></contact:Affiliation>
+
+  <contact:Affiliation><doc:link linkend='http://www.icca.org'>Independent Computer Consultants
+Association</doc:link> (Vice President, Denver Chapter)</contact:Affiliation>
+
+  <contact:Education>
+    <contact:Institution>Milwaukee School of Engineering</contact:Institution>
+    <contact:Location>Milwaukee, WI</contact:Location>
+    <contact:Degree>B.Sc. Computer Engineering (with Honors)</contact:Degree>
+    <contact:Date>February 1994</contact:Date>
+    <contact:Notes>Senior Design Project: Genetic Algorithms for Job-Shop Scheduling (for Eaton Corp.). Selected for the National Dean's List. 1993-94 Sverdrup Scholarship.</contact:Notes>
+  </contact:Education>
+
+  <contact:Etc>
+<h2>General Interests</h2>
+<i>Languages</i>: (French and Latin, some German).
+<br/><i>Writing</i>: (published poems, essays, short stories and technical
+articles).
+<br/><i>Sports</i>: Soccer, snowboarding, basketball, Karate (Kenpo, Shotokan,
+and Kenkokan), tennis, volleyball
+<br/><i>etc</i>: Word games, music and travel.
+  </contact:Etc>
+
+</contact:Resume>

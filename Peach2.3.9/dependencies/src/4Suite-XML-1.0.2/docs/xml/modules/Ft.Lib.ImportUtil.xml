@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.ImportUtil">
+  <modification-date>2006-12-08 15:50:53</modification-date>
+  <abstract>Utilites for working with Python PEP 302 import hooks.</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="FindImporter" id="FindImporter">
+      <abstract>Find a PEP 302 &quot;loader&quot; object for fullname</abstract>
+      <description>If fullname contains dots, path must be the containing package's
+__path__. Returns None if the module cannot be found or imported.</description>
+      <arguments>
+        <arg name="fullname"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FindLoader" realname="find_loader" id="FindLoader">
+      <abstract>Find a PEP 302 &quot;loader&quot; object for fullname</abstract>
+      <description>If fullname contains dots, path must be the containing package's __path__.
+Returns None if the module cannot be found or imported. This function uses
+iter_importers(), and is thus subject to the same limitations regarding
+platform-specific special import locations such as the Windows registry.</description>
+      <arguments>
+        <arg name="fullname"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetImporter" realname="get_importer" id="GetImporter">
+      <abstract>Retrieve a PEP 302 importer for the given path item</abstract>
+      <description>The returned importer is cached in sys.path_importer_cache
+if it was newly created by a path hook.
+
+If there is no importer, a wrapper around the basic import
+machinery is returned. This wrapper is never inserted into
+the importer cache (None is inserted instead).
+
+The cache (or part of it) can be cleared manually if a
+rescan of sys.path_hooks is necessary.</description>
+      <arguments>
+        <arg name="path_item"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetLastModified" id="GetLastModified">
+      <abstract>Returns the last modified timestamp for the given module.</abstract>
+      <description/>
+      <arguments>
+        <arg name="fullname"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetResourceFilename" id="GetResourceFilename">
+      <abstract>Returns a true filesystem name for the specified resource.</abstract>
+      <description/>
+      <arguments>
+        <arg name="package"/>
+        <arg name="resource"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetResourceLastModified" id="GetResourceLastModified">
+      <abstract>Return a timestamp indicating the last-modified time of the
+specified resource.  Raises IOError is the pathname cannot be found
+from the loader for 'fullname'.</abstract>
+      <description/>
+      <arguments>
+        <arg name="package"/>
+        <arg name="resource"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetResourceStream" id="GetResourceStream">
+      <abstract>Return a readable stream for specified resource</abstract>
+      <description/>
+      <arguments>
+        <arg name="package"/>
+        <arg name="resource"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetResourceString" id="GetResourceString">
+      <abstract>Return a string containing the contents of the specified resource.</abstract>
+      <description>If the pathname is absolute it is retrieved starting at the path of
+the importer for 'fullname'.  Otherwise, it is retrieved relative
+to the module within the loader.</description>
+      <arguments>
+        <arg name="package"/>
+        <arg name="resource"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetSearchPath" id="GetSearchPath">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="fullname"/>
+      </arguments>
+    </function>
+    <function public="yes" name="IterModules" realname="iter_modules" id="IterModules">
+      <abstract>Yields (module_loader, name, ispkg) for all submodules on path,
+or, if path is None, all top-level modules on sys.path.</abstract>
+      <description>'path' should be either None or a list of paths to look for
+modules in.
+
+'prefix' is a string to output on the front of every module name
+on output.</description>
+      <arguments>
+        <arg default="None" name="path"/>
+        <arg default="''" name="prefix"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NormalizeResource" id="NormalizeResource">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="package"/>
+        <arg name="resource"/>
+      </arguments>
+    </function>
+    <function public="yes" name="OsPathToResource" id="OsPathToResource">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="pathname"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="IMP_SEARCH_ORDER" id="IMP_SEARCH_ORDER">
+      <value>['.so', 'module.so', '.py', '.pyc']</value>
+    </global>
+    <global public="no" name="ZIP_SEARCH_ORDER" id="ZIP_SEARCH_ORDER">
+      <value>['.py', '.pyc', '.pyo']</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['FindLoader', 'FindImporter', 'GetImporter', 'IterModules', 'GetLastModified', 'GetSearchPath', 'OsPathToResource', 'NormalizeResource', 'GetResourceFilename', 'GetResourceString', 'GetResourceStream', 'GetResourceLastModified']</value>
+    </global>
+    <global public="no" name="__zipsafe__" id="__zipsafe__">
+      <value>True</value>
+    </global>
+    <global public="no" name="desc" id="desc">
+      <value>('.pyc', 'rb', 2)</value>
+    </global>
+    <global public="no" name="generators" id="generators">
+      <value>_Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 0)</value>
+    </global>
+  </globals>
+</module>

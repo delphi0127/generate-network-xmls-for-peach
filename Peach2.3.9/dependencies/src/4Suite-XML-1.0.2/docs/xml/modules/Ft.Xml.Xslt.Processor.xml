@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Processor">
+  <modification-date>2006-08-21 18:38:32</modification-date>
+  <abstract>XSLT processing engine</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Processor" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract>An XSLT processing engine (4XSLT).</abstract>
+      <description>Typical usage:
+
+from Ft.Lib.Uri import OsPathToUri
+from Ft.Xml import InputSource
+from Ft.Xml.Xslt import Processor
+# this is just one of several ways to create InputSources
+styuri = OsPathToUri('/absolute/path/to/stylesheet.xslt')
+srcuri = OsPathToUri('/absolute/path/to/doc.xml')
+STY = InputSource.DefaultFactory.fromUri(styuri)
+SRC = InputSource.DefaultFactory.fromUri(srcuri)
+proc = Processor.Processor()
+proc.appendStylesheet(STY)
+result = proc.run(SRC)
+
+Optional constructor arguments are:
+
+  stylesheetAltUris: a list of alternative base URIs to use when
+    resolving relative hrefs in xsl:import/xsl:include instructions.
+    These URIs are only tried when the standard XSLT behavior of
+    using the base URI of the xsl:import/include element itself
+    fails to result in retrieval of a document.
+
+  documentReader: an object that will be used to parse XML source
+    documents (not stylesheets). It defaults to
+    Ft.Xml.Domlette.NonvalidatingReader, but it can be any object
+    that has a parse() method that returns a DOM or Domlette tree.
+
+  implementation: a DOM implementation instance that will be used
+    by the processor to create new source tree nodes, such as when
+    generating result tree fragments or duplicating the source tree
+    when runNode(node, preserveSrc=1) is called. Defaults to
+    Ft.Xml.Domlette.implementation. Needs to have a
+    createRootNode() method.
+
+See the run() and runNode() methods for additional runtime options.
+
+Important instance attributes:
+
+  .extensionParams: a dictionary that allows one to attach
+    additional metadata to a processor instance. We use this
+    to make invocation-specific data like HTTP query args and
+    logfile handles available to XSLT extension functions &amp; elements
+    when invoking the processor via the repository's HTTP server.
+
+  .inputSourceFactory: InputSource factory instance used when
+    obtaining source documents. Defaults to
+    Ft.Xml.InputSource.DefaultFactory.
+
+  .mediaPref: the preferred/target media, for the purpose of
+    picking from multiple xml-stylesheet processing instructions.
+    Defaults to None. If set to a string, xml-stylesheet PIs
+    without that string in their 'media' pseudo-attribute will be
+    ignored.
+
+  .msgPrefix and .msgSuffix: strings emitted before and after
+    xsl:message output.
+
+  .stylesheet: the complete stylesheet tree.</description>
+      <method-resolution-order>
+        <base name="Processor" module="Ft.Xml.Xslt.Processor"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="Processor-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="stylesheetAltUris"/>
+            <arg default="None" name="documentReader"/>
+            <arg default="None" name="implementation"/>
+            <arg default="None" name="stylesheetIncPaths"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="yes" name="addHandler" id="Processor-addHandler">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Sets up the processor to start processing subsequently
+generated content with an output writer wrapper that first
+determines which XSLT output method is going to be used (i.e.,
+by looking at the output parameters or waiting to see if an
+'html' element is the first new node generated), then replaces
+itself with the appropriate writer instance.
+
+outputParams is an Ft.Xml.Xslt.OutputParameters instance.
+
+stream will be passed on to the constructor of the real writer.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="outputParams"/>
+            <arg name="stream"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendStylesheet" id="Processor-appendStylesheet">
+          <abstract>Append a stylesheet from an InputSource.</abstract>
+          <description>This method establishes the stylesheet that the processor will use to
+do the transformation. If a stylesheet has already been appended, then
+this method is equivalent to having, in an outer &quot;shell&quot; stylesheet,
+an xsl:import for the most recently appended stylesheet followed by an
+xsl:import for the stylesheet accessible via the given InputSource.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="iSrc"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendStylesheetInstance" id="Processor-appendStylesheetInstance">
+          <abstract>Append an &quot;instant&quot; (&quot;compiled&quot;) stylesheet, which is a pickled
+Ft.Xml.Xslt.Stylesheet.Stylesheet object that has had its setup()
+method called already. Such an instance can be obtained from another
+processor, p, as p.stylesheet.root, which you can then pickle, save to
+disk, and reuse in a new processor via this method.</abstract>
+          <description>This method establishes the stylesheet that the processor will use to
+do the transformation. If a stylesheet has already been appended, then
+this method is equivalent to having an xsl:import of the new stylesheet
+in the most recently appended stylesheet.
+
+An exception will be raised if the same stylesheet is appended more
+than once, just as if the same stylesheet were imported more than once.
+
+refUri is the base URI to assume for the stylesheet. It defaults to
+the base URI of the root node of the original stylesheet document with
+the highest import precedence.
+
+Note: Using the instant stylesheet tends to be less efficient than
+using the original document and appendStylesheet(), unless the
+stylesheet is large and complex, like DocBook XSL.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="instance"/>
+            <arg default="''" name="refUri"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendStylesheetNode" id="Processor-appendStylesheetNode">
+          <abstract>Append a stylesheet given as a DOM or Domlette Document node.</abstract>
+          <description>This method establishes the stylesheet that the processor will use to
+do the transformation. If a stylesheet has already been appended, then
+this method is equivalent to having an xsl:import of the new stylesheet
+in the most recently appended stylesheet.
+
+An exception will be raised if the same stylesheet is appended more
+than once, just as if the same stylesheet were imported more than once.
+
+refUri is the base URI to assume for the stylesheet. It defaults to
+the base URI of the given node.
+
+The given InputSourceFactory will be used in order to read external
+entities. It defaults to Ft.Xml.InputSource.DefaultFactory.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="''" name="refUri"/>
+            <arg default="None" name="factory"/>
+          </arguments>
+        </method>
+        <method public="yes" name="applyTemplates" id="Processor-applyTemplates">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Implements the xsl:apply-templates instruction by attempting to
+let the stylesheet apply its own template for the given context.
+If the stylesheet does not have a matching template, the
+built-in templates are invoked.
+
+context is an XsltContext instance. params is a dictionary of
+parameters being passed in, defaulting to None.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg default="None" name="params"/>
+          </arguments>
+        </method>
+        <method public="yes" name="execute" id="Processor-execute">
+          <abstract>Warning: do not call this method directly unless you know what
+you're doing.  If unsure, you probably want the runNode method.</abstract>
+          <description>Runs the stylesheet processor against the given XML DOM node with the
+stylesheets that have been registered. It does not mutate the source.
+If writer is given, it is used in place of the default output method
+decisions for choosing the proper writer.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg name="docInputSource"/>
+            <arg default="0" name="ignorePis"/>
+            <arg default="None" name="topLevelParams"/>
+            <arg default="None" name="writer"/>
+            <arg default="None" name="outputStream"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getDocumentReader" id="Processor-getDocumentReader">
+          <abstract>Returns the reader used for source document input sources.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getStripElements" id="Processor-getStripElements">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getStylesheetReader" id="Processor-getStylesheetReader">
+          <abstract>Returns the reader used for stylesheet document input sources.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="messageControl" id="Processor-messageControl">
+          <abstract>Controls whether the processor emits warnings and xsl:message
+messages. Call with suppress=1 to suppress such output.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="suppress"/>
+          </arguments>
+        </method>
+        <method public="yes" name="output" id="Processor-output">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="popResult" id="Processor-popResult">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Ends temporary output writing that was started with
+pushResultString(), pushResultTree(), or pushResult(), and
+returns the result.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pushResult" id="Processor-pushResult">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Sets up the processor to start processing subsequently
+generated content with a new output writer (the given handler
+of SAX-like output events).</description>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="handler"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pushResultString" id="Processor-pushResultString">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Sets up the processor to start processing subsequently
+generated content with an output writer that buffers the text
+from text events and keeps track of whether non-text events
+occurred. This is used by the implementations of XSLT
+instructions such as xsl:attribute.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pushResultTree" id="Processor-pushResultTree">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Sets up the processor to start processing subsequently
+generated content with a new output writer that produces
+a separate document. The new document will have the given
+baseUri as its URI. This is used to generate result tree
+fragments.
+
+Allows specifying an alternative DOM implementation for the
+creation of the new document.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="baseUri"/>
+            <arg default="None" name="implementation"/>
+          </arguments>
+        </method>
+        <method public="yes" name="registerExtensionElement" id="Processor-registerExtensionElement">
+          <abstract>Register a single extension element.</abstract>
+          <description>For example, implement your own extension element as a subclass
+of Ft.Xml.Xslt.XsltElement. To make the element available to the
+Processor, call this method, passing in the namespace URI and
+local name of the element, and a direct reference to the class
+that implements the extension.
+
+See also registerExtensionModules().</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespace"/>
+            <arg name="localName"/>
+            <arg name="klass"/>
+          </arguments>
+        </method>
+        <method public="yes" name="registerExtensionFunction" id="Processor-registerExtensionFunction">
+          <abstract>Register a single extension function.</abstract>
+          <description>For example, implement your own extension function as a Python
+function that takes an Ft.Xml.XPath.Context.Context instance as
+its first argument. Then, to make the function available to the
+Processor, call this method, passing in the namespace URI and
+local name of the function, and a direct reference to the Python
+function that implements the extension.
+
+See also registerExtensionModules().</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespace"/>
+            <arg name="localName"/>
+            <arg name="function"/>
+          </arguments>
+        </method>
+        <method public="yes" name="registerExtensionModules" id="Processor-registerExtensionModules">
+          <abstract>Registers a list of Python modules that have public ExtFunctions
+and/or ExtElements dictionaries.</abstract>
+          <description>In a Python module that contains extension implementations,
+define a dictionary named ExtFunctions that, for each extension
+function or element, maps a (namespace-URI, xpath-function-name)
+tuple to a direct reference to the Python function that
+implements the extension. To make the function available to the
+Processor, call this method, passing in ['your.module.name'].
+
+See Ft.Xml.Xslt.Exslt.*, Ft.Xml.Xslt.BuiltInExtFunctions and
+BuiltInExtElements for working examples of extension modules.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="moduleList"/>
+          </arguments>
+        </method>
+        <method public="yes" name="removeHandler" id="Processor-removeHandler">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Deletes the most recently added output writer.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="reset" id="Processor-reset">
+          <abstract>Returns the processor to a state where it can be used to do a
+new transformation with a new stylesheet. Deletes the current
+stylesheet tree, and may do other cleanup.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run" id="Processor-run">
+          <abstract>Transform a source document as given via an InputSource.</abstract>
+          <description>Assumes that either the Processor instance has already had
+stylesheets appended (via appendStylesheet(), for example), or
+the source document contains xml-stylesheet processing
+instructions that are not being ignored.
+
+The ignorePis flag, if set, will cause xml-stylesheet
+processing instructions in the source document to be ignored.
+
+The topLevelParams argument is an optional dictionary of
+stylesheet parameters, the keys of which may be given as
+strings if they have no namespace, or as (uri, localname)
+tuples otherwise.
+
+The optional writer argument is a SAX-like event handler that
+is an Ft.Xml.Xslt.NullWriter subclass. The default writer is
+either an Ft.Xml.Xslt.XmlWriter, HtmlWriter or PlainTextWriter,
+depending on the stylesheet(s).
+
+The optional outputStream argument is a Python file-like object
+to be used as the destination for the writer's output.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="iSrc"/>
+            <arg default="0" name="ignorePis"/>
+            <arg default="None" name="topLevelParams"/>
+            <arg default="None" name="writer"/>
+            <arg default="None" name="outputStream"/>
+          </arguments>
+        </method>
+        <method public="yes" name="runNode" id="Processor-runNode">
+          <abstract>Transform a source document as given via a Domlette document
+node.</abstract>
+          <description>Use Ft.Xml.Domlette.ConvertDocument() to create a Domlette
+from some other type of DOM.
+
+Assumes that either the Processor instance has already had
+stylesheets appended (via appendStylesheet(), for example), or
+the source document contains xml-stylesheet processing
+instructions that are not being ignored.
+
+sourceUri - The absolute URI of the document
+entity that the node represents, and should be explicitly
+provided, even if it is available from the node itself.
+
+ignorePis - (flag) If set, will cause xml-stylesheet
+processing instructions in the source document to be ignored.
+
+topLevelParams - optional dictionary of
+stylesheet parameters, the keys of which may be given as
+strings if they have no namespace, or as (uri, localname)
+tuples otherwise.
+
+writer - optional SAX-like event handler that
+is an Ft.Xml.Xslt.NullWriter subclass. The default writer is
+either an Ft.Xml.Xslt.XmlWriter, HtmlWriter or PlainTextWriter,
+depending on the stylesheet(s).
+
+outputStream - optional Python file-like object
+to be used as the destination for the writer's output.
+
+preserveSrc - (flag) If set signals that the source DOM should not be
+mutated, as would normally happen when honoring XSLT whitespace
+stripping requirements. Setting preserveSrc results in the
+creation of a copy of the source DOM.
+
+isrc - optional input source used strictly for further resolution
+relative the given DOM</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="None" name="sourceUri"/>
+            <arg default="0" name="ignorePis"/>
+            <arg default="None" name="topLevelParams"/>
+            <arg default="None" name="writer"/>
+            <arg default="None" name="outputStream"/>
+            <arg default="0" name="preserveSrc"/>
+            <arg default="None" name="docInputSource"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setDocumentReader" id="Processor-setDocumentReader">
+          <abstract>Sets the reader used for source document input sources.</abstract>
+          <description>The reader can be anything with a parse() interface that
+returns a DOM tree. It is normally
+Ft.Xml.Domlette.NonvalidatingReader or whatever was specified in
+the Processor constructor. This method is sometimes used to set
+the reader to Domlette.ValidatingReader.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="docReader"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setStylesheetReader" id="Processor-setStylesheetReader">
+          <abstract>Sets the reader used for stylesheet document input sources.</abstract>
+          <description>It is normally an instance of
+Ft.Xml.Xslt.StylesheetReader.StylesheetReader</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="reader"/>
+          </arguments>
+        </method>
+        <method public="yes" name="warning" id="Processor-warning">
+          <abstract>Emits a warning via Python's warnings framework, unless warnings
+are suppressed (see messageControl()).</abstract>
+          <description>Used, for example, to announce that built-in templates are being
+invoked with params.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="message"/>
+          </arguments>
+        </method>
+        <method public="yes" name="xslMessage" id="Processor-xslMessage">
+          <abstract>Intended to be used by XSLT instruction implementations only.</abstract>
+          <description>Used by xsl:message to emit a message to sys.stderr, unless such
+messages are suppressed (see messageControl()). Uses the
+msgPrefix &amp; msgSuffix instance attributes.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="Processor-__dict__">
+          <value>&lt;attribute '__dict__' of 'Processor' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="Processor-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'Processor' objects&gt;</value>
+        </member>
+        <member public="yes" name="writer" id="Processor-writer">
+          <value>&lt;property object&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="DEFAULT_ENCODING" id="DEFAULT_ENCODING">
+      <value>'UTF-8'</value>
+    </global>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XSLT_IMT" id="XSLT_IMT">
+      <value>['application/xslt+xml', 'application/xslt', 'text/xml', 'application/xml']</value>
+    </global>
+  </globals>
+</module>

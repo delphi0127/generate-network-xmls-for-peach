@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Config">
+  <modification-date>2006-10-20 13:55:05</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Config" public="yes">
+      <bases>
+        <base documented="no" class="Command" module="distutils.cmd"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Config" module="Ft.Lib.DistExt.Config"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="finalize_config_vars" id="Config-finalize_config_vars">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finalize_options" id="Config-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="finalize_other" id="Config-finalize_other">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finalize_posix" id="Config-finalize_posix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="Config-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="run" id="Config-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="Config-boolean_options">
+          <value>['local', 'system', 'debug']</value>
+        </member>
+        <member public="yes" name="command_name" id="Config-command_name">
+          <value>'config'</value>
+        </member>
+        <member public="yes" name="description" id="Config-description">
+          <value>'select installation scheme and base directories'</value>
+        </member>
+        <member public="yes" name="help_options" id="Config-help_options">
+          <value>[('help-compiler', None, 'list available compilers', &lt;function show_compilers at 0xb7c5d4c4&gt;)]</value>
+        </member>
+        <member public="yes" name="user_options" id="Config-user_options">
+          <value>[('prefix=', None, 'Use POSIX autoconf-style or Windows installation scheme with this prefix'), ('exec-prefix=', None, 'Prefix for platform-specific files (for use with --prefix)'), ('local', None, 'Use FHS /usr/local installation scheme [default]'), ('system', None, 'Use FHS /usr installation scheme (e.g. for RPM builds)'), ('home=', None, 'Use home directory installation scheme with this prefix'), ('pythonlibdir=', None, 'Directory for 3rd-party Python libraries (site-packages)'), ('includedir=', None, 'Directory for C header files'), ('bindir=', None, 'Directory for user executables'), ('datadir=', None, 'Directory for read-only platform-independent data'), ('sysconfdir=', None, 'Directory for read-only host-specific data'), ('localstatedir=', None, 'Directory for modifiable host-specific data'), ('libdir=', None, 'Directory for program &amp; package libraries'), ('docdir=', None, 'Directory for documentation files'), ('localedir=', None, 'Directory for message catalogs'), ('mandir=', None, 'Directory for man documentation'), ('compiler=', 'c', 'specify the compiler type'), ('debug', 'g', 'compile extensions and libraries with debugging information'), ('plat-name=', 'p', 'target platform for compiling extensions and libraries (default: linux-i686)')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="get_python_lib" id="get_python_lib">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="prefix"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="CACHE_FILENAME" id="CACHE_FILENAME">
+      <value>'config.cache'</value>
+    </global>
+    <global public="yes" name="CONFIG_KEYS" id="CONFIG_KEYS">
+      <value>('prefix', 'exec_prefix', 'pythonlibdir', 'includedir', 'bindir', 'datadir', 'sysconfdir', 'localstatedir', 'libdir', 'docdir', 'localedir', 'mandir', 'compiler', 'debug')</value>
+    </global>
+    <global public="yes" name="CONFIG_SCHEMES" id="CONFIG_SCHEMES">
+      <value>{'fhs_local': {'bindir': '/usr/local/bin', 'datadir': '/usr/local/share/$name', 'docdir': '/usr/local/share/doc/$name', 'includedir': '/usr/local/include/$name', 'libdir': '/usr/local/lib/$name', 'localedir': '/usr/local/share/locale', 'localstatedir': '/var/local/lib/$name', 'mandir': '/usr/local/share/man', 'pythonlibdir': '/usr/local/lib/python2.5/site-packages', 'sysconfdir': '/usr/local/etc/$name'}, 'fhs_system': {'bindir': '/usr/bin', 'datadir': '/usr/share/$name', 'docdir': '/usr/share/doc/$name', 'includedir': '/usr/include/$name', 'libdir': '/usr/lib/$name', 'localedir': '/usr/share/locale', 'localstatedir': '/var/lib/$name', 'mandir': '/usr/share/man', 'pythonlibdir': '/usr/lib/python2.5/site-packages', 'sysconfdir': '/etc/$name'}, 'nt': {'bindir': '$prefix/Scripts', 'datadir': '$prefix/Share/$name', 'docdir': '$prefix/Share/Doc/$name', 'includedir': '$prefix/Include/$name', 'libdir': '$prefix/Share/$name', 'localedir': '$prefix/Share/Locale', 'localstatedir': '$prefix/Share/$name', 'mandir': '$prefix/Share/Help', 'pythonlibdir': '$prefix/Lib/site-packages', 'sysconfdir': '$prefix/Share/Settings/$name'}, 'other': {'bindir': '$prefix/Scripts', 'datadir': '$prefix/Share/$name', 'docdir': '$prefix/Share/Doc/$name', 'includedir': '$prefix/Include/$name', 'libdir': '$prefix/Share/$name', 'localedir': '$prefix/Share/Locale', 'localstatedir': '$prefix/Share/$name', 'mandir': '$prefix/Share/Help', 'pythonlibdir': '$prefix/Lib/site-packages', 'sysconfdir': '$prefix/Share/Settings/$name'}, 'posix_autoconf': {'bindir': '$exec_prefix/bin', 'datadir': '$prefix/share/$name', 'docdir': '$prefix/share/doc/$name', 'includedir': '$prefix/include/$name', 'libdir': '$exec_prefix/lib/$name', 'localedir': '$datadir/locale', 'localstatedir': '$exec_prefix/var/$name', 'mandir': '$prefix/man', 'pythonlibdir': '/usr/lib/python2.5/site-packages', 'sysconfdir': '$prefix/etc/$name'}, 'posix_home': {'bindir': '$prefix/bin', 'datadir': '$prefix/share/$name', 'docdir': '$prefix/share/doc/$name', 'includedir': '$prefix/include/python$python_version/$name', 'libdir': '$prefix/lib/$name', 'localedir': '$prefix/share/locale', 'localstatedir': '$prefix/share/var/$name', 'mandir': '$prefix/share/man', 'pythonlibdir': '$prefix/lib/python$python_version', 'sysconfdir': '$prefix/share/etc/$name'}}</value>
+    </global>
+    <global public="yes" name="DEBUG" id="DEBUG">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

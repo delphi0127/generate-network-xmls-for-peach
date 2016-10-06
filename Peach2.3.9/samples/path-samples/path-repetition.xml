@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+    author="Hanifi Gunes" description="Path Repetition Example">
+
+	<!--
+
+	This example shows what happens when the same state is fuzzed repeatedly.
+	
+	Syntax:
+	
+	  python peach.py samples\path-repetition.xml
+	  
+	Output:
+	
+	  The example should output One Two Three Two Four Five (StateTwo is repeated)
+	
+	Authors:
+	  Hanifi Gunes (hanifigunes@gmail.com)
+	
+	-->
+    <!-- Import defaults for Peach instance -->
+    <Include ns="default" src="file:defaults.xml" />
+    
+    <!-- Create a simple data template containing a single string -->
+    <DataModel name="OneTemplate">
+        <String name="String0" value="One " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="TwoTemplate">
+        <String name="String1" value="Two  " isStatic="true" />
+    </DataModel>
+    
+    <DataModel name="ThreeTemplate">
+        <String name="String0" value="Three " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="FourTemplate">
+        <String name="String0" value="Four " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="FiveTemplate">
+        <String name="String0" value="Five " isStatic="true"/>
+    </DataModel>
+    
+    <StateModel name="StateMachine0" initialState="StateOne">
+        <State name="StateOne">
+            <Action type="output">
+                <DataModel ref="OneTemplate"/>
+            </Action>
+            <Action type="changeState" ref="StateTwo"/>
+        </State>
+        
+        <State name="StateTwo">
+            <Action type="output">
+                <DataModel ref="TwoTemplate"/>
+            </Action>
+            <Choice>
+                <Action type="changeState" ref="StateThree"/>
+                <Action type="changeState" ref="StateFour"/>
+            </Choice>
+        </State>
+        
+        <State name="StateThree">
+            <Action type="output">
+                <DataModel ref="ThreeTemplate"/>
+            </Action>
+            <Action type="changeState" ref="StateTwo"/>
+        </State>
+        
+        <State name="StateFour">
+            <Action type="output">
+                <DataModel ref="FourTemplate"/>
+            </Action>
+            <Action type="changeState" ref="StateFive"/>
+        </State>
+        
+        <State name="StateFive">
+            <Action type="output">
+                <DataModel ref="FiveTemplate"/>
+            </Action>
+        </State>
+    </StateModel>
+    
+    <Test name="NumberTest">
+        <Include/>
+        <StateModel ref="StateMachine0">
+            <Path ref="StateOne"/>
+            <Path ref="StateTwo"/>
+            <Path ref="StateThree"/>
+            <Path ref="StateTwo"/>
+            <Path ref="StateFour"/>
+            <!--
+            	remember to use Stop element in order to stop fuzzing at that point ;) 
+                <Stop/>
+            -->
+            
+        </StateModel>
+        
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <!-- Configure a single run -->
+    <Run name="DefaultRun" description="Stdout HelloWorld Run">
+        
+        <Test ref="NumberTest" />
+        
+    </Run>
+    
+</Peach>
+<!-- end -->

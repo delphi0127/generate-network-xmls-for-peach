@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.Engine.incoming.DataCracker</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        <a href="Peach.Engine-module.html">Package&nbsp;Engine</a> ::
+        <a href="Peach.Engine.incoming-module.html">Module&nbsp;incoming</a> ::
+        Class&nbsp;DataCracker
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class DataCracker</h1><p class="nomargin-top"><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker">source&nbsp;code</a></span></p>
+<p>This class will try and parse data into a data model.  This process 
+  will try and best-fit data based on performing look aheads with 
+  fit-ratings.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">peachXml</span>,
+        <span class="summary-sig-arg">inner</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#internalCrackData" class="summary-sig-name">internalCrackData</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">template</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">method</span>=<span class="summary-sig-default">'setValue'</span>)</span><br />
+      This is the internal method called when we recurse into crackData.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.internalCrackData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="optmizeModelForCracking"></a><span class="summary-sig-name">optmizeModelForCracking</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">datamodel</span>,
+        <span class="summary-sig-arg">silent</span>=<span class="summary-sig-default">False</span>)</span><br />
+      This method will pre-compute some values that will enable optimzing 
+      how we crack data into said model.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.optmizeModelForCracking">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#crackData" class="summary-sig-name">crackData</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">template</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">method</span>=<span class="summary-sig-default">'setValue'</span>)</span><br />
+      Crack data based on template.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.crackData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_resetDataElementValues"></a><span class="summary-sig-name">_resetDataElementValues</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">method</span>)</span><br />
+      Reset values in data tree to None.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._resetDataElementValues">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_GetTemplateByName" class="summary-sig-name" onclick="show_private();">_GetTemplateByName</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">str</span>)</span><br />
+      Get the object indicated by ref.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._GetTemplateByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_getRootParent"></a><span class="summary-sig-name">_getRootParent</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._getRootParent">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_handleArray" class="summary-sig-name" onclick="show_private();">_handleArray</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      This method is used when an array has been located (an element with
+minOccurs or maxOccurs set).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleArray">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_handleNode"></a><span class="summary-sig-name">_handleNode</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleNode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_verifyParents"></a><span class="summary-sig-name">_verifyParents</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._verifyParents">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_lookAhead" class="summary-sig-name" onclick="show_private();">_lookAhead</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">minMax</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Look ahead one step and get the next rating.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._lookAhead">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_isTokenNext" class="summary-sig-name" onclick="show_private();">_isTokenNext</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">fastChoice</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Determine if a token node follows.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._isTokenNext">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_isLastUnsizedNode" class="summary-sig-name" onclick="show_private();">_isLastUnsizedNode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Determin if the following nodes all have known sizes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._isLastUnsizedNode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_hasSize"></a><span class="summary-sig-name">_hasSize</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Determin if data element has a size and return it or None</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._hasSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_doesNodeHaveStatic"></a><span class="summary-sig-name">_doesNodeHaveStatic</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Return true if node or it's children is static</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._doesNodeHaveStatic">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_doesNodeHaveConstraint"></a><span class="summary-sig-name">_doesNodeHaveConstraint</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Return true if node or it's children is static</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._doesNodeHaveConstraint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_nextStaticNode"></a><span class="summary-sig-name">_nextStaticNode</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Locate the next static node or None</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._nextStaticNode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_nextNodeOrSizedParent" class="summary-sig-name" onclick="show_private();">_nextNodeOrSizedParent</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Find the next node, or sized parent.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._nextNodeOrSizedParent">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_nextNode" class="summary-sig-name" onclick="show_private();">_nextNode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>)</span><br />
+      Locate the next node.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._nextNode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_adjustRating"></a><span class="summary-sig-name">_adjustRating</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">rating</span>,
+        <span class="summary-sig-arg">lookAheadRating</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._adjustRating">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_handleChoice"></a><span class="summary-sig-name">_handleChoice</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleChoice">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_handleBlock"></a><span class="summary-sig-name">_handleBlock</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleBlock">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_getDataFromFullname"></a><span class="summary-sig-name">_getDataFromFullname</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dom</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Take a fullname (blah.blah.blah) and locate it in our data dom.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._getDataFromFullname">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_handleString" class="summary-sig-name" onclick="show_private();">_handleString</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Returns the rating and string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_handleNumber" class="summary-sig-name" onclick="show_private();">_handleNumber</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Handle Number.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleNumber">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="flipBitsByByte"></a><span class="summary-sig-name">flipBitsByByte</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">num</span>,
+        <span class="summary-sig-arg">size</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.flipBitsByByte">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="splitIntoBytes"></a><span class="summary-sig-name">splitIntoBytes</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">num</span>,
+        <span class="summary-sig-arg">size</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.splitIntoBytes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_handleFlags" class="summary-sig-name" onclick="show_private();">_handleFlags</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Returns the rating and string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleFlags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="binaryFormatter"></a><span class="summary-sig-name">binaryFormatter</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">num</span>,
+        <span class="summary-sig-arg">bits</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.binaryFormatter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_handleSeek"></a><span class="summary-sig-name">_handleSeek</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Handle a Seek element</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleSeek">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_handleCustom" class="summary-sig-name" onclick="show_private();">_handleCustom</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Returns the rating and string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleCustom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.Engine.incoming.DataCracker-class.html#_handleBlob" class="summary-sig-name" onclick="show_private();">_handleBlob</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node</span>,
+        <span class="summary-sig-arg">buff</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">doingMinMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Returns the rating and string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleBlob">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_tabLevel"></a><span class="summary-name">_tabLevel</span> = <code title="0">0</code><br />
+      Have we recursed into DataCracker?
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="lookAheadDepth"></a><span class="summary-name">lookAheadDepth</span><br />
+      To what depth are we looking ahead?
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="lookAhead"></a><span class="summary-name">lookAhead</span><br />
+      Are we looking ahead?
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="parentPos"></a><span class="summary-name">parentPos</span><br />
+      Parent position (if any)
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="internalCrackData"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">internalCrackData</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">template</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">method</span>=<span class="sig-default">'setValue'</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.internalCrackData">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is the internal method called when we recurse into crackData.  It
+  will not perform certain operations that should be performed on the 
+  entire data model instead of sub-portions.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="crackData"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">crackData</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">template</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">method</span>=<span class="sig-default">'setValue'</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker.crackData">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Crack data based on template.  Set values into data tree.</p>
+  <p>Will throw an exception (NeedMoreData) if additional data is required.
+  The exception contains the minimum amount of additional data needed 
+  before trying to re-crack the data.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_GetTemplateByName"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_GetTemplateByName</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">str</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._GetTemplateByName">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get the object indicated by ref.  Currently the object must have been 
+  defined prior to this point in the XML</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_handleArray"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_handleArray</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">parent</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">doingMinMax</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleArray">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+This method is used when an array has been located (an element with
+minOccurs or maxOccurs set).
+
+Note: This code was moved out of _handleNode() on 11/16/08
+
+Todo: This array handling code has gotten out of hand.  It needs
+      some re-working and cleaning up.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_lookAhead"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_lookAhead</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">minMax</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._lookAhead">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Look ahead one step and get the next rating.  Looking ahead from a 
+  current node is more complex than it might first seem.</p>
+  <p>For example, we might be the 2nd to last element in a block that is 
+  part of a larger block (but not the last element). We will need to be 
+  tricky inorder to properly look ahead at the rest of the document.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_isTokenNext"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_isTokenNext</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">fastChoice</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._isTokenNext">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determine if a token node follows.  Other sized nodes can be between 
+  them.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_isLastUnsizedNode"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_isLastUnsizedNode</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._isLastUnsizedNode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determin if the following nodes all have known sizes.  If they do we 
+  can determin our size.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_nextNodeOrSizedParent"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_nextNodeOrSizedParent</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._nextNodeOrSizedParent">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Find the next node, or sized parent.</p>
+  <p>Returns tubple of (Node, Boolean) Node - Found node Boolean - Is sized
+  parent?</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_nextNode"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_nextNode</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._nextNode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Locate the next node.
+
+1. Do we have a .nextSibling?
+2. Does are parent have .nextSibling?
+...
+
+Need to also support escaping Choice blocks!
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_handleString"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_handleString</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">doingMinMax</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleString">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the rating and string.  The rating is how well we matched.</p>
+  <p>Rating:</p>
+  <p>1 - BEST        If our default matched and look ahead is 1 2 - GOOD
+  If our default matched and look ahead is 2 3 - OK          If our look 
+  ahead is 1 or 2 4 - MPH         If look ahead is 3 or 4</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_handleNumber"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_handleNumber</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">doingMinMax</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleNumber">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handle Number.  Return (rating, newpos, value) in tuple.</p>
+  <p>Rating:</p>
+  <p>1 - BEST        If our default matched and look ahead is 1 2 - GOOD
+  If our default matched and look ahead is 2 3 - OK          If our look 
+  ahead is 1 or 2 4 - MPH         If look ahead is 3 or 4</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_handleFlags"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_handleFlags</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">doingMinMax</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleFlags">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the rating and string.  The rating is how well we matched.</p>
+  <p>Rating:</p>
+  <p>1 - BEST        If our default matched and look ahead is 1 2 - GOOD
+  If our default matched and look ahead is 2 3 - OK          If our look 
+  ahead is 1 or 2 4 - MPH         If look ahead is 3 or 4</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_handleCustom"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_handleCustom</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">doingMinMax</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleCustom">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the rating and string.  The rating is how well we matched.</p>
+  <p>Rating:</p>
+  <p>1 - BEST        If our default matched and look ahead is 1 2 - GOOD
+  If our default matched and look ahead is 2 3 - BAD 4 - BAD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_handleBlob"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_handleBlob</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node</span>,
+        <span class="sig-arg">buff</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">doingMinMax</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.Engine.incoming-pysrc.html#DataCracker._handleBlob">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the rating and string.  The rating is how well we matched.</p>
+  <p>Rating:</p>
+  <p>1 - BEST        If our default matched and look ahead is 1 2 - GOOD
+  If our default matched and look ahead is 2 3 - OK          If our look 
+  ahead is 1 or 2 4 - MPH         If look ahead is 3 or 4</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:30 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

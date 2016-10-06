@@ -1,0 +1,89 @@
+Index: Peach/Engine/state.py
+===================================================================
+--- Peach/Engine/state.py	(revision 2057)
++++ Peach/Engine/state.py	(working copy)
+@@ -649,6 +649,8 @@
+ 			if action.valueXpath != None:
+ 				valueNodes = doc.xpath(action.valueXpath)
+ 				if len(valueNodes) == 0:
++					if Peach.Engine.engine.Engine.strictModelChecks:
++						raise PeachException("Slurp [%s] valueXpath [%s] did not return a node" % (action.name,action.valueXpath))
+ 					print "Warning: valueXpath did not return a node"
+ 					raise SoftException("StateEngine._runAction(xpath): valueXpath did not return a node")
+ 				
+Index: Peach/Engine/incoming.py
+===================================================================
+--- Peach/Engine/incoming.py	(revision 2057)
++++ Peach/Engine/incoming.py	(working copy)
+@@ -92,6 +92,8 @@
+ 		(rating, pos) = self._handleNode(template, buff, 0, None) #, self.dom)
+ 		Debug(1, "RATING: %d - POS: %d - LEN(DATA): %d" % (rating, self.parentPos+pos, len(buff.data)))
+ 		if pos < len(buff.data)-1:
++			if Peach.Engine.engine.Engine.strictModelChecks:
++				raise PeachException("Did not consume all data, template: %s, pos: %d, len: %d" % (template.name, pos, len(buff.data)))
+ 			Debug(1, "WARNING: Did not consume all data!!!")
+ 		
+ 		Debug(1, "Done cracking stuff")
+@@ -171,9 +173,13 @@
+ 		(rating, pos) = self._handleNode(template, buff, 0, None) #, self.dom)
+ 		Debug(1, "RATING: %d - POS: %d - LEN(DATA): %d" % (rating, self.parentPos+pos, len(buff.data)))
+ 		if pos < len(buff.data)-1:
++			if Peach.Engine.engine.Engine.strictModelChecks:
++				raise PeachException("Did not consume all data, template: %s, pos: %d, len: %d" % (template.name, pos, len(buff.data)))
+ 			self.crackPassed = False
+ 			Debug(1, "WARNING: Did not consume all data!!!")
+ 		if rating > 2:
++			if Peach.Engine.engine.Engine.strictModelChecks:
++				raise PeachException("Cracking failed, template: %s, rating: %d" % (template.name, rating))
+ 			self.crackPassed = False
+ 		
+ 		# Find all our placements and shift elements around.
+Index: Peach/Engine/engine.py
+===================================================================
+--- Peach/Engine/engine.py	(revision 2057)
++++ Peach/Engine/engine.py	(working copy)
+@@ -306,6 +306,8 @@
+ 	nativeDeepCopy = True
+ 	#: Test range
+ 	testRange = None
++	#: Throw PeachException if model checks fail due to cracking errors (rating>2, not all input data was consumed) or data reference errors (slurp) 
++	strictModelChecks = False 
+ 	
+ 	def __init__(self):
+ 		self.noCount = True
+Index: peach.py
+===================================================================
+--- peach.py	(revision 2057)
++++ peach.py	(working copy)
+@@ -184,7 +184,7 @@
+ 																	 'restart=', 'parser=',
+ 																	 'test', 'count', 'web', 'agent',
+ 																	 'gui', 'debug', 'new', 'skipto=',
+-																	 'range'])
++																	 'range','strict_model_checks'])
+ 	except:
+ 		usage()
+ 	
+@@ -458,6 +458,15 @@
+ 		elif optlist[i][0] == '-v':
+ 			verbose = True
+ 		
++		elif optlist[i][0] == '--strict_model_checks':
++			
++			# Throw PeachException if model checks fail due to cracking errors (rating>2, not all input data was consumed) or data reference errors (slurp)
++			
++			from Peach.Engine import *
++			from Peach.Engine.common import *
++			
++			engine.Engine.strictModelChecks = True
++			
+ 		else:
+ 			usage()
+ 	
+@@ -503,4 +512,4 @@
+ 			DomBackgroundCopier.copyThread = None
+ 
+ 	
+-# end
+\ No newline at end of file
++# end

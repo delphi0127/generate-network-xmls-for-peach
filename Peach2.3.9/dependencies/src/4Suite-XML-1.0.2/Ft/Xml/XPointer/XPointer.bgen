@@ -1,0 +1,265 @@
+<?xml version='1.0'?>
+<bisongen version='1.0' name='XPointerParser' project='Ft.Xml.XPointer'>
+
+  <modules>
+    <import from="Ft.Xml.XPointer">XPointer</import>
+  </modules>
+
+  <tokens>
+    <token>NCName</token>
+    <token>QName</token>
+    <token>NormalChar</token>
+    <token>EscapedChar</token>
+    <token>StringWithoutParens</token>
+  </tokens>
+
+  <grammar>
+    
+    <!-- [1] Pointer ::= Shorthand | SchemeBased -->
+    <production>
+      <non-terminal>XPointer</non-terminal>
+      <rule>
+        <symbol>Shorthand</symbol>
+        <code language="c">
+          $$ = PyObject_CallMethod(XPointer, "Shorthand", "O", $1);
+        </code>
+        <code language="python">
+          $$ = XPointer.Shorthand($1)
+        </code>
+      </rule>
+      <rule>
+        <symbol>SchemeBased</symbol>
+        <code language="c">
+          $$ = PyObject_CallMethod(XPointer, "SchemeBased", "O", $1);
+        </code>
+        <code language="python">
+          $$ = XPointer.SchemeBased($1)
+        </code>
+      </rule>
+    </production>
+
+    <!-- [2] Shorthand ::= NCName -->
+    <production>
+      <non-terminal>Shorthand</non-terminal>
+      <rule>
+        <symbol>NCName</symbol>
+      </rule>
+    </production>          
+
+    <!-- [3] SchemeBased ::= PointerPart (S? PointerPart)* -->
+    <production>
+      <non-terminal>SchemeBased</non-terminal>
+      <rule>
+        <symbol>PointerPart</symbol>
+        <code language="c">
+          $$ = PyList_New(1);
+          PyList_SET_ITEM($$, 0, $1);
+          Py_INCREF($1);
+        </code>
+        <code language="python">
+          $$ = [$1]
+        </code>
+      </rule>
+      <rule>
+        <symbol>SchemeBased</symbol>
+        <symbol>PointerPart</symbol>
+        <code language="c">
+          PyList_Append($1, $2);
+          Py_INCREF($1);
+          $$ = $1;
+        </code>
+        <code language="python">
+          $1.append($2)
+          $$ = $1
+        </code>
+      </rule>
+    </production>
+
+    <!-- [4] PointerPart ::= SchemeName '(' SchemeData ')' -->
+    <production>
+      <non-terminal>PointerPart</non-terminal>
+      <rule>
+        <symbol>SchemeName</symbol>
+        <symbol>'('</symbol>
+        <symbol>SchemeData</symbol>
+        <symbol>')'</symbol>
+        <code language="c">
+          lexer->state = LEXER_INITIAL;
+          $$ = PyObject_CallMethod(XPointer, "Scheme", "OO", $1, $3);
+        </code>
+        <code language="python">
+          lexer.state = INITIAL;
+          $$ = XPointer.Scheme($1, $3)
+        </code>
+      </rule>
+    </production>
+
+    <!-- [5] SchemeName ::= QName -->
+    <production>
+      <non-terminal>SchemeName</non-terminal>
+      <rule>
+        <symbol>NCName</symbol>
+        <code language="c">
+          lexer->state = LEXER_SCHEME_DATA;
+          Py_INCREF($1);
+          $$ = $1;
+        </code>
+        <code language="python">
+          lexer.state = SCHEME_DATA
+          $$ = $1
+        </code>
+      </rule>
+      <rule>
+        <symbol>QName</symbol>
+        <code language="c">
+          lexer->state = LEXER_SCHEME_DATA;
+          Py_INCREF($1);
+          $$ = $1;
+        </code>
+        <code language="python">
+          lexer.state = SCHEME_DATA
+          $$ = $1
+        </code>
+      </rule>
+    </production>          
+
+    <!-- [6] SchemeData ::= EscapedData* -->
+    <production>
+      <non-terminal>SchemeData</non-terminal>
+      <rule>
+        <code language="c">
+          $$ = PyUnicode_FromUnicode(NULL, 0);
+        </code>
+        <code language="python">
+          $$ = u""
+        </code>
+      </rule>
+      <rule>
+        <symbol>EscapedDataList</symbol>
+        <code language="c">
+          PyObject *empty = PyUnicode_FromUnicode(NULL, 0);
+          $$ = PyUnicode_Join(empty, $1);
+          Py_DECREF(empty);
+        </code>
+        <code language="python">
+          $$ = u"".join($1)
+        </code>
+      </rule>
+    </production>
+
+    <!-- [6a] EscapedDataList ::= EscapedData* -->
+    <production>
+      <non-terminal>EscapedDataList</non-terminal>
+      <rule>
+        <symbol>EscapedData</symbol>
+        <code language="c">
+          $$ = PyList_New(1);
+          if ($$) {
+            PyList_SET_ITEM($$, 0, $1);
+            Py_INCREF($1);
+          }
+        </code>
+        <code language="python">
+          $$ = [$1]
+        </code>
+      </rule>
+      <rule>
+        <symbol>EscapedDataList</symbol>
+        <symbol>EscapedData</symbol>
+        <code language="c">
+          PyList_Append($1, $2);
+          Py_INCREF($1);
+          $$ = $1;
+        </code>
+        <code language="python">
+          $1.append($2)
+          $$ = $1
+        </code>
+      </rule>
+    </production>
+
+    <!-- [7] EscapedData ::= NormalChar | EscapedChar | '(' SchemeData ')'
+         [7a] EscapedChar ::= "^(" | "^)" | "^^"
+     -->
+    <production>
+      <non-terminal>EscapedData</non-terminal>
+      <rule>
+        <symbol>NormalChar</symbol>
+      </rule>
+      <rule>
+        <symbol>EscapedChar</symbol>
+        <code language="c">
+          $$ = PyUnicode_FromUnicode(PyUnicode_AS_UNICODE($1)+1, 1);
+        </code>
+        <code language="python">
+          $$ = $1[1]
+        </code>
+      </rule>
+      <rule>
+        <symbol>'('</symbol>
+        <symbol>SchemeData</symbol>
+        <symbol>')'</symbol>
+        <code language="c">
+          $$ = PyUnicode_FromUnicode(NULL, PyUnicode_GET_SIZE($2) + 2);
+          if ($$) {
+            PyUnicode_AS_UNICODE($$)[0] = '(';
+            Py_UNICODE_COPY(PyUnicode_AS_UNICODE($$) + 1,
+                            PyUnicode_AS_UNICODE($2),
+                            PyUnicode_GET_SIZE($2));
+            PyUnicode_AS_UNICODE($$)[PyUnicode_GET_SIZE($2) + 1] = ')';
+          }
+        </code>
+        <code language="python">
+          $$ = $1 + $2 + $3
+        </code>
+      </rule>
+    </production>
+
+  </grammar>
+
+  <!-- NOTE: 
+        Lexer state switching is handled in the rules, not by tokens.
+  -->
+  <lexer>
+    <defines>
+      <?include ../XPath/XPathLexerDefines.bgen.frag?>
+    </defines>
+
+    <states>
+      <exclusive>SCHEME_DATA</exclusive>
+    </states>
+
+    <!-- NCName -->
+    <pattern expression="{NCName}">
+      <token>NCName</token>
+    </pattern>
+
+    <!-- QName -->
+    <pattern expression="{NCName}:{NCName}">
+      <token>QName</token>
+    </pattern>
+
+    <pattern expression='{S}+'/>
+
+    <pattern expression='.'>
+      <token>@ASCII@</token>
+    </pattern>
+
+    <!-- String with parenthesis escaping -->
+    <scope state='SCHEME_DATA'>
+      <pattern expression="[^()^]+">
+        <token>NormalChar</token>
+      </pattern>
+
+      <pattern expression="\^[()^]">
+        <token>EscapedChar</token>
+      </pattern>
+
+      <pattern expression='.'>
+        <token>@ASCII@</token>
+      </pattern>
+    </scope>
+
+  </lexer>
+
+</bisongen>

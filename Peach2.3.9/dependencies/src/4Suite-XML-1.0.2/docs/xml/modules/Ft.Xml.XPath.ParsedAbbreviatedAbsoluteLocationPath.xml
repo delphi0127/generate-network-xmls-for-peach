@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedAbbreviatedAbsoluteLocationPath">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>A parsed token that represents an abbreviated absolute location path.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="ParsedAbbreviatedAbsoluteLocationPath" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAbbreviatedAbsoluteLocationPath" module="Ft.Xml.XPath.ParsedAbbreviatedAbsoluteLocationPath"/>
+      </method-resolution-order>
+      <methods name="ParsedAbbreviatedAbsoluteLocationPath" module="Ft.Xml.XPath.ParsedAbbreviatedAbsoluteLocationPath">
+        <method public="no" name="__init__" id="ParsedAbbreviatedAbsoluteLocationPath-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rel"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedAbbreviatedAbsoluteLocationPath-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedAbbreviatedAbsoluteLocationPath-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedAbbreviatedAbsoluteLocationPath-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedAbbreviatedAbsoluteLocationPath-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="ParsedAbbreviatedAbsoluteLocationPath-evaluate" name="select" realname="evaluate" id="ParsedAbbreviatedAbsoluteLocationPath-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

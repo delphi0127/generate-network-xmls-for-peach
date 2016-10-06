@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.ObjectPrint">
+  <modification-date>2003-01-18 11:03:42</modification-date>
+  <abstract>Pretty-printing of objects</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="no" name="_inst_to_dict" id="_inst_to_dict">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="inst"/>
+      </arguments>
+    </function>
+    <function public="yes" name="pprint" id="pprint">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="object"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

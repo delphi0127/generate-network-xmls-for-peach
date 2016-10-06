@@ -1,0 +1,16 @@
+xmltest/not-wf/not-sa/005.xml
+japanese/pr-xml-euc-jp.xml
+japanese/pr-xml-iso-2022-jp.xml
+japanese/pr-xml-shift_jis.xml
+japanese/weekly-euc-jp.xml
+japanese/weekly-iso-2022-jp.xml
+japanese/weekly-shift_jis.xml
+sun/not-wf/uri01.xml
+oasis/p11pass1.xml
+ibm/not-wf/P69/ibm69n05.xml
+eduni/errata-2e/E34.xml
+eduni/errata-2e/E55.xml
+eduni/errata-2e/E57.xml
+eduni/xml-1.1/004.xml
+eduni/xml-1.1/005.xml
+eduni/xml-1.1/006.xml

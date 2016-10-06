@@ -1,0 +1,30 @@
+Peach Fuzzer Run
+=================
+
+Command line: C:\Peach2.3.9\peach.py --debug c:\\test\\XMLs\\test_tcp.xml 
+Date of run: Thu Oct 06 10:26:56 2016
+SEED: 1475720815.22
+Pit File: test_tcp.xml
+Run name: DefaultRun
+
+Thu Oct 06 10:26:56 2016: 
+Thu Oct 06 10:26:56 2016: Test starting: NetworkTest
+Thu Oct 06 10:26:56 2016: 
+Thu Oct 06 10:26:59 2016: On test variation # 1
+Thu Oct 06 10:32:51 2016: Fault was detected on test 510
+Thu Oct 06 10:33:28 2016: On test variation # 512
+Thu Oct 06 10:33:47 2016: Fault was detected on test 517
+Thu Oct 06 10:37:18 2016: On test variation # 1024
+Thu Oct 06 10:40:06 2016: On test variation # 1536
+Thu Oct 06 10:43:12 2016: On test variation # 2048
+Thu Oct 06 10:46:12 2016: On test variation # 2560
+Thu Oct 06 10:49:40 2016: On test variation # 3072
+Thu Oct 06 10:52:30 2016: On test variation # 3584
+Thu Oct 06 10:55:15 2016: On test variation # 4096
+Thu Oct 06 10:57:09 2016: 
+Thu Oct 06 10:57:09 2016: Test completed: NetworkTest
+Thu Oct 06 10:57:09 2016: 
+
+
+== Run completed ==
+Thu Oct 06 10:57:09 2016

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Paolo Milani" description="Path Exclude Example">
+
+	<!--
+
+	This is the simplest example of using the Choice + Path + Include/Exclude features
+	
+	Syntax:
+	
+	  python peach.py samples\path-exclude.xml
+	  
+	Output:
+	
+	  This example will run 2 "tests".
+	  The first test should only fuzz the "Hello " part
+	  the second one should mutate only "Honey!" part
+	
+	Authors:
+	  Hanifi Gunes (hanifigunes@gmail.com)
+	
+	-->
+
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="HelloTemplate">
+		<String name="String0" value="Hello " />
+	</DataModel>
+	
+	<DataModel name="WorldTemplate">
+		<String name="String1" value="World!  " />
+	</DataModel>
+	
+	<DataModel name="HoneyTemplate">
+		<String name="String0" value="Honey!" />
+	</DataModel>
+	
+	<StateModel name="StateMachine" initialState="State1">
+		<State name="State1">
+			<Action name="Action0" type="output">
+				<DataModel ref="HelloTemplate"/>
+			</Action>
+			<Action name="Action1" type="output">
+				<DataModel ref="HoneyTemplate"/>
+			</Action>
+			<Choice>
+				<Action type="changeState" ref="State2"/>
+				<Action type="changeState" ref="State3"/>
+			</Choice>
+		</State>
+		
+		<State name="State2">
+			<Action type="output">
+				<DataModel ref="WorldTemplate"/>
+			</Action>
+		</State>
+		
+		<State name="State3">
+			<Action type="output">
+				<DataModel ref="HoneyTemplate"/>
+			</Action>
+		</State>
+	</StateModel>
+
+	<Test name="HelloWorldTest">
+		<Exclude/>
+		
+		<StateModel ref="StateMachine">
+			<Path ref="State1">
+				<Include/>
+				<Exclude xpath="//StateMachine/State1/Action0"/>
+			</Path>
+			<Path ref="State2"/>
+		</StateModel>
+		<!-- Display test cases to the console -->
+		<Publisher class="stdout.Stdout" />
+	</Test>
+	
+	<Test name="HelloHoneyTest">
+		<!-- 
+			This does nothing, since everything is included by default
+			<Include/> 
+		-->
+
+		<StateModel ref="StateMachine">
+			<Path ref="State1">
+				<Exclude/>
+			</Path>
+			<Path ref="State3"/>						
+		</StateModel>
+		
+		<!-- Display test cases to the console -->
+		<Publisher class="stdout.Stdout" />
+	</Test>
+
+	<!-- Configure a single run -->
+	<Run name="DefaultRun" description="Stdout HelloWorld Run">
+
+		<!-- <Test ref="HelloWorldTest" /> -->
+		<Test ref="HelloHoneyTest" />
+
+	</Run>
+
+</Peach>
+<!-- end -->

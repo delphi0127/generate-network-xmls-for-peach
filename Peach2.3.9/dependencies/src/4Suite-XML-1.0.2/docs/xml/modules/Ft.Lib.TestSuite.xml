@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite">
+  <modification-date>2002-07-23 00:15:53</modification-date>
+  <abstract>Package for testing utilities</abstract>
+  <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="Errors" realname="Ft.Lib.TestSuite.Errors">
+      <abstract>Exceptions used in TestSuite modules.</abstract>
+      <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestCoverage" realname="Ft.Lib.TestSuite.TestCoverage">
+      <abstract>A class that uses Python's profiler to help TestModule know which
+functions have been called in a particular module.</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestFunction" realname="Ft.Lib.TestSuite.TestFunction">
+      <abstract>Provides the TestFunction class for wrapping functions.</abstract>
+      <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestLoader" realname="Ft.Lib.TestSuite.TestLoader">
+      <abstract>Provides the TestLoader class for loading test modules or packages.</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestMode" realname="Ft.Lib.TestSuite.TestMode">
+      <abstract>Provides the TestMode base class for testing modes.</abstract>
+      <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestModule" realname="Ft.Lib.TestSuite.TestModule">
+      <abstract>Provides the TestModule class for wrapping modules/packages.</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestObject" realname="Ft.Lib.TestSuite.TestObject">
+      <abstract>Provides the TestObject base class used in TestSuite modules.</abstract>
+      <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestSuite" realname="Ft.Lib.TestSuite.TestSuite">
+      <abstract>Provides the TestSuite class, which represents the package(s) to test.</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Tester" realname="Ft.Lib.TestSuite.Tester">
+      <abstract>Provides the Tester class, which is the hub for all testing.</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+  </modules>
+  <functions>
+    <function public="yes" name="RemoveTests" id="RemoveTests">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="list"/>
+        <arg name="ignored"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SortTests" id="SortTests">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="list"/>
+        <arg name="atstart"/>
+        <arg default="[]" name="atend"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Test" id="Test">
+      <abstract/>
+      <description/>
+      <arguments>
+        <var-keywords name="attrs"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Id: __init__.py,v 1.3 2002/07/23 06:15:53 jkloth Exp $'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,21 @@
+
+struct2peach
+============
+
+This is a simple Perl script that will convert C header files or 
+010 Templates into Peach data models.  Currently there is support for
+most basic types, simple arrays, structures, typedefs, structs in structs,'
+and #defines.
+
+When a type is not known a comment is placed for review.
+
+NOTE:  This tool is intended to help speed up fuzzer creation for complex
+formats, but manual fixups and editing is still required.
+
+Known limitations
+-----------------
+
+ * No support for unions
+ * No support for enums
+ * No support for following #include statements
+ 

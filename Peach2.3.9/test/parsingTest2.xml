@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Testcase with namespaces and references -->
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	<Include ns="a" src="file:parsingTest2a.xml" />
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action type="start" />
+			<Action type="connect" />
+			
+			<Action type="output" name="HeaderIn">
+				<DataModel ref="a:Header" />
+			</Action>
+			<Action type="input" name="HeaderOut">
+				<DataModel ref="a:Header" />
+			</Action>
+			
+			<Action type="close" />
+			<Action type="stop" />
+		</State>
+	</StateModel>
+	
+	<Test name="TheTest">
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

@@ -1,0 +1,36 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V4.1.2//EN">
+<!-- From http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/examples-docbook-article.html -->
+<article>
+  <articleinfo>
+    <title>An example article</title>
+
+    <author>
+      <firstname>Your first name</firstname>
+      <surname>Your surname</surname>
+      <affiliation>
+        <address><email>foo@example.com</email></address>
+      </affiliation>
+    </author>
+
+    <copyright>
+      <year>2000</year>
+      <holder>Copyright string here</holder>
+    </copyright>
+
+    <abstract>
+      <para>If your article has an abstract then it should go here.</para>
+    </abstract>
+  </articleinfo>
+
+  <sect1>
+    <title>My first section</title>
+
+    <para>This is the first section in my article.</para>
+
+    <sect2>
+      <title>My first sub-section</title>
+
+      <para>This is the first sub-section in my article.</para>
+    </sect2>
+  </sect1>
+</article>

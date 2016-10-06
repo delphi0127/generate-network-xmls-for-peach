@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Debugger.DebugWriter">
+  <modification-date>2006-04-28 13:54:51</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="DebugWriter" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DebugWriter" module="Ft.Xml.Xslt.Debugger.DebugWriter"/>
+      </method-resolution-order>
+      <methods name="DebugWriter" module="Ft.Xml.Xslt.Debugger.DebugWriter">
+        <method public="no" name="__init__" id="DebugWriter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="attribute" id="DebugWriter-attribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="value"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+        </method>
+        <method public="yes" name="comment" id="DebugWriter-comment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="body"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endDocument" id="DebugWriter-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElement" id="DebugWriter-endElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getCurrent" id="DebugWriter-getCurrent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getMediaType" id="DebugWriter-getMediaType">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getResult" id="DebugWriter-getResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="processingInstruction" id="DebugWriter-processingInstruction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="yes" name="reset" id="DebugWriter-reset">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startDocument" id="DebugWriter-startDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElement" id="DebugWriter-startElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+            <arg default="None" name="extraNss"/>
+          </arguments>
+        </method>
+        <method public="yes" name="text" id="DebugWriter-text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+            <arg default="1" name="escapeOutput"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

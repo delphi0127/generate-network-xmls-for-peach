@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedAxisSpecifier">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>A parsed token that represents an axis specifier.</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="AxisSpecifier" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="no" name="__init__" id="AxisSpecifier-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="axis"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="AxisSpecifier-__repr__">
+          <abstract>Always displays verbose expression</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="AxisSpecifier-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="descendants" id="AxisSpecifier-descendants">
+          <abstract>Select all of the descendants from the context node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+            <arg name="node"/>
+            <arg name="nodeSet"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="AxisSpecifier-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="select" id="AxisSpecifier-select">
+          <abstract>Always returns a node-set and 0 if forward, 1 if reverse.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member public="yes" name="principalType" id="AxisSpecifier-principalType">
+          <value>1</value>
+        </member>
+      </members>
+    </class>
+    <class name="ParsedAncestorAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAncestorAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedAncestorAxisSpecifier-select">
+          <abstract>Select all of the ancestors including the root</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedAncestorOrSelfAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAncestorOrSelfAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedAncestorOrSelfAxisSpecifier-select">
+          <abstract>Select all of the ancestors including ourselves through the root</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedAttributeAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAttributeAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedAttributeAxisSpecifier-select">
+          <abstract>Select all of the attributes from the context node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <members name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member public="yes" name="principalType" id="ParsedAttributeAxisSpecifier-principalType">
+          <value>2</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="ParsedChildAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedChildAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedChildAxisSpecifier-select">
+          <abstract>Select all of the children of the context node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedDescendantAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedDescendantAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedDescendantAxisSpecifier-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedDescendantOrSelfAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedDescendantOrSelfAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedDescendantOrSelfAxisSpecifier-select">
+          <abstract>Select the context node and all of its descendants</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedFollowingAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedFollowingAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedFollowingAxisSpecifier-select">
+          <abstract>Select all of the nodes the follow the context node,
+not including descendants.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedFollowingSiblingAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedFollowingSiblingAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedFollowingSiblingAxisSpecifier-select">
+          <abstract>Select all of the siblings that follow the context node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedNamespaceAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedNamespaceAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedNamespaceAxisSpecifier-select">
+          <abstract>Select all of the namespaces from the context node.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <members name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member public="yes" name="principalType" id="ParsedNamespaceAxisSpecifier-principalType">
+          <value>13</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="ParsedParentAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedParentAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedParentAxisSpecifier-select">
+          <abstract>Select the parent of the context node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedPrecedingAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedPrecedingAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedPrecedingAxisSpecifier-select">
+          <abstract>Select all of the nodes the precede the context node, not including ancestors</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedPrecedingSiblingAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedPrecedingSiblingAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedPrecedingSiblingAxisSpecifier-select">
+          <abstract>Select all of the siblings that precede the context node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ParsedSelfAxisSpecifier" public="yes">
+      <bases>
+        <base documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedSelfAxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        <base name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+      </method-resolution-order>
+      <methods name="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <method public="yes" name="select" id="ParsedSelfAxisSpecifier-select">
+          <abstract>Select the context node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="nodeTest"/>
+          </arguments>
+          <overrides documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="descendants" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="AxisSpecifier" module="Ft.Xml.XPath.ParsedAxisSpecifier">
+        <member-reference name="principalType" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ParsedAxisSpecifier" id="ParsedAxisSpecifier">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="axis"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+    <global public="yes" name="g_classMap" id="g_classMap">
+      <value>{'ancestor': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedAncestorAxisSpecifier&gt;, 'ancestor-or-self': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedAncestorOrSelfAxisSpecifier&gt;, 'attribute': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedAttributeAxisSpecifier&gt;, 'child': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedChildAxisSpecifier&gt;, 'descendant': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedDescendantAxisSpecifier&gt;, 'descendant-or-self': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedDescendantOrSelfAxisSpecifier&gt;, 'following': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedFollowingAxisSpecifier&gt;, 'following-sibling': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedFollowingSiblingAxisSpecifier&gt;, 'namespace': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedNamespaceAxisSpecifier&gt;, 'parent': &lt;class Ft.Xml.XPath.ParsedAxisSpecifier.ParsedParentAxisSpecifier&gt;, ...}</value>
+    </global>
+  </globals>
+</module>

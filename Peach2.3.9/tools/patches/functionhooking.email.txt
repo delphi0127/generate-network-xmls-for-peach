@@ -1,0 +1,11 @@
+Hello Mike,
+
+Can you please review and possibly apply this addition to Peach? It's useful to see several API calls of the application being fuzzed to get more insight into the application and to possibly find bugs that couldn't be found using just fuzzing. Besides that, it's an optional feature within Peach so the performance wouldn't decrease if someone doesn't use it.
+
+I also attached an Excel-sheet of the functions that are interesting to hook so you can get the picture of it.
+
+Thanks in advance!
+
+Best Regards,
+Arris Huijgen
+https://www.fox-it.com/

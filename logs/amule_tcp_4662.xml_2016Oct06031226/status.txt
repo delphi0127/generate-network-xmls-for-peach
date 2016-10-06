@@ -1,0 +1,18 @@
+Peach Fuzzer Run
+=================
+
+Command line: C:\Peach2.3.9\peach.py c:\test\XMLs\amule_tcp_4662.xml 
+Date of run: Thu Oct 06 11:12:26 2016
+SEED: 1475723546.07
+Pit File: amule_tcp_4662.xml
+Run name: DefaultRun
+
+Thu Oct 06 11:12:26 2016: 
+Thu Oct 06 11:12:26 2016: Test starting: NetworkTest
+Thu Oct 06 11:12:26 2016: 
+Thu Oct 06 11:12:29 2016: On test variation # 1
+Thu Oct 06 11:15:12 2016: On test variation # 512
+Thu Oct 06 11:17:52 2016: On test variation # 1024
+Thu Oct 06 11:20:32 2016: On test variation # 1536
+Thu Oct 06 11:23:13 2016: On test variation # 2048
+Thu Oct 06 11:25:55 2016: On test variation # 2560

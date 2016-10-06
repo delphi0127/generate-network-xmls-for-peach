@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.cDomlettec">
+  <modification-date>2006-12-26 11:17:07</modification-date>
+  <abstract>cDomlette implementation: a very fast DOM-like library tailored for use in XPath/XSLT</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="CreateParser" id="CreateParser">
+      <abstract>CreateParser([readExtDtd]) -&gt; Parser</abstract>
+      <description>Return a new XML parser object.</description>
+      <arguments>
+        <unknown>[readExtDtd]</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="GetAllNs" id="GetAllNs">
+      <abstract>GetAllNs(node) -&gt; dict</abstract>
+      <description>Get all of the namespaces defined in scope of this node.</description>
+      <arguments>
+        <unknown>node</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="NonvalParse" id="NonvalParse">
+      <abstract>NonvalParse(isrc[, readExtDtd]) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc[, readExtDtd]</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="Parse" id="Parse">
+      <abstract>Parse(isrc[, readExtDtd]) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc[, readExtDtd]</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="ParseFragment" id="ParseFragment">
+      <abstract>ParseFragment(isrc[, namespaces]) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc[, namespaces]</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="SeekNss" id="SeekNss">
+      <abstract>SeekNss(node) -&gt; dict</abstract>
+      <description>Traverses the tree to seek an approximate set of defined namespaces.</description>
+      <arguments>
+        <unknown>node</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="TestTree" id="TestTree">
+      <abstract>TestTree() -&gt; Document</abstract>
+      <description>For regression testing.</description>
+      <arguments>
+        <unknown/>
+      </arguments>
+    </function>
+    <function public="yes" name="ValParse" id="ValParse">
+      <abstract>ValParse(isrc) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc</unknown>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="CAPI" id="CAPI">
+      <value>&lt;PyCObject object at 0xb7899740&gt;</value>
+    </global>
+    <global public="yes" name="Expat_CAPI" id="Expat_CAPI">
+      <abstract>C objects to be exported from one extension module to another</abstract>
+      <description>C objects are used for communication between extension modules.  They
+provide a way for an extension module to export a C interface to other
+extension modules, so that extension modules can use the Python import
+mechanism to link to one another.</description>
+      <value>&lt;PyCObject object at 0xb7899f08&gt;</value>
+    </global>
+    <global public="yes" name="FEATURE_GENERATOR" id="FEATURE_GENERATOR">
+      <value>'http://4suite.org/sax/features/generator'</value>
+    </global>
+    <global public="yes" name="FEATURE_PROCESS_XINCLUDES" id="FEATURE_PROCESS_XINCLUDES">
+      <value>'http://4suite.org/sax/features/process-xincludes'</value>
+    </global>
+    <global public="yes" name="PROPERTY_WHITESPACE_RULES" id="PROPERTY_WHITESPACE_RULES">
+      <value>'http://4suite.org/sax/properties/whitespace-rules'</value>
+    </global>
+    <global public="yes" name="PROPERTY_YIELD_RESULT" id="PROPERTY_YIELD_RESULT">
+      <value>'http://4suite.org/sax/properties/yield-result'</value>
+    </global>
+    <global public="yes" name="XPTR_ATTRIBUTE_MATCH" id="XPTR_ATTRIBUTE_MATCH">
+      <value>3</value>
+    </global>
+    <global public="yes" name="XPTR_ELEMENT_COUNT" id="XPTR_ELEMENT_COUNT">
+      <value>1</value>
+    </global>
+    <global public="yes" name="XPTR_ELEMENT_ID" id="XPTR_ELEMENT_ID">
+      <value>0</value>
+    </global>
+    <global public="yes" name="XPTR_ELEMENT_MATCH" id="XPTR_ELEMENT_MATCH">
+      <value>2</value>
+    </global>
+    <global public="yes" name="implementation" id="implementation">
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <value>&lt;DOMImplementation at 0xb7dc5468&gt;</value>
+    </global>
+  </globals>
+</module>

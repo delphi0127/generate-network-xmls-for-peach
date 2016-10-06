@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://phed.org/2008/Peach">
+  <DataModel name="ssn">
+    <Blob valueType="hex" isStatic="true" value="00"/>
+    <Number value="166" endian="big" name="LengthField0" signed="false" size="24">
+      <Relation of="VariableLengthField0" type="size"/>
+    </Number>
+    <Block name="VariableLengthField0">
+      <String isStatic="true" valueType="literal" value="'\xffSMB'"/>
+      <Blob valueType="hex" isStatic="true" value="73"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="08"/>
+      <Blob valueType="hex" isStatic="true" value="01"/>
+      <Blob valueType="hex" isStatic="true" value="c8"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Number value="8965" size="16" name="ProcessID"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="02"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Number value="12" signed="false" size="8"/>
+      <Blob valueType="hex" isStatic="true" value="ff"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="ff"/>
+      <Blob valueType="hex" isStatic="true" value="ff"/>
+      <Blob valueType="hex" isStatic="true" value="02"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="01"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Number value="84" endian="little" name="LengthField1" signed="false" size="16">
+        <Relation of="VariableLengthField1" type="size"/>
+      </Number>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="5c"/>
+      <Blob valueType="hex" isStatic="true" value="d0"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="80"/>
+      <Blob valueType="hex" isStatic="true" value="6b"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Block name="VariableLengthField1">
+        <Blob valueType="hex" isStatic="true" value="60"/>
+        <Blob valueType="hex" isStatic="true" value="52"/>
+        <Blob valueType="hex" isStatic="true" value="06"/>
+        <Number value="6" name="LengthField2" signed="false" size="8">
+          <Relation of="VariableLengthField2" type="size"/>
+        </Number>
+        <Block name="VariableLengthField2">
+          <String valueType="literal" value="'+\x06\x01\x05\x05\x02'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="a0"/>
+        <Blob valueType="hex" isStatic="true" value="48"/>
+        <Blob valueType="hex" isStatic="true" value="30"/>
+        <Blob valueType="hex" isStatic="true" value="46"/>
+        <Blob valueType="hex" isStatic="true" value="a0"/>
+        <Blob valueType="hex" isStatic="true" value="0e"/>
+        <Blob valueType="hex" isStatic="true" value="30"/>
+        <Blob valueType="hex" isStatic="true" value="0c"/>
+        <Blob valueType="hex" isStatic="true" value="06"/>
+        <Number value="10" name="LengthField3" signed="false" size="8">
+          <Relation of="VariableLengthField3" type="size"/>
+        </Number>
+        <Block name="VariableLengthField3">
+          <String valueType="literal" value="'+\x06\x01\x04\x01\x827\x02\x02\x0a'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="a2"/>
+        <Blob valueType="hex" isStatic="true" value="34"/>
+        <Blob valueType="hex" isStatic="true" value="04"/>
+        <Number value="50" name="LengthField4" signed="false" size="8">
+          <Relation of="VariableLengthField4" type="size"/>
+        </Number>
+        <Block name="VariableLengthField4">
+          <String isStatic="true" valueType="literal" value="'NTLMSSP'"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+          <String valueType="literal" value="'\x01\x00\x00\x00\x15\x82\x08`\x09\x00\x09\x00 \x00\x00\x00\x09\x00\x09\x00)\x00\x00\x00WORKGROUPRORSCHACH'"/>
+        </Block>
+      </Block>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Block>
+        <String valueType="literal" value="'U\x00n\x00i\x00x\x00'"/>
+        <String isStatic="true" valueType="literal" value="'\x00\x00'"/>
+        <String valueType="literal" value="'S\x00a\x00m\x00b\x00a\x00'"/>
+        <String isStatic="true" valueType="literal" value="'\x00\x00'"/>
+      </Block>
+    </Block>
+  </DataModel>
+</Peach>

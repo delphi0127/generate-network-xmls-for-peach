@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.iFrameTypes">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="transform" id="transform">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="self"/>
+        <arg name="node"/>
+      </arguments>
+    </function>
+    <function public="yes" name="validate" id="validate">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="self"/>
+        <arg name="node"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

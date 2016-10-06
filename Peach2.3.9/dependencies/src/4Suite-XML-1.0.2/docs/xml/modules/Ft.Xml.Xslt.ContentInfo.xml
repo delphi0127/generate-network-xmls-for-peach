@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.ContentInfo">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Alt" public="yes">
+      <abstract>Alt(arg1, arg2, arg3...)
+matches arg1 or arg2 or arg3...</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Alt" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Alt" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="Alt-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Alt-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="buildValidator" id="Alt-buildValidator">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validator"/>
+            <arg name="initial"/>
+            <arg name="final"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Atom" public="yes">
+      <abstract>Atom(arg)
+matches exactly one occurence of 'arg'</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Atom" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Atom" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="Atom-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="token"/>
+          </arguments>
+        </method>
+        <method public="yes" name="buildValidator" id="Atom-buildValidator">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validator"/>
+            <arg name="initial"/>
+            <arg name="final"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Opt" public="yes">
+      <abstract>Opt(arg)
+matches zero or one occurrences of 'arg'</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Opt" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Opt" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="Opt-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="arg"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Opt-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="buildValidator" id="Opt-buildValidator">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validator"/>
+            <arg name="initial"/>
+            <arg name="final"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="QName" public="yes">
+      <bases>
+        <base documented="yes" class="Atom" module="Ft.Xml.Xslt.ContentInfo"/>
+      </bases>
+      <abstract>QName(namespaceUri, qualifiedName)
+matches a fully qualified name (e.g., xsl:sort)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="QName" module="Ft.Xml.Xslt.ContentInfo"/>
+        <base name="Atom" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Atom" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="QName-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaceUri"/>
+            <arg name="qualifiedName"/>
+          </arguments>
+          <overrides documented="yes" class="Atom" module="Ft.Xml.Xslt.ContentInfo"/>
+        </method>
+        <method public="no" name="__str__" id="QName-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Atom" module="Ft.Xml.Xslt.ContentInfo">
+        <member-reference name="buildValidator" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Rep" public="yes">
+      <abstract>Rep(arg)
+matches zero or more occurrences of 'arg'</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Rep" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Rep" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="Rep-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="arg"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Rep-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="buildValidator" id="Rep-buildValidator">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validator"/>
+            <arg name="initial"/>
+            <arg name="final"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Rep1" public="yes">
+      <abstract>Rep1(arg)
+matches one or more occurrences of 'arg'</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Rep1" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Rep1" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="Rep1-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="arg"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Rep1-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="buildValidator" id="Rep1-buildValidator">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validator"/>
+            <arg name="initial"/>
+            <arg name="final"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Seq" public="yes">
+      <abstract>Seq(arg1, arg2, arg3...)
+matches arg1 followed by arg2 followed by arg3...</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Seq" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Seq" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="Seq-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Seq-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="buildValidator" id="Seq-buildValidator">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validator"/>
+            <arg name="initial"/>
+            <arg name="final"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Validator" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Validator" module="Ft.Xml.Xslt.ContentInfo"/>
+      </method-resolution-order>
+      <methods name="Validator" module="Ft.Xml.Xslt.ContentInfo">
+        <method public="no" name="__init__" id="Validator-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expr"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Validator-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getValidation" id="Validator-getValidation">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="transition" id="Validator-transition">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="token"/>
+            <arg name="state1"/>
+            <arg name="state2"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="Validator-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="validation"/>
+            <arg name="token"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="ELSE" id="ELSE">
+      <value>-2147483646</value>
+    </global>
+    <global public="yes" name="EMPTY" id="EMPTY">
+      <value>-2147483647</value>
+    </global>
+    <global public="yes" name="Empty" id="Empty">
+      <abstract>Empty is the content model for childless elements</abstract>
+      <description/>
+      <value>&lt;Ft.Xml.Xslt.ContentInfo.Atom instance&gt;</value>
+    </global>
+    <global public="yes" name="Instructions" id="Instructions">
+      <abstract>Instructions is the set of elements which have a category of instruction</abstract>
+      <description/>
+      <value>&lt;Ft.Xml.Xslt.ContentInfo.Rep instance&gt;</value>
+    </global>
+    <global public="yes" name="ResultElements" id="ResultElements">
+      <abstract>ResultElements is the set of elements not declared in the XSL namespace</abstract>
+      <description/>
+      <value>&lt;Ft.Xml.Xslt.ContentInfo.Rep instance&gt;</value>
+    </global>
+    <global public="yes" name="TEXT_NODE" id="TEXT_NODE">
+      <value>(None, None)</value>
+    </global>
+    <global public="yes" name="Template" id="Template">
+      <abstract>Template is the set of text, instructions or result-elements</abstract>
+      <description/>
+      <value>&lt;Ft.Xml.Xslt.ContentInfo.Rep instance&gt;</value>
+    </global>
+    <global public="yes" name="Text" id="Text">
+      <abstract>Text is any PCDATA content</abstract>
+      <description/>
+      <value>&lt;Ft.Xml.Xslt.ContentInfo.Atom instance&gt;</value>
+    </global>
+    <global public="yes" name="TopLevelElements" id="TopLevelElements">
+      <abstract>TopLevelElements is the set of elements which have a category of
+top-level-element or are a result-element.</abstract>
+      <description/>
+      <value>&lt;Ft.Xml.Xslt.ContentInfo.Rep instance&gt;</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+  </globals>
+</module>

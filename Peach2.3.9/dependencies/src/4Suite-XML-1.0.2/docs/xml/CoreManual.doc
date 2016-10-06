@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article>
+  <title>4Suite Core: Open-source Library for XML Processing</title>
+
+  <subtitle>Users' Manual</subtitle>
+
+  <articleinfo>
+    <abstract>
+      <para>This document describes how to perform a set of XML manipulation
+      tasks with the 4Suite XML processing library. These tasks include
+      parsing XML using either DOM-like or SAX-like models, querying XML or
+      XML models using XPath, using XSLT, using XUpdate, and validating
+      documents with RELAX NG.</para>
+    </abstract>
+
+    <revhistory>
+      <revision>
+        <revnumber>0.8</revnumber>
+
+        <date>2006-08-15</date>
+
+        <author>
+          <firstname>Mike</firstname>
+
+          <othername role="middlename">J.</othername>
+
+          <surname>Brown</surname>
+
+          <email>mike at skew.org</email>
+        </author>
+
+        <revdescription>
+          <para>Added sections on XInclude and Pointer processing, and
+          clarified which DOM interfaces are Domlette-specific.</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.7</revnumber>
+
+        <date>2005-11-17</date>
+
+        <author>
+          <firstname>John</firstname>
+
+          <othername role="middlename">L.</othername>
+
+          <surname>Clark</surname>
+
+          <email>jlc6@po.cwru.edu</email>
+        </author>
+
+        <revdescription>
+          <para>Expanded the Domlette section on validation and added a
+          Saxlette section on validation.</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.6</revnumber>
+
+        <date>2005-11-10</date>
+
+        <author>
+          <firstname>John</firstname>
+
+          <othername role="middlename">L.</othername>
+
+          <surname>Clark</surname>
+
+          <email>jlc6@po.cwru.edu</email>
+        </author>
+
+        <revdescription>
+          <para>Factored a major example out of the XSLT section into a new
+          section for comprehensive examples. Made the other examples in the
+          XSLT section more robust.</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.5</revnumber>
+
+        <date>2005-10-21</date>
+
+        <author>
+          <firstname>Uche</firstname>
+
+          <othername role="middlename">G.</othername>
+
+          <surname>Ogbuji</surname>
+
+          <email>uche.ogbuji@fourthought.com</email>
+        </author>
+
+        <revdescription>
+          <para>Prep for 4Suite XML 1.0b2 release. Update Saxlette section,
+          add Ft.Xml.Xslt.Transform* to XSLT section, other minor
+          edits..</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.4</revnumber>
+
+        <date>2005-09-29</date>
+
+        <author>
+          <firstname>John</firstname>
+
+          <othername role="middlename">L.</othername>
+
+          <surname>Clark</surname>
+
+          <email>jlc6@po.cwru.edu</email>
+        </author>
+
+        <revdescription>
+          <para>Domlette section edits and updates; split the document into
+          sections using XInclude.</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.3</revnumber>
+
+        <date>2005-09-14</date>
+
+        <author>
+          <firstname>Luis</firstname>
+
+          <othername role="middlename">Miguel</othername>
+
+          <surname>Morillas</surname>
+
+          <email>morillas@posta.unizar.es</email>
+        </author>
+
+        <revdescription>
+          <para>MarkupWriter section updates.</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.2</revnumber>
+
+        <date>2005-09-11</date>
+
+        <author>
+          <firstname>Dave</firstname>
+
+          <surname>Pawson</surname>
+
+          <email>dave.pawson@gmail.com</email>
+        </author>
+
+        <revdescription>
+          <para>XPath and XSLT section updates.</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.1</revnumber>
+
+        <date>2005-09-08</date>
+
+        <author>
+          <firstname>Uche</firstname>
+
+          <surname>Ogbuji</surname>
+
+          <email>uche.ogbuji@fourthought.com</email>
+        </author>
+
+        <revdescription>
+          <para>Initial draft.</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <xi:include href="CoreManualSections/Introduction.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/Installation.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/Domlette.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/Saxlette.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/XPath.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/XSLT.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/XPath_and_XSLT_Extensions.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/MarkupWriter.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/RELAX_NG_Validation.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/XUpdate.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/XInclude.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/XPointer.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/Examples.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="CoreManualSections/Resources.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</article>

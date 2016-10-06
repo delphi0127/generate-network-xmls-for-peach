@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt">
+  <modification-date>2002-10-07 23:08:19</modification-date>
+  <abstract/>
+  <description/>
+  <modules>
+    <module-reference public="yes" documented="yes" name="Common" realname="Ft.Xml.Xslt.Exslt.Common">
+      <abstract>EXSLT 2.0 - Common (http://www.exslt.org/exsl/index.html)</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="DateTime" realname="Ft.Xml.Xslt.Exslt.DateTime">
+      <abstract>Implementation of EXSLT Dates and Times module</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Dynamic" realname="Ft.Xml.Xslt.Exslt.Dynamic">
+      <abstract>EXSLT 2.0 - Dyanmic (http://www.exslt.org/dyn/index.html)
+WWW: http://4suite.org/XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Functions" realname="Ft.Xml.Xslt.Exslt.Functions">
+      <abstract>EXSLT 2.0 - Functions (http://www.exslt.org/func/index.html)
+WWW: http://4suite.org/XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Math_" realname="Ft.Xml.Xslt.Exslt.Math_">
+      <abstract>EXSLT 2.0 - Math (http://www.exslt.org/math/index.html)</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="MessageSource" realname="Ft.Xml.Xslt.Exslt.MessageSource">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="RegularExpressions" realname="Ft.Xml.Xslt.Exslt.RegularExpressions">
+      <abstract>EXSLT 2.0 - Regular Expressions (http://www.exslt.org/regexp/index.html)
+WWW: http://4suite.org/XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Sets" realname="Ft.Xml.Xslt.Exslt.Sets">
+      <abstract>EXSLT 2.0 - Sets (http://www.exslt.org/set/index.html)
+WWW: http://4suite.org/XSLT        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Strings" realname="Ft.Xml.Xslt.Exslt.Strings">
+      <abstract>EXSLT - Strings</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+  </modules>
+  <globals>
+    <global public="yes" name="ExtElements" id="ExtElements">
+      <value>{('http://exslt.org/common', 'document'): &lt;class Ft.Xml.Xslt.Exslt.Common.DocumentElement&gt;, ('http://exslt.org/functions', 'function'): &lt;class Ft.Xml.Xslt.Exslt.Functions.FunctionElement&gt;, ('http://exslt.org/functions', 'result'): &lt;class Ft.Xml.Xslt.Exslt.Functions.ResultElement&gt;}</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://exslt.org/common', 'node-set'): &lt;function NodeSet&gt;, ('http://exslt.org/common', 'object-type'): &lt;function ObjectType&gt;, ('http://exslt.org/dates-and-times', 'add'): &lt;function Add&gt;, ('http://exslt.org/dates-and-times', 'add-duration'): &lt;function AddDuration&gt;, ('http://exslt.org/dates-and-times', 'date'): &lt;function Date&gt;, ('http://exslt.org/dates-and-times', 'date-time'): &lt;function DateTime&gt;, ('http://exslt.org/dates-and-times', 'day-abbreviation'): &lt;function DayAbbreviation&gt;, ('http://exslt.org/dates-and-times', 'day-in-month'): &lt;function DayInMonth&gt;, ('http://exslt.org/dates-and-times', 'day-in-week'): &lt;function DayInWeek&gt;, ('http://exslt.org/dates-and-times', 'day-in-year'): &lt;function DayInYear&gt;, ...}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://exslt.org/common': 'exsl', 'http://exslt.org/dates-and-times': 'date', 'http://exslt.org/dynamic': 'dyn', 'http://exslt.org/functions': 'func', 'http://exslt.org/math': 'math', 'http://exslt.org/regular-expressions': 'regexp', 'http://exslt.org/sets': 'set', 'http://exslt.org/strings': 'str'}</value>
+    </global>
+  </globals>
+</module>

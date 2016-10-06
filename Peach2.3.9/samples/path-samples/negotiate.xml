@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://phed.org/2008/Peach">
+  <DataModel name="negotiate">
+    <Blob valueType="hex" isStatic="true" value="00"/>
+    <Number value="190" endian="big" name="LengthField0" signed="false" size="24">
+      <Relation of="VariableLengthField0" type="size"/>
+    </Number>
+    <Block name="VariableLengthField0">
+      <String isStatic="true" valueType="literal" value="'\xffSMB'"/>
+      <Blob valueType="hex" isStatic="true" value="72"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="08"/>
+      <Blob valueType="hex" isStatic="true" value="01"/>
+      <Blob valueType="hex" isStatic="true" value="c8"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Number value="4" size="8"/>
+      <Number value="35" size="8"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Blob valueType="hex" isStatic="true" value="01"/>
+      <Blob valueType="hex" isStatic="true" value="00"/>
+      <Number value="0" signed="false" size="8"/>
+      <Number value="155" endian="little" name="LengthField1" signed="false" size="16">
+        <Relation of="VariableLengthField1" type="size"/>
+      </Number>
+      <Block name="VariableLengthField1">
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String value="PC NETWORK PROGRAM 1.0"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String isStatic="true" valueType="literal" value="'MICROSOFT NETWORKS 1.03'"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String isStatic="true" valueType="literal" value="'MICROSOFT NETWORKS '"/>
+          <String value="3.0"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String isStatic="true" valueType="literal" value="'LANMAN'"/>
+          <String value="1.0"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String isStatic="true" valueType="literal" value="'LM1.2X002'"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <String isStatic="true" valueType="literal" value="'DOS LANMAN2.1'"/>
+        <String isStatic="true" valueType="literal" value="'\x00'"/>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <String isStatic="true" valueType="literal" value="'LANMAN2.1'"/>
+        <String isStatic="true" valueType="literal" value="'\x00'"/>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String isStatic="true" valueType="literal" value="'Samba'"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String isStatic="true" valueType="literal" value="'NT LANMAN 1.0'"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+        <Blob valueType="hex" isStatic="true" value="02"/>
+        <Block>
+          <String isStatic="true" valueType="literal" value="'NT L'"/>
+          <String value="M 0.12"/>
+          <String isStatic="true" valueType="literal" value="'\x00'"/>
+        </Block>
+      </Block>
+    </Block>
+  </DataModel>
+</Peach>

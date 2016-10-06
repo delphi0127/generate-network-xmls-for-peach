@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.InputSource">
+  <modification-date>2006-04-28 13:54:48</modification-date>
+  <abstract>Classes providing a standard interface and encapsulation of metadata for
+document/entity streams intended for input to various XML processors.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="InputSource" public="yes">
+      <abstract>An input source is an encapsulation of a source of content.
+It includes a stream (Python file-like object) from which the
+content can be read, a URI to identify the stream and facilitate
+resolution of relative URI references / system IDs encountered
+within the stream, and parameters used by the processors of the
+stream (XML parsers, XSLT processors).</abstract>
+      <description>It is designed to be overridden as applications need different
+functionality from sources.</description>
+      <method-resolution-order>
+        <base name="InputSource" module="Ft.Xml.InputSource"/>
+      </method-resolution-order>
+      <methods name="InputSource" module="Ft.Xml.InputSource">
+        <method public="no" name="__getstate__" id="InputSource-__getstate__">
+          <abstract>#Pickle routines.  We need to be able to pickle an input source
+#but cannot pickle a stream</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="InputSource-__init__">
+          <abstract>InputSource constructor</abstract>
+          <description>source = InputSource(...)
+
+stream - the stream associated with this input source
+uri - the absolute URI of the input source
+processIncludes - Whether or not XIncludes should be expanded
+stripElements - Space stripping rules
+factory - The factory that created this instance
+resolver - URI resolver; defaults to Ft.Lib.Uri.BASIC_RESOLVER
+catalog - TR9401/XML Catalog object for resolving public IDs
+encoding - a string externally declaring the stream's encoding</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg default="None" name="uri"/>
+            <arg default="True" name="processIncludes"/>
+            <arg default="None" name="stripElements"/>
+            <arg default="None" name="factory"/>
+            <arg default="&lt;Ft.Lib.Uri.FtUriResolver instance at 0xb7bda14c&gt;" name="resolver"/>
+            <arg default="None" name="catalog"/>
+            <arg default="None" name="encoding"/>
+          </arguments>
+        </method>
+        <method public="no" name="clone" id="InputSource-clone">
+          <abstract>Clones this input source, creating a new instance with
+the known params.</abstract>
+          <description>If your derived InputSource requires additional state information
+then you have to override how it is cloned and pickled.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg default="None" name="uri"/>
+            <arg default="None" name="hint"/>
+          </arguments>
+        </method>
+        <method public="no" name="getUriResolver" id="InputSource-getUriResolver">
+          <abstract>This method returns the URI resolver that is used by this
+input source to normalize (resolve to absolute form) and
+resolve (dereference) URI references. This is the public method
+to use if just URI resolution is needed.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="resolve" id="InputSource-resolve">
+          <abstract>Resolve a URI reference into a new InputSource.</abstract>
+          <description>This function is used when a URI reference is encountered in the
+original stream and needs to be resolved (e.g. xi:include,
+xsl:include, xsl:import, document(), etc.).  When a catalog is
+available, its URI entries are used first.  If no entry is found,
+the URI is resolved against the current URI and then opened.
+
+The hint parameter is used to give a hint as to what the
+resolution will be used for.
+
+If the ignoreErrors flag is set, an error during resolution
+(such as &quot;file not found&quot;) will result in None's being returned,
+rather than a raised exception.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="None" name="base"/>
+            <arg default="None" name="hint"/>
+          </arguments>
+        </method>
+        <method public="no" name="resolveEntity" id="InputSource-resolveEntity">
+          <abstract>Resolve an external entity to a new InputSource.</abstract>
+          <description>Presented with an optional public identifier and a system identifier,
+this function attempts to locate a mapping in the catalog, if one is
+defined.  If no mapping is found, the system identifier will be
+dereferenced as a URL.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="publicId"/>
+            <arg name="systemId"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="InputSource" module="Ft.Xml.InputSource">
+        <member public="no" name="CATALOG_URI_HINT" id="InputSource-CATALOG_URI_HINT">
+          <value>'CATALOG URI'</value>
+        </member>
+        <member public="no" name="RESOLVE_ENTITY_HINT" id="InputSource-RESOLVE_ENTITY_HINT">
+          <value>'EXTERNAL ENTITY'</value>
+        </member>
+        <member public="no" name="RESOLVE_URI_HINT" id="InputSource-RESOLVE_URI_HINT">
+          <value>'RESOLVE URI'</value>
+        </member>
+      </members>
+    </class>
+    <class name="InputSourceFactory" public="yes">
+      <abstract>A factory for creating new InputSource instances.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="InputSourceFactory" module="Ft.Xml.InputSource"/>
+      </method-resolution-order>
+      <methods name="InputSourceFactory" module="Ft.Xml.InputSource">
+        <method public="no" name="__init__" id="InputSourceFactory-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="inputSourceClass"/>
+            <arg default="&lt;Ft.Lib.Uri.FtUriResolver instance at 0xb7bda14c&gt;" name="resolver"/>
+            <arg default="None" name="catalog"/>
+          </arguments>
+        </method>
+        <method public="no" name="fromStream" id="InputSourceFactory-fromStream">
+          <abstract>Creates an InputSource from the given stream.
+The uri argument is the URI to use for the stream
+(one should always be given, even if it's bogus).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg default="None" name="uri"/>
+            <var-args name="v_args"/>
+            <var-keywords name="kw_args"/>
+          </arguments>
+        </method>
+        <method public="no" name="fromString" id="InputSourceFactory-fromString">
+          <abstract>Creates an InputSource from a stream derived from the given
+string. The uri argument is the URI to use for the stream
+(one should always be given, even if it's bogus).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="st"/>
+            <arg default="None" name="uri"/>
+            <var-args name="v_args"/>
+            <var-keywords name="kw_args"/>
+          </arguments>
+        </method>
+        <method public="no" name="fromUri" id="InputSourceFactory-fromUri">
+          <abstract>Creates an InputSource from the stream resulting from the
+resolution of the given URI.</abstract>
+          <description>uri - a URI from which the input will be read.  Important: a file
+      path is generally not a URI. To be safe, if you wish to read
+      from a file, use the following pattern:
+      from Ft.Lib import Uri
+      uri = Uri.OsPathToUri(&quot;/path/to/file.ext&quot;)
+      OR uri = Uri.OsPathToUri(&quot;C:\path\to\file.ext&quot;)</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <var-args name="v_args"/>
+            <var-keywords name="kw_args"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="InputSourceFactory" module="Ft.Xml.InputSource">
+        <member public="no" name="FACTORY_URI_HINT" id="InputSourceFactory-FACTORY_URI_HINT">
+          <value>'FACTORY URI'</value>
+        </member>
+      </members>
+    </class>
+    <class name="NullInputSource" public="yes">
+      <bases>
+        <base documented="yes" class="InputSource" module="Ft.Xml.InputSource"/>
+      </bases>
+      <abstract>An InputSource that simulates an empty stream.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="NullInputSource" module="Ft.Xml.InputSource"/>
+        <base name="InputSource" module="Ft.Xml.InputSource"/>
+      </method-resolution-order>
+      <methods name="InputSource" module="Ft.Xml.InputSource">
+        <method public="no" name="__init__" id="NullInputSource-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="uri"/>
+          </arguments>
+          <overrides documented="yes" class="InputSource" module="Ft.Xml.InputSource"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="InputSource" module="Ft.Xml.InputSource">
+        <member-reference name="__getstate__" public="no"/>
+        <member-reference name="clone" public="no"/>
+        <member-reference name="getUriResolver" public="no"/>
+        <member-reference name="resolve" public="no"/>
+        <member-reference name="resolveEntity" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="InputSource" module="Ft.Xml.InputSource">
+        <member-reference name="CATALOG_URI_HINT" public="no"/>
+        <member-reference name="RESOLVE_ENTITY_HINT" public="no"/>
+        <member-reference name="RESOLVE_URI_HINT" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="DefaultFactory" id="DefaultFactory">
+      <value>&lt;Ft.Xml.InputSource.InputSourceFactory instance&gt;</value>
+    </global>
+    <global public="yes" name="NoCatalogFactory" id="NoCatalogFactory">
+      <value>&lt;Ft.Xml.InputSource.InputSourceFactory instance&gt;</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['InputSource', 'NullInputSource', 'InputSourceFactory', 'DefaultFactory', 'NoCatalogFactory']</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,20 @@
+1. ports used by qq.exe
+C:\Users\win7>netstat -ano | findstr "5172"
+  TCP    0.0.0.0:8082           0.0.0.0:0              LISTENING       5172
+  TCP    0.0.0.0:8083           0.0.0.0:0              LISTENING       5172
+  TCP    127.0.0.1:4300         0.0.0.0:0              LISTENING       5172
+  TCP    127.0.0.1:4301         0.0.0.0:0              LISTENING       5172
+  TCP    192.168.6.228:52167    59.37.107.43:80        CLOSE_WAIT      5172
+  TCP    192.168.6.228:52315    123.151.47.109:80      CLOSE_WAIT      5172
+  TCP    192.168.6.228:52316    123.151.47.109:80      CLOSE_WAIT      5172
+  TCP    192.168.6.228:52318    182.254.5.153:80       CLOSE_WAIT      5172
+  TCP    192.168.6.228:52319    124.193.230.185:80     CLOSE_WAIT      5172
+  TCP    192.168.6.228:52320    182.254.5.153:80       CLOSE_WAIT      5172
+  TCP    192.168.6.228:52322    182.254.5.153:80       CLOSE_WAIT      5172
+  TCP    192.168.6.228:52338    124.193.230.185:80     CLOSE_WAIT      5172
+  TCP    192.168.6.228:52340    182.254.5.153:80       CLOSE_WAIT      5172
+  UDP    0.0.0.0:4026           *:*                                    5172
+  UDP    127.0.0.1:58354        *:*                                    5172
+  
+2. filter rules for wireshark
+ip.dst==192.168.6.228 and (tcp.port==8082 or tcp.port==8083 or tcp.port==4300 or tcp.port==4301 or udp.port==4026 or udp.port==58354)

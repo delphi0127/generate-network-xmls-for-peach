@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.Conversions">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>The implementation of the XPath object type conversions.</abstract>
+  <description>Copyright 2000-2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="no" name="_boolUnknown" realname="lambda" id="_boolUnknown">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="obj"/>
+      </arguments>
+    </function>
+    <function public="no" name="_numString" id="_numString">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="string"/>
+      </arguments>
+    </function>
+    <function public="no" name="_numUnknown" realname="lambda" id="_numUnknown">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="obj"/>
+      </arguments>
+    </function>
+    <function public="no" name="_strFloat" id="_strFloat">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="float"/>
+      </arguments>
+    </function>
+    <function public="no" name="_strInstance" id="_strInstance">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="obj"/>
+      </arguments>
+    </function>
+    <function public="no" name="_strUnknown" id="_strUnknown">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="obj"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.number">
+  <modification-date>2006-12-16 15:51:24</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="finite" id="finite">
+      <abstract>finite(number) -&gt; non-zero if neither infinite or not-a-number</abstract>
+      <description/>
+      <arguments>
+        <unknown>number</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="isinf" id="isinf">
+      <abstract>isinf(number) -&gt; -1 if negative infinity,
+1 if positive infinity,
+0 otherwise</abstract>
+      <description/>
+      <arguments>
+        <unknown>number</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="isnan" id="isnan">
+      <abstract>isnan(number) -&gt; non-zero if not-a-number</abstract>
+      <description/>
+      <arguments>
+        <unknown>number</unknown>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="inf" id="inf">
+      <value>inf</value>
+    </global>
+    <global public="yes" name="nan" id="nan">
+      <value>nan</value>
+    </global>
+  </globals>
+</module>

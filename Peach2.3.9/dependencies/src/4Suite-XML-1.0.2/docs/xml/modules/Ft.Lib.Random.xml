@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Random">
+  <modification-date>2006-04-28 13:54:39</modification-date>
+  <abstract>Thread-safe random number generation</abstract>
+  <description>Random number generation capabilities, speed, and thread safety in
+stdlib vary from version to version of Python. In addition, attempts to
+use an OS-specific random number source can result in unexpected
+exceptions being raised. Also, a bug in Python 2.3.0 can lead to a
+reduction in entropy, and a bug in Python 2.4.0 and 2.4.1 can result
+in exceptions related to open filehandles on some multithreaded Posix
+platforms.
+
+This module works around as many of these issues as it can by defining
+random number generator classes that can be used safely by multiple
+threads, using the best random number sources available. They support
+all versions of Python from 2.1 up, and fall back on more reliable
+generators when exception conditions occur. In addition, convenience
+functions equivalent to random.random() and os.urandom() are exposed.
+
+Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="FtRandom" public="yes">
+      <bases>
+        <base documented="no" class="Random" module="random"/>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract>The best available OS-agnostic PRNG, thread-safe.</abstract>
+      <description>Implements getrandbits() in all versions of Python.
+Also adds getrandbytes(), which returns a str of bytes.</description>
+      <method-resolution-order>
+        <base name="FtRandom" module="Ft.Lib.Random"/>
+        <base name="Random" module="random"/>
+        <base name="Random" module="_random"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="FtRandom-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="no" class="Random" module="random"/>
+        </method>
+        <method public="no" name="gauss" realname="_gauss" id="FtRandom-gauss">
+          <abstract>Gaussian distribution.</abstract>
+          <description>mu is the mean, and sigma is the standard deviation.
+
+Thread-safe.</description>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="no" class="Random" module="random"/>
+        </method>
+        <method public="no" name="getrandbytes" realname="_getrandbytes" id="FtRandom-getrandbytes">
+          <abstract>getrandbytes(k) -&gt; x.  Returns k random bytes as a str.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="k"/>
+          </arguments>
+        </method>
+        <method public="no" name="seed" id="FtRandom-seed">
+          <abstract>Initialize internal state from hashable object.</abstract>
+          <description>None or no argument seeds from current time or from an operating
+system specific randomness source if available.
+
+If a is not None or an int or long, hash(a) is used instead.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="a"/>
+          </arguments>
+          <overrides documented="no" class="Random" module="random"/>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="Random" module="random">
+        <member-reference name="__getstate__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__setstate__" public="no"/>
+        <member-reference name="betavariate" public="no"/>
+        <member-reference name="choice" public="no"/>
+        <member-reference name="expovariate" public="no"/>
+        <member-reference name="gammavariate" public="no"/>
+        <member-reference name="getstate" public="no"/>
+        <member-reference name="lognormvariate" public="no"/>
+        <member-reference name="normalvariate" public="no"/>
+        <member-reference name="paretovariate" public="no"/>
+        <member-reference name="randint" public="no"/>
+        <member-reference name="randrange" public="no"/>
+        <member-reference name="sample" public="no"/>
+        <member-reference name="setstate" public="no"/>
+        <member-reference name="shuffle" public="no"/>
+        <member-reference name="uniform" public="no"/>
+        <member-reference name="vonmisesvariate" public="no"/>
+        <member-reference name="weibullvariate" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Random" module="random">
+        <member-reference name="VERSION" public="no"/>
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Random" module="_random">
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="getrandbits" public="no"/>
+        <member-reference name="jumpahead" public="no"/>
+        <member-reference name="random" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="FtSystemRandom" public="yes">
+      <bases>
+        <base documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+      </bases>
+      <abstract>A PRNG that uses an OS-specific random number source, if
+available, falling back on an instance of FtRandom.</abstract>
+      <description>Calls to seed(), jumpahead(), getstate() and setstate() only affect
+the fallback FtRandom instance.
+
+Implements getrandbits() in all versions of Python.
+Also adds getrandbytes(), which returns a str of bytes.</description>
+      <method-resolution-order>
+        <base name="FtSystemRandom" module="Ft.Lib.Random"/>
+        <base name="FtRandom" module="Ft.Lib.Random"/>
+        <base name="Random" module="random"/>
+        <base name="Random" module="_random"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="FtSystemRandom-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+        <method public="no" name="getrandbits" realname="_getrandbits" id="FtSystemRandom-getrandbits">
+          <abstract>getrandbits(k) -&gt; x.  Generates a long int with k random bits.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+        <method public="no" name="getrandbytes" realname="_getrandbytes" id="FtSystemRandom-getrandbytes">
+          <abstract>getrandbytes(k) -&gt; x.  Returns k random bytes as a str.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="k"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+        <method public="no" name="getstate" id="FtSystemRandom-getstate">
+          <abstract>Return internal state; can be passed to setstate() later.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+        <method public="no" name="jumpahead" id="FtSystemRandom-jumpahead">
+          <abstract>Make the fallback PRNG (an instance of FtRandom) jump ahead</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+        <method public="no" name="random" realname="_random" id="FtSystemRandom-random">
+          <abstract>Get the next random number in the range [0.0, 1.0).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+        <method public="no" name="seed" id="FtSystemRandom-seed">
+          <abstract>Seed the fallback PRNG (an instance of FtRandom)</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+        <method public="no" name="setstate" id="FtSystemRandom-setstate">
+          <abstract>Restore internal state from object returned by getstate().</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="state"/>
+          </arguments>
+          <overrides documented="yes" class="FtRandom" module="Ft.Lib.Random"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FtRandom" module="Ft.Lib.Random">
+        <member-reference name="gauss" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Random" module="random">
+        <member-reference name="__getstate__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__setstate__" public="no"/>
+        <member-reference name="betavariate" public="no"/>
+        <member-reference name="choice" public="no"/>
+        <member-reference name="expovariate" public="no"/>
+        <member-reference name="gammavariate" public="no"/>
+        <member-reference name="lognormvariate" public="no"/>
+        <member-reference name="normalvariate" public="no"/>
+        <member-reference name="paretovariate" public="no"/>
+        <member-reference name="randint" public="no"/>
+        <member-reference name="randrange" public="no"/>
+        <member-reference name="sample" public="no"/>
+        <member-reference name="shuffle" public="no"/>
+        <member-reference name="uniform" public="no"/>
+        <member-reference name="vonmisesvariate" public="no"/>
+        <member-reference name="weibullvariate" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Random" module="random">
+        <member-reference name="VERSION" public="no"/>
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Random" module="_random">
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="GetRandomBytes" id="GetRandomBytes">
+      <abstract>Returns a string of random bytes from the best RNG available.
+Equivalent to os.urandom(), but failsafe.</abstract>
+      <description/>
+      <arguments>
+        <arg name="numBytes"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Random" id="Random">
+      <abstract>Returns a random float, n, where 0 &lt;= n &lt; 1</abstract>
+      <description/>
+      <arguments>
+      </arguments>
+    </function>
+    <function public="no" name="_gauss" id="_gauss">
+      <abstract>Gaussian distribution.</abstract>
+      <description>mu is the mean, and sigma is the standard deviation.
+
+Thread-safe.</description>
+      <arguments>
+        <arg name="self"/>
+        <var-args name="args"/>
+        <var-keywords name="kwargs"/>
+      </arguments>
+    </function>
+    <function public="no" name="_getrandbits" id="_getrandbits">
+      <abstract>getrandbits(k) -&gt; x.  Generates a long int with k random bits.</abstract>
+      <description/>
+      <arguments>
+        <arg name="self"/>
+        <var-args name="args"/>
+        <var-keywords name="kwargs"/>
+      </arguments>
+    </function>
+    <function public="no" name="_getrandbytes" id="_getrandbytes">
+      <abstract>getrandbytes(k) -&gt; x.  Returns k random bytes as a str.</abstract>
+      <description/>
+      <arguments>
+        <arg name="self"/>
+        <arg name="k"/>
+      </arguments>
+    </function>
+    <function public="no" name="_random" id="_random">
+      <abstract>Get the next random number in the range [0.0, 1.0).</abstract>
+      <description/>
+      <arguments>
+        <arg name="self"/>
+      </arguments>
+    </function>
+    <function public="yes" name="urandom" id="urandom">
+      <abstract>urandom(n) -&gt; str</abstract>
+      <description>Return a string of n random bytes suitable for cryptographic use.</description>
+      <arguments>
+        <arg name="n"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DEFAULT_RNG" id="DEFAULT_RNG">
+      <abstract>A PRNG that uses an OS-specific random number source, if
+available, falling back on an instance of FtRandom.</abstract>
+      <description>Calls to seed(), jumpahead(), getstate() and setstate() only affect
+the fallback FtRandom instance.
+
+Implements getrandbits() in all versions of Python.
+Also adds getrandbytes(), which returns a str of bytes.</description>
+      <value>&lt;Ft.Lib.Random.FtSystemRandom object&gt;</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['urandom', 'FtRandom', 'FtSystemRandom', 'DEFAULT_RNG', 'Random', 'GetRandomBytes']</value>
+    </global>
+    <global public="no" name="posix" id="posix">
+      <value>True</value>
+    </global>
+    <global public="no" name="py230" id="py230">
+      <value>False</value>
+    </global>
+    <global public="no" name="py23up" id="py23up">
+      <value>True</value>
+    </global>
+    <global public="no" name="py242up" id="py242up">
+      <value>True</value>
+    </global>
+    <global public="no" name="py24up" id="py24up">
+      <value>True</value>
+    </global>
+    <global public="no" name="version_info" id="version_info">
+      <value>(2, 4, 3, 'final', 0)</value>
+    </global>
+    <global public="no" name="win32" id="win32">
+      <value>False</value>
+    </global>
+  </globals>
+</module>

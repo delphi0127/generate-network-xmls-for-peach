@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.InstallEggInfo">
+  <modification-date>2006-08-18 14:52:14</modification-date>
+  <abstract>distutils.command.install_egg_info</abstract>
+  <description>Implements the Distutils 'install_egg_info' command, for installing
+a package's PKG-INFO metadata.</description>
+  <classes>
+    <class name="InstallEggInfo" public="yes">
+      <bases>
+        <base documented="no" class="Command" module="distutils.cmd"/>
+      </bases>
+      <abstract>Install an .egg-info file for the package</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="InstallEggInfo" module="Ft.Lib.DistExt.InstallEggInfo"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="finalize_options" id="InstallEggInfo-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="get_outputs" id="InstallEggInfo-get_outputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_source_files" id="InstallEggInfo-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="InstallEggInfo-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="run" id="InstallEggInfo-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="command_name" id="InstallEggInfo-command_name">
+          <value>'install_egg_info'</value>
+        </member>
+        <member public="yes" name="description" id="InstallEggInfo-description">
+          <value>&quot;Install package's PKG-INFO metadata as an .egg-info file&quot;</value>
+        </member>
+        <member public="yes" name="user_options" id="InstallEggInfo-user_options">
+          <value>[('install-dir=', 'd', 'directory to install to')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="safe_name" id="safe_name">
+      <abstract>Convert an arbitrary string to a standard distribution name</abstract>
+      <description>Any runs of non-alphanumeric/. characters are replaced with a single '-'.</description>
+      <arguments>
+        <arg name="name"/>
+      </arguments>
+    </function>
+    <function public="yes" name="safe_version" id="safe_version">
+      <abstract>Convert an arbitrary string to a standard version string</abstract>
+      <description>Spaces become dots, and all other non-alphanumeric characters become
+dashes, with runs of multiple dashes condensed to a single dash.</description>
+      <arguments>
+        <arg name="version"/>
+      </arguments>
+    </function>
+    <function public="yes" name="to_filename" id="to_filename">
+      <abstract>Convert a project or version name to its filename-escaped form</abstract>
+      <description>Any '-' characters are currently replaced with '_'.</description>
+      <arguments>
+        <arg name="name"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

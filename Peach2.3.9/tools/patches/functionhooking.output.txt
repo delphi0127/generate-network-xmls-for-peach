@@ -1,0 +1,57 @@
+## Agent Console Output ##
+
+] Peach 2.3.7 DEV Runtime
+] Copyright (c) Michael Eddington
+
+] Peach Agent
+
+
+ //-> Listening on [9000] with no password
+
+Agent: clientHello()
+Agent: Session ID:  384f0670-794d-11df-bd39-000c299e32f3
+Agent: clientHello() all done
+Agent: startMonitor(Named_41)
+code: debugger.WindowsDebugEngine(msg.params)
+Agent: Sending Ack
+Agent: onTestStarting()
+WindowsDebugEngineProcess_run
+Adding hooks to "kernel32"...
+        Hooking "WriteConsoleW"...
+        Hooking "SetEnvironmentVariableA"...
+        Hooking "SetEnvironmentVariableW"...
+        Hooking "ReadConsoleW"...
+        Hooking "ReadConsoleA"...
+Adding hooks to "msvcrt"...
+        Hooking "open"...
+Agent: onTestFinished()
+Agent: detectFault()
+DetectedFault()
+Agent: Sending detectFault result [False]
+Agent: stopRun()
+<--- snip --->
+Agent: getHookData()
+GetHookData(): Loading from file
+GetHookData(): Got it!
+
+
+
+
+
+## Agent Console Output ##
+kernel32!SetEnvironmentVariableW("PROMPT", "$P$G")
+kernel32!SetEnvironmentVariableW("=C:", "C:\peach\tftpfuzzer")
+kernel32!WriteConsoleW(-, "Microsoft Windows XP [Version 5.1.2600]", 0x27, -, -)
+kernel32!WriteConsoleW(-, "\r\n", 0x2, -, -)
+kernel32!WriteConsoleW(-, "(C) Copyright 1985-2001 Microsoft Corp.\r\n", 0x29, -, -)
+kernel32!WriteConsoleW(-, "\r\n", 0x2, -, -)
+kernel32!WriteConsoleW(-, "C:\peach\tftpfuzzer>", 0x14, -, -)
+kernel32!ReadConsoleW(0x3, -, 0x2000, -, -)
+kernel32!WriteConsoleW(-, "Hello World!\r\n", 0xe, -, -)
+kernel32!WriteConsoleW(-, "\r\n", 0x2, -, -)
+kernel32!WriteConsoleW(-, "C:\peach\tftpfuzzer>", 0x14, -, -)
+kernel32!ReadConsoleW(0x3, -, 0x2000, -, -)
+kernel32!SetEnvironmentVariableW("myvar", "isset")
+kernel32!WriteConsoleW(-, "\r\n", 0x2, -, -)
+kernel32!WriteConsoleW(-, "C:\peach\tftpfuzzer>", 0x14, -, -)
+kernel32!ReadConsoleW(0x3, -, 0x2000, -, -)

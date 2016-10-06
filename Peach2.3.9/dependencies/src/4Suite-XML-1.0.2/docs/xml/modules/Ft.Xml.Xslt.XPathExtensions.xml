@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.XPathExtensions">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="RtfExpr" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RtfExpr" module="Ft.Xml.Xslt.XPathExtensions"/>
+      </method-resolution-order>
+      <methods name="RtfExpr" module="Ft.Xml.Xslt.XPathExtensions">
+        <method public="no" name="__init__" id="RtfExpr-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodes"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="RtfExpr-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="RtfExpr-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="RtfExpr-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="SortedExpression" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="SortedExpression" module="Ft.Xml.Xslt.XPathExtensions"/>
+      </method-resolution-order>
+      <methods name="SortedExpression" module="Ft.Xml.Xslt.XPathExtensions">
+        <method public="no" name="__init__" id="SortedExpression-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expression"/>
+            <arg name="sortKeys"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="SortedExpression-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compare" id="SortedExpression-compare">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="node1"/>
+              <arg name="keys1"/>
+            </sequence>
+            <sequence>
+              <arg name="node2"/>
+              <arg name="keys2"/>
+            </sequence>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="SortedExpression-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

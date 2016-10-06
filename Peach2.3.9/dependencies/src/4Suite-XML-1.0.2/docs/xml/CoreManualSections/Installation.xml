@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section>
+  <title>Installation</title>
+
+  <para>Please see the <ulink
+  url="http://4suite.org/docs/howto/UNIX.xml">UNIX</ulink> or <ulink
+  url="http://4suite.org/docs/howto/Windows.xml">Windows</ulink> install
+  documents.  Remember that if you are using Cygwin on Windows, you should follow the UNIX instructions.</para>
+</section>

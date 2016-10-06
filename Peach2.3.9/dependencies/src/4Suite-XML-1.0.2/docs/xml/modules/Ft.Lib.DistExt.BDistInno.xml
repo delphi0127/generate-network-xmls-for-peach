@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.BDistInno">
+  <modification-date>2006-10-30 13:54:19</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="BDistInno" public="yes">
+      <bases>
+        <base documented="no" class="Command" module="distutils.cmd"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="BDistInno" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="build_iss_file" id="BDistInno-build_iss_file">
+          <abstract>Generate the text of an InnoSetup iss file and return it as a
+list of strings (one per line).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finalize_options" id="BDistInno-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="get_installer_filename" id="BDistInno-get_installer_filename">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="BDistInno-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="run" id="BDistInno-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="BDistInno-boolean_options">
+          <value>['keep-temp', 'no-target-compile', 'no-target-optimize', 'skip-build']</value>
+        </member>
+        <member public="yes" name="command_name" id="BDistInno-command_name">
+          <value>'bdist_inno'</value>
+        </member>
+        <member public="yes" name="description" id="BDistInno-description">
+          <value>'create an executable installer for MS Windows'</value>
+        </member>
+        <member public="yes" name="user_options" id="BDistInno-user_options">
+          <value>[('bdist-dir=', None, 'temporary directory for creating the distribution'), ('keep-temp', 'k', 'keep the pseudo-installation tree around after creating the distribution archive'), ('target-version=', None, 'require a specific python version on the target system'), ('no-target-compile', 'c', 'do not compile .py to .pyc on the target system'), ('no-target-optimize', 'o', 'do not compile .py to .pyo (optimized) on the target system'), ('dist-dir=', 'd', 'directory to put final built distributions in'), ('skip-build', None, 'skip rebuilding everything (for testing/debugging)')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="Component" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Component" module="Ft.Lib.DistExt.BDistInno"/>
+      </method-resolution-order>
+      <methods name="Component" module="Ft.Lib.DistExt.BDistInno">
+        <method public="no" name="__init__" id="Component-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="description"/>
+            <arg name="types"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getEntry" id="Component-getEntry">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getSection" id="Component-getSection">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getSectionEntries" id="Component-getSectionEntries">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="hasEntries" id="Component-hasEntries">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Component" module="Ft.Lib.DistExt.BDistInno">
+        <member public="yes" name="section_mapping" id="Component-section_mapping">
+          <value>{'Dirs': &lt;class 'Ft.Lib.DistExt.BDistInno.DirsSection'&gt;, 'Files': &lt;class 'Ft.Lib.DistExt.BDistInno.FilesSection'&gt;, 'Icons': &lt;class 'Ft.Lib.DistExt.BDistInno.IconsSection'&gt;, 'Run': &lt;class 'Ft.Lib.DistExt.BDistInno.RunSection'&gt;, 'UninstallDelete': &lt;class 'Ft.Lib.DistExt.BDistInno.UninstallDeleteSection'&gt;}</value>
+        </member>
+      </members>
+    </class>
+    <class name="DirsSection" public="yes">
+      <bases>
+        <base documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DirsSection" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="Section" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="yes" name="optional_parameters" id="DirsSection-optional_parameters">
+          <value>['Languages', 'MinVersion', 'OnlyBelowVersion', 'BeforeInstall', 'AfterInstall', 'Attribs', 'Permissions', 'Flags']</value>
+        </member>
+        <member public="yes" name="required_parameters" id="DirsSection-required_parameters">
+          <value>['Name']</value>
+        </member>
+        <member public="yes" name="section_name" id="DirsSection-section_name">
+          <value>'Dirs'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="addEntry" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="FilesSection" public="yes">
+      <bases>
+        <base documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FilesSection" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="Section" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="yes" name="optional_parameters" id="FilesSection-optional_parameters">
+          <value>['Languages', 'MinVersion', 'OnlyBelowVersion', 'BeforeInstall', 'AfterInstall', 'DestName', 'Excludes', 'CopyMode', 'Attribs', 'Permissions', 'FontInstall', 'Flags']</value>
+        </member>
+        <member public="yes" name="required_parameters" id="FilesSection-required_parameters">
+          <value>['Source', 'DestDir']</value>
+        </member>
+        <member public="yes" name="section_name" id="FilesSection-section_name">
+          <value>'Files'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="addEntry" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="IconsSection" public="yes">
+      <bases>
+        <base documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="IconsSection" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="Section" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="yes" name="optional_parameters" id="IconsSection-optional_parameters">
+          <value>['Languages', 'MinVersion', 'OnlyBelowVersion', 'BeforeInstall', 'AfterInstall', 'Parameters', 'WorkingDir', 'HotKey', 'Comment', 'IconFilename', 'IconIndex', 'Flags']</value>
+        </member>
+        <member public="yes" name="required_parameters" id="IconsSection-required_parameters">
+          <value>['Name', 'Filename']</value>
+        </member>
+        <member public="yes" name="section_name" id="IconsSection-section_name">
+          <value>'Icons'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="addEntry" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="RunSection" public="yes">
+      <bases>
+        <base documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RunSection" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="Section" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="yes" name="optional_parameters" id="RunSection-optional_parameters">
+          <value>['Languages', 'MinVersion', 'OnlyBelowVersion', 'BeforeInstall', 'AfterInstall', 'Description', 'Parameters', 'WorkingDir', 'StatusMsg', 'RunOnceId', 'Flags']</value>
+        </member>
+        <member public="yes" name="required_parameters" id="RunSection-required_parameters">
+          <value>['Filename']</value>
+        </member>
+        <member public="yes" name="section_name" id="RunSection-section_name">
+          <value>'Run'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="addEntry" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Section" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Section" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="Section-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="yes" name="addEntry" id="Section-addEntry">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <var-keywords name="parameters"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="Section-__dict__">
+          <value>&lt;attribute '__dict__' of 'Section' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="Section-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'Section' objects&gt;</value>
+        </member>
+        <member public="yes" name="optional_parameters" id="Section-optional_parameters">
+          <value>['Languages', 'MinVersion', 'OnlyBelowVersion', 'BeforeInstall', 'AfterInstall']</value>
+        </member>
+        <member public="yes" name="required_parameters" id="Section-required_parameters">
+          <value>None</value>
+        </member>
+        <member public="yes" name="section_name" id="Section-section_name">
+          <value>None</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="UninstallDeleteSection" public="yes">
+      <bases>
+        <base documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="UninstallDeleteSection" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="Section" module="Ft.Lib.DistExt.BDistInno"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="yes" name="required_parameters" id="UninstallDeleteSection-required_parameters">
+          <value>['Type', 'Name']</value>
+        </member>
+        <member public="yes" name="section_name" id="UninstallDeleteSection-section_name">
+          <value>'UninstallDelete'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="addEntry" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Section" module="Ft.Lib.DistExt.BDistInno">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+        <member-reference name="optional_parameters" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="INNO_MAX_VERSION" id="INNO_MAX_VERSION">
+      <value>'5.1.7'</value>
+    </global>
+    <global public="yes" name="INNO_MIN_VERSION" id="INNO_MIN_VERSION">
+      <value>'5.1.5'</value>
+    </global>
+    <global public="yes" name="ISCC_TEMPLATE" id="ISCC_TEMPLATE">
+      <value>'\n[Setup]\nOutputDir=%(output-dir)s\nOutputBaseFile...t of PYTHONPATH }\n  end\nend; { NextButtonClick }\n'</value>
+    </global>
+    <global public="yes" name="PY_SOURCE_EXTS" id="PY_SOURCE_EXTS">
+      <value>('.py', '.pyw')</value>
+    </global>
+  </globals>
+</module>

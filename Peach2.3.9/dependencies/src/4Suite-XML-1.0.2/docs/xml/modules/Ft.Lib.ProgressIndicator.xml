@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.ProgressIndicator">
+  <modification-date>2005-04-20 12:47:29</modification-date>
+  <abstract>Progress indicator</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="AutoProgressIndicator" public="yes">
+      <bases>
+        <base documented="yes" class="ProgressIndicator" module="Ft.Lib.ProgressIndicator"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="AutoProgressIndicator" module="Ft.Lib.ProgressIndicator"/>
+        <base name="ProgressIndicator" module="Ft.Lib.ProgressIndicator"/>
+      </method-resolution-order>
+      <methods name="ProgressIndicator" module="Ft.Lib.ProgressIndicator">
+        <method public="no" name="__init__" id="AutoProgressIndicator-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="total"/>
+            <arg default="1" name="step"/>
+            <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7d98068&gt;" name="stream"/>
+          </arguments>
+          <overrides documented="yes" class="ProgressIndicator" module="Ft.Lib.ProgressIndicator"/>
+        </method>
+        <method public="yes" name="advance" id="AutoProgressIndicator-advance">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="ProgressIndicator" module="Ft.Lib.ProgressIndicator">
+        <member-reference name="message" public="yes"/>
+        <member-reference name="newIndicator" public="yes"/>
+        <member-reference name="updateProgress" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="ProgressIndicator" public="yes">
+      <abstract>A progress indicator intended for terminal output (relies on ^H).</abstract>
+      <description>Indicator style, given as constructor argument, can be
+0: percentage; 1: bar; or 2: both. Default is 0.
+
+If using styles 1 or 2, an optional width argument
+for the bar portion can also be given (default 60).
+
+Example usage:
+# First emit whatever prefaces the indicator, if desired
+print &quot; status:&quot;,
+sys.__stdout__.flush()
+# Create a new indicator
+p = ProgressIndicator(2)
+p.newIndicator()
+# With each iteration through a task, or as often as you want,
+# call updateProgress(), passing 2 numbers: amount completed,
+# and total amount to do.
+limit = 300000
+for i in range(limit):
+    p.updateProgress(i, limit)
+print</description>
+      <method-resolution-order>
+        <base name="ProgressIndicator" module="Ft.Lib.ProgressIndicator"/>
+      </method-resolution-order>
+      <methods name="ProgressIndicator" module="Ft.Lib.ProgressIndicator">
+        <method public="no" name="__init__" id="ProgressIndicator-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7d98068&gt;" name="stream"/>
+          </arguments>
+        </method>
+        <method public="yes" name="message" id="ProgressIndicator-message">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="message"/>
+          </arguments>
+        </method>
+        <method public="yes" name="newIndicator" id="ProgressIndicator-newIndicator">
+          <abstract>Start a new indicator at 00%.
+Optional style and width arguments are same as constructor.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="total"/>
+          </arguments>
+        </method>
+        <method public="yes" name="updateProgress" id="ProgressIndicator-updateProgress">
+          <abstract>Update an existing indicator to reflect given progress.
+Arguments are amount completed so far, and total to do.
+For example, if 4 out of 30 have been completed, call
+updateProgress(4,30).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cur"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.CoreFunctions">
+  <modification-date>2006-09-18 11:05:27</modification-date>
+  <abstract>The implementation of the core functions from XPath 1.0.</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="Boolean" id="Boolean">
+      <abstract>Function: &lt;boolean&gt; boolean(&lt;object&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Ceiling" id="Ceiling">
+      <abstract>Function: &lt;number&gt; ceiling(&lt;number&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Concat" id="Concat">
+      <abstract>Function: &lt;string&gt; concat(&lt;string&gt;, &lt;string&gt;, ...)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <var-args name="args"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Contains" id="Contains">
+      <abstract>Function: &lt;string&gt; contains(&lt;string&gt;, &lt;string&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="outer"/>
+        <arg name="inner"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Count" id="Count">
+      <abstract>Function: &lt;number&gt; count(&lt;node-set&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="False" id="False">
+      <abstract>Function: &lt;boolean&gt; false()</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Floor" id="Floor">
+      <abstract>Function: &lt;number&gt; floor(&lt;number&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Id" id="Id">
+      <abstract>Function: &lt;node-set&gt; id(&lt;object&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Lang" id="Lang">
+      <abstract>Function: &lt;boolean&gt; lang(&lt;string&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="lang"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Last" id="Last">
+      <abstract>Function: &lt;number&gt; last()</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="LocalName" id="LocalName">
+      <abstract>Function: &lt;string&gt; local-name(&lt;node-set&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="nodeSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Name" id="Name">
+      <abstract>Function: &lt;string&gt; name(&lt;node-set&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="nodeSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NamespaceUri" id="NamespaceUri">
+      <abstract>Function: &lt;string&gt; namespace-uri(&lt;node-set&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="nodeSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Normalize" id="Normalize">
+      <abstract>Function: &lt;string&gt; normalize-space(&lt;string&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="st"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Not" id="Not">
+      <abstract>Function: &lt;boolean&gt; not(&lt;boolean&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Number" id="Number">
+      <abstract>Function: &lt;number&gt; number(&lt;object&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Position" id="Position">
+      <abstract>Function: &lt;number&gt; position()</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Round" id="Round">
+      <abstract>Function: &lt;number&gt; round(&lt;number&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="StartsWith" id="StartsWith">
+      <abstract>Function: &lt;string&gt; starts-with(&lt;string&gt;, &lt;string&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="outer"/>
+        <arg name="inner"/>
+      </arguments>
+    </function>
+    <function public="yes" name="String" id="String">
+      <abstract>Function: &lt;string&gt; string(&lt;object&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="object_"/>
+      </arguments>
+    </function>
+    <function public="yes" name="StringLength" id="StringLength">
+      <abstract>Function: &lt;number&gt; string-length(&lt;string&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="st"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Substring" id="Substring">
+      <abstract>Function: &lt;string&gt; substring(&lt;string&gt;, &lt;number&gt;, &lt;number&gt;?)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="st"/>
+        <arg name="start"/>
+        <arg default="None" name="length"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SubstringAfter" id="SubstringAfter">
+      <abstract>Function: &lt;string&gt; substring-after(&lt;string&gt;, &lt;string&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="outer"/>
+        <arg name="inner"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SubstringBefore" id="SubstringBefore">
+      <abstract>Function: &lt;string&gt; substring-before(&lt;string&gt;, &lt;string&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="outer"/>
+        <arg name="inner"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Sum" id="Sum">
+      <abstract>Function: &lt;number&gt; sum(&lt;node-set&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Translate" id="Translate">
+      <abstract>Function: &lt;string&gt; translate(&lt;string&gt;, &lt;string&gt;, &lt;string&gt;)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="source"/>
+        <arg name="fromChars"/>
+        <arg name="toChars"/>
+      </arguments>
+    </function>
+    <function public="yes" name="True" id="True">
+      <abstract>Function: &lt;boolean&gt; true()</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="CoreFunctions" id="CoreFunctions">
+      <value>{(None, 'boolean'): &lt;function Boolean&gt;, (None, 'ceiling'): &lt;function Ceiling&gt;, (None, 'concat'): &lt;function Concat&gt;, (None, 'contains'): &lt;function Contains&gt;, (None, 'count'): &lt;function Count&gt;, (None, 'false'): &lt;function False&gt;, (None, 'floor'): &lt;function Floor&gt;, (None, 'id'): &lt;function Id&gt;, (None, 'lang'): &lt;function Lang&gt;, (None, 'last'): &lt;function Last&gt;, ...}</value>
+    </global>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+    <global public="yes" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+  </globals>
+</module>

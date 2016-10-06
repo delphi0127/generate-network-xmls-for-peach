@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.XPathTypes">
+  <modification-date>2005-08-02 16:43:00</modification-date>
+  <abstract>Mappings between Python types and standard XPath object types</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="BooleanType" realname="boolean" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="boolean"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__and__" id="boolean-__and__">
+          <abstract>x.__and__(y) &lt;==&gt; x&amp;y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__cmp__" id="boolean-__cmp__">
+          <abstract>x.__cmp__(y) &lt;==&gt; cmp(x,y)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__coerce__" id="boolean-__coerce__">
+          <abstract>x.__coerce__(y) &lt;==&gt; coerce(x, y)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__float__" id="boolean-__float__">
+          <abstract>x.__float__() &lt;==&gt; float(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__hash__" id="boolean-__hash__">
+          <abstract>x.__hash__() &lt;==&gt; hash(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__hex__" id="boolean-__hex__">
+          <abstract>x.__hex__() &lt;==&gt; hex(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__int__" id="boolean-__int__">
+          <abstract>x.__int__() &lt;==&gt; int(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__long__" id="boolean-__long__">
+          <abstract>x.__long__() &lt;==&gt; long(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__nonzero__" id="boolean-__nonzero__">
+          <abstract>x.__nonzero__() &lt;==&gt; x != 0</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__oct__" id="boolean-__oct__">
+          <abstract>x.__oct__() &lt;==&gt; oct(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__or__" id="boolean-__or__">
+          <abstract>x.__or__(y) &lt;==&gt; x|y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rand__" id="boolean-__rand__">
+          <abstract>x.__rand__(y) &lt;==&gt; y&amp;x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="boolean-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__ror__" id="boolean-__ror__">
+          <abstract>x.__ror__(y) &lt;==&gt; y|x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rxor__" id="boolean-__rxor__">
+          <abstract>x.__rxor__(y) &lt;==&gt; y^x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="boolean-__str__">
+          <abstract>x.__str__() &lt;==&gt; str(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__xor__" id="boolean-__xor__">
+          <abstract>x.__xor__(y) &lt;==&gt; x^y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="NodesetType" realname="list" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract>list() -&gt; new list
+list(sequence) -&gt; new list initialized from sequence's items</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="list"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__add__" id="list-__add__">
+          <abstract>x.__add__(y) &lt;==&gt; x+y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__contains__" id="list-__contains__">
+          <abstract>x.__contains__(y) &lt;==&gt; y in x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__delitem__" id="list-__delitem__">
+          <abstract>x.__delitem__(y) &lt;==&gt; del x[y]</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__delslice__" id="list-__delslice__">
+          <abstract>x.__delslice__(i, j) &lt;==&gt; del x[i:j]</abstract>
+          <description>Use of negative indices is not supported.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__eq__" id="list-__eq__">
+          <abstract>x.__eq__(y) &lt;==&gt; x==y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__ge__" id="list-__ge__">
+          <abstract>x.__ge__(y) &lt;==&gt; x&gt;=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getattribute__" id="list-__getattribute__">
+          <abstract>x.__getattribute__('name') &lt;==&gt; x.name</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getitem__" id="list-__getitem__">
+          <abstract>x.__getitem__(y) &lt;==&gt; x[y]</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getslice__" id="list-__getslice__">
+          <abstract>x.__getslice__(i, j) &lt;==&gt; x[i:j]</abstract>
+          <description>Use of negative indices is not supported.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__gt__" id="list-__gt__">
+          <abstract>x.__gt__(y) &lt;==&gt; x&gt;y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__hash__" id="list-__hash__">
+          <abstract>x.__hash__() &lt;==&gt; hash(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__iadd__" id="list-__iadd__">
+          <abstract>x.__iadd__(y) &lt;==&gt; x+=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__imul__" id="list-__imul__">
+          <abstract>x.__imul__(y) &lt;==&gt; x*=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="list-__init__">
+          <abstract>x.__init__(...) initializes x; see x.__class__.__doc__ for signature</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__iter__" id="list-__iter__">
+          <abstract>x.__iter__() &lt;==&gt; iter(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__le__" id="list-__le__">
+          <abstract>x.__le__(y) &lt;==&gt; x&lt;=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__len__" id="list-__len__">
+          <abstract>x.__len__() &lt;==&gt; len(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__lt__" id="list-__lt__">
+          <abstract>x.__lt__(y) &lt;==&gt; x&lt;y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__mul__" id="list-__mul__">
+          <abstract>x.__mul__(n) &lt;==&gt; x*n</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__ne__" id="list-__ne__">
+          <abstract>x.__ne__(y) &lt;==&gt; x!=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__new__" id="list-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="__repr__" id="list-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__reversed__" id="list-__reversed__">
+          <abstract>L.__reversed__() -- return a reverse iterator over the list</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rmul__" id="list-__rmul__">
+          <abstract>x.__rmul__(n) &lt;==&gt; n*x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__setitem__" id="list-__setitem__">
+          <abstract>x.__setitem__(i, y) &lt;==&gt; x[i]=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__setslice__" id="list-__setslice__">
+          <abstract>x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y</abstract>
+          <description>Use  of negative indices is not supported.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="append" id="list-append">
+          <abstract>L.append(object) -- append object to end</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="count" id="list-count">
+          <abstract>L.count(value) -&gt; integer -- return number of occurrences of value</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="extend" id="list-extend">
+          <abstract>L.extend(iterable) -- extend list by appending elements from the iterable</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="index" id="list-index">
+          <abstract>L.index(value, [start, [stop]]) -&gt; integer -- return first index of value</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="insert" id="list-insert">
+          <abstract>L.insert(index, object) -- insert object before index</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="pop" id="list-pop">
+          <abstract>L.pop([index]) -&gt; item -- remove and return item at index (default last)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="remove" id="list-remove">
+          <abstract>L.remove(value) -- remove first occurrence of value</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="reverse" id="list-reverse">
+          <abstract>L.reverse() -- reverse *IN PLACE*</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="sort" id="list-sort">
+          <abstract>L.sort(cmp=None, key=None, reverse=False) -- stable sort *IN PLACE*;
+cmp(x, y) -&gt; -1, 0, 1</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="NumberType" realname="float" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract>float(x) -&gt; floating point number</abstract>
+      <description>Convert a string or number to a floating point number, if possible.</description>
+      <method-resolution-order>
+        <base name="float"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__abs__" id="float-__abs__">
+          <abstract>x.__abs__() &lt;==&gt; abs(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__add__" id="float-__add__">
+          <abstract>x.__add__(y) &lt;==&gt; x+y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__coerce__" id="float-__coerce__">
+          <abstract>x.__coerce__(y) &lt;==&gt; coerce(x, y)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__div__" id="float-__div__">
+          <abstract>x.__div__(y) &lt;==&gt; x/y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__divmod__" id="float-__divmod__">
+          <abstract>x.__divmod__(y) &lt;==&gt; divmod(x, y)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__eq__" id="float-__eq__">
+          <abstract>x.__eq__(y) &lt;==&gt; x==y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__float__" id="float-__float__">
+          <abstract>x.__float__() &lt;==&gt; float(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__floordiv__" id="float-__floordiv__">
+          <abstract>x.__floordiv__(y) &lt;==&gt; x//y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__ge__" id="float-__ge__">
+          <abstract>x.__ge__(y) &lt;==&gt; x&gt;=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getattribute__" id="float-__getattribute__">
+          <abstract>x.__getattribute__('name') &lt;==&gt; x.name</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getnewargs__" id="float-__getnewargs__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__gt__" id="float-__gt__">
+          <abstract>x.__gt__(y) &lt;==&gt; x&gt;y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__hash__" id="float-__hash__">
+          <abstract>x.__hash__() &lt;==&gt; hash(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__int__" id="float-__int__">
+          <abstract>x.__int__() &lt;==&gt; int(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__le__" id="float-__le__">
+          <abstract>x.__le__(y) &lt;==&gt; x&lt;=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__long__" id="float-__long__">
+          <abstract>x.__long__() &lt;==&gt; long(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__lt__" id="float-__lt__">
+          <abstract>x.__lt__(y) &lt;==&gt; x&lt;y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__mod__" id="float-__mod__">
+          <abstract>x.__mod__(y) &lt;==&gt; x%y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__mul__" id="float-__mul__">
+          <abstract>x.__mul__(y) &lt;==&gt; x*y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__ne__" id="float-__ne__">
+          <abstract>x.__ne__(y) &lt;==&gt; x!=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__neg__" id="float-__neg__">
+          <abstract>x.__neg__() &lt;==&gt; -x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__new__" id="float-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="__nonzero__" id="float-__nonzero__">
+          <abstract>x.__nonzero__() &lt;==&gt; x != 0</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__pos__" id="float-__pos__">
+          <abstract>x.__pos__() &lt;==&gt; +x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__pow__" id="float-__pow__">
+          <abstract>x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__radd__" id="float-__radd__">
+          <abstract>x.__radd__(y) &lt;==&gt; y+x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rdiv__" id="float-__rdiv__">
+          <abstract>x.__rdiv__(y) &lt;==&gt; y/x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rdivmod__" id="float-__rdivmod__">
+          <abstract>x.__rdivmod__(y) &lt;==&gt; divmod(y, x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="float-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rfloordiv__" id="float-__rfloordiv__">
+          <abstract>x.__rfloordiv__(y) &lt;==&gt; y//x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rmod__" id="float-__rmod__">
+          <abstract>x.__rmod__(y) &lt;==&gt; y%x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rmul__" id="float-__rmul__">
+          <abstract>x.__rmul__(y) &lt;==&gt; y*x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rpow__" id="float-__rpow__">
+          <abstract>y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rsub__" id="float-__rsub__">
+          <abstract>x.__rsub__(y) &lt;==&gt; y-x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rtruediv__" id="float-__rtruediv__">
+          <abstract>x.__rtruediv__(y) &lt;==&gt; y/x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="float-__str__">
+          <abstract>x.__str__() &lt;==&gt; str(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__sub__" id="float-__sub__">
+          <abstract>x.__sub__(y) &lt;==&gt; x-y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__truediv__" id="float-__truediv__">
+          <abstract>x.__truediv__(y) &lt;==&gt; x/y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="StringType" realname="unicode" public="yes">
+      <bases>
+        <base documented="no" class="basestring"/>
+      </bases>
+      <abstract>unicode(string [, encoding[, errors]]) -&gt; object</abstract>
+      <description>Create a new Unicode object from the given encoded string.
+encoding defaults to the current default string encoding.
+errors can be 'strict', 'replace' or 'ignore' and defaults to 'strict'.</description>
+      <method-resolution-order>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__add__" id="unicode-__add__">
+          <abstract>x.__add__(y) &lt;==&gt; x+y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__cmp__" id="unicode-__cmp__">
+          <abstract>x.__cmp__(y) &lt;==&gt; cmp(x,y)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__contains__" id="unicode-__contains__">
+          <abstract>x.__contains__(y) &lt;==&gt; y in x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getattribute__" id="unicode-__getattribute__">
+          <abstract>x.__getattribute__('name') &lt;==&gt; x.name</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getitem__" id="unicode-__getitem__">
+          <abstract>x.__getitem__(y) &lt;==&gt; x[y]</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getnewargs__" id="unicode-__getnewargs__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__getslice__" id="unicode-__getslice__">
+          <abstract>x.__getslice__(i, j) &lt;==&gt; x[i:j]</abstract>
+          <description>Use of negative indices is not supported.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__hash__" id="unicode-__hash__">
+          <abstract>x.__hash__() &lt;==&gt; hash(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__len__" id="unicode-__len__">
+          <abstract>x.__len__() &lt;==&gt; len(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__mod__" id="unicode-__mod__">
+          <abstract>x.__mod__(y) &lt;==&gt; x%y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__mul__" id="unicode-__mul__">
+          <abstract>x.__mul__(n) &lt;==&gt; x*n</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__new__" id="unicode-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="no" class="basestring"/>
+        </method>
+        <method public="no" name="__repr__" id="unicode-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rmod__" id="unicode-__rmod__">
+          <abstract>x.__rmod__(y) &lt;==&gt; y%x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__rmul__" id="unicode-__rmul__">
+          <abstract>x.__rmul__(n) &lt;==&gt; n*x</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="unicode-__str__">
+          <abstract>x.__str__() &lt;==&gt; str(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="capitalize" id="unicode-capitalize">
+          <abstract>S.capitalize() -&gt; unicode</abstract>
+          <description>Return a capitalized version of S, i.e. make the first character
+have upper case.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="center" id="unicode-center">
+          <abstract>S.center(width[, fillchar]) -&gt; unicode</abstract>
+          <description>Return S centered in a Unicode string of length width. Padding is
+done using the specified fill character (default is a space)</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="count" id="unicode-count">
+          <abstract>S.count(sub[, start[, end]]) -&gt; int</abstract>
+          <description>Return the number of occurrences of substring sub in Unicode string
+S[start:end].  Optional arguments start and end are
+interpreted as in slice notation.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="decode" id="unicode-decode">
+          <abstract>S.decode([encoding[,errors]]) -&gt; string or unicode</abstract>
+          <description>Decodes S using the codec registered for encoding. encoding defaults
+to the default encoding. errors may be given to set a different error
+handling scheme. Default is 'strict' meaning that encoding errors raise
+a UnicodeDecodeError. Other possible values are 'ignore' and 'replace'
+as well as any other name registerd with codecs.register_error that is
+able to handle UnicodeDecodeErrors.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="encode" id="unicode-encode">
+          <abstract>S.encode([encoding[,errors]]) -&gt; string or unicode</abstract>
+          <description>Encodes S using the codec registered for encoding. encoding defaults
+to the default encoding. errors may be given to set a different error
+handling scheme. Default is 'strict' meaning that encoding errors raise
+a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+'xmlcharrefreplace' as well as any other name registered with
+codecs.register_error that can handle UnicodeEncodeErrors.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="endswith" id="unicode-endswith">
+          <abstract>S.endswith(suffix[, start[, end]]) -&gt; bool</abstract>
+          <description>Return True if S ends with the specified suffix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="expandtabs" id="unicode-expandtabs">
+          <abstract>S.expandtabs([tabsize]) -&gt; unicode</abstract>
+          <description>Return a copy of S where all tab characters are expanded using spaces.
+If tabsize is not given, a tab size of 8 characters is assumed.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="find" id="unicode-find">
+          <abstract>S.find(sub [,start [,end]]) -&gt; int</abstract>
+          <description>Return the lowest index in S where substring sub is found,
+such that sub is contained within s[start,end].  Optional
+arguments start and end are interpreted as in slice notation.
+
+Return -1 on failure.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="index" id="unicode-index">
+          <abstract>S.index(sub [,start [,end]]) -&gt; int</abstract>
+          <description>Like S.find() but raise ValueError when the substring is not found.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isalnum" id="unicode-isalnum">
+          <abstract>S.isalnum() -&gt; bool</abstract>
+          <description>Return True if all characters in S are alphanumeric
+and there is at least one character in S, False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isalpha" id="unicode-isalpha">
+          <abstract>S.isalpha() -&gt; bool</abstract>
+          <description>Return True if all characters in S are alphabetic
+and there is at least one character in S, False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isdecimal" id="unicode-isdecimal">
+          <abstract>S.isdecimal() -&gt; bool</abstract>
+          <description>Return True if there are only decimal characters in S,
+False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isdigit" id="unicode-isdigit">
+          <abstract>S.isdigit() -&gt; bool</abstract>
+          <description>Return True if all characters in S are digits
+and there is at least one character in S, False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="islower" id="unicode-islower">
+          <abstract>S.islower() -&gt; bool</abstract>
+          <description>Return True if all cased characters in S are lowercase and there is
+at least one cased character in S, False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isnumeric" id="unicode-isnumeric">
+          <abstract>S.isnumeric() -&gt; bool</abstract>
+          <description>Return True if there are only numeric characters in S,
+False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isspace" id="unicode-isspace">
+          <abstract>S.isspace() -&gt; bool</abstract>
+          <description>Return True if all characters in S are whitespace
+and there is at least one character in S, False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="istitle" id="unicode-istitle">
+          <abstract>S.istitle() -&gt; bool</abstract>
+          <description>Return True if S is a titlecased string and there is at least one
+character in S, i.e. upper- and titlecase characters may only
+follow uncased characters and lowercase characters only cased ones.
+Return False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isupper" id="unicode-isupper">
+          <abstract>S.isupper() -&gt; bool</abstract>
+          <description>Return True if all cased characters in S are uppercase and there is
+at least one cased character in S, False otherwise.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="join" id="unicode-join">
+          <abstract>S.join(sequence) -&gt; unicode</abstract>
+          <description>Return a string which is the concatenation of the strings in the
+sequence.  The separator between elements is S.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="ljust" id="unicode-ljust">
+          <abstract>S.ljust(width[, fillchar]) -&gt; int</abstract>
+          <description>Return S left justified in a Unicode string of length width. Padding is
+done using the specified fill character (default is a space).</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="lower" id="unicode-lower">
+          <abstract>S.lower() -&gt; unicode</abstract>
+          <description>Return a copy of the string S converted to lowercase.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="lstrip" id="unicode-lstrip">
+          <abstract>S.lstrip([chars]) -&gt; unicode</abstract>
+          <description>Return a copy of the string S with leading whitespace removed.
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="replace" id="unicode-replace">
+          <abstract>S.replace (old, new[, maxsplit]) -&gt; unicode</abstract>
+          <description>Return a copy of S with all occurrences of substring
+old replaced by new.  If the optional argument maxsplit is
+given, only the first maxsplit occurrences are replaced.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="rfind" id="unicode-rfind">
+          <abstract>S.rfind(sub [,start [,end]]) -&gt; int</abstract>
+          <description>Return the highest index in S where substring sub is found,
+such that sub is contained within s[start,end].  Optional
+arguments start and end are interpreted as in slice notation.
+
+Return -1 on failure.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="rindex" id="unicode-rindex">
+          <abstract>S.rindex(sub [,start [,end]]) -&gt; int</abstract>
+          <description>Like S.rfind() but raise ValueError when the substring is not found.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="rjust" id="unicode-rjust">
+          <abstract>S.rjust(width[, fillchar]) -&gt; unicode</abstract>
+          <description>Return S right justified in a Unicode string of length width. Padding is
+done using the specified fill character (default is a space).</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="rsplit" id="unicode-rsplit">
+          <abstract>S.rsplit([sep [,maxsplit]]) -&gt; list of strings</abstract>
+          <description>Return a list of the words in S, using sep as the
+delimiter string, starting at the end of the string and
+working to the front.  If maxsplit is given, at most maxsplit
+splits are done. If sep is not specified, any whitespace string
+is a separator.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="rstrip" id="unicode-rstrip">
+          <abstract>S.rstrip([chars]) -&gt; unicode</abstract>
+          <description>Return a copy of the string S with trailing whitespace removed.
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="split" id="unicode-split">
+          <abstract>S.split([sep [,maxsplit]]) -&gt; list of strings</abstract>
+          <description>Return a list of the words in S, using sep as the
+delimiter string.  If maxsplit is given, at most maxsplit
+splits are done. If sep is not specified or is None,
+any whitespace string is a separator.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="splitlines" id="unicode-splitlines">
+          <abstract>S.splitlines([keepends]]) -&gt; list of strings</abstract>
+          <description>Return a list of the lines in S, breaking at line boundaries.
+Line breaks are not included in the resulting list unless keepends
+is given and true.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="startswith" id="unicode-startswith">
+          <abstract>S.startswith(prefix[, start[, end]]) -&gt; bool</abstract>
+          <description>Return True if S starts with the specified prefix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="strip" id="unicode-strip">
+          <abstract>S.strip([chars]) -&gt; unicode</abstract>
+          <description>Return a copy of the string S with leading and trailing
+whitespace removed.
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="swapcase" id="unicode-swapcase">
+          <abstract>S.swapcase() -&gt; unicode</abstract>
+          <description>Return a copy of S with uppercase characters converted to lowercase
+and vice versa.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="title" id="unicode-title">
+          <abstract>S.title() -&gt; unicode</abstract>
+          <description>Return a titlecased version of S, i.e. words start with title case
+characters, all remaining cased characters have lower case.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="translate" id="unicode-translate">
+          <abstract>S.translate(table) -&gt; unicode</abstract>
+          <description>Return a copy of the string S, where all characters have been mapped
+through the given translation table, which must be a mapping of
+Unicode ordinals to Unicode ordinals, Unicode strings or None.
+Unmapped characters are left untouched. Characters mapped to None
+are deleted.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="upper" id="unicode-upper">
+          <abstract>S.upper() -&gt; unicode</abstract>
+          <description>Return a copy of S converted to uppercase.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="zfill" id="unicode-zfill">
+          <abstract>S.zfill(width) -&gt; unicode</abstract>
+          <description>Pad a numeric string x with zeros on the left, to fill a field
+of the specified width. The string x is never truncated.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+    <global public="no" name="NumberTypes" id="NumberTypes">
+      <value>{&lt;type 'float'&gt;: True, &lt;type 'int'&gt;: True, &lt;type 'long'&gt;: True}</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['NodesetType', 'StringType', 'NumberType', 'BooleanType', 'g_xpathPrimitiveTypes', 'g_xpathRecognizedNodes']</value>
+    </global>
+    <global public="yes" name="g_xpathPrimitiveTypes" id="g_xpathPrimitiveTypes">
+      <value>{&lt;type 'float'&gt;: 'number', &lt;type 'int'&gt;: 'number', &lt;type 'list'&gt;: 'node-set', &lt;type 'long'&gt;: 'number', &lt;type 'str'&gt;: 'string', &lt;type 'object'&gt;: 'object', &lt;type 'unicode'&gt;: 'string', &lt;type 'bool'&gt;: 'boolean', &lt;type 'boolean'&gt;: 'boolean'}</value>
+    </global>
+    <global public="yes" name="g_xpathRecognizedNodes" id="g_xpathRecognizedNodes">
+      <value>{1: True, 2: True, 3: True, 7: True, 8: True, 9: True, 13: True}</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.InstallLib">
+  <modification-date>2006-08-22 10:46:57</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="InstallLib" public="yes">
+      <bases>
+        <base documented="no" class="install_lib" module="distutils.command.install_lib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="InstallLib" module="Ft.Lib.DistExt.InstallLib"/>
+        <base name="install_lib" module="distutils.command.install_lib"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="get_source_files" id="InstallLib-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="install" id="InstallLib-install">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="install_lib" module="distutils.command.install_lib"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="InstallLib-boolean_options">
+          <value>['force', 'compile', 'skip-build']</value>
+        </member>
+        <member public="yes" name="command_name" id="InstallLib-command_name">
+          <value>'install_lib'</value>
+        </member>
+        <member public="yes" name="negative_opt" id="InstallLib-negative_opt">
+          <value>{'no-compile': 'compile'}</value>
+        </member>
+        <member public="yes" name="user_options" id="InstallLib-user_options">
+          <value>[('force', 'f', 'force installation (overwrite existing files)'), ('compile', 'c', 'compile .py to .pyc [default]'), ('no-compile', None, &quot;don't compile .py files&quot;), ('optimize=', 'O', 'also compile with optimization: -O1 for &quot;python ...r &quot;python -OO&quot;, and -O0 to disable [default: -O0]'), ('skip-build', None, 'skip the build steps')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="install_lib" module="distutils.command.install_lib">
+        <member-reference name="build" public="yes"/>
+        <member-reference name="byte_compile" public="yes"/>
+        <member-reference name="finalize_options" public="yes"/>
+        <member-reference name="get_inputs" public="yes"/>
+        <member-reference name="get_outputs" public="yes"/>
+        <member-reference name="initialize_options" public="yes"/>
+        <member-reference name="run" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="install_lib" module="distutils.command.install_lib">
+        <member-reference name="description" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="PY_SOURCE_EXTS" id="PY_SOURCE_EXTS">
+      <value>['.py']</value>
+    </global>
+    <global public="yes" name="m" id="m">
+      <value>'rb'</value>
+    </global>
+    <global public="yes" name="s" id="s">
+      <value>'.pyc'</value>
+    </global>
+    <global public="yes" name="t" id="t">
+      <value>2</value>
+    </global>
+  </globals>
+</module>

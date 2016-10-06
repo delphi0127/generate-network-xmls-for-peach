@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="TestCase">
+		<String name="data" value="1234567890" length="10" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action type="start" />
+			<Action type="connect" />
+			
+			<Action type="input" name="GetData">
+				<DataModel ref="TestCase" />
+			</Action>
+			
+			<Action type="slurp" name="SlurpData1" valueXpath="//GetData//data" setXpath="//EchoData//data" />
+			<Action type="slurp" name="SlurpData2" valueXpath="//GetData//data" setXpath="//EchoData//data" />
+			<Action type="slurp" name="SlurpData3" valueXpath="//GetData//data" setXpath="//EchoData//data" />
+			
+			<Action type="output" name="EchoData">
+				<DataModel ref="TestCase" />
+			</Action>
+			
+			<Action type="close" />
+			<Action type="stop" />
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

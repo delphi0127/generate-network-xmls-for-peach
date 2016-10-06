@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XInclude">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>XInclude processing</abstract>
+  <description>XInclude processing is normally controlled via the Domlette reader APIs
+and is implemented within Domlette itself. This module just provides
+constants and classes to support XInclude processing.
+
+XInclude is defined at http://www.w3.org/TR/xinclude
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="no" name="ProcessIncludesFromSource" id="ProcessIncludesFromSource">
+      <abstract>DEPRECATED - The Ft.Xml.Domlette readers expand XIncludes by default.</abstract>
+      <description/>
+      <arguments>
+        <arg name="inputSource"/>
+        <arg default="0" name="validate"/>
+      </arguments>
+    </function>
+    <function public="no" name="ProcessIncludesFromString" id="ProcessIncludesFromString">
+      <abstract>DEPRECATED - The Ft.Xml.Domlette readers expand XIncludes by default.</abstract>
+      <description/>
+      <arguments>
+        <arg name="string"/>
+        <arg default="''" name="uri"/>
+        <arg default="0" name="validate"/>
+      </arguments>
+    </function>
+    <function public="no" name="ProcessIncludesFromUri" id="ProcessIncludesFromUri">
+      <abstract>DEPRECATED - The Ft.Xml.Domlette readers expand XIncludes by default.</abstract>
+      <description/>
+      <arguments>
+        <arg name="uri"/>
+        <arg default="0" name="validate"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="NONNORMATIVE_SCHEMA_FOR_XINCLUDE_ELEMENT" id="NONNORMATIVE_SCHEMA_FOR_XINCLUDE_ELEMENT">
+      <value>'&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;\n&lt;xs:schem...ntents=&quot;lax&quot; /&gt;\n  &lt;/xs:complexType&gt;\n\n&lt;/xs:schema&gt;'</value>
+    </global>
+    <global public="yes" name="XINCLUDE_NAMESPACE" id="XINCLUDE_NAMESPACE">
+      <value>u'http://www.w3.org/2001/XInclude'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['XINCLUDE_NAMESPACE', 'NONNORMATIVE_SCHEMA_FOR_XINCLUDE_ELEMENT', 'g_errorMessages']</value>
+    </global>
+  </globals>
+</module>

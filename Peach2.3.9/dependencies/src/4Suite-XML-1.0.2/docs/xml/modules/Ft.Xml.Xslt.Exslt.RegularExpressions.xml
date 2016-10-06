@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt.RegularExpressions">
+  <modification-date>2006-12-18 15:29:56</modification-date>
+  <abstract>EXSLT 2.0 - Regular Expressions (http://www.exslt.org/regexp/index.html)
+WWW: http://4suite.org/XSLT        e-mail: support@4suite.org</abstract>
+  <description>Copyright (c) 2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+  <functions>
+    <function public="yes" name="Match" id="Match">
+      <abstract>The regexp:match function lets you get hold of the substrings of the
+string passed as the first argument that match the captured parts of
+the regular expression passed as the second argument.</abstract>
+      <description>The second argument is a regular expression that follows the Javascript
+regular expression syntax.
+
+The third argument is a string consisting of character flags to be used
+by the match. If a character is present then that flag is true. The
+flags are:
+  g: global match - the submatches from all the matches in the string
+                    are returned. If this character is not present, then
+                    only the submatches from the first match in the
+                    string are returned.
+  i: case insensitive - the regular expression is treated as case
+                        insensitive. If this character is not present,
+                        then the regular expression is case sensitive.
+
+The regexp:match function returns a node set of 'match' elements, each of
+whose string value is equal to a portion of the first argument string
+that was captured by the regular expression. If the match is not global,
+the first match element has a value equal to the portion of the string
+matched by the entire regular expression.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="source"/>
+        <arg name="pattern"/>
+        <arg default="''" name="flags"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Replace" id="Replace">
+      <abstract>The regexp:replace function replaces the parts of a string that match
+a regular expression with another string.</abstract>
+      <description>The first argument is the string to be matched and replaced. The second
+argument is a regular expression that follows the Javascript regular
+expression syntax. The fourth argument is the string to replace the
+matched parts of the string.
+
+The third argument is a string consisting of character flags to be used
+by the match. If a character is present then that flag is true. The flags
+are:
+  g: global replace - all occurrences of the regular expression in the
+                      string are replaced. If this character is not
+                      present, then only the first occurrence of the
+                      regular expression is replaced.
+  i: case insensitive - the regular expression is treated as case
+                        insensitive. If this character is not present,
+                        then the regular expression is case sensitive.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="source"/>
+        <arg name="pattern"/>
+        <arg name="flags"/>
+        <arg name="repl"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Test" id="Test">
+      <abstract>The regexp:test function returns true if the string given as the first
+argument matches the regular expression given as the second argument.</abstract>
+      <description>The second argument is a regular expression that follows the Javascript
+regular expression syntax.
+
+The third argument is a string consisting of flags to be used by the test.
+If a character is present then that flag is true. The flags are:
+  g: global test - has no effect on this function, but is retained for
+                   consistency with regexp:match and regexp:replace.
+  i: case insensitive - the regular expression is treated as case
+                        insensitive. If this character is not present,
+                        then the regular expression is case sensitive.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="source"/>
+        <arg name="pattern"/>
+        <arg default="''" name="flags"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EXSL_REGEXP_NS" id="EXSL_REGEXP_NS">
+      <value>'http://exslt.org/regular-expressions'</value>
+    </global>
+    <global public="yes" name="ExtElements" id="ExtElements">
+      <value>{}</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://exslt.org/regular-expressions', 'match'): &lt;function Match at 0xb75d225c&gt;, ('http://exslt.org/regular-expressions', 'replace'): &lt;function Replace at 0xb75d2294&gt;, ('http://exslt.org/regular-expressions', 'test'): &lt;function Test at 0xb75d2224&gt;}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://exslt.org/regular-expressions': 'regexp'}</value>
+    </global>
+  </globals>
+</module>

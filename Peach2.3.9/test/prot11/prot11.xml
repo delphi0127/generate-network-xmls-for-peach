@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="Chunk">
+		<Number name="type" endian="little" size="32" signed="false" value="777" />
+		<Number name="size" endian="little" size="32" signed="false">
+			<Relation type="size" of="Chunk" />
+		</Number>
+		<String name="data" length="10" nullTerminated="true" value="ME PEACH" />
+	</DataModel>
+	
+	<DataModel name="Header">
+		<Number name="version" endian="little" size="32" signed="false" value="666" />
+		<Number name="size" endian="little" size="32" signed="false">
+			<Relation type="size" of="Header"/>
+		</Number>
+		<Number name="chunkCount" endian="little" size="32" signed="false" value="1">
+			<Relation type="count" of="chunks" />
+		</Number>
+		<Block name="chunks" ref="Chunk" minOccurs="0" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		
+		<State name="Initial">
+
+			<Action type="output" name="HeaderIn">
+				<DataModel ref="Header" />
+			</Action>
+			<Action type="input" name="HeaderOut">
+				<DataModel ref="Header" />
+ 			</Action>
+			
+		</State>
+		
+	</StateModel>
+	
+	<Test name="TheTest">
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="27016"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+
+</Peach>
+<!-- end -->

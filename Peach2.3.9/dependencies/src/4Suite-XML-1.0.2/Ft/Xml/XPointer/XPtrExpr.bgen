@@ -1,0 +1,52 @@
+<?xml version='1.0'?>
+<bisongen version='1.0' name='XPtrExprParser' project='Ft.Xml.XPointer'>
+
+  <!-- Python modules to import -->
+  <modules>
+    <?include ../XPath/XPathModules.bgen.frag?>
+    <!-- override XPath node test creation -->
+    <import from="Ft.Xml.XPointer">ParsedNodeTest</import>
+    <import from="Ft.Xml.XPath.ParsedStep">ParsedNodeSetFunction</import>
+  </modules>
+
+  <!-- Token declarations -->
+  <tokens>
+    <?include ../XPath/XPathTokens.bgen.frag?>
+  </tokens>
+
+  <!-- Bison parser definition -->
+  <grammar start="expr">
+    <production>
+      <non-terminal>step</non-terminal>
+      <rule>
+        <symbol>functionCall</symbol>
+        <code language="c">
+          $$ = PyObject_CallFunction(ParsedNodeSetFunction, "O", $1);
+        </code>
+        <code language="python">
+          $$ = ParsedNodeSetFunction($1)
+        </code>
+      </rule>
+      <rule>
+        <symbol>functionCall</symbol>
+        <symbol>predicateList</symbol>
+        <code language="c">
+          $$ = PyObject_CallFunction(ParsedNodeSetFunction, "OO", $1, $2);
+        </code>
+        <code language="python">
+          $$ = ParsedNodeSetFunction($1, $2)
+        </code>
+      </rule>
+    </production>
+    <?include ../XPath/XPathBase.bgen.frag?>
+  </grammar>
+
+  <lexer>
+    <defines>
+      <?include ../XPath/XPathLexerDefines.bgen.frag?>
+      <define name='NodeType'>(node|text|comment|processing-instruction|point|range)</define>
+    </defines>
+    <?include ../XPath/XPathLexerPatterns.bgen.frag?>
+  </lexer>
+
+</bisongen>

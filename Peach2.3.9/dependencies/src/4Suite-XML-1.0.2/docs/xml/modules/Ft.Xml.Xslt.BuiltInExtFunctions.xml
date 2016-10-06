@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.BuiltInExtFunctions">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>4XSLT specific extension functions (i.e. ones that create a node set)</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="DocAsString" id="DocAsString">
+      <abstract>Retrieves a document, similar to the document() function, but
+returns the document as an XPath string object rather than as a
+node-set.</abstract>
+      <description>Security note: if the associated URI resolver allows file: URLs,
+this extension could be used to read arbitrary system files</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="obj"/>
+        <arg default="'UTF-8'" name="encoding"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FtKey" id="FtKey">
+      <abstract>Query an XSLT key, but allow the user to override the context node for
+purposes of determining which source document to check.
+realContextNode is a node set from which the first node is extracted
+And used as the context node</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="qname"/>
+        <arg name="keyList"/>
+        <arg default="None" name="realContextNode"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Lookup" id="Lookup">
+      <abstract>f:lookup() queries an index as defined by f:create-index.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="name"/>
+        <arg name="key"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Map" id="Map">
+      <abstract>Apply the function serially over the given node sets.
+In iteration i, the function is passed N parameters
+where N is the number of argument node sets.  Each
+parameter is a node set of size 1, whose node is
+the ith node of the corresponding argument node set.
+The return value is a node set consisting of a series
+of result-tree nodes, each of which is a text node
+whose value is the string value of the result of the
+ith function invocation.
+Warning: this function uses the implied ordering of the node set
+Based on its implementation as a Python list.  But in reality
+There is no reliable ordering of XPath node sets.
+Therefore this function is not recommended for use with
+more than one node set parameter.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="funcname"/>
+        <var-args name="nodesets"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SearchRe" id="SearchRe">
+      <abstract>Do a regular expression search against the argument (i.e. get all matches)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="pattern"/>
+        <arg default="None" name="arg"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SerializeXml" id="SerializeXml">
+      <abstract>f:serialize-xml() takes a node set and turns it into a string
+representing the serialization of the node set, obtained
+by concatenating the serialization of each node in the
+node set in document order.</abstract>
+      <description>See also: XPath (not XSLT) extension function f:parse-xml()</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg default="None" name="method"/>
+        <arg default="1" name="omitxmldecl"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Split" id="Split">
+      <abstract>DEPRECATED.
+Equivalent to EXSLT's str:split().
+Splits a string according to a sub-string and return a node set
+of elements nodes, each of which is named &quot;Split&quot; and contains the
+split text
+For example f:split('A,B,C,') returns a node set of &quot;Split&quot; nodes
+having text nodes with values &quot;A&quot;, &quot;B&quot; and &quot;C&quot;
+arg - converted to a string, is the string to split up
+delim - the delimiter upon which to split, defaults to &quot; &quot;</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="arg"/>
+        <arg default="u' '" name="delim"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://xmlns.4suite.org/ext', 'doc-as-string'): &lt;function DocAsString&gt;, ('http://xmlns.4suite.org/ext', 'key'): &lt;function FtKey&gt;, ('http://xmlns.4suite.org/ext', 'lookup'): &lt;function Lookup&gt;, ('http://xmlns.4suite.org/ext', 'map'): &lt;function Map&gt;, ('http://xmlns.4suite.org/ext', 'search-re'): &lt;function SearchRe&gt;, ('http://xmlns.4suite.org/ext', 'serialize-xml'): &lt;function SerializeXml&gt;, ('http://xmlns.4suite.org/ext', 'split'): &lt;function Split&gt;}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://xmlns.4suite.org/ext': 'f'}</value>
+    </global>
+    <global public="no" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['ExtNamespaces', 'ExtFunctions', 'FtKey', 'Lookup', 'Map', 'DocAsString', 'SearchRe', 'SerializeXml', 'Split']</value>
+    </global>
+  </globals>
+</module>

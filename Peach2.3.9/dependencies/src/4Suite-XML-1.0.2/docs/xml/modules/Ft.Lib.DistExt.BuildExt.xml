@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.BuildExt">
+  <modification-date>2006-12-16 00:59:15</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="BuildExt" public="yes">
+      <bases>
+        <base documented="no" class="build_ext" module="distutils.command.build_ext"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="BuildExt" module="Ft.Lib.DistExt.BuildExt"/>
+        <base name="build_ext" module="distutils.command.build_ext"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="build_extension" id="BuildExt-build_extension">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="ext"/>
+          </arguments>
+          <overrides documented="no" class="build_ext" module="distutils.command.build_ext"/>
+        </method>
+        <method public="yes" name="check_extensions_list" id="BuildExt-check_extensions_list">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="extensions"/>
+          </arguments>
+          <overrides documented="no" class="build_ext" module="distutils.command.build_ext"/>
+        </method>
+        <method public="yes" name="finalize_options" id="BuildExt-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="build_ext" module="distutils.command.build_ext"/>
+        </method>
+        <method public="yes" name="get_export_symbols" id="BuildExt-get_export_symbols">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="extension"/>
+          </arguments>
+          <overrides documented="no" class="build_ext" module="distutils.command.build_ext"/>
+        </method>
+        <method public="yes" name="get_source_files" id="BuildExt-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="build_ext" module="distutils.command.build_ext"/>
+        </method>
+        <method public="yes" name="initialize_options" id="BuildExt-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="build_ext" module="distutils.command.build_ext"/>
+        </method>
+        <method public="yes" name="prepare_sources" id="BuildExt-prepare_sources">
+          <abstract>Walk the list of source files in 'sources', looking for SWIG
+interface (.i) files.  Run SWIG on all that are found, and
+return a modified 'sources' list with SWIG source files replaced
+by the generated C (or C++) files.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="extension"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="command_name" id="BuildExt-command_name">
+          <value>'build_ext'</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="build_ext" module="distutils.command.build_ext">
+        <member-reference name="build_extensions" public="yes"/>
+        <member-reference name="find_swig" public="yes"/>
+        <member-reference name="get_ext_filename" public="yes"/>
+        <member-reference name="get_ext_fullname" public="yes"/>
+        <member-reference name="get_libraries" public="yes"/>
+        <member-reference name="get_outputs" public="yes"/>
+        <member-reference name="run" public="yes"/>
+        <member-reference name="swig_sources" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="build_ext" module="distutils.command.build_ext">
+        <member-reference name="boolean_options" public="yes"/>
+        <member-reference name="description" public="yes"/>
+        <member-reference name="help_options" public="yes"/>
+        <member-reference name="sep_by" public="yes"/>
+        <member-reference name="user_options" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="BISONGEN_MINIMUM_VERSION" id="BISONGEN_MINIMUM_VERSION">
+      <value>StrictVersion ('0.8')</value>
+    </global>
+    <global public="yes" name="STRIP_EXPORTS_ARGLIST" id="STRIP_EXPORTS_ARGLIST">
+      <value>3</value>
+    </global>
+    <global public="yes" name="STRIP_EXPORTS_FILE" id="STRIP_EXPORTS_FILE">
+      <value>2</value>
+    </global>
+    <global public="yes" name="STRIP_EXPORTS_POST_LINK" id="STRIP_EXPORTS_POST_LINK">
+      <value>4</value>
+    </global>
+    <global public="yes" name="STRIP_NONE" id="STRIP_NONE">
+      <value>0</value>
+    </global>
+    <global public="yes" name="STRIP_VERSIONING" id="STRIP_VERSIONING">
+      <value>1</value>
+    </global>
+  </globals>
+</module>

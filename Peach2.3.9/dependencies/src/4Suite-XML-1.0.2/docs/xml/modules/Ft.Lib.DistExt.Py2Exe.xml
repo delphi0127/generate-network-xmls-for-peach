@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Py2Exe">
+  <modification-date>2006-08-17 13:09:42</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="py2exe" public="yes">
+      <bases>
+        <base documented="no" class="py2exe" module="py2exe.build_exe"/>
+      </bases>
+      <abstract>Command class replacement for py2exe's that adds Ft extension module's
+hidden imports and package data.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="py2exe" module="Ft.Lib.DistExt.Py2Exe"/>
+        <base name="py2exe" module="py2exe.build_exe"/>
+      </method-resolution-order>
+      <methods name="py2exe" module="py2exe.build_exe">
+        <method public="yes" name="copy_extensions" id="py2exe-copy_extensions">
+          <abstract>Overridden to also copy any hidden package data files to the target
+directory.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="extensions"/>
+          </arguments>
+        </method>
+        <method public="yes" name="parse_mf_results" id="py2exe-parse_mf_results">
+          <abstract>Overridden to add our &quot;hidden&quot; imports.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="mf"/>
+          </arguments>
+        </method>
+        <method public="yes" name="plat_finalize" id="py2exe-plat_finalize">
+          <abstract>Overridden to also find any package data files.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="modules"/>
+            <arg name="py_files"/>
+            <arg name="extensions"/>
+            <arg name="dlls"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

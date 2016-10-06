@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt.Sets">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>EXSLT 2.0 - Sets (http://www.exslt.org/set/index.html)
+WWW: http://4suite.org/XSLT        e-mail: support@4suite.org</abstract>
+  <description>Copyright (c) 2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+  <functions>
+    <function public="yes" name="Difference" id="Difference">
+      <abstract>The set:difference function returns the difference between two node
+sets - those nodes that are in the node set passed as the first argument
+that are not in the node set passed as the second argument.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodes1"/>
+        <arg name="nodes2"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Distinct" id="Distinct">
+      <abstract>The set:distinct function returns a subset of the nodes contained in the
+node-set NS passed as the first argument. Specifically, it selects a node
+N if there is no node in NS that has the same string value as N, and that
+precedes N in document order.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+      </arguments>
+    </function>
+    <function public="yes" name="HasSameNode" id="HasSameNode">
+      <abstract>The set:has-same-node function returns true if the node set passed as the
+first argument shares any nodes with the node set passed as the second
+argument. If there are no nodes that are in both node sets, then it
+returns false.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="ns1"/>
+        <arg name="ns2"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Intersection" id="Intersection">
+      <abstract>The set:intersection function returns a node set comprising the nodes that
+are within both the node sets passed as arguments to it.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="ns1"/>
+        <arg name="ns2"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Leading" id="Leading">
+      <abstract>The set:leading function returns the nodes in the node set passed as the
+first argument that precede, in document order, the first node in the node
+set passed as the second argument. If the first node in the second node
+set is not contained in the first node set, then an empty node set is
+returned. If the second node set is empty, then the first node set is
+returned.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="ns1"/>
+        <arg name="ns2"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Trailing" id="Trailing">
+      <abstract>The set:trailing function returns the nodes in the node set passed as the
+first argument that follow, in document order, the first node in the node
+set passed as the second argument. If the first node in the second node
+set is not contained in the first node set, then an empty node set is
+returned. If the second node set is empty, then the first node set is
+returned.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="ns1"/>
+        <arg name="ns2"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EXSL_SETS_NS" id="EXSL_SETS_NS">
+      <value>'http://exslt.org/sets'</value>
+    </global>
+    <global public="yes" name="ExtElements" id="ExtElements">
+      <value>{}</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://exslt.org/sets', 'difference'): &lt;function Difference&gt;, ('http://exslt.org/sets', 'distinct'): &lt;function Distinct&gt;, ('http://exslt.org/sets', 'has-same-node'): &lt;function HasSameNode&gt;, ('http://exslt.org/sets', 'intersection'): &lt;function Intersection&gt;, ('http://exslt.org/sets', 'leading'): &lt;function Leading&gt;, ('http://exslt.org/sets', 'trailing'): &lt;function Trailing&gt;}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://exslt.org/sets': 'set'}</value>
+    </global>
+  </globals>
+</module>

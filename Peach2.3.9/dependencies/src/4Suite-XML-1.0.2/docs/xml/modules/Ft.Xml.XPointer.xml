@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPointer">
+  <modification-date>2006-04-28 13:54:50</modification-date>
+  <abstract>Module for XPointer processing</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="MessageSource" realname="Ft.Xml.XPointer.MessageSource">
+      <abstract>XPointer error codes and messages</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedNodeTest" realname="Ft.Xml.XPointer.ParsedNodeTest">
+      <abstract>A Parsed Token that represents a node test.
+WWW: http://4suite.org/XPATH        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2000-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ParsedXPointer" realname="Ft.Xml.XPointer.ParsedXPointer">
+      <abstract>A Parsed Token that represents a list of XPointers
+WWW: http://4suite.org/XPointer        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2000-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPointer" realname="Ft.Xml.XPointer.XPointer">
+      <abstract>A Parsed Token that represents a list of XPointers
+WWW: http://4suite.org/XPointer        e-mail: support@4suite.org</abstract>
+      <description>Copyright (c) 2000-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPointerParserc" realname="Ft.Xml.XPointer.XPointerParserc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPtrContext" realname="Ft.Xml.XPointer.XPtrContext">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPtrExprParserc" realname="Ft.Xml.XPointer.XPtrExprParserc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XPtrFunctions" realname="Ft.Xml.XPointer.XPtrFunctions">
+      <abstract/>
+      <description/>
+    </module-reference>
+  </modules>
+  <classes>
+    <class name="XPtrException" public="yes">
+      <bases>
+        <base documented="yes" class="FtException" module="Ft"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XPtrException" module="Ft.Xml.XPointer"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="XPtrException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <var-args name="args"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+      </methods>
+      <members name="Exception">
+        <member public="yes" name="INTERNAL_ERROR" id="XPtrException-INTERNAL_ERROR">
+          <value>1</value>
+        </member>
+        <member public="yes" name="RESOURCE_ERROR" id="XPtrException-RESOURCE_ERROR">
+          <value>3</value>
+        </member>
+        <member public="yes" name="SUB_RESOURCE_ERROR" id="XPtrException-SUB_RESOURCE_ERROR">
+          <value>4</value>
+        </member>
+        <member public="yes" name="SYNTAX_ERROR" id="XPtrException-SYNTAX_ERROR">
+          <value>2</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="Compile" id="Compile">
+      <abstract>Given an XPointer expression as a string, returns an object that allows
+an evaluation engine to operate on the expression efficiently.</abstract>
+      <description/>
+      <arguments>
+        <arg name="expr"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SelectNode" id="SelectNode">
+      <abstract>Given a valid DOM node, evaluates an XPointer against it.</abstract>
+      <description>contextNode, if given, is the original XPointer context node
+(e.g., from the referring document, if any; accessible in the
+XPointer via the 'here' function).
+
+nss is a set of explicit namespace mappings for use when evaluating
+the XPointer (e.g., when the xmlns scheme isn't being used).</description>
+      <arguments>
+        <arg name="doc"/>
+        <arg name="xpointer"/>
+        <arg default="None" name="nss"/>
+        <arg default="None" name="contextNode"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SelectUri" id="SelectUri">
+      <abstract>Parses the document with the given URI, and returns the node
+corresponding to the XPointer given in the fragment of the URI.</abstract>
+      <description>uri must be an absolute URI reference. If it doesn't have a
+fragment, returns the root node.
+
+contextNode, if given, is the original XPointer context node
+(e.g., from the referring document, if any; accessible in the
+XPointer via the 'here' function).
+
+nss is a set of explicit namespace mappings for use when evaluating
+the XPointer (e.g., when the xmlns scheme isn't being used).</description>
+      <arguments>
+        <arg name="uri"/>
+        <arg default="None" name="contextNode"/>
+        <arg default="None" name="nss"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

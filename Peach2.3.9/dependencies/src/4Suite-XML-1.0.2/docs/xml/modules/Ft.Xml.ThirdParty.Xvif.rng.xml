@@ -1,0 +1,3390 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.rng">
+  <modification-date>2006-09-29 12:20:57</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Attribute" public="yes">
+      <bases>
+        <base documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Attribute" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Attribute-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="nc"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Text instance at 0xb77fb1ec&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Attribute-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="Attribute-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="Attribute-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="defaultNs" id="Attribute-defaultNs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Attribute-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Attribute-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="qualifyRefs" id="Attribute-qualifyRefs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+            <arg name="grammar"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="set_name" id="Attribute-set_name">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="localName"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="Attribute-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="subPatterns" id="Attribute-subPatterns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Choice" public="yes">
+      <bases>
+        <base documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Choice-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77f4f6c&gt;" name="p1"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.NotAllowed instance at 0xb77f4fac&gt;" name="p2"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Choice-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="Choice-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="Choice-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Choice-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Choice-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="expand" id="Choice-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Choice-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="simplify" id="Choice-simplify">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Context" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Context" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="Context" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Context-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="addPrefix" id="Context-addPrefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="uri"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getUri" id="Context-getUri">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getUriByPrefix" id="Context-getUriByPrefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+          </arguments>
+        </method>
+        <method public="yes" name="popUri" id="Context-popUri">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pushUri" id="Context-pushUri">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+          </arguments>
+        </method>
+        <method public="yes" name="removePrefix" id="Context-removePrefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Data" public="yes">
+      <bases>
+        <base documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Data" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Data-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb767efcc&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="Data-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Data-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Data-endElementNS">
+          <abstract>Data can be empty</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Data-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="set_type" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Define" public="yes">
+      <bases>
+        <base documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Define-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77fb30c&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Define-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Define-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="expandAsGroup" id="Define-expandAsGroup">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isSimple" id="Define-isSimple">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="qualifyDef" id="Define-qualifyDef">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_combine" id="Define-set_combine">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="simplify" id="Define-simplify">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="startElementNS" id="Define-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkName" public="yes"/>
+        <member-reference name="set_name" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Div" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Div" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Div-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="Div-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="startElementNS" id="Div-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Element" public="yes">
+      <bases>
+        <base documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Element" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Element-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="nc"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77fb24c&gt;" name="p"/>
+            <arg default="None" name="g"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Element-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="attributesDeriv" id="Element-attributesDeriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="children"/>
+          </arguments>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="Element-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkRecursion" id="Element-checkRecursion">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="depth"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="childrenDeriv" id="Element-childrenDeriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="children"/>
+          </arguments>
+        </method>
+        <method public="yes" name="deriv" id="Element-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Element-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endTagDeriv" id="Element-endTagDeriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="expand" id="Element-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Element-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="qualifyRefs" id="Element-qualifyRefs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+            <arg name="grammar"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="set_name" id="Element-set_name">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="localName"/>
+          </arguments>
+          <overrides documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="startElementNS" id="Element-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="startTagCloseDeriv" id="Element-startTagCloseDeriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startTagOpenDeriv" id="Element-startTagOpenDeriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+        <method public="yes" name="subPatterns" id="Element-subPatterns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkName" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Empty" public="yes">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Empty" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Empty-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Except" public="yes">
+      <bases>
+        <base documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Except" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Except-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77e40cc&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="Except-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Except-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Except-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="simplify" id="Except-simplify">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Grammar" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Grammar" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Grammar-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="parent"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Grammar-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="addDef" id="Grammar-addDef">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.NotAllowed instance at 0xb77fb26c&gt;" name="pattern"/>
+          </arguments>
+        </method>
+        <method public="yes" name="checkRecursion" id="Grammar-checkRecursion">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="depth"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Grammar-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Grammar-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="expand" id="Grammar-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="getDef" id="Grammar-getDef">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getPrefix" id="Grammar-getPrefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+          </arguments>
+        </method>
+        <method public="yes" name="normalizeNsUris" id="Grammar-normalizeNsUris">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setStart" id="Grammar-setStart">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+        </method>
+        <method public="yes" name="simplify" id="Grammar-simplify">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="start" id="Grammar-start">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="Grammar-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="subPatterns" id="Grammar-subPatterns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Group" public="yes">
+      <bases>
+        <base documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Group" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Group-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77e4e2c&gt;" name="p1"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Empty instance at 0xb77f4ecc&gt;" name="p2"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Group-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="Group-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Group-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Group-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Interleave" public="yes">
+      <bases>
+        <base documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Interleave" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Interleave-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77fb02c&gt;" name="p1"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Empty instance at 0xb77fb04c&gt;" name="p2"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Interleave-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Interleave-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Interleave-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="List" public="yes">
+      <bases>
+        <base documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="List" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="List-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77f4f2c&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="List-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Mixed" public="yes">
+      <bases>
+        <base documented="yes" class="Interleave" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Mixed" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="Interleave" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Mixed-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77fb14c&gt;" name="p1"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Empty instance at 0xb77fb18c&gt;" name="p2"/>
+          </arguments>
+          <overrides documented="yes" class="Interleave" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Mixed-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="Interleave" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Interleave" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="NameClass" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NameClass" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="NameClass" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="yes" name="contains" id="NameClass-contains">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="QName"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="NotAllowed" public="yes">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NotAllowed" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="NotAllowed-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="u''" name="msg"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="OneOrMore" public="yes">
+      <bases>
+        <base documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="OneOrMore" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="OneOrMore-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77e4dcc&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="OneOrMore-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="OneOrMore-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="OneOrMore-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkRecursion" id="OneOrMore-checkRecursion">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="depth"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="OneOrMore-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="OneOrMore-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="expand" id="OneOrMore-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="OneOrMore-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="qualifyRefs" id="OneOrMore-qualifyRefs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+            <arg name="grammar"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="subPatterns" id="OneOrMore-subPatterns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="simplify" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Optional" public="yes">
+      <bases>
+        <base documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Optional" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Optional-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77fb0ec&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="Optional-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Optional-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="PSEUDO_TEXT_NODE" realname="PseudoTextNode" public="yes">
+      <bases>
+        <base documented="no" class="unicode"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PseudoTextNode" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="PseudoTextNode-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="no" class="unicode"/>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="PseudoTextNode-__dict__">
+          <value>&lt;attribute '__dict__' of 'PseudoTextNode' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="PseudoTextNode-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'PseudoTextNode' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="partition" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rpartition" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Param" public="yes">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Param" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Param-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="characters" id="Param-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Param-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Param-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="set_name" id="Param-set_name">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="Param-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="PatternRef" public="yes">
+      <bases>
+        <base documented="yes" class="Ref" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PatternRef" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="Ref" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="PatternRef-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Ref" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkRecursion" id="PatternRef-checkRecursion">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="depth"/>
+          </arguments>
+          <overrides documented="yes" class="Ref" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Ref" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkName" public="yes"/>
+        <member-reference name="set_name" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="PseudoTextNode" public="yes">
+      <bases>
+        <base documented="no" class="unicode"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PseudoTextNode" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="PseudoTextNode-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="no" class="unicode"/>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="PseudoTextNode-__dict__">
+          <value>&lt;attribute '__dict__' of 'PseudoTextNode' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="PseudoTextNode-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'PseudoTextNode' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="partition" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rpartition" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="QName" public="yes">
+      <bases>
+        <base documented="yes" class="NameClass" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="QName" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="NameClass" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="NameClass" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__cmp__" id="QName-__cmp__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="other"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="QName-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="uri"/>
+            <arg default="None" name="context"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="QName-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="contains" id="QName-contains">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="NameClass" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+    </class>
+    <class name="Ref" public="yes">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Ref" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Ref-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Ref-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="Ref-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Ref-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="expand" id="Ref-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="Ref-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="qualifyRefs" id="Ref-qualifyRefs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+            <arg name="grammar"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="startElementNS" id="Ref-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkName" public="yes"/>
+        <member-reference name="set_name" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="RngParser" public="yes">
+      <bases>
+        <base documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RngParser" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="ContentHandler" module="xml.sax.handler"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="RngParser-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="no" name="__str__" id="RngParser-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="RngParser-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="appendMe" id="RngParser-appendMe">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="characters" id="RngParser-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="deriv" id="RngParser-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="divertEventsTo" id="RngParser-divertEventsTo">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="handler"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endDocument" id="RngParser-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="endElementNS" id="RngParser-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="endPrefixMapping" id="RngParser-endPrefixMapping">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="previousElement" id="RngParser-previousElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="RngParser-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="startPrefixMapping" id="RngParser-startPrefixMapping">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="uri"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="unKnownElement" id="RngParser-unKnownElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member public="yes" name="callbacks" id="RngParser-callbacks">
+          <value>{'http://namespaces.xmlschemata.org/xvif/iframe': {'apply': &lt;class Ft.Xml.ThirdParty.Xvif.iframe.Apply at 0xb77d98fc&gt;, 'pipe': &lt;class Ft.Xml.ThirdParty.Xvif.iframe.Pipe at 0xb77df11c&gt;, 'transform': &lt;class Ft.Xml.ThirdParty.Xvif.iframe.Transform at 0xb77cab6c&gt;, 'validate': &lt;class Ft.Xml.ThirdParty.Xvif.iframe.Validate at 0xb77d9f8c&gt;}, 'http://relaxng.org/ns/structure/1.0': {'attribute': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Attribute at 0xb77e947c&gt;, 'choice': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Choice at 0xb77e3cec&gt;, 'data': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Data at 0xb77dfbfc&gt;, 'define': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Define at 0xb77ee17c&gt;, 'div': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Div at 0xb77e965c&gt;, 'element': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Element at 0xb77e968c&gt;, 'empty': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Empty at 0xb76803bc&gt;, 'except': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Except at 0xb77dfe0c&gt;, 'grammar': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Grammar at 0xb77ee4dc&gt;, 'group': &lt;class Ft.Xml.ThirdParty.Xvif.rng.Group at 0xb77e37dc&gt;, ...}}</value>
+        </member>
+        <member public="yes" name="typeLibraries" id="RngParser-typeLibraries">
+          <value>{'': 'rngCoreTypeLib', 'http://www.w3.org/2001/XMLSchema-datatypes': 'wxsTypeLib'}</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="ContentHandler" module="xml.sax.handler">
+        <member-reference name="endElement" public="yes"/>
+        <member-reference name="ignorableWhitespace" public="yes"/>
+        <member-reference name="processingInstruction" public="yes"/>
+        <member-reference name="setDocumentLocator" public="yes"/>
+        <member-reference name="skippedEntity" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+        <member-reference name="startElement" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Start" public="yes">
+      <bases>
+        <base documented="yes" class="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Start" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Start-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="no" name="__str__" id="Start-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="Start-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="isSimple" id="Start-isSimple">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="set_name" id="Start-set_name">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="Define" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Define" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="expandAsGroup" public="yes"/>
+        <member-reference name="qualifyDef" public="yes"/>
+        <member-reference name="set_combine" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Container" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkName" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Text" public="yes">
+      <bases>
+        <base documented="yes" class="Empty" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Text" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="Empty" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Text-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Empty" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Text-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="Empty" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Undefined" public="yes">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Undefined" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Undefined-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Value" public="yes">
+      <bases>
+        <base documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Value" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="Value-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="characters" id="Value-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+          <overrides documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="Value-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Value-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="isOpen" id="Value-isOpen">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="setValue" id="Value-setValue">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="set_type" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="ZeroOrMore" public="yes">
+      <bases>
+        <base documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ZeroOrMore" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="ZeroOrMore-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77fb0ac&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="ZeroOrMore-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="ZeroOrMore-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Choice" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="_Callback" public="no">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="_Callback-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="characters" id="_Callback-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+        </method>
+        <method public="yes" name="defaultNs" id="_Callback-defaultNs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElementNS" id="_Callback-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isOpen" id="_Callback-isOpen">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setGrammar" id="_Callback-setGrammar">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="grammar"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_datatypeLibrary" id="_Callback-set_datatypeLibrary">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="library"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="_Callback-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="_Compositor" public="no">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Compositor" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="_Compositor-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb767ed8c&gt;" name="p1"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Empty instance at 0xb767ee6c&gt;" name="p2"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="_Compositor-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+            <arg default="None" name="cl"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="_Compositor-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkRecursion" id="_Compositor-checkRecursion">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="depth"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="_Compositor-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+        <method public="yes" name="expand" id="_Compositor-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="qualifyRefs" id="_Compositor-qualifyRefs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+            <arg name="grammar"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="simplify" id="_Compositor-simplify">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="subPatterns" id="_Compositor-subPatterns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="_Container" public="no">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Container" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="_Container-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb767e74c&gt;" name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="append" id="_Container-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="_Container-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="checkRecursion" id="_Container-checkRecursion">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="depth"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="deriv" id="_Container-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="endElementNS" id="_Container-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+        <method public="yes" name="expand" id="_Container-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="nullable" id="_Container-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="qualifyRefs" id="_Container-qualifyRefs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+            <arg name="grammar"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="simplify" id="_Container-simplify">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="subPatterns" id="_Container-subPatterns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="_Named" public="no">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Named" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="yes" name="checkName" id="_Named-checkName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_name" id="_Named-set_name">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="value"/>
+            <arg default="1" name="test"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="_Pattern" public="no">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__cmp__" id="_Pattern-__cmp__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="other"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="_Pattern-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="_Pattern-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="append" id="_Pattern-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="p"/>
+          </arguments>
+        </method>
+        <method public="yes" name="checkAttributeContent" id="_Pattern-checkAttributeContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="checkRecursion" id="_Pattern-checkRecursion">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="depth"/>
+          </arguments>
+        </method>
+        <method public="yes" name="deriv" id="_Pattern-deriv">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="expand" id="_Pattern-expand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isSimple" id="_Pattern-isSimple">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="nullable" id="_Pattern-nullable">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="path" id="_Pattern-path">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="qualifyRefs" id="_Pattern-qualifyRefs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+            <arg name="grammar"/>
+          </arguments>
+        </method>
+        <method public="yes" name="selfValidate" id="_Pattern-selfValidate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prohibitions"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setParent" id="_Pattern-setParent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_ns" id="_Pattern-set_ns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="simplify" id="_Pattern-simplify">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+        </method>
+        <method public="yes" name="subPatterns" id="_Pattern-subPatterns">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="_TypedPattern" public="no">
+      <bases>
+        <base documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_TypedPattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="_TypedPattern-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+        <method public="yes" name="set_type" id="_TypedPattern-set_type">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="type"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="_TypedPattern-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="schema"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Pattern" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="append" public="yes"/>
+        <member-reference name="checkAttributeContent" public="yes"/>
+        <member-reference name="checkRecursion" public="yes"/>
+        <member-reference name="deriv" public="yes"/>
+        <member-reference name="expand" public="yes"/>
+        <member-reference name="isSimple" public="yes"/>
+        <member-reference name="nullable" public="yes"/>
+        <member-reference name="path" public="yes"/>
+        <member-reference name="qualifyRefs" public="yes"/>
+        <member-reference name="selfValidate" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+        <member-reference name="set_ns" public="yes"/>
+        <member-reference name="simplify" public="yes"/>
+        <member-reference name="subPatterns" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="defaultNs" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="isOpen" public="yes"/>
+        <member-reference name="setGrammar" public="yes"/>
+        <member-reference name="set_datatypeLibrary" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="rngTypeLib" public="yes">
+      <abstract>Abstract class which should be derived.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="rngTypeLib" module="Ft.Xml.ThirdParty.Xvif.rng"/>
+      </method-resolution-order>
+      <methods name="rngTypeLib" module="Ft.Xml.ThirdParty.Xvif.rng">
+        <method public="no" name="__init__" id="rngTypeLib-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isEqual" id="rngTypeLib-isEqual">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isValid" id="rngTypeLib-isValid">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="toString" id="rngTypeLib-toString">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ImportModule" id="ImportModule">
+      <abstract>Helper import funation based on example in std Python docs:
+http://docs.python.org/lib/built-in-funcs.html</abstract>
+      <description/>
+      <arguments>
+        <arg name="modname"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="IMPORT_PREFIX" id="IMPORT_PREFIX">
+      <value>'Ft.Xml.ThirdParty.Xvif.'</value>
+    </global>
+    <global public="yes" name="RngAbstractException" id="RngAbstractException">
+      <value>'RngAbstractException'</value>
+    </global>
+    <global public="yes" name="RngSchemaInvalidException" id="RngSchemaInvalidException">
+      <value>'RngSchemaInvalidException'</value>
+    </global>
+    <global public="yes" name="RngSchemaInvalidRecursionException" id="RngSchemaInvalidRecursionException">
+      <value>'RngSchemaInvalidRecursionException'</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="ascii_letters" id="ascii_letters">
+      <value>'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="ascii_lowercase" id="ascii_lowercase">
+      <value>'abcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="ascii_uppercase" id="ascii_uppercase">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="digits" id="digits">
+      <value>'0123456789'</value>
+    </global>
+    <global public="yes" name="empty" id="empty">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.rng.Empty instance at 0xb77fb2ac&gt;</value>
+    </global>
+    <global public="yes" name="hexdigits" id="hexdigits">
+      <value>'0123456789abcdefABCDEF'</value>
+    </global>
+    <global public="yes" name="letters" id="letters">
+      <value>'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="lowercase" id="lowercase">
+      <value>'abcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="notAllowed" id="notAllowed">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.rng.NotAllowed instance at 0xb77fb26c&gt;</value>
+    </global>
+    <global public="yes" name="octdigits" id="octdigits">
+      <value>'01234567'</value>
+    </global>
+    <global public="yes" name="printable" id="printable">
+      <value>'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~ \t\n\r\x0b\x0c'</value>
+    </global>
+    <global public="yes" name="punctuation" id="punctuation">
+      <value>'!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~'</value>
+    </global>
+    <global public="yes" name="undef" id="undef">
+      <value>&lt;Ft.Xml.ThirdParty.Xvif.rng.Undefined instance at 0xb77fb2cc&gt;</value>
+    </global>
+    <global public="yes" name="undefined" id="undefined">
+      <value>'::undefined::'</value>
+    </global>
+    <global public="yes" name="uppercase" id="uppercase">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="whitespace" id="whitespace">
+      <value>'\t\n\x0b\x0c\r '</value>
+    </global>
+  </globals>
+</module>

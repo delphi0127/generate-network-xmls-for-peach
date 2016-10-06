@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedAbbreviatedRelativeLocationPath">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>A parsed token that represents a abbreviated relative location path.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="ParsedAbbreviatedRelativeLocationPath" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAbbreviatedRelativeLocationPath" module="Ft.Xml.XPath.ParsedAbbreviatedRelativeLocationPath"/>
+      </method-resolution-order>
+      <methods name="ParsedAbbreviatedRelativeLocationPath" module="Ft.Xml.XPath.ParsedAbbreviatedRelativeLocationPath">
+        <method public="no" name="__init__" id="ParsedAbbreviatedRelativeLocationPath-__init__">
+          <abstract>left can be a step or a relative location path
+right is only a step</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="left"/>
+            <arg name="right"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedAbbreviatedRelativeLocationPath-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedAbbreviatedRelativeLocationPath-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedAbbreviatedRelativeLocationPath-evaluate">
+          <abstract>Returns a node-set</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedAbbreviatedRelativeLocationPath-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="ParsedAbbreviatedRelativeLocationPath-evaluate" name="select" realname="evaluate" id="ParsedAbbreviatedRelativeLocationPath-select">
+          <abstract>Returns a node-set</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

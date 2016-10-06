@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.sax2dom_chunker">
+  <modification-date>2004-10-12 16:59:14</modification-date>
+  <abstract>sax2dom_chunker.py    version 1.1</abstract>
+  <description>A SAX handler that takes a set of element paths and
+creates a series of DOM chunks matching the element paths
+for individual processing.  Designed for Python 2.2. or greater.
+
+Copyright 2004 Fourthought Inc, USA.
+This work is licensed under Creative Commons Attribution 1.0
+For details: http://creativecommons.org/licenses/by/1.0/</description>
+  <classes>
+    <class name="_state_machine" public="no">
+      <abstract>A simple state machine specialized for DOM chunking from SAX
+A state is &quot;live&quot; when it represents the successful completion
+of a path.
+This is generally a signal to the handler using this state machine
+to start creating the DOM fragment from the subset of SAX
+events until we transit to a non-live state</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="_state_machine" module="Ft.Xml.ThirdParty.Xvif.sax2dom_chunker"/>
+      </method-resolution-order>
+      <methods name="_state_machine" module="Ft.Xml.ThirdParty.Xvif.sax2dom_chunker">
+        <method public="no" name="__init__" id="_state_machine-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="trim_to_paths"/>
+          </arguments>
+        </method>
+        <method public="yes" name="event" id="_state_machine-event">
+          <abstract>Register an event and effect ant state transitions
+found in the state table</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="is_start"/>
+            <arg name="ns"/>
+            <arg name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="event_nop" id="_state_machine-event_nop">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="is_start"/>
+            <arg name="ns"/>
+            <arg name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="is_live" id="_state_machine-is_live">
+          <abstract>1 if the curent state is considered live, else 0</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="is_live_nop" id="_state_machine-is_live_nop">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="sax2dom_chunker" public="yes">
+      <bases>
+        <base documented="no" class="ContentHandler" module="xml.sax.handler"/>
+      </bases>
+      <abstract>Note: ignores nodes prior to the document element, such as PIs and
+text nodes
+This filter is only designed to work if you set features
+sax.handler.feature_namespaces
+and
+sax.handler.feature_namespace_prefixes
+to 1 on the parser you use.  It will not work on drivers that
+do not support these features.  The default drv_expat works fine
+in this case, but of course has but very limited DTD processing.
+It also collapses CDATA sections into plain text</abstract>
+      <description>trim_to_paths - a list of lists of tuples.  Each tuple is of
+    the form (namespace, local-name), providing one segment
+    in a path of contained elements
+    [
+      [ (None, u'monty'), (None, u'python') ],
+      [ (None, u'monty'), (None, u'spam'), ('urn:dummy', u'eggs') ]
+    ]
+    If None (the default, a DOM node will be created representing
+    the entire tree.
+
+chunk_consumer - a callable object taking a DOM node.  It will be
+    invoked as each DOM chunk is prepared.
+
+domimpl - DOM implemention to build, e.g. mindom (the default)
+    or cDomlette or pxdom (if you have the right third-party
+    packages installed).
+
+owner_doc - for advanced uses, if you want to use an existing
+    DOM document object as the owner of all created nodes.</description>
+      <method-resolution-order>
+        <base name="sax2dom_chunker" module="Ft.Xml.ThirdParty.Xvif.sax2dom_chunker"/>
+        <base name="ContentHandler" module="xml.sax.handler"/>
+      </method-resolution-order>
+      <methods name="ContentHandler" module="xml.sax.handler">
+        <method public="no" name="__init__" id="sax2dom_chunker-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="trim_to_paths"/>
+            <arg default="None" name="chunk_consumer"/>
+            <arg default="&lt;xml.dom.minidom.DOMImplementation instance at 0xb75f2f0c&gt;" name="domimpl"/>
+            <arg default="None" name="owner_doc"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="characters" id="sax2dom_chunker-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="chars"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="comment" id="sax2dom_chunker-comment">
+          <abstract>#Overridden LexicalHandler methods</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElementNS" id="sax2dom_chunker-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="get_root_node" id="sax2dom_chunker-get_root_node">
+          <abstract>Only useful if the user does not register trim paths
+If so, then after SAX processing the user can call this
+method to retrieve resulting DOm representing the entire
+document</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="processingInstruction" id="sax2dom_chunker-processingInstruction">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="startElementNS" id="sax2dom_chunker-startElementNS">
+          <abstract>#Overridden DocumentHandler methods</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attribs"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="ContentHandler" module="xml.sax.handler">
+        <member-reference name="endDocument" public="yes"/>
+        <member-reference name="endElement" public="yes"/>
+        <member-reference name="endPrefixMapping" public="yes"/>
+        <member-reference name="ignorableWhitespace" public="yes"/>
+        <member-reference name="setDocumentLocator" public="yes"/>
+        <member-reference name="skippedEntity" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+        <member-reference name="startElement" public="yes"/>
+        <member-reference name="startPrefixMapping" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="DUMMY_DOCELEM" id="DUMMY_DOCELEM">
+      <value>u'dummy'</value>
+    </global>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="START_STATE" id="START_STATE">
+      <value>0</value>
+    </global>
+    <global public="yes" name="TOP" id="TOP">
+      <value>-1</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+  </globals>
+</module>

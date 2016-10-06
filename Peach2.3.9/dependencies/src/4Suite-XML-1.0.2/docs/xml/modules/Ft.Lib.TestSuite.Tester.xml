@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.Tester">
+  <modification-date>2004-11-18 16:36:17</modification-date>
+  <abstract>Provides the Tester class, which is the hub for all testing.</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestItem" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestItem" module="Ft.Lib.TestSuite.Tester"/>
+      </method-resolution-order>
+      <methods name="TestItem" module="Ft.Lib.TestSuite.Tester">
+        <method public="no" name="__init__" id="TestItem-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="title"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="TestItem-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="debug" id="TestItem-debug">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="error" id="TestItem-error">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finish" id="TestItem-finish">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="message" id="TestItem-message">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="warning" id="TestItem-warning">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Tester" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Tester" module="Ft.Lib.TestSuite.Tester"/>
+      </method-resolution-order>
+      <methods name="Tester" module="Ft.Lib.TestSuite.Tester">
+        <method public="no" name="__init__" id="Tester-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="1" name="stopOnError"/>
+            <arg default="1" name="useColor"/>
+            <arg default="4" name="verbose"/>
+            <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7d98068&gt;" name="stream"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compare" id="Tester-compare">
+          <abstract>Uses func to compare the expected result with actual result
+of a regression test.</abstract>
+          <description>diff is ignored.
+
+msg is an optional custom message to print if the
+comparison tests positive (i.e. the results differ).
+
+func is the comparison function to use, and must be a
+function that returns the same as the built-in cmp().
+
+stackLevel affects exception reporting.
+
+funcArgs is an optional dictionary of keyword arguments that
+will be passed to the comparison function, if the dictionary
+is not empty.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expected"/>
+            <arg name="actual"/>
+            <arg default="None" name="msg"/>
+            <arg default="&lt;built-in function cmp&gt;" name="func"/>
+            <arg default="0" name="diff"/>
+            <arg default="1" name="stackLevel"/>
+            <arg default="{}" name="funcArgs"/>
+          </arguments>
+        </method>
+        <method public="yes" name="compareIn" id="Tester-compareIn">
+          <abstract>Test that 'actual' is in 'expected'</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expected"/>
+            <arg name="actual"/>
+            <arg default="None" name="msg"/>
+            <arg default="1" name="stackLevel"/>
+          </arguments>
+        </method>
+        <method public="yes" name="debug" id="Tester-debug">
+          <abstract>debug-level messages</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="error" id="Tester-error">
+          <abstract>error conditions</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+            <arg default="1" name="traceLimit"/>
+            <arg default="1" name="stackLevel"/>
+          </arguments>
+        </method>
+        <method public="yes" name="exception" id="Tester-exception">
+          <abstract>system is unusable</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="groupDone" id="Tester-groupDone">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="message" id="Tester-message">
+          <abstract>informational</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="report" id="Tester-report">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startGroup" id="Tester-startGroup">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="title"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startTest" id="Tester-startTest">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="title"/>
+          </arguments>
+        </method>
+        <method public="yes" name="testDone" id="Tester-testDone">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="testException" id="Tester-testException">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="func"/>
+            <arg name="args"/>
+            <arg name="etype"/>
+            <arg default="{}" name="value"/>
+            <arg default="1" name="stackLevel"/>
+            <arg default="{}" name="kwargs"/>
+          </arguments>
+        </method>
+        <method public="yes" name="warning" id="Tester-warning">
+          <abstract>warning conditions</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="writeline" id="Tester-writeline">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="level"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Tester" module="Ft.Lib.TestSuite.Tester">
+        <member public="yes" name="BROWN" id="Tester-BROWN">
+          <value>'\x1b[33m'</value>
+        </member>
+        <member public="yes" name="GRAY" id="Tester-GRAY">
+          <value>'\x1b[1;30m'</value>
+        </member>
+        <member public="yes" name="GREEN" id="Tester-GREEN">
+          <value>'\x1b[1;32m'</value>
+        </member>
+        <member public="yes" name="NORMAL" id="Tester-NORMAL">
+          <value>'\x1b[0m'</value>
+        </member>
+        <member public="yes" name="RED" id="Tester-RED">
+          <value>'\x1b[1;31m'</value>
+        </member>
+        <member public="yes" name="WHITE" id="Tester-WHITE">
+          <value>'\x1b[1;37m'</value>
+        </member>
+        <member public="yes" name="YELLOW" id="Tester-YELLOW">
+          <value>'\x1b[1;33m'</value>
+        </member>
+        <member public="yes" name="double_sep" id="Tester-double_sep">
+          <value>'========================================================================'</value>
+        </member>
+        <member public="yes" name="single_sep" id="Tester-single_sep">
+          <value>'------------------------------------------------------------------------'</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <functions>
+    <function public="no" name="_frame_lineno" id="_frame_lineno">
+      <abstract>Calculate correct line number of stack frame given in frame.</abstract>
+      <description/>
+      <arguments>
+        <arg name="frame"/>
+      </arguments>
+    </function>
+    <function public="yes" name="extract_stack" id="extract_stack">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg default="None" name="frame"/>
+        <arg default="None" name="limit"/>
+      </arguments>
+    </function>
+    <function public="yes" name="format_stack" id="format_stack">
+      <abstract>Shorthand for 'format_list(extract_stack(f, limit))'.</abstract>
+      <description/>
+      <arguments>
+        <arg default="None" name="frame"/>
+        <arg default="None" name="limit"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="SHOW_GROUPS" id="SHOW_GROUPS">
+      <value>1</value>
+    </global>
+    <global public="yes" name="SHOW_TESTS" id="SHOW_TESTS">
+      <value>3</value>
+    </global>
+    <global public="yes" name="VERBOSE_DEBUG" id="VERBOSE_DEBUG">
+      <value>4</value>
+    </global>
+    <global public="yes" name="VERBOSE_ERROR" id="VERBOSE_ERROR">
+      <value>1</value>
+    </global>
+    <global public="yes" name="VERBOSE_MSG" id="VERBOSE_MSG">
+      <value>3</value>
+    </global>
+    <global public="yes" name="VERBOSE_OFF" id="VERBOSE_OFF">
+      <value>0</value>
+    </global>
+    <global public="yes" name="VERBOSE_WARN" id="VERBOSE_WARN">
+      <value>2</value>
+    </global>
+  </globals>
+</module>

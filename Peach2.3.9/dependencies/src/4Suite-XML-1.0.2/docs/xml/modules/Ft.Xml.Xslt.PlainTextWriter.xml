@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.PlainTextWriter">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>Plain text writer for XSLT processor output</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="PlainTextWriter" public="yes">
+      <bases>
+        <base documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PlainTextWriter" module="Ft.Xml.Xslt.PlainTextWriter"/>
+        <base name="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </method-resolution-order>
+      <methods name="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <method public="no" name="__init__" id="PlainTextWriter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="outputParams"/>
+            <arg name="stream"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="getStream" id="PlainTextWriter-getStream">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="yes" name="text" id="PlainTextWriter-text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+            <arg default="True" name="escapeOutput"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <member-reference name="attribute" public="yes"/>
+        <member-reference name="comment" public="yes"/>
+        <member-reference name="copyNodes" public="yes"/>
+        <member-reference name="endDocument" public="yes"/>
+        <member-reference name="endElement" public="yes"/>
+        <member-reference name="getMediaType" public="yes"/>
+        <member-reference name="getResult" public="yes"/>
+        <member-reference name="namespace" public="yes"/>
+        <member-reference name="processingInstruction" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+        <member-reference name="startElement" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+</module>

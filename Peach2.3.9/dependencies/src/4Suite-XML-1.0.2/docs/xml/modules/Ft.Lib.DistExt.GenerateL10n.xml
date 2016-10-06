@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.GenerateL10n">
+  <modification-date>2006-08-17 13:09:42</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Extractor" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Extractor" module="Ft.Lib.DistExt.GenerateL10n"/>
+      </method-resolution-order>
+      <methods name="Extractor" module="Ft.Lib.DistExt.GenerateL10n">
+        <method public="no" name="__call__" id="Extractor-__call__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="ttype"/>
+            <arg name="tstring"/>
+            <arg name="stup"/>
+            <arg name="etup"/>
+            <arg name="line"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="Extractor-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="excludedStrings"/>
+            <arg default="None" name="keywords"/>
+            <arg default="0" name="docstrings"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_messages" id="Extractor-get_messages">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="process" id="Extractor-process">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filename"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="GenerateL10n" public="yes">
+      <bases>
+        <base documented="no" class="Command" module="distutils.cmd"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="GenerateL10n" module="Ft.Lib.DistExt.GenerateL10n"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="extract_messages" id="GenerateL10n-extract_messages">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filenames"/>
+          </arguments>
+        </method>
+        <method public="yes" name="finalize_options" id="GenerateL10n-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="get_outputs" id="GenerateL10n-get_outputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_pot_filename" id="GenerateL10n-get_pot_filename">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_sources" id="GenerateL10n-get_sources">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="initialize_options" id="GenerateL10n-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="run" id="GenerateL10n-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Command" module="distutils.cmd"/>
+        </method>
+        <method public="yes" name="write_catalog" id="GenerateL10n-write_catalog">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="messages"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="GenerateL10n-boolean_options">
+          <value>['force']</value>
+        </member>
+        <member public="yes" name="command_name" id="GenerateL10n-command_name">
+          <value>'generate_l10n'</value>
+        </member>
+        <member public="yes" name="description" id="GenerateL10n-description">
+          <value>'extract translatable strings from source'</value>
+        </member>
+        <member public="yes" name="user_options" id="GenerateL10n-user_options">
+          <value>[('force', 'f', 'force locale generatation (overwrite existing files)')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="no" name="_c_escape" id="_c_escape">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="s"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="POT_HEADER" id="POT_HEADER">
+      <value>'# %(name)s LANGUAGE message catalog\n# Copyright ...ING\\n&quot;\n&quot;Generated-By: %(module)s %(version)s\\n&quot;\n\n'</value>
+    </global>
+  </globals>
+</module>

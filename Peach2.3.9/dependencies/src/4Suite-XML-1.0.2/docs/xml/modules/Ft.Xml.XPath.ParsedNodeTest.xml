@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedNodeTest">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>A parsed token that represents a node test.</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="CommentNodeTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="CommentNodeTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__repr__" id="CommentNodeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="CommentNodeTest-nodeType">
+          <value>8</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getQuickKey" public="yes"/>
+        <member-reference name="match" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="LocalNameTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="LocalNameTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__init__" id="LocalNameTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="LocalNameTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="LocalNameTest-getQuickKey">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+        <method public="yes" name="match" id="LocalNameTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="1" name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="LocalNameTest-nodeType">
+          <value>1</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="NamespaceTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NamespaceTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__init__" id="NamespaceTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="NamespaceTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="NamespaceTest-getQuickKey">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+        <method public="yes" name="match" id="NamespaceTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="1" name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="NamespaceTest-nodeType">
+          <value>1</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="NodeTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NodeTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__repr__" id="NodeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="NodeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="1" name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getQuickKey" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="nodeType" public="yes"/>
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="NodeTestBase" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__str__" id="NodeTestBase-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="NodeTestBase-getQuickKey">
+          <abstract>Returns a tuple that indicates the expected node type and, if
+applicable, the expected name.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="NodeTestBase-match">
+          <abstract>The principalType is discussed in section [2.3 Node Tests]
+of the XPath 1.0 spec.  Only attribute and namespace axes
+differ from the default of elements.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="1" name="principalType"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="NodeTestBase-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="NodeTestBase-nodeType">
+          <value>None</value>
+        </member>
+        <member public="yes" name="priority" id="NodeTestBase-priority">
+          <value>-0.5</value>
+        </member>
+      </members>
+    </class>
+    <class name="PrincipalTypeTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PrincipalTypeTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__repr__" id="PrincipalTypeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="PrincipalTypeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="1" name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="PrincipalTypeTest-nodeType">
+          <value>1</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getQuickKey" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="ProcessingInstructionNodeTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ProcessingInstructionNodeTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__init__" id="ProcessingInstructionNodeTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="target"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ProcessingInstructionNodeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="ProcessingInstructionNodeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="1" name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="ProcessingInstructionNodeTest-nodeType">
+          <value>7</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getQuickKey" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="QualifiedNameTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="QualifiedNameTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__init__" id="QualifiedNameTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="localName"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="QualifiedNameTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="QualifiedNameTest-getQuickKey">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+        <method public="yes" name="match" id="QualifiedNameTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="1" name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="QualifiedNameTest-nodeType">
+          <value>1</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="TextNodeTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TextNodeTest" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="no" name="__repr__" id="TextNodeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member public="yes" name="nodeType" id="TextNodeTest-nodeType">
+          <value>3</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getQuickKey" public="yes"/>
+        <member-reference name="match" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ParsedNameTest" id="ParsedNameTest">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="name"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ParsedNodeTest" id="ParsedNodeTest">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="test"/>
+        <arg default="None" name="literal"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="g_classMap" id="g_classMap">
+      <value>{'comment': &lt;class Ft.Xml.XPath.ParsedNodeTest.CommentNodeTest&gt;, 'node': &lt;class Ft.Xml.XPath.ParsedNodeTest.NodeTest&gt;, 'processing-instruction': &lt;class Ft.Xml.XPath.ParsedNodeTest.ProcessingInstructionNodeTest&gt;, 'text': &lt;class Ft.Xml.XPath.ParsedNodeTest.TextNodeTest&gt;}</value>
+    </global>
+    <global public="yes" name="g_xpathRecognizedNodes" id="g_xpathRecognizedNodes">
+      <value>{1: True, 2: True, 3: True, 7: True, 8: True, 9: True, 13: True}</value>
+    </global>
+  </globals>
+</module>

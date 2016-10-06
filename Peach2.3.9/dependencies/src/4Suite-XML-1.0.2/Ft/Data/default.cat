@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog
+  PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN"
+  "Schemata/catalog.dtd"
+>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public">
+
+  <!--uri name="http://" uri="(URI reference, can be relative)"/-->
+  <public
+    publicId="-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN"
+    uri="Schemata/catalog.dtd"/>
+  <public
+    publicId="-//LM Garshol//DTD XML Software Autoupdate 1.0//EN//XML"
+    uri="Schemata/xsa.dtd"/>
+  <public
+    publicId="+//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML"
+    uri="Schemata/xbel-1.0.dtd"/>
+  <public
+    publicId="-//W3C//DTD XHTML 1.0 Strict//EN"
+    uri="Schemata/xhtml1-strict.dtd"/>
+  <public
+    publicId="-//W3C//DTD XHTML 1.0 Transitional//EN"
+    uri="Schemata/xhtml1-transitional.dtd"/>
+  <public
+    publicId="-//OASIS//DTD Simplified DocBook XML V1.1//EN"
+    uri="Schemata/sdocbook.dtd"/>
+
+</catalog>

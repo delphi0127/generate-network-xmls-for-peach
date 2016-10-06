@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt._4xslt">
+  <modification-date>2006-10-16 15:39:34</modification-date>
+  <abstract>Implementation of '4xslt' command
+(functions defined here are used by the Ft.Lib.CommandLine framework)</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="XsltCommandLineApp" public="yes">
+      <bases>
+        <base documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XsltCommandLineApp" module="Ft.Xml.Xslt._4xslt"/>
+        <base name="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+        <base name="Command" module="Ft.Lib.CommandLine.Command"/>
+      </method-resolution-order>
+      <methods name="Command" module="Ft.Lib.CommandLine.Command">
+        <method public="yes" name="run" id="XsltCommandLineApp-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+            <arg name="arguments"/>
+          </arguments>
+          <overrides documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+        </method>
+        <method public="yes" name="validate_options" id="XsltCommandLineApp-validate_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+          </arguments>
+          <overrides documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp"/>
+        </method>
+      </methods>
+      <members name="Command" module="Ft.Lib.CommandLine.Command">
+        <member public="yes" name="arguments" id="XsltCommandLineApp-arguments">
+          <value>[&lt;Ft.Lib.CommandLine.Arguments.RequiredArgument instance&gt;, &lt;Ft.Lib.CommandLine.Arguments.ZeroOrMoreArgument instance&gt;]</value>
+        </member>
+        <member public="yes" name="description" id="XsltCommandLineApp-description">
+          <value>'4XSLT command-line application'</value>
+        </member>
+        <member public="yes" name="name" id="XsltCommandLineApp-name">
+          <value>'4xslt'</value>
+        </member>
+        <member public="yes" name="options" id="XsltCommandLineApp-options">
+          <value>[[--validate], [--ignore], [--media=&lt;MEDIA&gt;], [--define=&lt;NAME=VALUE&gt;], [--prefix=&lt;PREFIX=NSURI&gt;], [--alt-sty-path=&lt;PATH&gt;], [--alt-sty-uri=&lt;URI&gt;], [--outfile=&lt;FILE&gt;], [--stacktrace-on-error], [--noxinclude], [--trace], [--trace-file=&lt;FILE&gt;], [[--reflex] | [--compile] | [--instant] | [--chain]], [--time], [--msg-prefix=&lt;STRING&gt;], [--msg-suffix=&lt;STRING&gt;], [--no-messages]]</value>
+        </member>
+        <member public="yes" name="project_name" id="XsltCommandLineApp-project_name">
+          <value>'4Suite-XML'</value>
+        </member>
+        <member public="yes" name="project_url" id="XsltCommandLineApp-project_url">
+          <value>'http://4suite.org/'</value>
+        </member>
+        <member public="yes" name="project_version" id="XsltCommandLineApp-project_version">
+          <value>'1.0rc5'</value>
+        </member>
+        <member public="yes" name="summary" id="XsltCommandLineApp-summary">
+          <value>'command-line tool for performing XSLT transformations on XMLdocuments'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="gen_command_tree" public="yes"/>
+        <member-reference name="gen_usage" public="yes"/>
+        <member-reference name="get_help_doc_info" public="yes"/>
+        <member-reference name="main" public="yes"/>
+        <member-reference name="parse_command_line" public="yes"/>
+        <member-reference name="run_commands" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="CommandLineApp" module="Ft.Lib.CommandLine.CommandLineApp">
+        <member-reference name="commands" public="yes"/>
+        <member-reference name="example" public="yes"/>
+        <member-reference name="global_options" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="Command" module="Ft.Lib.CommandLine.Command">
+        <member-reference name="break_parent_relationship" public="yes"/>
+        <member-reference name="build_parent_relationship" public="yes"/>
+        <member-reference name="flatten_command_tree" public="yes"/>
+        <member-reference name="validate_arguments" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ReportFatalException" id="ReportFatalException">
+      <abstract>Formats various exceptions; raises SystemExit, never returns.</abstract>
+      <description/>
+      <arguments>
+        <arg name="e"/>
+        <arg default="False" name="stacktrace_on_error"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Run" id="Run">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="options"/>
+        <arg name="args"/>
+      </arguments>
+    </function>
+    <function public="yes" name="StySourceArgToInputSource" id="StySourceArgToInputSource">
+      <abstract>A wrapper for SourceArgToInputSource().</abstract>
+      <description>If an InputSource cannot be created from the source argument,
+then the argument is resolved against alternative stylesheet base
+URIs (if any) until an InputSource is successfully created or the
+list of URIs is exhausted.</description>
+      <arguments>
+        <arg name="arg"/>
+        <arg name="factory"/>
+        <var-args name="v_args"/>
+        <var-keywords name="kw_args"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DefaultFactory" id="DefaultFactory">
+      <value>&lt;Ft.Xml.InputSource.InputSourceFactory instance&gt;</value>
+    </global>
+    <global public="yes" name="MAX_PYTHON_RECURSION_DEPTH" id="MAX_PYTHON_RECURSION_DEPTH">
+      <value>10000</value>
+    </global>
+    <global public="yes" name="g_paramBindingPattern" id="g_paramBindingPattern">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="yes" name="g_prefixBindingPattern" id="g_prefixBindingPattern">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+  </globals>
+</module>

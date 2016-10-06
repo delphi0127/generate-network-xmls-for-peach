@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<fragment>
+  <import from='Ft.Xml.XPath.ParsedAbsoluteLocationPath'>ParsedAbsoluteLocationPath</import>
+  <import from='Ft.Xml.XPath.ParsedRelativeLocationPath'>ParsedRelativeLocationPath</import>
+  <import from='Ft.Xml.XPath.ParsedPredicateList'>ParsedPredicateList</import>
+  <import from='Ft.Xml.XPath.ParsedStep'>ParsedStep</import>
+  <import from='Ft.Xml.XPath.ParsedStep'>ParsedAbbreviatedStep</import>
+  <import from='Ft.Xml.XPath.ParsedAxisSpecifier'>ParsedAxisSpecifier</import>
+  <import from='Ft.Xml.XPath.ParsedNodeTest'>ParsedNodeTest</import>
+  <import from='Ft.Xml.XPath.ParsedNodeTest'>ParsedNameTest</import>
+  <import from='Ft.Xml.XPath.ParsedNodeTest'>PrincipalTypeTest</import>
+  <import from='Ft.Xml.XPath.ParsedNodeTest'>LocalNameTest</import>
+  <import from='Ft.Xml.XPath.ParsedAbbreviatedAbsoluteLocationPath'>ParsedAbbreviatedAbsoluteLocationPath</import>
+  <import from='Ft.Xml.XPath.ParsedAbbreviatedRelativeLocationPath'>ParsedAbbreviatedRelativeLocationPath</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedVariableReferenceExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedLiteralExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedNLiteralExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedFunctionCallExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedUnionExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedPathExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedFilterExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedOrExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedAndExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedEqualityExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedRelationalExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedAdditiveExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedMultiplicativeExpr</import>
+  <import from='Ft.Xml.XPath.ParsedExpr'>ParsedUnaryExpr</import>
+</fragment>

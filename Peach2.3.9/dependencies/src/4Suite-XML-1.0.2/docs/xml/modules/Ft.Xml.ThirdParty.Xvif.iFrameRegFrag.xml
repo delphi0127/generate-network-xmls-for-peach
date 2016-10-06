@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.iFrameRegFrag">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="transform" id="transform">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="self"/>
+        <arg name="node"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="implementation" id="implementation">
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <value>&lt;DOMImplementation&gt;</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPointer.ParsedNodeTest">
+  <modification-date>2001-09-15 12:20:49</modification-date>
+  <abstract>A Parsed Token that represents a node test.
+WWW: http://4suite.org/XPATH        e-mail: support@4suite.org</abstract>
+  <description>Copyright (c) 2000-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+  <classes>
+    <class name="PointNodeTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PointNodeTest" module="Ft.Xml.XPointer.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="yes" name="match" id="PointNodeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getQuickKey" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="nodeType" public="yes"/>
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="RangeNodeTest" public="yes">
+      <bases>
+        <base documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RangeNodeTest" module="Ft.Xml.XPointer.ParsedNodeTest"/>
+        <base name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+      </method-resolution-order>
+      <methods name="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <method public="yes" name="match" id="RangeNodeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg name="principalType"/>
+          </arguments>
+          <overrides documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="getQuickKey" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="NodeTestBase" module="Ft.Xml.XPath.ParsedNodeTest">
+        <member-reference name="nodeType" public="yes"/>
+        <member-reference name="priority" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ParsedNameTest" id="ParsedNameTest">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="name"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ParsedNodeTest" id="ParsedNodeTest">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="test"/>
+        <arg default="None" name="literal"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="g_classMap" id="g_classMap">
+      <value>{'point': &lt;class Ft.Xml.XPointer.ParsedNodeTest.PointNodeTest&gt;, 'range': &lt;class Ft.Xml.XPointer.ParsedNodeTest.RangeNodeTest&gt;}</value>
+    </global>
+  </globals>
+</module>

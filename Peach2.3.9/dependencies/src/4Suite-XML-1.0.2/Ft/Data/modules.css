@@ -1,0 +1,242 @@
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+h1 {
+    background-color: #C5C5C5;
+    border-bottom: 3px solid #00007B;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0.5em;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 200%;
+    color: #00007B;
+}
+
+h2 {
+    font-size: 150%;
+    color: #00008B;
+    border-bottom: 2px solid #00007B;
+    line-height: 100%;
+}
+
+h3 {
+    font-size: 100%;
+    color: #555;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+sup {
+  line-height: 100%;
+  font-size: 75%;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+/* on Netscape 4 we'll want this to be display: none */
+.glyph-arrow {
+  margin-right: 0.25em;
+}
+
+.this-name {
+  font-weight: bold;
+}
+
+.this-name a {
+  color: #00007B;
+  text-decoration: none;
+}
+
+.this-name a:hover {
+  color: #44B;
+  text-decoration: underline;
+}
+
+.summary-section { 
+  margin-top: 1em;
+}
+
+.summary-header { 
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  color: #888;
+}
+
+.summary-list {
+  font-size: 80%;
+}
+
+.module-name, .class-name, .method-name, .member-name, .inherited-name,
+.function-name, .global-name {
+  font-family: lucidatypewriter, "Bitstream Vera Sans Mono", "Lucida Console", "Andale Mono", monospace;
+}
+
+.undocumented {
+  color: #666;
+  font-style: italic;
+  /* omit for Netscape 4 */
+  padding-right: 0.15em; /* because of italics */
+}
+
+.argument-name {
+  font-style: italic;
+}
+
+.argument-default {
+}
+
+.abstract, .description {
+  font-family: lucidatypewriter, "Bitstream Vera Sans Mono", "Lucida Console", "Andale Mono", monospace;
+  font-size: 80%;
+}
+
+/* the first line of a doc string will be in the desc class if it is
+   followed by a blank line and then more text */
+.abstract {
+  color: black;
+}
+
+.description {
+  color: #555;
+  margin-left: 0.25em;
+  white-space: pre;
+}
+
+.section {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  margin-left: 1em;
+}
+
+/* this is a table cell style hence the use of padding instead of margin */
+.moduledef, .moduledesc { 
+  padding-bottom: 0.5em;
+}
+
+/* the style for the classes list */
+.classes {
+}
+
+/* the class definition (e.g., "class Foo(Bar):") */
+.classdef {
+  margin-top: 1em;
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+.classdef .class-name {
+  font-weight: bolder;
+}
+
+.classdef .bases .class-name {
+  font-weight: normal;
+}
+
+/* the class description (the body) */
+.classdesc {
+  margin-left: 0.25em;
+  padding-left: 0.75em;
+  border-left: 1px solid #888;
+}
+
+/* styles for class subsections */
+.methods, .members, .inherited, .overrides {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.methoddef, .memberdef {
+  margin-top: 0.25em;
+}
+
+.methoddef .method-name, .memberdef .member-name {
+  font-weight: bolder;
+}
+
+.methoddesc, .memberdesc {
+  margin-bottom: 0.25em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* the style for the functions list */
+.functions {
+}
+
+.functiondef {
+  margin-top: 1em;
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+.functiondef .function-name {
+  font-weight: bolder;
+}
+
+.functiondesc {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* the style for the globals list */
+.globals {
+}
+
+.globaldef {
+  margin-top: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+.globaldef .global-name {
+  font-weight: bolder;
+}
+
+.globaldesc {
+  margin-bottom: 0em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.universal-header {
+  color: #AAA;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 125%;
+  line-height: 100%;
+  margin: 0em;
+  padding: 0em;
+  font-weight: bold;
+}
+
+.universal-header a {
+  color: #AAA;
+  text-decoration: none;
+}
+
+.universal-header a:hover {
+  color: blue;
+  background-color: #DE8;
+}
+
+.universal-header-prefix {
+  background-color: #C5C5C5;
+}
+
+.universal-footer {
+  text-align: right;
+  color: #888;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  line-height: 90%;
+  border-top: 1px solid #888;
+}

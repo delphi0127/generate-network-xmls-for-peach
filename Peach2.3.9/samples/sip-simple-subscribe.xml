@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach version="1.0" author="Michael Eddington" description="SIP-SIMPLE">
+
+    <!--
+    
+    This is a working example that will fuzz SIP-SIMPLE Subscribe messages over UDP.
+    Just change the host ipaddress to your target and fire away!
+    
+    Author:
+        Michael Eddington
+    
+    -->
+
+	<Include ns="default" src="file:defaults.xml" />
+
+    <DataModel name="SipSimpleSubscribe">
+        <String value="SUBSCRIBE sip:dd2@192.168.1.194 SIP/2.0\r\nVia: SIP/2.0/TCP 192.168.6.1:5060;branch=z9hG4bK754C13CB260F1EA425F4\r\nFrom: &lt;sip:dd@192.168.1.194&gt;;tag=806527798;epid=1234567890\r\nTo: &lt;sip:dd2@192.168.1.194&gt;\r\nMax-Forwards: 10\r\nCSeq: 4 SUBSCRIBE\r\nUser-Agent: Purple/2.0.2\r\nCall-ID: " />
+            <String>
+            	<Fixup class="sequence.SequenceIncrementFixup" />
+            </String>
+ 		<String value="\r\nExpires: 1200\r\nAccept: application/pidf+xml, application/xpidf+xml\r\nEvent: presence\r\nContact: &lt;sip:dd@192.168.6.1:5060;transport=tcp&gt;;methods=&quot;MESSAGE, SUBSCRIBE, NOTIFY&quot;\r\nContent-Length: 0\r\n\r\n" />
+    </DataModel>
+	
+	<StateModel name="State" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="SipSimpleSubscribe" />
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Test name="SipSimpleSubscribeTests">
+		<StateModel ref="State" />
+		
+		<Publisher class="udp.Udp">
+			<Param name="host" value="192.168.1.194" />
+			<Param name="port" value="5060" />
+			<Param name="timeout" value="1" />
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="SipSimpleSubscribeTests" />
+	</Run>
+	
+</Peach>
+
+<!-- end -->

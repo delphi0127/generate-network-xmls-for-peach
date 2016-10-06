@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.XsltFunctions">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>Standard XSLT functions</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <version>0.0</version>
+  <functions>
+    <function public="yes" name="Current" id="Current">
+      <abstract>Implementation of current().</abstract>
+      <description>Returns a node-set that has the current node as its only member.</description>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Document" id="Document">
+      <abstract>Implementation of document().</abstract>
+      <description>The XSLT 1.0 document function returns the root node of a single
+XML document or of the union of multiple XML documents. The
+arguments are reduced to a set of URIs that indicate the documents
+to parse.
+
+The first argument is required and provides a set of URI
+references, each of which may be absolute or relative. If it
+is a node-set, then the URI references are the string-values of
+each node in the set. If the argument is any other kind of
+object, the URI reference is the string-value of object.
+
+The second argument is optional. If given, it provides a base URI
+for normalizing relative URI references, it must be a node-set,
+and only its first node (in document order) is used. The base URI
+for all relative references is the URI of the entity from which
+the node originated. If the node-set is empty, an exception is
+raised (see XSLT 1.0 erratum E14).
+
+If the second argument is not given, then the base URI depends on
+whether the first argument is a node-set. If the first argument is
+a node-set, then the base URI for each node in the set is the
+entity from which that node originated. Otherwise, the base URI is
+the URI of the entity containing the node with the document() call
+(this URI is usually that of the stylesheet itself, but could be
+an imported stylesheet or even a parsed general entity).
+
+Thus,
+
+document('') typically refers to the stylesheet itself, prior to
+whitespace stripping;
+
+document('http://somehost/foo.xml') refers to the document at
+that absolute URI;
+
+document('foo.xml') typically refers to the foo.xml document
+relative to the stylesheet;
+
+document('http://somehost/foo.xml', $ns) where $ns is a non-empty
+node-set refers to the document at that absolute URI ($ns is
+ignored);
+
+document('foo.xml', $ns) where $ns is a non-empty node-set refers
+to the foo.xml document relative to the URI of the entity from
+which $ns[1] originated;
+
+document($ns) where $ns is a non-empty node-set is treated as if
+it were
+document(string($ns[1]),$ns[1])|document(string($ns[2]),$ns[2])
+and so on; and
+
+document($ns, $ns2) where $ns is a node-set and $ns2 is a
+non-empty node-set is treated as if it were
+document(string($ns[1]),$ns2[1])|document(string($ns[2]),$ns2[1])
+and so on.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object"/>
+        <arg default="None" name="nodeSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ElementAvailable" id="ElementAvailable">
+      <abstract>Implementation of element-available().</abstract>
+      <description>Returns true if and only if the expanded-name represented by the
+given QName is the name of an instruction. If the expanded-name has
+a namespace URI equal to the XSLT namespace URI, then it refers to
+an element defined by XSLT. Otherwise, it refers to an extension
+element. If the expanded-name has a null namespace URI, the
+element-available function will return false.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="qname"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FormatNumber" id="FormatNumber">
+      <abstract>Implementation of format-number().</abstract>
+      <description>Converts its first argument to a string using the format pattern
+string specified by the second argument and the decimal-format
+named by the third argument (see the xsl:decimal-format element),
+or the default decimal-format, if there is no third argument.
+
+The format pattern string is in the syntax specified by the JDK 1.1
+DecimalFormat class. The decimal-format name must be a QName. It is
+an error if the stylesheet does not contain a declaration of the
+decimal-format with the specified expanded-name.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="number"/>
+        <arg name="formatString"/>
+        <arg default="None" name="decimalFormatName"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FunctionAvailable" id="FunctionAvailable">
+      <abstract>Implementation of function-available().</abstract>
+      <description>Returns true if and only if the expanded-name represented by the
+given QName is the name of a function in the function library.
+If the expanded-name has a non-null namespace URI, then it refers
+to an extension function; otherwise, it refers to a function
+defined by XPath or XSLT.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="qname"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GenerateId" id="GenerateId">
+      <abstract>Implementation of generate-id().</abstract>
+      <description>Returns a string that uniquely identifies the node in the argument
+node-set that is first in document order. If the argument node-set
+is empty, the empty string is returned. If the argument is omitted,
+it defaults to the context node.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="nodeSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Key" id="Key">
+      <abstract>Implementation of key().</abstract>
+      <description>The first argument specifies the name of the key. When the second
+argument to the key function is of type node-set, then the result
+is the union of the result of applying the key function to the
+string value of each of the nodes in the argument node-set.
+When the second argument to key is of any other type, the argument
+is converted to a string as if by a call to the string function; it
+returns a node-set containing the nodes in the same document as the
+context node that have a value for the named key equal to this string.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="qname"/>
+        <arg name="keyList"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SystemProperty" id="SystemProperty">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="qname"/>
+      </arguments>
+    </function>
+    <function public="yes" name="UnparsedEntityUri" id="UnparsedEntityUri">
+      <abstract>Implementation of unparsed-entity-uri().</abstract>
+      <description>Returns the URI of the unparsed entity with the specified name in
+the same document as the context node. It returns the empty string
+if there is no such entity.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="name"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="CoreFunctions" id="CoreFunctions">
+      <value>{(None, 'current'): &lt;function Current&gt;, (None, 'document'): &lt;function Document&gt;, (None, 'element-available'): &lt;function ElementAvailable&gt;, (None, 'format-number'): &lt;function FormatNumber&gt;, (None, 'function-available'): &lt;function FunctionAvailable&gt;, (None, 'generate-id'): &lt;function GenerateId&gt;, (None, 'key'): &lt;function Key&gt;, (None, 'system-property'): &lt;function SystemProperty&gt;, (None, 'unparsed-entity-uri'): &lt;function UnparsedEntityUri&gt;}</value>
+    </global>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+    <global public="no" name="__version__" id="__version__">
+      <value>'0.0'</value>
+    </global>
+  </globals>
+</module>

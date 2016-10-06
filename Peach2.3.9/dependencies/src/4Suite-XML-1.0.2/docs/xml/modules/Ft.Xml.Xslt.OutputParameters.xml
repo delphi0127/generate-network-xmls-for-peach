@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.OutputParameters">
+  <modification-date>2006-04-28 13:54:50</modification-date>
+  <abstract>Represents XSLT output parameters governed by the xsl:output instruction
+See also Ft.Xml.Xslt.OutputHandler</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="OutputParameters" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="OutputParameters" module="Ft.Xml.Xslt.OutputParameters"/>
+      </method-resolution-order>
+      <methods name="OutputParameters" module="Ft.Xml.Xslt.OutputParameters">
+        <method public="no" name="__init__" id="OutputParameters-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="avtParse" id="OutputParameters-avtParse">
+          <abstract>evaluates the given node for valid xsl:output-like attributes
+expressed in AVTs of extension elements, storing the values
+in instance variables.  If called repeatedly, it will overwrite
+old values.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="owner"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="clone" id="OutputParameters-clone">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="parse" id="OutputParameters-parse">
+          <abstract>parses the given node (owner) for valid xsl:output attributes
+and stores their values in instance variables.
+If called repeatedly, it will overwrite old values (this ensures
+behavior mandated by the spec, in which the last xsl:output element
+is established with highest precedence).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="owner"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setDefault" id="OutputParameters-setDefault">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="attr"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+  </globals>
+</module>

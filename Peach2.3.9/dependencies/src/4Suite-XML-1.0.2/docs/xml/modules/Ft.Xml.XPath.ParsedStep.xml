@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.ParsedStep">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>A parsed token that represents a step.</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="ParsedAbbreviatedStep" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedAbbreviatedStep" module="Ft.Xml.XPath.ParsedStep"/>
+      </method-resolution-order>
+      <methods name="ParsedAbbreviatedStep" module="Ft.Xml.XPath.ParsedStep">
+        <method public="no" name="__init__" id="ParsedAbbreviatedStep-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parent"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedAbbreviatedStep-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedAbbreviatedStep-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedAbbreviatedStep-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedAbbreviatedStep-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="ParsedAbbreviatedStep-evaluate" name="select" realname="evaluate" id="ParsedAbbreviatedStep-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedNodeSetFunction" public="yes">
+      <abstract># From the XPath 2.0 Working Draft
+# Used by XPointer</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedNodeSetFunction" module="Ft.Xml.XPath.ParsedStep"/>
+      </method-resolution-order>
+      <methods name="ParsedNodeSetFunction" module="Ft.Xml.XPath.ParsedStep">
+        <method public="no" name="__init__" id="ParsedNodeSetFunction-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="function"/>
+            <arg default="None" name="predicates"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedNodeSetFunction-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedNodeSetFunction-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedNodeSetFunction-evaluate">
+          <abstract>Select a set of nodes from the node-set function then filter
+through the predicates.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedNodeSetFunction-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="ParsedNodeSetFunction-evaluate" name="select" realname="evaluate" id="ParsedNodeSetFunction-select">
+          <abstract>Select a set of nodes from the node-set function then filter
+through the predicates.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ParsedStep" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ParsedStep" module="Ft.Xml.XPath.ParsedStep"/>
+      </method-resolution-order>
+      <methods name="ParsedStep" module="Ft.Xml.XPath.ParsedStep">
+        <method public="no" name="__init__" id="ParsedStep-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="axis"/>
+            <arg name="nodeTest"/>
+            <arg default="None" name="predicates"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ParsedStep-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="ParsedStep-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="evaluate" id="ParsedStep-evaluate">
+          <abstract>Select a set of nodes from the axis, then filter through the node
+test and the predicates.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="ParsedStep-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="ParsedStep-evaluate" name="select" realname="evaluate" id="ParsedStep-select">
+          <abstract>Select a set of nodes from the axis, then filter through the node
+test and the predicates.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

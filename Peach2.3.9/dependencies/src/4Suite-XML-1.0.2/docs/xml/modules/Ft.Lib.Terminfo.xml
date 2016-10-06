@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Terminfo">
+  <modification-date>2006-04-28 13:54:39</modification-date>
+  <abstract>Provides some of the information from the terminfo database.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="GetColumns" id="GetColumns">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7d98068&gt;" name="stream"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetLines" id="GetLines">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7d98068&gt;" name="stream"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DEFAULT_COLUMNS" id="DEFAULT_COLUMNS">
+      <value>80</value>
+    </global>
+    <global public="yes" name="DEFAULT_LINES" id="DEFAULT_LINES">
+      <value>24</value>
+    </global>
+    <global public="yes" name="TERMTYPES" id="TERMTYPES">
+      <value>['linux', 'console', 'con132x25', 'con132x30', 'con132x43', 'con132x60', 'con80x25', 'con80x28', 'con80x30', 'con80x43', 'con80x50', 'con80x60', 'xterm', 'xterm-color', 'color-xterm', 'vt100', 'vt100-color', 'rxvt', 'ansi', 'Eterm', ...]</value>
+    </global>
+  </globals>
+</module>

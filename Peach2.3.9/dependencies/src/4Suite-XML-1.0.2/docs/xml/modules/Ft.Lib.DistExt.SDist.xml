@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.SDist">
+  <modification-date>2006-10-18 13:10:09</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="SDist" public="yes">
+      <bases>
+        <base documented="no" class="sdist" module="distutils.command.sdist"/>
+      </bases>
+      <abstract>Extended 'sdist' command that uses 'manifest_templates' from the
+distribution options instead of manifest files.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="SDist" module="Ft.Lib.DistExt.SDist"/>
+        <base name="sdist" module="distutils.command.sdist"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="add_defaults" id="SDist-add_defaults">
+          <abstract>Add all the default files to self.filelist:
+- setup.py
+- README or README.txt (in all directories)
+- all pure Python modules mentioned in setup script
+- all C sources listed as part of extensions or C libraries
+  in the setup script (doesn't catch C headers!)</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="sdist" module="distutils.command.sdist"/>
+        </method>
+        <method public="yes" name="check_distribution" id="SDist-check_distribution">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="get_file_list" id="SDist-get_file_list">
+          <abstract>Figure out the list of files to include in the source
+distribution, and put it in 'self.filelist'.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="sdist" module="distutils.command.sdist"/>
+        </method>
+        <method public="yes" name="make_distribution" id="SDist-make_distribution">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="sdist" module="distutils.command.sdist"/>
+        </method>
+        <method public="yes" name="prune_file_list" id="SDist-prune_file_list">
+          <abstract>Prune off branches that might slip into the file list as created
+by 'read_template()', but really don't belong there:
+  * the build tree (typically &quot;build&quot;)
+  * the release tree itself (only an issue if we ran &quot;sdist&quot;
+    previously with --keep-temp, or it aborted)
+  * any RCS or CVS directories</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filelist"/>
+          </arguments>
+          <overrides documented="no" class="sdist" module="distutils.command.sdist"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="command_name" id="SDist-command_name">
+          <value>'sdist'</value>
+        </member>
+        <member public="yes" name="description" id="SDist-description">
+          <value>'create a source distribution (tarball, zip file, etc.)'</value>
+        </member>
+        <member public="yes" name="negative_opt" id="SDist-negative_opt">
+          <value>{}</value>
+        </member>
+        <member public="yes" name="user_options" id="SDist-user_options">
+          <value>[('use-defaults', None, 'include the default file set in the manifest [default; disable with --no-defaults]'), ('no-defaults', None, &quot;don't include the default file set&quot;), ('prune', None, 'specifically exclude files/directories that shou...VS dirs, etc.) [default; disable with --no-prune]'), ('no-prune', None, &quot;don't automatically exclude anything&quot;), ('formats=', None, 'formats for source distribution (comma-separated list)'), ('keep-temp', 'k', 'keep the distribution tree around after creating archive file(s)'), ('dist-dir=', 'd', 'directory to put the source distribution archive(s) in [default: dist]')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="sdist" module="distutils.command.sdist">
+        <member-reference name="check_metadata" public="yes"/>
+        <member-reference name="finalize_options" public="yes"/>
+        <member-reference name="get_archive_files" public="yes"/>
+        <member-reference name="initialize_options" public="yes"/>
+        <member-reference name="make_release_tree" public="yes"/>
+        <member-reference name="read_manifest" public="yes"/>
+        <member-reference name="read_template" public="yes"/>
+        <member-reference name="run" public="yes"/>
+        <member-reference name="write_manifest" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="sdist" module="distutils.command.sdist">
+        <member-reference name="boolean_options" public="yes"/>
+        <member-reference name="default_format" public="yes"/>
+        <member-reference name="help_options" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="sub_commands" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

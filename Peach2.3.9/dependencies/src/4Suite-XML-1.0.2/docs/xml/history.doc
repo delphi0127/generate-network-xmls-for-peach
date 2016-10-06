@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V1.1//EN"
+   "http://docbook.org/xml/simple/1.1/sdocbook.dtd">
+<article>
+  <title>Release History</title>
+  <articleinfo>
+    <corpauthor>Fourthought, Inc.</corpauthor>
+  </articleinfo>
+
+  <section>
+    <title>4Suite compatibility matrix and release timeline</title>
+
+    <para>This summarizes all known releases of 4Suite and PyXML; explains dependencies between 4Suite and Python, PyXML &amp; PyExpat; and lists noteworthy events in 4Suite's release history.</para>
+
+    <para>If you spot any errors or have any questions about this document, please post to the <ulink url="http://lists.fourthought.com/mailman/listinfo/4suite">4Suite mailing list</ulink> or email <ulink url="mailto:mike%40skew.org">mike&#64;skew.org</ulink>.</para>
+
+    <informaltable pgwide="1" frame="all">
+      <tgroup cols="1">
+        <tbody>
+          <row>
+            <entry>
+              <variablelist>
+                <title>Key to the columns</title>
+                <varlistentry>
+                  <term>Python</term>
+                  <listitem>
+                    <para>Lists compatible versions of Python. Note for Windows users: For each 4Suite release, Windows binary installers are available for only certain versions of Python, and may not work at all with nonstandard Python distributions. Users affected by this can still build 4Suite from source, if they have a C compiler.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>PyXML</term>
+                  <listitem>
+                    <para>Lists compatible versions of PyXML, and circumstances under which PyXML installation is optional. With releases prior to 4Suite 1.0b1, do not use PyXML 0.8.1, because it shipped with Expat 1.95.5, which has major bugs that are exposed by 4Suite.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>PyExpat</term>
+                  <listitem>
+                    <para>Lists circumstances under which PyExpat is required. Expat is an XML parser written in C, and PyExpat allows access to it from Python. The version of PyExpat usually doesn't matter, and the version of Expat that it wraps is fine as long as it's 1.95.0 or higher (effective 4Suite 0.12.0a1) and is not 1.95.5 (effective thru 4Suite 1.0a4; new releases don't use PyExpat). Most systems already have PyExpat, so it's not an issue for most users. The easiest way to address PyExpat/Expat issues is to just install a recent version of PyXML.</para>
+                    <para>You already have PyExpat if you did any of the following:</para>
+                    <itemizedlist>
+                      <listitem>
+                        <para>Installed Python 2.3 or newer. Python now installs its own PyExpat and Expat 1.95.6.</para>
+                      </listitem>
+                      <listitem>
+                        <para>Installed PyXML. PyXML installs its own Expat (version varies) and a shared version of PyExpat. PyXML's version will take precedence over Python's.</para>
+                      </listitem>
+                      <listitem>
+                        <para>Installed Python for Windows from a standard Win32 binary installer. The official Python distributions for Windows usually came with good versions of PyExpat and Expat built-in. However, there were some significant bugs in the PyExpat that shipped with the Python 2.1.x distributions, so Win32 Python 2.1 users should install PyXML.</para>
+                      </listitem>
+                      <listitem>
+                        <para>Had the Expat libraries on your system when you built Python from source. Python builds PyExpat automatically if it detects the Expat C libraries.</para>
+                      </listitem>
+                      <listitem>
+                        <para>Installed an operating system or prebuilt Python package that came with PyExpat.</para>
+                      </listitem>
+                      <listitem>
+                        <para>Installed PyExpat yourself, separately.</para>
+                      </listitem>
+                    </itemizedlist>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Major components included</term>
+                  <listitem>
+                    <para>Lists the major packages that are in this version of 4Suite.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+      <tgroup cols="6" colsep="1" rowsep="1">
+        <colspec colname="1"/>
+        <colspec colname="2" align="center"/>
+        <colspec colname="3"/>
+        <colspec colname="4"/>
+        <colspec colname="5"/>
+        <colspec colname="6"/>
+        <spanspec spanname="news.span" namest="1" nameend="6" rowsep="0"/>
+        <thead>
+          <row>
+            <entry>4Suite Version</entry>
+            <entry>Release Date</entry>
+            <entry>Python Version</entry>
+            <entry>PyXML Version</entry>
+            <entry>PyExpat</entry>
+            <entry>Major Packages Included</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry spanname="news.span" role="news">2005-11-01: Python 2.3.6 released (source only).</entry>
+          </row>
+          <row valign="top" role="latest">
+            <entry>XML&nbsp;1.0</entry>
+            <entry>2006-10-20</entry>
+            <entry>2.2.1 up</entry>
+            <entry>PyXML <emphasis role="strong">not required</emphasis></entry>
+            <entry>PyExpat <emphasis role="strong">not required</emphasis></entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2006-10-18: Python 2.4.4 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2006-09-19: Python 2.5 released.</entry>
+          </row>
+          <row valign="top">
+            <entry>XML&nbsp;1.0rc4</entry>
+            <entry>2006-09-14</entry>
+            <entry morerows="2">2.2.1 up</entry>
+            <entry morerows="2">PyXML <emphasis role="strong">not required</emphasis></entry>
+            <entry morerows="2">PyExpat <emphasis role="strong">not required</emphasis></entry>
+            <entry morerows="2"><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+</literallayout></entry>
+          </row>
+          <row valign="top">
+            <entry>XML&nbsp;1.0rc3</entry>
+            <entry>2006-08-27</entry>
+          </row>
+          <row valign="top">
+            <entry>XML&nbsp;1.0rc2</entry>
+            <entry>2006-08-23</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2006-03-29: Python 2.4.3 released.</entry>
+          </row>
+          <row valign="top">
+            <entry>XML&nbsp;1.0b3</entry>
+            <entry>2005-12-12</entry>
+            <entry>2.2.1 up</entry>
+            <entry>PyXML <emphasis role="strong">not required</emphasis></entry>
+            <entry>PyExpat <emphasis role="strong">not required</emphasis></entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2005-11-15: 4Suite XML now supports DTD validation natively; PyXML's xmlproc is no longer required for validation support in 4Suite.</entry>
+          </row>
+          <row valign="top">
+            <entry>XML&nbsp;1.0b2</entry>
+            <entry>2005-10-24</entry>
+            <entry>2.2.1 up</entry>
+            <entry><!--Since the PyExpat dependencies were removed, xmlproc is the only part of PyXML that would ever be used by 4Suite, and xmlproc wasn't touched since 0.8, so the minimum PyXML version is now 0.8.-->0.8 up optional (newest preferred; 0.8.2 is minimum for Python 2.3, 0.8.4 for Python 2.4). PyXML required for ValidatingReader (parsing XML with validation).</entry>
+            <entry>PyExpat <emphasis role="strong">not required</emphasis></entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2005-09-28: Python 2.4.2 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2005-08-31: A proposal is made to split 4Suite into 3 packages: 4Suite XML, 4Suite RDF, and 4Suite Repository. 4Suite XML will be released first and pushed to 1.0 before the others are released. Therefore, users needing RDF and repository features need to continue to use the monolithic 4Suite 1.0b1, for now.</entry>
+          </row>
+          <row valign="top" role="latest">
+            <entry>1.0b1</entry>
+            <entry>2005-04-15</entry>
+            <entry>2.2.1 up</entry>
+            <entry><!--Since the PyExpat dependencies were removed, xmlproc is the only part of PyXML that would ever be used by 4Suite, and xmlproc wasn't touched since 0.8, so the minimum PyXML version is now 0.8.-->0.8 up optional (newest preferred; 0.8.2 is minimum for Python 2.3, 0.8.4 for Python 2.4). PyXML required for ValidatingReader (parsing XML with validation).</entry>
+            <entry>PyExpat <emphasis role="strong">not required</emphasis></entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+4RDF (Ft.Rdf)
+repository/model (Ft.Server)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2005-03-30: Python 2.4.1 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2005-03-19: The last of the PyExpat dependencies are removed from 4Suite.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2005-02-08: Python 2.3.5 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2004-12-10: FtMiniDom is removed from 4Suite.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2004-11-30: Python 2.4 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2004-11-29: PyXML 0.8.4 released. This version of PyXML integrates Expat 1.95.8 and fixes more memory leaks in PyExpat. It is the first version of PyXML that works with Python 2.4.</entry>
+          </row>
+          <row valign="top">
+            <entry>1.0a4</entry>
+            <entry>2004-11-19</entry>
+            <entry>2.2.1 up</entry>
+            <entry>0.8.3 up optional (newest preferred). PyXML required for ValidatingReader (parsing XML with validation).</entry>
+            <entry>PyExpat optional unless FtMiniDom (Python-based lightweight DOM) or CatalogReader (parsing XML with TR9401/XML Catalog support) are being used. Must wrap Expat 1.95.0 or newer if present.</entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+4RDF (Ft.Rdf)
+repository/model (Ft.Server)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2004-05-27: Python 2.3.4 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2004-02-13: Following the release of Zope 2.7, a decision is made to drop Python 2.1 support from 4Suite.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-12-19: Python 2.3.3 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-10-03: Python 2.3.2 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-09-23: Python 2.3.1 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-08-02: A decision is made to remove 4ODS from 4Suite.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-07-30: PyXML 0.8.3 released. This version of PyXML integrates Expat 1.95.7 and fixes some memory leaks in PyExpat.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-07-29: Python 2.3 released. This is the first version of Python to bundle its own Expat C libs (Expat 1.95.6), not just the PyExpat bindings (which only wrap whatever Expat is already on the system). Some packagers did not notice this right away, and continued to distribute Python without PyExpat. FreeBSD, for example, did this through Python 2.3.2.</entry>
+          </row>
+          <row valign="top">
+            <entry>1.0a3</entry>
+            <entry>2003-07-04</entry>
+            <entry morerows="1">2.1 up</entry>
+            <entry morerows="1">On most platforms, 0.7 up optional (newest preferred). On Windows with Python 2.1.x, PyXML 0.7 up required. On Cygwin, 0.8 up (or 0.7 or 0.7.1 with a <ulink url="http://lists.fourthought.com/pipermail/4suite/2002-July/003881.html" type="off-site">patch</ulink>) optional. PyXML required for parsing XML with validation.</entry>
+            <entry morerows="1">PyExpat optional unless FtMiniDom (Python-based lightweight DOM) or CatalogReader (parsing XML with TR9401/XML Catalog support) are being used. Must wrap Expat 1.95.0 or newer if present.</entry>
+            <entry morerows="1"><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+4RDF (Ft.Rdf)
+repository/model (Ft.Server)
+4ODS (Ft.Ods)
+</literallayout></entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">1.0a2</entry>
+            <entry>withdrawn</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-05-30: Python 2.2.3 released.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">1.0a1</entry>
+            <entry>2003-03-28</entry>
+            <entry>2.1 up</entry>
+            <entry>On most platforms, 0.7 up optional (newest preferred). On Windows with Python 2.1.x, PyXML 0.7 up required. On Cygwin, 0.8 up (or 0.7 or 0.7.1 with a <ulink url="http://lists.fourthought.com/pipermail/4suite/2002-July/003881.html" type="off-site">patch</ulink>) optional. PyXML required for parsing XML with validation.</entry>
+            <entry>PyExpat optional unless FtMiniDom (Python-based lightweight DOM) or CatalogReader (parsing XML with TR9401/XML Catalog support) are being used. Must wrap Expat 1.95.0 or newer if present.</entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+4RDF (Ft.Rdf)
+repository/model (Ft.Server)
+4ODS (Ft.Ods)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-02-27: A decision is made to assign the version number 1.0 to future 4Suite releases in this development cycle.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2003-01-26: PyXML 0.8.2 released. This version of PyXML integrates Expat 1.95.6, which is safe. This is the first version of PyXML that works with Python 2.3.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-10-14: Python 2.2.2 released.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.12.0a3</entry>
+            <entry>2002-09-30</entry>
+            <entry>2.1 up</entry>
+            <entry>On most platforms, 0.7 up optional (newest preferred). On Windows with Python 2.1.x, PyXML 0.7 up required. On Cygwin, 0.8 up (or 0.7 or 0.7.1 with a <ulink url="http://lists.fourthought.com/pipermail/4suite/2002-July/003881.html" type="off-site">patch</ulink>) optional. PyXML required for parsing XML with validation.</entry>
+            <entry>PyExpat required</entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+4RDF (Ft.Rdf)
+repository/model (Ft.Server)
+4ODS (Ft.Ods)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-08-16: PyXML 0.8.1 released. Effective with this release, xml.xslt (which is still based on 4XPath from 4Suite 0.11.1) is no longer installed by default, but it can be installed with the --with-xslt option on setup.py. This version of PyXML integrates Expat 1.95.5, which has memory leaks that are exposed by 4Suite, so please avoid this version of PyXML!</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-08-01: PyXML 0.8 released. This version of PyXML integrates Expat 1.95.4.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-05-02: PyXML 0.7.1 released. This version of PyXML integrates Expat 1.95.2 and is the last version of PyXML to support Python 1.x.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-04-10: Python 2.2.1 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-04-08: Python 2.1.3 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-03-22: Starting with 4Suite 0.12.0a2, cDomlette is now the default Domlette implementation. pDomlette is now known as FtMiniDom; enable it with USE_MINIDOM=1 in the environment, rather than BETA_DOMLETTE=0. InputSource API introduced.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.12.0a2</entry>
+            <entry>2002-03-22</entry>
+            <entry>2.0 up; Windows users must build from source if not using Python 2.1.x</entry>
+            <entry morerows="1">On most platforms, 0.7 up optional (newest preferred). On Windows with Python 2.1.x, PyXML 0.7 up required. On Cygwin, 0.8 up (or 0.7 or 0.7.1 with a <ulink url="http://lists.fourthought.com/pipermail/4suite/2002-July/003881.html" type="off-site">patch</ulink>) optional. PyXML required for parsing XML with validation.</entry>
+            <entry morerows="1">PyExpat required</entry>
+            <entry morerows="1"><literallayout>4Lib (Ft.Lib)
+4XML (Ft.Xml)
+4XPath (Ft.Xml.XPath)
+4XSLT (Ft.Xml.Xslt)
+4XUpdate (Ft.Xml.XUpdate)
+4RDF (Ft.Rdf)
+repository/model (Ft.Server)
+4ODS (Ft.Ods)
+</literallayout></entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.12.0a1</entry>
+            <entry>2002-01-26</entry>
+            <entry>2.0-2.2; Windows users must build from source if not using Python 2.1.x. Documentation build fails if PyGreSQL not installed.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2002-01-16: Python 2.1.2 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-12-30: PyXML 0.7 released. PyXML now includes 4XPath &amp; 4XSLT from 4Suite 0.11.1 as the packages xml.xpath &amp; xml.xslt, respectively, with no cDomlette support. 4Suite users are encouraged to install PyXML with the --without-xpath and --without-xslt options on setup.py. Subsequent releases of PyXML will contain some essential bug fixes to these packages, but they will not be re-ported from 4Suite until after 4Suite 1.0 is released (and even then, no guarantees). Another major change in this version of PyXML is that internally, the empty/nonexistent namespace and prefix are now represented by None rather than an empty string; PyXML users needing to represent these in their Python code are encouraged to import the constants EMPTY_NAMESPACE &amp; EMPTY_PREFIX from xml.dom, and 4Suite users can import the same constants from Ft.Xml. This version of PyXML also integrates Expat 1.95.2.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-12-21: Python 2.2 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-09-15: Major rearchitecture of 4Suite begun. The major changes are the abandonment of Python 1.5 support, the removal of PyXML dependencies, a rewrite of 4Suite Server, and a refactoring of the Domlettes. Almost all APIs changed. 4SS (4Suite Server) is no longer a separate add-on; all 4Suite packages are in one distribution. Since we can't think of a good new name for the 4SS features, we just call the document store "the repository" and the RDF database "the model". The repository features a web-based administration interface called Dashboard, and includes support for GraphViz-powered RDF model visualization. The Domlettes, which had been in Ft.Lib, moved to the new Ft.Xml package. pDomlette was renamed to FtMiniDom, but this name change did not fully propagate until the 0.12.0a2 release. 4XPath &amp; 4XSLT moved to Ft.Xml.XPath &amp; Ft.Xml.Xslt.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-09-14: cDomlette introduced in 4Suite 0.11.1; enable with BETA_DOMLETTE=1 in environment.</entry>
+          </row>
+          <row valign="top" role="stable">
+            <entry>0.11.1</entry>
+            <entry>2001-09-14</entry>
+            <entry>1.5.2 up; must build from source if 2.2 up</entry>
+            <entry>0.6.5 or 0.6.6 required (0.6.6 preferred)</entry>
+            <entry>PyExpat required, but since PyXML is required too, there's no need to worry about PyExpat.</entry>
+            <entry><literallayout>4Lib (Ft.Lib)
+4XPath (xml.xpath)
+4XSLT (xml.xslt)
+4XUpdate (Ft.Lib.XUpdate)
+4RDF (Ft.Rdf)
+4ODS (Ft.Ods)
+4SS (FtServer) [dist.&#160;separately]
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-08-05: PyXML 0.6.6 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-07-21: Python 2.1.1 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-06-22: Python 2.0.1 released.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-04-17: Python 2.1 released.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.11</entry>
+            <entry>2001-05-03</entry>
+            <entry morerows="2">1.5.2 up; must build from source if 2.2 up</entry>
+            <entry morerows="2">0.6.5 or 0.6.6 required (0.6.6 preferred)</entry>
+            <entry morerows="2">PyExpat required, but since PyXML is required too, there's no need to worry about PyExpat.</entry>
+            <entry morerows="2"><literallayout>4Lib (Ft.Lib)
+4XPath (xml.xpath)
+4XSLT (xml.xslt)
+4XUpdate (Ft.Lib.XUpdate)
+4RDF (Ft.Rdf)
+4ODS (Ft.Ods)
+4SS (FtServer) [dist.&#160;separately]
+</literallayout></entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.11a2</entry>
+            <entry>2001-04-28</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.11a1</entry>
+            <entry>2001-04-26</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-03-20: PyXML 0.6.5 released. It contains some bug fixes that are essential for 4Suite 0.11.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-02-27: Python 1.6.1 released, but eventually withdrawn due to a license issue.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-02-26: PyXML 0.6.4 released, incorporating 4DOM from 4Suite 0.10.2. 4DOM is now exclusively part of PyXML; it will no longer be distributed with 4Suite.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.10.2</entry>
+            <entry>2001-02-19</entry>
+            <entry morerows="1">1.5.2 up; must build from source if 2.2 up</entry>
+            <entry morerows="1">0.6.3 to 0.6.6 required (0.6.6 preferred). Comes with PyXML 0.6.3.</entry>
+            <entry morerows="1">PyExpat required, but since PyXML is required too, there's no need to worry about PyExpat.</entry>
+            <entry morerows="1"><literallayout>4DOM (xml.dom)
+4Lib (Ft.Lib)
+4XPath (xml.xpath)
+4XSLT (xml.xslt)
+4RDF (Ft.Rdf)
+4ODS (Ft.Ods)
+4SS (FtServer) [dist.&#160;separately]
+</literallayout></entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.10.1</entry>
+            <entry>2001-01-16</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2001-01-07: PyXML 0.6.3 released, still incorporating 4DOM from 4Suite 0.9.1.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.10.0</entry>
+            <entry>2000-12-01</entry>
+            <entry morerows="1">1.5.2 up; must build from source if 2.2 up</entry>
+            <entry morerows="1">0.6.2 required</entry>
+            <entry morerows="1">PyExpat required, but since PyXML is required too, there's no need to worry about PyExpat.</entry>
+            <entry morerows="1"><literallayout>4DOM (xml.dom)
+4Lib (Ft.Lib)
+4XPath (xml.xpath)
+4XSLT (xml.xslt)
+4RDF (Ft.Rdf)
+4ODS (Ft.Ods)
+DbDOM (Ft.DbDom)
+</literallayout></entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.9.2</entry>
+            <entry>2000-11-15</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2000-11-14: PyXML 0.6.2 released, incorporating 4DOM from 4Suite 0.9.1.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2000-10-16: Python 2.0 released. Starting with this release, Python comes bundled with PyExpat as xml.parsers.expat, but it only wraps whatever Expat is already on the system; if Expat is not available at the time Python is built, PyExpat won't be installed at all.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.9.1</entry>
+            <entry>2000-10-14</entry>
+            <entry>1.5.2 + distutils 1.0</entry>
+            <entry>0.5.5.1 to 0.6.1 required</entry>
+            <entry>PyExpat required, but since PyXML is required too, there's no need to worry about PyExpat.</entry>
+            <entry><literallayout>4DOM (xml.dom)
+4Lib (Ft.Lib)
+4XPath (xml.xpath)
+4XSLT (xml.xslt)
+4RDF (Ft.Rdf)
+4ODS (Ft.Ods)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2000-10-08: PyXML 0.6.1 released, still incorporating 4DOM from 4Suite 0.9.0. This is the first version of PyXML that works with Python 2.2.</entry>
+          </row>
+          <row valign="top">
+            <entry role="obsolete">0.9.0</entry>
+            <entry>2000-09-20</entry>
+            <entry>1.5.2 + distutils 0.92, BisonGen 0.5, lex, yacc, swig</entry>
+            <entry>0.5.5.1 to 0.6.1 required</entry>
+            <entry>PyExpat required, but since PyXML is required too, there's no need to worry about PyExpat.</entry>
+            <entry><literallayout>4DOM (xml.dom)
+4Lib (Ft.Lib)
+4XPath (xml.xpath)
+4XSLT (xml.xslt)
+4RDF (Ft.Rdf)
+4ODS (Ft.Ods)
+</literallayout></entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2000-09-20: PyXML 0.6.0 released. PyXML now incorporates 4DOM from 4Suite 0.9.0. This version of PyXML did not have Python 1.5 support, for some reason.</entry>
+          </row>
+          <row>
+            <entry spanname="news.span" role="news">2000-09-05: Python 1.6 released. Due to a license issue, it is eventually withdrawn and largely forgotten.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section id="earlyhistory">
+    <title>Earlier package releases</title>
+
+    <para>Prior to September 2000, the packages 4DOM, 4ODS, 4XPath, 4XSLT, and the base libraries (Domlette, etc., now under 4Lib and 4XML) were distributed separately, each with their own version numbers. The packages were collectively called 4Suite. After they were integrated into a single distribution, 4Suite picked up the 4Lib version number, and the old version numbers for each package eventually became obsolete.</para>
+
+    <para>Some PyXML release dates are also shown here, in order to provide a more complete reference.</para>
+
+    <informaltable frame="all">
+      <tgroup cols="7" colsep="1" rowsep="1">
+        <colspec colname="1"/>
+        <colspec colname="2"/>
+        <colspec colname="3"/>
+        <colspec colname="4"/>
+        <colspec colname="5"/>
+        <colspec colname="6"/>
+        <colspec colname="7"/>
+        <colspec colname="8"/>
+        <thead>
+          <row>
+            <entry morerows="1">Release Date</entry>
+            <entry namest="2" nameend="8">Version Number</entry>
+          </row>
+          <row>
+            <entry align="center">4Lib/base</entry>
+            <entry align="center">4DOM</entry>
+            <entry align="center">4ODS</entry>
+            <entry align="center">4XPath</entry>
+            <entry align="center">4XSLT</entry>
+            <entry align="center">PyXML</entry>
+            <entry align="center">Python</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>2000-07-24</entry>
+            <entry></entry>
+            <entry>0.10.2</entry>
+            <entry></entry>
+            <entry>0.9.2</entry>
+            <entry>0.9.2</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-06-07</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.5.5.1</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-06-06</entry>
+            <entry></entry>
+            <entry>0.10.1</entry>
+            <entry></entry>
+            <entry>0.9.1</entry>
+            <entry>0.9.1</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-06-05</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.5.5</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-05-24</entry>
+            <entry></entry>
+            <entry>0.10.0</entry>
+            <entry></entry>
+            <entry>0.9.0</entry>
+            <entry>0.9.0</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-05-15</entry>
+            <entry>0.8.0b1</entry>
+            <entry>0.10.0b2</entry>
+            <entry></entry>
+            <entry>0.9.0b2</entry>
+            <entry>0.9.0b2</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-05-08</entry>
+            <entry>0.8.0 XML-SIG preview</entry>
+            <entry>0.10.0 XML-SIG preview</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-04-21</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.5.4</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-03-26</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.6.0</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-03-16</entry>
+            <entry>0.7.2</entry>
+            <entry>0.9.3</entry>
+            <entry></entry>
+            <entry>0.8.3</entry>
+            <entry>0.8.3</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-01-26</entry>
+            <entry>0.7.1</entry>
+            <entry>0.9.2</entry>
+            <entry></entry>
+            <entry>0.8.2</entry>
+            <entry>0.8.2</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-01-24</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.5.3</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>2000-01-03</entry>
+            <entry></entry>
+            <entry>0.9.1</entry>
+            <entry></entry>
+            <entry>0.8.1</entry>
+            <entry>0.8.1</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-12-20</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.5.2</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-12-19</entry>
+            <entry>0.7.0</entry>
+            <entry>0.9.0</entry>
+            <entry></entry>
+            <entry>0.8.0</entry>
+            <entry>0.8.0</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-11-26</entry>
+            <entry></entry>
+            <entry>0.9.0a1</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-10-21</entry>
+            <entry>0.6.1</entry>
+            <entry>0.8.2</entry>
+            <entry></entry>
+            <entry>0.7.2</entry>
+            <entry>0.7.2</entry>
+            <entry></entry>
+            <entry></entry>
+           </row>
+          <row>
+            <entry>1999-09-15</entry>
+            <entry></entry>
+            <entry>0.8.1</entry>
+            <entry></entry>
+            <entry>0.7.1</entry>
+            <entry>0.7.1</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-09-01</entry>
+            <entry>0.6.0</entry>
+            <entry>0.8.0</entry>
+            <entry></entry>
+            <entry>0.7.0</entry>
+            <entry>0.7.0</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-04-22</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>4XSL 0.6.1</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-04-14</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.5.1</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-04-13</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.5.2</entry>
+          </row>
+          <row>
+            <entry>1999-03-22</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>4XSL 0.6.0</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1999-02-08</entry>
+            <entry></entry>
+            <entry>0.7.0</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-12-04</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.5</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-11-20</entry>
+            <entry></entry>
+            <entry>0.6.1</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-11-12</entry>
+            <entry></entry>
+            <entry>0.6.0</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-08-06</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.4</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-06-25</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.3</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-06-09</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.2</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-05-22</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.1</entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry>1998-04-14</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.5.1</entry>
+          </row>
+          <row>
+            <entry>1997-12-31</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.5</entry>
+          </row>
+          <row>
+            <entry>1996-10-25</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.4</entry>
+          </row>
+          <row>
+            <entry>1995-10-13</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.3</entry>
+          </row>
+          <row>
+            <entry>1995-04-11</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.2</entry>
+          </row>
+          <row>
+            <entry>1994-10-11</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.1</entry>
+          </row>
+          <row>
+            <entry>1994-07-14</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.0.3</entry>
+          </row>
+          <row>
+            <entry>1994-05-04</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.0.2</entry>
+          </row>
+          <row>
+            <entry>1994-02-15</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.0.1</entry>
+          </row>
+          <row>
+            <entry>1994-01-26</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>1.0.0</entry>
+          </row>
+          <row>
+            <entry>1993-07-29</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.9.9</entry>
+          </row>
+          <row>
+            <entry>1993-01-09</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.9.8</entry>
+          </row>
+          <row>
+            <entry>1992-04-06</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.9.6</entry>
+          </row>
+          <row>
+            <entry>1991-12-24</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.9.4</entry>
+          </row>
+          <row>
+            <entry>1991-??</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.9.2beta</entry>
+          </row>
+          <row>
+            <entry>1991-02</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.9.1</entry>
+          </row>
+          <row>
+            <entry>1991-02</entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry></entry>
+            <entry>0.9.0</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+</article>

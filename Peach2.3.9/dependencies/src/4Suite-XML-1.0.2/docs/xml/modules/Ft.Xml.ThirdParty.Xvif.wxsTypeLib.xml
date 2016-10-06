@@ -1,0 +1,2304 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="IDREFType" public="yes">
+      <bases>
+        <base documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract>Similar to the token builtin class</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="IDREFType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="IDREFType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+            <arg default="None" name="state"/>
+          </arguments>
+          <overrides documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        </method>
+        <static-method public="yes" name="finalize" id="IDREFType-finalize">
+          <abstract>staticmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a static method.
+
+A static method does not receive an implicit first argument.
+To declare a static method, use this idiom:
+
+     class C:
+         def f(arg1, arg2, ...): ...
+         f = staticmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+
+Static methods in Python are similar to those found in Java or C++.
+For a more advanced concept, see the classmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </static-method>
+      </methods>
+      <members name="object">
+        <member public="yes" name="stateful" id="IDREFType-stateful">
+          <value>True</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__new__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="lengthFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="IDType" public="yes">
+      <bases>
+        <base documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract>Similar to the token builtin class</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="IDType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="IDType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+            <arg default="None" name="state"/>
+          </arguments>
+          <overrides documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="yes" name="stateful" id="IDType-stateful">
+          <value>True</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__new__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="lengthFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="_Bounded" public="no">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="no" name="__init__" id="_Bounded-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="_Lexical" public="no">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="_Lexical-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="yes" name="lengthFacet" id="_Lexical-lengthFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="_Lexical-__dict__">
+          <value>&lt;attribute '__dict__' of '_Lexical' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="_Lexical-__weakref__">
+          <value>&lt;attribute '__weakref__' of '_Lexical' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="_Numeric" public="no">
+      <bases>
+        <base documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="yes" name="totalDigitsFacet" id="_Numeric-totalDigitsFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="_Ordered" public="no">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="yes" name="maxExclusiveFacet" id="_Ordered-maxExclusiveFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="maxInclusiveFacet" id="_Ordered-maxInclusiveFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="minExclusiveFacet" id="_Ordered-minExclusiveFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="minInclusiveFacet" id="_Ordered-minInclusiveFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="anyURIType" public="yes">
+      <bases>
+        <base documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract>anyURI is somewhat of a misnomer;
+it is really a URI reference *or* IRI reference.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="anyURIType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="anyURIType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="lengthFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="booleanType" public="yes">
+      <bases>
+        <base documented="yes" class="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="booleanType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="booleanType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        </method>
+      </methods>
+      <inherited-members documented="yes" class="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="lengthFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="byteType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="byteType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="int"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="byteType-max">
+          <value>127</value>
+        </member>
+        <member public="yes" name="min" id="byteType-min">
+          <value>-128</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="int">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="dateTimeType" public="yes">
+      <bases>
+        <base documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="dateTimeType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="no" name="__init__" id="dateTimeType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="dateType" public="yes">
+      <bases>
+        <base documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="dateType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="no" name="__cmp__" id="dateType-__cmp__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="other"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="dateType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="formatWoTZ" id="dateType-formatWoTZ">
+          <value>'%Y-%m-%d'</value>
+        </member>
+        <member public="yes" name="formatZ" id="dateType-formatZ">
+          <value>'%Y-%m-%dZ'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="decimalType" public="yes">
+      <bases>
+        <base documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="decimalType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="no" name="__cmp__" id="decimalType-__cmp__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="other"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="decimalType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="fractionDigitsFacet" id="decimalType-fractionDigitsFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="totalDigitsFacet" id="decimalType-totalDigitsFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="floatType" realname="decimalType" public="yes">
+      <bases>
+        <base documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="decimalType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="no" name="__cmp__" id="decimalType-__cmp__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="other"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="decimalType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="fractionDigitsFacet" id="decimalType-fractionDigitsFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="totalDigitsFacet" id="decimalType-totalDigitsFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="intType" public="yes">
+      <bases>
+        <base documented="no" class="int"/>
+        <base documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="int"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="no" name="__dict__" id="intType-__dict__">
+          <value>&lt;attribute '__dict__' of 'intType' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="intType-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'intType' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="int">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="integerType" public="yes">
+      <bases>
+        <base documented="no" class="long"/>
+        <base documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="no" name="__dict__" id="integerType-__dict__">
+          <value>&lt;attribute '__dict__' of 'integerType' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="longType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="longType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="longType-max">
+          <value>9223372036854775807L</value>
+        </member>
+        <member public="yes" name="min" id="longType-min">
+          <value>-9223372036854775808L</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="negativeIntegerType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="negativeIntegerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="negativeIntegerType-max">
+          <value>-1</value>
+        </member>
+        <member public="yes" name="min" id="negativeIntegerType-min">
+          <value>None</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="nonNegativeIntegerType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="nonNegativeIntegerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="nonNegativeIntegerType-max">
+          <value>None</value>
+        </member>
+        <member public="yes" name="min" id="nonNegativeIntegerType-min">
+          <value>0</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="nonPositiveIntegerType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="nonPositiveIntegerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="nonPositiveIntegerType-max">
+          <value>0</value>
+        </member>
+        <member public="yes" name="min" id="nonPositiveIntegerType-min">
+          <value>None</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="normalizedStringType" public="yes">
+      <bases>
+        <base documented="no" class="str"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="normalizedStringType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="str"/>
+        <base name="basestring"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <static-method public="no" name="__new__" id="normalizedStringType-__new__">
+          <abstract>staticmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a static method.
+
+A static method does not receive an implicit first argument.
+To declare a static method, use this idiom:
+
+     class C:
+         def f(arg1, arg2, ...): ...
+         f = staticmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+
+Static methods in Python are similar to those found in Java or C++.
+For a more advanced concept, see the classmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </static-method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="normalizedStringType-__dict__">
+          <value>&lt;attribute '__dict__' of 'normalizedStringType' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="str">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="positiveIntegerType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="positiveIntegerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="positiveIntegerType-max">
+          <value>None</value>
+        </member>
+        <member public="yes" name="min" id="positiveIntegerType-min">
+          <value>1</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="shortType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="shortType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="int"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="shortType-max">
+          <value>32767</value>
+        </member>
+        <member public="yes" name="min" id="shortType-min">
+          <value>-32768</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="int">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="stringType" public="yes">
+      <bases>
+        <base documented="yes" class="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="stringType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="stringType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        </method>
+        <method public="yes" name="maxLengthFacet" id="stringType-maxLengthFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="minLengthFacet" id="stringType-minLengthFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="patternFacet" id="stringType-patternFacet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-members documented="yes" class="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="lengthFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="timeType" public="yes">
+      <bases>
+        <base documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="timeType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <methods name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <method public="no" name="__init__" id="timeType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="tokenType" public="yes">
+      <bases>
+        <base documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract>Strictly identical to the token builtin class</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="tokenType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="tokenType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+          <overrides documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__new__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Lexical" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="lengthFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="unsignedByteType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="unsignedByteType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="int"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="unsignedByteType-max">
+          <value>255</value>
+        </member>
+        <member public="yes" name="min" id="unsignedByteType-min">
+          <value>0</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="int">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="unsignedIntType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="unsignedIntType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="unsignedIntType-max">
+          <value>4294967295L</value>
+        </member>
+        <member public="yes" name="min" id="unsignedIntType-min">
+          <value>0</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="unsignedLongType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="unsignedLongType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="long"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="unsignedLongType-max">
+          <value>18446744073709551615L</value>
+        </member>
+        <member public="yes" name="min" id="unsignedLongType-min">
+          <value>0</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="integerType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="unsignedShortType" public="yes">
+      <bases>
+        <base documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="unsignedShortType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="int"/>
+        <base name="object"/>
+        <base name="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+        <base name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib"/>
+      </method-resolution-order>
+      <members name="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member public="yes" name="max" id="unsignedShortType-max">
+          <value>65535</value>
+        </member>
+        <member public="yes" name="min" id="unsignedShortType-min">
+          <value>0</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="_Bounded" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="intType" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="int">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="_Numeric" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="totalDigitsFacet" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Ordered" module="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+        <member-reference name="maxExclusiveFacet" public="yes"/>
+        <member-reference name="maxInclusiveFacet" public="yes"/>
+        <member-reference name="minExclusiveFacet" public="yes"/>
+        <member-reference name="minInclusiveFacet" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="BASE_URI" id="BASE_URI">
+      <value>'http://www.w3.org/2001/XMLSchema-datatypes'</value>
+    </global>
+  </globals>
+</module>

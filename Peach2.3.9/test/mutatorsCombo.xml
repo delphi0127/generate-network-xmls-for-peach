@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" author="Michael Eddington">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+
+	<PythonPath path="c:\peach\test"/>
+	<Import import="helpers"/>
+	
+	<DataModel name="GetTemplate">
+		<Block name="Item1">
+			<String name="Item2" value="Hello World! "/>
+			<Block name="Item3">
+				<Number name="Item4" size="8" value="65" />
+			</Block>
+			<Number name="Item5" size="16" value="66" />
+			<Block name="Item6">
+				<Number name="Item7" size="32" value="67" />
+				<Block name="Item8">
+					<Number name="Item9" size="64" value="68" />
+				</Block>
+			</Block>
+			<Blob name="Item10" value="The big blob!" />
+			<Flags name="Item11" size="8">
+				<Flag position="0" size="1"/>
+				<Flag position="4" size="3"/>
+			</Flags>
+		</Block> 
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			<Action name="GetData" type="output">
+				<DataModel ref="GetTemplate" />
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Test name="TheTest">
+		<StateModel ref="TestState" />
+		<Publisher class="helpers.UnittestPublisher"/>
+<!--		<Mutator class="default.NullMutator"/>
+		<Mutator class="string.StringTokenMutator" /> 
+		<Mutator class="string.XmlW3CMutator"/>
+		<Mutator class="string.PathMutator"/>
+		<Mutator class="string.HostnameMutator"/>
+		<Mutator class="string.FilenameMutator"/>
+		<Mutator class="number.NumericalEdgeCaseMutator" />
+		<Mutator class="number.NumericalVarianceMutator" />
+		<Mutator class="blob.BitFlipperMutator" />
+		<Mutator class="datatree.DataTreeRemoveMutator" />
+		<Mutator class="datatree.DataTreeDuplicateMutator" />
+		<Mutator class="datatree.DataTreeSwapNearNodesMutator" /> -->
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

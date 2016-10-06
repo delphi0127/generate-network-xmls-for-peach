@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.EscapeQuotesc">
+  <modification-date>2006-12-16 15:51:24</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="escape" id="escape">
+      <abstract>escape(string)</abstract>
+      <description>Replace all ' with \' and \ with \\</description>
+      <arguments>
+        <unknown>string</unknown>
+      </arguments>
+    </function>
+  </functions>
+</module>

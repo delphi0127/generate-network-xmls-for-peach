@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.profilehooks</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        Module&nbsp;profilehooks
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module profilehooks</h1><p class="nomargin-top"><span class="codelink"><a href="Peach.profilehooks-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+Profiling hooks
+
+This module contains a couple of decorators (`profile` and `coverage`) that
+can be used to wrap functions and/or methods to produce profiles and line
+coverage reports.
+
+Usage example (Python 2.4 or newer)::
+
+    from profilehooks import profile, coverage
+
+    @profile    # or @coverage
+    def fn(n):
+        if n &lt; 2: return 1
+        else: return n * fn(n-1)
+
+    print fn(42)
+
+Usage example (Python 2.3 or older)::
+
+    from profilehooks import profile, coverage
+
+    def fn(n):
+        if n &lt; 2: return 1
+        else: return n * fn(n-1)
+
+    # Now wrap that function in a decorator
+    fn = profile(fn) # or coverage(fn)
+
+    print fn(42)
+
+Reports for all thusly decorated functions will be printed to sys.stdout
+on program termination.  You can alternatively request for immediate
+reports for each call by passing immediate=True to the profile decorator.
+
+There's also a @timecall decorator for printing the time to sys.stderr
+every time a function is called, when you just want to get a rough measure
+instead of a detailed (but costly) profile.
+
+Caveats
+
+  A thread on python-dev convinced me that hotshot produces bogus numbers.
+  See http://mail.python.org/pipermail/python-dev/2005-November/058264.html
+
+  I don't know what will happen if a decorated function will try to call
+  another decorated function.  All decorators probably need to explicitly
+  support nested profiling (currently TraceFuncCoverage is the only one
+  that supports this, while HotShotFuncProfile has support for recursive
+  functions.)
+
+  Profiling with hotshot creates temporary files (*.prof for profiling,
+  *.cprof for coverage) in the current directory.  These files are not
+  cleaned up.  Exception: when you specify a filename to the profile
+  decorator (to store the pstats.Stats object for later inspection),
+  the temporary file will be the filename you specified with '.raw'
+  appended at the end.
+
+  Coverage analysis with hotshot seems to miss some executions resulting
+  in lower line counts and some lines errorneously marked as never
+  executed.  For this reason coverage analysis now uses trace.py which is
+  slower, but more accurate.
+
+Copyright (c) 2004--2008 Marius Gedminas &lt;marius@pov.lt&gt;
+Copyright (c) 2007 Hanno Schlichting
+Copyright (c) 2008 Florian Schulze
+
+Released under the MIT licence since December 2006:
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &quot;Software&quot;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+
+(Previously it was distributed under the GNU General Public Licence.)
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        1.3
+      </p>
+      <p><strong>Date:</strong>
+        2008-06-10
+      </p>
+      <p><strong>Author:</strong>
+        Marius Gedminas (marius@gedmin.as)
+      </p>
+      <p><strong>Copyright:</strong>
+        Copyright 2004-2008, Marius Gedminas
+      </p>
+      <p><strong>License:</strong>
+        MIT
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.profilehooks.FuncProfile-class.html" class="summary-name">FuncProfile</a><br />
+      Profiler for a function (uses profile).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.profilehooks.HotShotFuncProfile-class.html" class="summary-name">HotShotFuncProfile</a><br />
+      Profiler for a function (uses hotshot).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.profilehooks.HotShotFuncCoverage-class.html" class="summary-name">HotShotFuncCoverage</a><br />
+      Coverage analysis for a function (uses _hotshot).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.profilehooks.TraceFuncCoverage-class.html" class="summary-name">TraceFuncCoverage</a><br />
+      Coverage analysis for a function (uses trace module).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.profilehooks.FuncSource-class.html" class="summary-name">FuncSource</a><br />
+      Source code annotator for a function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Peach.profilehooks.FuncTimer-class.html" class="summary-name">FuncTimer</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.profilehooks-module.html#profile" class="summary-sig-name">profile</a>(<span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">skip</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">filename</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">immediate</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">dirs</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">sort</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">entries</span>=<span class="summary-sig-default">40</span>)</span><br />
+      Mark `fn` for profiling.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.profilehooks-pysrc.html#profile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.profilehooks-module.html#coverage" class="summary-sig-name">coverage</a>(<span class="summary-sig-arg">fn</span>)</span><br />
+      Mark `fn` for line coverage analysis.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.profilehooks-pysrc.html#coverage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.profilehooks-module.html#coverage_with_hotshot" class="summary-sig-name">coverage_with_hotshot</a>(<span class="summary-sig-arg">fn</span>)</span><br />
+      Mark `fn` for line coverage analysis.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.profilehooks-pysrc.html#coverage_with_hotshot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Peach.profilehooks-module.html#timecall" class="summary-sig-name">timecall</a>(<span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">immediate</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Wrap `fn` and print its execution time.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Peach.profilehooks-pysrc.html#timecall">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="profile"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">profile</span>(<span class="sig-arg">fn</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">skip</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">filename</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">immediate</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">dirs</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">sort</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">entries</span>=<span class="sig-default">40</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.profilehooks-pysrc.html#profile">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Mark `fn` for profiling.</p>
+  <p>If `skip` is &gt; 0, first `skip` calls to `fn` will not be 
+  profiled.</p>
+  <p>If `immediate` is False, profiling results will be printed to 
+  sys.stdout on program termination.  Otherwise results will be printed 
+  after each call.</p>
+  <p>If `dirs` is False only the name of the file will be printed. 
+  Otherwise the full path is used.</p>
+  <p>`sort` can be a list of sort keys (defaulting to ['cumulative', 
+  'time', 'calls']).  The following ones are recognized:</p>
+<pre class="literalblock">
+   'calls'      -- call count
+   'cumulative' -- cumulative time
+   'file'       -- file name
+   'line'       -- line number
+   'module'     -- file name
+   'name'       -- function name
+   'nfl'        -- name/file/line
+   'pcalls'     -- call count
+   'stdname'    -- standard name
+   'time'       -- internal time
+</pre>
+  <p>`entries` limits the output to the first N entries.</p>
+  <p>If `filename` is specified, the profile stats will be stored in the 
+  named file.  You can load them pstats.Stats(filename).</p>
+  <p>Usage:</p>
+<pre class="literalblock">
+   def fn(...):
+       ...
+   fn = profile(fn, skip=1)
+</pre>
+  <p>If you are using Python 2.4, you should be able to use the decorator 
+  syntax:</p>
+<pre class="literalblock">
+   @profile(skip=3)
+   def fn(...):
+       ...
+</pre>
+  <p>or just :</p>
+<pre class="literalblock">
+   @profile
+   def fn(...):
+       ...
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="coverage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">coverage</span>(<span class="sig-arg">fn</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.profilehooks-pysrc.html#coverage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Mark `fn` for line coverage analysis.</p>
+  <p>Results will be printed to sys.stdout on program termination.</p>
+  <p>Usage:</p>
+<pre class="literalblock">
+   def fn(...):
+       ...
+   fn = coverage(fn)
+</pre>
+  <p>If you are using Python 2.4, you should be able to use the decorator 
+  syntax:</p>
+<pre class="literalblock">
+   @coverage
+   def fn(...):
+       ...
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="coverage_with_hotshot"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">coverage_with_hotshot</span>(<span class="sig-arg">fn</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.profilehooks-pysrc.html#coverage_with_hotshot">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Mark `fn` for line coverage analysis.</p>
+  <p>Uses the 'hotshot' module for fast coverage analysis.</p>
+  <p>BUG: Produces inaccurate results.</p>
+  <p>See the docstring of `coverage` for usage examples.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="timecall"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">timecall</span>(<span class="sig-arg">fn</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">immediate</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Peach.profilehooks-pysrc.html#timecall">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Wrap `fn` and print its execution time.
+
+Example::
+
+    @timecall
+    def somefunc(x, y):
+        time.sleep(x * y)
+
+    somefunc(2, 3)
+
+will print the time taken by somefunc on every call.  If you want just
+a summary at program termination, use
+
+    @timecall(immediate=False)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:28 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

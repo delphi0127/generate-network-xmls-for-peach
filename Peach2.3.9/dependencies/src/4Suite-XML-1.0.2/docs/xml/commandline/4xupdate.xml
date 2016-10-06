@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<application name="4xupdate">
+  <description>command-line tool for performing XUpdates on XML documents</description>
+  <verbose-description>4XUpdate command-line application</verbose-description>
+  <options>
+    <option short-name="h" long-name="help">
+      <description>show detailed help message</description>
+    </option>
+    <option short-name="V" long-name="version">
+      <description>display version information and exit</description>
+    </option>
+    <option short-name="o" long-name="outfile">
+      <description>Write the result to the given output file</description>
+      <argument name="FILE">
+      </argument>
+    </option>
+  </options>
+  <arguments>
+    <argument required="yes" multiple="no" name="source-uri">
+      <description>The URI of the XML document to which to apply the XUpdate, or &quot;-&quot; to indicate standard input.</description>
+    </argument>
+    <argument required="yes" multiple="no" name="xupdate-uri">
+      <description>The URI of the XML document containing XUpdate instructions, or &quot;-&quot; to indicate standard input.</description>
+    </argument>
+  </arguments>
+</application>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="stringType" public="yes">
+      <bases>
+        <base documented="no" class="unicode"/>
+      </bases>
+      <abstract>This class is strictly identical to the python's unicode type</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="stringType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__dict__" id="stringType-__dict__">
+          <value>&lt;attribute '__dict__' of 'stringType' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="stringType-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'stringType' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="tokenType" public="yes">
+      <bases>
+        <base documented="no" class="unicode"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="tokenType" module="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib"/>
+        <base name="unicode"/>
+        <base name="basestring"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <static-method public="no" name="__new__" id="tokenType-__new__">
+          <abstract>staticmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a static method.
+
+A static method does not receive an implicit first argument.
+To declare a static method, use this idiom:
+
+     class C:
+         def f(arg1, arg2, ...): ...
+         f = staticmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+
+Static methods in Python are similar to those found in Java or C++.
+For a more advanced concept, see the classmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </static-method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="tokenType-__dict__">
+          <value>&lt;attribute '__dict__' of 'tokenType' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="tokenType-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'tokenType' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="unicode">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="capitalize" public="yes"/>
+        <member-reference name="center" public="yes"/>
+        <member-reference name="count" public="yes"/>
+        <member-reference name="decode" public="yes"/>
+        <member-reference name="encode" public="yes"/>
+        <member-reference name="endswith" public="yes"/>
+        <member-reference name="expandtabs" public="yes"/>
+        <member-reference name="find" public="yes"/>
+        <member-reference name="index" public="yes"/>
+        <member-reference name="isalnum" public="yes"/>
+        <member-reference name="isalpha" public="yes"/>
+        <member-reference name="isdecimal" public="yes"/>
+        <member-reference name="isdigit" public="yes"/>
+        <member-reference name="islower" public="yes"/>
+        <member-reference name="isnumeric" public="yes"/>
+        <member-reference name="isspace" public="yes"/>
+        <member-reference name="istitle" public="yes"/>
+        <member-reference name="isupper" public="yes"/>
+        <member-reference name="join" public="yes"/>
+        <member-reference name="ljust" public="yes"/>
+        <member-reference name="lower" public="yes"/>
+        <member-reference name="lstrip" public="yes"/>
+        <member-reference name="replace" public="yes"/>
+        <member-reference name="rfind" public="yes"/>
+        <member-reference name="rindex" public="yes"/>
+        <member-reference name="rjust" public="yes"/>
+        <member-reference name="rsplit" public="yes"/>
+        <member-reference name="rstrip" public="yes"/>
+        <member-reference name="split" public="yes"/>
+        <member-reference name="splitlines" public="yes"/>
+        <member-reference name="startswith" public="yes"/>
+        <member-reference name="strip" public="yes"/>
+        <member-reference name="swapcase" public="yes"/>
+        <member-reference name="title" public="yes"/>
+        <member-reference name="translate" public="yes"/>
+        <member-reference name="upper" public="yes"/>
+        <member-reference name="zfill" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

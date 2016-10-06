@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- TODO: Create data model -->
+	<DataModel name="Return">
+		<Number name="Value" size="32" />
+	</DataModel>
+	
+	<DataModel name="TestCase1">
+		<Number size="16" valueType="hex" value="0ffe" />
+		<Number size="32" valueType="hex" value="fffffe" />
+	</DataModel>
+	
+	<DataModel name="TestCase1_1" pointer="true">
+		<Number size="16" valueType="hex" value="0ffe" />
+		<Number size="32" valueType="hex" value="fffffe" />
+	</DataModel>
+	
+	<DataModel name="TestCase2">
+		<Number size="8" valueType="hex" value="fe" />
+	</DataModel>
+	
+	<DataModel name="TestCase3">
+		<Number size="8" valueType="hex" value="fe" />
+		<Number size="8" valueType="hex" value="ef" />
+		<Number size="8" valueType="hex" value="00" />
+		<Block ref="TestCase1" />
+	</DataModel>
+	
+	<DataModel name="TestCase4">
+		<Number size="8" valueType="hex" value="fe" />
+		<Block ref="TestCase2" pointer="true" />
+		<Block ref="TestCase1" pointer="true" />
+		<Number size="8" valueType="hex" value="ef" />
+	</DataModel>
+	
+	<DataModel name="TestCase4_1" pointer="true" pointerDepth="2">
+		<Number size="8" valueType="hex" value="fe" />
+		<Block ref="TestCase2" pointer="true" />
+		<Block ref="TestCase1" pointer="true" />
+		<Number size="8" valueType="hex" value="ef" />
+	</DataModel>
+    
+    <DataModel name="Context" pointer="true">
+        <Number name="context" size="32" />
+        <Number name="tlscontext" size="32" />
+        <Number name="connect" size="32" />
+    </DataModel>
+
+	<!-- TODO: Create state model -->
+	<StateModel name="TheState" initialState="Initial">
+		<State name="Initial">
+			<!--
+			<Action type="call" method="TestCase1">
+				<Param name="value" type="in">
+					<DataModel ref="TestCase1"/>
+				</Param>
+                <Result name="ret">
+                    <DataModel ref="Return" />
+                </Result>
+			</Action>
+-->
+            <Action type="call" method="TestCase1_1">
+				<Param name="value" type="in">
+					<DataModel ref="TestCase1_1"/>
+				</Param>
+                <Result name="ret">
+                    <DataModel ref="Context" />
+                </Result>
+			</Action>
+            
+            <!--
+			
+			<Action type="call" method="TestCase2">
+				<Param name="value" type="in">
+					<DataModel ref="TestCase2"/>
+				</Param>
+			</Action>
+			
+			<Action type="call" method="TestCase3">
+				<Param name="value" type="in">
+					<DataModel ref="TestCase3"/>
+				</Param>
+			</Action>
+			
+			<Action type="call" method="TestCase4">
+				<Param name="value" type="in">
+					<DataModel ref="TestCase4"/>
+				</Param>
+			</Action>
+			
+			<Action type="call" method="TestCase4_1">
+				<Param name="value" type="in">
+					<DataModel ref="TestCase4_1"/>
+				</Param>
+			</Action>
+            -->
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<!-- <Agent ref="LocalAgent"/> -->
+		<StateModel ref="TheState" />
+		<Publisher class="dll.Dll">
+			<Param name="library" value="C:\\peach\\test\\CtypesHelper\\x64\\Debug\\CtypesHelper.dll"/>
+		</Publisher>
+	</Test>
+	
+	<!-- Configure a single run -->
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

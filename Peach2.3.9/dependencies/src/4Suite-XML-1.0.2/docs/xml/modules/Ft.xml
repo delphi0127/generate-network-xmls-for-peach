@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft">
+  <modification-date>2006-09-24 14:37:46</modification-date>
+  <abstract>4Suite: an open-source platform for XML and RDF processing.</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <version>0.0</version>
+  <modules>
+    <module-reference public="yes" documented="yes" name="Lib" realname="Ft.Lib">
+      <abstract>Module providing common utilities for many 4Suite components,
+as well as for general use.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Xml" realname="Ft.Xml">
+      <abstract>Module providing utilities for processing XML files</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+  </modules>
+  <classes>
+    <class name="FtException" public="yes">
+      <bases>
+        <base documented="no" class="Exception"/>
+      </bases>
+      <abstract>Base class for all 4Suite-specific exceptions</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+        <base name="BaseException"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__getattr__" id="FtException-__getattr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="FtException-__init__">
+          <abstract>errorCode = Numeric ID for the type of error.
+messages = Mapping of errorCodes to localized error message strings.
+argtuple or keyword args = Values for message string formatting.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <arg name="messages"/>
+            <arg default="()" name="argtuple"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="no" class="Exception"/>
+        </method>
+        <method public="no" name="__repr__" id="FtException-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Exception"/>
+        </method>
+        <method public="no" name="__str__" id="FtException-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="Exception"/>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__weakref__" id="FtException-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'FtException' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__new__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="BaseException">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__setstate__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="BaseException">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="args" public="no"/>
+        <member-reference name="message" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="FtWarning" public="yes">
+      <bases>
+        <base documented="no" class="Warning"/>
+      </bases>
+      <abstract>Base class for all 4Suite-specific warnings.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="FtWarning" module="Ft"/>
+        <base name="Warning"/>
+        <base name="Exception"/>
+        <base name="BaseException"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__weakref__" id="FtWarning-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'FtWarning' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="Warning">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="BaseException">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__setstate__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="BaseException">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="args" public="no"/>
+        <member-reference name="message" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="GetConfigVar" id="GetConfigVar">
+      <abstract>Return the value of a single variable using the dictionary returned
+by 'get_config_vars()'.  Equivalent to GetConfigVars().get(name)</abstract>
+      <description/>
+      <arguments>
+        <arg name="name"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetConfigVars" id="GetConfigVars">
+      <abstract>With no arguments, return a dictionary of all configuration variables
+relevant for the current installation.  With arguments, return a list
+of values that result from looking up each argument in the configuration
+variable dictionary.</abstract>
+      <description>The following are the currently defined variables and their meaning:
+
+NAME, FULLNAME, VERSION, URL - fields as given for call to setup()
+BINDIR - directory for user executables
+DATADIR - directory for read-only platform-independent data
+LIBDIR - directory for extra libraries
+LOCALEDIR - directory for message catalogs
+LOCALSTATEDIR - directory for modifiable host-specific data
+SYSCONFIDIR - directory for read-only host-specific data</description>
+      <arguments>
+        <var-args name="names"/>
+      </arguments>
+    </function>
+    <function public="yes" name="TranslateMessage" realname="gettext" id="TranslateMessage">
+      <abstract/>
+      <description/>
+      <arguments>
+        <unknown>...</unknown>
+      </arguments>
+    </function>
+    <function public="no" name="__showwarning" id="__showwarning">
+      <abstract>warnings.showwarning() replacement that word-wraps the message if
+file is a terminal, and doesn't add filename, line, stack info to
+FtWarnings.</abstract>
+      <description/>
+      <arguments>
+        <arg name="message"/>
+        <arg name="category"/>
+        <arg name="filename"/>
+        <arg name="lineno"/>
+        <arg default="None" name="file"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DEFAULT_ENCODING" id="DEFAULT_ENCODING">
+      <value>'UTF-8'</value>
+    </global>
+    <global public="yes" name="MAX_PYTHON_RECURSION_DEPTH" id="MAX_PYTHON_RECURSION_DEPTH">
+      <value>10000</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['DEFAULT_ENCODING', 'MAX_PYTHON_RECURSION_DEPTH', '__version__', 'FtException', 'FtWarning', 'GetConfigVars', 'GetConfigVar', 'TranslateMessage']</value>
+    </global>
+    <global public="yes" name="__version__" id="__version__">
+      <value>'0.0'</value>
+    </global>
+    <global public="no" name="bundle" id="bundle">
+      <value>None</value>
+    </global>
+    <global public="no" name="encoding" id="encoding">
+      <value>'UTF-8'</value>
+    </global>
+    <global public="no" name="translation" id="translation">
+      <value>&lt;gettext.NullTranslations instance at 0xb7d52f6c&gt;</value>
+    </global>
+  </globals>
+</module>

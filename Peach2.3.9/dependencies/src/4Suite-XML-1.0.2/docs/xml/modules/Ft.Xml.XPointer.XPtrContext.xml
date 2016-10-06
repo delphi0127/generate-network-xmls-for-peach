@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPointer.XPtrContext">
+  <modification-date>2002-07-16 17:37:23</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="XPtrContext" public="yes">
+      <bases>
+        <base documented="yes" class="Context" module="Ft.Xml.XPath.Context"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="XPtrContext" module="Ft.Xml.XPointer.XPtrContext"/>
+        <base name="Context" module="Ft.Xml.XPath.Context"/>
+      </method-resolution-order>
+      <methods name="Context" module="Ft.Xml.XPath.Context">
+        <method public="no" name="__init__" id="XPtrContext-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg name="position"/>
+            <arg name="size"/>
+            <arg name="originalContext"/>
+            <arg default="None" name="processorNss"/>
+            <arg default="None" name="extModuleList"/>
+            <arg default="None" name="extFunctionMap"/>
+          </arguments>
+          <overrides documented="yes" class="Context" module="Ft.Xml.XPath.Context"/>
+        </method>
+        <method public="no" name="__repr__" id="XPtrContext-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Context" module="Ft.Xml.XPath.Context"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Context" module="Ft.Xml.XPath.Context">
+        <member-reference name="addFunction" public="yes"/>
+        <member-reference name="clone" public="yes"/>
+        <member-reference name="copy" public="yes"/>
+        <member-reference name="set" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Context" module="Ft.Xml.XPath.Context">
+        <member-reference name="currentInstruction" public="yes"/>
+        <member-reference name="functions" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+</module>

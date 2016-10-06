@@ -1,0 +1,1610 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.cDomlette">
+  <modification-date>2006-08-27 11:55:13</modification-date>
+  <abstract>cDomlette implementation: a very fast DOM-like library tailored for use in XPath/XSLT</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Attr" public="yes">
+      <bases>
+        <base documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>Attr(ownerDocument, namespaceURI, qualifiedName) -&gt; Attr object</abstract>
+      <description>The Attr interface represents an attribute in an Element object.</description>
+      <method-resolution-order>
+        <base name="Attr" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__new__" id="Attr-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+        </method>
+        <method public="no" name="__repr__" id="Attr-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="localName" id="Attr-localName">
+          <value>&lt;member 'localName' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+        <member public="no" name="name" id="Attr-name">
+          <value>&lt;member 'name' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+        <member public="no" name="namespaceURI" id="Attr-namespaceURI">
+          <value>&lt;member 'namespaceURI' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+        <member public="no" name="nextSibling" id="Attr-nextSibling">
+          <value>None</value>
+        </member>
+        <member public="no" name="nodeName" id="Attr-nodeName">
+          <value>&lt;member 'nodeName' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeType" id="Attr-nodeType">
+          <value>2</value>
+        </member>
+        <member public="no" name="nodeValue" id="Attr-nodeValue">
+          <value>&lt;attribute 'nodeValue' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+        <member public="no" name="ownerElement" id="Attr-ownerElement">
+          <value>&lt;member 'ownerElement' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+        <member public="no" name="prefix" id="Attr-prefix">
+          <value>&lt;attribute 'prefix' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+        <member public="no" name="previousSibling" id="Attr-previousSibling">
+          <value>None</value>
+        </member>
+        <member public="no" name="specified" id="Attr-specified">
+          <value>1</value>
+        </member>
+        <member public="no" name="value" id="Attr-value">
+          <value>&lt;attribute 'value' of 'Ft.Xml.cDomlette.Attr' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="CharacterData" public="yes">
+      <bases>
+        <base documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>CharacterData(ownerDocument, data) -&gt; CharacterData object</abstract>
+      <description>This interface represents a block of XML character data.</description>
+      <method-resolution-order>
+        <base name="CharacterData" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__new__" id="CharacterData-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+        </method>
+        <method public="no" name="__repr__" id="CharacterData-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="appendData" id="CharacterData-appendData">
+          <abstract>Append the string to the end of the character data of the node.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="deleteData" id="CharacterData-deleteData">
+          <abstract>Remove a range of unicode units from the node.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="insertData" id="CharacterData-insertData">
+          <abstract>Insert a string at the specified unicode unit offset.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="replaceData" id="CharacterData-replaceData">
+          <abstract>Replace the characters starting at the specified unicode unit offset with
+the specified string.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="substringData" id="CharacterData-substringData">
+          <abstract>Extracts a range of data from the node.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="data" id="CharacterData-data">
+          <value>&lt;attribute 'data' of 'Ft.Xml.cDomlette.CharacterData' objects&gt;</value>
+        </member>
+        <member public="no" name="length" id="CharacterData-length">
+          <value>&lt;attribute 'length' of 'Ft.Xml.cDomlette.CharacterData' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeValue" id="CharacterData-nodeValue">
+          <value>&lt;attribute 'nodeValue' of 'Ft.Xml.cDomlette.CharacterData' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="localName" public="no"/>
+        <member-reference name="namespaceURI" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="prefix" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Comment" public="yes">
+      <bases>
+        <base documented="yes" class="CharacterData" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>Comment(ownerDocument, data) -&gt; Comment object</abstract>
+      <description>This interface represents the content of a comment, i.e., all the characters
+between the starting '&lt;!--' and ending '--&gt;'.</description>
+      <method-resolution-order>
+        <base name="Comment" module="Ft.Xml.cDomlette"/>
+        <base name="CharacterData" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="nodeName" id="Comment-nodeName">
+          <value>u'#comment'</value>
+        </member>
+        <member public="no" name="nodeType" id="Comment-nodeType">
+          <value>8</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="CharacterData" module="Ft.Xml.cDomlette">
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="appendData" public="no"/>
+        <member-reference name="deleteData" public="no"/>
+        <member-reference name="insertData" public="no"/>
+        <member-reference name="replaceData" public="no"/>
+        <member-reference name="substringData" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="CharacterData" module="Ft.Xml.cDomlette">
+        <member-reference name="data" public="no"/>
+        <member-reference name="length" public="no"/>
+        <member-reference name="nodeValue" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="localName" public="no"/>
+        <member-reference name="namespaceURI" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="prefix" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="DOMImplementation" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="DOMImplementation" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__repr__" id="DOMImplementation-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createDocument" id="DOMImplementation-createDocument">
+          <abstract>Creates a Document object of the specified type with its document element.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createRootNode" id="DOMImplementation-createRootNode">
+          <abstract>Creates a Document object with the specified documentURI.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="hasFeature" id="DOMImplementation-hasFeature">
+          <abstract>Test if the DOM implementation implements a specific feature.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Document" public="yes">
+      <bases>
+        <base documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>Document([documentURI]) -&gt; Document object</abstract>
+      <description>The Document interface represents the entire XML document. Conceptually,
+it is the root of the document tree, and provides the primary access to the
+document's data.</description>
+      <method-resolution-order>
+        <base name="Document" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__new__" id="Document-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+        </method>
+        <method public="no" name="__repr__" id="Document-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createAttributeNS" id="Document-createAttributeNS">
+          <abstract>createAttributeNS(namespaceURI, qualifiedName) -&gt; new Attribute</abstract>
+          <description>Creates an attribute of the given qualified name and namespace URI.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createComment" id="Document-createComment">
+          <abstract>createComment(data) -&gt; new Comment</abstract>
+          <description>Creates a Comment node given the specified string.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createDocumentFragment" id="Document-createDocumentFragment">
+          <abstract>createDocumentFragment() -&gt; new DocumentFragment</abstract>
+          <description>Creates an empty DocumentFragment object.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createElementNS" id="Document-createElementNS">
+          <abstract>createElementNS(namespaceURI, qualifiedName) -&gt; new Element</abstract>
+          <description>Creates an element of the given qualified name and namespace URI.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createProcessingInstruction" id="Document-createProcessingInstruction">
+          <abstract>createProcessingInstruction(target, data) -&gt; new ProcessingInstruction</abstract>
+          <description>Creates a ProcessingInstruction node given the specified name and data
+strings.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="createTextNode" id="Document-createTextNode">
+          <abstract>createTextNode(data) -&gt; new Text</abstract>
+          <description>Creates a Text node given the specified string.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="getElementById" id="Document-getElementById">
+          <abstract>getElementById(elementId) -&gt; Element</abstract>
+          <description>Returns the Element whose ID is given by elementId. If no such element
+exists, returns None. If more than one element has this ID, the first in
+the document is returned.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="importNode" id="Document-importNode">
+          <abstract>importNode(importedNode, deep) -&gt; Node</abstract>
+          <description>Imports a node from another document to this document. The returned node
+has no parent; (parentNode is None). The source node is not altered or
+removed from the original document; this method creates a new copy of the
+source node.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="doctype" id="Document-doctype">
+          <value>None</value>
+        </member>
+        <member public="no" name="documentElement" id="Document-documentElement">
+          <value>&lt;attribute 'documentElement' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+        <member public="no" name="documentURI" id="Document-documentURI">
+          <value>&lt;attribute 'documentURI' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+        <member public="yes" name="implementation" id="Document-implementation">
+          <value>&lt;DOMImplementation&gt;</value>
+        </member>
+        <member public="no" name="nodeName" id="Document-nodeName">
+          <value>u'#document'</value>
+        </member>
+        <member public="no" name="nodeType" id="Document-nodeType">
+          <value>9</value>
+        </member>
+        <member public="no" name="ownerDocument" id="Document-ownerDocument">
+          <value>None</value>
+        </member>
+        <member public="no" name="publicId" id="Document-publicId">
+          <value>&lt;attribute 'publicId' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+        <member public="no" name="refUri" id="Document-refUri">
+          <value>&lt;member 'refUri' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+        <member public="no" name="rootNode" id="Document-rootNode">
+          <value>&lt;attribute 'rootNode' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+        <member public="no" name="systemId" id="Document-systemId">
+          <value>&lt;attribute 'systemId' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+        <member public="no" name="unparsedEntities" id="Document-unparsedEntities">
+          <value>&lt;member 'unparsedEntities' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+        <member public="no" name="xmlBase" id="Document-xmlBase">
+          <value>&lt;member 'xmlBase' of 'Ft.Xml.cDomlette.Document' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="localName" public="no"/>
+        <member-reference name="namespaceURI" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="nodeValue" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="prefix" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="DocumentFragment" public="yes">
+      <bases>
+        <base documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>DocumentFragment(ownerDocument) -&gt; DocumentFragment object</abstract>
+      <description>DocumentFragment is a &quot;lightweight&quot; or &quot;minimal&quot; Document object.</description>
+      <method-resolution-order>
+        <base name="DocumentFragment" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__new__" id="DocumentFragment-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+        </method>
+        <method public="no" name="__repr__" id="DocumentFragment-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="nodeName" id="DocumentFragment-nodeName">
+          <value>u'#document-fragment'</value>
+        </member>
+        <member public="no" name="nodeType" id="DocumentFragment-nodeType">
+          <value>11</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="localName" public="no"/>
+        <member-reference name="namespaceURI" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="nodeValue" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="prefix" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Element" public="yes">
+      <bases>
+        <base documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>Element(ownerDocument, namespaceURI, qualifiedName) -&gt; Element object</abstract>
+      <description>The Element interface represents an element in an XML document.</description>
+      <method-resolution-order>
+        <base name="Element" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__new__" id="Element-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+        </method>
+        <method public="no" name="__repr__" id="Element-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="getAttributeNS" id="Element-getAttributeNS">
+          <abstract>Retrieves an attribute value by local name and namespace URI.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="getAttributeNodeNS" id="Element-getAttributeNodeNS">
+          <abstract>Retrieves an Attr node by local name and namespace URI.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="hasAttributeNS" id="Element-hasAttributeNS">
+          <abstract>Returns True when an attribute with a given local name and namespace URI
+is specified on this element or has a default value, False otherwise.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="removeAttributeNS" id="Element-removeAttributeNS">
+          <abstract>Removes an attribute by local name and namespace URI.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="removeAttributeNode" id="Element-removeAttributeNode">
+          <abstract>Removes the specified attribute node.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="setAttributeNS" id="Element-setAttributeNS">
+          <abstract>Adds a new attribute.  If an attribute with the same local name and
+namespace URI is already present on the element, its prefix is changed
+to be the prefix part of the qualifiedName, and its value is changed to
+be the value parameter.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="setAttributeNodeNS" id="Element-setAttributeNodeNS">
+          <abstract>Adds a new attribute. If an attribute with that local name and that
+namespace URI is already present in the element, it is replaced by the
+new one. Replacing an attribute node by itself has no effect.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="attributes" id="Element-attributes">
+          <value>&lt;attribute 'attributes' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+        <member public="no" name="localName" id="Element-localName">
+          <value>&lt;member 'localName' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+        <member public="no" name="namespaceURI" id="Element-namespaceURI">
+          <value>&lt;member 'namespaceURI' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeName" id="Element-nodeName">
+          <value>&lt;member 'nodeName' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeType" id="Element-nodeType">
+          <value>1</value>
+        </member>
+        <member public="no" name="prefix" id="Element-prefix">
+          <value>&lt;attribute 'prefix' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+        <member public="no" name="tagName" id="Element-tagName">
+          <value>&lt;member 'tagName' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+        <member public="no" name="xpathAttributes" id="Element-xpathAttributes">
+          <value>&lt;attribute 'xpathAttributes' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+        <member public="no" name="xpathNamespaces" id="Element-xpathNamespaces">
+          <value>&lt;attribute 'xpathNamespaces' of 'Ft.Xml.cDomlette.Element' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="nodeValue" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Node" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+        <base documented="no" class="Node" module="xml.dom"/>
+      </bases>
+      <abstract>The Node type is the primary datatype for the entire Document Object Model.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__eq__" id="Node-__eq__">
+          <abstract>x.__eq__(y) &lt;==&gt; x==y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__ge__" id="Node-__ge__">
+          <abstract>x.__ge__(y) &lt;==&gt; x&gt;=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__gt__" id="Node-__gt__">
+          <abstract>x.__gt__(y) &lt;==&gt; x&gt;y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__hash__" id="Node-__hash__">
+          <abstract>x.__hash__() &lt;==&gt; hash(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__iter__" id="Node-__iter__">
+          <abstract>x.__iter__() &lt;==&gt; iter(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__le__" id="Node-__le__">
+          <abstract>x.__le__(y) &lt;==&gt; x&lt;=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__lt__" id="Node-__lt__">
+          <abstract>x.__lt__(y) &lt;==&gt; x&lt;y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__ne__" id="Node-__ne__">
+          <abstract>x.__ne__(y) &lt;==&gt; x!=y</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Node-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="appendChild" id="Node-appendChild">
+          <abstract>Adds the node newChild to the end of the list of children of this node.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="cloneNode" id="Node-cloneNode">
+          <abstract>Returns a duplicate of this node, i.e., serves as a generic copy
+constructor for nodes.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="hasChildNodes" id="Node-hasChildNodes">
+          <abstract>Returns whether this node has any children.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="insertBefore" id="Node-insertBefore">
+          <abstract>Inserts the node newChild before the existing child node refChild.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="isSameNode" id="Node-isSameNode">
+          <abstract>Returns whether this node is the same node as the given one. (DOM Level 3)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="normalize" id="Node-normalize">
+          <abstract>Puts all Text nodes in the full depth of the sub-tree underneath this Node,
+including attribute nodes, into a &quot;normal&quot; form where only structure
+(e.g., elements, comments, processing instructions, CDATA sections, and
+entity references) separates Text nodes, i.e., there are neither adjacent
+Text nodes nor empty Text nodes.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="removeChild" id="Node-removeChild">
+          <abstract>Removes the child node indicated by oldChild from the list of children, and
+returns it.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="replaceChild" id="Node-replaceChild">
+          <abstract>Replaces the child node oldChild with newChild in the list of children, and
+returns the oldChild node.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+        <method public="no" name="xpath" id="Node-xpath">
+          <abstract>Evaluates an XPath expression string using this node as context.</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="attributes" id="Node-attributes">
+          <value>None</value>
+        </member>
+        <member public="no" name="baseURI" id="Node-baseURI">
+          <value>&lt;attribute 'baseURI' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="childNodes" id="Node-childNodes">
+          <value>&lt;attribute 'childNodes' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="firstChild" id="Node-firstChild">
+          <value>&lt;attribute 'firstChild' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="lastChild" id="Node-lastChild">
+          <value>&lt;attribute 'lastChild' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="localName" id="Node-localName">
+          <value>None</value>
+        </member>
+        <member public="no" name="namespaceURI" id="Node-namespaceURI">
+          <value>None</value>
+        </member>
+        <member public="no" name="nextSibling" id="Node-nextSibling">
+          <value>&lt;attribute 'nextSibling' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeValue" id="Node-nodeValue">
+          <value>None</value>
+        </member>
+        <member public="no" name="ownerDocument" id="Node-ownerDocument">
+          <value>&lt;member 'ownerDocument' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="parentNode" id="Node-parentNode">
+          <value>&lt;member 'parentNode' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="prefix" id="Node-prefix">
+          <value>None</value>
+        </member>
+        <member public="no" name="previousSibling" id="Node-previousSibling">
+          <value>&lt;attribute 'previousSibling' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="rootNode" id="Node-rootNode">
+          <value>&lt;member 'rootNode' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="xmlBase" id="Node-xmlBase">
+          <value>&lt;attribute 'xmlBase' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="xpathAttributes" id="Node-xpathAttributes">
+          <value>&lt;attribute 'xpathAttributes' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+        <member public="no" name="xpathNamespaces" id="Node-xpathNamespaces">
+          <value>&lt;attribute 'xpathNamespaces' of 'Ft.Xml.cDomlette.Node' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ProcessingInstruction" public="yes">
+      <bases>
+        <base documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>ProcessingInstruction(ownerDocument, target, data) -&gt; ProcessingInstruction</abstract>
+      <description>The ProcessingInstruction interface represents a &quot;processing instruction&quot;,
+used in XML as a way to keep processor-specific information in the text of
+the document.</description>
+      <method-resolution-order>
+        <base name="ProcessingInstruction" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__new__" id="ProcessingInstruction-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+        </method>
+        <method public="no" name="__repr__" id="ProcessingInstruction-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="data" id="ProcessingInstruction-data">
+          <value>&lt;attribute 'data' of 'Ft.Xml.cDomlette.ProcessingInstruction' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeName" id="ProcessingInstruction-nodeName">
+          <value>&lt;member 'nodeName' of 'Ft.Xml.cDomlette.ProcessingInstruction' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeType" id="ProcessingInstruction-nodeType">
+          <value>7</value>
+        </member>
+        <member public="no" name="nodeValue" id="ProcessingInstruction-nodeValue">
+          <value>&lt;attribute 'nodeValue' of 'Ft.Xml.cDomlette.ProcessingInstruction' objects&gt;</value>
+        </member>
+        <member public="no" name="target" id="ProcessingInstruction-target">
+          <value>&lt;member 'target' of 'Ft.Xml.cDomlette.ProcessingInstruction' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="localName" public="no"/>
+        <member-reference name="namespaceURI" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="prefix" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Text" public="yes">
+      <bases>
+        <base documented="yes" class="CharacterData" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>Text(ownerDocument, data) -&gt; Text object</abstract>
+      <description>This interface represents the contents of a text node.</description>
+      <method-resolution-order>
+        <base name="Text" module="Ft.Xml.cDomlette"/>
+        <base name="CharacterData" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="nodeName" id="Text-nodeName">
+          <value>u'#text'</value>
+        </member>
+        <member public="no" name="nodeType" id="Text-nodeType">
+          <value>3</value>
+        </member>
+        <member public="no" name="xsltOutputEscaping" id="Text-xsltOutputEscaping">
+          <value>True</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="CharacterData" module="Ft.Xml.cDomlette">
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="appendData" public="no"/>
+        <member-reference name="deleteData" public="no"/>
+        <member-reference name="insertData" public="no"/>
+        <member-reference name="replaceData" public="no"/>
+        <member-reference name="substringData" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="CharacterData" module="Ft.Xml.cDomlette">
+        <member-reference name="data" public="no"/>
+        <member-reference name="length" public="no"/>
+        <member-reference name="nodeValue" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="localName" public="no"/>
+        <member-reference name="namespaceURI" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="prefix" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="XPathNamespace" public="yes">
+      <bases>
+        <base documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+      </bases>
+      <abstract>XPathNamespace(parentNode, prefix, namespaceURI) -&gt; XPathNamespace object</abstract>
+      <description>The XPathNamespace interface represents the XPath namespace node type
+that DOM lacks.</description>
+      <method-resolution-order>
+        <base name="XPathNamespace" module="Ft.Xml.cDomlette"/>
+        <base name="Node" module="Ft.Xml.cDomlette"/>
+        <base name="object"/>
+        <base name="Node" module="xml.dom"/>
+      </method-resolution-order>
+      <methods name="Node" module="xml.dom">
+        <method public="no" name="__new__" id="XPathNamespace-__new__">
+          <abstract>T.__new__(S, ...) -&gt; a new object with type S, a subtype of T</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+          <overrides documented="yes" class="Node" module="Ft.Xml.cDomlette"/>
+        </method>
+        <method public="no" name="__repr__" id="XPathNamespace-__repr__">
+          <abstract>x.__repr__() &lt;==&gt; repr(x)</abstract>
+          <description/>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Node" module="xml.dom">
+        <member public="no" name="localName" id="XPathNamespace-localName">
+          <value>&lt;member 'localName' of 'Ft.Xml.cDomlette.XPathNamespace' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeName" id="XPathNamespace-nodeName">
+          <value>&lt;member 'nodeName' of 'Ft.Xml.cDomlette.XPathNamespace' objects&gt;</value>
+        </member>
+        <member public="no" name="nodeType" id="XPathNamespace-nodeType">
+          <value>13</value>
+        </member>
+        <member public="no" name="nodeValue" id="XPathNamespace-nodeValue">
+          <value>&lt;member 'nodeValue' of 'Ft.Xml.cDomlette.XPathNamespace' objects&gt;</value>
+        </member>
+        <member public="no" name="value" id="XPathNamespace-value">
+          <value>&lt;member 'value' of 'Ft.Xml.cDomlette.XPathNamespace' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="appendChild" public="no"/>
+        <member-reference name="cloneNode" public="no"/>
+        <member-reference name="hasChildNodes" public="no"/>
+        <member-reference name="insertBefore" public="no"/>
+        <member-reference name="isSameNode" public="no"/>
+        <member-reference name="normalize" public="no"/>
+        <member-reference name="removeChild" public="no"/>
+        <member-reference name="replaceChild" public="no"/>
+        <member-reference name="xpath" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Node" module="Ft.Xml.cDomlette">
+        <member-reference name="attributes" public="no"/>
+        <member-reference name="baseURI" public="no"/>
+        <member-reference name="childNodes" public="no"/>
+        <member-reference name="firstChild" public="no"/>
+        <member-reference name="lastChild" public="no"/>
+        <member-reference name="namespaceURI" public="no"/>
+        <member-reference name="nextSibling" public="no"/>
+        <member-reference name="ownerDocument" public="no"/>
+        <member-reference name="parentNode" public="no"/>
+        <member-reference name="prefix" public="no"/>
+        <member-reference name="previousSibling" public="no"/>
+        <member-reference name="rootNode" public="no"/>
+        <member-reference name="xmlBase" public="no"/>
+        <member-reference name="xpathAttributes" public="no"/>
+        <member-reference name="xpathNamespaces" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+      <inherited-members documented="no" class="Node" module="xml.dom">
+        <member-reference name="ATTRIBUTE_NODE" public="no"/>
+        <member-reference name="CDATA_SECTION_NODE" public="no"/>
+        <member-reference name="COMMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_FRAGMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_NODE" public="no"/>
+        <member-reference name="DOCUMENT_TYPE_NODE" public="no"/>
+        <member-reference name="ELEMENT_NODE" public="no"/>
+        <member-reference name="ENTITY_NODE" public="no"/>
+        <member-reference name="ENTITY_REFERENCE_NODE" public="no"/>
+        <member-reference name="NOTATION_NODE" public="no"/>
+        <member-reference name="PROCESSING_INSTRUCTION_NODE" public="no"/>
+        <member-reference name="TEXT_NODE" public="no"/>
+        <member-reference name="TREE_POSITION_ANCESTOR" public="no"/>
+        <member-reference name="TREE_POSITION_DESCENDENT" public="no"/>
+        <member-reference name="TREE_POSITION_DISCONNECTED" public="no"/>
+        <member-reference name="TREE_POSITION_EQUIVALENT" public="no"/>
+        <member-reference name="TREE_POSITION_FOLLOWING" public="no"/>
+        <member-reference name="TREE_POSITION_PRECEDING" public="no"/>
+        <member-reference name="TREE_POSITION_SAME_NODE" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="GetAllNs" id="GetAllNs">
+      <abstract>GetAllNs(node) -&gt; dict</abstract>
+      <description>Get all of the namespaces defined in scope of this node.</description>
+      <arguments>
+        <unknown>node</unknown>
+      </arguments>
+    </function>
+    <function public="no" name="HandleStep" id="HandleStep">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="expr"/>
+        <arg name="states"/>
+        <arg name="nss"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NonvalParse" id="NonvalParse">
+      <abstract>NonvalParse(isrc[, readExtDtd]) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc[, readExtDtd]</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="Parse" id="Parse">
+      <abstract>Parse(isrc[, readExtDtd]) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc[, readExtDtd]</unknown>
+      </arguments>
+    </function>
+    <function public="no" name="ProcessFragment" id="ProcessFragment">
+      <abstract>Take an XPointer fragment and return a structure suitable for the
+cDomlette parser to update state tables
+Xptr e.g. xmlns(x=http://uche.ogbuji.net/eg) xpointer(/x:spam/x:eggs)</abstract>
+      <description/>
+      <arguments>
+        <arg name="frag"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SeekNss" id="SeekNss">
+      <abstract>SeekNss(node) -&gt; dict</abstract>
+      <description>Traverses the tree to seek an approximate set of defined namespaces.</description>
+      <arguments>
+        <unknown>node</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="ValParse" id="ValParse">
+      <abstract>ValParse(isrc) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc</unknown>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="ATTRIBUTE_MATCH" id="ATTRIBUTE_MATCH">
+      <value>3</value>
+    </global>
+    <global public="no" name="ELEMENT_COUNT" id="ELEMENT_COUNT">
+      <value>1</value>
+    </global>
+    <global public="no" name="ELEMENT_ID" id="ELEMENT_ID">
+      <value>0</value>
+    </global>
+    <global public="no" name="ELEMENT_MATCH" id="ELEMENT_MATCH">
+      <value>2</value>
+    </global>
+    <global public="no" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="no" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['implementation', 'DOMImplementation', 'DocumentFragment', 'Document', 'Node', 'CharacterData', 'Attr', 'Element', 'Text', 'Comment', 'ProcessingInstruction', 'XPathNamespace', 'NonvalParse', 'Parse', 'GetAllNs', 'SeekNss', 'ValParse']</value>
+    </global>
+    <global public="yes" name="implementation" id="implementation">
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <value>&lt;DOMImplementation&gt;</value>
+    </global>
+  </globals>
+</module>

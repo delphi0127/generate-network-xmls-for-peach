@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt.DateTime">
+  <modification-date>2006-08-31 12:39:08</modification-date>
+  <abstract>Implementation of EXSLT Dates and Times module</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="DateFormatElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract>The date:date-format element declares a date format, which controls the
+interpretation of a format pattern used by the date:format-date and
+date:parse-date functions.</abstract>
+      <description>Unimplemented (actually unused by afore mentioned functions).</description>
+      <method-resolution-order>
+        <base name="DateFormatElement" module="Ft.Xml.Xslt.Exslt.DateTime"/>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="appendChild" public="yes"/>
+        <member-reference name="expandQName" public="yes"/>
+        <member-reference name="insertChild" public="yes"/>
+        <member-reference name="instantiate" public="yes"/>
+        <member-reference name="parseAVT" public="yes"/>
+        <member-reference name="parseExpression" public="yes"/>
+        <member-reference name="parsePattern" public="yes"/>
+        <member-reference name="processChildren" public="yes"/>
+        <member-reference name="splitQName" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="category" public="yes"/>
+        <member-reference name="content" public="yes"/>
+        <member-reference name="legalAttrs" public="yes"/>
+        <member-reference name="validator" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+        <member-reference name="setup" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="doesSetup" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+    <class name="_DateTime" public="no">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract>INTERNAL: representation of an exact point on a timeline.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="_DateTime" module="Ft.Xml.Xslt.Exslt.DateTime"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="_DateTime-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="year"/>
+            <arg default="None" name="month"/>
+            <arg default="None" name="day"/>
+            <arg default="None" name="hour"/>
+            <arg default="None" name="minute"/>
+            <arg default="None" name="second"/>
+            <arg default="None" name="timezone"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="__repr__" id="_DateTime-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="__str__" id="_DateTime-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <class-method public="yes" name="now" id="_DateTime-now">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+        <class-method public="yes" name="parse" id="_DateTime-parse">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+        <method public="yes" name="utcoffset" id="_DateTime-utcoffset">
+          <abstract>Returns the offset from UTC in minutes.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__slots__" id="_DateTime-__slots__">
+          <value>('year', 'month', 'day', 'hour', 'minute', 'second', 'timezone')</value>
+        </member>
+        <member public="yes" name="datatypes" id="_DateTime-datatypes">
+          <value>{'date': &lt;_sre.SRE_Pattern object&gt;, 'dateTime': &lt;_sre.SRE_Pattern object&gt;, 'gDay': &lt;_sre.SRE_Pattern object&gt;, 'gMonth': &lt;_sre.SRE_Pattern object&gt;, 'gMonthDay': &lt;_sre.SRE_Pattern object&gt;, 'gYear': &lt;_sre.SRE_Pattern object&gt;, 'gYearMonth': &lt;_sre.SRE_Pattern object&gt;, 'time': &lt;_sre.SRE_Pattern object&gt;}</value>
+        </member>
+        <member public="yes" name="day" id="_DateTime-day">
+          <value>&lt;member 'day' of '_DateTime' objects&gt;</value>
+        </member>
+        <member public="yes" name="hour" id="_DateTime-hour">
+          <value>&lt;member 'hour' of '_DateTime' objects&gt;</value>
+        </member>
+        <member public="yes" name="minute" id="_DateTime-minute">
+          <value>&lt;member 'minute' of '_DateTime' objects&gt;</value>
+        </member>
+        <member public="yes" name="month" id="_DateTime-month">
+          <value>&lt;member 'month' of '_DateTime' objects&gt;</value>
+        </member>
+        <member public="yes" name="patterns" id="_DateTime-patterns">
+          <value>{'day': '(?P&lt;day&gt;[0-9]{2})', 'hour': '(?P&lt;hour&gt;[0-9]{2})', 'minute': '(?P&lt;minute&gt;[0-9]{2})', 'month': '(?P&lt;month&gt;[0-9]{2})', 'second': '(?P&lt;second&gt;[0-9]{2}(?:[.][0-9]+)?)', 'timezone': '(?P&lt;timezone&gt;Z|[-+][0-9]{2}:[0-9]{2})', 'year': '(?P&lt;year&gt;[-]?[0-9]{4,})'}</value>
+        </member>
+        <member public="yes" name="second" id="_DateTime-second">
+          <value>&lt;member 'second' of '_DateTime' objects&gt;</value>
+        </member>
+        <member public="yes" name="timezone" id="_DateTime-timezone">
+          <value>&lt;member 'timezone' of '_DateTime' objects&gt;</value>
+        </member>
+        <member public="yes" name="year" id="_DateTime-year">
+          <value>&lt;member 'year' of '_DateTime' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="_Duration" public="no">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Duration" module="Ft.Xml.Xslt.Exslt.DateTime"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="_Duration-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="negative"/>
+            <arg default="None" name="years"/>
+            <arg default="None" name="months"/>
+            <arg default="None" name="days"/>
+            <arg default="None" name="hours"/>
+            <arg default="None" name="minutes"/>
+            <arg default="None" name="seconds"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="__repr__" id="_Duration-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="__str__" id="_Duration-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <class-method public="yes" name="parse" id="_Duration-parse">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__slots__" id="_Duration-__slots__">
+          <value>('negative', 'years', 'months', 'days', 'hours', 'minutes', 'seconds')</value>
+        </member>
+        <member public="yes" name="days" id="_Duration-days">
+          <value>&lt;member 'days' of '_Duration' objects&gt;</value>
+        </member>
+        <member public="yes" name="hours" id="_Duration-hours">
+          <value>&lt;member 'hours' of '_Duration' objects&gt;</value>
+        </member>
+        <member public="yes" name="minutes" id="_Duration-minutes">
+          <value>&lt;member 'minutes' of '_Duration' objects&gt;</value>
+        </member>
+        <member public="yes" name="months" id="_Duration-months">
+          <value>&lt;member 'months' of '_Duration' objects&gt;</value>
+        </member>
+        <member public="yes" name="negative" id="_Duration-negative">
+          <value>&lt;member 'negative' of '_Duration' objects&gt;</value>
+        </member>
+        <member public="yes" name="regexp" id="_Duration-regexp">
+          <value>&lt;_sre.SRE_Pattern object&gt;</value>
+        </member>
+        <member public="yes" name="seconds" id="_Duration-seconds">
+          <value>&lt;member 'seconds' of '_Duration' objects&gt;</value>
+        </member>
+        <member public="yes" name="years" id="_Duration-years">
+          <value>&lt;member 'years' of '_Duration' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="Add" id="Add">
+      <abstract>The date:add function returns the result of adding a duration to a dateTime.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="dateTime"/>
+        <arg name="duration"/>
+      </arguments>
+    </function>
+    <function public="yes" name="AddDuration" id="AddDuration">
+      <abstract>The date:add-duration function returns the duration resulting from adding
+two durations together.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="duration1"/>
+        <arg name="duration2"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Date" id="Date">
+      <abstract>The date:date function returns the date portion of the dateTime
+argument if present, or of the current local date/time. The
+argument can be given in xs:dateTime or xs:date format.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DateTime" id="DateTime">
+      <abstract>The date:date-time function returns the current local date/time as an
+ISO 8601 formatted date/time string, with a time zone.</abstract>
+      <description>Implements version 1.</description>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DayAbbreviation" id="DayAbbreviation">
+      <abstract>The date:day-abbreviation function returns the English abbreviation
+for the day name of a given date.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DayInMonth" id="DayInMonth">
+      <abstract>The date:day-in-month function returns the numerical date, i.e.
+27 for the 27th of March.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DayInWeek" id="DayInWeek">
+      <abstract>The date:day-in-week function returns a number representing the
+weekday of a given date. Sunday is 1, Saturday is 7.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DayInYear" id="DayInYear">
+      <abstract>The date:day-in-year function returns a number representing
+the position of a date in the year.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DayName" id="DayName">
+      <abstract>The date:day-name function returns the full English day name of
+a given date.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DayOfWeekInMonth" id="DayOfWeekInMonth">
+      <abstract>The date:day-of-week-in-month function returns the day-of-the-week
+in a month of a date as a number (e.g. 3 for the 3rd Tuesday in May).</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Difference" id="Difference">
+      <abstract>The date:difference function returns the difference between the first date
+and the second date as a duration in string form.</abstract>
+      <description>Implements version 1.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="start"/>
+        <arg name="end"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Duration" id="Duration">
+      <abstract>The date:duration function returns a duration string representing the
+number of seconds specified by the argument string. If no argument is
+given, then the result of calling date:seconds without any arguments is
+used as a default argument.</abstract>
+      <description>Implements version 1.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="seconds"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FormatDate" id="FormatDate">
+      <abstract>The date:format-date function formats a date/time according to a pattern.</abstract>
+      <description>The first argument to date:format-date specifies the date/time to be
+formatted. It must be right or left-truncated date/time strings in one of
+the formats defined in XML Schema Part 2: Datatypes.  The permitted
+formats are as follows: xs:dateTime, xs:date, xs:time, xs:gYearMonth,
+xs:gYear, xs:gMonthDay, xs:gMonth and xs:gDay.
+
+The second argument is a string that gives the format pattern used to
+format the date. The format pattern must be in the syntax specified by
+the JDK 1.1 SimpleDateFormat class. The format pattern string is
+interpreted as described for the JDK 1.1 SimpleDateFormat class.
+
+Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="dateTime"/>
+        <arg name="pattern"/>
+      </arguments>
+    </function>
+    <function public="yes" name="HourInDay" id="HourInDay">
+      <abstract>The date:hour-in-date function returns the hour portion of a date-
+time string as an integer.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="LeapYear" id="LeapYear">
+      <abstract>The date:leap-year function returns true if the year argument
+(defaults to current year) is a leap year, false otherwise.</abstract>
+      <description>Implements version 1.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="MinuteInHour" id="MinuteInHour">
+      <abstract>The date:minute-in-hour function returns the minute portion of a
+date-time string as an integer.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="MonthAbbreviation" id="MonthAbbreviation">
+      <abstract>The date:month-abbreviation function returns the abbreviation
+of the month of a date.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="MonthInYear" id="MonthInYear">
+      <abstract>The date:month-in-year function returns the month portion of
+the dateTime argument (defaults to current month) as an integer.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="MonthName" id="MonthName">
+      <abstract>The date:month-name function returns the full English name
+of the month portion of a date.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ParseDate" id="ParseDate">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="dateString"/>
+        <arg name="pattern"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SecondInMinute" id="SecondInMinute">
+      <abstract>The date:second-in-minute function returns the seconds portion
+of a date-time string as an integer.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Seconds" id="Seconds">
+      <abstract>The date:seconds function returns the number of seconds specified by the
+argument string. If no argument is given, then the current local
+date/time, as returned by date:date-time is used as a default argument.</abstract>
+      <description>Implements version 1.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Sum" id="Sum">
+      <abstract>The date:sum function adds a set of durations together. The string values
+of the nodes in the node set passed as an argument are interpreted as
+durations and added together as if using the date:add-duration function.</abstract>
+      <description>Implements version 1.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Time" id="Time">
+      <abstract>The date:time function returns the time portion of the dateTime
+argument if present, or of the current local date/time. The
+argument can be given in xs:dateTime or xs:time format.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="WeekInMonth" id="WeekInMonth">
+      <abstract>The date:week-in-month function returns the week in a month of a date as
+a number. If no argument is given, then the current local date/time, as
+returned by date:date-time is used the default argument. For the purposes
+of numbering, the first day of the month is in week 1 and new weeks begin
+on a Monday (so the first and last weeks in a month will often have less
+than 7 days in them).</abstract>
+      <description>Implements version 3.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="WeekInYear" id="WeekInYear">
+      <abstract>The date:week-in-year function returns a number representing
+the week of the year a date is in.</abstract>
+      <description>Implements version 3.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Year" id="Year">
+      <abstract>The date:year function returns the year portion of the
+dateTime supplied, or of the current year, as an integer.</abstract>
+      <description>Implements version 2.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="dateTime"/>
+      </arguments>
+    </function>
+    <function public="no" name="_addDurations" id="_addDurations">
+      <abstract>INTERNAL: returns a new duration from the sum of the sequence of durations</abstract>
+      <description/>
+      <arguments>
+        <var-args name="durations"/>
+      </arguments>
+    </function>
+    <function public="no" name="_coerce" id="_coerce">
+      <abstract>INTERNAL: converts an XPath object to a _DateTime instance.</abstract>
+      <description/>
+      <arguments>
+        <arg name="obj"/>
+        <arg name="datatypes"/>
+      </arguments>
+    </function>
+    <function public="no" name="_dayInYear" id="_dayInYear">
+      <abstract>INTERNAL: calculates the ordinal date for the given date.</abstract>
+      <description/>
+      <arguments>
+        <arg name="year"/>
+        <arg name="month"/>
+        <arg name="day"/>
+      </arguments>
+    </function>
+    <function public="no" name="_dayOfWeek" id="_dayOfWeek">
+      <abstract>INTERNAL: calculates the day of week (0=Sun, 6=Sat) for the given date.</abstract>
+      <description/>
+      <arguments>
+        <arg name="year"/>
+        <arg name="month"/>
+        <arg name="day"/>
+      </arguments>
+    </function>
+    <function public="no" name="_daysInMonth" id="_daysInMonth">
+      <abstract>INTERNAL: calculates the number of days in a month for the given date.</abstract>
+      <description/>
+      <arguments>
+        <arg name="year"/>
+        <arg name="month"/>
+      </arguments>
+    </function>
+    <function public="no" name="_difference" id="_difference">
+      <abstract>INTERNAL: subtracts the end date from the start date.</abstract>
+      <description/>
+      <arguments>
+        <arg name="start"/>
+        <arg name="end"/>
+      </arguments>
+    </function>
+    <function public="no" name="_julianDay" id="_julianDay">
+      <abstract>INTERNAL: calculates the Julian day (1-1-1 is day 1) for the given date.</abstract>
+      <description/>
+      <arguments>
+        <arg name="year"/>
+        <arg name="month"/>
+        <arg name="day"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EXSL_DATE_TIME_NS" id="EXSL_DATE_TIME_NS">
+      <value>'http://exslt.org/dates-and-times'</value>
+    </global>
+    <global public="yes" name="ExtElements" id="ExtElements">
+      <value>{}</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://exslt.org/dates-and-times', 'add'): &lt;function Add&gt;, ('http://exslt.org/dates-and-times', 'add-duration'): &lt;function AddDuration&gt;, ('http://exslt.org/dates-and-times', 'date'): &lt;function Date&gt;, ('http://exslt.org/dates-and-times', 'date-time'): &lt;function DateTime&gt;, ('http://exslt.org/dates-and-times', 'day-abbreviation'): &lt;function DayAbbreviation&gt;, ('http://exslt.org/dates-and-times', 'day-in-month'): &lt;function DayInMonth&gt;, ('http://exslt.org/dates-and-times', 'day-in-week'): &lt;function DayInWeek&gt;, ('http://exslt.org/dates-and-times', 'day-in-year'): &lt;function DayInYear&gt;, ('http://exslt.org/dates-and-times', 'day-name'): &lt;function DayName&gt;, ('http://exslt.org/dates-and-times', 'day-of-week-in-month'): &lt;function DayOfWeekInMonth&gt;, ...}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://exslt.org/dates-and-times': 'date'}</value>
+    </global>
+  </globals>
+</module>

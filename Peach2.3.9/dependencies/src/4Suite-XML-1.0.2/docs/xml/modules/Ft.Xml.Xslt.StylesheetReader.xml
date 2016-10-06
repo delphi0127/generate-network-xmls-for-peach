@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.StylesheetReader">
+  <modification-date>2006-04-28 13:54:50</modification-date>
+  <abstract>Classes for the creation of a stylesheet object</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="StylesheetReader" public="yes">
+      <bases>
+        <base documented="yes" class="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler"/>
+      </bases>
+      <abstract>This class can be used to read, from a variety of sources, a
+stylesheet and all its included and imported stylesheets, building
+from them a single, compact representation of an XSLT stylesheet
+tree (an Ft.Xml.Xslt.Stylesheet.Stylesheet object).</abstract>
+      <description>This is done with the most efficient parsing method available, and
+avoids creating a Domlette document for each document it reads.</description>
+      <method-resolution-order>
+        <base name="StylesheetReader" module="Ft.Xml.Xslt.StylesheetReader"/>
+        <base name="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler"/>
+      </method-resolution-order>
+      <methods name="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler">
+        <method public="no" name="__init__" id="StylesheetReader-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="altBaseUris"/>
+            <arg default="None" name="ownerDocument"/>
+            <arg default="0" name="importIndex"/>
+            <arg default="None" name="globalVars"/>
+            <arg default="None" name="extElements"/>
+            <arg default="None" name="visitedStyUris"/>
+          </arguments>
+          <overrides documented="yes" class="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler"/>
+        </method>
+        <method public="yes" name="clone" id="StylesheetReader-clone">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler"/>
+        </method>
+        <method public="yes" name="fromDocument" id="StylesheetReader-fromDocument">
+          <abstract>Read in a stylesheet source document from a Domlette and add it to
+the stylesheet tree. If a document with the same URI has already been
+read, the cached version will be used instead (so duplicate imports,
+includes, or stylesheet appends do not result in multiple reads).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="document"/>
+            <arg default="''" name="baseUri"/>
+            <arg default="None" name="factory"/>
+          </arguments>
+        </method>
+        <method public="yes" name="fromInstant" id="StylesheetReader-fromInstant">
+          <abstract>Read in an &quot;instant&quot; stylesheet (a pickled stylesheet tree) and add
+it to the stylesheet tree.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="instant"/>
+            <arg default="''" name="baseUri"/>
+            <arg default="0" name="is_import"/>
+          </arguments>
+        </method>
+        <method public="yes" name="fromSrc" id="StylesheetReader-fromSrc">
+          <abstract>Read in a stylesheet source document from an InputSource and add it to
+the stylesheet tree. If a document with the same URI has already been
+read, the cached version will be used instead (so duplicate imports,
+includes, or stylesheet appends do not result in multiple reads).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="isrc"/>
+            <arg default="None" name="extElements"/>
+          </arguments>
+        </method>
+        <method public="yes" name="reset" id="StylesheetReader-reset">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler">
+        <member-reference name="addExtensionElementMapping" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="endDocument" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="getResult" public="yes"/>
+        <member-reference name="setDocumentLocator" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+        <member-reference name="startPrefixMapping" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="no" name="_change_node" id="_change_node">
+      <abstract># Utility function for fromInstant()</abstract>
+      <description/>
+      <arguments>
+        <arg name="xslt_node"/>
+        <arg name="attributes"/>
+        <arg default="0" name="importIndex"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="STYLESHEET_WHITESPACE_RULES" id="STYLESHEET_WHITESPACE_RULES">
+      <value>[(u'http://www.w3.org/1999/XSL/Transform', 'text', False), (None, '*', True)]</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+    <global public="yes" name="property_dom_node" id="property_dom_node">
+      <value>'http://xml.org/sax/properties/dom-node'</value>
+    </global>
+  </globals>
+</module>

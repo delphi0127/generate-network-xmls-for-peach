@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+  author="Michael Eddington" description="Hello World Example">
+  
+  <!-- Import defaults for Peach instance -->
+  <Include ns="default" src="file:defaults.xml" />
+  <Include ns="whatever" src="file:mysamples/negotiate.xml"/>
+  <Include ns="whatever" src="file:mysamples/session-setup-neg.xml"/>
+  <Include ns="whatever" src="file:mysamples/smb-reply.xml"/>
+  
+  <StateModel name="State" initialState="Initial">
+  <State name="Initial">
+    <Action type="start" />
+    <Action type="connect" />
+    
+    <Action type="output">
+      <DataModel ref="negotiate" />
+    </Action>
+    
+    <!--<Action type="input" name="negotiate-reply">
+        <DataModel ref="reply"/>
+    </Action>-->
+    
+    <Action name="ChangeToNegDone" type="changeState" ref="NegDone"/>
+  </State>
+    
+  <State name="NegDone">
+    <!--
+    <Action type="slurp" name="SlurpData" valueXpath="//negotiate-reply//VariableLengthField0//ProcessID" setXpath="//ssn//VariableLengthField0//ProcessID" />
+    -->
+    
+    <Action type="output">
+      <DataModel ref="ssn" />
+    </Action>
+    <!--
+    <Action type="input" >
+      <DataModel ref="reply"/>
+    </Action>
+    -->
+    
+    <Action type="close" />
+    <Action type="stop" />
+  </State>
+  </StateModel>
+  
+  <Test name="NegotiateTest">
+    <StateModel ref="State" />
+    <Publisher class="tcp.Tcp">
+      <Param name="Host" value="10.1.0.2" />
+      <Param name="Port" value="445" />
+    </Publisher>
+  </Test>
+  
+  <Run name="DefaultRun">
+    <Test ref="NegotiateTest"/>
+  </Run>
+  
+</Peach>

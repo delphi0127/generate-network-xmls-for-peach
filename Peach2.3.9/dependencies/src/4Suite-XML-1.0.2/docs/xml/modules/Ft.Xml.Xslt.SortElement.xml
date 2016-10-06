@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.SortElement">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>xsl:sort implementation
+    
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</abstract>
+  <description/>
+  <classes>
+    <class name="Descending" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Descending" module="Ft.Xml.Xslt.SortElement"/>
+      </method-resolution-order>
+      <methods name="Descending" module="Ft.Xml.Xslt.SortElement">
+        <method public="no" name="__call__" id="Descending-__call__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="a"/>
+            <arg name="b"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="Descending-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="comparer"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="SortElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="SortElement" module="Ft.Xml.Xslt.SortElement"/>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="yes" name="evaluate" id="SortElement-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getComparer" id="SortElement-getComparer">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="makeComparer" id="SortElement-makeComparer">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="order"/>
+            <arg name="data_type"/>
+            <arg name="case_order"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setup" id="SortElement-setup">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="category" id="SortElement-category">
+          <value>None</value>
+        </member>
+        <member public="yes" name="content" id="SortElement-content">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Atom instance&gt;</value>
+        </member>
+        <member public="yes" name="doesSetup" id="SortElement-doesSetup">
+          <value>1</value>
+        </member>
+        <member public="yes" name="legalAttrs" id="SortElement-legalAttrs">
+          <value>{'case-order': &lt;Ft.Xml.Xslt.AttributeInfo.ChoiceAvt instance&gt;, 'data-type': &lt;Ft.Xml.Xslt.AttributeInfo.ChoiceAvt instance&gt;, 'lang': &lt;Ft.Xml.Xslt.AttributeInfo.NMTokenAvt instance&gt;, 'order': &lt;Ft.Xml.Xslt.AttributeInfo.ChoiceAvt instance&gt;, 'select': &lt;Ft.Xml.Xslt.AttributeInfo.StringExpression instance&gt;}</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="appendChild" public="yes"/>
+        <member-reference name="expandQName" public="yes"/>
+        <member-reference name="insertChild" public="yes"/>
+        <member-reference name="instantiate" public="yes"/>
+        <member-reference name="parseAVT" public="yes"/>
+        <member-reference name="parseExpression" public="yes"/>
+        <member-reference name="parsePattern" public="yes"/>
+        <member-reference name="processChildren" public="yes"/>
+        <member-reference name="splitQName" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="validator" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="FloatCompare" id="FloatCompare">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="a"/>
+        <arg name="b"/>
+      </arguments>
+    </function>
+    <function public="yes" name="LowerFirstCompare" id="LowerFirstCompare">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="a"/>
+        <arg name="b"/>
+      </arguments>
+    </function>
+    <function public="yes" name="UpperFirstCompare" id="UpperFirstCompare">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="a"/>
+        <arg name="b"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

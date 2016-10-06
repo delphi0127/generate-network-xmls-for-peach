@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.TestSuite.TestObject">
+  <modification-date>2002-08-16 11:38:09</modification-date>
+  <abstract>Provides the TestObject base class used in TestSuite modules.</abstract>
+  <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TestObject" public="yes">
+      <abstract>Base class for all test objects.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="TestObject" module="Ft.Lib.TestSuite.TestObject"/>
+      </method-resolution-order>
+      <methods name="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <method public="no" name="__init__" id="TestObject-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="TestObject-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getModes" id="TestObject-getModes">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getTests" id="TestObject-getTests">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="run" id="TestObject-run">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+        </method>
+        <method public="yes" name="showTests" id="TestObject-showTests">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="TestObject" module="Ft.Lib.TestSuite.TestObject">
+        <member public="yes" name="modes" id="TestObject-modes">
+          <value>None</value>
+        </member>
+        <member public="yes" name="tests" id="TestObject-tests">
+          <value>None</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Id: TestObject.py,v 1.2 2002/08/16 17:38:09 molson Exp $'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.XPatterns">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>Implement Patterns according to the XSLT spec</abstract>
+  <description>Copyright 1999-2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="DocumentNodeTest" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DocumentNodeTest" module="Ft.Xml.Xslt.XPatterns"/>
+      </method-resolution-order>
+      <methods name="DocumentNodeTest" module="Ft.Xml.Xslt.XPatterns">
+        <method public="no" name="__init__" id="DocumentNodeTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="DocumentNodeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="DocumentNodeTest-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="DocumentNodeTest-getQuickKey">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="DocumentNodeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg name="principalType"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="IdKeyNodeTest" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="IdKeyNodeTest" module="Ft.Xml.Xslt.XPatterns"/>
+      </method-resolution-order>
+      <methods name="IdKeyNodeTest" module="Ft.Xml.Xslt.XPatterns">
+        <method public="no" name="__init__" id="IdKeyNodeTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="idOrKey"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="IdKeyNodeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="IdKeyNodeTest-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="IdKeyNodeTest-getQuickKey">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="IdKeyNodeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg name="principalType"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Pattern" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Pattern" module="Ft.Xml.Xslt.XPatterns"/>
+      </method-resolution-order>
+      <methods name="Pattern" module="Ft.Xml.Xslt.XPatterns">
+        <method public="no" name="__init__" id="Pattern-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="steps"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Pattern-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Pattern-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="Pattern-getQuickKey">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getShortcut" id="Pattern-getShortcut">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="Pattern-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg default="None" name="dummy"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="Pattern-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Patterns" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Patterns" module="Ft.Xml.Xslt.XPatterns"/>
+      </method-resolution-order>
+      <methods name="Patterns" module="Ft.Xml.Xslt.XPatterns">
+        <method public="no" name="__init__" id="Patterns-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="patterns"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Patterns-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Patterns-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getShortcuts" id="Patterns-getShortcuts">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="Patterns-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pprint" id="Patterns-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="PredicatedNodeTest" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PredicatedNodeTest" module="Ft.Xml.Xslt.XPatterns"/>
+      </method-resolution-order>
+      <methods name="PredicatedNodeTest" module="Ft.Xml.Xslt.XPatterns">
+        <method public="no" name="__init__" id="PredicatedNodeTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodeTest"/>
+            <arg name="predicateList"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="PredicatedNodeTest-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="PredicatedNodeTest-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getQuickKey" id="PredicatedNodeTest-getQuickKey">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="namespaces"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="PredicatedNodeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg name="principalType"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="AttributeAxis" id="AttributeAxis">
+      <value>2</value>
+    </global>
+    <global public="yes" name="ChildAxis" id="ChildAxis">
+      <value>1</value>
+    </global>
+  </globals>
+</module>

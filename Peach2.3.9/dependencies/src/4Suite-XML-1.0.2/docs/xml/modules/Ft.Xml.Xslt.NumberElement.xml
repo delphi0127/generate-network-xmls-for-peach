@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.NumberElement">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>Implementation of xsl:number</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="NameTest" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NameTest" module="Ft.Xml.Xslt.NumberElement"/>
+      </method-resolution-order>
+      <methods name="NameTest" module="Ft.Xml.Xslt.NumberElement">
+        <method public="no" name="__init__" id="NameTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="NameTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="NodeTypeTest" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NodeTypeTest" module="Ft.Xml.Xslt.NumberElement"/>
+      </method-resolution-order>
+      <methods name="NodeTypeTest" module="Ft.Xml.Xslt.NumberElement">
+        <method public="no" name="__init__" id="NodeTypeTest-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="NodeTypeTest-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="NumberElement" public="yes">
+      <bases>
+        <base documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="NumberElement" module="Ft.Xml.Xslt.NumberElement"/>
+        <base name="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        <base name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree"/>
+      </method-resolution-order>
+      <methods name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <method public="yes" name="createFormatter" id="NumberElement-createFormatter">
+          <abstract>Creates a formatter appropriate for the given language and
+letterValue, or a default, English-based formatter. Raises an
+exception if the language or letterValue is unsupported.
+Currently, if the language value is given, it must indicate
+English.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="format"/>
+            <arg default="None" name="language"/>
+            <arg default="None" name="letterValue"/>
+          </arguments>
+        </method>
+        <method public="yes" name="instantiate" id="NumberElement-instantiate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="processor"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+        <method public="yes" name="setup" id="NumberElement-setup">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree"/>
+        </method>
+      </methods>
+      <members name="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member public="yes" name="category" id="NumberElement-category">
+          <value>0</value>
+        </member>
+        <member public="yes" name="content" id="NumberElement-content">
+          <value>&lt;Ft.Xml.Xslt.ContentInfo.Atom instance&gt;</value>
+        </member>
+        <member public="yes" name="doesSetup" id="NumberElement-doesSetup">
+          <value>1</value>
+        </member>
+        <member public="yes" name="legalAttrs" id="NumberElement-legalAttrs">
+          <value>{'count': &lt;Ft.Xml.Xslt.AttributeInfo.Pattern instance&gt;, 'format': &lt;Ft.Xml.Xslt.AttributeInfo.StringAvt instance&gt;, 'from': &lt;Ft.Xml.Xslt.AttributeInfo.Pattern instance&gt;, 'grouping-separator': &lt;Ft.Xml.Xslt.AttributeInfo.CharAvt instance&gt;, 'grouping-size': &lt;Ft.Xml.Xslt.AttributeInfo.NumberAvt instance&gt;, 'lang': &lt;Ft.Xml.Xslt.AttributeInfo.NMToken instance&gt;, 'letter-value': &lt;Ft.Xml.Xslt.AttributeInfo.ChoiceAvt instance&gt;, 'level': &lt;Ft.Xml.Xslt.AttributeInfo.Choice instance&gt;, 'value': &lt;Ft.Xml.Xslt.AttributeInfo.Expression instance&gt;}</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="appendChild" public="yes"/>
+        <member-reference name="expandQName" public="yes"/>
+        <member-reference name="insertChild" public="yes"/>
+        <member-reference name="parseAVT" public="yes"/>
+        <member-reference name="parseExpression" public="yes"/>
+        <member-reference name="parsePattern" public="yes"/>
+        <member-reference name="processChildren" public="yes"/>
+        <member-reference name="splitQName" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltElement" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="validator" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="idle" public="yes"/>
+        <member-reference name="isLastChild" public="yes"/>
+        <member-reference name="isPseudoNode" public="yes"/>
+        <member-reference name="pprint" public="yes"/>
+        <member-reference name="prime" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XsltNode" module="Ft.Xml.Xslt.StylesheetTree">
+        <member-reference name="attributes" public="yes"/>
+        <member-reference name="baseUri" public="yes"/>
+        <member-reference name="children" public="yes"/>
+        <member-reference name="columnNumber" public="yes"/>
+        <member-reference name="doesIdle" public="yes"/>
+        <member-reference name="doesPrime" public="yes"/>
+        <member-reference name="expandedName" public="yes"/>
+        <member-reference name="importIndex" public="yes"/>
+        <member-reference name="lineNumber" public="yes"/>
+        <member-reference name="nodeName" public="yes"/>
+        <member-reference name="parent" public="yes"/>
+        <member-reference name="root" public="yes"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="ANY" id="ANY">
+      <value>2</value>
+    </global>
+    <global public="yes" name="DEFAULT_FORMAT" id="DEFAULT_FORMAT">
+      <value>'1'</value>
+    </global>
+    <global public="yes" name="DEFAULT_LANG" id="DEFAULT_LANG">
+      <value>'en'</value>
+    </global>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="MULTIPLE" id="MULTIPLE">
+      <value>1</value>
+    </global>
+    <global public="yes" name="SIMPLE" id="SIMPLE">
+      <value>3</value>
+    </global>
+    <global public="yes" name="SINGLE" id="SINGLE">
+      <value>0</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,10 @@
+I was tooling around with adding a custom Logger class, 
+and found that Peach did not seem to support using 
+multiple Loggers in the same Run.  Basically, I wanted 
+to keep the built-in Filesystem Logger, but also have 
+Peach simultaneously use my custom Logger.  To enable 
+this behavior, I made some very minor changes to 
+engine.py and dom.py (see attached patch file).
+
+Mike Janowski
+mjclear@gmail.com

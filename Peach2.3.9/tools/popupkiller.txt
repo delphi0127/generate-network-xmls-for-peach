@@ -1,0 +1,29 @@
+
+Peach Popup-Killer/Logger
+=========================
+
+The Peach Popup-Kill/Logger is a windows tool to close dialog boxes or
+windows with the option to save the text of the window.
+
+The popup-killer is configured by modifying the array located towards
+the top of the popupkiller.py file.  Through this array one is able to
+list the following fields:
+
+ Window Title      - Title of the window/dialog to close
+ Text to find      - Text located in the window/dialog to find.  This
+                     is used when dialogs have generic names (like Alert)
+                     but you only want a specific instance.  There are
+                     limitations to what text we can locate.  If Spy++
+                     can see it, so can this tool.
+ Button to click   - Name of the button to click, or if None we will send
+                     the WM_CLOSE message to the window/dialog.
+ Save              - True to save contents of dialog.
+
+Example:
+
+#	  Window Title, 							Text to find,		Button to click, 		SaveAssert],
+	[ 'Microsoft Visual C++ Debug Library',		'isctype.c',		'Ignore',				False ],
+	[ 'Microsoft Visual C++ Debug Library', 	'Run-Time Check',	'Ignore',				True ],
+	[ 'Alert',									None,				None,					False ],
+	]
+

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XLink.XLinkElements">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract>Classes representing XLink elements</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Arc" public="yes">
+      <bases>
+        <base documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Arc" module="Ft.Xml.XLink.XLinkElements"/>
+        <base name="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </method-resolution-order>
+      <members name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member public="yes" name="type" id="Arc-type">
+          <value>'arc'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="process" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Extended" public="yes">
+      <bases>
+        <base documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Extended" module="Ft.Xml.XLink.XLinkElements"/>
+        <base name="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </method-resolution-order>
+      <members name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member public="yes" name="type" id="Extended-type">
+          <value>'extended'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="process" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Literal" public="yes">
+      <abstract>Base class for an XLink element.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </method-resolution-order>
+      <methods name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <method public="no" name="__init__" id="Literal-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg name="iSrc"/>
+          </arguments>
+        </method>
+        <method public="yes" name="process" id="Literal-process">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member public="yes" name="type" id="Literal-type">
+          <value>None</value>
+        </member>
+      </members>
+    </class>
+    <class name="Locator" public="yes">
+      <bases>
+        <base documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Locator" module="Ft.Xml.XLink.XLinkElements"/>
+        <base name="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </method-resolution-order>
+      <members name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member public="yes" name="type" id="Locator-type">
+          <value>'locator'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="process" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Resource" public="yes">
+      <bases>
+        <base documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Resource" module="Ft.Xml.XLink.XLinkElements"/>
+        <base name="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </method-resolution-order>
+      <members name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member public="yes" name="type" id="Resource-type">
+          <value>'resource'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="process" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Simple" public="yes">
+      <bases>
+        <base documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </bases>
+      <abstract>A 'simple'-type XLink element.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Simple" module="Ft.Xml.XLink.XLinkElements"/>
+        <base name="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </method-resolution-order>
+      <methods name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <method public="no" name="__init__" id="Simple-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg name="iSrc"/>
+          </arguments>
+          <overrides documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+        </method>
+        <method public="yes" name="process" id="Simple-process">
+          <abstract>Processes a simple XLink element according to the following
+guidelines:</abstract>
+          <description>If xlink:actuate='onLoad' and xlink:show='replace', then the remote
+resource's document element's content (not the document element itself)
+and the content of the XLink element (if any) will together replace the
+XLink element.
+
+If xlink:actuate='onLoad' and xlink:show='embed', then the remote
+resource's document element will replace the XLink element.
+
+Any other XLink attribute combinations are ignored.
+
+These behaviors constitute a reasonable approximation of the resource
+loading suggestions in XLink 1.0 sec. 5.6.1.</description>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+        </method>
+      </methods>
+      <members name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member public="yes" name="type" id="Simple-type">
+          <value>'simple'</value>
+        </member>
+      </members>
+    </class>
+    <class name="Title" public="yes">
+      <bases>
+        <base documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Title" module="Ft.Xml.XLink.XLinkElements"/>
+        <base name="Literal" module="Ft.Xml.XLink.XLinkElements"/>
+      </method-resolution-order>
+      <members name="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member public="yes" name="type" id="Title-type">
+          <value>'title'</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Literal" module="Ft.Xml.XLink.XLinkElements">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="process" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="Create" id="Create">
+      <abstract>Given an XLink element node, returns an object (one of the classes
+defined in this module) that contains the node, its principal XLink
+attribute values, and a 'process' method that can be invoked in order
+to process (follow or otherwise act upon) the element.</abstract>
+      <description>Used by the Ft.Xml.XLink.Processor.Processor.</description>
+      <arguments>
+        <arg name="node"/>
+        <arg name="baseUri"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="TypeMap" id="TypeMap">
+      <value>{'arc': &lt;class Ft.Xml.XLink.XLinkElements.Arc&gt;, 'extended': &lt;class Ft.Xml.XLink.XLinkElements.Extended&gt;, 'locator': &lt;class Ft.Xml.XLink.XLinkElements.Locator&gt;, 'resource': &lt;class Ft.Xml.XLink.XLinkElements.Resource&gt;, 'simple': &lt;class Ft.Xml.XLink.XLinkElements.Simple&gt;, 'title': &lt;class Ft.Xml.XLink.XLinkElements.Title&gt;}</value>
+    </global>
+    <global public="yes" name="XLINK_NAMESPACE" id="XLINK_NAMESPACE">
+      <value>u'http://www.w3.org/1999/xlink'</value>
+    </global>
+  </globals>
+</module>

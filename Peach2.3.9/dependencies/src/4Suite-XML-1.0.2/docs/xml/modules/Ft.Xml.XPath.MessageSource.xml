@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.MessageSource">
+  <modification-date>2004-10-04 16:54:59</modification-date>
+  <abstract>XPath error codes and messages</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <globals>
+    <global public="yes" name="ERROR_COMPILETIME" id="ERROR_COMPILETIME">
+      <value>{1: 'There is an internal bug in 4XPath. Please make .../listinfo/4suite. The error code to report is: %s', 2: 'XPath expression syntax error at line %d, column %d: %s'}</value>
+    </global>
+    <global public="yes" name="ERROR_RUNTIME" id="ERROR_RUNTIME">
+      <value>{1: 'There is an internal bug in 4XPath. Please make .../listinfo/4suite. The error code to report is: %s', 10: 'An XPath Context object is required in order to evaluate an expression.', 100: 'Variable undefined: (&quot;%s&quot;, &quot;%s&quot;).', 101: 'Undefined namespace prefix: &quot;%s&quot;.', 102: 'Undefined function: &quot;%s&quot;.', 200: 'Error in arguments to %s: %s', 201: '%s() takes no arguments (%d given)', 202: '%s() takes at least %d arguments (%d given)', 203: '%s() takes exactly %d arguments (%d given)', 204: '%s() takes at most %d arguments (%d given)'}</value>
+    </global>
+  </globals>
+</module>

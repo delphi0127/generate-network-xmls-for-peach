@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xvif">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract>XVIF integration for 4Suite.  Includes basic RELAX NG support</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="RelaxNgValidator" public="yes">
+      <abstract>A class providing RELAX NG support</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="RelaxNgValidator" module="Ft.Xml.Xvif"/>
+      </method-resolution-order>
+      <methods name="RelaxNgValidator" module="Ft.Xml.Xvif">
+        <method public="no" name="__init__" id="RelaxNgValidator-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="isrc_or_domlette"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isValid" id="RelaxNgValidator-isValid">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="isrc"/>
+          </arguments>
+        </method>
+        <method public="yes" name="isValidNode" id="RelaxNgValidator-isValidNode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validate" id="RelaxNgValidator-validate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="isrc"/>
+          </arguments>
+        </method>
+        <method public="yes" name="validateNode" id="RelaxNgValidator-validateNode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="RngInvalid" public="yes">
+      <bases>
+        <base documented="no" class="Exception"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RngInvalid" module="Ft.Xml.Xvif"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="RngInvalid-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rngResult"/>
+          </arguments>
+          <overrides documented="no" class="Exception"/>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="NonvalidatingReader" id="NonvalidatingReader">
+      <abstract>The default non-validating reader instance, created from
+NonvalidatingReaderBase() with no constructor arguments.</abstract>
+      <description>Uses the default InputSource factory. If you need to change it,
+reassign the inputSourceFactory attribute, or, preferably, just
+create a new NonvalidatingReaderBase instance.</description>
+      <value>&lt;Ft.Xml.Domlette.NonvalidatingReaderBase instance&gt;</value>
+    </global>
+  </globals>
+</module>

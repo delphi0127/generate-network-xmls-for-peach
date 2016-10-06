@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.Transformers.asn1</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        <a href="Peach.Transformers-module.html">Package&nbsp;Transformers</a> ::
+        Module&nbsp;asn1
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Peach.Transformers.asn1-module.html">Module Peach.Transformers.asn1</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">ASN.1 transformers.  These transformers perform correct ASN.1 encoding.  The</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">data Generators module contains a couple of additional ASN.1 classes</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">that perform incorrect encodings.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">@author: Michael Eddington</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">@version: $Id: asn1.py 823 2008-04-06 20:59:41Z meddingt $</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Copyright (c) 2007-2008 Michael Eddington</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Permission is hereby granted, free of charge, to any person obtaining a copy </tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># of this software and associated documentation files (the "Software"), to deal</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># in the Software without restriction, including without limitation the rights </tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell </tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># copies of the Software, and to permit persons to whom the Software is </tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># furnished to do so, subject to the following conditions:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># The above copyright notice and this permission notice shall be included in    </tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># all copies or substantial portions of the Software.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR </tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, </tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE </tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER </tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># SOFTWARE.</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># Authors:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#   Michael Eddington (mike@phed.org)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"># $Id: asn1.py 823 2008-04-06 20:59:41Z meddingt $</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">struct</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Peach=Peach-module.html,Class Peach.Engine.dom.Peach=Peach.Engine.dom.Peach-class.html"><a title="Peach
+Peach.Engine.dom.Peach" class="py-name" href="#" onclick="return doclink('link-0', 'Peach', 'link-0');">Peach</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module Peach.transformer=Peach.transformer-module.html"><a title="Peach.transformer" class="py-name" href="#" onclick="return doclink('link-1', 'transformer', 'link-1');">transformer</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class Peach.Engine.dom.Transformer=Peach.Engine.dom.Transformer-class.html,Class Peach.transformer.Transformer=Peach.transformer.Transformer-class.html"><a title="Peach.Engine.dom.Transformer
+Peach.transformer.Transformer" class="py-name" href="#" onclick="return doclink('link-2', 'Transformer', 'link-2');">Transformer</a></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">pyasn1</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module Peach.Transformers.type=Peach.Transformers.type-module.html"><a title="Peach.Transformers.type" class="py-name" href="#" onclick="return doclink('link-3', 'type', 'link-3');">type</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">univ</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">pyasn1</tt><tt class="py-op">.</tt><tt class="py-name">codec</tt> <tt class="py-keyword">import</tt> <tt class="py-name">der</tt><tt class="py-op">,</tt> <tt class="py-name">ber</tt><tt class="py-op">,</tt> <tt class="py-name">cer</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">         </tt>
+<a name="DerEncodeOctetString"></a><div id="DerEncodeOctetString-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="DerEncodeOctetString-toggle" onclick="return toggle('DerEncodeOctetString');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeOctetString-class.html">DerEncodeOctetString</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeOctetString-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="DerEncodeOctetString-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">                DER encode an octect string ASN.1 style</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                 </tt>
+<a name="DerEncodeOctetString.realEncode"></a><div id="DerEncodeOctetString.realEncode-def"><a name="L49"></a><tt class="py-lineno"> 49</tt> <a class="py-toggle" href="#" id="DerEncodeOctetString.realEncode-toggle" onclick="return toggle('DerEncodeOctetString.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeOctetString-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeOctetString.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="DerEncodeOctetString.realEncode-expanded"><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">der</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module Peach.Transformers.encode=Peach.Transformers.encode-module.html,Method Peach.transformer.Transformer.encode()=Peach.transformer.Transformer-class.html#encode"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-4', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">OctetString</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name" targets="Module Peach.Generators.data=Peach.Generators.data-module.html"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-5', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">         </tt>
+<a name="DerEncodeBitString"></a><div id="DerEncodeBitString-def"><a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="DerEncodeBitString-toggle" onclick="return toggle('DerEncodeBitString');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeBitString-class.html">DerEncodeBitString</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeBitString-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="DerEncodeBitString-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">                DER encode a bit string ASN.1 style</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                 </tt>
+<a name="DerEncodeBitString.realEncode"></a><div id="DerEncodeBitString.realEncode-def"><a name="L57"></a><tt class="py-lineno"> 57</tt> <a class="py-toggle" href="#" id="DerEncodeBitString.realEncode-toggle" onclick="return toggle('DerEncodeBitString.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeBitString-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeBitString.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="DerEncodeBitString.realEncode-expanded"><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">der</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-6', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">BitString</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-7', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">         </tt>
+<a name="DerEncodeInteger"></a><div id="DerEncodeInteger-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="DerEncodeInteger-toggle" onclick="return toggle('DerEncodeInteger');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeInteger-class.html">DerEncodeInteger</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeInteger-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="DerEncodeInteger-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">                DER encode an integer ASN.1 style</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                 </tt>
+<a name="DerEncodeInteger.realEncode"></a><div id="DerEncodeInteger.realEncode-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="DerEncodeInteger.realEncode-toggle" onclick="return toggle('DerEncodeInteger.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeInteger-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeInteger.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="DerEncodeInteger.realEncode-expanded"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">der</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-8', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">Integer</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-9', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">         </tt>
+<a name="DerEncodeBoolean"></a><div id="DerEncodeBoolean-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="DerEncodeBoolean-toggle" onclick="return toggle('DerEncodeBoolean');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeBoolean-class.html">DerEncodeBoolean</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeBoolean-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="DerEncodeBoolean-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">                DER encode a boolean ASN.1 style.  Expects 0 or 1.</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                 </tt>
+<a name="DerEncodeBoolean.realEncode"></a><div id="DerEncodeBoolean.realEncode-def"><a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="DerEncodeBoolean.realEncode-toggle" onclick="return toggle('DerEncodeBoolean.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeBoolean-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeBoolean.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="DerEncodeBoolean.realEncode-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                        <tt id="link-10" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-10', 'data', 'link-5');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-11', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt id="link-12" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-12', 'data', 'link-5');">data</a></tt> <tt class="py-op">!=</tt> <tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt id="link-13" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-13', 'data', 'link-5');">data</a></tt> <tt class="py-op">!=</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt id="link-14" class="py-name" targets="Method Peach.Agent.debugger._DbgEventHandler.Exception()=Peach.Agent.debugger._DbgEventHandler-class.html#Exception"><a title="Peach.Agent.debugger._DbgEventHandler.Exception" class="py-name" href="#" onclick="return doclink('link-14', 'Exception', 'link-14');">Exception</a></tt><tt class="py-op">(</tt><tt class="py-string">"DerEncodeBoolean transformer expects 0 or 1"</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                         </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">der</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-15', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">Boolean</tt><tt class="py-op">(</tt><tt id="link-16" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-16', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">         </tt>
+<a name="DerEncodeObjectIdentifier"></a><div id="DerEncodeObjectIdentifier-def"><a name="L80"></a><tt class="py-lineno"> 80</tt> <a class="py-toggle" href="#" id="DerEncodeObjectIdentifier-toggle" onclick="return toggle('DerEncodeObjectIdentifier');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeObjectIdentifier-class.html">DerEncodeObjectIdentifier</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeObjectIdentifier-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="DerEncodeObjectIdentifier-expanded"><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">                DER encode an object identifierASN.1 style.</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                 </tt>
+<a name="DerEncodeObjectIdentifier.realEncode"></a><div id="DerEncodeObjectIdentifier.realEncode-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="DerEncodeObjectIdentifier.realEncode-toggle" onclick="return toggle('DerEncodeObjectIdentifier.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.DerEncodeObjectIdentifier-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DerEncodeObjectIdentifier.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="DerEncodeObjectIdentifier.realEncode-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">der</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-17', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">ObjectIdentifier</tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-18', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-comment"># #############################################################</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="BerEncodeOctetString"></a><div id="BerEncodeOctetString-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="BerEncodeOctetString-toggle" onclick="return toggle('BerEncodeOctetString');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeOctetString-class.html">BerEncodeOctetString</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeOctetString-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="BerEncodeOctetString-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">                BER encode a string ASN.1 style</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                 </tt>
+<a name="BerEncodeOctetString.realEncode"></a><div id="BerEncodeOctetString.realEncode-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="BerEncodeOctetString.realEncode-toggle" onclick="return toggle('BerEncodeOctetString.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeOctetString-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeOctetString.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="BerEncodeOctetString.realEncode-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">ber</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-19', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">OctetString</tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-20', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">         </tt>
+<a name="BerEncodeBitString"></a><div id="BerEncodeBitString-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="BerEncodeBitString-toggle" onclick="return toggle('BerEncodeBitString');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeBitString-class.html">BerEncodeBitString</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeBitString-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="BerEncodeBitString-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">                BER encode a bit string ASN.1 style</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                 </tt>
+<a name="BerEncodeBitString.realEncode"></a><div id="BerEncodeBitString.realEncode-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="BerEncodeBitString.realEncode-toggle" onclick="return toggle('BerEncodeBitString.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeBitString-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeBitString.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="BerEncodeBitString.realEncode-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">ber</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-21', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">BitString</tt><tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-22', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">         </tt>
+<a name="BerEncodeInteger"></a><div id="BerEncodeInteger-def"><a name="L106"></a><tt class="py-lineno">106</tt> <a class="py-toggle" href="#" id="BerEncodeInteger-toggle" onclick="return toggle('BerEncodeInteger');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeInteger-class.html">BerEncodeInteger</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeInteger-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="BerEncodeInteger-expanded"><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">                BER encode an integer ASN.1 style</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                 </tt>
+<a name="BerEncodeInteger.realEncode"></a><div id="BerEncodeInteger.realEncode-def"><a name="L111"></a><tt class="py-lineno">111</tt> <a class="py-toggle" href="#" id="BerEncodeInteger.realEncode-toggle" onclick="return toggle('BerEncodeInteger.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeInteger-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeInteger.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="BerEncodeInteger.realEncode-expanded"><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">ber</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-23', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">Integer</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-24', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">         </tt>
+<a name="BerEncodeBoolean"></a><div id="BerEncodeBoolean-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="BerEncodeBoolean-toggle" onclick="return toggle('BerEncodeBoolean');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeBoolean-class.html">BerEncodeBoolean</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeBoolean-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="BerEncodeBoolean-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">                BER encode a boolean ASN.1 style.  Expects 0 or 1.</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                 </tt>
+<a name="BerEncodeBoolean.realEncode"></a><div id="BerEncodeBoolean.realEncode-def"><a name="L119"></a><tt class="py-lineno">119</tt> <a class="py-toggle" href="#" id="BerEncodeBoolean.realEncode-toggle" onclick="return toggle('BerEncodeBoolean.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeBoolean-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeBoolean.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="BerEncodeBoolean.realEncode-expanded"><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                        <tt id="link-25" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-25', 'data', 'link-5');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-26', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt id="link-27" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-27', 'data', 'link-5');">data</a></tt> <tt class="py-op">!=</tt> <tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt id="link-28" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-28', 'data', 'link-5');">data</a></tt> <tt class="py-op">!=</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt id="link-29" class="py-name"><a title="Peach.Agent.debugger._DbgEventHandler.Exception" class="py-name" href="#" onclick="return doclink('link-29', 'Exception', 'link-14');">Exception</a></tt><tt class="py-op">(</tt><tt class="py-string">"BerEncodeBoolean transformer expects 0 or 1"</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                         </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">ber</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-30', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">Boolean</tt><tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-31', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">         </tt>
+<a name="BerEncodeObjectIdentifier"></a><div id="BerEncodeObjectIdentifier-def"><a name="L126"></a><tt class="py-lineno">126</tt> <a class="py-toggle" href="#" id="BerEncodeObjectIdentifier-toggle" onclick="return toggle('BerEncodeObjectIdentifier');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeObjectIdentifier-class.html">BerEncodeObjectIdentifier</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeObjectIdentifier-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="BerEncodeObjectIdentifier-expanded"><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">                BER encode an object identifierASN.1 style.</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                 </tt>
+<a name="BerEncodeObjectIdentifier.realEncode"></a><div id="BerEncodeObjectIdentifier.realEncode-def"><a name="L131"></a><tt class="py-lineno">131</tt> <a class="py-toggle" href="#" id="BerEncodeObjectIdentifier.realEncode-toggle" onclick="return toggle('BerEncodeObjectIdentifier.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.BerEncodeObjectIdentifier-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BerEncodeObjectIdentifier.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="BerEncodeObjectIdentifier.realEncode-expanded"><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">ber</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-32', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">ObjectIdentifier</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-33', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">         </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-comment"># #############################################################</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="CerEncodeOctetString"></a><div id="CerEncodeOctetString-def"><a name="L136"></a><tt class="py-lineno">136</tt> <a class="py-toggle" href="#" id="CerEncodeOctetString-toggle" onclick="return toggle('CerEncodeOctetString');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeOctetString-class.html">CerEncodeOctetString</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeOctetString-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="CerEncodeOctetString-expanded"><a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">                CER encode a string ASN.1 style</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">                 </tt>
+<a name="CerEncodeOctetString.realEncode"></a><div id="CerEncodeOctetString.realEncode-def"><a name="L141"></a><tt class="py-lineno">141</tt> <a class="py-toggle" href="#" id="CerEncodeOctetString.realEncode-toggle" onclick="return toggle('CerEncodeOctetString.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeOctetString-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeOctetString.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="CerEncodeOctetString.realEncode-expanded"><a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">cer</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-34', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">OctetString</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-35', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">         </tt>
+<a name="CerEncodeBitString"></a><div id="CerEncodeBitString-def"><a name="L144"></a><tt class="py-lineno">144</tt> <a class="py-toggle" href="#" id="CerEncodeBitString-toggle" onclick="return toggle('CerEncodeBitString');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeBitString-class.html">CerEncodeBitString</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeBitString-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="CerEncodeBitString-expanded"><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">                CER encode a bit string ASN.1 style</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">                 </tt>
+<a name="CerEncodeBitString.realEncode"></a><div id="CerEncodeBitString.realEncode-def"><a name="L149"></a><tt class="py-lineno">149</tt> <a class="py-toggle" href="#" id="CerEncodeBitString.realEncode-toggle" onclick="return toggle('CerEncodeBitString.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeBitString-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeBitString.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="CerEncodeBitString.realEncode-expanded"><a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">cer</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-36', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">BitString</tt><tt class="py-op">(</tt><tt id="link-37" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-37', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">         </tt>
+<a name="CerEncodeInteger"></a><div id="CerEncodeInteger-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="CerEncodeInteger-toggle" onclick="return toggle('CerEncodeInteger');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeInteger-class.html">CerEncodeInteger</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeInteger-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="CerEncodeInteger-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">                CER encode an integer ASN.1 style</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">                 </tt>
+<a name="CerEncodeInteger.realEncode"></a><div id="CerEncodeInteger.realEncode-def"><a name="L157"></a><tt class="py-lineno">157</tt> <a class="py-toggle" href="#" id="CerEncodeInteger.realEncode-toggle" onclick="return toggle('CerEncodeInteger.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeInteger-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeInteger.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="CerEncodeInteger.realEncode-expanded"><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">cer</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-38', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">Integer</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-39', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">         </tt>
+<a name="CerEncodeBoolean"></a><div id="CerEncodeBoolean-def"><a name="L160"></a><tt class="py-lineno">160</tt> <a class="py-toggle" href="#" id="CerEncodeBoolean-toggle" onclick="return toggle('CerEncodeBoolean');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeBoolean-class.html">CerEncodeBoolean</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeBoolean-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="CerEncodeBoolean-expanded"><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">                CER encode a boolean ASN.1 style.  Expects 0 or 1.</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                 </tt>
+<a name="CerEncodeBoolean.realEncode"></a><div id="CerEncodeBoolean.realEncode-def"><a name="L165"></a><tt class="py-lineno">165</tt> <a class="py-toggle" href="#" id="CerEncodeBoolean.realEncode-toggle" onclick="return toggle('CerEncodeBoolean.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeBoolean-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeBoolean.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="CerEncodeBoolean.realEncode-expanded"><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">                        <tt id="link-40" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-40', 'data', 'link-5');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-41', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt id="link-42" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-42', 'data', 'link-5');">data</a></tt> <tt class="py-op">!=</tt> <tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt id="link-43" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-43', 'data', 'link-5');">data</a></tt> <tt class="py-op">!=</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt id="link-44" class="py-name"><a title="Peach.Agent.debugger._DbgEventHandler.Exception" class="py-name" href="#" onclick="return doclink('link-44', 'Exception', 'link-14');">Exception</a></tt><tt class="py-op">(</tt><tt class="py-string">"CerEncodeBoolean transformer expects 0 or 1"</tt><tt class="py-op">)</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">                         </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">cer</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-45', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">Boolean</tt><tt class="py-op">(</tt><tt id="link-46" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-46', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">         </tt>
+<a name="CerEncodeObjectIdentifier"></a><div id="CerEncodeObjectIdentifier-def"><a name="L172"></a><tt class="py-lineno">172</tt> <a class="py-toggle" href="#" id="CerEncodeObjectIdentifier-toggle" onclick="return toggle('CerEncodeObjectIdentifier');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeObjectIdentifier-class.html">CerEncodeObjectIdentifier</a><tt class="py-op">(</tt><tt class="py-base-class">Transformer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeObjectIdentifier-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="CerEncodeObjectIdentifier-expanded"><a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">                CER encode an object identifierASN.1 style.</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">                 </tt>
+<a name="CerEncodeObjectIdentifier.realEncode"></a><div id="CerEncodeObjectIdentifier.realEncode-def"><a name="L177"></a><tt class="py-lineno">177</tt> <a class="py-toggle" href="#" id="CerEncodeObjectIdentifier.realEncode-toggle" onclick="return toggle('CerEncodeObjectIdentifier.realEncode');">-</a><tt class="py-line">                <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Transformers.asn1.CerEncodeObjectIdentifier-class.html#realEncode">realEncode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CerEncodeObjectIdentifier.realEncode-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++++++++++++++"></div><div id="CerEncodeObjectIdentifier.realEncode-expanded"><a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">cer</tt><tt class="py-op">.</tt><tt class="py-name">encoder</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Peach.Transformers.encode
+Peach.transformer.Transformer.encode" class="py-name" href="#" onclick="return doclink('link-47', 'encode', 'link-4');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">univ</tt><tt class="py-op">.</tt><tt class="py-name">ObjectIdentifier</tt><tt class="py-op">(</tt><tt id="link-48" class="py-name"><a title="Peach.Generators.data" class="py-name" href="#" onclick="return doclink('link-48', 'data', 'link-5');">data</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">         </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-comment"># end</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:38 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

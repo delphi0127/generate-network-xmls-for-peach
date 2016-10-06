@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.BuiltInExtFunctions">
+  <modification-date>2006-08-28 09:28:10</modification-date>
+  <abstract>4XPath-specific extension functions</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/
+
+Extension functions are implemented by a module, such as this one,
+that defines an ExtFunctions global dictionary that maps (namespace,
+local-name) string tuples to a corresponding Python function. The
+function must take a Context object as the first argument, and any
+additional arguments accepted will correspond to the arguments passed
+in. See other API docs to see how to make use of modules that contain
+ExtFunctions.</description>
+  <functions>
+    <function public="yes" name="BaseUri" id="BaseUri">
+      <abstract>Returns the base URI of the first node in the given node-set, or
+of the context node if no argument is given. If the given node-set
+is empty, an empty string is returned.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="arg"/>
+      </arguments>
+    </function>
+    <function public="yes" name="BinPath" id="BinPath">
+      <abstract>Returns the system-dependent path of Fourthought binaries</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Decode" id="Decode">
+      <abstract>f:decode mirrors the Python decode function/method. It takes a
+foreign object that is a Python byte string, and an encoding,
+and returns another foreign object which is a Unicode object.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object"/>
+        <arg name="encoding"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Encode" id="Encode">
+      <abstract>f:encode mirrors the Python encode function/method. It takes a
+foreign object that is a Unicode object, and an encoding,
+and returns another foreign object which is a Python byte string.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object"/>
+        <arg name="encoding"/>
+      </arguments>
+    </function>
+    <function public="yes" name="EndsWith" id="EndsWith">
+      <abstract>Returns true if the string given in the first argument ends with
+the substring given in the second argument.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="outer"/>
+        <arg name="inner"/>
+      </arguments>
+    </function>
+    <function public="yes" name="EnvVar" id="EnvVar">
+      <abstract>Looks up a variable in the OS environment. Returns a string, either
+the environment variable value or an empty string if there is no
+such variable. The system default encoding is assumed.</abstract>
+      <description>CAUTION: Using this function could be a security hazard.
+
+You can also use system-property() for the same purpose
+f:env-var('foo')
+is equivalent to
+system-property('fs:foo')
+given a mapping from fs to http://xmlns.4suite.org/xslt/env-system-property</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="var"/>
+      </arguments>
+    </function>
+    <function public="yes" name="EscapeXml" id="EscapeXml">
+      <abstract>Returns the given string with XML markup characters &quot;&amp;&quot;, &quot;&lt;&quot; and
+&quot;&gt;&quot; escaped as &quot;&amp;amp;&quot;, &quot;&amp;lt;&quot; and &quot;&amp;gt;&quot;, respectively.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="text"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GenerateUuid" id="GenerateUuid">
+      <abstract>Returns a random UUID string.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="If" id="If">
+      <abstract>If the first argument, when converted to a boolean, is true,
+returns the second argument. Otherwise, returns the third
+argument, or if the third argument is not given, returns an
+empty node-set.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="cond"/>
+        <arg name="v1"/>
+        <arg default="None" name="v2"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ImportString" id="ImportString">
+      <abstract>f:import-string takes a Unicode FO and returns an XPath string.  It is
+an error if the FO contains illegal XML chars.  (although eventually
+this function might be extended to recover from this error)</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="object"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Indent" id="Indent">
+      <abstract>f:indent() returns a string with each line of the text indented the
+given number of levels. For each level, the indent string, normally
+2 spaces by default, is prepended to each line.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="text"/>
+        <arg name="levels"/>
+        <arg default="None" name="indentstring"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Join" id="Join">
+      <abstract>Concatenates the string-values of the nodes in the given node-set,
+inserting the delimiter given in the optional second argument in
+between each string-value. The delimiter defaults to a space.
+See also: EXSLT's str:concat()</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg default="' '" name="delim"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Match" id="Match">
+      <abstract>Returns true if the string given in the optional second argument
+(or the string-value of the context node if no second argument is
+given) matches the regular expression given in the first argument.
+See also: EXSLT's regexp:test()
+This function does differ from XSLT 2.0 match() function</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="pattern"/>
+        <arg default="None" name="arg"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NormalizeEol" id="NormalizeEol">
+      <abstract>    Normalizes end-of-line characters in input string, returning the
+    normalized string. Normalization involves replacing &quot;
+&quot;, &quot;
+&quot;
+    or &quot;&quot; with &quot;
+&quot;</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="text"/>
+      </arguments>
+    </function>
+    <function public="yes" name="OsPath2Uri" id="OsPath2Uri">
+      <abstract>Returns the given OS path as a URI.
+The result varies depending on the underlying operating system.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="path"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ParseDate" id="ParseDate">
+      <abstract>This function is similar to EXSLT's date:parse-date()
+except that it uses Python rather than Java conventions
+for the date formatting.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="date"/>
+        <arg default="None" name="format"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ParseXml" id="ParseXml">
+      <abstract>f:parse-xml() parses the string-value of the given object as XML
+and returns a node-set whose sole item is the resulting parsed
+document's root node. The XML must be a well-formed document.</abstract>
+      <description>src - the string or object to be parsed as XML.
+
+parameters - the name of a parameter set for the operation.
+
+The parameters argument is ignored for now. In the future, it
+will provide a way to specify a base URI for the resolution of
+relative URIs in entity declarations and XIncludes.
+
+Also for now, if the XML contains an encoding declaration, the
+declaration must specify UTF-8.
+
+An example:
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;xsl:stylesheet
+  xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+  xmlns:f=&quot;http://xmlns.4suite.org/ext&quot;
+  version=&quot;1.0&quot;
+&gt;
+  &lt;xsl:output method=&quot;text&quot;/&gt;
+  &lt;xsl:variable name=&quot;doc&quot;
+    select=&quot;'&amp;lt;spam&gt;eggs&amp;lt;monty&gt;python&amp;lt;/monty&gt;&amp;lt;/spam&gt;'&quot;/&gt;
+
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;xsl:value-of select=&quot;f:parse-xml($doc)/spam/monty&quot;/&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+
+...run against any XML source should yield:
+
+python
+
+See also: XSLT (not XPath) extension function f:serialize-xml()</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="src"/>
+        <arg default="None" name="parameters"/>
+      </arguments>
+    </function>
+    <function public="yes" name="PytimeToExslt" id="PytimeToExslt">
+      <abstract>Takes a Python time value as a number and returns a date/time as if
+from EXSLT date-time()
+t - a time stamp number, as from Python's time.time()
+    if omitted, use the current time</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="t"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Random" id="Random">
+      <abstract>Returns a random number between 0 (inclusive) and max (exclusive).
+max defaults to 1. The first optional argument is a different
+value for max, and the second argument is a flag that, if set,
+causes the random number to be rounded to an integer.
+See also: EXSLT's math:random()</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg default="None" name="max"/>
+        <arg default="0" name="forceInt"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Range" id="Range">
+      <abstract>Returns a node-set consisting of text nodes encapsulating integers
+in the numeric range bounded by the given low and high values.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="lo"/>
+        <arg name="hi"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Replace" id="Replace">
+      <abstract>Returns the third argument string, which defaults to the
+string-value of the context node, with occurrences of the substring
+given in the first argument replaced by the string given in the
+second argument.
+See also: EXSLT's str:replace()</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="old"/>
+        <arg name="new"/>
+        <arg default="None" name="arg"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ResolvePath" id="ResolvePath">
+      <abstract>Resolves a Posix-style path, such as the path portion of a URL,
+against a base. Similar to f:resolve-url, but allows the base to be
+just a path, not necessarily a full URL.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="base"/>
+        <arg name="rel"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ResolveUrl" id="ResolveUrl">
+      <abstract>Returns the relative URL ref given in the second argument
+resolved against the base given in the first argument.
+In case of URI processing error an empty string is returned</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="base"/>
+        <arg name="rel"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ShaHash" id="ShaHash">
+      <abstract>Returns a SHA message digest of the given string, as a string of
+several groups of hex digits separated by '-'. See
+http://www.itl.nist.gov/fipspubs/fip180-1.htm for info on SHA.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="text"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SharePath" id="SharePath">
+      <abstract>Returns the system-dependent path to modifiable data</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Spawnv" id="Spawnv">
+      <abstract>Executes a command in the operating system's shell, passing in the
+command line arguments separately. Returns the result of the command
+(a numeric exit code, typically).</abstract>
+      <description>CAUTION: Using this function could be a security hazard.
+
+See also: f:system()</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="command"/>
+        <var-args name="args"/>
+      </arguments>
+    </function>
+    <function public="yes" name="StrFTime" id="StrFTime">
+      <abstract>Returns the given ISO 8601 UTC date-time formatted according to
+the given format string as would be used by Python's
+time.strftime(). If no date-time string is given, the current
+time is used.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="format"/>
+        <arg default="None" name="date"/>
+      </arguments>
+    </function>
+    <function public="yes" name="System" id="System">
+      <abstract>Executes a command in the operating system's shell and returns the
+command's result (a numeric exit code, typically).</abstract>
+      <description>CAUTION: Using this function could be a security hazard.
+
+See also: f:spawnv()</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="command"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Uri2OsPath" id="Uri2OsPath">
+      <abstract>Returns the given URI as an OS path.
+The result varies depending on the underlying operating system.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="uri"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Version" id="Version">
+      <abstract>Returns the 4Suite version number as a string.</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Wrap" id="Wrap">
+      <abstract>f:wrap() returns a string with the text reflowed so that each line
+fits within the given width. Existing linefeeds are preserved, but
+spaces are considered inter-word separators that can be collapsed.
+To reflow without preserving existing linefeeds, strip them first,
+e.g. with translate(text, '&amp;#10;', '').
+http://lists.fourthought.com/pipermail/4suite-dev/2002-December/000878.html</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="text"/>
+        <arg name="width"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="DEFAULT_RNG" id="DEFAULT_RNG">
+      <abstract>A PRNG that uses an OS-specific random number source, if
+available, falling back on an instance of FtRandom.</abstract>
+      <description>Calls to seed(), jumpahead(), getstate() and setstate() only affect
+the fallback FtRandom instance.
+
+Implements getrandbits() in all versions of Python.
+Also adds getrandbytes(), which returns a str of bytes.</description>
+      <value>&lt;Ft.Lib.Random.FtSystemRandom object&gt;</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://xmlns.4suite.org/ext', 'base-uri'): &lt;function BaseUri&gt;, ('http://xmlns.4suite.org/ext', 'bin-path'): &lt;function BinPath&gt;, ('http://xmlns.4suite.org/ext', 'cos'): &lt;function Cos&gt;, ('http://xmlns.4suite.org/ext', 'decode'): &lt;function Decode&gt;, ('http://xmlns.4suite.org/ext', 'degrees-to-rads'): &lt;function DegreesToRads&gt;, ('http://xmlns.4suite.org/ext', 'encode'): &lt;function Encode&gt;, ('http://xmlns.4suite.org/ext', 'ends-with'): &lt;function EndsWith&gt;, ('http://xmlns.4suite.org/ext', 'escape-xml'): &lt;function EscapeXml&gt;, ('http://xmlns.4suite.org/ext', 'fact'): &lt;function Fact&gt;, ('http://xmlns.4suite.org/ext', 'generate-uuid'): &lt;function GenerateUuid&gt;, ...}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://xmlns.4suite.org/ext': 'f'}</value>
+    </global>
+    <global public="yes" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+    <global public="yes" name="InsecureExtFunctions" id="InsecureExtFunctions">
+      <value>{('http://xmlns.4suite.org/ext', 'env-var'): &lt;function EnvVar&gt;, ('http://xmlns.4suite.org/ext', 'spawnv'): &lt;function Spawnv&gt;, ('http://xmlns.4suite.org/ext', 'system'): &lt;function System&gt;}</value>
+    </global>
+  </globals>
+</module>

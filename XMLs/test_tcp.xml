@@ -7,9 +7,9 @@
 	<Include ns="default" src="file:defaults.xml" />
 
 	<DataModel name="HttpRequest">
-        <String valueType="hex" value="" /> 
+		<String valueType="hex" value="" /> 
 	</DataModel>
-	
+	 
 	<StateModel name="TheStateModel" initialState="TheState">
 		<State name="TheState">
 			<Action type="output">
@@ -20,6 +20,10 @@
 
 	<!-- Agents that run localy will be started automatically by Peach -->
 	<Agent name="LocalAgent">
+	<!-- -->
+		<Monitor name="Debugger" class="debugger.WindowsDebugEngine">
+		    <Param name="CommandLine" value="C:\\Program Files\\Tencent\\QQLite\\Bin\\QQ.exe"/> <!-- C:\\Program Files\\aMule\\amule.exe ;C:\\Program Files\\Tencent\\QQLite\\Bin\\QQ.exe-->
+		</Monitor>
 	</Agent>
 
 	<Test name="NetworkTest">

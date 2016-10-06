@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPointer.XPtrFunctions">
+  <modification-date>2002-01-22 14:43:15</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="EndPoint" id="EndPoint">
+      <abstract>&lt;point&gt; end-point(&lt;point&gt;)</abstract>
+      <description>For each location x in the argument location-set, end-point adds a location
+of type point to the result location-set.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="point"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Here" id="Here">
+      <abstract>&lt;location-set&gt; here()</abstract>
+      <description>The here function returns a location-set with a single member.  That
+location locates the node that directly contains the XPointer being
+evaluated.</description>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Origin" id="Origin">
+      <abstract>&lt;location-set&gt; origin()</abstract>
+      <description>The origin functions enables addressing relative to out-of-line links
+such as defined in XLink. This allows XPointers to be used in applications
+to express relative locations when links do not reside directly at one of
+their endpoints. The function returns a location-set with a single member,
+which locates the element from which a user or program initiated traversal
+of the link.</description>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Range" id="Range">
+      <abstract>&lt;location-set&gt; range(&lt;location-set&gt;)</abstract>
+      <description>The range function returns ranges covering the locations in the argument
+location-set.  For each location x in the argument location-set, a range
+location representing the covering range of x is added to the result
+location-set.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="locationSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="RangeInside" id="RangeInside">
+      <abstract>&lt;location-set&gt; range-inside(&lt;location-set&gt;)</abstract>
+      <description>The range-inside function returns ranges covering the content of the
+locations in the argument location-set.  For each location x in the
+argument location-set, a range location is added to the result location-set.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="locationSet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="RangeTo" id="RangeTo">
+      <abstract>&lt;location-set&gt; range-to(&lt;expr&gt;)</abstract>
+      <description>For each location in the context, range-to returns a range.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="expr"/>
+      </arguments>
+    </function>
+    <function public="yes" name="StartPoint" id="StartPoint">
+      <abstract>&lt;point&gt; start-point(&lt;point&gt;)</abstract>
+      <description>For each location x in the argument location-set, start-point adds a
+location of type point to the result location-set.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="point"/>
+      </arguments>
+    </function>
+    <function public="yes" name="StringRange" id="StringRange">
+      <abstract>&lt;location-set&gt; string-range(&lt;location-set&gt;, &lt;string&gt;, &lt;number&gt;?, &lt;number&gt;?)</abstract>
+      <description>For each location in the location-set argument, string-range returns a set
+of string ranges, a set of substrings in a string.</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="string"/>
+        <arg default="1" name="startPos"/>
+        <arg default="None" name="length"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Unique" id="Unique">
+      <abstract>&lt;boolean&gt; unique()</abstract>
+      <description>The predicate function unique returns true if and only if context size is
+equal to 1.</description>
+      <arguments>
+        <arg name="context"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="CoreFunctions" id="CoreFunctions">
+      <value>{(None, 'end-point'): &lt;function EndPoint&gt;, (None, 'here'): &lt;function Here&gt;, (None, 'origin'): &lt;function Origin&gt;, (None, 'range'): &lt;function Range&gt;, (None, 'range-inside'): &lt;function RangeInside&gt;, (None, 'range-to'): &lt;function RangeTo&gt;, (None, 'start-point'): &lt;function StartPoint&gt;, (None, 'string-range'): &lt;function StringRange&gt;, (None, 'unique'): &lt;function Unique&gt;}</value>
+    </global>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+  </globals>
+</module>

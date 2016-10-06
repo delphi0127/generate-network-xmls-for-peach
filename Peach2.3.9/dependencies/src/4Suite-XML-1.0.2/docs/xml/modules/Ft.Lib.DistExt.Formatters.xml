@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Formatters">
+  <modification-date>2006-08-17 13:09:43</modification-date>
+  <abstract/>
+  <description/>
+  <modules>
+    <module-reference public="yes" documented="yes" name="ApiFormatter" realname="Ft.Lib.DistExt.Formatters.ApiFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ApiFormatter" realname="Ft.Lib.DistExt.Formatters.ApiFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CommandLineFormatter" realname="Ft.Lib.DistExt.Formatters.CommandLineFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="CommandLineFormatter" realname="Ft.Lib.DistExt.Formatters.CommandLineFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ExtensionFormatter" realname="Ft.Lib.DistExt.Formatters.ExtensionFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ExtensionFormatter" realname="Ft.Lib.DistExt.Formatters.ExtensionFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XmlFormatter" realname="Ft.Lib.DistExt.Formatters.XmlFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XmlFormatter" realname="Ft.Lib.DistExt.Formatters.XmlFormatter">
+      <abstract/>
+      <description/>
+    </module-reference>
+  </modules>
+  <globals>
+    <global public="no" name="__all__" id="__all__">
+      <value>['XmlFormatter', 'ApiFormatter', 'ExtensionFormatter', 'CommandLineFormatter']</value>
+    </global>
+    <global public="no" name="__revision__" id="__revision__">
+      <value>'$Id: __init__.py,v 1.2 2006/08/12 15:56:26 jkloth Exp $'</value>
+    </global>
+  </globals>
+</module>

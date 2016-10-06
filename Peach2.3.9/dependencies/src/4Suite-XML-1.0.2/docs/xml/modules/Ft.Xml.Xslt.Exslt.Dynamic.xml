@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Exslt.Dynamic">
+  <modification-date>2006-12-16 17:19:16</modification-date>
+  <abstract>EXSLT 2.0 - Dyanmic (http://www.exslt.org/dyn/index.html)
+WWW: http://4suite.org/XSLT        e-mail: support@4suite.org</abstract>
+  <description>Copyright (c) 2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+  <functions>
+    <function public="yes" name="Closure" id="Closure">
+      <abstract>The dyn:closure function creates a node set resulting from transitive
+closure of evaluating the expression passed as the second argument on
+each of the nodes passed as the first argument, then on the node set
+resulting from that and so on until no more nodes are found.</abstract>
+      <description>http://www.exslt.org/dyn/functions/closure/index.html</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg name="string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ClosureImpl" id="ClosureImpl">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg name="expr"/>
+        <arg name="accumulator"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Evaluate" id="Evaluate">
+      <abstract>The dyn:evaluate function evaluates a string as an XPath expression and
+returns the resulting value, which might be a boolean, number, string,
+node set, result tree fragment or external object. The sole argument is
+the string to be evaluated. If the string is an invalid XPath expression,
+an empty node-set is returned.</abstract>
+      <description>http://www.exslt.org/dyn/functions/evaluate/index.html</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Map" id="Map">
+      <abstract>The dyn:map function evaluates the expression passed as the second
+argument for each of the nodes passed as the first argument, and returns
+a node set of those values.</abstract>
+      <description>http://www.exslt.org/dyn/functions/map/index.html</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg name="string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="MapImpl" id="MapImpl">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg name="expr"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Max" id="Max">
+      <abstract>The dyn:max function calculates the maximum value for the nodes passed as
+the first argument, where the value of each node is calculated dynamically
+using an XPath expression passed as a string as the second argument.</abstract>
+      <description>http://www.exslt.org/dyn/functions/max/index.html</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg name="string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Min" id="Min">
+      <abstract>The dyn:min function calculates the minimum value for the nodes passed as
+the first argument, where the value of each node is calculated dynamically
+using an XPath expression passed as a string as the second argument.</abstract>
+      <description>http://www.exslt.org/dyn/functions/min/index.html</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg name="string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Sum" id="Sum">
+      <abstract>The dyn:sum function calculates the sum for the nodes passed as the first
+argument, where the value of each node is calculated dynamically using an
+XPath expression passed as a string as the second argument.</abstract>
+      <description>http://www.exslt.org/dyn/functions/sum/index.html</description>
+      <arguments>
+        <arg name="context"/>
+        <arg name="nodeset"/>
+        <arg name="string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="handle_traceback" id="handle_traceback">
+      <abstract/>
+      <description/>
+      <arguments>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EXSL_COMMON_NS" id="EXSL_COMMON_NS">
+      <value>'http://exslt.org/common'</value>
+    </global>
+    <global public="yes" name="EXSL_DYNAMIC_NS" id="EXSL_DYNAMIC_NS">
+      <value>'http://exslt.org/dynamic'</value>
+    </global>
+    <global public="yes" name="ExtElements" id="ExtElements">
+      <value>{}</value>
+    </global>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://exslt.org/dynamic', 'closure'): &lt;function Closure at 0xb75c6684&gt;, ('http://exslt.org/dynamic', 'evaluate'): &lt;function Evaluate at 0xb75c656c&gt;, ('http://exslt.org/dynamic', 'map'): &lt;function Map at 0xb75c664c&gt;, ('http://exslt.org/dynamic', 'max'): &lt;function Max at 0xb75c679c&gt;, ('http://exslt.org/dynamic', 'min'): &lt;function Min at 0xb75c6924&gt;, ('http://exslt.org/dynamic', 'sum'): &lt;function Sum at 0xb75c695c&gt;}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://exslt.org/dynamic': 'dyn'}</value>
+    </global>
+    <global public="yes" name="NODE_HANDLERS" id="NODE_HANDLERS">
+      <value>{&lt;type 'float'&gt;: (u'exsl:number', &lt;built-in function StringValue&gt;), &lt;type 'list'&gt;: (None, None), &lt;type 'unicode'&gt;: (u'exsl:string', &lt;built-in function StringValue&gt;), &lt;type 'boolean'&gt;: (u'exsl:boolean', &lt;function &lt;lambda&gt; at 0xb75c64fc&gt;)}</value>
+    </global>
+  </globals>
+</module>

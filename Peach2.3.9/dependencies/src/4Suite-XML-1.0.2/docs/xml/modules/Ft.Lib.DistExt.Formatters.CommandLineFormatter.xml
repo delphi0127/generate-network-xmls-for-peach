@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Formatters.CommandLineFormatter">
+  <modification-date>2006-08-17 13:09:43</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="CommandLineFormatter" public="yes">
+      <bases>
+        <base documented="yes" class="XmlFormatter" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="CommandLineFormatter" module="Ft.Lib.DistExt.Formatters.CommandLineFormatter"/>
+        <base name="XmlFormatter" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+        <base name="XmlRepr" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+        <base name="TextRepr" module="pydoc"/>
+        <base name="Repr" module="repr"/>
+      </method-resolution-order>
+      <methods name="Repr" module="repr">
+        <method public="yes" name="doc_argument" id="CommandLineFormatter-doc_argument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="argument"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="doc_command" id="CommandLineFormatter-doc_command">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="command"/>
+          </arguments>
+        </method>
+        <method public="yes" name="doc_option" id="CommandLineFormatter-doc_option">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="option"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="doc_subcommand" id="CommandLineFormatter-doc_subcommand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="command"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+        <method public="yes" name="document" id="CommandLineFormatter-document">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="application"/>
+          </arguments>
+          <overrides documented="yes" class="XmlFormatter" module="Ft.Lib.DistExt.Formatters.XmlFormatter"/>
+        </method>
+      </methods>
+      <members name="Repr" module="repr">
+        <member public="yes" name="document_type" id="CommandLineFormatter-document_type">
+          <value>&lt;class Ft.Lib.CommandLine.CommandLineApp.CommandLineApp&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="XmlFormatter" module="Ft.Lib.DistExt.Formatters.XmlFormatter">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="end_element" public="yes"/>
+        <member-reference name="format" public="yes"/>
+        <member-reference name="section" public="yes"/>
+        <member-reference name="start_element" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+        <member-reference name="write_element" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="XmlFormatter" module="Ft.Lib.DistExt.Formatters.XmlFormatter">
+        <member-reference name="indent" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="yes" class="XmlRepr" module="Ft.Lib.DistExt.Formatters.XmlFormatter">
+        <member-reference name="escape" public="yes"/>
+        <member-reference name="repr" public="yes"/>
+        <member-reference name="repr_str" public="yes"/>
+        <member-reference name="repr_unicode" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="TextRepr" module="pydoc">
+        <member-reference name="repr1" public="yes"/>
+        <member-reference name="repr_instance" public="yes"/>
+        <member-reference name="repr_string" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Repr" module="repr">
+        <member-reference name="repr_array" public="yes"/>
+        <member-reference name="repr_deque" public="yes"/>
+        <member-reference name="repr_dict" public="yes"/>
+        <member-reference name="repr_frozenset" public="yes"/>
+        <member-reference name="repr_list" public="yes"/>
+        <member-reference name="repr_long" public="yes"/>
+        <member-reference name="repr_set" public="yes"/>
+        <member-reference name="repr_tuple" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+</module>

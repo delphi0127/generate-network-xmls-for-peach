@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XLink">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>XLink processing package</abstract>
+  <description>See http://www.w3.org/TR/xlink/
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="Processor" realname="Ft.Xml.XLink.Processor">
+      <abstract>XLink processing engine</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XLinkElements" realname="Ft.Xml.XLink.XLinkElements">
+      <abstract>Classes representing XLink elements</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+  </modules>
+  <globals>
+    <global public="yes" name="XLINK_NAMESPACE" id="XLINK_NAMESPACE">
+      <value>u'http://www.w3.org/1999/xlink'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.ImageHlp">
+  <modification-date>2006-10-18 13:12:04</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="Array" public="yes">
+      <bases>
+        <base documented="no" class="list"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Array" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="list"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="Array-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="bytes"/>
+          </arguments>
+          <overrides documented="no" class="list"/>
+        </method>
+        <method public="no" name="pack" id="Array-pack">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="Array-__dict__">
+          <value>&lt;attribute '__dict__' of 'Array' objects&gt;</value>
+        </member>
+        <member public="no" name="__weakref__" id="Array-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'Array' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="list">
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__contains__" public="no"/>
+        <member-reference name="__delitem__" public="no"/>
+        <member-reference name="__delslice__" public="no"/>
+        <member-reference name="__eq__" public="no"/>
+        <member-reference name="__ge__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__getslice__" public="no"/>
+        <member-reference name="__gt__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__iadd__" public="no"/>
+        <member-reference name="__imul__" public="no"/>
+        <member-reference name="__iter__" public="no"/>
+        <member-reference name="__le__" public="no"/>
+        <member-reference name="__len__" public="no"/>
+        <member-reference name="__lt__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__ne__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__reversed__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__setitem__" public="no"/>
+        <member-reference name="__setslice__" public="no"/>
+        <member-reference name="append" public="no"/>
+        <member-reference name="count" public="no"/>
+        <member-reference name="extend" public="no"/>
+        <member-reference name="index" public="no"/>
+        <member-reference name="insert" public="no"/>
+        <member-reference name="pop" public="no"/>
+        <member-reference name="remove" public="no"/>
+        <member-reference name="reverse" public="no"/>
+        <member-reference name="sort" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Byte" public="yes">
+      <bases>
+        <base documented="no" class="int"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Byte" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="int"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__dict__" id="Byte-__dict__">
+          <value>&lt;attribute '__dict__' of 'Byte' objects&gt;</value>
+        </member>
+        <member public="no" name="__format__" id="Byte-__format__">
+          <value>'&lt;B'</value>
+        </member>
+        <member public="no" name="__metaclass__" id="Byte-__metaclass__">
+          <value>&lt;class 'Ft.Lib.DistExt.ImageHlp.DataType'&gt;</value>
+        </member>
+        <member public="no" name="__size__" id="Byte-__size__">
+          <value>1</value>
+        </member>
+        <member public="no" name="__weakref__" id="Byte-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'Byte' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="int">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__index__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="DataType" public="yes">
+      <bases>
+        <base documented="no" class="type"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DataType" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="type"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="DataType-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="cls"/>
+            <arg name="name"/>
+            <arg name="bases"/>
+            <arg name="namespace"/>
+          </arguments>
+          <overrides documented="no" class="type"/>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="type">
+        <member-reference name="__call__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__subclasses__" public="no"/>
+        <member-reference name="mro" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="type">
+        <member-reference name="__base__" public="no"/>
+        <member-reference name="__bases__" public="no"/>
+        <member-reference name="__basicsize__" public="no"/>
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__dictoffset__" public="no"/>
+        <member-reference name="__flags__" public="no"/>
+        <member-reference name="__itemsize__" public="no"/>
+        <member-reference name="__mro__" public="no"/>
+        <member-reference name="__weakrefoffset__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Dword" public="yes">
+      <bases>
+        <base documented="no" class="long"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Dword" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="long"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__dict__" id="Dword-__dict__">
+          <value>&lt;attribute '__dict__' of 'Dword' objects&gt;</value>
+        </member>
+        <member public="no" name="__format__" id="Dword-__format__">
+          <value>'&lt;L'</value>
+        </member>
+        <member public="no" name="__metaclass__" id="Dword-__metaclass__">
+          <value>&lt;class 'Ft.Lib.DistExt.ImageHlp.DataType'&gt;</value>
+        </member>
+        <member public="no" name="__size__" id="Dword-__size__">
+          <value>4</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="long">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__index__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageDataDirectory" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageDataDirectory" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageDataDirectory-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'VirtualAddress'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Size')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageDataDirectory-__format__">
+          <value>'&lt;LL'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageDataDirectory-__size__">
+          <value>8</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageDosHeader" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageDosHeader" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageDosHeader-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_magic'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_cblp'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_cp'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_crlc'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_cparhdr'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_minalloc'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_maxalloc'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_ss'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_sp'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_csnum'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_ip'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_cs'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_lfarlc'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_ovno'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word[4]'&gt;, 'e_res'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_oemid'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'e_oeminfo'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word[10]'&gt;, 'e_res2'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'e_lfanew')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageDosHeader-__format__">
+          <value>'&lt;HHHHHHHHHHHHHH8sHH20sL'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageDosHeader-__size__">
+          <value>64</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageFileHeader" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageFileHeader" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageFileHeader-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'Machine'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'NumberOfSections'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'TimeDateStamp'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'PointerToSymbolTable'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'NumberOfSymbols'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'SizeOfOptionalHeader'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'Characteristics')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageFileHeader-__format__">
+          <value>'&lt;HHLLLHH'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageFileHeader-__size__">
+          <value>20</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageNTHeaders" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageNTHeaders" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageNTHeaders-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Signature'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.ImageFileHeader'&gt;, 'FileHeader'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.ImageOptionalHeader'&gt;, 'OptionalHeader')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageNTHeaders-__format__">
+          <value>'&lt;L20s224s'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageNTHeaders-__size__">
+          <value>248</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageOptionalHeader" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageOptionalHeader" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageOptionalHeader-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'Magic'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Byte'&gt;, 'MajorLinkerVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Byte'&gt;, 'MinorLinkerVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'SizeOfCode'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'SizeOfInitializedData'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'SizeOfUninitializedData'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'AddressOfEntryPoint'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'BaseOfCode'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'BaseOfData'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'ImageBase'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'SectionAlignment'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'FileAlignment'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MajorOperatingSystemVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MinorOperatingSystemVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MajorImageVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MinorImageVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MajorSubsystemVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MinorSubsystemVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Win32VersionValue'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'SizeOfImage'), ...]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageOptionalHeader-__format__">
+          <value>'&lt;HBBLLLLLLLLLHHHHHHLLLLHHLLLLLL128s'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageOptionalHeader-__size__">
+          <value>224</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageResourceDataEntry" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageResourceDataEntry" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageResourceDataEntry-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'OffsetToData'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Size'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'CodePage'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Reserved')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageResourceDataEntry-__format__">
+          <value>'&lt;LLLL'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageResourceDataEntry-__size__">
+          <value>16</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageResourceDirectory" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageResourceDirectory" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageResourceDirectory-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Characteristics'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'TimeDateStamp'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MajorVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'MinorVersion'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'NumberOfNamedEntries'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'NumberOfIdEntries')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageResourceDirectory-__format__">
+          <value>'&lt;LLHHHH'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageResourceDirectory-__size__">
+          <value>16</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageResourceDirectoryEntry" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageResourceDirectoryEntry" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageResourceDirectoryEntry-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Id'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Offset')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageResourceDirectoryEntry-__format__">
+          <value>'&lt;LL'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageResourceDirectoryEntry-__size__">
+          <value>8</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="ImageSectionHeader" public="no">
+      <bases>
+        <base documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ImageSectionHeader" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__fields__" id="ImageSectionHeader-__fields__">
+          <value>[(&lt;class 'Ft.Lib.DistExt.ImageHlp.Byte[8]'&gt;, 'Name'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Misc'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'VirtualAddress'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'SizeOfRawData'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'PointerToRawData'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'PointerToRelocations'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'PointerToLinenumbers'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'NumberOfRelocations'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Word'&gt;, 'NumberOfLinenumbers'), (&lt;class 'Ft.Lib.DistExt.ImageHlp.Dword'&gt;, 'Characteristics')]</value>
+        </member>
+        <member public="no" name="__format__" id="ImageSectionHeader-__format__">
+          <value>'&lt;8sLLLLLLHHL'</value>
+        </member>
+        <member public="no" name="__size__" id="ImageSectionHeader-__size__">
+          <value>40</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="load" public="no"/>
+        <member-reference name="pack" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="yes" class="Struct" module="Ft.Lib.DistExt.ImageHlp">
+        <member-reference name="__dict__" public="no"/>
+        <member-reference name="__metaclass__" public="no"/>
+        <member-reference name="__weakref__" public="no"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Struct" public="yes">
+      <bases>
+        <base documented="no" class="object"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Struct" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <methods name="object">
+        <method public="no" name="__init__" id="Struct-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="bytes"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <method public="no" name="__repr__" id="Struct-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="object"/>
+        </method>
+        <class-method public="no" name="load" id="Struct-load">
+          <abstract>classmethod(function) -&gt; method</abstract>
+          <description>Convert a function to be a class method.
+
+A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:
+
+  class C:
+      def f(cls, arg1, arg2, ...): ...
+      f = classmethod(f)
+
+It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</description>
+          <arguments>
+            <unknown>...</unknown>
+          </arguments>
+        </class-method>
+        <method public="no" name="pack" id="Struct-pack">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="object">
+        <member public="no" name="__dict__" id="Struct-__dict__">
+          <value>&lt;attribute '__dict__' of 'Struct' objects&gt;</value>
+        </member>
+        <member public="no" name="__format__" id="Struct-__format__">
+          <value>''</value>
+        </member>
+        <member public="no" name="__metaclass__" id="Struct-__metaclass__">
+          <value>&lt;class 'Ft.Lib.DistExt.ImageHlp.DataType'&gt;</value>
+        </member>
+        <member public="no" name="__size__" id="Struct-__size__">
+          <value>0</value>
+        </member>
+        <member public="no" name="__weakref__" id="Struct-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'Struct' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+    <class name="Word" public="yes">
+      <bases>
+        <base documented="no" class="int"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Word" module="Ft.Lib.DistExt.ImageHlp"/>
+        <base name="int"/>
+        <base name="object"/>
+      </method-resolution-order>
+      <members name="object">
+        <member public="no" name="__dict__" id="Word-__dict__">
+          <value>&lt;attribute '__dict__' of 'Word' objects&gt;</value>
+        </member>
+        <member public="no" name="__format__" id="Word-__format__">
+          <value>'&lt;H'</value>
+        </member>
+        <member public="no" name="__metaclass__" id="Word-__metaclass__">
+          <value>&lt;class 'Ft.Lib.DistExt.ImageHlp.DataType'&gt;</value>
+        </member>
+        <member public="no" name="__size__" id="Word-__size__">
+          <value>2</value>
+        </member>
+        <member public="no" name="__weakref__" id="Word-__weakref__">
+          <value>&lt;attribute '__weakref__' of 'Word' objects&gt;</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="int">
+        <member-reference name="__abs__" public="no"/>
+        <member-reference name="__add__" public="no"/>
+        <member-reference name="__and__" public="no"/>
+        <member-reference name="__cmp__" public="no"/>
+        <member-reference name="__coerce__" public="no"/>
+        <member-reference name="__div__" public="no"/>
+        <member-reference name="__divmod__" public="no"/>
+        <member-reference name="__float__" public="no"/>
+        <member-reference name="__floordiv__" public="no"/>
+        <member-reference name="__getattribute__" public="no"/>
+        <member-reference name="__getnewargs__" public="no"/>
+        <member-reference name="__hash__" public="no"/>
+        <member-reference name="__hex__" public="no"/>
+        <member-reference name="__index__" public="no"/>
+        <member-reference name="__int__" public="no"/>
+        <member-reference name="__invert__" public="no"/>
+        <member-reference name="__long__" public="no"/>
+        <member-reference name="__lshift__" public="no"/>
+        <member-reference name="__mod__" public="no"/>
+        <member-reference name="__mul__" public="no"/>
+        <member-reference name="__neg__" public="no"/>
+        <member-reference name="__new__" public="no"/>
+        <member-reference name="__nonzero__" public="no"/>
+        <member-reference name="__oct__" public="no"/>
+        <member-reference name="__or__" public="no"/>
+        <member-reference name="__pos__" public="no"/>
+        <member-reference name="__pow__" public="no"/>
+        <member-reference name="__radd__" public="no"/>
+        <member-reference name="__rand__" public="no"/>
+        <member-reference name="__rdiv__" public="no"/>
+        <member-reference name="__rdivmod__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__rfloordiv__" public="no"/>
+        <member-reference name="__rlshift__" public="no"/>
+        <member-reference name="__rmod__" public="no"/>
+        <member-reference name="__rmul__" public="no"/>
+        <member-reference name="__ror__" public="no"/>
+        <member-reference name="__rpow__" public="no"/>
+        <member-reference name="__rrshift__" public="no"/>
+        <member-reference name="__rshift__" public="no"/>
+        <member-reference name="__rsub__" public="no"/>
+        <member-reference name="__rtruediv__" public="no"/>
+        <member-reference name="__rxor__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="__sub__" public="no"/>
+        <member-reference name="__truediv__" public="no"/>
+        <member-reference name="__xor__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="object">
+        <member-reference name="__delattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__reduce__" public="no"/>
+        <member-reference name="__reduce_ex__" public="no"/>
+        <member-reference name="__setattr__" public="no"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="object">
+        <member-reference name="__class__" public="no"/>
+      </inherited-members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ArrayOf" id="ArrayOf">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="datatype"/>
+        <arg name="size"/>
+      </arguments>
+    </function>
+    <function public="no" name="FindImageHeaders" id="FindImageHeaders">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="image"/>
+      </arguments>
+    </function>
+    <function public="no" name="FindResourceOffset" id="FindResourceOffset">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="image"/>
+        <arg name="anyId"/>
+        <arg name="resourceId"/>
+        <arg name="findSubdir"/>
+      </arguments>
+    </function>
+    <function public="no" name="FindResourceSection" id="FindResourceSection">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="image"/>
+      </arguments>
+    </function>
+    <function public="no" name="SeekToResource" id="SeekToResource">
+      <abstract>Sets stream `f` to the location of the resource source</abstract>
+      <description/>
+      <arguments>
+        <arg name="image"/>
+        <arg name="resourceType"/>
+        <arg name="resourceId"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SetSubsystem" id="SetSubsystem">
+      <abstract>Sets the Windows subsystem required to run the executable file.</abstract>
+      <description/>
+      <arguments>
+        <arg name="image"/>
+        <arg name="subsystem"/>
+      </arguments>
+    </function>
+    <function public="yes" name="UpdateResource" id="UpdateResource">
+      <abstract>Replaces the resource in the executable file.</abstract>
+      <description/>
+      <arguments>
+        <arg name="image"/>
+        <arg name="resourceType"/>
+        <arg name="resourceId"/>
+        <arg name="resourceData"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="IMAGE_DIRECTORY_ENTRY_RESOURCE" id="IMAGE_DIRECTORY_ENTRY_RESOURCE">
+      <value>2</value>
+    </global>
+    <global public="no" name="IMAGE_NT_OPTIONAL_HDR32_MAGIC" id="IMAGE_NT_OPTIONAL_HDR32_MAGIC">
+      <value>267</value>
+    </global>
+    <global public="no" name="IMAGE_NUMBEROF_DIRECTORY_ENTRIES" id="IMAGE_NUMBEROF_DIRECTORY_ENTRIES">
+      <value>16</value>
+    </global>
+    <global public="no" name="IMAGE_SIZEOF_SHORT_NAME" id="IMAGE_SIZEOF_SHORT_NAME">
+      <value>8</value>
+    </global>
+    <global public="no" name="IMAGE_SUBSYSTEM_WINDOWS_CUI" id="IMAGE_SUBSYSTEM_WINDOWS_CUI">
+      <value>3</value>
+    </global>
+    <global public="no" name="IMAGE_SUBSYSTEM_WINDOWS_GUI" id="IMAGE_SUBSYSTEM_WINDOWS_GUI">
+      <value>2</value>
+    </global>
+    <global public="yes" name="RT_RCDATA" id="RT_RCDATA">
+      <value>10</value>
+    </global>
+    <global public="yes" name="RT_VERSION" id="RT_VERSION">
+      <value>16</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['DataType', 'Array', 'Struct', 'Byte', 'Word', 'Dword', 'ArrayOf', 'RT_RCDATA', 'RT_VERSION', 'UpdateResource', 'SetSubsystem']</value>
+    </global>
+  </globals>
+</module>

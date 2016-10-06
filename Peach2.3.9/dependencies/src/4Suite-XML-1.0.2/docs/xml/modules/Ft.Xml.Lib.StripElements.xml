@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.StripElements">
+  <modification-date>2005-05-09 11:44:08</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="StripElements" id="StripElements">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="node"/>
+        <arg name="stripElements"/>
+        <arg default="0" name="stripState"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+  </globals>
+</module>

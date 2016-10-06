@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Resolvers">
+  <modification-date>2005-04-18 16:46:56</modification-date>
+  <abstract>Specialized and useful URI resolvers</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="FacadeResolver" public="yes">
+      <bases>
+        <base documented="yes" class="FtUriResolver" module="Ft.Lib.Uri"/>
+      </bases>
+      <abstract>A type of resolver that can be used to create a facade or cache of
+resources by keeping a dictionary of URI to result mappings.  When a
+URI is provided for resolution, the mapping is first checked, and a
+stream is constructed by wrapping the mapping value string.
+If no match is found in the mapping, fall back to the standard
+resolver logic.</abstract>
+      <description>You can manipulate the mapping directly using the &quot;cache&quot; attribute.</description>
+      <method-resolution-order>
+        <base name="FacadeResolver" module="Ft.Lib.Resolvers"/>
+        <base name="FtUriResolver" module="Ft.Lib.Uri"/>
+        <base name="UriResolverBase" module="Ft.Lib.Uri"/>
+      </method-resolution-order>
+      <methods name="UriResolverBase" module="Ft.Lib.Uri">
+        <method public="no" name="__init__" id="FacadeResolver-__init__">
+          <abstract>cache - a dictionary with mapings from URI to value (as an object
+to be converted to a UTF-8 encoded string)
+observer - callable object invoked on each resolution request</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="cache"/>
+            <arg default="None" name="observer"/>
+          </arguments>
+          <overrides documented="yes" class="FtUriResolver" module="Ft.Lib.Uri"/>
+        </method>
+        <method public="yes" name="resolve" id="FacadeResolver-resolve">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="None" name="base"/>
+          </arguments>
+          <overrides documented="yes" class="FtUriResolver" module="Ft.Lib.Uri"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FtUriResolver" module="Ft.Lib.Uri">
+        <member-reference name="normalize" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="UriResolverBase" module="Ft.Lib.Uri">
+        <member-reference name="generate" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="SchemeRegistryResolver" public="yes">
+      <bases>
+        <base documented="yes" class="FtUriResolver" module="Ft.Lib.Uri"/>
+      </bases>
+      <abstract>A type of resolver that allows developers to register different callable
+objects to handle different URI schemes.  The default action if there
+is nothing registered for the scheme will be to fall back to
+UriResolverBase behavior *unless* you have in the mapping a special
+scheme None.  The callable object that is the value on that key will
+then be used as the default for all unknown schemes.</abstract>
+      <description>The expected function signature for scheme call-backs matches
+UriResolverBase.resolve, without the instance argument:
+
+resolve(uri, base=None)
+
+Reminder: Since this does not include self, if you are registering
+a method, use the method instance (i.e. myresolver().handler
+rather than myresolver.handler)
+
+You can manipulate the mapping directly using the &quot;handlers&quot; attribute.</description>
+      <method-resolution-order>
+        <base name="SchemeRegistryResolver" module="Ft.Lib.Resolvers"/>
+        <base name="FtUriResolver" module="Ft.Lib.Uri"/>
+        <base name="UriResolverBase" module="Ft.Lib.Uri"/>
+      </method-resolution-order>
+      <methods name="UriResolverBase" module="Ft.Lib.Uri">
+        <method public="no" name="__init__" id="SchemeRegistryResolver-__init__">
+          <abstract>handlers - a Python dictionary with scheme names as keys (e.g. &quot;http&quot;)
+and callable objects as values</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="handlers"/>
+          </arguments>
+          <overrides documented="yes" class="FtUriResolver" module="Ft.Lib.Uri"/>
+        </method>
+        <method public="yes" name="resolve" id="SchemeRegistryResolver-resolve">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="None" name="base"/>
+          </arguments>
+          <overrides documented="yes" class="FtUriResolver" module="Ft.Lib.Uri"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="FtUriResolver" module="Ft.Lib.Uri">
+        <member-reference name="normalize" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="UriResolverBase" module="Ft.Lib.Uri">
+        <member-reference name="generate" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+</module>

@@ -1,0 +1,418 @@
+<?xml version = "1.0"?>
+<bisongen version='1.0' name='XPatternParser' project='Ft.Xml.Xslt'>
+
+  <!-- Python modules to import -->
+  <modules>
+    <?include ../XPath/XPathModules.bgen.frag?>
+    <import from="Ft.Xml.Xslt.XPatterns">Patterns</import>
+    <import from="Ft.Xml.Xslt.XPatterns">Pattern</import>
+    <import from="Ft.Xml.Xslt.XPatterns">DocumentNodeTest</import>
+    <import from="Ft.Xml.Xslt.XPatterns">IdKeyNodeTest</import>
+    <import from="Ft.Xml.Xslt.XPatterns">PredicatedNodeTest</import>
+    <import from="Ft.Xml.Xslt.XPatterns">ChildAxis</import>
+    <import from="Ft.Xml.Xslt.XPatterns">AttributeAxis</import>
+  </modules>
+
+  <!-- Token declarations -->
+  <tokens>
+    <?include ../XPath/XPathTokens.bgen.frag?>
+  </tokens>
+
+  <!-- Grammer rules definition -->
+  <grammar>
+    <production>
+      <non-terminal>start</non-terminal>
+      <rule>
+        <symbol>Pattern</symbol>
+        <code language="c">
+          $$ = PyObject_CallFunction(Patterns, "O", $1);
+        </code>
+        <code language="python">
+          $$ = Patterns($1)
+        </code>
+      </rule>
+    </production>
+
+    <!-- Patterns [1] -->
+    <production>
+      <non-terminal>Pattern</non-terminal>
+      <rule>
+        <symbol>LocationPathPattern</symbol>
+        <code language='c'>
+          PyObject *pattern = PyObject_CallFunction(Pattern, "O", $1);
+          PyObject_CallMethod($1, "reverse", NULL);
+          $$ = PyList_New(1);
+          PyList_SET_ITEM($$, 0, pattern);
+        </code>
+        <code language='python'>
+          $1.reverse()
+          $$ = [Pattern($1)]
+        </code>
+      </rule>
+      <rule>
+        <symbol>Pattern</symbol>
+        <symbol>'|'</symbol>
+        <symbol>LocationPathPattern</symbol>
+        <code language='c'>
+          PyObject *pattern = PyObject_CallFunction(Pattern, "O", $3);
+          PyObject_CallMethod($3, "reverse", NULL);
+          PyList_Append($1, pattern);
+          Py_DECREF(pattern);
+          Py_INCREF($1);
+          $$ = $1;
+        </code>
+        <code language='python'>
+          $3.reverse()
+          $1.append(Pattern($3))
+          $$ = $1
+        </code>
+      </rule>
+    </production>
+
+    <!-- Patterns [2] -->
+    <production>
+      <non-terminal>LocationPathPattern</non-terminal>
+      <rule>
+        <symbol>'/'</symbol>
+        <code language='c'>
+          PyObject *node_test = PyObject_CallFunction(DocumentNodeTest, NULL);
+          PyObject *tuple = PyTuple_New(3);
+          PyTuple_SET_ITEM(tuple, 0, PyInt_FromLong(0L));
+          PyTuple_SET_ITEM(tuple, 1, node_test);
+          PyTuple_SET_ITEM(tuple, 2, PyInt_FromLong(0L));
+          $$ = PyList_New(1);
+          PyList_SET_ITEM($$, 0, tuple);
+        </code>
+        <code language='python'>
+          $$ = [(0, DocumentNodeTest(), 0)]
+        </code>
+      </rule>
+      <rule>
+        <symbol>'/'</symbol>
+        <symbol>RelativePathPattern</symbol>
+        <code language='c'>
+          PyObject *node_test = PyObject_CallFunction(DocumentNodeTest, NULL);
+          PyObject *tuple = PyTuple_New(3);
+          PyTuple_SET_ITEM(tuple, 0, PyInt_FromLong(0L));
+          PyTuple_SET_ITEM(tuple, 1, node_test);
+          PyTuple_SET_ITEM(tuple, 2, PyInt_FromLong(0L));
+          PyList_Insert($2, 0, tuple);
+          Py_DECREF(tuple);
+          Py_INCREF($2);
+          $$ = $2;
+        </code>
+        <code language='python'>
+          $2.insert(0, (0, DocumentNodeTest(), 0))
+          $$ = $2
+        </code>
+      </rule>
+      <rule>
+        <symbol>IdKeyPattern</symbol>
+        <code language="c">
+          PyObject *tuple = PyTuple_New(3);
+          PyTuple_SET_ITEM(tuple, 0, PyInt_FromLong(0L));
+          PyTuple_SET_ITEM(tuple, 1, $1);
+          PyTuple_SET_ITEM(tuple, 2, PyInt_FromLong(0L));
+          Py_INCREF($1);
+          $$ = PyList_New(1);
+          PyList_SET_ITEM($$, 0, tuple);
+        </code>
+        <code language="python">
+          $$ = [(0, $1, 0)]
+        </code>
+      </rule>
+      <rule>
+        <symbol>IdKeyPattern</symbol>
+        <symbol>'/'</symbol>
+        <symbol>RelativePathPattern</symbol>
+        <code language="c">
+          PyObject *tuple = PyTuple_New(3);
+          PyTuple_SET_ITEM(tuple, 0, PyInt_FromLong(0L));
+          PyTuple_SET_ITEM(tuple, 1, $1);
+          Py_INCREF($1);
+          PyTuple_SET_ITEM(tuple, 2, PyInt_FromLong(0L));
+          PyList_Insert($3, 0, tuple);
+          Py_DECREF(tuple);
+          Py_INCREF($3);
+          $$ = $3;
+        </code>
+        <code language="python">
+          $3.insert(0, (0, $1, 0))
+          $$ = $3
+        </code>
+      </rule>
+      <rule>
+        <symbol>IdKeyPattern</symbol>
+        <symbol>DOUBLE_SLASH</symbol>
+        <symbol>RelativePathPattern</symbol>
+        <code language="c">
+          PyObject *tuple = PyTuple_New(3);
+          PyTuple_SET_ITEM(tuple, 0, PyInt_FromLong(0L));
+          PyTuple_SET_ITEM(tuple, 1, $1);
+          Py_INCREF($1);
+          PyTuple_SET_ITEM(tuple, 2, PyInt_FromLong(0L));
+          PyList_Insert($3, 0, tuple);
+          Py_DECREF(tuple);
+          Py_INCREF($3);
+          $$ = $3;
+        </code>
+        <code language="python">
+          $3.insert(0, (0, $1, 1))
+          $$ = $3
+        </code>
+      </rule>
+      <rule>
+        <symbol>DOUBLE_SLASH</symbol>
+        <symbol>RelativePathPattern</symbol>
+        <code language="c">
+          $$ = $2;
+          Py_INCREF($2);
+        </code>
+        <code language="python">
+          $$ = $2;
+        </code>
+      </rule>
+      <rule>
+        <symbol>RelativePathPattern</symbol>
+      </rule>
+    </production>
+
+    <!-- Patterns [3] -->
+    <!-- IdKeyPattern: 'id' '(' Literal ')'
+                     | 'key' '(' Literal ',' Literal ')'
+    -->
+    <production>
+      <non-terminal>IdKeyPattern</non-terminal>
+      <rule>
+        <symbol>FUNCTION_NAME</symbol>
+        <symbol>'('</symbol>
+        <symbol>LITERAL</symbol>
+        <symbol>')'</symbol>
+        <code language="c">
+          if (strcmp(PyString_AsString($1), "id")) {
+            PyErr_SetString(PyExc_SyntaxError, "Only 'id' or 'key' allowed as top level functions");
+            $$ = NULL;
+          } else {
+            PyObject *id_or_key;
+            PyObject *args = PyList_New(1);
+            PyObject *literal = PyObject_CallFunction(ParsedLiteralExpr, "O", $3);
+            PyList_SET_ITEM(args, 0, literal);
+            id_or_key = PyObject_CallFunction(ParsedFunctionCallExpr, "OO", $1, args);
+            Py_DECREF(args);
+            $$ = PyObject_CallFunction(IdKeyNodeTest, "O", id_or_key);
+            Py_DECREF(id_or_key);
+          }
+        </code>
+        <code language="python">
+          if $1 != "id":
+            raise SyntaxError("Only 'id' or 'key' allowed as top level functions")
+          args = [ParsedLiteralExpr($3)]
+          id_or_key = ParsedFunctionCallExpr($1, args)
+          $$ = IdKeyNodeTest(id_or_key)
+        </code>
+      </rule>
+      <rule>
+        <symbol>FUNCTION_NAME</symbol>
+        <symbol>'('</symbol>
+        <symbol>LITERAL</symbol>
+        <symbol>','</symbol>
+        <symbol>LITERAL</symbol>
+        <symbol>')'</symbol>
+        <code language="c">
+          if (strcmp(PyString_AsString($1), "key")) {
+            PyErr_SetString(PyExc_SyntaxError, "Only 'id' or 'key' allowed as top level functions");
+            $$ = NULL;
+          } else {
+            PyObject *id_or_key;
+            PyObject *args = PyList_New(2);
+            PyObject *literal = PyObject_CallFunction(ParsedLiteralExpr, "O", $3);
+            PyList_SET_ITEM(args, 0, literal);
+            literal = PyObject_CallFunction(ParsedLiteralExpr, "O", $5);
+            PyList_SET_ITEM(args, 1, literal);
+            id_or_key = PyObject_CallFunction(ParsedFunctionCallExpr, "OO", $1, args);
+            Py_DECREF(args);
+            $$ = PyObject_CallFunction(IdKeyNodeTest, "O", id_or_key);
+            Py_DECREF(id_or_key);
+          }
+        </code>
+        <code language="python">
+          if $1 != "key":
+            raise SyntaxError("Only 'id' or 'key' allowed as top level functions")
+          args = [ParsedLiteralExpr($3), ParsedLiteralExpr($5)]
+          id_or_key = ParsedFunctionCallExpr($1, args)
+          $$ = IdKeyNodeTest(id_or_key)
+        </code>
+      </rule>    
+    </production>
+
+    <!-- Patterns [4] -->
+    <production>
+      <non-terminal>RelativePathPattern</non-terminal>
+      <rule>
+        <symbol>StepPattern</symbol>
+        <code language="c">
+          $$ = PyList_New(1);
+          PyList_SET_ITEM($$, 0, $1);
+          Py_INCREF($1);
+        </code>
+        <code language="python">
+          $$ = [$1]
+        </code>
+      </rule>
+      <rule>
+        <symbol>RelativePathPattern</symbol>
+        <symbol>'/'</symbol>
+        <symbol>StepPattern</symbol>
+        <code language="c">
+          if (PyList_Check($1)) {
+            PyList_Append($1, $3);
+            Py_INCREF($1);
+            $$ = $1;
+          } else {
+            $$ = PyList_New(2);
+            PyList_SET_ITEM($$, 0, $1);
+            Py_INCREF($1);
+            PyList_SET_ITEM($$, 1, $3);
+            Py_INCREF($3);
+          }
+        </code>
+        <code language="python">
+          if type($1) == type([]):
+            $1.append($3)
+            $$ = $1
+          else:
+            $$ = [$1, $3]
+        </code>
+      </rule>
+      <rule>
+        <symbol>RelativePathPattern</symbol>
+        <symbol>DOUBLE_SLASH</symbol>
+        <symbol>StepPattern</symbol>
+        <code language="c">
+          PyObject *tuple;
+          if (PyList_Check($1)) {
+            tuple = PyList_GET_ITEM($1, PyList_GET_SIZE($1)-1);
+            PyList_Append($1, $3);
+            Py_INCREF($1);
+            $$ = $1;
+          } else {
+            tuple = $1;
+            $$ = PyList_New(2);
+            PyList_SET_ITEM($$, 0, $1);
+            Py_INCREF($1);
+            PyList_SET_ITEM($$, 1, $3);
+            Py_INCREF($3);
+          }
+          /* flag as an ancestor */
+          PyTuple_SetItem(tuple, 2, PyInt_FromLong((long)1));
+        </code>
+        <code language="python">
+          if type($1) == type([]):
+            $1[-1] = ($1[-1][0], $1[-1][1], 1)
+            $1.append($3)
+            $$ = $1
+          else:
+            ancestor = ($1[0], $1[1], 1)
+            $$ = [ancestor, $3]
+        </code>
+      </rule>
+    </production>
+
+    <!-- Patterns [5] -->
+    <production>
+      <non-terminal>StepPattern</non-terminal>
+      <rule>
+        <symbol>ChildOrAttributeAxisSpecifier</symbol>
+        <symbol>nodeTest</symbol>
+        <code language="c">
+          $$ = PyTuple_New(3);
+          PyTuple_SET_ITEM($$, 0, $1);
+          Py_INCREF($1);
+          PyTuple_SET_ITEM($$, 1, $2);
+          Py_INCREF($2);
+          PyTuple_SET_ITEM($$, 2, PyInt_FromLong((long)0));
+        </code>
+        <code language="python">
+          $$ = ($1, $2, 0)
+        </code>
+      </rule>
+      <rule>
+        <symbol>ChildOrAttributeAxisSpecifier</symbol>
+        <symbol>nodeTest</symbol>
+        <symbol>predicateList</symbol>
+        <code language="c">
+          PyObject *node_test = PyObject_CallFunction(PredicatedNodeTest, "OO", $2, $3);
+          $$ = PyTuple_New(3);
+          PyTuple_SET_ITEM($$, 0, $1);
+          Py_INCREF($1);
+          PyTuple_SET_ITEM($$, 1, node_test);
+          PyTuple_SET_ITEM($$, 2, PyInt_FromLong((long)0));
+        </code>
+        <code language="python">
+          node_test = PredicatedNodeTest($2, $3)
+          $$ = ($1, node_test, 0)
+        </code>
+      </rule>
+    </production>
+
+    <!-- Patterns [6] -->
+    <production>
+      <non-terminal>ChildOrAttributeAxisSpecifier</non-terminal>
+      <rule>
+        <symbol>'@'</symbol>
+        <code language="c">
+          Py_INCREF(AttributeAxis);
+          $$ = AttributeAxis;
+        </code>
+        <code language="python">
+          $$ = AttributeAxis
+        </code>
+      </rule>
+      <rule>
+        <code language="c">
+          Py_INCREF(ChildAxis);
+          $$ = ChildAxis;
+        </code>
+        <code language="python">
+          $$ = ChildAxis
+        </code>
+      </rule>
+      <rule>
+        <symbol>AXIS_NAME</symbol>
+        <symbol>DOUBLE_COLON</symbol>
+        <code language="c">
+          char *axis = PyString_AsString($1);
+          if (strcmp(axis, "child") == 0) {
+            Py_INCREF(ChildAxis);
+            $$ = ChildAxis;
+          } else if (strcmp(axis, "attribute") == 0) {
+            Py_INCREF(AttributeAxis);
+            $$ = AttributeAxis;
+          } else {
+            PyErr_SetString(PyExc_SyntaxError, "Only 'child' or 'attribute' axes allowed");
+            $$ = NULL;
+          }
+        </code>
+        <code language="python">
+          if $1 == 'child':
+            $$ = ChildAxis
+          elif $1 == 'attribute':
+            $$ = AttributeAxis
+          else:
+            raise SyntaxError("Only 'child' or 'attribute' axes allowed")
+        </code>
+      </rule>
+    </production>
+
+    <?include ../XPath/XPathBase.bgen.frag?>
+
+  </grammar>
+
+  <lexer>
+    <defines>
+      <?include ../XPath/XPathLexerDefines.bgen.frag?>
+    </defines>
+    <?include ../XPath/XPathLexerPatterns.bgen.frag?>
+  </lexer>
+
+</bisongen>

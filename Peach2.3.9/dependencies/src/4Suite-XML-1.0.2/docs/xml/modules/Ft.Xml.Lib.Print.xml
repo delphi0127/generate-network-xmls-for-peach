@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.Print">
+  <modification-date>2006-10-16 13:13:51</modification-date>
+  <abstract>This module supports document serialization in XML or HTML syntax.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="PrintVisitor" public="yes">
+      <abstract>Provides functions to recursively walk a DOM or Domlette object and
+generate SAX-like event calls for each node encountered. See the
+printer classes (XMLPrinter, HTMLPrinter, etc.) for the event
+handlers.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="PrintVisitor" module="Ft.Xml.Lib.Print"/>
+      </method-resolution-order>
+      <methods name="PrintVisitor" module="Ft.Xml.Lib.Print">
+        <method public="no" name="__init__" id="PrintVisitor-__init__">
+          <abstract>Initializes an instance of the class, selecting the appropriate
+printer to use, depending on the isHtml and indent flags.
+nsHints, if given, is a dictionary of namespace mappings that
+help determine if namespace declarations need to be emitted when
+visiting the first Element node.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg name="encoding"/>
+            <arg default="None" name="nsHints"/>
+            <arg default="False" name="isHtml"/>
+            <arg default="False" name="indent"/>
+            <arg default="False" name="canonical"/>
+            <arg default="None" name="addedAttributes"/>
+            <arg default="None" name="removedNsDecls"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visit" id="PrintVisitor-visit">
+          <abstract>Starts walking the tree at the given node.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitAttribute" id="PrintVisitor-visitAttribute">
+          <abstract>Called when an Attribute node is encountered. Generates an
+attribute event for the printer.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitCDATASection" id="PrintVisitor-visitCDATASection">
+          <abstract>Called when a CDATASection node is encountered. Generates a
+cdataSection event for the printer.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitComment" id="PrintVisitor-visitComment">
+          <abstract>Called when a Comment node is encountered. Generates a comment
+event for the printer.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitDocument" id="PrintVisitor-visitDocument">
+          <abstract>Called when a Document node is encountered. Just proceeds to the
+associated DocumentType node, if any, and then to the node's
+children.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitDocumentFragment" id="PrintVisitor-visitDocumentFragment">
+          <abstract>Called when a DocumentFragment node is encountered. Just
+proceeds to the node's children.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitDocumentType" id="PrintVisitor-visitDocumentType">
+          <abstract>Called when a DocumentType node is encountered. Generates a
+doctype event for the printer.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitElement" id="PrintVisitor-visitElement">
+          <abstract>Called when an Element node is encountered. Generates for the
+printer a startElement event, events for the node's children
+(including attributes), and an endElement event.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitNotImplemented" id="PrintVisitor-visitNotImplemented">
+          <abstract>Called when an known but unsupported type of node is
+encountered, always raising a NotImplementedError exception. The
+unsupported node types are those that require DTD subset
+support: entity nodes, entity reference nodes, and notation
+nodes.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitProcessingInstruction" id="PrintVisitor-visitProcessingInstruction">
+          <abstract>Called when a ProcessingInstruction node is encountered.
+Generates a processingInstruction event for the printer.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="visitText" id="PrintVisitor-visitText">
+          <abstract>Called when a Text node is encountered. Generates a text event
+for the printer.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="CanonicalPrint" id="CanonicalPrint">
+      <abstract>Given a Node instance assumed to be the root of an XML DOM or Domlette
+tree, this function serializes the document to the given stream or
+stdout, using c14n serialization, according to
+http://www.w3.org/TR/xml-c14n (the default) or
+http://www.w3.org/TR/xml-exc-c14n/
+This function does nothing if root is not a Node.</abstract>
+      <description>exclusive - if true, apply exclusive c14n according to
+    http://www.w3.org/TR/xml-exc-c14n/
+inclusivePrefixes - if exclusive is True, use this as a list of namespaces
+    representing the &quot;InclusiveNamespacesPrefixList&quot; list in exclusive c14n
+
+Please import this from Ft.Xml.Domlette
+rather than directly from Ft.Xml.Lib.</description>
+      <arguments>
+        <arg name="root"/>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7da7068&gt;" name="stream"/>
+        <arg default="False" name="exclusive"/>
+        <arg default="None" name="inclusivePrefixes"/>
+      </arguments>
+    </function>
+    <function public="yes" name="PrettyPrint" id="PrettyPrint">
+      <abstract>Given a Node instance assumed to be the root of a DOM or Domlette
+tree, this function serializes the document to the given stream or
+stdout, using the given encoding (UTF-8 is the default). Extra
+whitespace is added to the output for visual formatting. The asHtml
+flag can be used to force HTML-style serialization of an XML DOM.
+Otherwise, the DOM type (HTML or XML) is automatically determined.
+This function does nothing if root is not a Node.</abstract>
+      <description>Please import this from Ft.Xml.Domlette
+rather than directly from Ft.Xml.Lib.</description>
+      <arguments>
+        <arg name="root"/>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7da7068&gt;" name="stream"/>
+        <arg default="'UTF-8'" name="encoding"/>
+        <arg default="None" name="asHtml"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Print" id="Print">
+      <abstract>Given a Node instance assumed to be the root of a DOM or Domlette
+tree, this function serializes the document to the given stream or
+stdout, using the given encoding (UTF-8 is the default). The asHtml
+flag can be used to force HTML-style serialization of an XML DOM.
+Otherwise, the DOM type (HTML or XML) is automatically determined.
+This function does nothing if root is not a Node.</abstract>
+      <description>It is preferable that users import this from Ft.Xml.Domlette
+rather than directly from Ft.Xml.Lib.</description>
+      <arguments>
+        <arg name="root"/>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7da7068&gt;" name="stream"/>
+        <arg default="'UTF-8'" name="encoding"/>
+        <arg default="None" name="asHtml"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+  </globals>
+</module>

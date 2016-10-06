@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<pdml version="0" creator="wireshark/0.99.5">
+<packet>
+  <proto name="geninfo" pos="0" showname="General information" size="90">
+    <field name="num" pos="0" show="12" showname="Number" value="c" size="90"/>
+    <field name="len" pos="0" show="90" showname="Packet Length" value="5a" size="90"/>
+    <field name="caplen" pos="0" show="90" showname="Captured Length" value="5a" size="90"/>
+    <field name="timestamp" pos="0" show="May 24, 2007 21:34:27.064181000" showname="Captured Time" value="1180067667.064181000" size="90"/>
+  </proto>
+  <proto name="frame" showname="Frame 12 (90 bytes on wire, 90 bytes captured)" size="90" pos="0">
+    <field name="frame.time" showname="Arrival Time: May 24, 2007 21:34:27.064181000" size="0" pos="0" show="May 24, 2007 21:34:27.064181000"/>
+    <field name="frame.time_delta" showname="Time delta from previous packet: 0.005292000 seconds" size="0" pos="0" show="0.005292000"/>
+    <field name="frame.time_relative" showname="Time since reference or first frame: 0.210233000 seconds" size="0" pos="0" show="0.210233000"/>
+    <field name="frame.number" showname="Frame Number: 12" size="0" pos="0" show="12"/>
+    <field name="frame.pkt_len" showname="Packet Length: 90 bytes" size="0" pos="0" show="90"/>
+    <field name="frame.cap_len" showname="Capture Length: 90 bytes" size="0" pos="0" show="90"/>
+    <field name="frame.marked" showname="Frame is marked: False" size="0" pos="0" show="0"/>
+    <field name="frame.protocols" showname="Protocols in frame: eth:ip:udp:ntp" size="0" pos="0" show="eth:ip:udp:ntp"/>
+  </proto>
+  <proto name="eth" showname="Ethernet II, Src: Shuttle_43:69:43 (00:30:1b:43:69:43), Dst: AppleCom_c2:d8:df (00:16:cb:c2:d8:df)" size="14" pos="0">
+    <field name="eth.dst" showname="Destination: AppleCom_c2:d8:df (00:16:cb:c2:d8:df)" size="6" pos="0" show="00:16:cb:c2:d8:df" value="0016cbc2d8df">
+      <field name="eth.addr" showname="Address: AppleCom_c2:d8:df (00:16:cb:c2:d8:df)" size="6" pos="0" show="00:16:cb:c2:d8:df" value="0016cbc2d8df"/>
+      <field name="eth.ig" showname=".... ...0 .... .... .... .... = IG bit: Individual address (unicast)" size="3" pos="0" show="0" value="0" unmaskedvalue="0016cb"/>
+      <field name="eth.lg" showname=".... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)" size="3" pos="0" show="0" value="0" unmaskedvalue="0016cb"/>
+    </field>
+    <field name="eth.src" showname="Source: Shuttle_43:69:43 (00:30:1b:43:69:43)" size="6" pos="6" show="00:30:1b:43:69:43" value="00301b436943">
+      <field name="eth.addr" showname="Address: Shuttle_43:69:43 (00:30:1b:43:69:43)" size="6" pos="6" show="00:30:1b:43:69:43" value="00301b436943"/>
+      <field name="eth.ig" showname=".... ...0 .... .... .... .... = IG bit: Individual address (unicast)" size="3" pos="6" show="0" value="0" unmaskedvalue="00301b"/>
+      <field name="eth.lg" showname=".... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)" size="3" pos="6" show="0" value="0" unmaskedvalue="00301b"/>
+    </field>
+    <field name="eth.type" showname="Type: IP (0x0800)" size="2" pos="12" show="0x0800" value="0800"/>
+  </proto>
+  <proto name="ip" showname="Internet Protocol, Src: 192.168.1.10 (192.168.1.10), Dst: 207.46.130.100 (207.46.130.100)" size="20" pos="14">
+    <field name="ip.version" showname="Version: 4" size="1" pos="14" show="4" value="45"/>
+    <field name="ip.hdr_len" showname="Header length: 20 bytes" size="1" pos="14" show="20" value="45"/>
+    <field name="ip.dsfield" showname="Differentiated Services Field: 0x00 (DSCP 0x00: Default; ECN: 0x00)" size="1" pos="15" show="0" value="00">
+      <field name="ip.dsfield.dscp" showname="0000 00.. = Differentiated Services Codepoint: Default (0x00)" size="1" pos="15" show="0x00" value="0" unmaskedvalue="00"/>
+      <field name="ip.dsfield.ect" showname=".... ..0. = ECN-Capable Transport (ECT): 0" size="1" pos="15" show="0" value="0" unmaskedvalue="00"/>
+      <field name="ip.dsfield.ce" showname=".... ...0 = ECN-CE: 0" size="1" pos="15" show="0" value="0" unmaskedvalue="00"/>
+    </field>
+    <field name="ip.len" showname="Total Length: 76" size="2" pos="16" show="76" value="004c"/>
+    <field name="ip.id" showname="Identification: 0x0ab9 (2745)" size="2" pos="18" show="0x0ab9" value="0ab9"/>
+    <field name="ip.flags" showname="Flags: 0x00" size="1" pos="20" show="0x00" value="00">
+      <field name="ip.flags.rb" showname="0... = Reserved bit: Not set" size="1" pos="20" show="0" value="0" unmaskedvalue="00"/>
+      <field name="ip.flags.df" showname=".0.. = Don&apos;t fragment: Not set" size="1" pos="20" show="0" value="0" unmaskedvalue="00"/>
+      <field name="ip.flags.mf" showname="..0. = More fragments: Not set" size="1" pos="20" show="0" value="0" unmaskedvalue="00"/>
+    </field>
+    <field name="ip.frag_offset" showname="Fragment offset: 0" size="2" pos="20" show="0" value="0000"/>
+    <field name="ip.ttl" showname="Time to live: 128" size="1" pos="22" show="128" value="80"/>
+    <field name="ip.proto" showname="Protocol: UDP (0x11)" size="1" pos="23" show="0x11" value="11"/>
+    <field name="ip.checksum" showname="Header checksum: 0x0000 [incorrect, should be 0x1ca3]" size="2" pos="24" show="0x0000" value="0000">
+      <field name="ip.checksum_good" showname="Good: False" size="2" pos="24" show="0" value="0000"/>
+      <field name="ip.checksum_bad" showname="Bad : True" size="2" pos="24" show="1" value="0000"/>
+    </field>
+    <field name="ip.src" showname="Source: 192.168.1.10 (192.168.1.10)" size="4" pos="26" show="192.168.1.10" value="c0a8010a"/>
+    <field name="ip.addr" showname="Source or Destination Address: 192.168.1.10 (192.168.1.10)" hide="yes" size="4" pos="26" show="192.168.1.10" value="c0a8010a"/>
+    <field name="ip.src_host" showname="Source Host: 192.168.1.10" hide="yes" size="4" pos="26" show="192.168.1.10" value="c0a8010a"/>
+    <field name="ip.host" showname="Source or Destination Host: 192.168.1.10" hide="yes" size="4" pos="26" show="192.168.1.10" value="c0a8010a"/>
+    <field name="ip.dst" showname="Destination: 207.46.130.100 (207.46.130.100)" size="4" pos="30" show="207.46.130.100" value="cf2e8264"/>
+    <field name="ip.addr" showname="Source or Destination Address: 207.46.130.100 (207.46.130.100)" hide="yes" size="4" pos="30" show="207.46.130.100" value="cf2e8264"/>
+    <field name="ip.dst_host" showname="Destination Host: 207.46.130.100" hide="yes" size="4" pos="30" show="207.46.130.100" value="cf2e8264"/>
+    <field name="ip.host" showname="Source or Destination Host: 207.46.130.100" hide="yes" size="4" pos="30" show="207.46.130.100" value="cf2e8264"/>
+  </proto>
+  <proto name="udp" showname="User Datagram Protocol, Src Port: ntp (123), Dst Port: ntp (123)" size="8" pos="34">
+    <field name="udp.srcport" showname="Source port: ntp (123)" size="2" pos="34" show="123" value="007b"/>
+    <field name="udp.dstport" showname="Destination port: ntp (123)" size="2" pos="36" show="123" value="007b"/>
+    <field name="udp.port" showname="Source or Destination Port: 123" hide="yes" size="2" pos="34" show="123" value="007b"/>
+    <field name="udp.port" showname="Source or Destination Port: 123" hide="yes" size="2" pos="36" show="123" value="007b"/>
+    <field name="udp.length" showname="Length: 56" size="2" pos="38" show="56" value="0038"/>
+    <field name="udp.checksum_coverage" showname="Checksum coverage: 56" hide="yes" size="0" pos="38" show="56"/>
+    <field name="udp.checksum" showname="Checksum: 0x138f [incorrect, should be 0xa69a]" size="2" pos="40" show="0x138f" value="138f">
+      <field name="udp.checksum_good" showname="Good Checksum: False" size="2" pos="40" show="0" value="138f"/>
+      <field name="udp.checksum_bad" showname="Bad Checksum: True" size="2" pos="40" show="1" value="138f"/>
+    </field>
+  </proto>
+  <proto name="ntp" showname="Network Time Protocol" size="48" pos="42">
+    <field name="ntp.flags" showname="Flags: 0xdb" size="1" pos="42" show="0xdb" value="db">
+      <field name="ntp.flags.li" showname="11.. .... = Leap Indicator: alarm condition (clock not synchronized) (3)" size="1" pos="42" show="3" value="3" unmaskedvalue="db"/>
+      <field name="ntp.flags.vn" showname="..01 1... = Version number: NTP Version 3 (3)" size="1" pos="42" show="3" value="3" unmaskedvalue="db"/>
+      <field name="ntp.flags.mode" showname=".... .011 = Mode: client (3)" size="1" pos="42" show="3" value="3" unmaskedvalue="db"/>
+    </field>
+    <field name="ntp.stratum" showname="Peer Clock Stratum: unspecified or unavailable (0)" size="1" pos="43" show="0" value="00"/>
+    <field name="ntp.ppoll" showname="Peer Polling Interval: invalid (17)" size="1" pos="44" show="17" value="11"/>
+    <field name="ntp.precision" showname="Peer Clock Precision: 0.015625 sec" size="1" pos="45" show="-6" value="fa"/>
+    <field name="ntp.rootdelay" showname="Root Delay:    0.0781 sec" size="4" pos="46" show="0.078125" value="00001400"/>
+    <field name="ntp.rootdispersion" showname="Root Dispersion:    8.8520 sec" size="4" pos="50" show="8.85195922851563" value="0008da1a"/>
+    <field name="ntp.refid" showname="Reference Clock ID: NULL" size="4" pos="54" show="00:00:00:00" value="00000000"/>
+    <field name="ntp.reftime" showname="Reference Clock Update Time: May 16, 2007 03:14:09.7362 UTC" size="8" pos="58" show="c9:f4:f5:81:bc:78:af:3e" value="c9f4f581bc78af3e"/>
+    <field name="ntp.org" showname="Originate Time Stamp: NULL" size="8" pos="66" show="00:00:00:00:00:00:00:00" value="0000000000000000"/>
+    <field name="ntp.rec" showname="Receive Time Stamp: NULL" size="8" pos="74" show="00:00:00:00:00:00:00:00" value="0000000000000000"/>
+    <field name="ntp.xmt" showname="Transmit Time Stamp: May 25, 2007 04:34:27.0642 UTC" size="8" pos="82" show="ca:00:e5:d3:10:70:7e:17" value="ca00e5d310707e17"/>
+  </proto>
+</packet>
+
+</pdml>

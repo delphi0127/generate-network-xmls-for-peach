@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract>Module providing XML support utilities (including serialization and tree comparison)</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="HtmlPrettyPrinter" realname="Ft.Xml.Lib.HtmlPrettyPrinter">
+      <abstract>This module supports formatted document serialization in HTML syntax.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="HtmlPrinter" realname="Ft.Xml.Lib.HtmlPrinter">
+      <abstract>This module supports document serialization in HTML syntax.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Print" realname="Ft.Xml.Lib.Print">
+      <abstract>This module supports document serialization in XML or HTML syntax.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="StripElements" realname="Ft.Xml.Lib.StripElements">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TreeCompare" realname="Ft.Xml.Lib.TreeCompare">
+      <abstract>Comparison functions for XML and HTML documents
+(mainly used in the test suites)</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XmlPrettyPrinter" realname="Ft.Xml.Lib.XmlPrettyPrinter">
+      <abstract>This module supports formatted document serialization in XML syntax.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XmlPrinter" realname="Ft.Xml.Lib.XmlPrinter">
+      <abstract>This module supports document serialization in XML syntax.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="XmlString" realname="Ft.Xml.Lib.XmlString">
+      <abstract>Miscellaneous XML-specific string functions</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="no" documented="yes" name="_4xupdate" realname="Ft.Xml.Lib._4xupdate">
+      <abstract>Implementation of '4xupdate' command
+(functions defined here are used by the Ft.Lib.CommandLine framework)</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="cStreamWriter" realname="Ft.Xml.Lib.cStreamWriter">
+      <abstract>Encoding character stream writer that makes substitutions of illegal
+and unencodable characters</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="routines" realname="Ft.Xml.Lib.routines">
+      <abstract/>
+      <description/>
+    </module-reference>
+  </modules>
+  <functions>
+    <function public="yes" name="BaseUri" id="BaseUri">
+      <abstract>`BaseUri` is an implementation of the `node.baseURI` attribute that
+should be attached to DOM Level 3 nodes, but which is currently broken
+in 4Suite XML.  Where you would use `node.baseURI` according to DOM
+Level 3, use `BaseUri(node)` (this function) instead.</abstract>
+      <description>`BaseUri` returns the absolute base URI for a given `node` in a Domlette
+tree, or `None` if no such *absolute* base URI exists.
+
+If `fallback` is specified, then it is used to construct a base URI when
+everything else fails.</description>
+      <arguments>
+        <arg name="node"/>
+        <arg default="None" name="fallback"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Language" id="Language">
+      <abstract>This function returns the language property of the given instance of
+xml.dom.Node, based on xml:lang attributes present on the node or
+its ancestors. If no xml:lang attribute is present, returns None.</abstract>
+      <description>The language code, if any, is returned as an uppercase string.</description>
+      <arguments>
+        <arg name="node"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['Language', 'BaseUri']</value>
+    </global>
+  </globals>
+</module>

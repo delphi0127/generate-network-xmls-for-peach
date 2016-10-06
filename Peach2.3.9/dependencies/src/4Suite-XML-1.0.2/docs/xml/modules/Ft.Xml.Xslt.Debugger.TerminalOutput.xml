@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.Debugger.TerminalOutput">
+  <modification-date>2004-10-04 16:55:00</modification-date>
+  <abstract>Output handler to route debugger messages to a terminal</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="TerminalOutputHandler" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TerminalOutputHandler" module="Ft.Xml.Xslt.Debugger.TerminalOutput"/>
+      </method-resolution-order>
+      <methods name="TerminalOutputHandler" module="Ft.Xml.Xslt.Debugger.TerminalOutput">
+        <method public="yes" name="display" id="TerminalOutputHandler-display">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="msg"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_backTrace" id="TerminalOutputHandler-display_backTrace">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tb"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_breakpoints" id="TerminalOutputHandler-display_breakpoints">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="bps"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_context" id="TerminalOutputHandler-display_context">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_contextCurrentNode" id="TerminalOutputHandler-display_contextCurrentNode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cn"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_contextMode" id="TerminalOutputHandler-display_contextMode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="mode"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_contextNode" id="TerminalOutputHandler-display_contextNode">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_contextPosition" id="TerminalOutputHandler-display_contextPosition">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="position"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_contextSize" id="TerminalOutputHandler-display_contextSize">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="size"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_currentCommand" id="TerminalOutputHandler-display_currentCommand">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="cmd"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_currentPosition" id="TerminalOutputHandler-display_currentPosition">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_error" id="TerminalOutputHandler-display_error">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="err"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_exception" id="TerminalOutputHandler-display_exception">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="etype"/>
+            <arg name="value"/>
+            <arg name="tb"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_expressionResults" id="TerminalOutputHandler-display_expressionResults">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expr"/>
+            <arg name="rt"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_help" id="TerminalOutputHandler-display_help">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_lastOutputs" id="TerminalOutputHandler-display_lastOutputs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="lo"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_lastResult" id="TerminalOutputHandler-display_lastResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="lr"/>
+          </arguments>
+        </method>
+        <method public="yes" realid="TerminalOutputHandler-_printNode" name="display_node" realname="_printNode" id="TerminalOutputHandler-display_node">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_selectResults" id="TerminalOutputHandler-display_selectResults">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expr"/>
+            <arg name="rt"/>
+          </arguments>
+        </method>
+        <method public="yes" name="display_sheet" id="TerminalOutputHandler-display_sheet">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="None" name="start"/>
+            <arg default="None" name="end"/>
+            <arg default="None" name="fileName"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="TerminalOutputHandler" module="Ft.Xml.Xslt.Debugger.TerminalOutput">
+        <member public="yes" name="g_fileLineCache" id="TerminalOutputHandler-g_fileLineCache">
+          <value>{}</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+    <global public="yes" name="g_commandPrint" id="g_commandPrint">
+      <value>{1: 'Run', 2: 'Quit', 3: 'Print', 4: 'Run to Template', 5: 'List Sheet', 6: 'Back Trace', 7: 'Step', 8: 'Next', 9: 'Test XPath', 10: 'Evaluate Expression', ...}</value>
+    </global>
+    <global public="yes" name="g_detailedHelp" id="g_detailedHelp">
+      <value>{'avt': 'Evaluate a attribute value template at the current context', 'b': 'Set a break point in stylesheet', 'bt': 'Print the call stack', 'db': 'Delete a break point in stylesheet', 'eval': 'Evaluate a XPath expression at the current context', 'help': 'help', 'lb': 'List break points', 'ls': 'List Sheet\n\n  ls [fileName:][start[-end]]\n\n    f...e default is nine lines after the current line\n\n\n', 'lt': 'Print the current template', 'match': 'Evaluate a XPattern expression at the current context', ...}</value>
+    </global>
+    <global public="yes" name="g_help" id="g_help">
+      <value>{'avt': 'Evaluate a attribute value template at the current context', 'b': 'Set a break point in stylesheet', 'bt': 'Print the call stack', 'db': 'Delete a break point in stylesheet', 'eval': 'Evaluate a XPath expression at the current context', 'help': 'help', 'lb': 'List break points', 'ls': 'List the current stylesheet', 'lt': 'Print the current template', 'match': 'Evaluate a XPattern expression at the current context', ...}</value>
+    </global>
+    <global public="yes" name="g_stringTypes" id="g_stringTypes">
+      <value>[&lt;type 'str'&gt;, &lt;type 'unicode'&gt;]</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib">
+  <modification-date>2005-04-18 16:46:56</modification-date>
+  <abstract>Module providing common utilities for many 4Suite components,
+as well as for general use.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="CommandLine" realname="Ft.Lib.CommandLine">
+      <abstract>Things to set up before importing other Ft.Lib.CommandLine modules</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="DbUtil" realname="Ft.Lib.DbUtil">
+      <abstract>Utilities for database connections</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="DistExt" realname="Ft.Lib.DistExt">
+      <abstract>Extensions to distutils to support building, installing, packaging 4Suite</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="EscapeQuotesc" realname="Ft.Lib.EscapeQuotesc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Gettext" realname="Ft.Lib.Gettext">
+      <abstract>Internationalization and localization support.</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ImportUtil" realname="Ft.Lib.ImportUtil">
+      <abstract>Utilites for working with Python PEP 302 import hooks.</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Iri" realname="Ft.Lib.Iri">
+      <abstract>Classes and functions related to IRI processing</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="MessageSource" realname="Ft.Lib.MessageSource">
+      <abstract>Messages for Ft.Lib</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ObjectPrint" realname="Ft.Lib.ObjectPrint">
+      <abstract>Pretty-printing of objects</abstract>
+      <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ProgressIndicator" realname="Ft.Lib.ProgressIndicator">
+      <abstract>Progress indicator</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Random" realname="Ft.Lib.Random">
+      <abstract>Thread-safe random number generation</abstract>
+      <description>Random number generation capabilities, speed, and thread safety in
+stdlib vary from version to version of Python. In addition, attempts to
+use an OS-specific random number source can result in unexpected
+exceptions being raised. Also, a bug in Python 2.3.0 can lead to a
+reduction in entropy, and a bug in Python 2.4.0 and 2.4.1 can result
+in exceptions related to open filehandles on some multithreaded Posix
+platforms.
+
+This module works around as many of these issues as it can by defining
+random number generator classes that can be used safely by multiple
+threads, using the best random number sources available. They support
+all versions of Python from 2.1 up, and fall back on more reliable
+generators when exception conditions occur. In addition, convenience
+functions equivalent to random.random() and os.urandom() are exposed.
+
+Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Regex" realname="Ft.Lib.Regex">
+      <abstract>Tools to manage the many different flavors of regex</abstract>
+      <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Resolvers" realname="Ft.Lib.Resolvers">
+      <abstract>Specialized and useful URI resolvers</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Set" realname="Ft.Lib.Set">
+      <abstract>Operations on ordered sets</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Terminal" realname="Ft.Lib.Terminal">
+      <abstract>Provides some of the information from the terminfo database.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Terminfo" realname="Ft.Lib.Terminfo">
+      <abstract>Provides some of the information from the terminfo database.</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TestSuite" realname="Ft.Lib.TestSuite">
+      <abstract>Package for testing utilities</abstract>
+      <description>Copyright 2002 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Time" realname="Ft.Lib.Time">
+      <abstract>Date and time related functionality for use within 4Suite only.</abstract>
+      <description>This module is experimental and may not be staying in 4Suite for long;
+application developers should avoid forming dependencies on it.
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Uri" realname="Ft.Lib.Uri">
+      <abstract>Classes and functions related to URI validation and resolution</abstract>
+      <description>APIs that currently differentiate between Unicode and byte strings are
+considered to be experimental; do not count on their uniformity between
+releases.
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Uuid" realname="Ft.Lib.Uuid">
+      <abstract>Functions for generating and comparing Universal Unique Identifiers
+(UUIDs), based on ideas from e2fsprogs.</abstract>
+      <description>A UUID is essentially a 128-bit random number that has a string
+representation of 28 hexadecimal digits, hyphenated in groups of
+8-4-4-12. The value could be greater than the number of atoms in the
+universe; it's extremely unlikely that the same number would ever be
+generated twice.
+
+UUIDs are defined by ISO/IEC 11578:1996 (Remote Procedure Call)
+and The Open Group's DCE 1.1 (Distributed Computing Environment) spec
+(the ISO version was based on an earlier version of the DCE spec).
+See http://www.opengroup.org/onlinepubs/009629399/apdxa.htm#tagcjh_20
+for the current version, and also see the expired IETF Internet-Draft
+http://www.opengroup.org/dce/info/draft-leach-uuids-guids-01.txt for
+a version with more informative prose and examples.
+
+Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="boolean" realname="Ft.Lib.boolean">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="number" realname="Ft.Lib.number">
+      <abstract/>
+      <description/>
+    </module-reference>
+  </modules>
+  <classes>
+    <class name="UriException" public="yes">
+      <bases>
+        <base documented="yes" class="FtException" module="Ft"/>
+      </bases>
+      <abstract>Exceptions used by the Uri module, and possibly others.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="UriException" module="Ft.Lib"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="UriException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+      </methods>
+      <members name="Exception">
+        <member public="yes" name="IDNA_UNSUPPORTED" id="UriException-IDNA_UNSUPPORTED">
+          <value>202</value>
+        </member>
+        <member public="yes" name="INVALID_BASE_URI" id="UriException-INVALID_BASE_URI">
+          <value>100</value>
+        </member>
+        <member public="yes" name="INVALID_PUBLIC_ID_URN" id="UriException-INVALID_PUBLIC_ID_URN">
+          <value>300</value>
+        </member>
+        <member public="yes" name="NON_FILE_URI" id="UriException-NON_FILE_URI">
+          <value>120</value>
+        </member>
+        <member public="yes" name="OPAQUE_BASE_URI" id="UriException-OPAQUE_BASE_URI">
+          <value>112</value>
+        </member>
+        <member public="yes" name="RELATIVE_BASE_URI" id="UriException-RELATIVE_BASE_URI">
+          <value>111</value>
+        </member>
+        <member public="yes" name="RESOURCE_ERROR" id="UriException-RESOURCE_ERROR">
+          <value>130</value>
+        </member>
+        <member public="yes" name="SCHEME_REQUIRED" id="UriException-SCHEME_REQUIRED">
+          <value>200</value>
+        </member>
+        <member public="yes" name="UNIX_REMOTE_HOST_FILE_URI" id="UriException-UNIX_REMOTE_HOST_FILE_URI">
+          <value>121</value>
+        </member>
+        <member public="yes" name="UNSUPPORTED_PLATFORM" id="UriException-UNSUPPORTED_PLATFORM">
+          <value>1000</value>
+        </member>
+        <member public="yes" name="UNSUPPORTED_SCHEME" id="UriException-UNSUPPORTED_SCHEME">
+          <value>201</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="CloseStream" id="CloseStream">
+      <abstract>Closes a stream, ignoring errors if quiet=True. If the stream is a
+terminal (e.g. sys.stdin, stdout, stderr), does not attempt to close
+the stream.</abstract>
+      <description>Closing terminal streams could interfere with subsequent read or
+write attempts. For example, after calling sys.stdout.close(),
+subsequent writes to stdout will not raise an exception, but may
+also fail to actually write anything to stdout.
+
+The stream argument can be any Python file-like object with a
+close() method, such as a regular file object or an instance of
+Ft.Xml.InputSource.InputSource (or subclass thereof).</description>
+      <arguments>
+        <arg name="stream"/>
+        <arg default="False" name="quiet"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Truncate" id="Truncate">
+      <abstract>Returns text truncated to length, with &quot;...&quot; appended if truncation
+was necessary.</abstract>
+      <description/>
+      <arguments>
+        <arg name="text"/>
+        <arg name="length"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Wrap" id="Wrap">
+      <abstract>A word-wrap function that preserves existing line breaks
+and most spaces in the text. Expects that existing line
+breaks are posix newlines (\n).</abstract>
+      <description>See also: Ft.Lib.CommandLine.CommandLineUtil.wrap_text()</description>
+      <arguments>
+        <arg name="text"/>
+        <arg name="width"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

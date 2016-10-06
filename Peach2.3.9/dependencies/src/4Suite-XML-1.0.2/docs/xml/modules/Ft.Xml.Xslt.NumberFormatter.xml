@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.NumberFormatter">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="DefaultFormatter" public="yes">
+      <bases>
+        <base documented="yes" class="Formatter" module="Ft.Xml.Xslt.NumberFormatter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DefaultFormatter" module="Ft.Xml.Xslt.NumberFormatter"/>
+        <base name="Formatter" module="Ft.Xml.Xslt.NumberFormatter"/>
+      </method-resolution-order>
+      <methods name="Formatter" module="Ft.Xml.Xslt.NumberFormatter">
+        <method public="yes" name="format" id="DefaultFormatter-format">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="numbers"/>
+            <arg name="groupSize"/>
+            <arg name="groupSeparator"/>
+          </arguments>
+          <overrides documented="yes" class="Formatter" module="Ft.Xml.Xslt.NumberFormatter"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Formatter" module="Ft.Xml.Xslt.NumberFormatter">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="Formatter" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Formatter" module="Ft.Xml.Xslt.NumberFormatter"/>
+      </method-resolution-order>
+      <methods name="Formatter" module="Ft.Xml.Xslt.NumberFormatter">
+        <method public="no" name="__init__" id="Formatter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="format"/>
+          </arguments>
+        </method>
+        <method public="yes" name="format" id="Formatter-format">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="numbers"/>
+            <arg name="groupSize"/>
+            <arg name="groupSeparator"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

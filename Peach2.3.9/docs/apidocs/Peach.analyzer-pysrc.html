@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.analyzer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        Module&nbsp;analyzer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Peach.analyzer-module.html">Module Peach.analyzer</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Analyzers convert data or specifications into models, both data and state.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">The default analyzer is peach pit XML analyzer.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">Analyzers can be applied inside of the DOM as well.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">  &lt;Analyzer class=""&gt;</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;Param name="" value="" /&gt;  &lt;!-- Optional --&gt;</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">  &lt;/Analyzer&gt;</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">Analyzers for default implementation:</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring"> * Peach PIT XML</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring"> * String  Tokenizer</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring"> * XML</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring"> * WireShark</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring"> </tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">Other wanted analyzers:</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring"> * Binary</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring"> * RPC</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring"> * DCOM</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring"> * WebServices</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring"> * HTTP POST/GET??</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">@author: Michael Eddington</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">@version: $Id$</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Copyright (c) 2008 Michael Eddington</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Permission is hereby granted, free of charge, to any person obtaining a copy </tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># of this software and associated documentation files (the "Software"), to deal</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># in the Software without restriction, including without limitation the rights </tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell </tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># copies of the Software, and to permit persons to whom the Software is </tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># furnished to do so, subject to the following conditions:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># The above copyright notice and this permission notice shall be included in    </tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># all copies or substantial portions of the Software.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR </tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, </tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE </tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER </tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># SOFTWARE.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-comment"># Authors:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#   Michael Eddington (mike@phed.org)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-comment"># $Id$</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="Analyzer"></a><div id="Analyzer-def"><a name="L57"></a><tt class="py-lineno"> 57</tt> <a class="py-toggle" href="#" id="Analyzer-toggle" onclick="return toggle('Analyzer');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.analyzer.Analyzer-class.html">Analyzer</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Analyzer-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Analyzer-expanded"><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">        Analyzers produce data and state models.  Examples of analyzers would be</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">        the parsing of Peach PIT XML files, tokenizing a string, building a data</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        model based on XML file, etc.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">         </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-comment">#: Default parser analyzer to use</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-0" class="py-name" targets="Variable Peach.analyzer.Analyzer.DefaultParser=Peach.analyzer.Analyzer-class.html#DefaultParser"><a title="Peach.analyzer.Analyzer.DefaultParser" class="py-name" href="#" onclick="return doclink('link-0', 'DefaultParser', 'link-0');">DefaultParser</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">         </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-comment">#: Does analyzer support asParser()</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-1" class="py-name" targets="Variable Peach.Analyzers.binary.Binary.supportParser=Peach.Analyzers.binary.Binary-class.html#supportParser,Variable Peach.Analyzers.binary.OleStructuredStorage.supportParser=Peach.Analyzers.binary.OleStructuredStorage-class.html#supportParser,Variable Peach.Analyzers.pit.PitXmlAnalyzer.supportParser=Peach.Analyzers.pit.PitXmlAnalyzer-class.html#supportParser,Variable Peach.analyzer.Analyzer.supportParser=Peach.analyzer.Analyzer-class.html#supportParser"><a title="Peach.Analyzers.binary.Binary.supportParser
+Peach.Analyzers.binary.OleStructuredStorage.supportParser
+Peach.Analyzers.pit.PitXmlAnalyzer.supportParser
+Peach.analyzer.Analyzer.supportParser" class="py-name" href="#" onclick="return doclink('link-1', 'supportParser', 'link-1');">supportParser</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-comment">#: Does analyzer support asDataElement()</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-2" class="py-name" targets="Variable Peach.Analyzers.asn1.Asn1Analyzer.supportDataElement=Peach.Analyzers.asn1.Asn1Analyzer-class.html#supportDataElement,Variable Peach.Analyzers.binary.Binary.supportDataElement=Peach.Analyzers.binary.Binary-class.html#supportDataElement,Variable Peach.Analyzers.binary.OleStructuredStorage.supportDataElement=Peach.Analyzers.binary.OleStructuredStorage-class.html#supportDataElement,Variable Peach.Analyzers.stringtoken.StringTokenAnalyzer.supportDataElement=Peach.Analyzers.stringtoken.StringTokenAnalyzer-class.html#supportDataElement,Variable Peach.Analyzers.xml.XmlAnalyzer.supportDataElement=Peach.Analyzers.xml.XmlAnalyzer-class.html#supportDataElement,Variable Peach.analyzer.Analyzer.supportDataElement=Peach.analyzer.Analyzer-class.html#supportDataElement"><a title="Peach.Analyzers.asn1.Asn1Analyzer.supportDataElement
+Peach.Analyzers.binary.Binary.supportDataElement
+Peach.Analyzers.binary.OleStructuredStorage.supportDataElement
+Peach.Analyzers.stringtoken.StringTokenAnalyzer.supportDataElement
+Peach.Analyzers.xml.XmlAnalyzer.supportDataElement
+Peach.analyzer.Analyzer.supportDataElement" class="py-name" href="#" onclick="return doclink('link-2', 'supportDataElement', 'link-2');">supportDataElement</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-comment">#: Does analyzer support asCommandLine()</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-3" class="py-name" targets="Variable Peach.Analyzers.asn1.Asn1Analyzer.supportCommandLine=Peach.Analyzers.asn1.Asn1Analyzer-class.html#supportCommandLine,Variable Peach.Analyzers.binary.Binary.supportCommandLine=Peach.Analyzers.binary.Binary-class.html#supportCommandLine,Variable Peach.Analyzers.binary.OleStructuredStorage.supportCommandLine=Peach.Analyzers.binary.OleStructuredStorage-class.html#supportCommandLine,Variable Peach.Analyzers.shark.WireSharkAnalyzer.supportCommandLine=Peach.Analyzers.shark.WireSharkAnalyzer-class.html#supportCommandLine,Variable Peach.Analyzers.stringtoken.StringTokenAnalyzer.supportCommandLine=Peach.Analyzers.stringtoken.StringTokenAnalyzer-class.html#supportCommandLine,Variable Peach.Analyzers.xml.XmlAnalyzer.supportCommandLine=Peach.Analyzers.xml.XmlAnalyzer-class.html#supportCommandLine,Variable Peach.analyzer.Analyzer.supportCommandLine=Peach.analyzer.Analyzer-class.html#supportCommandLine"><a title="Peach.Analyzers.asn1.Asn1Analyzer.supportCommandLine
+Peach.Analyzers.binary.Binary.supportCommandLine
+Peach.Analyzers.binary.OleStructuredStorage.supportCommandLine
+Peach.Analyzers.shark.WireSharkAnalyzer.supportCommandLine
+Peach.Analyzers.stringtoken.StringTokenAnalyzer.supportCommandLine
+Peach.Analyzers.xml.XmlAnalyzer.supportCommandLine
+Peach.analyzer.Analyzer.supportCommandLine" class="py-name" href="#" onclick="return doclink('link-3', 'supportCommandLine', 'link-3');">supportCommandLine</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-comment">#: Does analyzer support asTopLevel()</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-4" class="py-name" targets="Variable Peach.Analyzers.asn1.Asn1Analyzer.supportTopLevel=Peach.Analyzers.asn1.Asn1Analyzer-class.html#supportTopLevel,Variable Peach.Analyzers.binary.Binary.supportTopLevel=Peach.Analyzers.binary.Binary-class.html#supportTopLevel,Variable Peach.Analyzers.binary.OleStructuredStorage.supportTopLevel=Peach.Analyzers.binary.OleStructuredStorage-class.html#supportTopLevel,Variable Peach.Analyzers.stringtoken.StringTokenAnalyzer.supportTopLevel=Peach.Analyzers.stringtoken.StringTokenAnalyzer-class.html#supportTopLevel,Variable Peach.Analyzers.xml.XmlAnalyzer.supportTopLevel=Peach.Analyzers.xml.XmlAnalyzer-class.html#supportTopLevel,Variable Peach.analyzer.Analyzer.supportTopLevel=Peach.analyzer.Analyzer-class.html#supportTopLevel"><a title="Peach.Analyzers.asn1.Asn1Analyzer.supportTopLevel
+Peach.Analyzers.binary.Binary.supportTopLevel
+Peach.Analyzers.binary.OleStructuredStorage.supportTopLevel
+Peach.Analyzers.stringtoken.StringTokenAnalyzer.supportTopLevel
+Peach.Analyzers.xml.XmlAnalyzer.supportTopLevel
+Peach.analyzer.Analyzer.supportTopLevel" class="py-name" href="#" onclick="return doclink('link-4', 'supportTopLevel', 'link-4');">supportTopLevel</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">         </tt>
+<a name="Analyzer.__init__"></a><div id="Analyzer.__init__-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="Analyzer.__init__-toggle" onclick="return toggle('Analyzer.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.analyzer.Analyzer-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Analyzer.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Analyzer.__init__-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="Analyzer.asParser"></a><div id="Analyzer.asParser-def"><a name="L79"></a><tt class="py-lineno"> 79</tt> <a class="py-toggle" href="#" id="Analyzer.asParser-toggle" onclick="return toggle('Analyzer.asParser');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.analyzer.Analyzer-class.html#asParser">asParser</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">uri</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Analyzer.asParser-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Analyzer.asParser-expanded"><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">                Called when Analyzer is used as default PIT parser.</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">                Should produce a Peach DOM.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-5" class="py-name" targets="Method Peach.Agent.debugger._DbgEventHandler.Exception()=Peach.Agent.debugger._DbgEventHandler-class.html#Exception"><a title="Peach.Agent.debugger._DbgEventHandler.Exception" class="py-name" href="#" onclick="return doclink('link-5', 'Exception', 'link-5');">Exception</a></tt><tt class="py-op">(</tt><tt class="py-string">"asParser not supported"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="Analyzer.asDataElement"></a><div id="Analyzer.asDataElement-def"><a name="L87"></a><tt class="py-lineno"> 87</tt> <a class="py-toggle" href="#" id="Analyzer.asDataElement-toggle" onclick="return toggle('Analyzer.asDataElement');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.analyzer.Analyzer-class.html#asDataElement">asDataElement</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">,</tt> <tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-param">dataBuffer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Analyzer.asDataElement-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Analyzer.asDataElement-expanded"><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">                Called when Analyzer is used in a data model.</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">                Should return a DataElement such as Block, Number or String.</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-6" class="py-name"><a title="Peach.Agent.debugger._DbgEventHandler.Exception" class="py-name" href="#" onclick="return doclink('link-6', 'Exception', 'link-5');">Exception</a></tt><tt class="py-op">(</tt><tt class="py-string">"asDataElement not supported"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">         </tt>
+<a name="Analyzer.asCommandLine"></a><div id="Analyzer.asCommandLine-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="Analyzer.asCommandLine-toggle" onclick="return toggle('Analyzer.asCommandLine');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.analyzer.Analyzer-class.html#asCommandLine">asCommandLine</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Analyzer.asCommandLine-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Analyzer.asCommandLine-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">                Called when Analyzer is used from command line.  Analyzer</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">                should produce Peach PIT XML as output.</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-7" class="py-name"><a title="Peach.Agent.debugger._DbgEventHandler.Exception" class="py-name" href="#" onclick="return doclink('link-7', 'Exception', 'link-5');">Exception</a></tt><tt class="py-op">(</tt><tt class="py-string">"asCommandLine not supported"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">         </tt>
+<a name="Analyzer.asTopLevel"></a><div id="Analyzer.asTopLevel-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="Analyzer.asTopLevel-toggle" onclick="return toggle('Analyzer.asTopLevel');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.analyzer.Analyzer-class.html#asTopLevel">asTopLevel</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">peach</tt><tt class="py-op">,</tt> <tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Analyzer.asTopLevel-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Analyzer.asTopLevel-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">                Called when Analyzer is used from top level.</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">                From the top level producing zero or more data models and</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">                state models is possible.</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">                @type   args    Dictionary</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">                @param  args    Arguments from &lt;Param&gt;'s</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-8" class="py-name"><a title="Peach.Agent.debugger._DbgEventHandler.Exception" class="py-name" href="#" onclick="return doclink('link-8', 'Exception', 'link-5');">Exception</a></tt><tt class="py-op">(</tt><tt class="py-string">"asTopLevel not supported"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">         </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-comment"># end</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:34 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

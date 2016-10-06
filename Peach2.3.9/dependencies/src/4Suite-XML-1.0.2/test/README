@@ -1,0 +1,101 @@
+4Suite test suites
+==================
+
+All 4Suite tests are run through test.py.  The tests are grouped by
+directories.  To get a list of tests available use the --help option.
+
+  python test.py --help
+
+You can also get help at a specific directory level:
+
+  python test.py Xml/Xslt/Core --help
+
+The help message will list sub-tests and modes.
+
+To run all tests, don't specify any command line arguments.
+
+  #Run all tests
+  python test.py
+
+  #Run all tests with extra verbosity
+  python test.py -v
+
+To run a group of tests, specify the level or filename to run.
+
+  #Run only tests in the Rdf directory
+  python test.py Rdf
+
+  #Run only the xsl:variable and xsl:param tests, verbosely
+  python test.py -v Xml/Xslt/Core/test_variable.py
+
+IMPORTANT: Before running the Server tests, set the FT_DATABASE_DIR
+environment variable to point to an existing directory for the FlatFile
+repository driver to use to store its files.  The directory can be a
+temporary location or it can be the same one you normally use, if any;
+the test suite will create its own repository separate from any others
+that may exist.
+
+Modes
+-----
+
+Tests can be run in different modes. For example, some of the RDF tests
+can be run using Memory (the default) or with Postgres. Use --help
+on a directory to see a list of modes available at a particular level.
+
+To run tests in a particular mode, use the --mode option:
+
+  #Run core RDF tests using Postgres instead of Memory
+  python test.py Rdf --mode=Postgres
+
+You can also specify multiple modes:
+
+  #Run RDF tests using MetaKit and then Postgres
+  python test.py Rdf/Drivers --mode=MetaKit --mode=Postgres
+
+To run tests in all available modes, use the --full option:
+
+  python test.py Rdf --full
+
+To run tests in all except certain modes, use the --full and --skip options:
+
+  python test.py Rdf/Drivers --full --skip=Oracle
+
+
+Other Options
+-------------
+
+By default, the tests continue after minor errors.
+Use the --stop option to stop testing when an error occurs.
+
+By default, the tests print a report after they run.
+--noreport turns this off.
+
+By default, the tests run at a verbosity level of 2.
+Each -v turns this up a notch, while each -q turns this down a notch.
+At verbosity level 3, individual tests will be listed as they're
+performed, whereas at level 2, only test groups will be listed.
+
+Some tests assume that an Internet connection is available
+(e.g. for retrieving DTDs from w3.org). If Internet connectivity is not
+available, use the --offline option to skip these tests.
+
+
+For Developers
+--------------
+
+In order to add a new test directory, create the directory, copy in an
+__init__.py from a similar test directory (test/Xml/XLink is a good one).
+Then go to the corresponding Ft/* package and edit __packageInfo__.py to
+add the new test directory to the tests list.
+
+XSLT's generate-id() is special in the test suites; the IDs it returns
+are unique, but not random, so that they can be compared to expected
+output. In order to generate expected output that contains these regular
+IDs, do this:
+
+  1. In the *installed* Ft.Share.Tests directory create an __init__.py;
+  2. Add the env var "EXTMODULES=Ft.Share.Tests.Xml.Xslt.test_harness";
+  3. Then run 4xslt, as normal.
+
+  This works because test_harness is set up as a proper XPath/XSLT
+  extension module (it exports an ExtFunctions mapping).

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XUpdate">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>XUpdate request processing</abstract>
+  <description>XUpdate is specified (poorly) at
+http://xmldb-org.sourceforge.net/xupdate/xupdate-wd.html
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Processor" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Processor" module="Ft.Xml.XUpdate"/>
+      </method-resolution-order>
+      <methods name="Processor" module="Ft.Xml.XUpdate">
+        <method public="no" name="__init__" id="Processor-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="reader"/>
+          </arguments>
+        </method>
+        <method public="no" name="evaluateExpression" id="Processor-evaluateExpression">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="expression"/>
+          </arguments>
+        </method>
+        <method public="no" name="execute" id="Processor-execute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg name="xupdate"/>
+            <arg default="None" name="variables"/>
+            <arg default="None" name="processorNss"/>
+          </arguments>
+        </method>
+        <method public="no" name="output" id="Processor-output">
+          <abstract>Returns the current output writer</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="parseAVT" id="Processor-parseAVT">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="avt"/>
+          </arguments>
+        </method>
+        <method public="no" name="popResult" id="Processor-popResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="pushDomResult" id="Processor-pushDomResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="ownerDocument"/>
+          </arguments>
+        </method>
+        <method public="no" name="pushStringResult" id="Processor-pushStringResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="visit" id="Processor-visit">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+            <arg name="node"/>
+            <arg name="preserveSpace"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Reader" public="yes">
+      <bases>
+        <base documented="yes" class="NonvalidatingReaderBase" module="Ft.Xml.Domlette"/>
+      </bases>
+      <abstract>A reader of XUpdate documents. Must contain a fromSrc() method
+that takes an Ft.Xml.InputSource and returns a Domlette document.
+It does not need to detect XUpdate syntax errors.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Reader" module="Ft.Xml.XUpdate"/>
+        <base name="NonvalidatingReaderBase" module="Ft.Xml.Domlette"/>
+        <base name="_Reader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="_Reader" module="Ft.Xml.Domlette">
+        <method public="no" realid="Reader-parse" name="fromSrc" realname="parse" id="Reader-fromSrc">
+          <abstract>Reads XML from an Ft.Xml.Inputsource.InputSource, and
+returns a Domlette document node.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="inputSource"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NonvalidatingReaderBase" module="Ft.Xml.Domlette">
+        <member-reference name="__init__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="yes" class="_Reader" module="Ft.Xml.Domlette">
+        <member-reference name="parse" public="no"/>
+        <member-reference name="parseStream" public="no"/>
+        <member-reference name="parseString" public="no"/>
+        <member-reference name="parseUri" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="StringWriter" public="yes">
+      <bases>
+        <base documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="StringWriter" module="Ft.Xml.XUpdate"/>
+        <base name="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </method-resolution-order>
+      <methods name="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <method public="no" name="__init__" id="StringWriter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="no" name="getResult" id="StringWriter-getResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+        <method public="no" name="text" id="StringWriter-text">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <member-reference name="attribute" public="no"/>
+        <member-reference name="comment" public="no"/>
+        <member-reference name="copyNodes" public="no"/>
+        <member-reference name="endDocument" public="no"/>
+        <member-reference name="endElement" public="no"/>
+        <member-reference name="getMediaType" public="no"/>
+        <member-reference name="getStream" public="no"/>
+        <member-reference name="namespace" public="no"/>
+        <member-reference name="processingInstruction" public="no"/>
+        <member-reference name="startDocument" public="no"/>
+        <member-reference name="startElement" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="XUpdateException" public="yes">
+      <bases>
+        <base documented="yes" class="FtException" module="Ft"/>
+      </bases>
+      <abstract>Exception class for errors specific to XUpdate processing</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XUpdateException" module="Ft.Xml.XUpdate"/>
+        <base name="FtException" module="Ft"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <methods name="Exception">
+        <method public="no" name="__init__" id="XUpdateException-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="errorCode"/>
+            <var-args name="args"/>
+            <var-keywords name="kwargs"/>
+          </arguments>
+          <overrides documented="yes" class="FtException" module="Ft"/>
+        </method>
+      </methods>
+      <members name="Exception">
+        <member public="no" name="INVALID_DOM_NODE" id="XUpdateException-INVALID_DOM_NODE">
+          <value>100</value>
+        </member>
+        <member public="no" name="INVALID_SELECT" id="XUpdateException-INVALID_SELECT">
+          <value>13</value>
+        </member>
+        <member public="no" name="NO_SELECT" id="XUpdateException-NO_SELECT">
+          <value>11</value>
+        </member>
+        <member public="no" name="NO_TEST" id="XUpdateException-NO_TEST">
+          <value>12</value>
+        </member>
+        <member public="no" name="NO_VERSION" id="XUpdateException-NO_VERSION">
+          <value>10</value>
+        </member>
+        <member public="no" name="SYNTAX_ERROR" id="XUpdateException-SYNTAX_ERROR">
+          <value>1</value>
+        </member>
+        <member public="no" name="UNKNOWN_NODE_TYPE" id="XUpdateException-UNKNOWN_NODE_TYPE">
+          <value>101</value>
+        </member>
+        <member public="no" name="UNRECOGNIZED_INSTRUCTION" id="XUpdateException-UNRECOGNIZED_INSTRUCTION">
+          <value>2</value>
+        </member>
+        <member public="no" name="UNSUPPORTED_VERSION" id="XUpdateException-UNSUPPORTED_VERSION">
+          <value>14</value>
+        </member>
+      </members>
+      <inherited-methods documented="yes" class="FtException" module="Ft">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__repr__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="ApplyXUpdate" id="ApplyXUpdate">
+      <abstract>Takes 2 InputSources, one for the source document and one for the
+XUpdate instructions.  It returns a DOM node representing the result
+of applying the XUpdate to the source document (the document is
+modified in-place).</abstract>
+      <description/>
+      <arguments>
+        <arg name="doc"/>
+        <arg name="xup"/>
+      </arguments>
+    </function>
+    <function public="no" name="ApplyXupdate" id="ApplyXupdate">
+      <abstract>Deprecated. Use ApplyXUpdate (only the name changed).</abstract>
+      <description/>
+      <arguments>
+        <arg name="doc"/>
+        <arg name="xup"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="SUPPORTED_VERSIONS" id="SUPPORTED_VERSIONS">
+      <value>('1.0',)</value>
+    </global>
+    <global public="no" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="yes" name="XUPDATE_NS" id="XUPDATE_NS">
+      <value>'http://www.xmldb.org/xupdate'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['XUPDATE_NS', 'XUpdateException', 'g_errorMessages', 'StringWriter', 'SUPPORTED_VERSIONS', 'Processor', 'Reader', 'ApplyXUpdate']</value>
+    </global>
+    <global public="yes" name="g_errorMessages" id="g_errorMessages">
+      <value>{1: 'Syntax error in expression %(expr)r: %(err)s', 2: 'Unrecognized instruction in XUpdate namespace: %(name)r', 10: 'Missing required version attribute', 11: 'Missing required select attribute', 12: 'Missing required &quot;test&quot; attribute', 13: 'select expression &quot;%(expr)s&quot; must evaluate to a non-empty node-set', 14: 'XUpdate version %(version)s unsupported by this implementation', 100: 'Invalid DOM node %(node)r', 101: 'Unknown node type %(nodetype)r'}</value>
+    </global>
+  </globals>
+</module>

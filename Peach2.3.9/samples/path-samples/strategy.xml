@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+    author="Hanifi Gunes" description="Simply Strategy Example">
+    
+    <!--
+        
+        This is the simplest example of using a Strategy.
+        
+        Syntax:
+        
+        python peach.py mysamples\strategy.xml
+        
+        Output:
+        
+        This sample will run one test. 
+        Actually, it needs to give the same result as without using a Strategy
+        as we are (explicitly) using StaticStrategy.
+        
+        
+        This example should print "First Second Third"
+        
+        Authors:
+        Hanifi Gunes (hanifigunes@gmail.com)
+        
+    -->
+    
+    <!-- Import defaults for Peach instance -->
+    <Include ns="default" src="file:defaults.xml" />
+    
+    <!-- Create a simple data template containing a single string -->
+    <DataModel name="FirstData">
+        <String name="String0" value="First " isStatic="true"/>
+    </DataModel>
+    
+    <DataModel name="SecondData">
+        <String name="String1" value="Second  " isStatic="true" />
+    </DataModel>
+    
+    <DataModel name="ThirdData">
+        <String name="String0" value="Third" isStatic="true"/>
+    </DataModel>
+    
+    <StateModel name="StateMachine0" initialState="FirstState">
+        <State name="FirstState">
+            <Action type="output">
+                <DataModel ref="FirstData"/>
+            </Action>
+            <Choice>
+                <Action type="changeState" ref="SecondState"/>
+                <Action type="changeState" ref="ThirdState"/>
+            </Choice>
+        </State>
+        
+        <State name="SecondState">
+            <Action type="output">
+                <DataModel ref="SecondData"/>
+            </Action>
+            <Action type="changeState" ref="ThirdState"/>
+        </State>
+        
+        <State name="ThirdState">
+            <Action type="output">
+                <DataModel ref="ThirdData"/>
+            </Action>
+        </State>
+    </StateModel>
+    
+    <Test name="StrategyTest">
+        <StateModel ref="StateMachine0">
+            <Path ref="FirstState"/>
+            <Path ref="SecondState"/>
+            <Path ref="ThirdState"/>
+            <Strategy class="default.StaticStrategy" />
+        </StateModel>
+        <!-- Display test cases to the console -->
+        <Publisher class="stdout.Stdout" />
+    </Test>
+    
+    <!-- Configure a single run -->
+    <Run name="DefaultRun" description="Stdout HelloWorld Run">
+        <Test ref="StrategyTest" />
+    </Run>
+    
+</Peach>
+<!-- end -->

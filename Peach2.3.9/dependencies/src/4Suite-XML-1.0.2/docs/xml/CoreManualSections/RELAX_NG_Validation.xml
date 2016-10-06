@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="RELAXNG">
+  <title>Validation using RELAX NG</title>
+
+  <para>4Suite has RELAX NG support based on a bundling of Eric van der
+  Vlist's <ulink url="http://www.advogato.org/proj/xvif/">XVIF
+  implementation</ulink>.</para>
+
+  <para>First of all, you can use the 4xml command line for RELAX NG
+  validation with the --rng flag. For instance, take the following RELAX NG
+  schema (rng-tut3.rng):</para>
+
+  <programlisting>&lt;element name="addressBook" xmlns="[http://relaxng.org/ns/structure/1.0][13]"&gt;
+  &lt;zeroOrMore&gt;
+    &lt;element name="card"&gt;
+      &lt;element name="name"&gt;
+        &lt;text/&gt;
+      &lt;/element&gt;
+      &lt;element name="email"&gt;
+        &lt;text/&gt;
+      &lt;/element&gt;
+    &lt;/element&gt;
+  &lt;/zeroOrMore&gt;
+&lt;/element&gt;</programlisting>
+
+  <para>The following document (rng-tut1.xml) is valid against the
+  schema:</para>
+
+  <programlisting>&lt;addressBook&gt;
+  &lt;card&gt;
+    &lt;name&gt;John Smith&lt;/name&gt;
+    &lt;email&gt;js@example.com&lt;/email&gt;
+  &lt;/card&gt;
+  &lt;card&gt;
+    &lt;name&gt;Fred Bloggs&lt;/name&gt;
+    &lt;email&gt;fb@example.net&lt;/email&gt;
+  &lt;/card&gt;
+&lt;/addressBook&gt;</programlisting>
+
+  <para>As you can check as follows:</para>
+
+  <screen>$ 4xml --rng=rng-tut3.rng rng-tut1.xml
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;addressBook&gt;
+  &lt;card&gt;
+    &lt;name&gt;John Smith&lt;/name&gt;
+    &lt;email&gt;js@example.com&lt;/email&gt;
+  &lt;/card&gt;
+  &lt;card&gt;
+    &lt;name&gt;Fred Bloggs&lt;/name&gt;
+    &lt;email&gt;fb@example.net&lt;/email&gt;
+  &lt;/card&gt;
+&lt;/addressBook&gt;</screen>
+
+  <para>Since it passes the schema, 4xml continues normal operation,
+  re-serializing the XML back to stdout.</para>
+
+  <para>The following document (rng-tut7.xml) is not valid against the
+  schema:</para>
+
+  <programlisting>&lt;addressBook&gt;i
+  &lt;card&gt;
+    &lt;givenName&gt;John&lt;/givenName&gt;
+    &lt;familyName&gt;Smith&lt;/familyName&gt;
+  &lt;email&gt;js@example.com&lt;/email&gt;
+  &lt;/card&gt;
+  &lt;card&gt;
+    &lt;name&gt;Fred Bloggs&lt;/name&gt;
+    &lt;email&gt;fb@example.net&lt;/email&gt;
+  &lt;/card&gt;
+&lt;/addressBook&gt;</programlisting>
+
+  <para>Which you can check as follows:</para>
+
+  <screen>$ 4xml --rng=rng-tut7.rng rng-tut1.xml 
+Traceback (most recent call last):
+  File "/home/uogbuji/lib/python2.2/site-packages/Ft/Share/Bin/4xml", line 5, in ?
+    XmlCommandLineApp().run()
+  File "/home/uogbuji/lib/python2.2/site-packages/Ft/Lib/CommandLine/CommandLineApp.py", line 90, in run
+    cmd.run_command(self.authenticationFunction)
+  File "/home/uogbuji/lib/python2.2/site-packages/Ft/Lib/CommandLine/Command.py", line 83, in run_command
+    self.function(self.clOptions, self.clArguments)
+  File "/home/uogbuji/lib/python2.2/site-packages/Ft/Xml/_4xml.py", line 89, in Run
+    raise RngInvalid(result)
+Ft.Xml.Xvif.RngInvalid: _Pattern Empty, no content expected, 
+node &lt;cElement at 0x838d7f4: name u'card', 0 attributes, 7 children&gt;</screen>
+
+  <para>The exception is for the invalid pattern.</para>
+
+  <para>You can also access validation through the Python API using the new
+  Ft.Xml.Xvif.RelaxNgValidator class. For example:</para>
+
+  <programlisting>from Ft.Xml.Xvif import RelaxNgValidator
+from Ft.Xml import InputSource
+from Ft.Lib import Uri
+factory = InputSource.DefaultFactory
+rng_uri = Uri.OsPathToUri("rng-tut3.rng", attemptAbsolute=1)
+src_uri = Uri.OsPathToUri("rng-tut1.xml", attemptAbsolute=1)
+rng_isrc = factory.fromUri(rng_uri)
+src_isrc = factory.fromUri(src_uri)
+
+validator = RelaxNgValidator(rng_isrc)
+result = validator.isValid(src_isrc)
+if result:
+    print "Valid"
+else:
+    print "Invalid"</programlisting>
+
+  <para>The isValid() method returns a 1 or 0 for validity. To get the actual
+  structure returned by the validator, use the validate() method instead. This
+  structure can easily be turned into an exception object. The following
+  variation prints "Valid" if valid, and raises an exception if not:</para>
+
+  <programlisting>from Ft.Xml.Xvif import RelaxNgValidator, RngInvalid
+from Ft.Xml import InputSource
+factory = InputSource.DefaultFactory
+from Ft.Lib import Uri
+factory = InputSource.DefaultFactory
+rng_uri = Uri.OsPathToUri("rng-tut3.rng", attemptAbsolute=1)
+src_uri = Uri.OsPathToUri("rng-tut1.xml", attemptAbsolute=1)
+rng_isrc = factory.fromUri(rng_uri)
+src_isrc = factory.fromUri(src_uri)
+
+validator = RelaxNgValidator(rng_isrc)
+result = validator.validate(src_isrc)
+if result.nullable():
+    print "Valid"
+else:
+    raise RngInvalid(result)</programlisting>
+
+  <para>If you want to use the validation error message without raising an
+  exception:</para>
+
+  <programlisting># Set-up as above
+result = validator.validate(src_isrc)
+if result.nullable():
+    print "Valid"
+else:
+    print result.msg</programlisting>
+</section>

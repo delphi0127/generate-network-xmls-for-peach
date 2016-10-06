@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<application name="4xslt">
+  <description>command-line tool for performing XSLT transformations on XMLdocuments</description>
+  <verbose-description>4XSLT command-line application</verbose-description>
+  <options>
+    <option short-name="h" long-name="help">
+      <description>show detailed help message</description>
+    </option>
+    <option short-name="V" long-name="version">
+      <description>display version information and exit</description>
+    </option>
+    <option short-name="v" long-name="validate">
+      <description>Validate the input file as it is being parsed</description>
+    </option>
+    <option short-name="i" long-name="ignore">
+      <description>Ignore &lt;?xml-stylesheet ...?&gt; instructions</description>
+    </option>
+    <option long-name="media">
+      <description>Set media to honor in xml-stylesheet PIs</description>
+      <argument name="MEDIA">
+      </argument>
+    </option>
+    <option short-name="D" long-name="define">
+      <description>Bind a top-level parameter</description>
+      <argument name="NAME=VALUE">
+      </argument>
+    </option>
+    <option short-name="P" long-name="prefix">
+      <description>Assign a namespace to a prefix used in a top-level parameter</description>
+      <argument name="PREFIX=NSURI">
+      </argument>
+    </option>
+    <option short-name="I" long-name="alt-sty-path">
+      <description>Same as --alt-sty-uri but uses OS path</description>
+      <argument name="PATH">
+      </argument>
+    </option>
+    <option long-name="alt-sty-uri">
+      <description>Define an add'l base URI for imports and includes</description>
+      <argument name="URI">
+      </argument>
+    </option>
+    <option short-name="o" long-name="outfile">
+      <description>Direct transformation output to FILE (file will be overwritten if it exists)</description>
+      <argument name="FILE">
+      </argument>
+    </option>
+    <option short-name="e" long-name="stacktrace-on-error">
+      <description>Display a stack trace when an error occurs</description>
+    </option>
+    <option long-name="noxinclude">
+      <description>Do not expand XIncludes in source document and stylesheet</description>
+    </option>
+    <option long-name="trace">
+      <description>Send execution trace output to stderr or file set by --trace-file</description>
+    </option>
+    <option long-name="trace-file">
+      <description>Trace file for execution trace output when using --trace</description>
+      <argument name="FILE">
+      </argument>
+    </option>
+    <exclusive-options>
+      <option long-name="reflex">
+        <description>Reflexive transform (use the stylesheet as the source document).</description>
+      </option>
+      <option long-name="compile">
+        <description>Compile an instant stylesheet. The result is written to stdout, unless -o is used.</description>
+      </option>
+      <option long-name="instant">
+        <description>The stylesheet is &quot;instant&quot; (compiled). Only one stylesheet can be specified with this option.</description>
+      </option>
+      <option long-name="chain">
+        <description>Chain the stylesheets (result of transforming with the first is the source document for transforming with the second, and so on). Without this option, each extra stylesheet is imported by the preceding one.</description>
+      </option>
+    </exclusive-options>
+    <option long-name="time">
+      <description>Display the elapsed transformation time on stderr</description>
+    </option>
+    <option long-name="msg-prefix">
+      <description>Prepend string to xsl:message output</description>
+      <argument name="STRING">
+      </argument>
+    </option>
+    <option long-name="msg-suffix">
+      <description>Append string to xsl:message output</description>
+      <argument name="STRING">
+      </argument>
+    </option>
+    <option long-name="no-messages">
+      <description>Suppress xsl:message output and warnings</description>
+    </option>
+  </options>
+  <arguments>
+    <argument required="yes" multiple="no" name="source-uri">
+      <description>The URI of the XML document to transform, or &quot;-&quot; to indicate standard input. If using --reflex, it is also the stylesheet. If using --compile, it is the stylesheet to compile.</description>
+    </argument>
+    <argument required="no" multiple="yes" name="stylesheet-uri">
+      <description>The URI(s) of the stylesheet(s) to apply.</description>
+    </argument>
+  </arguments>
+</application>

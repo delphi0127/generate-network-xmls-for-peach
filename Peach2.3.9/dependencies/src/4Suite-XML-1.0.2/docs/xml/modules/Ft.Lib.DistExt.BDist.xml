@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.BDist">
+  <modification-date>2006-08-27 13:34:35</modification-date>
+  <abstract/>
+  <description/>
+  <classes>
+    <class name="BDist" public="yes">
+      <bases>
+        <base documented="no" class="bdist" module="distutils.command.bdist"/>
+      </bases>
+      <abstract>Extended 'bdist' command that adds support for InnoSetup Windows installers
+and Python Egg files.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="BDist" module="Ft.Lib.DistExt.BDist"/>
+        <base name="bdist" module="distutils.command.bdist"/>
+        <base name="Command" module="distutils.cmd"/>
+      </method-resolution-order>
+      <methods name="Command" module="distutils.cmd">
+        <method public="yes" name="finalize_options" id="BDist-finalize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="bdist" module="distutils.command.bdist"/>
+        </method>
+        <method public="yes" name="initialize_options" id="BDist-initialize_options">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="bdist" module="distutils.command.bdist"/>
+        </method>
+      </methods>
+      <members name="Command" module="distutils.cmd">
+        <member public="yes" name="boolean_options" id="BDist-boolean_options">
+          <value>['skip-build', 'keep-temp']</value>
+        </member>
+        <member public="yes" name="command" id="BDist-command">
+          <value>'bdist_egg'</value>
+        </member>
+        <member public="yes" name="command_name" id="BDist-command_name">
+          <value>'bdist'</value>
+        </member>
+        <member public="yes" name="default_format" id="BDist-default_format">
+          <value>{'nt': 'inno', 'os2': 'zip', 'posix': 'gztar'}</value>
+        </member>
+        <member public="yes" name="description" id="BDist-description">
+          <value>'Python Egg file'</value>
+        </member>
+        <member public="yes" name="format" id="BDist-format">
+          <value>'egg'</value>
+        </member>
+        <member public="yes" name="format_command" id="BDist-format_command">
+          <value>{'bztar': ('bdist_dumb', &quot;bzip2'ed tar file&quot;), 'egg': ('bdist_egg', 'Python Egg file'), 'gztar': ('bdist_dumb', &quot;gzip'ed tar file&quot;), 'inno': ('bdist_inno', 'Windows InnoSetup installer'), 'rpm': ('bdist_rpm', 'RPM distribution'), 'tar': ('bdist_dumb', 'tar file'), 'wininst': ('bdist_wininst', 'Windows executable installer'), 'zip': ('bdist_dumb', 'ZIP file'), 'ztar': ('bdist_dumb', 'compressed tar file')}</value>
+        </member>
+        <member public="yes" name="format_commands" id="BDist-format_commands">
+          <value>['rpm', 'gztar', 'bztar', 'ztar', 'tar', 'wininst', 'zip', 'inno', 'egg']</value>
+        </member>
+        <member public="yes" name="sub_commands" id="BDist-sub_commands">
+          <value>[('bdist_rpm', &lt;function &lt;lambda&gt;&gt;), ('bdist_dumb', &lt;function &lt;lambda&gt;&gt;), ('bdist_wininst', &lt;function &lt;lambda&gt;&gt;), ('bdist_inno', &lt;function &lt;lambda&gt;&gt;), ('bdist_egg', &lt;function &lt;lambda&gt;&gt;)]</value>
+        </member>
+        <member public="yes" name="user_options" id="BDist-user_options">
+          <value>[('bdist-base=', 'b', 'temporary directory for creating built distributions'), ('plat-name=', 'p', 'platform name to embed in generated filenames (default: linux-i686)'), ('formats=', None, 'formats for distribution (comma-separated list)'), ('dist-dir=', 'd', 'directory to put final built distributions in [default: dist]'), ('skip-build', None, 'skip rebuilding everything (for testing/debugging)'), ('keep-temp', 'k', 'keep the pseudo-installation tree around after creating the distribution archive')]</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="bdist" module="distutils.command.bdist">
+        <member-reference name="run" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="bdist" module="distutils.command.bdist">
+        <member-reference name="help_options" public="yes"/>
+        <member-reference name="no_format_option" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="Command" module="distutils.cmd">
+        <member-reference name="__getattr__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="announce" public="yes"/>
+        <member-reference name="copy_file" public="yes"/>
+        <member-reference name="copy_tree" public="yes"/>
+        <member-reference name="debug_print" public="yes"/>
+        <member-reference name="dump_options" public="yes"/>
+        <member-reference name="ensure_dirname" public="yes"/>
+        <member-reference name="ensure_filename" public="yes"/>
+        <member-reference name="ensure_finalized" public="yes"/>
+        <member-reference name="ensure_string" public="yes"/>
+        <member-reference name="ensure_string_list" public="yes"/>
+        <member-reference name="execute" public="yes"/>
+        <member-reference name="get_command_name" public="yes"/>
+        <member-reference name="get_finalized_command" public="yes"/>
+        <member-reference name="get_sub_commands" public="yes"/>
+        <member-reference name="make_archive" public="yes"/>
+        <member-reference name="make_file" public="yes"/>
+        <member-reference name="mkpath" public="yes"/>
+        <member-reference name="move_file" public="yes"/>
+        <member-reference name="reinitialize_command" public="yes"/>
+        <member-reference name="run_command" public="yes"/>
+        <member-reference name="set_undefined_options" public="yes"/>
+        <member-reference name="spawn" public="yes"/>
+        <member-reference name="warn" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+</module>

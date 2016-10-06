@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- TODO: Create data model -->
+	<DataModel name="TheDataModel">
+		<Block name="Chunks">
+			<Block name="ArrayOfChunks" maxOccurs="4">
+				<Number size="8" signed="false">
+					<Relation type="offset" of="Data"/>
+				</Number>
+				<String name="Data" length="6">
+					<Placement after="Chunks"/>
+				</String>
+			</Block>
+		</Block>
+		<Blob length="0" />
+	</DataModel>
+	
+	<!-- TODO: Create state model -->
+	<StateModel name="TheState" initialState="Initial">
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="TheDataModel"/>
+				<Data name="a" fileName="offset.bin"></Data>
+			</Action>
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TheState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<!-- Configure a single run -->
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<pdml version="0" creator="wireshark/0.99.5">
+<packet>
+  <proto name="geninfo" pos="0" showname="General information" size="342">
+    <field name="num" pos="0" show="4" showname="Number" value="4" size="342"/>
+    <field name="len" pos="0" show="342" showname="Packet Length" value="156" size="342"/>
+    <field name="caplen" pos="0" show="342" showname="Captured Length" value="156" size="342"/>
+    <field name="timestamp" pos="0" show="May 24, 2007 21:34:26.889942000" showname="Captured Time" value="1180067666.889942000" size="342"/>
+  </proto>
+  <proto name="frame" showname="Frame 4 (342 bytes on wire, 342 bytes captured)" size="342" pos="0">
+    <field name="frame.time" showname="Arrival Time: May 24, 2007 21:34:26.889942000" size="0" pos="0" show="May 24, 2007 21:34:26.889942000"/>
+    <field name="frame.time_delta" showname="Time delta from previous packet: 0.005828000 seconds" size="0" pos="0" show="0.005828000"/>
+    <field name="frame.time_relative" showname="Time since reference or first frame: 0.035994000 seconds" size="0" pos="0" show="0.035994000"/>
+    <field name="frame.number" showname="Frame Number: 4" size="0" pos="0" show="4"/>
+    <field name="frame.pkt_len" showname="Packet Length: 342 bytes" size="0" pos="0" show="342"/>
+    <field name="frame.cap_len" showname="Capture Length: 342 bytes" size="0" pos="0" show="342"/>
+    <field name="frame.marked" showname="Frame is marked: False" size="0" pos="0" show="0"/>
+    <field name="frame.protocols" showname="Protocols in frame: eth:ip:udp:bootp" size="0" pos="0" show="eth:ip:udp:bootp"/>
+  </proto>
+  <proto name="eth" showname="Ethernet II, Src: AppleCom_c2:d8:df (00:16:cb:c2:d8:df), Dst: Shuttle_43:69:43 (00:30:1b:43:69:43)" size="14" pos="0">
+    <field name="eth.dst" showname="Destination: Shuttle_43:69:43 (00:30:1b:43:69:43)" size="6" pos="0" show="00:30:1b:43:69:43" value="00301b436943">
+      <field name="eth.addr" showname="Address: Shuttle_43:69:43 (00:30:1b:43:69:43)" size="6" pos="0" show="00:30:1b:43:69:43" value="00301b436943"/>
+      <field name="eth.ig" showname=".... ...0 .... .... .... .... = IG bit: Individual address (unicast)" size="3" pos="0" show="0" value="0" unmaskedvalue="00301b"/>
+      <field name="eth.lg" showname=".... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)" size="3" pos="0" show="0" value="0" unmaskedvalue="00301b"/>
+    </field>
+    <field name="eth.src" showname="Source: AppleCom_c2:d8:df (00:16:cb:c2:d8:df)" size="6" pos="6" show="00:16:cb:c2:d8:df" value="0016cbc2d8df">
+      <field name="eth.addr" showname="Address: AppleCom_c2:d8:df (00:16:cb:c2:d8:df)" size="6" pos="6" show="00:16:cb:c2:d8:df" value="0016cbc2d8df"/>
+      <field name="eth.ig" showname=".... ...0 .... .... .... .... = IG bit: Individual address (unicast)" size="3" pos="6" show="0" value="0" unmaskedvalue="0016cb"/>
+      <field name="eth.lg" showname=".... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)" size="3" pos="6" show="0" value="0" unmaskedvalue="0016cb"/>
+    </field>
+    <field name="eth.type" showname="Type: IP (0x0800)" size="2" pos="12" show="0x0800" value="0800"/>
+  </proto>
+  <proto name="ip" showname="Internet Protocol, Src: 192.168.1.1 (192.168.1.1), Dst: 192.168.1.10 (192.168.1.10)" size="20" pos="14">
+    <field name="ip.version" showname="Version: 4" size="1" pos="14" show="4" value="45"/>
+    <field name="ip.hdr_len" showname="Header length: 20 bytes" size="1" pos="14" show="20" value="45"/>
+    <field name="ip.dsfield" showname="Differentiated Services Field: 0x00 (DSCP 0x00: Default; ECN: 0x00)" size="1" pos="15" show="0" value="00">
+      <field name="ip.dsfield.dscp" showname="0000 00.. = Differentiated Services Codepoint: Default (0x00)" size="1" pos="15" show="0x00" value="0" unmaskedvalue="00"/>
+      <field name="ip.dsfield.ect" showname=".... ..0. = ECN-Capable Transport (ECT): 0" size="1" pos="15" show="0" value="0" unmaskedvalue="00"/>
+      <field name="ip.dsfield.ce" showname=".... ...0 = ECN-CE: 0" size="1" pos="15" show="0" value="0" unmaskedvalue="00"/>
+    </field>
+    <field name="ip.len" showname="Total Length: 328" size="2" pos="16" show="328" value="0148"/>
+    <field name="ip.id" showname="Identification: 0xf6c5 (63173)" size="2" pos="18" show="0xf6c5" value="f6c5"/>
+    <field name="ip.flags" showname="Flags: 0x00" size="1" pos="20" show="0x00" value="00">
+      <field name="ip.flags.rb" showname="0... = Reserved bit: Not set" size="1" pos="20" show="0" value="0" unmaskedvalue="00"/>
+      <field name="ip.flags.df" showname=".0.. = Don&apos;t fragment: Not set" size="1" pos="20" show="0" value="0" unmaskedvalue="00"/>
+      <field name="ip.flags.mf" showname="..0. = More fragments: Not set" size="1" pos="20" show="0" value="0" unmaskedvalue="00"/>
+    </field>
+    <field name="ip.frag_offset" showname="Fragment offset: 0" size="2" pos="20" show="0" value="0000"/>
+    <field name="ip.ttl" showname="Time to live: 64" size="1" pos="22" show="64" value="40"/>
+    <field name="ip.proto" showname="Protocol: UDP (0x11)" size="1" pos="23" show="0x11" value="11"/>
+    <field name="ip.checksum" showname="Header checksum: 0xff83 [correct]" size="2" pos="24" show="0xff83" value="ff83">
+      <field name="ip.checksum_good" showname="Good: True" size="2" pos="24" show="1" value="ff83"/>
+      <field name="ip.checksum_bad" showname="Bad : False" size="2" pos="24" show="0" value="ff83"/>
+    </field>
+    <field name="ip.src" showname="Source: 192.168.1.1 (192.168.1.1)" size="4" pos="26" show="192.168.1.1" value="c0a80101"/>
+    <field name="ip.addr" showname="Source or Destination Address: 192.168.1.1 (192.168.1.1)" hide="yes" size="4" pos="26" show="192.168.1.1" value="c0a80101"/>
+    <field name="ip.src_host" showname="Source Host: 192.168.1.1" hide="yes" size="4" pos="26" show="192.168.1.1" value="c0a80101"/>
+    <field name="ip.host" showname="Source or Destination Host: 192.168.1.1" hide="yes" size="4" pos="26" show="192.168.1.1" value="c0a80101"/>
+    <field name="ip.dst" showname="Destination: 192.168.1.10 (192.168.1.10)" size="4" pos="30" show="192.168.1.10" value="c0a8010a"/>
+    <field name="ip.addr" showname="Source or Destination Address: 192.168.1.10 (192.168.1.10)" hide="yes" size="4" pos="30" show="192.168.1.10" value="c0a8010a"/>
+    <field name="ip.dst_host" showname="Destination Host: 192.168.1.10" hide="yes" size="4" pos="30" show="192.168.1.10" value="c0a8010a"/>
+    <field name="ip.host" showname="Source or Destination Host: 192.168.1.10" hide="yes" size="4" pos="30" show="192.168.1.10" value="c0a8010a"/>
+  </proto>
+  <proto name="udp" showname="User Datagram Protocol, Src Port: bootps (67), Dst Port: bootpc (68)" size="8" pos="34">
+    <field name="udp.srcport" showname="Source port: bootps (67)" size="2" pos="34" show="67" value="0043"/>
+    <field name="udp.dstport" showname="Destination port: bootpc (68)" size="2" pos="36" show="68" value="0044"/>
+    <field name="udp.port" showname="Source or Destination Port: 67" hide="yes" size="2" pos="34" show="67" value="0043"/>
+    <field name="udp.port" showname="Source or Destination Port: 68" hide="yes" size="2" pos="36" show="68" value="0044"/>
+    <field name="udp.length" showname="Length: 308" size="2" pos="38" show="308" value="0134"/>
+    <field name="udp.checksum_coverage" showname="Checksum coverage: 308" hide="yes" size="0" pos="38" show="308"/>
+    <field name="udp.checksum" showname="Checksum: 0x59db [correct]" size="2" pos="40" show="0x59db" value="59db">
+      <field name="udp.checksum_good" showname="Good Checksum: True" size="2" pos="40" show="1" value="59db"/>
+      <field name="udp.checksum_bad" showname="Bad Checksum: False" size="2" pos="40" show="0" value="59db"/>
+    </field>
+  </proto>
+  <proto name="bootp" showname="Bootstrap Protocol" size="300" pos="42">
+    <field name="bootp.type" showname="Message type: Boot Reply (2)" size="1" pos="42" show="2" value="02"/>
+    <field name="bootp.hw.type" showname="Hardware type: Ethernet" size="1" pos="43" show="0x01" value="01"/>
+    <field name="bootp.hw.len" showname="Hardware address length: 6" size="1" pos="44" show="6" value="06"/>
+    <field name="bootp.hops" showname="Hops: 0" size="1" pos="45" show="0" value="00"/>
+    <field name="bootp.id" showname="Transaction ID: 0xa04fe426" size="4" pos="46" show="0xa04fe426" value="a04fe426"/>
+    <field name="bootp.secs" showname="Seconds elapsed: 0" size="2" pos="50" show="0" value="0000"/>
+    <field name="bootp.flags" showname="Bootp flags: 0x0000 (Unicast)" size="2" pos="52" show="0x0000" value="0000">
+      <field name="bootp.flags.bc" showname="0... .... .... .... = Broadcast flag: Unicast" size="2" pos="52" show="0" value="0" unmaskedvalue="0000"/>
+      <field name="bootp.flags.reserved" showname=".000 0000 0000 0000 = Reserved flags: 0x0000" size="2" pos="52" show="0x0000" value="0" unmaskedvalue="0000"/>
+    </field>
+    <field name="bootp.ip.client" showname="Client IP address: 192.168.1.10 (192.168.1.10)" size="4" pos="54" show="192.168.1.10" value="c0a8010a"/>
+    <field name="bootp.ip.your" showname="Your (client) IP address: 192.168.1.10 (192.168.1.10)" size="4" pos="58" show="192.168.1.10" value="c0a8010a"/>
+    <field name="bootp.ip.server" showname="Next server IP address: 0.0.0.0 (0.0.0.0)" size="4" pos="62" show="0.0.0.0" value="00000000"/>
+    <field name="bootp.ip.relay" showname="Relay agent IP address: 0.0.0.0 (0.0.0.0)" size="4" pos="66" show="0.0.0.0" value="00000000"/>
+    <field name="bootp.hw.mac_addr" showname="Client MAC address: Shuttle_43:69:43 (00:30:1b:43:69:43)" size="6" pos="70" show="00:30:1b:43:69:43" value="00301b436943"/>
+    <field name="bootp.server" showname="Server host name not given" size="64" pos="86" show="" value="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+    <field name="bootp.file" showname="Boot file name not given" size="128" pos="150" show="" value="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+    <field name="bootp.cookie" showname="Magic cookie: (OK)" size="4" pos="278" show="99.130.83.99" value="63825363"/>
+    <field name="bootp.dhcp" showname="Frame is DHCP: True" hide="yes" size="0" pos="42" show="1"/>
+    <field name="" show="Option: (t=53,l=1) DHCP Message Type = DHCP ACK" size="3" pos="282" value="350105">
+      <field name="bootp.option.type" showname="Option: (53) DHCP Message Type" size="1" pos="282" show="53" value="35"/>
+      <field name="bootp.option.length" showname="Length: 1" size="1" pos="283" show="1" value="01"/>
+      <field name="bootp.option.value" showname="Value: 05" size="1" pos="284" show="05" value="05"/>
+    </field>
+    <field name="" show="Option: (t=54,l=4) Server Identifier = 192.168.1.1" size="6" pos="285" value="3604c0a80101">
+      <field name="bootp.option.type" showname="Option: (54) Server Identifier" size="1" pos="285" show="54" value="36"/>
+      <field name="bootp.option.length" showname="Length: 4" size="1" pos="286" show="4" value="04"/>
+      <field name="bootp.option.value" showname="Value: C0A80101" size="4" pos="287" show="c0:a8:01:01" value="c0a80101"/>
+    </field>
+    <field name="" show="Option: (t=51,l=4) IP Address Lease Time = 5 days" size="6" pos="291" value="330400069780">
+      <field name="bootp.option.type" showname="Option: (51) IP Address Lease Time" size="1" pos="291" show="51" value="33"/>
+      <field name="bootp.option.length" showname="Length: 4" size="1" pos="292" show="4" value="04"/>
+      <field name="bootp.option.value" showname="Value: 00069780" size="4" pos="293" show="00:06:97:80" value="00069780"/>
+    </field>
+    <field name="" show="Option: (t=1,l=4) Subnet Mask = 255.255.255.0" size="6" pos="297" value="0104ffffff00">
+      <field name="bootp.option.type" showname="Option: (1) Subnet Mask" size="1" pos="297" show="1" value="01"/>
+      <field name="bootp.option.length" showname="Length: 4" size="1" pos="298" show="4" value="04"/>
+      <field name="bootp.option.value" showname="Value: FFFFFF00" size="4" pos="299" show="ff:ff:ff:00" value="ffffff00"/>
+    </field>
+    <field name="" show="Option: (t=3,l=4) Router = 192.168.1.1" size="6" pos="303" value="0304c0a80101">
+      <field name="bootp.option.type" showname="Option: (3) Router" size="1" pos="303" show="3" value="03"/>
+      <field name="bootp.option.length" showname="Length: 4" size="1" pos="304" show="4" value="04"/>
+      <field name="bootp.option.value" showname="Value: C0A80101" size="4" pos="305" show="c0:a8:01:01" value="c0a80101"/>
+    </field>
+    <field name="" show="Option: (t=6,l=4) Domain Name Server = 192.168.1.1" size="6" pos="309" value="0604c0a80101">
+      <field name="bootp.option.type" showname="Option: (6) Domain Name Server" size="1" pos="309" show="6" value="06"/>
+      <field name="bootp.option.length" showname="Length: 4" size="1" pos="310" show="4" value="04"/>
+      <field name="bootp.option.value" showname="Value: C0A80101" size="4" pos="311" show="c0:a8:01:01" value="c0a80101"/>
+    </field>
+    <field name="" show="End Option" size="1" pos="315" value="ff"/>
+    <field name="" show="Padding" size="26" pos="316" value="0000000000000000000000000000000000000000000000000000"/>
+  </proto>
+</packet>
+
+</pdml>

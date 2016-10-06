@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.StylesheetHandler">
+  <modification-date>2006-04-28 13:54:50</modification-date>
+  <abstract>Stylesheet tree generator</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="ParseState" public="yes">
+      <abstract>Stores the current state of the parser.</abstract>
+      <description>Constructor arguments/instance variables:
+  validation - validation state for the current containing node.
+
+  localVariables - set of in-scope variable bindings to determine
+                   variable shadowing.
+
+  forwardsCompatible - flag indicating whether or not forwards-compatible
+                       processing is enabled.
+
+  currentNamespaces - set of in-scope namespaces for the current node.
+
+  extensionNamespaces - set of namespaces defining extension elements
+
+  outputNamespaces - set of in-scope namespaces for literal result elements</description>
+      <method-resolution-order>
+        <base name="ParseState" module="Ft.Xml.Xslt.StylesheetHandler"/>
+      </method-resolution-order>
+      <methods name="ParseState" module="Ft.Xml.Xslt.StylesheetHandler">
+        <method public="no" name="__init__" id="ParseState-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg name="validation"/>
+            <arg name="localVariables"/>
+            <arg name="forwardsCompatible"/>
+            <arg name="currentNamespaces"/>
+            <arg name="extensionNamespaces"/>
+            <arg name="outputNamespaces"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="StylesheetHandler" public="yes">
+      <abstract>Handles SAX events coming from the stylesheet parser,
+in order to build the stylesheet tree.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler"/>
+      </method-resolution-order>
+      <methods name="StylesheetHandler" module="Ft.Xml.Xslt.StylesheetHandler">
+        <method public="no" name="__init__" id="StylesheetHandler-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="importIndex"/>
+            <arg default="None" name="globalVars"/>
+            <arg default="None" name="extElements"/>
+            <arg default="None" name="visitedStyUris"/>
+            <arg default="None" name="altBaseUris"/>
+            <arg default="None" name="ownerDocument"/>
+          </arguments>
+        </method>
+        <method public="yes" name="addExtensionElementMapping" id="StylesheetHandler-addExtensionElementMapping">
+          <abstract>Add a mapping of extension element names to classes to the
+existing mapping of extension elements.</abstract>
+          <description>This should only be used for standalone uses of this class.  The
+only known standalone use for this class is for creating compiled
+stylesheets.  The benefits of compiled stylesheets are now so minor
+that this use case may also disappear and then so will this function.
+You have been warned.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="elementMapping"/>
+          </arguments>
+        </method>
+        <method public="yes" name="characters" id="StylesheetHandler-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="yes" name="clone" id="StylesheetHandler-clone">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endDocument" id="StylesheetHandler-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElementNS" id="StylesheetHandler-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expandedName"/>
+            <arg name="qualifiedName"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getResult" id="StylesheetHandler-getResult">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="reset" id="StylesheetHandler-reset">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setDocumentLocator" id="StylesheetHandler-setDocumentLocator">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="locator"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startDocument" id="StylesheetHandler-startDocument">
+          <abstract>ownerDoc is supplied when processing an XSLT import or include.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="StylesheetHandler-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="expandedName"/>
+            <arg name="qualifiedName"/>
+            <arg name="attribs"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startPrefixMapping" id="StylesheetHandler-startPrefixMapping">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="uri"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>u'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="yes" name="XSL_NAMESPACE" id="XSL_NAMESPACE">
+      <value>u'http://www.w3.org/1999/XSL/Transform'</value>
+    </global>
+  </globals>
+</module>

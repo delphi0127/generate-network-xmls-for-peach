@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.mutator</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        Module&nbsp;mutator
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Peach.mutator-module.html">Module Peach.mutator</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Mutator base classes and interfaces.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">A Mutator implements a method of mutating data/state for a Peach 2</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">fuzzer.  For example a mutator might change the state flow defined</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">by a Peach fuzzer.  Another mutator might mutate data based on</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">known relationships.  Another mutator might perform numerical type</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">tests against fields.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">@author: Michael Eddington</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">@version: $Id: mutator.py 1920 2009-12-04 05:35:29Z meddingt $</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Copyright (c) Michael Eddington</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Permission is hereby granted, free of charge, to any person obtaining a copy </tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># of this software and associated documentation files (the "Software"), to deal</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># in the Software without restriction, including without limitation the rights </tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell </tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># copies of the Software, and to permit persons to whom the Software is </tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># furnished to do so, subject to the following conditions:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># The above copyright notice and this permission notice shall be included in    </tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># all copies or substantial portions of the Software.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR </tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, </tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE </tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER </tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># SOFTWARE.</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># Authors:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#   Michael Eddington (mike@phed.org)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"># $Id: mutator.py 1920 2009-12-04 05:35:29Z meddingt $</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module Peach.Strategies.random=Peach.Strategies.random-module.html"><a title="Peach.Strategies.random" class="py-name" href="#" onclick="return doclink('link-0', 'random', 'link-0');">random</a></tt><tt class="py-op">,</tt> <tt class="py-name">threading</tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name"><a title="Peach.Strategies.random" class="py-name" href="#" onclick="return doclink('link-1', 'random', 'link-0');">random</a></tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">pickle</tt><tt class="py-op">,</tt> <tt class="py-name">types</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Package Peach=Peach-module.html,Class Peach.Engine.dom.Peach=Peach.Engine.dom.Peach-class.html"><a title="Peach
+Peach.Engine.dom.Peach" class="py-name" href="#" onclick="return doclink('link-2', 'Peach', 'link-2');">Peach</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Package Peach.Engine=Peach.Engine-module.html,Class Peach.Engine.engine.Engine=Peach.Engine.engine.Engine-class.html"><a title="Peach.Engine
+Peach.Engine.engine.Engine" class="py-name" href="#" onclick="return doclink('link-3', 'Engine', 'link-3');">Engine</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module Peach.Engine.dom=Peach.Engine.dom-module.html"><a title="Peach.Engine.dom" class="py-name" href="#" onclick="return doclink('link-4', 'dom', 'link-4');">dom</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="Mutator"></a><div id="Mutator-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="Mutator-toggle" onclick="return toggle('Mutator');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.mutator.Mutator-class.html">Mutator</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mutator-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Mutator-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">        A Mutator implements a method of mutating data/state for a Peach 2</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">        fuzzer.  For example a mutator might change the state flow defined</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">        by a Peach fuzzer.  Another mutator might mutate data based on</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">        known relationships.  Another mutator might perform numerical type</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">        tests against fields.</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">         </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt id="link-5" class="py-name" targets="Variable Peach.mutator.Mutator.elementType=Peach.mutator.Mutator-class.html#elementType"><a title="Peach.mutator.Mutator.elementType" class="py-name" href="#" onclick="return doclink('link-5', 'elementType', 'link-5');">elementType</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"mutator"</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt id="link-6" class="py-name" targets="Variable Peach.mutator.Mutator.dataTypes=Peach.mutator.Mutator-class.html#dataTypes"><a title="Peach.mutator.Mutator.dataTypes" class="py-name" href="#" onclick="return doclink('link-6', 'dataTypes', 'link-6');">dataTypes</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'template'</tt><tt class="py-op">,</tt> <tt class="py-string">'string'</tt><tt class="py-op">,</tt> <tt class="py-string">'number'</tt><tt class="py-op">,</tt> <tt class="py-string">'flags'</tt><tt class="py-op">,</tt> <tt class="py-string">'choice'</tt><tt class="py-op">,</tt> <tt class="py-string">'sequence'</tt><tt class="py-op">,</tt> <tt class="py-string">'blob'</tt><tt class="py-op">,</tt> <tt class="py-string">'block'</tt><tt class="py-op">]</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt id="link-7" class="py-name" targets="Variable Peach.mutator.Mutator._random=Peach.mutator.Mutator-class.html#_random"><a title="Peach.mutator.Mutator._random" class="py-name" href="#" onclick="return doclink('link-7', '_random', 'link-7');">_random</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="Peach.Strategies.random" class="py-name" href="#" onclick="return doclink('link-8', 'random', 'link-0');">random</a></tt><tt class="py-op">.</tt><tt class="py-name">Random</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-comment">#: Weight to be chosen randomly</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-9" class="py-name" targets="Variable Peach.mutator.Mutator.weight=Peach.mutator.Mutator-class.html#weight"><a title="Peach.mutator.Mutator.weight" class="py-name" href="#" onclick="return doclink('link-9', 'weight', 'link-9');">weight</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">         </tt>
+<a name="Mutator.__init__"></a><div id="Mutator.__init__-def"><a name="L61"></a><tt class="py-lineno"> 61</tt> <a class="py-toggle" href="#" id="Mutator.__init__-toggle" onclick="return toggle('Mutator.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.mutator.Mutator-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mutator.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Mutator.__init__-expanded"><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Variable Peach.MutateStrategies.rand._RandomMutator.name=Peach.MutateStrategies.rand._RandomMutator-class.html#name,Variable Peach.MutateStrategies.sequencial._RandomMutator.name=Peach.MutateStrategies.sequencial._RandomMutator-class.html#name,Variable Peach.MutateStrategies.sequencial._Unknown.name=Peach.MutateStrategies.sequencial._Unknown-class.html#name"><a title="Peach.MutateStrategies.rand._RandomMutator.name
+Peach.MutateStrategies.sequencial._RandomMutator.name
+Peach.MutateStrategies.sequencial._Unknown.name" class="py-name" href="#" onclick="return doclink('link-10', 'name', 'link-10');">name</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Mutator"</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_count</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable Peach.MutateStrategies.rand._RandomMutator.changedName=Peach.MutateStrategies.rand._RandomMutator-class.html#changedName,Variable Peach.MutateStrategies.sequencial._RandomMutator.changedName=Peach.MutateStrategies.sequencial._RandomMutator-class.html#changedName,Variable Peach.MutateStrategies.sequencial._Unknown.changedName=Peach.MutateStrategies.sequencial._Unknown-class.html#changedName"><a title="Peach.MutateStrategies.rand._RandomMutator.changedName
+Peach.MutateStrategies.sequencial._RandomMutator.changedName
+Peach.MutateStrategies.sequencial._Unknown.changedName" class="py-name" href="#" onclick="return doclink('link-11', 'changedName', 'link-11');">changedName</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"N/A"</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                 </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-comment">#: Is mutator finite?</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method Peach.MutateStrategies.path.PathValidationStrategy.isFinite()=Peach.MutateStrategies.path.PathValidationStrategy-class.html#isFinite,Method Peach.mutatestrategies.MutationStrategy.isFinite()=Peach.mutatestrategies.MutationStrategy-class.html#isFinite"><a title="Peach.MutateStrategies.path.PathValidationStrategy.isFinite
+Peach.mutatestrategies.MutationStrategy.isFinite" class="py-name" href="#" onclick="return doclink('link-12', 'isFinite', 'link-12');">isFinite</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">         </tt>
+<a name="Mutator.supportedDataElement"></a><div id="Mutator.supportedDataElement-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="Mutator.supportedDataElement-toggle" onclick="return toggle('Mutator.supportedDataElement');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.mutator.Mutator-class.html#supportedDataElement">supportedDataElement</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">node</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mutator.supportedDataElement-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Mutator.supportedDataElement-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">                Returns true if element is supported by</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">                this mutator</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                 </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Class Peach.Engine.dom.DataElement=Peach.Engine.dom.DataElement-class.html"><a title="Peach.Engine.dom.DataElement" class="py-name" href="#" onclick="return doclink('link-13', 'DataElement', 'link-13');">DataElement</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">isMutable</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                 </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt id="link-14" class="py-name" targets="Static Method Peach.Mutators.array.ArrayVarianceMutator.supportedDataElement()=Peach.Mutators.array.ArrayVarianceMutator-class.html#supportedDataElement,Static Method Peach.Mutators.blob.BitFlipperMutator.supportedDataElement()=Peach.Mutators.blob.BitFlipperMutator-class.html#supportedDataElement,Static Method Peach.Mutators.blob.DWORDSliderMutator.supportedDataElement()=Peach.Mutators.blob.DWORDSliderMutator-class.html#supportedDataElement,Static Method Peach.Mutators.datatree.DataTreeDuplicateMutator.supportedDataElement()=Peach.Mutators.datatree.DataTreeDuplicateMutator-class.html#supportedDataElement,Static Method Peach.Mutators.datatree.DataTreeRemoveMutator.supportedDataElement()=Peach.Mutators.datatree.DataTreeRemoveMutator-class.html#supportedDataElement,Static Method Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.supportedDataElement()=Peach.Mutators.datatree.DataTreeSwapNearNodesMutator-class.html#supportedDataElement,Static Method Peach.Mutators.number.FiniteRandomNumbersMutator.supportedDataElement()=Peach.Mutators.number.FiniteRandomNumbersMutator-class.html#supportedDataElement,Static Method Peach.Mutators.number.NumericalEdgeCaseMutator.supportedDataElement()=Peach.Mutators.number.NumericalEdgeCaseMutator-class.html#supportedDataElement,Static Method Peach.Mutators.number.NumericalVarianceMutator.supportedDataElement()=Peach.Mutators.number.NumericalVarianceMutator-class.html#supportedDataElement,Static Method Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.supportedDataElement()=Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator-class.html#supportedDataElement,Static Method Peach.Mutators.size.SizedDataVaranceMutator.supportedDataElement()=Peach.Mutators.size.SizedDataVaranceMutator-class.html#supportedDataElement,Static Method Peach.Mutators.size.SizedNumericalEdgeCasesMutator.supportedDataElement()=Peach.Mutators.size.SizedNumericalEdgeCasesMutator-class.html#supportedDataElement,Static Method Peach.Mutators.size.SizedVaranceMutator.supportedDataElement()=Peach.Mutators.size.SizedVaranceMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.FilenameMutator.supportedDataElement()=Peach.Mutators.string.FilenameMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.HostnameMutator.supportedDataElement()=Peach.Mutators.string.HostnameMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.PathMutator.supportedDataElement()=Peach.Mutators.string.PathMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.StringCaseMutator.supportedDataElement()=Peach.Mutators.string.StringCaseMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.StringMutator.supportedDataElement()=Peach.Mutators.string.StringMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.UnicodeBadUtf8Mutator.supportedDataElement()=Peach.Mutators.string.UnicodeBadUtf8Mutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.UnicodeBomMutator.supportedDataElement()=Peach.Mutators.string.UnicodeBomMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.UnicodeStringsMutator.supportedDataElement()=Peach.Mutators.string.UnicodeStringsMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.ValidValuesMutator.supportedDataElement()=Peach.Mutators.string.ValidValuesMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string.XmlW3CMutator.supportedDataElement()=Peach.Mutators.string.XmlW3CMutator-class.html#supportedDataElement,Static Method Peach.Mutators.string._SimpleGeneratorMutator.supportedDataElement()=Peach.Mutators.string._SimpleGeneratorMutator-class.html#supportedDataElement,Static Method Peach.mutator.Mutator.supportedDataElement()=Peach.mutator.Mutator-class.html#supportedDataElement"><a title="Peach.Mutators.array.ArrayVarianceMutator.supportedDataElement
+Peach.Mutators.blob.BitFlipperMutator.supportedDataElement
+Peach.Mutators.blob.DWORDSliderMutator.supportedDataElement
+Peach.Mutators.datatree.DataTreeDuplicateMutator.supportedDataElement
+Peach.Mutators.datatree.DataTreeRemoveMutator.supportedDataElement
+Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.supportedDataElement
+Peach.Mutators.number.FiniteRandomNumbersMutator.supportedDataElement
+Peach.Mutators.number.NumericalEdgeCaseMutator.supportedDataElement
+Peach.Mutators.number.NumericalVarianceMutator.supportedDataElement
+Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.supportedDataElement
+Peach.Mutators.size.SizedDataVaranceMutator.supportedDataElement
+Peach.Mutators.size.SizedNumericalEdgeCasesMutator.supportedDataElement
+Peach.Mutators.size.SizedVaranceMutator.supportedDataElement
+Peach.Mutators.string.FilenameMutator.supportedDataElement
+Peach.Mutators.string.HostnameMutator.supportedDataElement
+Peach.Mutators.string.PathMutator.supportedDataElement
+Peach.Mutators.string.StringCaseMutator.supportedDataElement
+Peach.Mutators.string.StringMutator.supportedDataElement
+Peach.Mutators.string.UnicodeBadUtf8Mutator.supportedDataElement
+Peach.Mutators.string.UnicodeBomMutator.supportedDataElement
+Peach.Mutators.string.UnicodeStringsMutator.supportedDataElement
+Peach.Mutators.string.ValidValuesMutator.supportedDataElement
+Peach.Mutators.string.XmlW3CMutator.supportedDataElement
+Peach.Mutators.string._SimpleGeneratorMutator.supportedDataElement
+Peach.mutator.Mutator.supportedDataElement" class="py-name" href="#" onclick="return doclink('link-14', 'supportedDataElement', 'link-14');">supportedDataElement</a></tt> <tt class="py-op">=</tt> <tt class="py-name">staticmethod</tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="Peach.Mutators.array.ArrayVarianceMutator.supportedDataElement
+Peach.Mutators.blob.BitFlipperMutator.supportedDataElement
+Peach.Mutators.blob.DWORDSliderMutator.supportedDataElement
+Peach.Mutators.datatree.DataTreeDuplicateMutator.supportedDataElement
+Peach.Mutators.datatree.DataTreeRemoveMutator.supportedDataElement
+Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.supportedDataElement
+Peach.Mutators.number.FiniteRandomNumbersMutator.supportedDataElement
+Peach.Mutators.number.NumericalEdgeCaseMutator.supportedDataElement
+Peach.Mutators.number.NumericalVarianceMutator.supportedDataElement
+Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.supportedDataElement
+Peach.Mutators.size.SizedDataVaranceMutator.supportedDataElement
+Peach.Mutators.size.SizedNumericalEdgeCasesMutator.supportedDataElement
+Peach.Mutators.size.SizedVaranceMutator.supportedDataElement
+Peach.Mutators.string.FilenameMutator.supportedDataElement
+Peach.Mutators.string.HostnameMutator.supportedDataElement
+Peach.Mutators.string.PathMutator.supportedDataElement
+Peach.Mutators.string.StringCaseMutator.supportedDataElement
+Peach.Mutators.string.StringMutator.supportedDataElement
+Peach.Mutators.string.UnicodeBadUtf8Mutator.supportedDataElement
+Peach.Mutators.string.UnicodeBomMutator.supportedDataElement
+Peach.Mutators.string.UnicodeStringsMutator.supportedDataElement
+Peach.Mutators.string.ValidValuesMutator.supportedDataElement
+Peach.Mutators.string.XmlW3CMutator.supportedDataElement
+Peach.Mutators.string._SimpleGeneratorMutator.supportedDataElement
+Peach.mutator.Mutator.supportedDataElement" class="py-name" href="#" onclick="return doclink('link-15', 'supportedDataElement', 'link-14');">supportedDataElement</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">         </tt>
+<a name="Mutator.next"></a><div id="Mutator.next-def"><a name="L81"></a><tt class="py-lineno"> 81</tt> <a class="py-toggle" href="#" id="Mutator.next-toggle" onclick="return toggle('Mutator.next');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.mutator.Mutator-class.html#next">next</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mutator.next-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Mutator.next-expanded"><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">                Goto next mutation.  When this is called</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">                the state machine is updated as needed.</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">         </tt>
+<a name="Mutator.getCount"></a><div id="Mutator.getCount-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="Mutator.getCount-toggle" onclick="return toggle('Mutator.getCount');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.mutator.Mutator-class.html#getCount">getCount</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mutator.getCount-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Mutator.getCount-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">                If mutator is finite than the total test count</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">                can be calculated.  This calculation cannot</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">                occur until after the state machine has been run</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">                the first time.  Once the state machine has been</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">                run the count can be calculated.  This typically</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">                occurs in a separate thread as it can take some</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">                time to calculate.</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">                This method will return None until a the correct</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">                value has been calculated.</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_count</tt> </tt>
+</div><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">         </tt>
+<a name="Mutator.sequencialMutation"></a><div id="Mutator.sequencialMutation-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="Mutator.sequencialMutation-toggle" onclick="return toggle('Mutator.sequencialMutation');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.mutator.Mutator-class.html#sequencialMutation">sequencialMutation</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">node</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mutator.sequencialMutation-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Mutator.sequencialMutation-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">                Perform a sequencial mutation</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">         </tt>
+<a name="Mutator.randomMutation"></a><div id="Mutator.randomMutation-def"><a name="L109"></a><tt class="py-lineno">109</tt> <a class="py-toggle" href="#" id="Mutator.randomMutation-toggle" onclick="return toggle('Mutator.randomMutation');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.mutator.Mutator-class.html#randomMutation">randomMutation</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">node</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mutator.randomMutation-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Mutator.randomMutation-expanded"><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">                Perform a random mutation</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div></div><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">         </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-comment">#class MutatorCollection:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       Aggrigated collection of mutators.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def __init__(self, mutators):</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self.name = "MutatorCollection"</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               # Have we cycled all finite mutators yet?</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._cycledAll = False</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               # Current finite cycle position</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._cyclePos = 0</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._mutators = mutators</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._finiteMutators = []</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._infiniteMutators = []</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._mutator = None</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._masterCount = 0</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._stateMasterCount = -1</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               for m in self._mutators:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       if m.isFinite():</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               self._finiteMutators.append(m)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       else:</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               self._infiniteMutators.append(m)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               # Current finite potition</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._curFinite = 0</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._maxFinite = len(self._finiteMutators)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._maxInfinite = len(self._infiniteMutators)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if self._maxFinite &gt; 0:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._mutator = self._finiteMutators[0]</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               elif self._maxInfinite &gt; 0:</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._cycledAll = True</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._mutator = self._getRandomInfiniteMutator()</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               else:</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       raise Exception("MutatorCollection: No mutators!")</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def currentMutator(self):</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def isFinite(self):</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               Some mutators could contine forever, this</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               should indicate.</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return len(self._infiniteMutators) == 0</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def reset(self):</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               Reset mutator</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._cycledAll = False</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._cyclePos = 0</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._curFinite = 0</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               for m in self._mutators:</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       m.reset()</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if self._maxFinite &gt; 0:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._mutator = self._finiteMutators[0]</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               elif self._maxInfinite &gt; 0:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._cycledAll = True</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._mutator = self._getRandomInfiniteMutator()</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def next(self):</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               Goto next mutation.  When this is called</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               the state machine is updated as needed.</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               try:</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # Increment current mutator</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._mutator.next()</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       </tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # If we have not cycled through all finite mutators</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # lets do that first.  This is to make sure they can</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # all start calculating there total tests for us.</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       #</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # Note: In the case of no finite mutators we have</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # already set self._cycledAll to True up in the</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # constructor and also reset()</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       if not self._cycledAll:</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               self._cyclePos += 1</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               if self._cyclePos &gt;= self._maxFinite:</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._cycledAll = True</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._mutator = self._finiteMutators[self._curFinite]</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               else:</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._mutator = self._finiteMutators[self._cyclePos]</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       </tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # Otherwise do the normal stuff</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       else:</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               # If we are out of finite mutators grab a random</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               # infinte mutator.</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               if self._curFinite &gt;= self._maxFinite:</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._mutator = self._getRandomInfiniteMutator()</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               except MutatorCompleted:</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       </tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # If we have not cycled through all finite mutators</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # lets do that first.  This is to make sure they can</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # all start calculating there total tests for us.</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       #</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # Note: In the case of no finite mutators we have</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # already set self._cycledAll to True up in the</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # constructor and also reset()</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       #</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # We sometimes end up here if the mutator only perfomrs</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # a single round.  This will happen for things like the</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # Null mutator or mutators that find nothing to operate</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # on like the XmlW3CMutator which keys of &lt;Hint&gt;'s</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       if not self._cycledAll:</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               self._cyclePos += 1</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               if self._cyclePos &gt;= self._maxFinite:</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._cycledAll = True</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._mutator = self._finiteMutators[self._curFinite]</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               else:</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._mutator = self._finiteMutators[self._cyclePos]</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       </tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       # Otherwise we will do the normal crazy stuff that we do :)</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       else:</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               # Goto next finite mutator</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               self._curFinite += 1</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               # See if we are are really done</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               if self._curFinite &gt;= self._maxFinite and self._maxInfinite == 0:</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       raise MutatorCompleted()</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               # Grab a random infinite mutator</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               elif self._curFinite &gt;= self._maxFinite:</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._mutator = self._getRandomInfiniteMutator()</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               </tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               # Get the new finite mutator</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               else:</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                       self._mutator = self._finiteMutators[self._curFinite]</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._masterCount += 1</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def _getRandomInfiniteMutator(self):</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               Get a random infinite mutator.</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               idx = random.randint(0, self._maxInfinite)</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._infiniteMutators[idx]</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def getState(self):</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               Return a binary string that contains</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               any information about current state of</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               Mutator.  This state information should be</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               enough to let the same mutator "restart"</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               and continue when setState() is called.</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return str(self._masterCount - 2)</tt> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def setState(self, statePickle):</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               Set the state of this object.  Should put us</tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               back in the same place as when we said</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               "getState()".</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._stateMasterCount = int(statePickle)</tt> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               try:</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       for i in xrange(self._masterCount, self._stateMasterCount):</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               self.next()</tt> </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               except:</tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       pass</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def getCount(self, verbose = False):</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               This count will change as we go through mutators.</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               '''</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if not self.isFinite():</tt> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       return -1</tt> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if not self._cycledAll:</tt> </tt>
+<a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       return -1</tt> </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               count = 0</tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               for m in self._finiteMutators:</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       if m.getCount() &gt; -1:</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               count += m.getCount()</tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       else:</tt> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               #print "%s not reporting" % m.name</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               return -1</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if verbose:</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       for m in self._finiteMutators:</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               cnt = m.getCount()</tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               print "Mutator %s is reporting %d test cases" % (m.name, cnt)</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return count</tt> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       #####################################################</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       # Callbacks when Action needs a value</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def getActionValue(self, action):</tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.getActionValue(action)</tt> </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def getActionParamValue(self, action):</tt> </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.getActionParamValue(action)</tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def getActionChangeStateValue(self, action, value):</tt> </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.getActionParamValue(action, value)</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       #####################################################</tt> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       # Event callbacks for state machine</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onStateStart(self, state):</tt> </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.onStateStart(state)</tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onStateComplete(self, state):</tt> </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.onStateComplete(state)</tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onActionStart(self, action):</tt> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.onActionStart(action)</tt> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onActionComplete(self, action):</tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.onActionComplete(action)</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onStateMachineStart(self, stateMachine):</tt> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.onStateMachineStart(stateMachine)</tt> </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onStateMachineComplete(self, stateMachine):</tt> </tt>
+<a name="L354"></a><tt class="py-lineno">354</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return self._mutator.onStateMachineComplete(stateMachine)</tt> </tt>
+<a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#class MutatorCountCalculator(threading.Thread):</tt> </tt>
+<a name="L357"></a><tt class="py-lineno">357</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       This class will try and calculate the total number</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       of test cases in another thread.</tt> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       When the result is available self.hasCountEvent will</tt> </tt>
+<a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       be set.</tt> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L364"></a><tt class="py-lineno">364</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def __init__(self, mutator):</tt> </tt>
+<a name="L366"></a><tt class="py-lineno">366</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               threading.Thread.__init__(self)</tt> </tt>
+<a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._mutator = mutator</tt> </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self.hasCountEvent = threading.Event()</tt> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self.count = -1</tt> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def run(self):</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self.count = self._mutator.calculateCount()</tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self.hasCountEvent.set()</tt> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#class MutatorCollectionProxy(MutatorCollection):</tt> </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       This class behaves like a proxy between</tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       mutatorCollection and nullMutator(behaviorally)</tt> </tt>
+<a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L380"></a><tt class="py-lineno">380</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       If a stateMachine is completely or partially non-mutatable(not being fuzzed at all) then</tt> </tt>
+<a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       this class helps MutatorCollection to run properly ;)</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def __init__(self, mutators):</tt> </tt>
+<a name="L384"></a><tt class="py-lineno">384</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               MutatorCollection.__init__(self, mutators)</tt> </tt>
+<a name="L385"></a><tt class="py-lineno">385</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._isStateMachineStatic = False</tt> </tt>
+<a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onStateMachineStart(self, engine):</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               MutatorCollection.onStateMachineStart(self, engine)</tt> </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               self._isStateMachineStatic = self._isStatic(engine.stateMachine)</tt> </tt>
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               # OK state machine is started so advance to the first path if possible</tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               # if engine.pathFinder.canMove():</tt> </tt>
+<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               #       engine.pathFinder.next()</tt> </tt>
+<a name="L393"></a><tt class="py-lineno">393</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def onStateMachineComplete(self, engine):</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               MutatorCollection.onStateMachineComplete(self, engine)</tt> </tt>
+<a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               #StateMachine is completed, reset pathFinder </tt> </tt>
+<a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               engine.pathFinder.reset()</tt> </tt>
+<a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def next(self):</tt> </tt>
+<a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if self._isStateMachineStatic:</tt> </tt>
+<a name="L401"></a><tt class="py-lineno">401</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       self._isStateMachineStatic = False</tt> </tt>
+<a name="L402"></a><tt class="py-lineno">402</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       raise MutatorCompleted()</tt> </tt>
+<a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               else:</tt> </tt>
+<a name="L404"></a><tt class="py-lineno">404</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       MutatorCollection.next(self)</tt> </tt>
+<a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       </tt> </tt>
+<a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       @note: this method was removed!</tt> </tt>
+<a name="L408"></a><tt class="py-lineno">408</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def getActionValue(self, action):</tt> </tt>
+<a name="L409"></a><tt class="py-lineno">409</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               #print "ACTION: %s isStatic:%s" % (action.name, action.isStatic)</tt> </tt>
+<a name="L410"></a><tt class="py-lineno">410</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               val = MutatorCollection.getActionValue(self, action)</tt> </tt>
+<a name="L411"></a><tt class="py-lineno">411</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if action.isStatic:</tt> </tt>
+<a name="L412"></a><tt class="py-lineno">412</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       val =  action.template.value;</tt> </tt>
+<a name="L413"></a><tt class="py-lineno">413</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L414"></a><tt class="py-lineno">414</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return val</tt> </tt>
+<a name="L415"></a><tt class="py-lineno">415</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L416"></a><tt class="py-lineno">416</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L417"></a><tt class="py-lineno">417</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L418"></a><tt class="py-lineno">418</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       Determine if an element isStatic or not</tt> </tt>
+<a name="L419"></a><tt class="py-lineno">419</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       by recursively looking at its child elements</tt> </tt>
+<a name="L420"></a><tt class="py-lineno">420</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       '''</tt> </tt>
+<a name="L421"></a><tt class="py-lineno">421</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       def _isStatic(self, elem):</tt> </tt>
+<a name="L422"></a><tt class="py-lineno">422</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               if not isinstance(elem, Mutatable):</tt> </tt>
+<a name="L423"></a><tt class="py-lineno">423</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       return True</tt> </tt>
+<a name="L424"></a><tt class="py-lineno">424</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               </tt> </tt>
+<a name="L425"></a><tt class="py-lineno">425</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               ret = elem.isMutable == False</tt> </tt>
+<a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               for child in elem:</tt> </tt>
+<a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                       if isinstance(child, Mutatable):</tt> </tt>
+<a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                               ret = ret and self._isStatic(child)</tt> </tt>
+<a name="L429"></a><tt class="py-lineno">429</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       </tt> </tt>
+<a name="L430"></a><tt class="py-lineno">430</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#               return ret</tt> </tt>
+<a name="L431"></a><tt class="py-lineno">431</tt>  <tt class="py-line"><tt class="py-comment"></tt>                 </tt>
+<a name="MutatorCompleted"></a><div id="MutatorCompleted-def"><a name="L432"></a><tt class="py-lineno">432</tt> <a class="py-toggle" href="#" id="MutatorCompleted-toggle" onclick="return toggle('MutatorCompleted');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.mutator.MutatorCompleted-class.html">MutatorCompleted</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MutatorCompleted-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MutatorCompleted-expanded"><a name="L433"></a><tt class="py-lineno">433</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L434"></a><tt class="py-lineno">434</tt>  <tt class="py-line"><tt class="py-docstring">        At end of available mutations</tt> </tt>
+<a name="L435"></a><tt class="py-lineno">435</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L436"></a><tt class="py-lineno">436</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line"> </tt>
+<a name="MutatorError"></a><div id="MutatorError-def"><a name="L438"></a><tt class="py-lineno">438</tt> <a class="py-toggle" href="#" id="MutatorError-toggle" onclick="return toggle('MutatorError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.mutator.MutatorError-class.html">MutatorError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MutatorError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MutatorError-expanded"><a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L440"></a><tt class="py-lineno">440</tt>  <tt class="py-line"><tt class="py-docstring">        Bad stuff just occured!</tt> </tt>
+<a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L442"></a><tt class="py-lineno">442</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L443"></a><tt class="py-lineno">443</tt>  <tt class="py-line"> </tt>
+<a name="L444"></a><tt class="py-lineno">444</tt>  <tt class="py-line"><tt class="py-comment"># end</tt> </tt>
+<a name="L445"></a><tt class="py-lineno">445</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:34 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

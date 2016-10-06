@@ -1,0 +1,968 @@
+
+Microsoft (R) Windows Debugger Version 6.10.0003.233 X86
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+CommandLine: C:\\Program Files\\Tencent\\QQLite\\Bin\\QQ.exe
+Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 00d80000 00d9a000   QQ.exe  
+ModLoad: 77d40000 77e7c000   ntdll.dll
+|.
+.  0	id: 14d0	create	name: QQ.exe
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 6f5c0000 6f60a000   C:\Program Files\Tencent\QQLite\Bin\libtcmalloc.dll
+ModLoad: 720c0000 72129000   C:\Windows\system32\MSVCP100.dll
+ModLoad: 721d0000 7228f000   C:\Windows\system32\MSVCR100.dll
+ModLoad: 77f30000 77f35000   C:\Windows\system32\PSAPI.DLL
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 6f7f0000 6f813000   C:\Program Files\Tencent\QQLite\Bin\libuv.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 77890000 77930000   C:\Windows\system32\ADVAPI32.dll
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 713f0000 71416000   C:\Windows\system32\ATL100.DLL
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.DLL
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+[QQPerfLog] dwMainEntry = 388849886 , dwSH = 388849917 , dwDelete = 31ModLoad: 6d8b0000 6d8e2000   C:\Program Files\Tencent\QQLite\Bin\HummerEngine.dll
+ModLoad: 74910000 74aae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+ModLoad: 65650000 658a2000   C:\Program Files\Tencent\QQLite\Bin\Common.dll
+ModLoad: 71140000 71154000   C:\Program Files\Tencent\QQLite\Bin\zlib.dll
+ModLoad: 6ebf0000 6ec11000   C:\Program Files\Tencent\QQLite\Bin\libexpat.dll
+ModLoad: 77b80000 77d38000   C:\Windows\system32\WININET.dll
+ModLoad: 75fd0000 75fd4000   C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+ModLoad: 75fc0000 75fc5000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+ModLoad: 76080000 76084000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+ModLoad: 75fe0000 75fe4000   C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+ModLoad: 75270000 75279000   C:\Windows\system32\version.DLL
+ModLoad: 76010000 76013000   C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+ModLoad: 77eb0000 77eb3000   C:\Windows\system32\normaliz.DLL
+ModLoad: 77930000 77b28000   C:\Windows\system32\iertutil.dll
+ModLoad: 71750000 71782000   C:\Windows\system32\WINMM.dll
+ModLoad: 716c0000 716d3000   C:\Windows\system32\AVICAP32.dll
+ModLoad: 71600000 71621000   C:\Windows\system32\MSVFW32.dll
+ModLoad: 776f0000 7788d000   C:\Windows\system32\SETUPAPI.dll
+ModLoad: 760c0000 760e7000   C:\Windows\system32\CFGMGR32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 75ff0000 76002000   C:\Windows\system32\DEVOBJ.dll
+ModLoad: 6de70000 6de87000   C:\Program Files\Tencent\QQLite\Bin\tinyxml.dll
+ModLoad: 6dbb0000 6dbc5000   C:\Program Files\Tencent\QQLite\Bin\AsyncTask.dll
+ModLoad: 73dd0000 73ddf000   C:\Program Files\Tencent\QQLite\Bin\arkFS.dll
+ModLoad: 71130000 71136000   C:\Program Files\Tencent\QQLite\Bin\arkIOStub.dll
+ModLoad: 6c410000 6c47f000   C:\Program Files\Tencent\QQLite\Bin\sqlite.dll
+ModLoad: 6c110000 6c235000   C:\Program Files\Tencent\QQLite\Bin\LIBEAY32.dll
+ModLoad: 773b0000 7742b000   C:\Windows\system32\COMDLG32.dll
+ModLoad: 74020000 74031000   C:\Windows\system32\NETAPI32.dll
+ModLoad: 74010000 74019000   C:\Windows\system32\netutils.dll
+ModLoad: 75ab0000 75ac9000   C:\Windows\system32\srvcli.dll
+ModLoad: 74000000 7400f000   C:\Windows\system32\wkscli.dll
+ModLoad: 73bf0000 73c42000   C:\Windows\system32\RASAPI32.dll
+ModLoad: 73bd0000 73be5000   C:\Windows\system32\rasman.dll
+ModLoad: 76090000 760be000   C:\Windows\system32\WINTRUST.dll
+ModLoad: 75ea0000 75fc0000   C:\Windows\system32\CRYPT32.dll
+ModLoad: 75e00000 75e0c000   C:\Windows\system32\MSASN1.dll
+ModLoad: 6a510000 6a64e000   C:\Program Files\Tencent\QQLite\Bin\KernelUtil.dll
+ModLoad: 69e60000 69fff000   C:\Program Files\Tencent\QQLite\Bin\GF.dll
+ModLoad: 6b6e0000 6b772000   C:\Program Files\Tencent\QQLite\Bin\xGraphic32.dll
+ModLoad: 6c0b0000 6c10e000   C:\Program Files\Tencent\QQLite\Bin\arkGraphic.dll
+ModLoad: 73980000 73985000   C:\Windows\system32\MSIMG32.dll
+ModLoad: 71250000 7125d000   C:\Windows\system32\VCOMP100.DLL
+ModLoad: 39700000 397eb000   C:\Program Files\Tencent\QQLite\Bin\RICHED20.dll
+ModLoad: 70fa0000 70fb0000   C:\Program Files\Tencent\QQLite\Bin\arkImage.dll
+ModLoad: 6c5f0000 6c611000   C:\Program Files\Tencent\QQLite\Bin\libpng.dll
+ModLoad: 6bd40000 6bd96000   C:\Program Files\Tencent\QQLite\Bin\libjpegturbo.dll
+ModLoad: 6fe30000 6fe3f000   C:\Program Files\Tencent\QQLite\Bin\libimagequant.dll
+ModLoad: 732c0000 732fc000   C:\Windows\system32\OLEACC.dll
+ModLoad: 6d500000 6d535000   C:\Program Files\Tencent\QQLite\Bin\xImage.dll
+ModLoad: 76300000 76420000   C:\Windows\system32\urlmon.dll
+ModLoad: 76070000 76074000   C:\Windows\system32\api-ms-win-downlevel-ole32-l1-1-0.dll
+ModLoad: 6b100000 6b163000   C:\Program Files\Tencent\QQLite\Bin\AFBase.DLL
+ModLoad: 6add0000 6ae9e000   C:\Program Files\Tencent\QQLite\Bin\AFUtil.dll
+ModLoad: 743a0000 74530000   C:\Windows\WinSxS\x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.18120_none_72d2e82386681b36\gdiplus.dll
+ModLoad: 690d0000 691f2000   C:\Program Files\Tencent\QQLite\Bin\AppUtil.dll
+ModLoad: 74620000 7462d000   C:\Windows\system32\WTSAPI32.dll
+ModLoad: 77f40000 77f6a000   C:\Windows\system32\imagehlp.dll
+ModLoad: 75d60000 75d6b000   C:\Windows\system32\profapi.dll
+ModLoad: 745b0000 745f0000   C:\Windows\system32\uxtheme.dll
+ModLoad: 75c60000 75c7b000   C:\Windows\system32\SspiCli.dll
+ModLoad: 75ce0000 75cec000   C:\Windows\system32\CRYPTBASE.dll
+(14d0.12c8): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 74210000 74223000   C:\Windows\system32\dwmapi.dll
+ModLoad: 6ffb0000 6ffe0000   C:\Program Files\Common Files\Tencent\QQProtect\Bin\QPSection.dll
+ModLoad: 65230000 65649000   C:\Program Files\Tencent\QQLite\Bin\AppMisc.dll
+ModLoad: 6fac0000 6fac9000   C:\Program Files\Tencent\QQLite\Bin\UtilGif.dll
+ModLoad: 64f40000 6522d000   C:\Program Files\Tencent\QQLite\Bin\AFCtrl.dll
+ModLoad: 6b060000 6b0f3000   C:\Program Files\Tencent\QQLite\Bin\LongCnn.dll
+ModLoad: 6f7e0000 6f7f0000   C:\Program Files\Tencent\QQLite\Bin\RenderService.dll
+ModLoad: 6df00000 6df0e000   C:\Program Files\Tencent\QQLite\Bin\arkIPC.dll
+ModLoad: 6de40000 6de4b000   C:\Program Files\Tencent\QQLite\Bin\jsonc.dll
+ModLoad: 6d8a0000 6d8a9000   C:\Program Files\Tencent\QQLite\Bin\arkXML.dll
+ModLoad: 6d5e0000 6d5ef000   C:\Program Files\Tencent\QQLite\Bin\AppCenter.dll
+ModLoad: 64c60000 64f39000   C:\Program Files\Tencent\QQLite\Bin\MainFrame.dll
+ModLoad: 6bd10000 6bd3a000   C:\Program Files\Tencent\QQLite\Bin\QSLogic.dll
+ModLoad: 71460000 7154b000   C:\Windows\system32\dbghelp.dll
+ModLoad: 6d5d0000 6d5df000   C:\Program Files\Tencent\QQLite\Bin\RequestHost.dll
+ModLoad: 74160000 74172000   C:\Windows\system32\dhcpcsvc.DLL
+ModLoad: 6ac90000 6acee000   C:\Program Files\Tencent\QQLite\Bin\QScanEngine.dll
+ModLoad: 6aa80000 6aaf6000   C:\Program Files\Tencent\QQLite\Bin\LoginUI.dll
+ModLoad: 67c50000 67d35000   C:\Program Files\Tencent\QQLite\Bin\PreloginLogic.dll
+ModLoad: 6c090000 6c0a9000   C:\Program Files\Tencent\QQLite\Bin\arkSocket.dll
+ModLoad: 75c90000 75cdc000   C:\Windows\system32\apphelp.dll
+ModLoad: 761a0000 76223000   C:\Windows\system32\CLBCatQ.DLL
+ModLoad: 704f0000 7051e000   C:\Windows\system32\mlang.dll
+Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 00d80000 00d9a000   QQ.exe  
+ModLoad: 6b6c0000 6b6d5000   C:\Program Files\Tencent\QQLite\Bin\GFRichControl.dll
+IPCChannelClient::CreateSession()  handlerMap.empty(). groupID is 0ModLoad: 77d40000 77e7c000   ntdll.dll
+Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 012d0000 012de000   QQApp.exe
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 6f5c0000 6f60a000   C:\Program Files\Tencent\QQLite\Bin\libtcmalloc.dll
+ModLoad: 720c0000 72129000   C:\Windows\system32\MSVCP100.dll
+ModLoad: 721d0000 7228f000   C:\Windows\system32\MSVCR100.dll
+ModLoad: 77f30000 77f35000   C:\Windows\system32\PSAPI.DLL
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 6f7f0000 6f813000   C:\Program Files\Tencent\QQLite\Bin\libuv.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 77890000 77930000   C:\Windows\system32\ADVAPI32.dll
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 713f0000 71416000   C:\Windows\system32\ATL100.DLL
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.DLL
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+ModLoad: 77d40000 77e7c000   ntdll.dll
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 6f5c0000 6f60a000   C:\Program Files\Tencent\QQLite\Bin\libtcmalloc.dll
+ModLoad: 720c0000 72129000   C:\Windows\system32\MSVCP100.dll
+ModLoad: 721d0000 7228f000   C:\Windows\system32\MSVCR100.dll
+ModLoad: 77f30000 77f35000   C:\Windows\system32\PSAPI.DLL
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 6d4f0000 6d4f9000   C:\Program Files\Tencent\QQLite\Bin\arkShell.dll
+ModLoad: 6ad80000 6adc3000   C:\Program Files\Tencent\QQLite\Bin\arkEngine.dll
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.dll
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+ModLoad: 39700000 397eb000   C:\Program Files\Tencent\QQLite\Bin\RICHED20.dll
+ModLoad: 77890000 77930000   C:\Windows\system32\ADVAPI32.dll
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 71130000 71136000   C:\Program Files\Tencent\QQLite\Bin\arkIOStub.dll
+ModLoad: 6d8a0000 6d8a9000   C:\Program Files\Tencent\QQLite\Bin\arkXML.dll
+ModLoad: 6ebf0000 6ec11000   C:\Program Files\Tencent\QQLite\Bin\libexpat.dll
+ModLoad: 6c0b0000 6c10e000   C:\Program Files\Tencent\QQLite\Bin\arkGraphic.dll
+ModLoad: 70fa0000 70fb0000   C:\Program Files\Tencent\QQLite\Bin\arkImage.dll
+ModLoad: 6c5f0000 6c611000   C:\Program Files\Tencent\QQLite\Bin\libpng.dll
+ModLoad: 71140000 71154000   C:\Program Files\Tencent\QQLite\Bin\zlib.dll
+ModLoad: 6bd40000 6bd96000   C:\Program Files\Tencent\QQLite\Bin\libjpegturbo.dll
+ModLoad: 6fe30000 6fe3f000   C:\Program Files\Tencent\QQLite\Bin\libimagequant.dll
+ModLoad: 71250000 7125d000   C:\Windows\system32\VCOMP100.DLL
+ModLoad: 6de40000 6de4b000   C:\Program Files\Tencent\QQLite\Bin\jsonc.dll
+ModLoad: 6b040000 6b060000   C:\Program Files\Tencent\QQLite\Bin\arkHTTPClient.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 6f7f0000 6f813000   C:\Program Files\Tencent\QQLite\Bin\libuv.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 6c110000 6c235000   C:\Program Files\Tencent\QQLite\Bin\LIBEAY32.dll
+ModLoad: 69e10000 69e57000   C:\Program Files\Tencent\QQLite\Bin\SSLEAY32.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 6c5e0000 6c5e6000   C:\Program Files\Tencent\QQLite\Bin\arkScript.dll
+ModLoad: 6a4e0000 6a50c000   C:\Program Files\Tencent\QQLite\Bin\lua.dll
+ModLoad: 6c410000 6c47f000   C:\Program Files\Tencent\QQLite\Bin\sqlite.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 73dd0000 73ddf000   C:\Program Files\Tencent\QQLite\Bin\arkFS.dll
+ModLoad: 6df00000 6df0e000   C:\Program Files\Tencent\QQLite\Bin\arkIPC.dll
+ModLoad: 6c4d0000 6c4dd000   C:\Program Files\Tencent\QQLite\Bin\arkModule.dll
+ModLoad: 6b6e0000 6b772000   C:\Program Files\Tencent\QQLite\Bin\xGraphic32.dll
+ModLoad: 73980000 73985000   C:\Windows\system32\MSIMG32.dll
+ModLoad: 6f7e0000 6f7f0000   C:\Program Files\Tencent\QQLite\Bin\RenderService.dll
+ModLoad: 757f0000 75806000   C:\Windows\system32\CRYPTSP.dll
+ModLoad: 75590000 755cb000   C:\Windows\system32\rsaenh.dll
+ModLoad: 75d50000 75d5e000   C:\Windows\system32\RpcRtRemote.dll
+[QQPerfLog] dwMainEntry = 388851149 , dwSH = 388851149 , dwDelete = 0ModLoad: 745b0000 745f0000   C:\Windows\system32\uxtheme.dll
+ModLoad: 6d8b0000 6d8e2000   C:\Program Files\Tencent\QQLite\Bin\HummerEngine.dll
+ModLoad: 74910000 74aae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+ModLoad: 65650000 658a2000   C:\Program Files\Tencent\QQLite\Bin\Common.dll
+ModLoad: 71140000 71154000   C:\Program Files\Tencent\QQLite\Bin\zlib.dll
+ModLoad: 6ebf0000 6ec11000   C:\Program Files\Tencent\QQLite\Bin\libexpat.dll
+ModLoad: 77b80000 77d38000   C:\Windows\system32\WININET.dll
+ModLoad: 75fd0000 75fd4000   C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+ModLoad: 75fc0000 75fc5000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+ModLoad: 76080000 76084000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+ModLoad: 75fe0000 75fe4000   C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+ModLoad: 75270000 75279000   C:\Windows\system32\version.DLL
+ModLoad: 76010000 76013000   C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+ModLoad: 77eb0000 77eb3000   C:\Windows\system32\normaliz.DLL
+ModLoad: 77930000 77b28000   C:\Windows\system32\iertutil.dll
+ModLoad: 71750000 71782000   C:\Windows\system32\WINMM.dll
+ModLoad: 716c0000 716d3000   C:\Windows\system32\AVICAP32.dll
+ModLoad: 71600000 71621000   C:\Windows\system32\MSVFW32.dll
+ModLoad: 776f0000 7788d000   C:\Windows\system32\SETUPAPI.dll
+ModLoad: 760c0000 760e7000   C:\Windows\system32\CFGMGR32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 75ff0000 76002000   C:\Windows\system32\DEVOBJ.dll
+ModLoad: 6de70000 6de87000   C:\Program Files\Tencent\QQLite\Bin\tinyxml.dll
+ModLoad: 6dbb0000 6dbc5000   C:\Program Files\Tencent\QQLite\Bin\AsyncTask.dll
+ModLoad: 73dd0000 73ddf000   C:\Program Files\Tencent\QQLite\Bin\arkFS.dll
+ModLoad: 71130000 71136000   C:\Program Files\Tencent\QQLite\Bin\arkIOStub.dll
+ModLoad: 6c410000 6c47f000   C:\Program Files\Tencent\QQLite\Bin\sqlite.dll
+ModLoad: 6c110000 6c235000   C:\Program Files\Tencent\QQLite\Bin\LIBEAY32.dll
+ModLoad: 773b0000 7742b000   C:\Windows\system32\COMDLG32.dll
+ModLoad: 74020000 74031000   C:\Windows\system32\NETAPI32.dll
+ModLoad: 74010000 74019000   C:\Windows\system32\netutils.dll
+ModLoad: 75ab0000 75ac9000   C:\Windows\system32\srvcli.dll
+ModLoad: 74000000 7400f000   C:\Windows\system32\wkscli.dll
+ModLoad: 73bf0000 73c42000   C:\Windows\system32\RASAPI32.dll
+ModLoad: 73bd0000 73be5000   C:\Windows\system32\rasman.dll
+ModLoad: 76090000 760be000   C:\Windows\system32\WINTRUST.dll
+ModLoad: 75ea0000 75fc0000   C:\Windows\system32\CRYPT32.dll
+ModLoad: 75e00000 75e0c000   C:\Windows\system32\MSASN1.dll
+ModLoad: 6a510000 6a64e000   C:\Program Files\Tencent\QQLite\Bin\KernelUtil.dll
+ModLoad: 69e60000 69fff000   C:\Program Files\Tencent\QQLite\Bin\GF.dll
+ModLoad: 6b6e0000 6b772000   C:\Program Files\Tencent\QQLite\Bin\xGraphic32.dll
+ModLoad: 6c0b0000 6c10e000   C:\Program Files\Tencent\QQLite\Bin\arkGraphic.dll
+ModLoad: 73980000 73985000   C:\Windows\system32\MSIMG32.dll
+ModLoad: 71250000 7125d000   C:\Windows\system32\VCOMP100.DLL
+ModLoad: 39700000 397eb000   C:\Program Files\Tencent\QQLite\Bin\RICHED20.dll
+ModLoad: 70fa0000 70fb0000   C:\Program Files\Tencent\QQLite\Bin\arkImage.dll
+ModLoad: 6c5f0000 6c611000   C:\Program Files\Tencent\QQLite\Bin\libpng.dll
+ModLoad: 6bd40000 6bd96000   C:\Program Files\Tencent\QQLite\Bin\libjpegturbo.dll
+ModLoad: 6fe30000 6fe3f000   C:\Program Files\Tencent\QQLite\Bin\libimagequant.dll
+ModLoad: 732c0000 732fc000   C:\Windows\system32\OLEACC.dll
+ModLoad: 6d500000 6d535000   C:\Program Files\Tencent\QQLite\Bin\xImage.dll
+ModLoad: 76300000 76420000   C:\Windows\system32\urlmon.dll
+ModLoad: 76070000 76074000   C:\Windows\system32\api-ms-win-downlevel-ole32-l1-1-0.dll
+ModLoad: 6b100000 6b163000   C:\Program Files\Tencent\QQLite\Bin\AFBase.DLL
+ModLoad: 6add0000 6ae9e000   C:\Program Files\Tencent\QQLite\Bin\AFUtil.dll
+ModLoad: 743a0000 74530000   C:\Windows\WinSxS\x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.18120_none_72d2e82386681b36\gdiplus.dll
+ModLoad: 690d0000 691f2000   C:\Program Files\Tencent\QQLite\Bin\AppUtil.dll
+ModLoad: 74620000 7462d000   C:\Windows\system32\WTSAPI32.dll
+ModLoad: 77f40000 77f6a000   C:\Windows\system32\imagehlp.dll
+ModLoad: 75d60000 75d6b000   C:\Windows\system32\profapi.dll
+ModLoad: 745b0000 745f0000   C:\Windows\system32\uxtheme.dll
+ModLoad: 757b0000 757ec000   C:\Windows\system32\mswsock.dll
+ModLoad: 75c60000 75c7b000   C:\Windows\system32\SspiCli.dll
+ModLoad: 6ba90000 6ba9b000   C:\Program Files\Tencent\QQLite\Bin\TXPFProxy.dll
+ModLoad: 75300000 75305000   C:\Windows\System32\wshtcpip.dll
+ModLoad: 75ce0000 75cec000   C:\Windows\system32\CRYPTBASE.dll
+ModLoad: 757a0000 757a6000   C:\Windows\System32\wship6.dll
+ModLoad: 64a60000 64c51000   C:\Program Files\Tencent\QQLite\Bin\AppFramework.dll
+ModLoad: 69dc0000 69e0d000   C:\Program Files\Tencent\QQLite\Bin\xPlatform.dll
+ModLoad: 6b040000 6b060000   C:\Program Files\Tencent\QQLite\Bin\arkHTTPClient.dll
+ModLoad: 69e10000 69e57000   C:\Program Files\Tencent\QQLite\Bin\SSLEAY32.dll
+IPCChannelClient::OnCreateProcessFinished(). groupID is 0ModLoad: 6ac80000 6ac8c000   C:\Program Files\Tencent\QQLite\Bin\QQService.dll
+dddddddaaa
+SessionHandler::InitSession(). groupID is 0; id is 1(13d4.56c): C++ EH exception - code e06d7363 (first chance)
+IPCChannelClient::OnInitProcessComplete(). groupID is 0Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 00920000 0092e000   PluginContainer.exe
+ModLoad: 6b040000 6b060000   C:\Program Files\Tencent\QQLite\Bin\arkHttpClient.dll
+ModLoad: 69e10000 69e57000   C:\Program Files\Tencent\QQLite\Bin\SSLEAY32.dll
+ModLoad: 757b0000 757ec000   C:\Windows\system32\mswsock.dll
+ModLoad: 75300000 75305000   C:\Windows\System32\wshtcpip.dll
+ModLoad: 6ac70000 6ac80000   C:\Program Files\Tencent\QQLite\Bin\FlashControl.dll
+ModLoad: 757a0000 757a6000   C:\Windows\System32\wship6.dll
+ModLoad: 77d40000 77e7c000   ntdll.dll
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 6f5c0000 6f60a000   C:\Program Files\Tencent\QQLite\Bin\libtcmalloc.dll
+ModLoad: 720c0000 72129000   C:\Windows\system32\MSVCP100.dll
+ModLoad: 721d0000 7228f000   C:\Windows\system32\MSVCR100.dll
+ModLoad: 77f30000 77f35000   C:\Windows\system32\PSAPI.DLL
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 65650000 658a2000   C:\Program Files\Tencent\QQLite\Bin\Common.dll
+ModLoad: 71140000 71154000   C:\Program Files\Tencent\QQLite\Bin\zlib.dll
+ModLoad: 6ebf0000 6ec11000   C:\Program Files\Tencent\QQLite\Bin\libexpat.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 77b80000 77d38000   C:\Windows\system32\WININET.dll
+ModLoad: 75fd0000 75fd4000   C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+ModLoad: 75fc0000 75fc5000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+ModLoad: 77890000 77930000   C:\Windows\system32\advapi32.DLL
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 76080000 76084000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+ModLoad: 75fe0000 75fe4000   C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+ModLoad: 75270000 75279000   C:\Windows\system32\version.DLL
+ModLoad: 76010000 76013000   C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+ModLoad: 77eb0000 77eb3000   C:\Windows\system32\normaliz.DLL
+ModLoad: 77930000 77b28000   C:\Windows\system32\iertutil.dll
+ModLoad: 71750000 71782000   C:\Windows\system32\WINMM.dll
+ModLoad: 716c0000 716d3000   C:\Windows\system32\AVICAP32.dll
+ModLoad: 71600000 71621000   C:\Windows\system32\MSVFW32.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 74910000 74aae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+ModLoad: 776f0000 7788d000   C:\Windows\system32\SETUPAPI.dll
+ModLoad: 760c0000 760e7000   C:\Windows\system32\CFGMGR32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 75ff0000 76002000   C:\Windows\system32\DEVOBJ.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 6de70000 6de87000   C:\Program Files\Tencent\QQLite\Bin\tinyxml.dll
+ModLoad: 6dbb0000 6dbc5000   C:\Program Files\Tencent\QQLite\Bin\AsyncTask.dll
+ModLoad: 73dd0000 73ddf000   C:\Program Files\Tencent\QQLite\Bin\arkFS.dll
+ModLoad: 71130000 71136000   C:\Program Files\Tencent\QQLite\Bin\arkIOStub.dll
+ModLoad: 6c410000 6c47f000   C:\Program Files\Tencent\QQLite\Bin\sqlite.dll
+ModLoad: 6c110000 6c235000   C:\Program Files\Tencent\QQLite\Bin\LIBEAY32.dll
+ModLoad: 773b0000 7742b000   C:\Windows\system32\COMDLG32.dll
+ModLoad: 713f0000 71416000   C:\Windows\system32\ATL100.DLL
+ModLoad: 74020000 74031000   C:\Windows\system32\NETAPI32.dll
+ModLoad: 74010000 74019000   C:\Windows\system32\netutils.dll
+ModLoad: 75ab0000 75ac9000   C:\Windows\system32\srvcli.dll
+ModLoad: 74000000 7400f000   C:\Windows\system32\wkscli.dll
+ModLoad: 73bf0000 73c42000   C:\Windows\system32\RASAPI32.dll
+ModLoad: 73bd0000 73be5000   C:\Windows\system32\rasman.dll
+ModLoad: 76090000 760be000   C:\Windows\system32\WINTRUST.dll
+ModLoad: 75ea0000 75fc0000   C:\Windows\system32\CRYPT32.dll
+ModLoad: 646e0000 64a5d000   C:\Program Files\Tencent\QQLite\Bin\IM.dll
+ModLoad: 75e00000 75e0c000   C:\Windows\system32\MSASN1.dll
+ModLoad: 6aba0000 6abaf000   C:\Program Files\Tencent\QQLite\Bin\ProcessSession.DLL
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.DLL
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+SessionHandler::OnInitSession(). groupID is 0; id is 1; destID is 1ModLoad: 745b0000 745f0000   C:\Windows\system32\uxtheme.dll
+ModLoad: 68de0000 68e5a000   C:\Program Files\Tencent\QQLite\Bin\SkinMgr.dll
+ModLoad: 6aba0000 6abaf000   C:\Program Files\Tencent\QQLite\Bin\ProcessSession.dll
+SessionHandler::OnInitSessionComplete(). groupID is 0; id is 1ModLoad: 74210000 74223000   C:\Windows\system32\dwmapi.dll
+ModLoad: 75d60000 75d6b000   C:\Windows\system32\profapi.dll
+dddd
+ModLoad: 6ffb0000 6ffe0000   C:\Program Files\Common Files\Tencent\QQProtect\Bin\QPSection.dll
+ModLoad: 68080000 68112000   C:\Program Files\Tencent\QQLite\Bin\ConfigCenter.dll
+ModLoad: 67820000 678a5000   C:\Program Files\Tencent\QQLite\Bin\SystemMsg.dll
+ModLoad: 569d0000 5863b000   C:\Program Files\Tencent\QQLite\Bin\libcef3.dll
+ModLoad: 72060000 720b8000   C:\Windows\system32\WINHTTP.dll
+ModLoad: 72010000 7205f000   C:\Windows\system32\webio.dll
+ModLoad: 64550000 646d3000   C:\Program Files\Tencent\QQLite\Bin\ChatFrameApp.dll
+ModLoad: 753d0000 753e7000   C:\Windows\system32\USERENV.dll
+ModLoad: 76300000 76420000   C:\Windows\system32\urlmon.dll
+ModLoad: 76070000 76074000   C:\Windows\system32\api-ms-win-downlevel-ole32-l1-1-0.dll
+ModLoad: 74160000 74172000   C:\Windows\system32\dhcpcsvc.DLL
+ModLoad: 74620000 7462d000   C:\Windows\system32\WTSAPI32.dll
+ModLoad: 732c0000 732fc000   C:\Windows\system32\OLEACC.dll
+ModLoad: 75c40000 75c48000   C:\Windows\system32\Secur32.dll
+ModLoad: 75c60000 75c7b000   C:\Windows\system32\SSPICLI.DLL
+ModLoad: 75ce0000 75cec000   C:\Windows\system32\CRYPTBASE.dll
+ModLoad: 761a0000 76223000   C:\Windows\system32\CLBCatQ.DLL
+
+=========== mem dump after here is valid ========
+Callback failed with 80004005
+ModLoad: 677d0000 67813000   C:\Program Files\Tencent\QQLite\Bin\PluginCommon.dll
+ModLoad: 65230000 65649000   C:\Program Files\Tencent\QQLite\Bin\AppMisc.dll
+ModLoad: 634f0000 638f8000   C:\Program Files\Tencent\QQLite\Bin\GroupApp.dll
+ModLoad: 6fac0000 6fac9000   C:\Program Files\Tencent\QQLite\Bin\UtilGif.dll
+ModLoad: 64f40000 6522d000   C:\Program Files\Tencent\QQLite\Bin\AFCtrl.dll
+ModLoad: 6b060000 6b0f3000   C:\Program Files\Tencent\QQLite\Bin\LongCnn.dll
+ModLoad: 6f7e0000 6f7f0000   C:\Program Files\Tencent\QQLite\Bin\RenderService.dll
+ModLoad: 6df00000 6df0e000   C:\Program Files\Tencent\QQLite\Bin\arkIPC.dll
+ModLoad: 6de40000 6de4b000   C:\Program Files\Tencent\QQLite\Bin\jsonc.dll
+ModLoad: 6d8a0000 6d8a9000   C:\Program Files\Tencent\QQLite\Bin\arkXML.dll
+ModLoad: 6d5e0000 6d5ef000   C:\Program Files\Tencent\QQLite\Bin\AppCenter.dll
+ModLoad: 64c60000 64f39000   C:\Program Files\Tencent\QQLite\Bin\MainFrame.dll
+ModLoad: 68db0000 68dd8000   C:\Program Files\Tencent\QQLite\Bin\QInterLive.dll
+ModLoad: 6bd10000 6bd3a000   C:\Program Files\Tencent\QQLite\Bin\QSLogic.dll
+ModLoad: 64380000 64547000   C:\Program Files\Tencent\QQLite\Bin\MyCollection.dll
+ModLoad: 71460000 7154b000   C:\Windows\system32\dbghelp.dll
+ModLoad: 66570000 665c8000   C:\Program Files\Tencent\QQLite\Bin\KernelMisc.dll
+ModLoad: 6d5d0000 6d5df000   C:\Program Files\Tencent\QQLite\Bin\RequestHost.dll
+ModLoad: 6ab90000 6ab9f000   C:\Program Files\Tencent\QQLite\Bin\libhttp.dll
+ModLoad: 74160000 74172000   C:\Windows\system32\dhcpcsvc.DLL
+ModLoad: 757b0000 757ec000   C:\Windows\system32\mswsock.dll
+ModLoad: 75300000 75305000   C:\Windows\System32\wshtcpip.dll
+ModLoad: 757a0000 757a6000   C:\Windows\System32\wship6.dll
+ModLoad: 642d0000 6437e000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.CRM\Bin\CRM.dll
+ModLoad: 6ac90000 6acee000   C:\Program Files\Tencent\QQLite\Bin\QScanEngine.dll
+ModLoad: 632d0000 634e2000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.QZone\Bin\QZone.dll
+ModLoad: 696d0000 696ed000   C:\Program Files\Tencent\QQLite\Bin\LoginLogic.dll
+ModLoad: 10000000 1001c000   C:\Users\win7\AppData\Roaming\Tencent\QQ\SafeBase\TSSafeEdit.dat
+ModLoad: 551c0000 55221000   C:\Program Files\Tencent\QQLite\Bin\MSVCP60.dll
+ModLoad: 67c50000 67d35000   C:\Program Files\Tencent\QQLite\Bin\PreloginLogic.dll
+ModLoad: 618e0000 61aad000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.Wireless\Bin\Wireless.dll
+ModLoad: 6c090000 6c0a9000   C:\Program Files\Tencent\QQLite\Bin\arkSocket.dll
+ModLoad: 67780000 677cd000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.Wireless\Bin\xplatform_dl.dll
+ModLoad: 761a0000 76223000   C:\Windows\system32\CLBCatQ.DLL
+ModLoad: 64260000 642c9000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.Wireless\Bin\litetransfer.dll
+ModLoad: 74ab0000 74ba5000   C:\Windows\system32\propsys.dll
+ModLoad: 70780000 707d1000   C:\Windows\system32\WINSPOOL.DRV
+ModLoad: 74cb0000 74cd1000   C:\Windows\system32\ntmarta.dll
+ModLoad: 77b30000 77b75000   C:\Windows\system32\WLDAP32.dll
+ModLoad: 61720000 618d1000   C:\Program Files\Common Files\Tencent\TXSSO\1.2.3.51\Bin\SSOPlatform.dll
+ModLoad: 61560000 61717000   C:\Program Files\Common Files\Tencent\TXSSO\1.2.3.51\Bin\SSOCommon.DLL
+ModLoad: 5cdc0000 5d49f000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.AudioVideo\Bin\AudioVideo.dll
+ModLoad: 64200000 6425a000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.AudioVideo\Bin\AsyncSpeechEngine.DLL
+ModLoad: 63250000 632c2000   C:\Windows\system32\DSOUND.dll
+ModLoad: 74ce0000 74d05000   C:\Windows\system32\POWRPROF.dll
+ModLoad: 10000000 1000b000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.AudioVideo\Bin\RocketApi.dll
+ModLoad: 6acf0000 6ad77000   C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_d08cc06a442b34fc\MSVCP80.dll
+ModLoad: 72e20000 72ebb000   C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_d08cc06a442b34fc\MSVCR80.dll
+ModLoad: 631e0000 6324a000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.AudioVideo\Bin\MediaEngine.dll
+ModLoad: 61440000 61556000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.AudioVideo\Bin\TRAE.DLL
+ModLoad: 613b0000 61433000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.AudioVideo\Bin\VP8.dll
+ModLoad: 5d890000 5db72000   C:\Program Files\Tencent\QQLite\Plugin\Com.Tencent.FileTransfer\Bin\FileTransfer.dll
+ModLoad: 641b0000 641f4000   C:\Program Files\Tencent\QQLite\Bin\TaskTray.dll
+ModLoad: 64a60000 64c51000   C:\Program Files\Tencent\QQLite\Bin\AppFramework.dll
+ModLoad: 69dc0000 69e0d000   C:\Program Files\Tencent\QQLite\Bin\xPlatform.dll
+ModLoad: 646e0000 64a5d000   C:\Program Files\Tencent\QQLite\Bin\IM.dll
+ModLoad: 757f0000 75806000   C:\Windows\system32\CRYPTSP.dll
+ModLoad: 75590000 755cb000   C:\Windows\system32\rsaenh.dll
+ModLoad: 74180000 7418d000   C:\Windows\system32\dhcpcsvc6.DLL
+ModLoad: 704f0000 7051e000   C:\Windows\system32\mlang.dll
+ModLoad: 6dcd0000 6de03000   C:\Windows\System32\msxml3.dll
+ModLoad: 753d0000 753e7000   C:\Windows\system32\USERENV.dll
+ModLoad: 75670000 756b4000   C:\Windows\system32\DNSAPI.dll
+ModLoad: 713d0000 713d6000   C:\Windows\system32\rasadhlp.dll
+ModLoad: 74230000 74268000   C:\Windows\System32\fwpuclnt.dll
+ModLoad: 75670000 756b4000   C:\Windows\system32\DNSAPI.dll
+ModLoad: 713d0000 713d6000   C:\Windows\system32\rasadhlp.dll
+ModLoad: 74230000 74268000   C:\Windows\System32\fwpuclnt.dll
+ModLoad: 75d50000 75d5e000   C:\Windows\system32\RpcRtRemote.dll
+ModLoad: 6ba90000 6ba9b000   C:\Program Files\Tencent\QQLite\Bin\TXPFProxy.dll
+ModLoad: 66570000 665c8000   C:\Program Files\Tencent\QQLite\Bin\KernelMisc.dll
+ModLoad: 74bb0000 74bc0000   C:\Windows\system32\NLAapi.dll
+ModLoad: 6ff10000 6ff20000   C:\Windows\system32\napinsp.dll
+ModLoad: 6fef0000 6ff02000   C:\Windows\system32\pnrpnsp.dll
+ModLoad: 6fee0000 6fee8000   C:\Windows\System32\winrnr.dll
+ModLoad: 6fec0000 6fecd000   C:\Windows\system32\wshbth.dll
+ModLoad: 73bc0000 73bcd000   C:\Windows\system32\rtutils.dll
+ModLoad: 634f0000 638f8000   C:\Program Files\Tencent\QQLite\Bin\GroupApp.dll
+ModLoad: 68080000 68112000   C:\Program Files\Tencent\QQLite\Bin\ConfigCenter.dll
+ModLoad: 67820000 678a5000   C:\Program Files\Tencent\QQLite\Bin\SystemMsg.dll
+ModLoad: 64550000 646d3000   C:\Program Files\Tencent\QQLite\Bin\ChatFrameApp.dll
+ModLoad: 75cf0000 75d4f000   C:\Windows\system32\SXS.DLL
+ModLoad: 6ab90000 6ab9f000   C:\Program Files\Tencent\QQLite\Bin\libhttp.dll
+ModLoad: 61250000 613ac000   C:\Program Files\Tencent\QQLite\Bin\MsgMgr.dll
+ModLoad: 618e0000 61aad000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.wireless\Bin\Wireless.dll
+ModLoad: 67780000 677cd000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.wireless\Bin\xplatform_dl.dll
+ModLoad: 64260000 642c9000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.wireless\Bin\litetransfer.dll
+ModLoad: 70780000 707d1000   C:\Windows\system32\WINSPOOL.DRV
+ModLoad: 5cbe0000 5cdb7000   C:\Program Files\Tencent\QQLite\Bin\CustomFace.dll
+ModLoad: 677d0000 67813000   C:\Program Files\Tencent\QQLite\Bin\PluginCommon.dll
+ModLoad: 5cdc0000 5d49f000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.audiovideo\Bin\AudioVideo.dll
+ModLoad: 64200000 6425a000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.audiovideo\Bin\AsyncSpeechEngine.DLL
+ModLoad: 63250000 632c2000   C:\Windows\system32\DSOUND.dll
+ModLoad: 74ce0000 74d05000   C:\Windows\system32\POWRPROF.dll
+ModLoad: 03840000 0384b000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.audiovideo\Bin\RocketApi.dll
+ModLoad: 6acf0000 6ad77000   C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_d08cc06a442b34fc\MSVCP80.dll
+ModLoad: 72e20000 72ebb000   C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_d08cc06a442b34fc\MSVCR80.dll
+ModLoad: 631e0000 6324a000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.audiovideo\Bin\MediaEngine.dll
+ModLoad: 61440000 61556000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.audiovideo\Bin\TRAE.DLL
+ModLoad: 613b0000 61433000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.audiovideo\Bin\VP8.dll
+ModLoad: 5c9d0000 5cbd3000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.audiovideo\Bin\DocShare.dll
+ModLoad: 611c0000 61241000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.dingdong\Bin\DingDong.dll
+ModLoad: 5d890000 5db72000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.filetransfer\Bin\FileTransfer.dll
+ModLoad: 5d7a0000 5d890000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.netdisk\Bin\NetDisk.dll
+ModLoad: 61120000 611b3000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.qqvip\Bin\QQVip.dll
+ModLoad: 632d0000 634e2000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.qzone\Bin\Qzone.dll
+ModLoad: 60e50000 60e91000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.snsapp\Bin\SNSApp.dll
+ModLoad: 68de0000 68e5a000   C:\Program Files\Tencent\QQLite\Bin\SkinMgr.dll
+ModLoad: 642d0000 6437e000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.crm\Bin\CRM.dll
+ModLoad: 64380000 64547000   C:\Program Files\Tencent\QQLite\Bin\MyCollection.dll
+ModLoad: 5c960000 5c9ce000   C:\Program Files\Tencent\QQLite\Bin\InformationBox.dll
+ModLoad: 5c8d0000 5c95c000   C:\Program Files\Tencent\QQLite\Bin\ContactInfoFrame.dll
+ModLoad: 68db0000 68dd8000   C:\Program Files\Tencent\QQLite\Bin\QInterLive.dll
+ModLoad: 5c860000 5c8c8000   C:\Program Files\Tencent\QQLite\Bin\ContactMgr.dll
+ModLoad: 6aa80000 6aaf6000   C:\Program Files\Tencent\QQLite\Bin\LoginUI.dll
+IPCChannelClient::DestroySession(). groupID is 0; id is 1ModLoad: 75cf0000 75d4f000   C:\Windows\system32\SXS.DLL
+Callback failed with 80004005
+
+=========== mem dump after here is valid ========
+Callback failed with 80004005
+ModLoad: 75c40000 75c48000   C:\Windows\system32\Secur32.dll
+ModLoad: 70f90000 70f94000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l2-1-0.dll
+ModLoad: 72060000 720b8000   C:\Windows\system32\winhttp.dll
+ModLoad: 72010000 7205f000   C:\Windows\system32\webio.dll
+ModLoad: 6c5d0000 6c5d4000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l2-1-0.dll
+ModLoad: 70570000 705ca000   C:\Windows\System32\netprofm.dll
+ModLoad: 6f1e0000 6f1e8000   C:\Windows\System32\npmproxy.dll
+Lib CreateMutex290354635{E29FFD8F-0283-4772-834A-39F840A38C3E}ModLoad: 6f200000 6f209000   C:\Windows\system32\LINKINFO.dll
+ModLoad: 75c90000 75cdc000   C:\Windows\system32\apphelp.dll
+ModLoad: 6f7b0000 6f7df000   C:\Windows\System32\shdocvw.dll
+ModLoad: 75280000 752f6000   C:\Windows\system32\FirewallAPI.dll
+ModLoad: 6a4e0000 6a506000   C:\Program Files\Tencent\QQLite\Plugin\com.tencent.mail\Bin\Mail.dll
+ModLoad: 6b6c0000 6b6d4000   C:\Windows\system32\devenum.dll
+ModLoad: 6d4f0000 6d4fb000   C:\Windows\system32\msdmo.dll
+ModLoad: 74c60000 74c99000   C:\Windows\System32\MMDevApi.dll
+Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 00e00000 00e7c000   QQUrlMgr.exe
+ModLoad: 77d40000 77e7c000   ntdll.dll
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 75270000 75279000   C:\Windows\system32\VERSION.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 77f30000 77f35000   C:\Windows\system32\PSAPI.DLL
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 77890000 77930000   C:\Windows\system32\ADVAPI32.dll
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 77b80000 77d38000   C:\Windows\system32\WININET.dll
+ModLoad: 75fd0000 75fd4000   C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+ModLoad: 75fc0000 75fc5000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+ModLoad: 76080000 76084000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+ModLoad: 75fe0000 75fe4000   C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+ModLoad: 76010000 76013000   C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+ModLoad: 77eb0000 77eb3000   C:\Windows\system32\normaliz.DLL
+ModLoad: 77930000 77b28000   C:\Windows\system32\iertutil.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 74020000 74031000   C:\Windows\system32\NETAPI32.dll
+ModLoad: 74010000 74019000   C:\Windows\system32\netutils.dll
+ModLoad: 75ab0000 75ac9000   C:\Windows\system32\srvcli.dll
+ModLoad: 74000000 7400f000   C:\Windows\system32\wkscli.dll
+ModLoad: 76300000 76420000   C:\Windows\system32\urlmon.dll
+ModLoad: 76070000 76074000   C:\Windows\system32\api-ms-win-downlevel-ole32-l1-1-0.dll
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.DLL
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+ModLoad: 74cb0000 74cd1000   C:\Windows\system32\ntmarta.dll
+ModLoad: 77b30000 77b75000   C:\Windows\system32\WLDAP32.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\iphlpapi.dll
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 74160000 74172000   C:\Windows\system32\dhcpcsvc.DLL
+ModLoad: 75c40000 75c48000   C:\Windows\system32\Secur32.dll
+ModLoad: 75c60000 75c7b000   C:\Windows\system32\SSPICLI.DLL
+ModLoad: 75d60000 75d6b000   C:\Windows\system32\profapi.dll
+ModLoad: 70f90000 70f94000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l2-1-0.dll
+ModLoad: 74910000 74aae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\comctl32.dll
+ModLoad: 72060000 720b8000   C:\Windows\system32\winhttp.dll
+ModLoad: 72010000 7205f000   C:\Windows\system32\webio.dll
+ModLoad: 757b0000 757ec000   C:\Windows\system32\mswsock.dll
+ModLoad: 757a0000 757a6000   C:\Windows\System32\wship6.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 6c5d0000 6c5d4000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l2-1-0.dll
+ModLoad: 75670000 756b4000   C:\Windows\system32\DNSAPI.dll
+ModLoad: 75ce0000 75cec000   C:\Windows\system32\CRYPTBASE.dll
+ModLoad: 761a0000 76223000   C:\Windows\system32\CLBCatQ.DLL
+ModLoad: 70570000 705ca000   C:\Windows\System32\netprofm.dll
+ModLoad: 74bb0000 74bc0000   C:\Windows\System32\nlaapi.dll
+ModLoad: 74180000 7418d000   C:\Windows\system32\dhcpcsvc6.DLL
+ModLoad: 757f0000 75806000   C:\Windows\system32\CRYPTSP.dll
+ModLoad: 75590000 755cb000   C:\Windows\system32\rsaenh.dll
+ModLoad: 75d50000 75d5e000   C:\Windows\system32\RpcRtRemote.dll
+ModLoad: 75300000 75305000   C:\Windows\System32\wshtcpip.dll
+ModLoad: 713d0000 713d6000   C:\Windows\system32\rasadhlp.dll
+ModLoad: 74230000 74268000   C:\Windows\System32\fwpuclnt.dll
+ModLoad: 6f1e0000 6f1e8000   C:\Windows\System32\npmproxy.dll
+ModLoad: 5c770000 5c857000   C:\Users\win7\AppData\Roaming\Tencent\QQ\Misc\com.tencent.wireless\SDK\36\AndroidAssist.dll
+ModLoad: 5c700000 5c769000   C:\Users\win7\AppData\Roaming\Tencent\QQ\Misc\com.tencent.wireless\SDK\36\AndroidAssistHelper.dll
+ModLoad: 5c650000 5c6f7000   C:\Users\win7\AppData\Roaming\Tencent\AndroidServer\1.0.0.506\Sdkclient.dll
+ModLoad: 72060000 720b8000   C:\Windows\system32\WINHTTP.dll
+ModLoad: 72010000 7205f000   C:\Windows\system32\webio.dll
+ModLoad: 6ada0000 6add0000   C:\Users\win7\AppData\Roaming\Tencent\AndroidServer\1.0.0.506\NetworkMgr.dll
+ModLoad: 75920000 75958000   C:\Windows\system32\ncrypt.dll
+ModLoad: 75900000 75917000   C:\Windows\system32\bcrypt.dll
+ModLoad: 754d0000 7550d000   C:\Windows\system32\bcryptprimitives.dll
+ModLoad: 753b0000 753c6000   C:\Windows\system32\GPAPI.dll
+ModLoad: 66540000 66568000   C:\Users\win7\AppData\Roaming\Tencent\AndroidServer\1.0.0.506\DownloadMgr.dll
+ModLoad: 75570000 75578000   C:\Windows\system32\credssp.dll
+ModLoad: 6ac70000 6ac85000   C:\Users\win7\AppData\Roaming\Tencent\AndroidServer\1.0.0.506\QQPMIpc.dll
+ModLoad: 5c600000 5c643000   C:\Users\win7\AppData\Roaming\Tencent\AndroidServer\1.0.0.506\AndroidDevice.dll
+Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 00fd0000 01003000   AndroidServerUp.exe
+ModLoad: 77d40000 77e7c000   ntdll.dll
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 75270000 75279000   C:\Windows\system32\VERSION.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 77890000 77930000   C:\Windows\system32\ADVAPI32.dll
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 5c4e0000 5c549000   C:\Users\win7\AppData\Roaming\Tencent\AndroidServer\1.0.0.506\MSVCP100.dll
+ModLoad: 5c420000 5c4df000   C:\Users\win7\AppData\Roaming\Tencent\AndroidServer\1.0.0.506\MSVCR100.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 72060000 720b8000   C:\Windows\system32\WINHTTP.dll
+ModLoad: 72010000 7205f000   C:\Windows\system32\webio.dll
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.DLL
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+ModLoad: 75ce0000 75cec000   C:\Windows\system32\CRYPTBASE.dll
+ModLoad: 745b0000 745f0000   C:\Windows\system32\uxtheme.dll
+ModLoad: 74910000 74aae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\comctl32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 761a0000 76223000   C:\Windows\system32\CLBCatQ.DLL
+ModLoad: 74ab0000 74ba5000   C:\Windows\system32\propsys.dll
+ModLoad: 74cb0000 74cd1000   C:\Windows\system32\ntmarta.dll
+ModLoad: 77b30000 77b75000   C:\Windows\system32\WLDAP32.dll
+ModLoad: 776f0000 7788d000   C:\Windows\system32\SETUPAPI.dll
+ModLoad: 760c0000 760e7000   C:\Windows\system32\CFGMGR32.dll
+ModLoad: 75ff0000 76002000   C:\Windows\system32\DEVOBJ.dll
+ModLoad: 75c60000 75c7b000   C:\Windows\system32\SspiCli.dll
+ModLoad: 757f0000 75806000   C:\Windows\system32\cryptsp.dll
+ModLoad: 75570000 75578000   C:\Windows\system32\credssp.dll
+ModLoad: 757b0000 757ec000   C:\Windows\system32\mswsock.dll
+ModLoad: 739c0000 739c6000   C:\Windows\System32\wshqos.dll
+ModLoad: 75300000 75305000   C:\Windows\system32\wshtcpip.DLL
+ModLoad: 757a0000 757a6000   C:\Windows\system32\wship6.dll
+ModLoad: 75670000 756b4000   C:\Windows\system32\DNSAPI.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 713d0000 713d6000   C:\Windows\system32\rasadhlp.dll
+ModLoad: 74230000 74268000   C:\Windows\System32\fwpuclnt.dll
+Callback failed with 80004005
+Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 00e20000 00e2e000   PluginContainer.exe
+ModLoad: 77d40000 77e7c000   ntdll.dll
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 6f5c0000 6f60a000   C:\Program Files\Tencent\QQLite\Bin\libtcmalloc.dll
+ModLoad: 720c0000 72129000   C:\Windows\system32\MSVCP100.dll
+ModLoad: 721d0000 7228f000   C:\Windows\system32\MSVCR100.dll
+ModLoad: 77f30000 77f35000   C:\Windows\system32\PSAPI.DLL
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 65650000 658a2000   C:\Program Files\Tencent\QQLite\Bin\Common.dll
+ModLoad: 71140000 71154000   C:\Program Files\Tencent\QQLite\Bin\zlib.dll
+ModLoad: 6ebf0000 6ec11000   C:\Program Files\Tencent\QQLite\Bin\libexpat.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 77b80000 77d38000   C:\Windows\system32\WININET.dll
+ModLoad: 75fd0000 75fd4000   C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+ModLoad: 75fc0000 75fc5000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+ModLoad: 77890000 77930000   C:\Windows\system32\advapi32.DLL
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 76080000 76084000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+ModLoad: 75fe0000 75fe4000   C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+ModLoad: 75270000 75279000   C:\Windows\system32\version.DLL
+ModLoad: 76010000 76013000   C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+ModLoad: 77eb0000 77eb3000   C:\Windows\system32\normaliz.DLL
+ModLoad: 77930000 77b28000   C:\Windows\system32\iertutil.dll
+ModLoad: 71750000 71782000   C:\Windows\system32\WINMM.dll
+ModLoad: 716c0000 716d3000   C:\Windows\system32\AVICAP32.dll
+ModLoad: 71600000 71621000   C:\Windows\system32\MSVFW32.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 74910000 74aae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+ModLoad: 776f0000 7788d000   C:\Windows\system32\SETUPAPI.dll
+ModLoad: 760c0000 760e7000   C:\Windows\system32\CFGMGR32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 75ff0000 76002000   C:\Windows\system32\DEVOBJ.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 6de70000 6de87000   C:\Program Files\Tencent\QQLite\Bin\tinyxml.dll
+ModLoad: 6dbb0000 6dbc5000   C:\Program Files\Tencent\QQLite\Bin\AsyncTask.dll
+ModLoad: 73dd0000 73ddf000   C:\Program Files\Tencent\QQLite\Bin\arkFS.dll
+ModLoad: 71130000 71136000   C:\Program Files\Tencent\QQLite\Bin\arkIOStub.dll
+ModLoad: 6c410000 6c47f000   C:\Program Files\Tencent\QQLite\Bin\sqlite.dll
+ModLoad: 6c110000 6c235000   C:\Program Files\Tencent\QQLite\Bin\LIBEAY32.dll
+ModLoad: 773b0000 7742b000   C:\Windows\system32\COMDLG32.dll
+ModLoad: 713f0000 71416000   C:\Windows\system32\ATL100.DLL
+ModLoad: 74020000 74031000   C:\Windows\system32\NETAPI32.dll
+ModLoad: 74010000 74019000   C:\Windows\system32\netutils.dll
+ModLoad: 75ab0000 75ac9000   C:\Windows\system32\srvcli.dll
+ModLoad: 74000000 7400f000   C:\Windows\system32\wkscli.dll
+ModLoad: 73bf0000 73c42000   C:\Windows\system32\RASAPI32.dll
+ModLoad: 73bd0000 73be5000   C:\Windows\system32\rasman.dll
+ModLoad: 76090000 760be000   C:\Windows\system32\WINTRUST.dll
+ModLoad: 75ea0000 75fc0000   C:\Windows\system32\CRYPT32.dll
+ModLoad: 75e00000 75e0c000   C:\Windows\system32\MSASN1.dll
+ModLoad: 71240000 7124f000   C:\Program Files\Tencent\QQLite\Bin\ProcessSession.DLL
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.DLL
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+ModLoad: 745b0000 745f0000   C:\Windows\system32\uxtheme.dll
+ModLoad: 75d60000 75d6b000   C:\Windows\system32\profapi.dll
+ModLoad: 6de50000 6de6f000   C:\Program Files\Tencent\QQLite\Bin\appcom.dll
+ModLoad: 6d500000 6d535000   C:\Program Files\Tencent\QQLite\Bin\xImage.dll
+ModLoad: 6c5f0000 6c611000   C:\Program Files\Tencent\QQLite\Bin\libpng.dll
+ModLoad: 6bd40000 6bd96000   C:\Program Files\Tencent\QQLite\Bin\libjpegturbo.dll
+ModLoad: 69e60000 69fff000   C:\Program Files\Tencent\QQLite\Bin\GF.dll
+ModLoad: 6b6e0000 6b772000   C:\Program Files\Tencent\QQLite\Bin\xGraphic32.dll
+ModLoad: 6c0b0000 6c10e000   C:\Program Files\Tencent\QQLite\Bin\arkGraphic.dll
+ModLoad: 73980000 73985000   C:\Windows\system32\MSIMG32.dll
+ModLoad: 71250000 7125d000   C:\Windows\system32\VCOMP100.DLL
+ModLoad: 39700000 397eb000   C:\Program Files\Tencent\QQLite\Bin\RICHED20.dll
+ModLoad: 70fa0000 70fb0000   C:\Program Files\Tencent\QQLite\Bin\arkImage.dll
+ModLoad: 6fe30000 6fe3f000   C:\Program Files\Tencent\QQLite\Bin\libimagequant.dll
+ModLoad: 732c0000 732fc000   C:\Windows\system32\OLEACC.dll
+ModLoad: 743a0000 74530000   C:\Windows\WinSxS\x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.18120_none_72d2e82386681b36\gdiplus.dll
+ModLoad: 6add0000 6ae9e000   C:\Program Files\Tencent\QQLite\Bin\AFUtil.dll
+ModLoad: 6a510000 6a64e000   C:\Program Files\Tencent\QQLite\Bin\KernelUtil.dll
+ModLoad: 76300000 76420000   C:\Windows\system32\urlmon.dll
+ModLoad: 76070000 76074000   C:\Windows\system32\api-ms-win-downlevel-ole32-l1-1-0.dll
+ModLoad: 6b100000 6b163000   C:\Program Files\Tencent\QQLite\Bin\AFBase.DLL
+ModLoad: 75ce0000 75cec000   C:\Windows\system32\CRYPTBASE.dll
+ModLoad: 6d4e0000 6d4eb000   C:\Program Files\Tencent\QQLite\Bin\Timwp.dll
+ModLoad: 6d4d0000 6d4e8000   C:\Program Files\Tencent\QQLite\Bin\CPHelper.dll
+
+=========== mem dump after here is valid ========
+Callback failed with 80004005
+ModLoad: 71240000 71249000   C:\Users\win7\AppData\Roaming\Tencent\QQ\QQMW\9Hi.zO7
+Callback failed with 80004005
+IPCChannelClient::CreateSession()  handlerMap.empty(). groupID is 6IPCChannelClient::OnCreateProcessFinished(). groupID is 6Symbol search path is: SRV*http://msdl.microsoft.com/download/symbols
+Executable search path is: 
+ModLoad: 01320000 0132e000   PluginContainer.exe
+ModLoad: 77d40000 77e7c000   ntdll.dll
+ModLoad: 77140000 77214000   C:\Windows\system32\kernel32.dll
+ModLoad: 76020000 7606b000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 6f5c0000 6f60a000   C:\Program Files\Tencent\QQLite\Bin\libtcmalloc.dll
+ModLoad: 720c0000 72129000   C:\Windows\system32\MSVCP100.dll
+ModLoad: 721d0000 7228f000   C:\Windows\system32\MSVCR100.dll
+ModLoad: 77f30000 77f35000   C:\Windows\system32\PSAPI.DLL
+ModLoad: 770c0000 77117000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 77070000 770be000   C:\Windows\system32\GDI32.dll
+ModLoad: 76230000 762f9000   C:\Windows\system32\USER32.dll
+ModLoad: 77e80000 77e8a000   C:\Windows\system32\LPK.dll
+ModLoad: 77220000 772bd000   C:\Windows\system32\USP10.dll
+ModLoad: 772c0000 7736c000   C:\Windows\system32\msvcrt.dll
+ModLoad: 65650000 658a2000   C:\Program Files\Tencent\QQLite\Bin\Common.dll
+ModLoad: 71140000 71154000   C:\Program Files\Tencent\QQLite\Bin\zlib.dll
+ModLoad: 6ebf0000 6ec11000   C:\Program Files\Tencent\QQLite\Bin\libexpat.dll
+ModLoad: 77370000 773a5000   C:\Windows\system32\WS2_32.dll
+ModLoad: 760f0000 76192000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 77f20000 77f26000   C:\Windows\system32\NSI.dll
+ModLoad: 77b80000 77d38000   C:\Windows\system32\WININET.dll
+ModLoad: 75fd0000 75fd4000   C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+ModLoad: 75fc0000 75fc5000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+ModLoad: 77890000 77930000   C:\Windows\system32\advapi32.DLL
+ModLoad: 77120000 77139000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 76080000 76084000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+ModLoad: 75fe0000 75fe4000   C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+ModLoad: 75270000 75279000   C:\Windows\system32\version.DLL
+ModLoad: 76010000 76013000   C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+ModLoad: 77eb0000 77eb3000   C:\Windows\system32\normaliz.DLL
+ModLoad: 77930000 77b28000   C:\Windows\system32\iertutil.dll
+ModLoad: 71750000 71782000   C:\Windows\system32\WINMM.dll
+ModLoad: 716c0000 716d3000   C:\Windows\system32\AVICAP32.dll
+ModLoad: 71600000 71621000   C:\Windows\system32\MSVFW32.dll
+ModLoad: 76420000 7706a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 74910000 74aae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+ModLoad: 776f0000 7788d000   C:\Windows\system32\SETUPAPI.dll
+ModLoad: 760c0000 760e7000   C:\Windows\system32\CFGMGR32.dll
+ModLoad: 77660000 776ef000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 77430000 7758c000   C:\Windows\system32\ole32.dll
+ModLoad: 75ff0000 76002000   C:\Windows\system32\DEVOBJ.dll
+ModLoad: 74300000 7431c000   C:\Windows\system32\IPHLPAPI.DLL
+ModLoad: 742f0000 742f7000   C:\Windows\system32\WINNSI.DLL
+ModLoad: 6de70000 6de87000   C:\Program Files\Tencent\QQLite\Bin\tinyxml.dll
+ModLoad: 6dbb0000 6dbc5000   C:\Program Files\Tencent\QQLite\Bin\AsyncTask.dll
+ModLoad: 73dd0000 73ddf000   C:\Program Files\Tencent\QQLite\Bin\arkFS.dll
+ModLoad: 71130000 71136000   C:\Program Files\Tencent\QQLite\Bin\arkIOStub.dll
+ModLoad: 6c410000 6c47f000   C:\Program Files\Tencent\QQLite\Bin\sqlite.dll
+ModLoad: 6c110000 6c235000   C:\Program Files\Tencent\QQLite\Bin\LIBEAY32.dll
+ModLoad: 773b0000 7742b000   C:\Windows\system32\COMDLG32.dll
+ModLoad: 713f0000 71416000   C:\Windows\system32\ATL100.DLL
+ModLoad: 74020000 74031000   C:\Windows\system32\NETAPI32.dll
+ModLoad: 74010000 74019000   C:\Windows\system32\netutils.dll
+ModLoad: 75ab0000 75ac9000   C:\Windows\system32\srvcli.dll
+ModLoad: 74000000 7400f000   C:\Windows\system32\wkscli.dll
+ModLoad: 73bf0000 73c42000   C:\Windows\system32\RASAPI32.dll
+ModLoad: 73bd0000 73be5000   C:\Windows\system32\rasman.dll
+ModLoad: 76090000 760be000   C:\Windows\system32\WINTRUST.dll
+ModLoad: 75ea0000 75fc0000   C:\Windows\system32\CRYPT32.dll
+ModLoad: 75e00000 75e0c000   C:\Windows\system32\MSASN1.dll
+ModLoad: 6de60000 6de6f000   C:\Program Files\Tencent\QQLite\Bin\ProcessSession.DLL
+ModLoad: 77e90000 77eaf000   C:\Windows\system32\IMM32.DLL
+ModLoad: 77590000 7765c000   C:\Windows\system32\MSCTF.dll
+ModLoad: 745b0000 745f0000   C:\Windows\system32\uxtheme.dll
+ModLoad: 75d60000 75d6b000   C:\Windows\system32\profapi.dll
+ModLoad: 75ce0000 75cec000   C:\Windows\system32\CRYPTBASE.dll
+ModLoad: 6d4d0000 6d4ec000   C:\Program Files\Tencent\QQLite\Bin\OPMiscDll.dll
+ModLoad: 69e60000 69fff000   C:\Program Files\Tencent\QQLite\Bin\GF.dll
+ModLoad: 6b6e0000 6b772000   C:\Program Files\Tencent\QQLite\Bin\xGraphic32.dll
+ModLoad: 6c0b0000 6c10e000   C:\Program Files\Tencent\QQLite\Bin\arkGraphic.dll
+ModLoad: 73980000 73985000   C:\Windows\system32\MSIMG32.dll
+ModLoad: 71250000 7125d000   C:\Windows\system32\VCOMP100.DLL
+ModLoad: 39700000 397eb000   C:\Program Files\Tencent\QQLite\Bin\RICHED20.dll
+ModLoad: 70fa0000 70fb0000   C:\Program Files\Tencent\QQLite\Bin\arkImage.dll
+ModLoad: 6c5f0000 6c611000   C:\Program Files\Tencent\QQLite\Bin\libpng.dll
+ModLoad: 6bd40000 6bd96000   C:\Program Files\Tencent\QQLite\Bin\libjpegturbo.dll
+ModLoad: 6fe30000 6fe3f000   C:\Program Files\Tencent\QQLite\Bin\libimagequant.dll
+ModLoad: 732c0000 732fc000   C:\Windows\system32\OLEACC.dll
+ModLoad: 6f7e0000 6f7f0000   C:\Program Files\Tencent\QQLite\Bin\RenderService.dll
+ModLoad: 6df00000 6df0e000   C:\Program Files\Tencent\QQLite\Bin\arkIPC.dll
+SessionHandler::InitSession(). groupID is 6; id is 1IPCChannelClient::OnInitProcessComplete(). groupID is 6SessionHandler::OnInitSession(). groupID is 6; id is 1; destID is 1SessionHandler::OnInitSessionComplete(). groupID is 6; id is 1ModLoad: 10000000 100a3000   C:\Users\win7\AppData\Roaming\Tencent\QQ\Temp\44C6.tmp
+ModLoad: 5c4e0000 5c5ff000   C:\Windows\system32\MFC42u.DLL
+ModLoad: 6df50000 6dfdc000   C:\Windows\system32\ODBC32.dll
+ModLoad: 551c0000 55221000   C:\Program Files\Tencent\QQLite\Bin\MSVCP60.dll
+ModLoad: 6fe50000 6fe88000   C:\Windows\system32\odbcint.dll
+ModLoad: 02bb0000 02bc1000   C:\Users\win7\AppData\Roaming\Tencent\Common\gjdatareport.dll
+IPCChannelClient::DestroySession(). groupID is 6; id is 1IPCChannelClient::QuitProcessInteral. groupID is 6
+=========== mem dump after here is valid ========
+Callback failed with 80004005
+(13d4.1214): Access violation - code c0000005 (first chance)
+r
+eax=00000000 ebx=00000001 ecx=07746000 edx=00000000 esi=04738760 edi=6ab91c4b
+eip=6ab91c70 esp=07bffb70 ebp=07bffb78 iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010202
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\Program Files\Tencent\QQLite\Bin\libhttp.dll - 
+libhttp!http_create_response+0x517:
+6ab91c70 83780400        cmp     dword ptr [eax+4],0  ds:0023:00000004=????????
+rF
+fpcw=027F: rn 53 puozdi  fpsw=0120: top=0 cc=0001 --p-----  fptw=FFFF
+fopcode=0000  fpip=0000:6f80853d  fpdp=0000:07bffb90
+st0= 0.000000000000000000000e+0000  st1= 0.000000000000000000000e+0000
+st2= 0.000000000000000000000e+0000  st3= 0.000000000000000000000e+0000
+st4= 0.000000000000000000000e+0000  st5= 0.000000000000000000000e+0000
+st6= 3.999784950000000000000e+0008  st7=-2.910000085830688476560e-0001
+libhttp!http_create_response+0x517:
+6ab91c70 83780400        cmp     dword ptr [eax+4],0  ds:0023:00000004=????????
+rX
+xmm0=0 0 0 0
+xmm1=-0 0 -0 0
+xmm2=-1.75 3.92364e-044 1.575 -3.47617e-024
+xmm3=0 0 0 0
+xmm4=0 0 0 0
+xmm5=-1.#QNAN -1.#QNAN 0 0
+xmm6=0.0427125 -5.03364e-027 0.0427125 -5.03364e-027
+xmm7=0.0427125 -5.03364e-027 1.79829 -1.66299e+038
+libhttp!http_create_response+0x517:
+6ab91c70 83780400        cmp     dword ptr [eax+4],0  ds:0023:00000004=????????
+
+
+kb
+ChildEBP RetAddr  Args to Child              
+WARNING: Stack unwind information not available. Following frames may be wrong.
+07bffb78 6ab95567 089e7720 00000000 07746000 libhttp!http_create_response+0x517
+07bffb9c 6ab954e9 00000000 00000000 07469c00 libhttp!http_file_send_start+0xb64
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\Program Files\Tencent\QQLite\Bin\libuv.dll - 
+07bffbb4 6f7f3115 047560f0 07bffbf8 6f7f337d libhttp!http_file_send_start+0xae6
+07bffbc0 6f7f337d 07469c00 047560f0 04756120 libuv!uv_async_send+0x95
+07bffbf8 6ab913da 07469c00 00000000 07469c00 libuv!uv_async_send+0x2fd
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\Program Files\Tencent\QQLite\Bin\PreloginLogic.dll - 
+07bffc24 67c53979 04203e00 67c53877 67cf0e84 libhttp!http_server_run+0x4b
+07bffc4c 67c539f1 08bc3840 67c539b1 000009a4 PreloginLogic+0x3979
+07bffc64 6f800b80 08bc3840 02e82790 00000000 PreloginLogic+0x39f1
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\Windows\system32\MSVCR100.dll - 
+07bffc80 7222c556 02e82790 d1e25a38 00000000 libuv!uv_once+0x50
+07bffcb8 7222c600 00000000 07bffcd0 7718ed5c MSVCR100!endthreadex+0x3a
+07bffcc4 7718ed5c 07d12d80 07bffd10 77da37eb MSVCR100!endthreadex+0xe4
+07bffcd0 77da37eb 07d12d80 6773e8c0 00000000 kernel32!BaseThreadInitThunk+0xe
+07bffd10 77da37be 7222c59c 07d12d80 00000000 ntdll!__RtlUserThreadStart+0x70
+07bffd28 00000000 7222c59c 07d12d80 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+
+.load C:\Peach2.3.9\tools\bangexploitable\x86\msec.dll
+!exploitable -m
+IDENTITY:HostMachine\HostUser
+PROCESSOR:X86
+CLASS:USER
+QUALIFIER:USER_PROCESS
+EVENT:DEBUG_EVENT_EXCEPTION
+EXCEPTION_FAULTING_ADDRESS:0x4
+EXCEPTION_CODE:0xC0000005
+EXCEPTION_LEVEL:FIRST_CHANCE
+EXCEPTION_TYPE:STATUS_ACCESS_VIOLATION
+EXCEPTION_SUBTYPE:READ
+FAULTING_INSTRUCTION:6ab91c70 cmp dword ptr [eax+4],0
+BASIC_BLOCK_INSTRUCTION_COUNT:2
+BASIC_BLOCK_INSTRUCTION:6ab91c70 cmp dword ptr [eax+4],0
+BASIC_BLOCK_INSTRUCTION_TAINTED_INPUT_OPERAND:eax
+BASIC_BLOCK_INSTRUCTION:6ab91c74 jne libhttp!http_create_response+0x55d (6ab91cb6)
+BASIC_BLOCK_INSTRUCTION_TAINTED_INPUT_OPERAND:ZeroFlag
+MAJOR_HASH:0x51270e39
+MINOR_HASH:0x007a2546
+STACK_DEPTH:14
+STACK_FRAME:libhttp!http_create_response+0x517
+STACK_FRAME:libhttp!http_file_send_start+0xb64
+STACK_FRAME:libhttp!http_file_send_start+0xae6
+STACK_FRAME:libuv!uv_async_send+0x95
+STACK_FRAME:libuv!uv_async_send+0x2fd
+STACK_FRAME:libhttp!http_server_run+0x4b
+STACK_FRAME:PreloginLogic+0x3979
+STACK_FRAME:PreloginLogic+0x39f1
+STACK_FRAME:libuv!uv_once+0x50
+STACK_FRAME:MSVCR100!endthreadex+0x3a
+STACK_FRAME:MSVCR100!endthreadex+0xe4
+STACK_FRAME:kernel32!BaseThreadInitThunk+0xe
+STACK_FRAME:ntdll!__RtlUserThreadStart+0x70
+STACK_FRAME:ntdll!_RtlUserThreadStart+0x1b
+INSTRUCTION_ADDRESS:0x000000006ab91c70
+INVOKING_STACK_FRAME:0
+DESCRIPTION:Data from Faulting Address controls Branch Selection
+SHORT_DESCRIPTION:TaintedDataControlsBranchSelection
+CLASSIFICATION:UNKNOWN
+BUG_TITLE:Data from Faulting Address controls Branch Selection starting at libhttp!http_create_response+0x0000000000000517 (Hash=0x51270e39.0x007a2546)
+EXPLANATION:The data from the faulting address is later used to determine whether or not a branch is taken.!msec.exploitable -m
+IDENTITY:HostMachine\HostUser
+PROCESSOR:X86
+CLASS:USER
+QUALIFIER:USER_PROCESS
+EVENT:DEBUG_EVENT_EXCEPTION
+EXCEPTION_FAULTING_ADDRESS:0x4
+EXCEPTION_CODE:0xC0000005
+EXCEPTION_LEVEL:FIRST_CHANCE
+EXCEPTION_TYPE:STATUS_ACCESS_VIOLATION
+EXCEPTION_SUBTYPE:READ
+FAULTING_INSTRUCTION:6ab91c70 cmp dword ptr [eax+4],0
+BASIC_BLOCK_INSTRUCTION_COUNT:2
+BASIC_BLOCK_INSTRUCTION:6ab91c70 cmp dword ptr [eax+4],0
+BASIC_BLOCK_INSTRUCTION_TAINTED_INPUT_OPERAND:eax
+BASIC_BLOCK_INSTRUCTION:6ab91c74 jne libhttp!http_create_response+0x55d (6ab91cb6)
+BASIC_BLOCK_INSTRUCTION_TAINTED_INPUT_OPERAND:ZeroFlag
+MAJOR_HASH:0x51270e39
+MINOR_HASH:0x007a2546
+STACK_DEPTH:14
+STACK_FRAME:libhttp!http_create_response+0x517
+STACK_FRAME:libhttp!http_file_send_start+0xb64
+STACK_FRAME:libhttp!http_file_send_start+0xae6
+STACK_FRAME:libuv!uv_async_send+0x95
+STACK_FRAME:libuv!uv_async_send+0x2fd
+STACK_FRAME:libhttp!http_server_run+0x4b
+STACK_FRAME:PreloginLogic+0x3979
+STACK_FRAME:PreloginLogic+0x39f1
+STACK_FRAME:libuv!uv_once+0x50
+STACK_FRAME:MSVCR100!endthreadex+0x3a
+STACK_FRAME:MSVCR100!endthreadex+0xe4
+STACK_FRAME:kernel32!BaseThreadInitThunk+0xe
+STACK_FRAME:ntdll!__RtlUserThreadStart+0x70
+STACK_FRAME:ntdll!_RtlUserThreadStart+0x1b
+INSTRUCTION_ADDRESS:0x000000006ab91c70
+INVOKING_STACK_FRAME:0
+DESCRIPTION:Data from Faulting Address controls Branch Selection
+SHORT_DESCRIPTION:TaintedDataControlsBranchSelection
+CLASSIFICATION:UNKNOWN
+BUG_TITLE:Data from Faulting Address controls Branch Selection starting at libhttp!http_create_response+0x0000000000000517 (Hash=0x51270e39.0x007a2546)
+EXPLANATION:The data from the faulting address is later used to determine whether or not a branch is taken.

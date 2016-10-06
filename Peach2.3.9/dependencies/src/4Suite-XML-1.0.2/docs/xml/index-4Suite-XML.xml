@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V1.1//EN"
+          "http://docbook.org/xml/simple/1.1/sdocbook.dtd">
+<?ftdb-ignore-namespace http://xmlns.4suite.org/reserved?>
+<article>
+  <title>4Suite-XML-1.0.2 Document Index</title>
+
+  <section id="general">
+    <title>General</title>
+    <itemizedlist>
+      <listitem>
+        <ulink url="licenses.html" type="generate">Licenses and Acknowledgements</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="history.html" type="generate">Release History</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="CoreManual.html" type="generate">Users Manual</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="HowTos/4SuiteCVS.html" type="generate">4Suite CVS access</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="HowTos/UNIX.html" type="generate">Installing 4Suite on UNIX</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="HowTos/Windows.html" type="generate">Installing 4Suite on Windows</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="modules/Ft.html" type="generate">4Suite-XML API Reference</ulink>
+      </listitem>
+
+    </itemizedlist>
+  </section> <!-- general -->
+
+  <section id="extensions">
+    <title>XPath/XSLT Extensions</title>
+    <itemizedlist>
+      <listitem>
+        <ulink url="extensions/XPathBuiltins.html" type="generate">Built-in XPath Extensions</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="extensions/XsltBuiltins.html" type="generate">Built-in XSLT Extensions</ulink>
+      </listitem>
+
+    </itemizedlist>
+  </section> <!-- extensions -->
+
+  <section id="commandline">
+    <title>Command-line Applications</title>
+    <itemizedlist>
+      <listitem>
+        <ulink url="commandline/4xml.html" type="generate">4xml - command-line tool for working with XML documents</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="commandline/4xpath.html" type="generate">4xpath - command-line tool for performing XPath queries on XML documents</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="commandline/4xslt.html" type="generate">4xslt - command-line tool for performing XSLT transformations on XMLdocuments</ulink>
+      </listitem>
+      <listitem>
+        <ulink url="commandline/4xupdate.html" type="generate">4xupdate - command-line tool for performing XUpdates on XML documents</ulink>
+      </listitem>
+
+    </itemizedlist>
+  </section> <!-- commandline -->
+
+
+  <f:sources xmlns:f="http://xmlns.4suite.org/reserved">
+    <f:source>
+      <f:title>4xml - command-line tool for working with XML documents</f:title>
+      <f:src>commandline/4xml.xml</f:src>
+      <f:dst>commandline/4xml.html</f:dst>
+      <f:stylesheet>commandline</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>4xpath - command-line tool for performing XPath queries on XML documents</f:title>
+      <f:src>commandline/4xpath.xml</f:src>
+      <f:dst>commandline/4xpath.html</f:dst>
+      <f:stylesheet>commandline</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>4xslt - command-line tool for performing XSLT transformations on XMLdocuments</f:title>
+      <f:src>commandline/4xslt.xml</f:src>
+      <f:dst>commandline/4xslt.html</f:dst>
+      <f:stylesheet>commandline</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>4xupdate - command-line tool for performing XUpdates on XML documents</f:title>
+      <f:src>commandline/4xupdate.xml</f:src>
+      <f:dst>commandline/4xupdate.html</f:dst>
+      <f:stylesheet>commandline</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>Built-in XPath Extensions</f:title>
+      <f:src>extensions/XPathBuiltins.xml</f:src>
+      <f:dst>extensions/XPathBuiltins.html</f:dst>
+      <f:stylesheet>extensions</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>Built-in XSLT Extensions</f:title>
+      <f:src>extensions/XsltBuiltins.xml</f:src>
+      <f:dst>extensions/XsltBuiltins.html</f:dst>
+      <f:stylesheet>extensions</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>Licenses and Acknowledgements</f:title>
+      <f:src>licenses.doc</f:src>
+      <f:dst>licenses.html</f:dst>
+      <f:stylesheet>sdocbook</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>Release History</f:title>
+      <f:src>history.doc</f:src>
+      <f:dst>history.html</f:dst>
+      <f:stylesheet>sdocbook</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>Users Manual</f:title>
+      <f:src>CoreManual.doc</f:src>
+      <f:dst>CoreManual.html</f:dst>
+      <f:stylesheet>docbook</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>4Suite CVS access</f:title>
+      <f:src>HowTos/4SuiteCVS.doc</f:src>
+      <f:dst>HowTos/4SuiteCVS.html</f:dst>
+      <f:stylesheet>sdocbook</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>Installing 4Suite on UNIX</f:title>
+      <f:src>HowTos/UNIX.doc</f:src>
+      <f:dst>HowTos/UNIX.html</f:dst>
+      <f:stylesheet>sdocbook</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>Installing 4Suite on Windows</f:title>
+      <f:src>HowTos/Windows.doc</f:src>
+      <f:dst>HowTos/Windows.html</f:dst>
+      <f:stylesheet>sdocbook</f:stylesheet>
+    </f:source>
+    <f:source>
+      <f:title>4Suite-XML API Reference</f:title>
+      <f:src>modules/Ft.xml</f:src>
+      <f:dst>modules/Ft.html</f:dst>
+      <f:stylesheet>modules</f:stylesheet>
+    </f:source>
+
+  </f:sources>
+
+</article>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ext-module name="XPathBuiltins">
+  <description/>
+  <namespaces>
+    <namespace prefix="f" namespace-uri="http://xmlns.4suite.org/ext"/>
+  </namespaces>
+  <functions>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:encode">
+      <description>f:encode mirrors the Python encode function/method. It takes a
+foreign object that is a Unicode object, and an encoding,
+and returns another foreign object which is a Python byte string.</description>
+      <result>object</result>
+      <argument required="yes" type="object" name="object"/>
+      <argument required="yes" type="string" name="encoding"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:sha-hash">
+      <description>Returns a SHA message digest of the given string, as a string of
+several groups of hex digits separated by '-'. See
+http://www.itl.nist.gov/fipspubs/fip180-1.htm for info on SHA.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="text"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:join">
+      <description>Concatenates the string-values of the nodes in the given node-set,
+inserting the delimiter given in the optional second argument in
+between each string-value. The delimiter defaults to a space.
+See also: EXSLT's str:concat()</description>
+      <result>string</result>
+      <argument required="yes" type="node-set" name="nodeset"/>
+      <argument type="string" name="delim"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:version">
+      <description>Returns the 4Suite version number as a string.</description>
+      <result>string</result>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:generate-uuid">
+      <description>Returns a random UUID string.</description>
+      <result>string</result>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:parse-date">
+      <description>This function is similar to EXSLT's date:parse-date()
+except that it uses Python rather than Java conventions
+for the date formatting.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="date"/>
+      <argument type="string" name="format"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:random">
+      <description>Returns a random number between 0 (inclusive) and max (exclusive).
+max defaults to 1. The first optional argument is a different
+value for max, and the second argument is a flag that, if set,
+causes the random number to be rounded to an integer.
+See also: EXSLT's math:random()</description>
+      <result>number</result>
+      <argument type="number" name="max"/>
+      <argument type="boolean" name="forceInt"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:degrees-to-rads">
+      <description>Convert degrees to radians</description>
+      <result>number</result>
+      <argument required="yes" type="number" name="x"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:replace">
+      <description>Returns the third argument string, which defaults to the
+string-value of the context node, with occurrences of the substring
+given in the first argument replaced by the string given in the
+second argument.
+See also: EXSLT's str:replace()</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="old"/>
+      <argument required="yes" type="string" name="new"/>
+      <argument type="string" name="arg"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:bin-path">
+      <description>Returns the system-dependent path of Fourthought binaries</description>
+      <result>string</result>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:wrap">
+      <description>f:wrap() returns a string with the text reflowed so that each line
+fits within the given width. Existing linefeeds are preserved, but
+spaces are considered inter-word separators that can be collapsed.
+To reflow without preserving existing linefeeds, strip them first,
+e.g. with translate(text, '&amp;#10;', '').
+http://lists.fourthought.com/pipermail/4suite-dev/2002-December/000878.html</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="text"/>
+      <argument required="yes" type="number" name="width"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:base-uri">
+      <description>Returns the base URI of the first node in the given node-set, or
+of the context node if no argument is given. If the given node-set
+is empty, an empty string is returned.</description>
+      <result>string</result>
+      <argument type="node-set" name="arg"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:resolve-path">
+      <description>Resolves a Posix-style path, such as the path portion of a URL,
+against a base. Similar to f:resolve-url, but allows the base to be
+just a path, not necessarily a full URL.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="base"/>
+      <argument required="yes" type="string" name="rel"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:parse-xml">
+      <description>f:parse-xml() parses the string-value of the given object as XML
+and returns a node-set whose sole item is the resulting parsed
+document's root node. The XML must be a well-formed document.
+
+src - the string or object to be parsed as XML.
+
+parameters - the name of a parameter set for the operation.
+
+The parameters argument is ignored for now. In the future, it
+will provide a way to specify a base URI for the resolution of
+relative URIs in entity declarations and XIncludes.
+
+Also for now, if the XML contains an encoding declaration, the
+declaration must specify UTF-8.
+
+An example:
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;xsl:stylesheet
+  xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+  xmlns:f=&quot;http://xmlns.4suite.org/ext&quot;
+  version=&quot;1.0&quot;
+&gt;
+  &lt;xsl:output method=&quot;text&quot;/&gt;
+  &lt;xsl:variable name=&quot;doc&quot;
+    select=&quot;'&amp;lt;spam&gt;eggs&amp;lt;monty&gt;python&amp;lt;/monty&gt;&amp;lt;/spam&gt;'&quot;/&gt;
+
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;xsl:value-of select=&quot;f:parse-xml($doc)/spam/monty&quot;/&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+
+...run against any XML source should yield:
+
+python
+
+See also: XSLT (not XPath) extension function f:serialize-xml()</description>
+      <result>node-set</result>
+      <argument required="yes" type="string" name="src"/>
+      <argument type="object" name="parameters"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:import-string">
+      <description>f:import-string takes a Unicode FO and returns an XPath string.  It is
+an error if the FO contains illegal XML chars.  (although eventually
+this function might be extended to recover from this error)</description>
+      <result>string</result>
+      <argument required="yes" type="object" name="object"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:resolve-url">
+      <description>Returns the relative URL ref given in the second argument
+resolved against the base given in the first argument.
+In case of URI processing error an empty string is returned</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="base"/>
+      <argument required="yes" type="string" name="rel"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:cos">
+      <description>math.cos</description>
+      <result>number</result>
+      <argument required="yes" type="number" name="x"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:ospath2uri">
+      <description>Returns the given OS path as a URI.
+The result varies depending on the underlying operating system.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="path"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:normalize-eol">
+      <description>    Normalizes end-of-line characters in input string, returning the
+    normalized string. Normalization involves replacing &quot;
+&quot;, &quot;
+&quot;
+    or &quot;&quot; with &quot;
+&quot;</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="text"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:escape-xml">
+      <description>Returns the given string with XML markup characters &quot;&amp;&quot;, &quot;&lt;&quot; and
+&quot;&gt;&quot; escaped as &quot;&amp;amp;&quot;, &quot;&amp;lt;&quot; and &quot;&amp;gt;&quot;, respectively.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="text"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:ends-with">
+      <description>Returns true if the string given in the first argument ends with
+the substring given in the second argument.</description>
+      <result>boolean</result>
+      <argument required="yes" type="string" name="outer"/>
+      <argument required="yes" type="string" name="inner"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:match">
+      <description>Returns true if the string given in the optional second argument
+(or the string-value of the context node if no second argument is
+given) matches the regular expression given in the first argument.
+See also: EXSLT's regexp:test()
+This function does differ from XSLT 2.0 match() function</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="pattern"/>
+      <argument type="string" name="arg"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:if">
+      <description>If the first argument, when converted to a boolean, is true,
+returns the second argument. Otherwise, returns the third
+argument, or if the third argument is not given, returns an
+empty node-set.</description>
+      <result>object</result>
+      <argument required="yes" type="boolean" name="cond"/>
+      <argument required="yes" type="object" name="v1"/>
+      <argument type="object" name="v2"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:pytime-to-exslt">
+      <description>Takes a Python time value as a number and returns a date/time as if
+from EXSLT date-time()
+t - a time stamp number, as from Python's time.time()
+    if omitted, use the current time</description>
+      <result>string</result>
+      <argument type="number" name="t"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:share-path">
+      <description>Returns the system-dependent path to modifiable data</description>
+      <result>string</result>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:indent">
+      <description>f:indent() returns a string with each line of the text indented the
+given number of levels. For each level, the indent string, normally
+2 spaces by default, is prepended to each line.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="text"/>
+      <argument required="yes" type="number" name="levels"/>
+      <argument type="string" name="indentstring"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:uri2ospath">
+      <description>Returns the given URI as an OS path.
+The result varies depending on the underlying operating system.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="uri"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:strftime">
+      <description>Returns the given ISO 8601 UTC date-time formatted according to
+the given format string as would be used by Python's
+time.strftime(). If no date-time string is given, the current
+time is used.</description>
+      <result>string</result>
+      <argument required="yes" type="string" name="format"/>
+      <argument type="string" name="date"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:range">
+      <description>Returns a node-set consisting of text nodes encapsulating integers
+in the numeric range bounded by the given low and high values.</description>
+      <result>node-set</result>
+      <argument required="yes" type="number" name="lo"/>
+      <argument required="yes" type="number" name="hi"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:decode">
+      <description>f:decode mirrors the Python decode function/method. It takes a
+foreign object that is a Python byte string, and an encoding,
+and returns another foreign object which is a Unicode object.</description>
+      <result>object</result>
+      <argument required="yes" type="object" name="object"/>
+      <argument required="yes" type="string" name="encoding"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:sin">
+      <description>math.sin</description>
+      <result>number</result>
+      <argument required="yes" type="number" name="x"/>
+    </function>
+    <function namespace-uri="http://xmlns.4suite.org/ext" name="f:fact">
+      <description>Factorial</description>
+      <result>number</result>
+      <argument required="yes" type="number" name="x"/>
+    </function>
+  </functions>
+</ext-module>

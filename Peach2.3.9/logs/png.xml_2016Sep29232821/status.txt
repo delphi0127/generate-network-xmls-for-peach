@@ -1,0 +1,13 @@
+Peach Fuzzer Run
+=================
+
+Command line: c:\Peach2.3.9\peach.py --debug C:\Peach2.3.9\tools\minset\png.xml 
+Date of run: Fri Sep 30 07:28:21 2016
+SEED: 1475191700.22
+Pit File: png.xml
+Run name: DefaultRun
+
+Fri Sep 30 07:28:21 2016: 
+Fri Sep 30 07:28:21 2016: Test starting: HelloWorldTest
+Fri Sep 30 07:28:21 2016: 
+Fri Sep 30 07:28:23 2016: On test variation # 1

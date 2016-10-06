@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt">
+  <modification-date>2006-11-25 16:34:23</modification-date>
+  <abstract>Extensions to distutils to support building, installing, packaging 4Suite</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <modules>
+    <module-reference public="yes" documented="yes" name="BDist" realname="Ft.Lib.DistExt.BDist">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BDistEgg" realname="Ft.Lib.DistExt.BDistEgg">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BDistInno" realname="Ft.Lib.DistExt.BDistInno">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BDistRpm" realname="Ft.Lib.DistExt.BDistRpm">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Build" realname="Ft.Lib.DistExt.Build">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BuildDocs" realname="Ft.Lib.DistExt.BuildDocs">
+      <abstract>Main distutils extensions for generating documentation</abstract>
+      <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BuildExt" realname="Ft.Lib.DistExt.BuildExt">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BuildL10n" realname="Ft.Lib.DistExt.BuildL10n">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BuildPy" realname="Ft.Lib.DistExt.BuildPy">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="BuildScripts" realname="Ft.Lib.DistExt.BuildScripts">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Config" realname="Ft.Lib.DistExt.Config">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Dist" realname="Ft.Lib.DistExt.Dist">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Formatters" realname="Ft.Lib.DistExt.Formatters">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Generate" realname="Ft.Lib.DistExt.Generate">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="GenerateBisonGen" realname="Ft.Lib.DistExt.GenerateBisonGen">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="GenerateL10n" realname="Ft.Lib.DistExt.GenerateL10n">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ImageHlp" realname="Ft.Lib.DistExt.ImageHlp">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Install" realname="Ft.Lib.DistExt.Install">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallConfig" realname="Ft.Lib.DistExt.InstallConfig">
+      <abstract>distutils command for installing the configuration file.</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallData" realname="Ft.Lib.DistExt.InstallData">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallDevel" realname="Ft.Lib.DistExt.InstallDevel">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallDocs" realname="Ft.Lib.DistExt.InstallDocs">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallEggInfo" realname="Ft.Lib.DistExt.InstallEggInfo">
+      <abstract>distutils.command.install_egg_info</abstract>
+      <description>Implements the Distutils 'install_egg_info' command, for installing
+a package's PKG-INFO metadata.</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallHtml" realname="Ft.Lib.DistExt.InstallHtml">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallL10n" realname="Ft.Lib.DistExt.InstallL10n">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallLib" realname="Ft.Lib.DistExt.InstallLib">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallLocalState" realname="Ft.Lib.DistExt.InstallLocalState">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallMisc" realname="Ft.Lib.DistExt.InstallMisc">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallScripts" realname="Ft.Lib.DistExt.InstallScripts">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallSysconf" realname="Ft.Lib.DistExt.InstallSysconf">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="InstallText" realname="Ft.Lib.DistExt.InstallText">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="ModuleFinder" realname="Ft.Lib.DistExt.ModuleFinder">
+      <abstract>Utilities to help applications using modulefinder get all of the modules
+and data files used throughout 4Suite.</abstract>
+      <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="PackageManager" realname="Ft.Lib.DistExt.PackageManager">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Py2Exe" realname="Ft.Lib.DistExt.Py2Exe">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="SDist" realname="Ft.Lib.DistExt.SDist">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Structures" realname="Ft.Lib.DistExt.Structures">
+      <abstract>Data structures that are to be used in a pkg file.</abstract>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Uninstall" realname="Ft.Lib.DistExt.Uninstall">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Util" realname="Ft.Lib.DistExt.Util">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Version" realname="Ft.Lib.DistExt.Version">
+      <abstract/>
+      <description/>
+    </module-reference>
+  </modules>
+  <classes>
+    <class name="Document" public="yes">
+      <abstract>An XSLT rendered document. It creates both a XML, HTML and Text version
+of the document (if desired)</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Document" module="Ft.Lib.DistExt.Structures"/>
+      </method-resolution-order>
+      <methods name="Document" module="Ft.Lib.DistExt.Structures">
+        <method public="no" name="__init__" id="Document-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="source"/>
+            <arg name="stylesheet"/>
+            <arg default="None" name="params"/>
+            <arg default="None" name="title"/>
+            <arg default="None" name="category"/>
+            <arg default="None" name="flags"/>
+            <arg default="None" name="mtime"/>
+            <arg default="None" name="outfile"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Document-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Executable" public="yes">
+      <abstract>Just a collection of attributes that describes an executable
+and everything needed to build it (hopefully in a portable way,
+but there are hooks that let you be as unportable as you need).</abstract>
+      <description>Instance attributes:
+  name : string
+    the full name of the extension, including any packages -- ie.
+    *not* a filename or pathname, but Python dotted name
+  sources : [string]
+    list of source filenames, relative to the distribution root
+    (where the setup script lives), in Unix form (slash-separated)
+    for portability.  Source files may be C, C++, SWIG (.i),
+    platform-specific resource files, or whatever else is recognized
+    by the &quot;build_ext&quot; command as source for a Python extension.
+  include_dirs : [string]
+    list of directories to search for C/C++ header files (in Unix
+    form for portability)
+  define_macros : [(name : string, value : string|None)]
+    list of macros to define; each macro is defined using a 2-tuple,
+    where 'value' is either the string to define it to or None to
+    define it without a particular value (equivalent of &quot;#define
+    FOO&quot; in source or -DFOO on Unix C compiler command line)
+  undef_macros : [string]
+    list of macros to undefine explicitly
+  library_dirs : [string]
+    list of directories to search for C/C++ libraries at link time
+  libraries : [string]
+    list of library names (not filenames or paths) to link against
+  runtime_library_dirs : [string]
+    list of directories to search for C/C++ libraries at run time
+    (for shared extensions, this is when the extension is loaded)
+  extra_objects : [string]
+    list of extra files to link with (eg. object files not implied
+    by 'sources', static library that must be explicitly specified,
+    binary resource files, etc.)
+  extra_compile_args : [string]
+    any extra platform- and compiler-specific information to use
+    when compiling the source files in 'sources'.  For platforms and
+    compilers where &quot;command line&quot; makes sense, this is typically a
+    list of command-line arguments, but for other platforms it could
+    be anything.
+  extra_link_args : [string]
+    any extra platform- and compiler-specific information to use
+    when linking object files together to create the extension (or
+    to create a new static Python interpreter).  Similar
+    interpretation as for 'extra_compile_args'.</description>
+      <method-resolution-order>
+        <base name="Executable" module="Ft.Lib.DistExt.Structures"/>
+      </method-resolution-order>
+      <methods name="Executable" module="Ft.Lib.DistExt.Structures">
+        <method public="no" name="__init__" id="Executable-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="sources"/>
+            <arg default="None" name="include_dirs"/>
+            <arg default="None" name="define_macros"/>
+            <arg default="None" name="undef_macros"/>
+            <arg default="None" name="library_dirs"/>
+            <arg default="None" name="libraries"/>
+            <arg default="None" name="runtime_library_dirs"/>
+            <arg default="None" name="extra_objects"/>
+            <arg default="None" name="extra_compile_args"/>
+            <arg default="None" name="extra_link_args"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Executable-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="Extension" public="yes">
+      <abstract>Just a collection of attributes that describes an extension
+module and everything needed to build it (hopefully in a portable
+way, but there are hooks that let you be as unportable as you need).</abstract>
+      <description>Instance attributes:
+  name : string
+    the full name of the extension, including any packages -- ie.
+    *not* a filename or pathname, but Python dotted name
+  sources : [string]
+    list of source filenames, relative to the distribution root
+    (where the setup script lives), in Unix form (slash-separated)
+    for portability.  Source files may be C, C++, SWIG (.i),
+    platform-specific resource files, or whatever else is recognized
+    by the &quot;build_ext&quot; command as source for a Python extension.
+  include_dirs : [string]
+    list of directories to search for C/C++ header files (in Unix
+    form for portability)
+  define_macros : [(name : string, value : string|None)]
+    list of macros to define; each macro is defined using a 2-tuple,
+    where 'value' is either the string to define it to or None to
+    define it without a particular value (equivalent of &quot;#define
+    FOO&quot; in source or -DFOO on Unix C compiler command line)
+  undef_macros : [string]
+    list of macros to undefine explicitly
+  library_dirs : [string]
+    list of directories to search for C/C++ libraries at link time
+  libraries : [string]
+    list of library names (not filenames or paths) to link against
+  runtime_library_dirs : [string]
+    list of directories to search for C/C++ libraries at run time
+    (for shared extensions, this is when the extension is loaded)
+  extra_objects : [string]
+    list of extra files to link with (eg. object files not implied
+    by 'sources', static library that must be explicitly specified,
+    binary resource files, etc.)
+  extra_compile_args : [string]
+    any extra platform- and compiler-specific information to use
+    when compiling the source files in 'sources'.  For platforms and
+    compilers where &quot;command line&quot; makes sense, this is typically a
+    list of command-line arguments, but for other platforms it could
+    be anything.
+  extra_link_args : [string]
+    any extra platform- and compiler-specific information to use
+    when linking object files together to create the extension (or
+    to create a new static Python interpreter).  Similar
+    interpretation as for 'extra_compile_args'.
+  export_symbols : [string]
+    list of symbols to be exported from a shared extension.  Not
+    used on all platforms, and not generally necessary for Python
+    extensions, which typically export exactly one symbol: &quot;init&quot; +
+    extension_name.
+  swig_opts : [string]
+    any extra options to pass to SWIG if a source file has the .i
+    extension.
+  depends : [string]
+    list of files that the extension depends on
+  language : string
+    extension language (i.e. &quot;c&quot;, &quot;c++&quot;, &quot;objc&quot;). Will be detected
+    from the source extensions if not provided.</description>
+      <method-resolution-order>
+        <base name="Extension" module="distutils.extension"/>
+      </method-resolution-order>
+      <methods name="Extension" module="distutils.extension">
+        <method public="no" name="__init__" id="Extension-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="sources"/>
+            <arg default="None" name="include_dirs"/>
+            <arg default="None" name="define_macros"/>
+            <arg default="None" name="undef_macros"/>
+            <arg default="None" name="library_dirs"/>
+            <arg default="None" name="libraries"/>
+            <arg default="None" name="runtime_library_dirs"/>
+            <arg default="None" name="extra_objects"/>
+            <arg default="None" name="extra_compile_args"/>
+            <arg default="None" name="extra_link_args"/>
+            <arg default="None" name="export_symbols"/>
+            <arg default="None" name="swig_opts"/>
+            <arg default="None" name="depends"/>
+            <arg default="None" name="language"/>
+            <var-keywords name="kw"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ExtensionsDocument" public="yes">
+      <bases>
+        <base documented="yes" class="GeneratedDocument" module="Ft.Lib.DistExt.Structures"/>
+      </bases>
+      <abstract>A collection of attributes that describes a set of Python modules that
+implement 4Suite's XPath/XSLT extension API. Instances of File are
+used as members of the doc_files argument to setup().</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ExtensionsDocument" module="Ft.Lib.DistExt.Structures"/>
+        <base name="GeneratedDocument" module="Ft.Lib.DistExt.Structures"/>
+      </method-resolution-order>
+      <methods name="GeneratedDocument" module="Ft.Lib.DistExt.Structures">
+        <method public="no" name="__init__" id="ExtensionsDocument-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="modules"/>
+            <arg name="title"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ExtensionsDocument-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="GeneratedDocument" module="Ft.Lib.DistExt.Structures">
+        <member-reference name="get_source_files" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="File" public="yes">
+      <abstract>A collection of attributes that describes a file on the filesystem.
+Instances of File are used as members of the doc_files argument to
+setup().</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="File" module="Ft.Lib.DistExt.Structures"/>
+      </method-resolution-order>
+      <methods name="File" module="Ft.Lib.DistExt.Structures">
+        <method public="no" name="__init__" id="File-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="source"/>
+            <arg default="''" name="outdir"/>
+            <arg default="None" name="flags"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="File-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="get_source_files" id="File-get_source_files">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="FileList" public="yes">
+      <bases>
+        <base documented="no" class="FileList" module="distutils.filelist"/>
+      </bases>
+      <abstract>Defines a collection of files.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="FileList" module="Ft.Lib.DistExt.Structures"/>
+        <base name="FileList" module="distutils.filelist"/>
+      </method-resolution-order>
+      <methods name="FileList" module="distutils.filelist">
+        <method public="no" name="__init__" id="FileList-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="dest"/>
+            <arg name="sources"/>
+            <arg default="False" name="recursive"/>
+            <arg default="None" name="excludes"/>
+          </arguments>
+          <overrides documented="no" class="FileList" module="distutils.filelist"/>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="FileList" module="distutils.filelist">
+        <member-reference name="append" public="no"/>
+        <member-reference name="debug_print" public="no"/>
+        <member-reference name="exclude_pattern" public="no"/>
+        <member-reference name="extend" public="no"/>
+        <member-reference name="findall" public="no"/>
+        <member-reference name="include_pattern" public="no"/>
+        <member-reference name="process_template_line" public="no"/>
+        <member-reference name="remove_duplicates" public="no"/>
+        <member-reference name="set_allfiles" public="no"/>
+        <member-reference name="sort" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="Localization" public="yes">
+      <abstract>Defines a message catalog for a particular language</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Localization" module="Ft.Lib.DistExt.Structures"/>
+      </method-resolution-order>
+      <methods name="Localization" module="Ft.Lib.DistExt.Structures">
+        <method public="no" name="__init__" id="Localization-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="language"/>
+            <arg name="source"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Localization-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ModulesDocument" public="yes">
+      <bases>
+        <base documented="yes" class="GeneratedDocument" module="Ft.Lib.DistExt.Structures"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ModulesDocument" module="Ft.Lib.DistExt.Structures"/>
+        <base name="GeneratedDocument" module="Ft.Lib.DistExt.Structures"/>
+      </method-resolution-order>
+      <methods name="GeneratedDocument" module="Ft.Lib.DistExt.Structures">
+        <method public="no" name="__init__" id="ModulesDocument-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="title"/>
+            <arg name="packages"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="ModulesDocument-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="GeneratedDocument" module="Ft.Lib.DistExt.Structures">
+        <member-reference name="get_source_files" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="Script" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Script" module="Ft.Lib.DistExt.Structures"/>
+      </method-resolution-order>
+      <methods name="Script" module="Ft.Lib.DistExt.Structures">
+        <method public="no" name="__init__" id="Script-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="module"/>
+            <arg default="None" name="function"/>
+            <arg default="None" name="application"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Script-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="EnsureVersion" id="EnsureVersion">
+      <abstract>Checks Distutils version against specified version number</abstract>
+      <description/>
+      <arguments>
+        <arg name="version"/>
+      </arguments>
+    </function>
+    <function public="yes" name="setup" id="setup">
+      <abstract>The gateway to the Distutils: do everything your setup script needs
+to do, in a highly flexible and user-driven way.  Briefly: create a
+Distribution instance; find and parse config files; parse the command
+line; run each Distutils command found there, customized by the options
+supplied to 'setup()' (as keyword arguments), in config files, and on
+the command line.</abstract>
+      <description>The Distribution instance might be an instance of a class supplied via
+the 'distclass' keyword argument to 'setup'; if no such class is
+supplied, then the Distribution class (in dist.py) is instantiated.
+All other arguments to 'setup' (except for 'cmdclass') are used to set
+attributes of the Distribution instance.
+
+The 'cmdclass' argument, if supplied, is a dictionary mapping command
+names to command classes.  Each command encountered on the command line
+will be turned into a command class, which is in turn instantiated; any
+class found in 'cmdclass' is used in place of the default, which is
+(for command 'foo_bar') class 'foo_bar' in module
+'distutils.command.foo_bar'.  The command class must provide a
+'user_options' attribute which is a list of option specifiers for
+'distutils.fancy_getopt'.  Any command-line options between the current
+and the next command are used to set attributes of the current command
+object.
+
+When the entire command-line has been successfully parsed, calls the
+'run()' method on each command object in turn.  This method will be
+driven entirely by the Distribution object (which each command object
+has a reference to, thanks to its constructor), and the
+command-specific options that became attributes of each command
+object.</description>
+      <arguments>
+        <var-keywords name="attrs"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="DEBUG" id="DEBUG">
+      <value>None</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['EnsureVersion', 'Extension', 'setup', 'Localization', 'FileList', 'Script', 'Executable', 'File', 'ModulesDocument', 'ExtensionsDocument', 'Document']</value>
+    </global>
+  </globals>
+</module>

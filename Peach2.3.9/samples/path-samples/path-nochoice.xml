@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Hanifi Gunes" description="Path NoChoice Example">
+
+	<!--
+	
+		This is a simple example that shows a changeState action can also be used
+		instead of alternative Choice element.
+	
+		Syntax:
+		python peach.py samples\path-nochoice.xml
+	
+	
+		Output:
+			This example should output:
+			One Two Three Four
+	
+		Authors:
+			Hanifi Gunes(hanifigunes@gmail.com)
+			
+	-->
+
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<!-- Create a simple data template containing a single string -->
+	<DataModel name="OneTemplate">
+		<String name="String0" value="One " isStatic="true"/>
+	</DataModel>
+	
+	<DataModel name="TwoTemplate">
+		<String name="String1" value="Two " isStatic="true" />
+	</DataModel>
+	
+	<DataModel name="ThreeTemplate">
+		<String name="String0" value="Three " isStatic="true"/>
+	</DataModel>
+	
+	<DataModel name="FourTemplate">
+		<String name="String0" value="Four" isStatic="true"/>
+	</DataModel>
+	
+	<StateModel name="StateMachine0" initialState="State1">
+		<State name="State1">
+			<Action type="output">
+				<DataModel ref="OneTemplate"/>
+			</Action>
+			
+			<Action type="changeState" ref="State2"/>
+			<!-- 
+				Or alternatively,
+				<Choice>
+					<Action type="changeState" ref="State2"/>
+				</Choice>
+			-->
+		</State>
+		
+		<State name="State2">
+			<Action type="output">
+				<DataModel ref="TwoTemplate"/>
+			</Action>
+			<Choice>
+				<Action type="changeState" ref="State3"/>
+				<Action type="changeState" ref="State4"/>
+			</Choice>
+		</State>
+		
+		<State name="State3">
+			<Action type="output">
+				<DataModel ref="ThreeTemplate"/>
+			</Action>
+			<Action type="changeState" ref="State4"/>
+		</State>
+		
+		<State name="State4">
+			<Action type="output">
+				<DataModel ref="FourTemplate"/>
+			</Action>
+		</State>
+	</StateModel>
+
+	<Test name="NoChoiceTest">
+		<StateModel ref="StateMachine0">
+			<Path ref="State1"/>
+			<Path ref="State2"/>
+			<Path ref="State3"/>
+			<!-- It goes on fuzzing states use Stop element to end fuzzing exactly at that point -->
+		</StateModel>
+		<!-- Display test cases to the console -->
+		<Publisher class="stdout.Stdout" />
+	</Test>
+	
+
+	<!-- Configure a single run -->
+	<Run name="DefaultRun" description="Stdout NoChoiceTest Run">
+
+		<Test ref="NoChoiceTest" />
+
+	</Run>
+
+</Peach>
+<!-- end -->

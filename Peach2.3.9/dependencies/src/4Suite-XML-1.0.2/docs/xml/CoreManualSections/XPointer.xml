@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="xpointer">
+  <title>XPointer processing</title>
+
+  <section id="about_xpointer">
+    <title>About XPointer</title>
+
+    <para><ulink url="http://www.w3.org/TR/xptr-framework/">XPointer</ulink>
+    is a set of W3C specifications (one part of which is, as of 2006, still
+    a Working Draft) that provide a means of identifying and referring to a
+    portion of an XML document. The portion being referenced need not be
+    contiguous, and need not constitute a well-formed general entity.
+    XPointers were originally intended to be used in the fragment component
+    of a URI or IRI (the fragment being the part after
+    "<literal>#</literal>"), but the specifications actually place no
+    restrictions on where they can be used.</para>
+
+    <para>An example of an XPointer embedded in a URI would be</para>
+
+    <para><literal>http://example.com/inventory.xml#xpointer(//part%5Bstarts-with(sku,%20'999')%5D)</literal></para>
+
+    <para>The XPointer in that example is actually</para>
+
+    <para><literal>xpointer(//part[starts-with(sku,
+    '999')])</literal></para>
+
+    <para>but the URI syntax requires further encoding of some data. The
+    result of evaluating this XPointer would be the same as evaluating the
+    XPath expression <code>//part[starts-with(sku, '999')]</code> against
+    the document identified by the URI
+    <literal>http://example.com/inventory.xml</literal>.</para>
+
+    <para>XPointer syntax is simple: a <firstterm>shorthand
+    XPointer</firstterm> is just a name, and refers to the element with that
+    ID (as determined by a DTD or other schema, typically), much like the
+    XPath 1.0 expression <code>id(somename)</code>, but with a little more
+    flexibility, since <code>id()</code> is limited to DTD-based data
+    typing.</para>
+
+    <para>A <firstterm>scheme-based XPointer</firstterm> consists of a
+    series of one or more <firstterm baseform="part">parts</firstterm>,
+    separated by optional whitespace, with each part looking like a function
+    call. What appear to be function names are actually syntactic and
+    semantic <firstterm>schemes</firstterm>, of which the most common is the
+    ID-oriented <literal>element</literal> scheme, and of which the most
+    versatile is the XPath-oriented <literal>xpointer</literal>
+    scheme.</para>
+
+    <para>If a scheme-based XPointer contains more than one part, then the
+    parts are evaluated from left to right, skipping any
+    unsupported/unrecognized schemes, until one is found that identifies
+    something that exists in the document. Some schemes, like the
+    namespace/prefix-binding <literal>xmlns</literal>, identify nothing (by
+    design), and instead just influence the interpretation of subsequent
+    parts. It's possible for an XPointer to produce different results with
+    different processors, if the author doesn't take care to ensure each
+    part identifies the same thing.</para>
+
+    <para>Here are some more examples:</para>
+
+    <para>The XPath 1.0 expression <code>id(somename)</code> means the same
+    thing as the XPointer <code>xpointer(id(somename))</code>, and nearly
+    the same thing as the XPointers <code>element(somename)</code> and
+    <code>somename</code>, which just have more flexibility in where the ID
+    can be drawn from.</para>
+
+    <para>The XPointer <code>element(somename/3/1)</code> means nearly the
+    same thing as the XPath expression
+    <code>id(somename)/*[3]/*[1]</code>.</para>
+
+    <para>The XPointer
+    <code>xmlns(xhtml=http://www.w3.org/1999/xhtml)xpointer(//xhtml:a[@href])</code>
+    could be used to refer to all of the links in an XHTML 1.0
+    document.</para>
+  </section>
+
+  <section id="xpointer_in_4suite">
+    <title>XPointer support in 4Suite</title>
+
+    <para>4Suite's XPointer implementation, sometimes called 4XPointer, has
+    no command-line interface, but can be used within Python applications.
+    It supports XPointers to different degrees, depending on the
+    circumstances:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>When an XML document is being parsed into a Domlette with
+        XInclude processing enabled, any XPointer encountered in an
+        <code>xi:include</code> element is automatically evaluated when the
+        included document is parsed. In this mode the XPointer must use an
+        XPath LocationPath that only uses steps along the child axis.
+        Furthermore, any predicates must be literal numbers, or must be of
+        the specific form <code>[@attname='attvalue']</code>. For example,
+        <code>/foo[3]</code> and <code>/foo[@bar='baz']</code> will work,
+        but <code>../foo</code> and <code>foo/[.='bar']</code> will not.
+        Function calls are not allowed.</para>
+      </listitem>
+
+      <listitem>
+        <para>If you have not yet parsed an XML document, but have a URI for
+        it, then you can use
+        <methodname>Ft.Xml.XPointer.SelectUri</methodname>() to parse the
+        document and evaluate an XPointer embedded in the URI's fragment
+        component. The parsing is performed with Domlette's default
+        <classname>NonvalidatingReader</classname> instance. There are some
+        implementation gaps to note when using the
+        <literal>xpointer</literal> scheme: the only additional function
+        fully supported is <methodname>here</methodname>(), and the
+        following functions always return empty location-sets:
+        <methodname>string-range</methodname>(),
+        <methodname>range-to</methodname>(),
+        <methodname>start-point</methodname>(),
+        <methodname>end-point</methodname>(), and
+        <methodname>origin</methodname>(). <methodname>origin</methodname>
+        is illegal to use outside of extended XLinks, anyway.</para>
+      </listitem>
+
+      <listitem>
+        <para>If you have already parsed the document into a Domlette, then
+        you can evaluate an arbitrary XPointer against it by using
+        <methodname>Ft.Xml.XPointer.SelectNode</methodname>(). The same
+        implementation gaps as noted in the description of
+        <methodname>Ft.Xml.XPointer.SelectUri</methodname>() apply.</para>
+      </listitem>
+    </orderedlist>
+
+    <para>Ranges are not supported because Domlette does not support DOM
+    Level 2 Ranges. Uche Ogbuji posted <ulink
+    url="http://lists.fourthought.com/pipermail/4suite/2003-September/005813.html">some
+    thoughts about this topic</ulink> a while back. Also note that although
+    the <literal>element</literal> scheme is streamable, it is not yet
+    supported in XIncludes due to ID-related limitations in Domlette. Since
+    <literal>element</literal> and shorthand pointer support are
+    requirements for full XInclude conformance, they will probably be
+    implemented in the future.</para>
+
+    <para>In 4Suite 1.0b1 and earlier, the implementation was based on older
+    versions of the specs, and several additional restrictions were in
+    effect: the <literal>element</literal> scheme was not even an option,
+    XPointers in XIncludes had to be given via URIs (not attributes) and
+    couldn't contain NameTests involving "<code>*</code>", and all other
+    XPointers were only allowed to identify a single node.</para>
+  </section>
+
+  <section id="xpointer_examples" revisionflag="added">
+    <title>Examples</title>
+
+    <para>The following example uses XInclude with XPointer references to
+    include various sections from one document into another document. <xref
+    linkend="xpointer.example.main_doc" /> lists the contents of the file
+    <filename>article.xml</filename>, which references one section using a
+    shorthand pointer and then references any sections that have their
+    <sgmltag class="attribute">condition</sgmltag> attribute set to <sgmltag
+    class="attvalue">unfinished</sgmltag>. <xref
+    linkend="xpointer.example.referenced_doc" /> lists the contents of the
+    file <filename>article2.xml</filename>, which is referenced from
+    <filename>article.xml</filename>. <xref
+    linkend="xpointer.example.load" /> lists the Python code used to parse
+    and print this document; note that XPointer processing is driven from
+    XInclude processing, which is done automatically by default.</para>
+
+    <figure id="xpointer.example.main_doc">
+      <title><filename>article.xml</filename>: Document using XInclude with
+      XPointer references</title>
+
+      <programlisting>&lt;article&gt;
+  &lt;title&gt;My important article&lt;/title&gt;
+  &lt;xi:include href="article2.xml"
+              xpointer="woo"
+              xmlns:xi="http://www.w3.org/2001/XInclude"/&gt;
+  &lt;xi:include href="article2.xml"
+              xpointer="xpointer(article/section[@condition='unfinished'])"
+              xmlns:xi="http://www.w3.org/2001/XInclude"/&gt;
+&lt;/article&gt;</programlisting>
+    </figure>
+
+    <figure id="xpointer.example.referenced_doc">
+      <title><filename>article2.xml</filename>: Document with content
+      referenced from <filename>article.xml</filename></title>
+
+      <programlisting>&lt;article&gt;
+  &lt;section condition="unfinished"&gt;
+    &lt;title&gt;Section 1&lt;/title&gt;
+    &lt;!-- Write me! --&gt;
+  &lt;/section&gt;
+  &lt;section xml:id="woo"&gt;
+    &lt;title&gt;Section 2&lt;/title&gt;
+    &lt;para&gt;Yeah, content.&lt;/para&gt;
+  &lt;/section&gt;
+  &lt;section condition="unfinished"&gt;
+    &lt;title&gt;Section 3&lt;/title&gt;
+    &lt;!-- Write me, too! --&gt;
+  &lt;/section&gt;
+&lt;/article&gt;</programlisting>
+    </figure>
+
+    <figure id="xpointer.example.load">
+      <title>Loading the document</title>
+
+      <programlisting>from Ft.Xml import Parse
+from Ft.Xml.Domlette import PrettyPrint
+doc = Parse("article.xml")
+PrettyPrint(doc)</programlisting>
+    </figure>
+
+    <para>As mentioned earlier, XPointer is most commonly used along with
+    XInclude, but 4Suite provides an API for using XPointer directly from
+    Python. Using <filename>article2.xml</filename> as listed above in <xref
+    linkend="xpointer.example.referenced_doc" />, <xref
+    linkend="xpointer.example.direct" /> loads two of the nodes loaded
+    previously with XInclude. Note that when using the standalone interface,
+    the code is able to take advantage of more of the XPointer
+    syntax.</para>
+
+    <figure id="xpointer.example.direct">
+      <title>Using XPointer directly from Python</title>
+
+      <programlisting>from Ft.Xml import Parse
+from Ft.Xml.Domlette import PrettyPrint
+from Ft.Xml.XPointer import SelectNode
+
+article2 = Parse("article2.xml")
+# Shorthand XPointer syntax
+node = SelectNode(article2, "woo")[0]
+PrettyPrint(node)
+# Scheme-based XPointer syntax
+node = SelectNode(article2,
+                  "xpointer(//section[@condition='unfinished'][2])")[0]
+PrettyPrint(node)</programlisting>
+    </figure>
+
+    <para><xref linkend="xpointer.example.complete" /> is very similar to
+    the examples above, only this version is self-contained; the resources
+    are stored in Python strings and resolved using a custom
+    resolver.</para>
+
+    <figure id="xpointer.example.complete">
+      <title>Self-contained example</title>
+
+      <programlisting>article = """&lt;article&gt;&lt;title&gt;My important article&lt;/title&gt;
+&lt;xi:include href="ex:article2"
+            xpointer="woo"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/&gt;
+&lt;xi:include href="ex:article2"
+            xpointer="xpointer(article/section[@condition='unfinished'])"
+            xmlns:xi="http://www.w3.org/2001/XInclude"/&gt;
+&lt;/article&gt;"""
+
+article2 = """&lt;article&gt;
+&lt;section condition="unfinished"&gt;&lt;title&gt;Section 1&lt;/title&gt;&lt;!-- Write me! --&gt;&lt;/section&gt;
+&lt;section xml:id="woo"&gt;&lt;title&gt;Section 2&lt;/title&gt;&lt;para&gt;Yeah, content.&lt;/para&gt;&lt;/section&gt;
+&lt;section condition="unfinished"&gt;&lt;title&gt;Section 3&lt;/title&gt;&lt;!-- Write me, too! --&gt;&lt;/section&gt;
+&lt;/article&gt;"""
+
+from Ft.Lib.Uri import FtUriResolver, Absolutize
+from Ft.Lib import UriException
+from cStringIO import StringIO
+class MyResolver (FtUriResolver):
+  def normalize(self, uriRef, baseUri):
+    return Absolutize(uriRef, baseUri)
+  def resolve(self, uri):
+    if uri == "ex:article":
+      return StringIO(article)
+    elif uri == "ex:article2":
+      return StringIO(article2)
+    else:
+      raise UriException(UriException.RESOURCE_ERROR,
+                         loc=uri, msg="not found, sorry")
+
+myResolver = MyResolver()
+
+from Ft.Xml.InputSource import InputSourceFactory
+from Ft.Xml.Domlette import NonvalidatingReader, PrettyPrint
+factory = InputSourceFactory(resolver=myResolver)
+isrc = factory.fromUri("ex:article")
+doc = NonvalidatingReader.parse(isrc)
+PrettyPrint(doc)
+
+from Ft.Xml.XPointer import SelectNode
+
+isrc = factory.fromUri("ex:article2")
+article2 = NonvalidatingReader.parse(isrc)
+node = SelectNode(article2, "woo")[0]
+PrettyPrint(node)
+node = SelectNode(article2,
+                  "xpointer(//section[@condition='unfinished'][2])")[0]
+PrettyPrint(node)
+</programlisting>
+    </figure>
+  </section>
+</section>

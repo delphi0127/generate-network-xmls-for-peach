@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPointer.XPointer">
+  <modification-date>2006-04-28 13:54:49</modification-date>
+  <abstract>A Parsed Token that represents a list of XPointers
+WWW: http://4suite.org/XPointer        e-mail: support@4suite.org</abstract>
+  <description>Copyright (c) 2000-2001 Fourthought Inc, USA.   All Rights Reserved.
+See  http://4suite.org/COPYRIGHT  for license and copyright information</description>
+  <classes>
+    <class name="ElementScheme" public="yes">
+      <bases>
+        <base documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+      </bases>
+      <abstract>Implementation of XPointer element() scheme.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ElementScheme" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </method-resolution-order>
+      <methods name="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <method public="no" name="__init__" id="ElementScheme-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="__repr__" id="ElementScheme-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="evaluate" id="ElementScheme-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="pprint" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="Pointer" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </method-resolution-order>
+      <methods name="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <method public="no" name="__repr__" id="Pointer-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__str__" id="Pointer-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="pprint" id="Pointer-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="PointerPart" public="yes">
+      <bases>
+        <base documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </bases>
+      <abstract>Implementation of an unsupported XPointer scheme.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </method-resolution-order>
+      <methods name="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <method public="no" name="__init__" id="PointerPart-__init__">
+          <abstract># The constructor is not needed by subclasses</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="PointerPart-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="__str__" id="PointerPart-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="evaluate" id="PointerPart-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+        <method public="no" name="pprint" id="PointerPart-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+          <overrides documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+      </methods>
+    </class>
+    <class name="SchemeBased" public="yes">
+      <bases>
+        <base documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="SchemeBased" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </method-resolution-order>
+      <methods name="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <method public="no" name="__init__" id="SchemeBased-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parts"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="SchemeBased-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="pprint" id="SchemeBased-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+          <overrides documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="select" id="SchemeBased-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="Shorthand" public="yes">
+      <bases>
+        <base documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Shorthand" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </method-resolution-order>
+      <methods name="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <method public="no" name="__init__" id="Shorthand-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="identifier"/>
+          </arguments>
+        </method>
+        <method public="no" name="__repr__" id="Shorthand-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="select" id="Shorthand-select">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="pprint" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="XPointerScheme" public="yes">
+      <bases>
+        <base documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+      </bases>
+      <abstract>Implementation of XPointer xpointer() scheme.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XPointerScheme" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </method-resolution-order>
+      <methods name="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <method public="no" name="__init__" id="XPointerScheme-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="__repr__" id="XPointerScheme-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="evaluate" id="XPointerScheme-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="pprint" id="XPointerScheme-pprint">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="''" name="indent"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer">
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="XmlnsScheme" public="yes">
+      <bases>
+        <base documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+      </bases>
+      <abstract>Implementation of XPointer xmlns() scheme.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="XmlnsScheme" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        <base name="Pointer" module="Ft.Xml.XPointer.XPointer"/>
+      </method-resolution-order>
+      <methods name="Pointer" module="Ft.Xml.XPointer.XPointer">
+        <method public="no" name="__init__" id="XmlnsScheme-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="__repr__" id="XmlnsScheme-__repr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+        <method public="no" name="evaluate" id="XmlnsScheme-evaluate">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="context"/>
+          </arguments>
+          <overrides documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="PointerPart" module="Ft.Xml.XPointer.XPointer">
+        <member-reference name="__str__" public="no"/>
+        <member-reference name="pprint" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="Scheme" id="Scheme">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="name"/>
+        <arg name="data"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="Schemes" id="Schemes">
+      <value>{'element': &lt;class Ft.Xml.XPointer.XPointer.ElementScheme&gt;, 'xmlns': &lt;class Ft.Xml.XPointer.XPointer.XmlnsScheme&gt;, 'xpointer': &lt;class Ft.Xml.XPointer.XPointer.XPointerScheme&gt;}</value>
+    </global>
+    <global public="no" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="no" name="XML_NAMESPACE" id="XML_NAMESPACE">
+      <value>'http://www.w3.org/XML/1998/namespace'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['Pointer', 'Shorthand', 'SchemeBased', 'PointerPart', 'ElementScheme', 'XmlnsScheme', 'XPointerScheme', 'Scheme']</value>
+    </global>
+  </globals>
+</module>

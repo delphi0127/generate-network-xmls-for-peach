@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" author="Michael Eddington">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<DataModel name="GetTemplate">
+		<Blob name="data" />
+	</DataModel>
+	
+	<DataModel name="EchoTemplate">
+		<Blob name="data" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			
+			<!-- Get value from test code -->
+			<Action name="GetData" type="input">
+				<DataModel ref="GetTemplate" />
+			</Action>
+			
+			<!-- Copy value across -->
+			<Action type="slurp" name="SlurpData" valueXpath="//GetData//data" setXpath="//EchoData//data" />
+			
+			<!-- Send value back to test code -->
+			<Action name="EchoData" type="output">
+				<DataModel ref="EchoTemplate" />
+			</Action>
+			
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun">
+		<Test ref="TheTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

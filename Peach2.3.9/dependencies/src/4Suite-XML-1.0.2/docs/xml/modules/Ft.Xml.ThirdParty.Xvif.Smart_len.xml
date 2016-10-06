@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.Smart_len">
+  <modification-date>2004-10-22 11:49:27</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="smart_len" id="smart_len">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="s"/>
+      </arguments>
+    </function>
+  </functions>
+</module>

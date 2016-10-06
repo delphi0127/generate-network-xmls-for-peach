@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../peach.xsd" version="1.0"
+	author="Michael Eddington" description="HTTP Protocol">
+
+	<!--
+
+	This is an example of defining ASN.1 encoded data for fuzzing an ASN.1 encoded
+	protocol.
+	
+	Note: This fuzzer will respect the ASN.1 encoding standards and not attempt to
+	      fuzz the ASN.1 decoder in the target.
+	
+	Authors:
+	  Michael Eddington (mike@phed.org)
+	
+	$Id: ASN.1_Example.xml 1762 2009-06-11 23:46:24Z meddingt $
+	
+	-->
+
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+
+
+	<!-- A template contianing some ASN.1 BER encoded data -->
+	<DataModel name="Asn1Ber">
+
+		<!-- define a ber encoded string -->
+		<String type="char" value="Hello World!">
+			<Transformer class="asn1.BerEncodeOctetString" />
+		</String>
+
+		<!-- define a ber encoded integer -->
+		<Number size="16" signed="true">
+			<Transformer class="asn1.BerEncodeInteger" />
+		</Number>
+
+	</DataModel>
+
+
+	<!-- A template contianing some ASN.1 DER encoded data -->
+	<DataModel name="Asn1Der">
+
+		<!-- define a ber encoded string -->
+		<String type="char" value="Hello World!">
+			<Transformer class="asn1.DerEncodeOctetString" />
+		</String>
+
+		<!-- define a ber encoded integer -->
+		<Number size="16" signed="true">
+			<Transformer class="asn1.DerEncodeInteger" />
+		</Number>
+
+	</DataModel>
+
+
+	<!-- A template contianing some ASN.1 CER encoded data -->
+	<DataModel name="Asn1Ber">
+
+		<!-- define a ber encoded string -->
+		<String type="char" value="Hello World!">
+			<Transformer class="asn1.CerEncodeOctetString" />
+		</String>
+
+		<!-- define a ber encoded integer -->
+		<Number size="16" signed="true">
+			<Transformer class="asn1.CerEncodeInteger" />
+		</Number>
+
+	</DataModel>
+
+</Peach>
+<!-- end -->

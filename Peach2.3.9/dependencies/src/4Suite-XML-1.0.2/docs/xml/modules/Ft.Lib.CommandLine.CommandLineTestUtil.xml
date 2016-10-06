@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine.CommandLineTestUtil">
+  <modification-date>2005-04-18 16:46:56</modification-date>
+  <abstract>Command-line script related extensions to the test suite framework</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Test" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Test" module="Ft.Lib.CommandLine.CommandLineTestUtil"/>
+      </method-resolution-order>
+      <methods name="Test" module="Ft.Lib.CommandLine.CommandLineTestUtil">
+        <method public="no" name="__init__" id="Test-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="commandName"/>
+            <arg name="runs"/>
+          </arguments>
+        </method>
+        <method public="yes" name="test" id="Test-test">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="TestRun" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="TestRun" module="Ft.Lib.CommandLine.CommandLineTestUtil"/>
+      </method-resolution-order>
+      <methods name="TestRun" module="Ft.Lib.CommandLine.CommandLineTestUtil">
+        <method public="no" name="__init__" id="TestRun-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="options"/>
+            <arg name="args"/>
+            <arg default="None" name="expectedOut"/>
+            <arg default="None" name="validationFunc"/>
+            <arg default="None" name="input"/>
+            <arg default="None" name="outFile"/>
+            <arg default="False" name="skipOutputTest"/>
+            <arg default="&lt;built-in function cmp&gt;" name="compareFunc"/>
+          </arguments>
+        </method>
+        <method public="yes" name="makeCommandLine" id="TestRun-makeCommandLine">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="options"/>
+            <arg name="args"/>
+          </arguments>
+        </method>
+        <method public="yes" name="test" id="TestRun-test">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tester"/>
+            <arg name="script"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</module>

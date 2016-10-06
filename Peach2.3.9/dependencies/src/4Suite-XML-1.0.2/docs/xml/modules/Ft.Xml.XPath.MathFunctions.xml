@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath.MathFunctions">
+  <modification-date>2005-08-30 18:52:10</modification-date>
+  <abstract>4XPath-specific math extension functions</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="Cos" id="Cos">
+      <abstract>math.cos</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="x"/>
+      </arguments>
+    </function>
+    <function public="yes" name="DegreesToRads" id="DegreesToRads">
+      <abstract>Convert degrees to radians</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="x"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Fact" id="Fact">
+      <abstract>Factorial</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="x"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Sin" id="Sin">
+      <abstract>math.sin</abstract>
+      <description/>
+      <arguments>
+        <arg name="context"/>
+        <arg name="x"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="ExtFunctions" id="ExtFunctions">
+      <value>{('http://xmlns.4suite.org/ext', 'cos'): &lt;function Cos&gt;, ('http://xmlns.4suite.org/ext', 'degrees-to-rads'): &lt;function DegreesToRads&gt;, ('http://xmlns.4suite.org/ext', 'fact'): &lt;function Fact&gt;, ('http://xmlns.4suite.org/ext', 'sin'): &lt;function Sin&gt;}</value>
+    </global>
+    <global public="yes" name="ExtNamespaces" id="ExtNamespaces">
+      <value>{'http://xmlns.4suite.org/ext': 'f'}</value>
+    </global>
+    <global public="yes" name="FT_EXT_NAMESPACE" id="FT_EXT_NAMESPACE">
+      <value>'http://xmlns.4suite.org/ext'</value>
+    </global>
+  </globals>
+</module>

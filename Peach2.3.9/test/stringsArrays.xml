@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach /peach/peach.xsd">
+	
+	<!-- Import defaults for Peach instance -->
+	<Include ns="default" src="file:defaults.xml" />
+	
+	
+	<!-- TODO: Create data model -->
+	<DataModel name="TheDataModel1">
+		<String name="Strings" maxOccurs="10" />
+	</DataModel>
+	<DataModel name="TheDataModel2">
+		<Block name="Array" maxOccurs="10">
+			<String name="String" />
+		</Block>
+	</DataModel>
+	<DataModel name="TheDataModel3">
+		<Block name="Array" maxOccurs="10">
+			<String name="String1" />
+			<String name="String2" />
+		</Block>
+	</DataModel>
+	<DataModel name="TheDataModel4">
+		<Block name="Array" maxOccurs="10">
+			<String name="Strings" maxOccurs="10" />
+		</Block>
+	</DataModel>
+	
+	<StateModel name="TheState" initialState="Initial">
+		
+		<State name="Initial">
+			<Action type="output">
+				<DataModel ref="TheDataModel1"/>
+				<Data name="data">
+					<Field name="Strings[0]" value="1.0\n"/>
+					<Field name="Strings[1]" value="1.1\n"/>
+					<Field name="Strings[2]" value="1.2\n"/>
+				</Data>
+			</Action>
+			<Action type="output">
+				<DataModel ref="TheDataModel2"/>
+				<Data name="data">
+					<Field name="Array[0].String" value="2.0\n"/>
+					<Field name="Array[1].String" value="2.1\n"/>
+					<Field name="Array[2].String" value="2.2\n"/>
+				</Data>
+			</Action>
+			<Action type="output">
+				<DataModel ref="TheDataModel3"/>
+				<Data name="data">
+					<Field name="Array[0].String1" value="3.0.1\n"/>
+					<Field name="Array[0].String2" value="3.0.2\n"/>
+					<Field name="Array[1].String1" value="3.1.1\n"/>
+					<Field name="Array[1].String2" value="3.1.2\n"/>
+					<Field name="Array[2].String1" value="3.2.1\n"/>
+					<Field name="Array[2].String2" value="3.2.2\n"/>
+				</Data>
+			</Action>
+			<Action type="output">
+				<DataModel ref="TheDataModel4"/>
+				<Data name="data">
+					<Field name="Array[0].Strings[0]" value="4.0.1\n"/>
+					<Field name="Array[0].Strings[1]" value="4.0.2\n"/>
+					<Field name="Array[1].Strings[0]" value="4.1.1\n"/>
+					<Field name="Array[1].Strings[1]" value="4.1.2\n"/>
+					<Field name="Array[2].Strings[0]" value="4.2.1\n"/>
+					<Field name="Array[2].Strings[1]" value="4.2.2\n"/>
+				</Data>
+			</Action>
+		</State>
+		
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" />
+	</Agent>
+	
+	<Test name="TheTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TheState" />
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<!-- Configure a single run -->
+	<Run name="DefaultRun">
+		
+		<Test ref="TheTest" />
+		
+	</Run>
+	
+</Peach>
+<!-- end -->

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif">
+  <modification-date>2003-12-07 15:45:34</modification-date>
+  <abstract>#empty file</abstract>
+  <description/>
+  <modules>
+    <module-reference public="yes" documented="yes" name="FragmentFilter" realname="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+      <abstract># $Header: /var/local/cvsroot/4Suite/Ft/Xml/ThirdParty/Xvif/FragmentFilter.py,v 1.3 2004/10/12 22:59:14 uogbuji Exp $</abstract>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="Smart_len" realname="Ft.Xml.ThirdParty.Xvif.Smart_len">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="TimeLib" realname="Ft.Xml.ThirdParty.Xvif.TimeLib">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="characters" realname="Ft.Xml.ThirdParty.Xvif.characters">
+      <abstract># This file was generated using xmlchargen.py</abstract>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="iFrameRNG" realname="Ft.Xml.ThirdParty.Xvif.iFrameRNG">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="iFrameRegFrag" realname="Ft.Xml.ThirdParty.Xvif.iFrameRegFrag">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="iFrameTypes" realname="Ft.Xml.ThirdParty.Xvif.iFrameTypes">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="iFrameXSLT" realname="Ft.Xml.ThirdParty.Xvif.iFrameXSLT">
+      <abstract>The contents of this file are subject to the Mozilla Public License  
+Version 1.1 (the &quot;License&quot;); you may not use this file except in  
+compliance with the License. 
+You may obtain a copy of the License at http://www.mozilla.org/MPL/ 
+Software distributed under the License is distributed on an &quot;AS IS&quot;  
+basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the  
+License for the specific language governing rights and limitations under  
+the License. </abstract>
+      <description>The Original Code is available at 
+http://downloads.xmlschemata.org/python/xvif/
+
+The Initial Developer of the Original Code is Eric van der Vlist. Portions  
+created by Eric van der Vlist are Copyright (C) 2002. All Rights Reserved. 
+
+Contributor(s):</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="iframe" realname="Ft.Xml.ThirdParty.Xvif.iframe">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="rng" realname="Ft.Xml.ThirdParty.Xvif.rng">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="rngCoreTypeLib" realname="Ft.Xml.ThirdParty.Xvif.rngCoreTypeLib">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="sax2dom_chunker" realname="Ft.Xml.ThirdParty.Xvif.sax2dom_chunker">
+      <abstract>sax2dom_chunker.py    version 1.1</abstract>
+      <description>A SAX handler that takes a set of element paths and
+creates a series of DOM chunks matching the element paths
+for individual processing.  Designed for Python 2.2. or greater.
+
+Copyright 2004 Fourthought Inc, USA.
+This work is licensed under Creative Commons Attribution 1.0
+For details: http://creativecommons.org/licenses/by/1.0/</description>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="wxsTypeLib" realname="Ft.Xml.ThirdParty.Xvif.wxsTypeLib">
+      <abstract/>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="xmlchargen" realname="Ft.Xml.ThirdParty.Xvif.xmlchargen">
+      <abstract># From 2nd edition</abstract>
+      <description/>
+    </module-reference>
+    <module-reference public="yes" documented="yes" name="xmlcomp" realname="Ft.Xml.ThirdParty.Xvif.xmlcomp">
+      <abstract># $Header: /var/local/cvsroot/4Suite/Ft/Xml/ThirdParty/Xvif/xmlcomp.py,v 1.3 2004/10/12 22:59:14 uogbuji Exp $</abstract>
+      <description/>
+    </module-reference>
+  </modules>
+</module>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XLink.Processor">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>XLink processing engine</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="Processor" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="Processor" module="Ft.Xml.XLink.Processor"/>
+      </method-resolution-order>
+      <methods name="Processor" module="Ft.Xml.XLink.Processor">
+        <method public="no" name="run" id="Processor-run">
+          <abstract>Given an InputSource, reads the document, processing XLinks therein.</abstract>
+          <description>Warning: The document will be modified in place.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="iSrc"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="no" name="NonvalidatingReader" id="NonvalidatingReader">
+      <abstract>The default non-validating reader instance, created from
+NonvalidatingReaderBase() with no constructor arguments.</abstract>
+      <description>Uses the default InputSource factory. If you need to change it,
+reassign the inputSourceFactory attribute, or, preferably, just
+create a new NonvalidatingReaderBase instance.</description>
+      <value>&lt;Ft.Xml.Domlette.NonvalidatingReaderBase instance&gt;</value>
+    </global>
+    <global public="no" name="XLINK_NAMESPACE" id="XLINK_NAMESPACE">
+      <value>u'http://www.w3.org/1999/xlink'</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['Processor']</value>
+    </global>
+  </globals>
+</module>

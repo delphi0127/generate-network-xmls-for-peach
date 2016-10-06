@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.cStreamWriter">
+  <modification-date>2006-12-16 15:51:27</modification-date>
+  <abstract>Encoding character stream writer that makes substitutions of illegal
+and unencodable characters</abstract>
+  <description>Copyright 2003 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="EntityMap" id="EntityMap">
+      <abstract>EntityMap(mapping)</abstract>
+      <description>Creates an EntityMap used for writing escaped characters.  The key in the
+mapping represents the character to escape and the value is the replacement.</description>
+      <arguments>
+        <unknown>mapping</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="StreamWriter" id="StreamWriter">
+      <abstract>StreamWriter(stream, encoding)</abstract>
+      <description>stream must be a file-like object open for writing (binary) data.
+encoding specifies the encoding which is to be used for the stream.</description>
+      <arguments>
+        <unknown>stream, encoding</unknown>
+      </arguments>
+    </function>
+  </functions>
+</module>

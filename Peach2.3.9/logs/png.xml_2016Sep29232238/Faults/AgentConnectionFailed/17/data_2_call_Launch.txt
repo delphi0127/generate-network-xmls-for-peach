@@ -1,0 +1,1 @@
+bin\VisualPng.exe[['p1', 'param', 'peach.png']]

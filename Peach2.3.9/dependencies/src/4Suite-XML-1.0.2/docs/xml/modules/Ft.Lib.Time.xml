@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Time">
+  <modification-date>2005-04-18 16:46:56</modification-date>
+  <abstract>Date and time related functionality for use within 4Suite only.</abstract>
+  <description>This module is experimental and may not be staying in 4Suite for long;
+application developers should avoid forming dependencies on it.
+
+Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="DT" public="yes">
+      <abstract>A class that contains the data needed to represent a single point in time
+using many different date and time formats.</abstract>
+      <description>Its constructor requires a UTC (GMT) date and time (year, month (0-11), day
+(0-31), hour (0-23), minute (0-59), second (0-59), millisecond (0-999), plus
+some information to help express this time in local terms: a local time zone
+name, or if that's not available, an hour offset of the local time from GMT
+(-11 to 14, typically), a minute offset of the local time from GMT (0 or 30,
+usually), and an optional flag indicating Daylight Savings Time, to help
+determine the time zone name.</description>
+      <method-resolution-order>
+        <base name="DT" module="Ft.Lib.Time"/>
+      </method-resolution-order>
+      <methods name="DT" module="Ft.Lib.Time">
+        <method public="no" name="__cmp__" id="DT-__cmp__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="other"/>
+          </arguments>
+        </method>
+        <method public="no" name="__hash__" id="DT-__hash__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="DT-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="year"/>
+            <arg name="month"/>
+            <arg name="day"/>
+            <arg name="hour"/>
+            <arg name="minute"/>
+            <arg name="second"/>
+            <arg name="milliSecond"/>
+            <arg name="daylightSavings"/>
+            <arg name="tzName"/>
+            <arg name="tzHourOffset"/>
+            <arg name="tzMinuteOffset"/>
+          </arguments>
+        </method>
+        <method public="no" realid="DT-asISO8601DateTime" name="__str__" realname="asISO8601DateTime" id="DT-__str__">
+          <abstract>Represents this DT object as an ISO 8601 date-time string, using
+UTC time like '2001-01-01T00:00:00Z' if local=0, or local time with
+UTC offset like '2000-12-31T17:00:00-07:00' if local=1.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="abbreviatedMonthName" id="DT-abbreviatedMonthName">
+          <abstract>Returns the month component of the stored date and time as a
+string like 'Jan'.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="asISO8601Date" id="DT-asISO8601Date">
+          <abstract>Represents this DT object as an ISO 8601 date-time string, like
+'2001-01-01' if local=0, or '2000-12-31' if local=1. The local date
+may vary from UTC date depending on the time of day that is stored
+in the object.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="asISO8601DateTime" id="DT-asISO8601DateTime">
+          <abstract>Represents this DT object as an ISO 8601 date-time string, using
+UTC time like '2001-01-01T00:00:00Z' if local=0, or local time with
+UTC offset like '2000-12-31T17:00:00-07:00' if local=1.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="asISO8601Time" id="DT-asISO8601Time">
+          <abstract>Represents this DT object as an ISO 8601 time string, using UTC
+time like 'T00:00:00Z' if local=0, or local time with UTC offset
+like 'T17:00:00-07:00' if local=1</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="asPythonTime" id="DT-asPythonTime">
+          <abstract>Returns the stored date and time as a float indicating the number
+of seconds since the local machine's epoch.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="asPythonTimeTuple" id="DT-asPythonTimeTuple">
+          <abstract>Returns the stored date and time as a Python time tuple, as
+documented in the time module. If the tuple is going to be passed
+to a function that expects the local time, set local=1. The
+Daylight Savings flag is always -1, which means unknown, and may
+or may not have ramifications.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="asRFC822DateTime" id="DT-asRFC822DateTime">
+          <abstract>Represents this DT object as an RFC 1123 (which updated RFC 822)
+date string, using UTC time like 'Mon, 01 Jan 2001 00:00:00 GMT' if
+local=0, or local time with time zone indicator or offset like
+'Sun, 31 Dec 2000 17:00:00 MDT' if local=1. Although RFC 822 allows
+the weekday to be optional, it is always included in the returned
+string.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="day" id="DT-day">
+          <abstract>Returns the day component of the stored date and time as an
+integer in the range 1-31.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="dayOfWeek" id="DT-dayOfWeek">
+          <abstract>Returns the day of week component of the stored date and time
+as an int in the range 0-6 (0=Monday).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="dayOfYear" id="DT-dayOfYear">
+          <abstract>Returns the day of year component of the stored date and time
+as an int in the range 1-366.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="hour" id="DT-hour">
+          <abstract>Returns the hour component of the stored date and time as an int
+in the range 0-23.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="milliSecond" id="DT-milliSecond">
+          <abstract>Returns the millisecond component of the stored date and time as
+an int in the range 0-999.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="minute" id="DT-minute">
+          <abstract>Returns the minute component of the stored date and time as an
+int in the range 0-59.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="month" id="DT-month">
+          <abstract>Returns the month component of the stored date and time as an int
+in the range 0-11.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="monthName" id="DT-monthName">
+          <abstract>Returns the month component of the stored date and time as a
+string like 'January'.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+        <method public="yes" name="second" id="DT-second">
+          <abstract>Returns the second component of the stored date and time as an
+int in the range 0-59.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="tzHourOffset" id="DT-tzHourOffset">
+          <abstract>Returns the local time's hour offset from GMT component of the
+stored date and time as an int, typically in the range -12 to 14.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="tzMinuteOffset" id="DT-tzMinuteOffset">
+          <abstract>Returns the local time's minute offset from GMT component of the
+stored date and time as an int in the range 0-59.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="tzName" id="DT-tzName">
+          <abstract>Returns the local time's time zone name component of the stored
+date and time as a string like 'MST'.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="year" id="DT-year">
+          <abstract>Returns the year component of the stored date and time as an int
+like 2001.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="local"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="DT" module="Ft.Lib.Time">
+        <member public="yes" name="abbreviatedMonthNameTable" id="DT-abbreviatedMonthNameTable">
+          <value>('ERR', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')</value>
+        </member>
+        <member public="yes" name="abbreviatedWeekdayNameTable" id="DT-abbreviatedWeekdayNameTable">
+          <value>('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')</value>
+        </member>
+        <member public="yes" name="monthNameTable" id="DT-monthNameTable">
+          <value>('ERROR', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')</value>
+        </member>
+        <member public="yes" name="tzNameTable" id="DT-tzNameTable">
+          <value>{-12: ('GMT-11', 'Yankee', 'IDLW', ''), -11: ('GMT-11', 'XRay', 'NT', ''), -10: ('GMT-10', 'Whiskey', 'AHST', ''), -9.5: ('GMT-9:30', '', '', 'HDT'), -9: ('GMT-9', 'Victor', 'YST', ''), -8.5: ('GMT-8:30', '', '', 'YDT'), -8: ('GMT-8', 'Uniform', 'PST', ''), -7: ('GMT-7', 'Tango', 'MST', 'PDT'), -6: ('GMT-6', 'Sierra', 'CST', 'MDT'), -5: ('GMT-5', 'Romeo', 'EST', 'CDT'), ...}</value>
+        </member>
+        <member public="yes" name="weekdayNameTable" id="DT-weekdayNameTable">
+          <value>('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')</value>
+        </member>
+      </members>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="DayOfYearFromYMD" id="DayOfYearFromYMD">
+      <abstract>Calculates the Julian day (day of year, between 1 and 366),
+for the given date. This function is accurate for dates back to
+01 Jan 0004 (that's 4 A.D.), when the Julian calendar stabilized.</abstract>
+      <description/>
+      <arguments>
+        <arg name="year"/>
+        <arg name="month"/>
+        <arg name="day"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FromISO8601" id="FromISO8601">
+      <abstract>Create a DT object from an ISO 8601 date, time or date-time string.
+The DT object must contain a complete date and time, and the
+ISO 8601 string might represent a partial date or time, so some
+assumptions are made about the 'implied' information (ISO 8601's
+terminology).</abstract>
+      <description/>
+      <arguments>
+        <arg name="st"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FromPythonTime" id="FromPythonTime">
+      <abstract>Create a DT object from a float that represents seconds elapsed since the
+local machine's epoch. If not specified, then current time is used.</abstract>
+      <description/>
+      <arguments>
+        <arg default="None" name="t"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FromPythonTimeTuple" id="FromPythonTimeTuple">
+      <abstract>Create a DT object from a Python time tuple as documented in the time
+module. This 9-tuple must represent a UTC date and time.</abstract>
+      <description/>
+      <arguments>
+        <arg name="t"/>
+      </arguments>
+    </function>
+    <function public="yes" name="FromRFC822" id="FromRFC822">
+      <abstract>Create a DT object from an RFC 822/1123 date string</abstract>
+      <description/>
+      <arguments>
+        <arg name="st"/>
+      </arguments>
+    </function>
+    <function public="yes" name="WeekdayFromYMD" id="WeekdayFromYMD">
+      <abstract>Calculates the day of week (0=Mon, 6=Sun) for the given date.
+This function is accurate for dates on/after Friday, 15 Oct 1582,
+when the Gregorian reform took effect, although it should be noted
+that some nations didn't adopt the Gregorian calendar until as late
+as the 20th century, so dates that were referenced before then
+would have fallen on a different day of the week, at the time.</abstract>
+      <description/>
+      <arguments>
+        <arg name="year"/>
+        <arg name="month"/>
+        <arg name="day"/>
+      </arguments>
+    </function>
+    <function public="yes" name="isDST" id="isDST">
+      <abstract>Indicates whether the given UTC time tuple corresponds to a date
+and time that falls during Daylight Savings Time in the local
+time zone.</abstract>
+      <description/>
+      <arguments>
+        <arg name="t"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="g_isoExpressions" id="g_isoExpressions">
+      <value>[['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;(?P&lt;Century&gt;[0-9]{2,2...{2,2})(?P&lt;Month&gt;[0-9]{2,2})(?P&lt;Day&gt;[0-9]{2,2})))$', None], ['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;(?P&lt;Century&gt;[0-9]{2,2...,2})-(?P&lt;Month&gt;[0-9]{2,2})-(?P&lt;Day&gt;[0-9]{2,2})))$', None], ['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;(-|(?P&lt;Century&gt;[0-9]{2,2}))(?P&lt;Year&gt;[0-9]{2,2})-(?P&lt;Month&gt;[0-9]{2,2})))$', None], ['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;-(?P&lt;Year&gt;[0-9]{2,2})(?P&lt;Month&gt;[0-9]{2,2})))$', None], ['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;(-|(?P&lt;Century&gt;[0-9]{2,2}))(?P&lt;Year&gt;[0-9]{2,2})))$', None], ['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;(?P&lt;Century&gt;[0-9]{2,2})))$', None], ['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;--(?P&lt;Month&gt;[0-9]{2,2})(?:-?(?P&lt;Day&gt;[0-9]{2,2}))?))$', None], ['^(?P&lt;Date&gt;(?P&lt;CalendarDate&gt;---(?P&lt;Day&gt;[0-9]{2,2})))$', None], ['^(?P&lt;Date&gt;(?P&lt;OrdinalDate&gt;(?P&lt;Century&gt;[0-9]{2,2})?(?P&lt;Year&gt;[0-9]{2,2})-?(?P&lt;Ordinal&gt;[0-9]{3,3})))$', None], ['^(?P&lt;Date&gt;(?P&lt;OrdinalDate&gt;-(?P&lt;Ordinal&gt;[0-9]{3,3})))$', None], ['^(?P&lt;Date&gt;(?P&lt;WeekDate&gt;(?P&lt;Century&gt;[0-9]{2,2})?(...{2,2})W(?P&lt;Week&gt;[0-9][0-9])(?P&lt;Weekday&gt;[1-7])?))$', None], ['^(?P&lt;Date&gt;(?P&lt;WeekDate&gt;(?P&lt;Century&gt;[0-9]{2,2})?(...-W(?P&lt;Week&gt;[0-9][0-9])(?:-(?P&lt;Weekday&gt;[1-7]))?))$', None], ['^(?P&lt;Date&gt;(?P&lt;WeekDate&gt;-(?P&lt;YearInDecade&gt;[0-9])W(?P&lt;Week&gt;[0-9][0-9])(?P&lt;Weekday&gt;[1-7])))$', None], ['^(?P&lt;Date&gt;(?P&lt;WeekDate&gt;-(?P&lt;YearInDecade&gt;[0-9])-W(?P&lt;Week&gt;[0-9][0-9])-(?P&lt;Weekday&gt;[1-7])))$', None], ['^(?P&lt;Date&gt;(?P&lt;WeekDate&gt;-W(?P&lt;Week&gt;[0-9][0-9])(?:-?(?P&lt;Weekday&gt;[1-7]))?))$', None], ['^(?P&lt;Date&gt;(?P&lt;WeekDate&gt;-W?-(?P&lt;Weekday&gt;[1-7])))$', None], ['^(?P&lt;Time&gt;(?:(?P&lt;Hour&gt;(?:0[0-9])|(?:1[0-9])|(?:2...]))(?::?(?P&lt;TzMinute&gt;(?:[0-5][0-9])|(?:60)))?))?$', None], ['^(?P&lt;Time&gt;(?:(?P&lt;Hour&gt;(?:0[0-9])|(?:1[0-9])|(?:2...]))(?::?(?P&lt;TzMinute&gt;(?:[0-5][0-9])|(?:60)))?))?$', None], ['^(?P&lt;Time&gt;(?:(?P&lt;Hour&gt;(?:0[0-9])|(?:1[0-9])|(?:2...]))(?::?(?P&lt;TzMinute&gt;(?:[0-5][0-9])|(?:60)))?))?$', None], ['^(?P&lt;Time&gt;(?:(?P&lt;Hour&gt;(?:0[0-9])|(?:1[0-9])|(?:2...]))(?::?(?P&lt;TzMinute&gt;(?:[0-5][0-9])|(?:60)))?))?$', None], ...]</value>
+    </global>
+  </globals>
+</module>

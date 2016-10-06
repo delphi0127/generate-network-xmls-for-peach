@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Xslt.NullWriter">
+  <modification-date>2006-08-21 18:38:32</modification-date>
+  <abstract>Interface definition for XSLT output writers</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="NullWriter" public="yes">
+      <abstract>All XSLT output writers should subclass NullWriter</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="NullWriter" module="Ft.Xml.Xslt.NullWriter"/>
+      </method-resolution-order>
+      <methods name="NullWriter" module="Ft.Xml.Xslt.NullWriter">
+        <method public="no" name="__init__" id="NullWriter-__init__">
+          <abstract>outputParams - If given, an instance of
+Ft.Xml.Xslt.OutputParameters.OutputParameters, from which the
+standard XSLT output parameters can be read.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="outputParams"/>
+          </arguments>
+        </method>
+        <method public="yes" name="attribute" id="NullWriter-attribute">
+          <abstract>Called when an attribute node is generated in the result tree.</abstract>
+          <description>name - the local name.
+value - the attribute value.
+namespace - the namespace URI.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg name="value"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+        </method>
+        <method public="yes" name="comment" id="NullWriter-comment">
+          <abstract>Called when a comment node is generated in the result tree.</abstract>
+          <description>body - comment text.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="body"/>
+          </arguments>
+        </method>
+        <method public="yes" name="copyNodes" id="NullWriter-copyNodes">
+          <abstract>Copies the given list of Domlette nodes by calling the appropriate methods.
+Generally does not need to be overridden.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="nodeOrNodelist"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endDocument" id="NullWriter-endDocument">
+          <abstract>Called once at the end of output writing.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElement" id="NullWriter-endElement">
+          <abstract>Called at the end of element node generation.</abstract>
+          <description>name - the local name.
+namespace - the namespace URI.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getMediaType" id="NullWriter-getMediaType">
+          <abstract>Returns the media type of the output, as a string.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getResult" id="NullWriter-getResult">
+          <abstract>If the output is being buffered, returns the buffered result
+(as a byte string, usually).</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getStream" id="NullWriter-getStream">
+          <abstract>If the output is being directed to a stream (Python file-like object),
+returns the stream without any encoding wrappers.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="namespace" id="NullWriter-namespace">
+          <abstract>Called when a namespace node is explicitly generated in the result tree
+(as by the xsl:namespace instruction).</abstract>
+          <description>prefix - the prefix.
+namespace - the namespace URI.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="namespace"/>
+          </arguments>
+        </method>
+        <method public="yes" name="processingInstruction" id="NullWriter-processingInstruction">
+          <abstract>Called when an processing instruction node is generated in the result tree.</abstract>
+          <description>target - the instruction target.
+data - the instruction.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="target"/>
+            <arg name="data"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startDocument" id="NullWriter-startDocument">
+          <abstract>Called once at the beginning of output writing.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElement" id="NullWriter-startElement">
+          <abstract>Called when an element node is generated in the result tree.
+Subsequent method calls generate the element's attributes and content.</abstract>
+          <description>name - the local name.
+namespace - the namespace URI.
+extraNss - new namespace bindings (dictionary of prefixes to URIs)
+           established by this element</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="name"/>
+            <arg default="None" name="namespace"/>
+            <arg default="None" name="extraNss"/>
+          </arguments>
+        </method>
+        <method public="yes" name="text" id="NullWriter-text">
+          <abstract>Called when a text node is generated in the result tree.</abstract>
+          <description>text - content of the text node.
+escapeOutput - deprecated; ignore.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="text"/>
+            <arg default="True" name="escapeOutput"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="EMPTY_NAMESPACE" id="EMPTY_NAMESPACE">
+      <value>None</value>
+    </global>
+    <global public="yes" name="NAMESPACE_NODE" id="NAMESPACE_NODE">
+      <value>13</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+  </globals>
+</module>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Simple PNG File">
+	
+	<Include ns="default" src="file:defaults.xml" />
+	
+	<DataModel name="Chunk">
+		<Number name="Length" size="32" endian="network" signed="false">
+			<Relation type="size" of="Core.Data"/>
+		</Number>
+		<Block name="Core">
+			<String name="Type" length="4"/>
+			<Blob name="Data" value=""/>
+		</Block>
+		<Number name="CRC" size="32" signed="true" endian="network">
+			<Fixup class="checksums.Crc32Fixup">
+				<Param name="ref" value="Core"/>
+			</Fixup>
+		</Number>
+	</DataModel>
+	
+	<DataModel name="ChunkIHDR" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" isStatic="true" value="IHDR"/>
+			<Block name="Data">
+				<Number name="Width" size="32" endian="network" signed="false" />
+				<Number name="Height" size="32" endian="network" signed="false" />
+				<Number name="BitDepth" size="8" endian="network" signed="false" />
+				<Number name="ColorType" size="8" endian="network" signed="false" />
+				<Number name="CompressMethod" size="8" endian="network" signed="false" />
+				<Number name="FilterMethod" size="8" endian="network" signed="false" />
+				<Number name="InterlaceMethod" size="8" endian="network" signed="false" />
+			</Block>
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkSRGB" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="sRGB" isStatic="true"/>
+			<Blob name="Data" />
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkPHYS" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="pHYs" isStatic="true"/>
+			<Blob name="Data"  />
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkIDAT" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="IDAT" isStatic="true"/>
+			<Blob name="Data" />
+		</Block>
+	</DataModel>
+	
+	<DataModel name="ChunkIEND" ref="Chunk">
+		<Block name="Core">
+			<String name="Type" length="4" value="IEND" isStatic="true"/>
+			<Blob name="Data" />
+		</Block>
+	</DataModel>
+	
+	<DataModel name="Png">
+		<Blob name="Magic" length="8" valueType="hex" value="0x89 0x50 0x4e 0x47 0x0d 0x0a 0x1a 0x0a"/>
+		<Block name="TheChunkIHDR" ref="ChunkIHDR" />
+		<Block name="TheChunkSRGB" ref="ChunkSRGB" />
+		<Block name="TheChunkPHYS" ref="ChunkPHYS" />
+		<Block name="TheChunkIDAT" ref="ChunkIDAT" />
+		<Block name="TheChunkIEND" ref="ChunkIEND" />
+	</DataModel>
+	
+	<DataModel name="EchoTemplate">
+		<Blob name="data" />
+	</DataModel>
+	
+	<StateModel name="TestState" initialState="Initial">
+		<State name="Initial">
+			
+			<!-- Get value from test code -->
+			<Action name="GetData" type="input">
+				<DataModel ref="Png" />
+			</Action>
+			
+			<!-- Copy value across -->
+			<Action type="slurp" name="SlurpData" valueXpath="//GetData//Png" setXpath="//EchoData//data" />
+			
+			<!-- Send value back to test code -->
+			<Action name="EchoData" type="output">
+				<DataModel ref="EchoTemplate" />
+			</Action>
+			
+		</State>
+	</StateModel>
+	
+	<Agent name="LocalAgent" location="http://127.0.0.1:9000">
+		<Monitor class="test.TestStopOnFirst" /> 
+	</Agent>
+	
+	<Test name="HelloWorldTest">
+		<Agent ref="LocalAgent"/>
+		<StateModel ref="TestState"/>
+		<Publisher class="tcp.Tcp">
+			<Param name="host" value="127.0.0.1"/>
+			<Param name="port" value="9001"/>
+		</Publisher>
+	</Test>
+	
+	<Run name="DefaultRun" description="Stdout HelloWorld Run">
+		<Test ref="HelloWorldTest" />
+	</Run>
+	
+</Peach>
+<!-- end -->

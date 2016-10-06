@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+  <modification-date>2004-10-22 11:49:27</modification-date>
+  <abstract># $Header: /var/local/cvsroot/4Suite/Ft/Xml/ThirdParty/Xvif/FragmentFilter.py,v 1.3 2004/10/12 22:59:14 uogbuji Exp $</abstract>
+  <description/>
+  <classes>
+    <class name="ApplyTo" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT applyTo (element | attribute +)&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ApplyTo" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="ApplyTo-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="endElementNS" id="ApplyTo-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="match" id="ApplyTo-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="name"/>
+            <arg name="ruleClass"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Attribute" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT attribute EMPTY&gt;
+&lt;!ATTLIST attribute
+      nsURI  CDATA &quot;&quot;
+    localName CDATA #REQUIRED
+    prefix CDATA #IMPLIED
+    content CDATA #IMPLIED
+&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Attribute" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="Attribute-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Attribute-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <sequence>
+              <arg name="nsURI"/>
+              <arg name="localName"/>
+            </sequence>
+            <arg name="qName"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="getProduceAttribute" id="Attribute-getProduceAttribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="attrs"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="produce" id="Attribute-produce">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_localName" id="Attribute-set_localName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_nsURI" id="Attribute-set_nsURI">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_prefix" id="Attribute-set_prefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Chars" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT chars EMPTY&gt;
+&lt;!ATTLIST chars
+      before CDATA #IMPLIED
+    after CDATA #IMPLIED
+&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Chars" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="Chars-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="getProduceAttribute" id="Chars-getProduceAttribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="attrs"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="produce" id="Chars-produce">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_after" id="Chars-set_after">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_before" id="Chars-set_before">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Element" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT element (attribute*)&gt;
+&lt;!ATTLIST element
+      nsURI  CDATA &quot;&quot;
+    localName CDATA #REQUIRED
+       prefix CDATA #IMPLIED
+      before CDATA #IMPLIED
+    after CDATA #IMPLIED
+       beforeInside CDATA #IMPLIED
+      afterInside CDATA #IMPLIED
+&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Element" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="Element-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="endElementNS" id="Element-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <sequence>
+              <arg name="nsURI"/>
+              <arg name="localName"/>
+            </sequence>
+            <arg name="qName"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="getProduceAttribute" id="Element-getProduceAttribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="attrs"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="produce" id="Element-produce">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_localName" id="Element-set_localName">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_nsURI" id="Element-set_nsURI">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_prefix" id="Element-set_prefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="FilterContext" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FilterContext" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="FilterContext" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="FilterContext-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendContent" id="FilterContext-appendContent">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendTemporaryPrefix" id="FilterContext-appendTemporaryPrefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setAttrs" id="FilterContext-setAttrs">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="attrs"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setMatch" id="FilterContext-setMatch">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="setRule" id="FilterContext-setRule">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rule"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="FragmentFilter" public="yes">
+      <bases>
+        <base documented="no" class="XMLFilterBase" module="xml.sax.saxutils"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="FragmentFilter" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="XMLFilterBase" module="xml.sax.saxutils"/>
+        <base name="XMLFilter" module="xml.sax.saxlib"/>
+        <base name="XMLReader" module="xml.sax.xmlreader"/>
+      </method-resolution-order>
+      <methods name="XMLReader" module="xml.sax.xmlreader">
+        <method public="no" name="__init__" id="FragmentFilter-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+          </arguments>
+          <overrides documented="no" class="XMLFilterBase" module="xml.sax.saxutils"/>
+        </method>
+        <method public="yes" name="characters" id="FragmentFilter-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+          <overrides documented="no" class="XMLFilterBase" module="xml.sax.saxutils"/>
+        </method>
+        <method public="yes" name="context" id="FragmentFilter-context">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endAttribute" id="FragmentFilter-endAttribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElementNS" id="FragmentFilter-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="no" class="XMLFilterBase" module="xml.sax.saxutils"/>
+        </method>
+        <method public="yes" name="endPrefixMapping" id="FragmentFilter-endPrefixMapping">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+          </arguments>
+          <overrides documented="no" class="XMLFilterBase" module="xml.sax.saxutils"/>
+        </method>
+        <method public="yes" name="findPrefix" id="FragmentFilter-findPrefix">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+          </arguments>
+        </method>
+        <method public="yes" name="popContext" id="FragmentFilter-popContext">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="pushContext" id="FragmentFilter-pushContext">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="ctx"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startAttribute" id="FragmentFilter-startAttribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="name"/>
+            <arg name="prefix"/>
+            <arg name="content"/>
+            <arg name="attrs"/>
+            <arg default="0" name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="FragmentFilter-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="no" class="XMLFilterBase" module="xml.sax.saxutils"/>
+        </method>
+        <method public="yes" name="startPrefixMapping" id="FragmentFilter-startPrefixMapping">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="prefix"/>
+            <arg name="uri"/>
+          </arguments>
+          <overrides documented="no" class="XMLFilterBase" module="xml.sax.saxutils"/>
+        </method>
+      </methods>
+      <inherited-methods documented="no" class="XMLFilterBase" module="xml.sax.saxutils">
+        <member-reference name="endDocument" public="yes"/>
+        <member-reference name="endElement" public="yes"/>
+        <member-reference name="error" public="yes"/>
+        <member-reference name="fatalError" public="yes"/>
+        <member-reference name="getFeature" public="yes"/>
+        <member-reference name="getProperty" public="yes"/>
+        <member-reference name="ignorableWhitespace" public="yes"/>
+        <member-reference name="notationDecl" public="yes"/>
+        <member-reference name="parse" public="yes"/>
+        <member-reference name="processingInstruction" public="yes"/>
+        <member-reference name="resolveEntity" public="yes"/>
+        <member-reference name="setDocumentLocator" public="yes"/>
+        <member-reference name="setFeature" public="yes"/>
+        <member-reference name="setLocale" public="yes"/>
+        <member-reference name="setProperty" public="yes"/>
+        <member-reference name="skippedEntity" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+        <member-reference name="startElement" public="yes"/>
+        <member-reference name="unparsedEntityDecl" public="yes"/>
+        <member-reference name="warning" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="XMLFilter" module="xml.sax.saxlib">
+        <member-reference name="getParent" public="yes"/>
+        <member-reference name="setParent" public="yes"/>
+      </inherited-methods>
+      <inherited-methods documented="no" class="XMLReader" module="xml.sax.xmlreader">
+        <member-reference name="getContentHandler" public="yes"/>
+        <member-reference name="getDTDHandler" public="yes"/>
+        <member-reference name="getEntityResolver" public="yes"/>
+        <member-reference name="getErrorHandler" public="yes"/>
+        <member-reference name="setContentHandler" public="yes"/>
+        <member-reference name="setDTDHandler" public="yes"/>
+        <member-reference name="setEntityResolver" public="yes"/>
+        <member-reference name="setErrorHandler" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="FragmentRule" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT fragmentRule (applyTo, produce)&gt;
+&lt;!ATTLIST fragmentRule
+      pattern CDATA #REQUIRED
+    repeat (true | false) &quot;false&quot;
+    skipFirst (true | false) &quot;true&quot; ???
+    break (true | false) &quot;true&quot; ???
+      split (true | false) &quot;false&quot;&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="FragmentRule" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="FragmentRule-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="append" id="FragmentRule-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="child"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="fragment" id="FragmentRule-fragment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="match"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getFragmentedAttributes" id="FragmentRule-getFragmentedAttributes">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="match"/>
+            <arg name="attrs"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getMatch" id="FragmentRule-getMatch">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+        </method>
+        <method public="yes" name="match" id="FragmentRule-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="name"/>
+            <arg name="ruleClass"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_break" id="FragmentRule-set_break">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_pattern" id="FragmentRule-set_pattern">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_repeat" id="FragmentRule-set_repeat">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_skipFirst" id="FragmentRule-set_skipFirst">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="yes" name="set_split" id="FragmentRule-set_split">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rules"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="FragmentRules" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT fragmentRules (fragmentRule+)&gt;
+&lt;!ATTLIST fragmentRules
+xmlns   CDATA  &quot;http://simonstl.com/ns/fragments/&quot;&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="FragmentRules" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="FragmentRules-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="match" id="FragmentRules-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="name"/>
+            <arg name="ruleClass"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Produce" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT produce (element | attribute | skip | chars)+&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Produce" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="Produce-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="fragment" id="Produce-fragment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="match"/>
+            <arg name="skipFirst"/>
+            <arg name="repeat"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="getFragmentedAttributes" id="Produce-getFragmentedAttributes">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="match"/>
+            <arg name="attrs"/>
+            <arg name="skipFirst"/>
+            <arg name="repeat"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="PseudoMatch" public="yes">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="PseudoMatch" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="PseudoMatch" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="PseudoMatch-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="values"/>
+          </arguments>
+        </method>
+        <method public="yes" name="group" id="PseudoMatch-group">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="id"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="RulesLoader" public="yes">
+      <bases>
+        <base documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="RulesLoader" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="ContentHandler" module="xml.sax.handler"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="RulesLoader-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="xmlReader"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="no" name="__str__" id="RulesLoader-__str__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="append" id="RulesLoader-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="child"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="appendMe" id="RulesLoader-appendMe">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="appendStack" id="RulesLoader-appendStack">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="element"/>
+          </arguments>
+        </method>
+        <method public="yes" name="characters" id="RulesLoader-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="endDocument" id="RulesLoader-endDocument">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="endElementNS" id="RulesLoader-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qname"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="match" id="RulesLoader-match">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="name"/>
+            <arg name="matchClass"/>
+          </arguments>
+        </method>
+        <method public="yes" name="previousElement" id="RulesLoader-previousElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="RulesLoader-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <sequence>
+              <arg name="uri"/>
+              <arg name="name"/>
+            </sequence>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="no" class="ContentHandler" module="xml.sax.handler"/>
+        </method>
+        <method public="yes" name="unKnownElement" id="RulesLoader-unKnownElement">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg name="name"/>
+          </arguments>
+        </method>
+      </methods>
+      <members name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member public="yes" name="callbacks" id="RulesLoader-callbacks">
+          <value>{'http://simonstl.com/ns/fragments/': {'applyTo': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.ApplyTo&gt;, 'attribute': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.Attribute&gt;, 'chars': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.Chars&gt;, 'element': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.Element&gt;, 'fragmentRule': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.FragmentRule&gt;, 'fragmentRules': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.FragmentRules&gt;, 'produce': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.Produce&gt;, 'skip': &lt;class Ft.Xml.ThirdParty.Xvif.FragmentFilter.Skip&gt;}}</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="ContentHandler" module="xml.sax.handler">
+        <member-reference name="endElement" public="yes"/>
+        <member-reference name="endPrefixMapping" public="yes"/>
+        <member-reference name="ignorableWhitespace" public="yes"/>
+        <member-reference name="processingInstruction" public="yes"/>
+        <member-reference name="setDocumentLocator" public="yes"/>
+        <member-reference name="skippedEntity" public="yes"/>
+        <member-reference name="startDocument" public="yes"/>
+        <member-reference name="startElement" public="yes"/>
+        <member-reference name="startPrefixMapping" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="Skip" public="yes">
+      <bases>
+        <base documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </bases>
+      <abstract>&lt;!ELEMENT skip EMPTY&gt;
+&lt;!ATTLIST skip
+      before CDATA #IMPLIED
+    after CDATA #IMPLIED
+&gt;</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="Skip" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="Skip-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+        </method>
+        <method public="yes" name="getProduceAttribute" id="Skip-getProduceAttribute">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="attrs"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+        <method public="yes" name="produce" id="Skip-produce">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="filter"/>
+            <arg name="content"/>
+            <arg name="brk"/>
+          </arguments>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <member-reference name="append" public="yes"/>
+        <member-reference name="characters" public="yes"/>
+        <member-reference name="endElementNS" public="yes"/>
+        <member-reference name="startElementNS" public="yes"/>
+      </inherited-methods>
+    </class>
+    <class name="_Callback" public="no">
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter"/>
+      </method-resolution-order>
+      <methods name="_Callback" module="Ft.Xml.ThirdParty.Xvif.FragmentFilter">
+        <method public="no" name="__init__" id="_Callback-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="append" id="_Callback-append">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="child"/>
+          </arguments>
+        </method>
+        <method public="yes" name="characters" id="_Callback-characters">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="content"/>
+          </arguments>
+        </method>
+        <method public="yes" name="endElementNS" id="_Callback-endElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rulesLoader"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+          </arguments>
+        </method>
+        <method public="yes" name="startElementNS" id="_Callback-startElementNS">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="rulesLoader"/>
+            <arg name="name"/>
+            <arg name="qname"/>
+            <arg name="attrs"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <globals>
+    <global public="yes" name="InvalidFragmentException" id="InvalidFragmentException">
+      <value>'InvalidFragmentException'</value>
+    </global>
+    <global public="yes" name="InvalidRuleException" id="InvalidRuleException">
+      <value>'InvalidRulesException'</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="ascii_letters" id="ascii_letters">
+      <value>'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="ascii_lowercase" id="ascii_lowercase">
+      <value>'abcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="ascii_uppercase" id="ascii_uppercase">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="digits" id="digits">
+      <value>'0123456789'</value>
+    </global>
+    <global public="yes" name="hexdigits" id="hexdigits">
+      <value>'0123456789abcdefABCDEF'</value>
+    </global>
+    <global public="yes" name="letters" id="letters">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="lowercase" id="lowercase">
+      <value>'abcdefghijklmnopqrstuvwxyz'</value>
+    </global>
+    <global public="yes" name="octdigits" id="octdigits">
+      <value>'01234567'</value>
+    </global>
+    <global public="yes" name="printable" id="printable">
+      <value>'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~ \t\n\r\x0b\x0c'</value>
+    </global>
+    <global public="yes" name="punctuation" id="punctuation">
+      <value>'!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~'</value>
+    </global>
+    <global public="yes" name="uppercase" id="uppercase">
+      <value>'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</value>
+    </global>
+    <global public="yes" name="whitespace" id="whitespace">
+      <value>'\t\n\x0b\x0c\r '</value>
+    </global>
+  </globals>
+</module>

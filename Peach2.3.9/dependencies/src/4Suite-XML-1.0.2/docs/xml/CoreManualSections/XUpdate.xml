@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="xupdate">
+  <title>XUpdate processing</title>
+
+  <para><ulink
+  url="http://xmldb-org.sourceforge.net/xupdate/">XUpdate</ulink> is
+  a community specification for using an XML vocabulary to express
+  modifications to XML documents. It is essentially an XPath-based XML
+  transformation language, like XSLT. An XUpdate document is an XML document
+  that specifies what changes should be made to another XML document. XUpdate
+  is supported by many XML processing tools - especially in the open source
+  category - and XUpdate is neither a W3C Recommendation nor an ISO or IETF
+  standard. It is just a project of the XML:DB Initiative's XUpdate Working
+  Group, and it never advanced beyond a Working Draft published in September,
+  2000. It is not very well specified, but it is very convenient and enables a
+  basic level of functionality, so it has enjoyed popularity in a number of
+  implementations.</para>
+
+  <para>4Suite's XUpdate implementation, 4XUpdate, consists of a Python API
+  (via the Ft.Xml.XUpdate module) and a command-line script (4xupdate). The
+  APIs involve taking a source document (the XML to be updated) and an XUpdate
+  document (the changes to apply), and either producing a new document or
+  updating the source document in-place. The command line tool can be used,
+  for example, as a patching utility for XML. All of XUpdate (such as it's
+  specified) is currently implemented.</para>
+
+  <para>The Python API can be invoked directly on Domlette objects or on
+  InputSources. Here is an example of using the ApplyXUpdate convenience
+  function, which takes InputSources:</para>
+
+  <programlisting>from Ft.Xml.Domlette import PrettyPrint
+from Ft.Xml.InputSource import DefaultFactory
+try:
+    from Ft.Xml.XUpdate import ApplyXUpdate
+except ImportError:
+    # the function name changed between 1.0a3 and 1.0b1
+    from Ft.Xml.XUpdate import ApplyXupdate as ApplyXUpdate
+
+SOURCE='''&lt;?xml version = "1.0"?&gt;
+&lt;ADDRBOOK xmlns="http://bogus/"&gt;
+  &lt;ENTRY ID="fr"&gt;
+    &lt;NAME&gt;fred&lt;/NAME&gt;
+  &lt;/ENTRY&gt;
+&lt;/ADDRBOOK&gt;'''
+
+XU='''&lt;?xml version="1.0"?&gt;
+&lt;xu:modifications version="1.0" xmlns:xu="http://www.xmldb.org/xupdate"
+  xmlns:myns="http://bogus/"&gt;
+  &lt;xu:append select="/myns:ADDRBOOK" child="last()"&gt;
+    &lt;ENTRY ID="vz"&gt;
+      &lt;NAME&gt;Vasia Zhugenev&lt;/NAME&gt;
+    &lt;/ENTRY&gt;
+  &lt;/xu:append&gt;
+&lt;/xu:modifications&gt;'''
+
+src_isrc = DefaultFactory.fromString(SOURCE, "http://test1/")
+xup_isrc = DefaultFactory.fromString(XU, "http://test2/")
+
+result_dom = ApplyXUpdate(src_isrc, xup_isrc)
+PrettyPrint(result_dom)
+
+#expected:
+#&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+#&lt;ADDRBOOK xmlns="http://bogus/"&gt;
+#  &lt;ENTRY ID="fr"&gt;
+#    &lt;NAME&gt;fred&lt;/NAME&gt;
+#  &lt;/ENTRY&gt;
+#&lt;ENTRY ID="vz"&gt;
+#    &lt;NAME&gt;Vasia Zhugenev&lt;/NAME&gt;
+#  &lt;/ENTRY&gt;
+#&lt;/ADDRBOOK&gt;</programlisting>
+
+  <para>If you have both the source document and XUpdate document as Domlette
+  nodes already, you can use the XUpdate processor directly:</para>
+
+  <programlisting># add to the above script...
+from Ft.Xml.Domlette import NonvalidatingReader
+from Ft.Xml.XUpdate import Processor
+src_isrc = DefaultFactory.fromString(SOURCE, "http://test1/")
+xup_isrc = DefaultFactory.fromString(XU, "[http://test2/")
+src_dom = NonvalidatingReader.parse(src_isrc)
+xup_dom = NonvalidatingReader.parse(xup_isrc)
+proc = Processor()
+proc.execute(src_dom, xup_dom)
+
+# src_dom has been modified in-place
+PrettyPrint(src_dom)</programlisting>
+
+  <para>Using the processor directly allows you to set XPath variables, if
+  needed:</para>
+
+  <programlisting>from Ft.Xml import EMPTY_NAMESPACE
+
+# execute with $x='foo'
+proc.execute(src_dom, xup_dom, {(EMPTY_NAMESPACE, u'x'): u'foo'})</programlisting>
+
+  <para>The command-line script works on local files or even URIs, if
+  resolvable, and normally sends the result XML to standard output, although
+  it can also be made to write to a file. See "4xupdate -h" for usage
+  instructions.</para>
+
+  <section>
+    <title>XUpdate and namespaces</title>
+
+    <para>In order to show how to use XUpdate to make namespace-aware
+    modifications, The following tasks will be demonstrated:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Add a new element in the products namespace, but using no
+        prefix.</para>
+      </listitem>
+
+      <listitem>
+        <para>Add a new element with a prefix and in the products
+        namespace.</para>
+      </listitem>
+
+      <listitem>
+        <para>Add a new element that is not in any namespace.</para>
+      </listitem>
+
+      <listitem>
+        <para>Add a new global attribute in the XHTML namespace.</para>
+      </listitem>
+
+      <listitem>
+        <para>Add a new global attribute in the special XML namespace.</para>
+      </listitem>
+
+      <listitem>
+        <para>Add a new attribute in no namespace.</para>
+      </listitem>
+
+      <listitem>
+        <para>Remove only the <literal>code</literal> element in the XHTML
+        namespace</para>
+      </listitem>
+
+      <listitem>
+        <para>Remove a global attribute</para>
+      </listitem>
+
+      <listitem>
+        <para>Remove an attribute that is not in any namespace</para>
+      </listitem>
+    </orderedlist>
+
+    <para>Modification in place can always be simulated with an addition and
+    then a removal. The following code shows how these tasks can be performed
+    in XUpdate.</para>
+
+    <programlisting>&lt;xup:modifications version="1.0"
+  xmlns:xup="http://www.xmldb.org/xupdate"
+  xmlns:p="http://example.com/product-info"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+&gt;
+
+  &lt;!-- Task 1 --&gt;
+  &lt;xup:append select="/products/p:product[1]"&gt;
+    &lt;xup:element
+      name="launch-date"
+      namespace="http://example.com/product-info"/&gt;
+  &lt;/xup:append&gt;
+
+  &lt;!-- Task 2 --&gt;
+  &lt;xup:append select="/products/p:product[1]"&gt;
+    &lt;xup:element
+      name="p:launch-date"
+      namespace="http://example.com/product-info"/&gt;
+  &lt;/xup:append&gt;
+
+  &lt;!-- Can also be accomplished using literal result elements:
+  &lt;xup:append select="/products/p:product[1]"&gt;
+    &lt;p:launch-date/&gt;
+  &lt;/xup:append&gt;
+  --&gt;
+
+  &lt;!-- Task 3 --&gt;
+  &lt;xup:append select="/products/p:product[1]"&gt;
+    &lt;xup:element name="island"/&gt;
+  &lt;/xup:append&gt;
+
+  &lt;!-- Can also be accomplished using literal result elements:
+  &lt;xup:append select="/products/p:product[1]"&gt;
+    &lt;island/&gt;
+  &lt;/xup:append&gt;
+  --&gt;
+
+  &lt;!-- Task 4 --&gt;
+  &lt;xup:append select="/products/p:product/p:description/html:div"&gt;
+    &lt;xup:attribute name="global"
+      namespace="http://www.w3.org/1999/xhtml"&gt;spam&lt;/xup:attribute&gt;
+  &lt;/xup:append&gt;
+
+  &lt;!-- Task 5 --&gt;
+  &lt;xup:append select="/products/p:product/p:description/html:div"&gt;
+    &lt;xup:attribute name="xml:lang"&gt;en&lt;/xup:attribute&gt;
+  &lt;/xup:append&gt;
+
+  &lt;!-- Task 6 --&gt;
+  &lt;xup:append select="/products/p:product/p:description/html:div"&gt;
+    &lt;xup:attribute name="class"&gt;eggs&lt;/xup:attribute&gt;
+  &lt;/xup:append&gt;
+
+  &lt;!-- Task 7 --&gt;
+  &lt;xup:remove select="//html:code"/&gt;
+
+  &lt;!-- Task 8 --&gt;
+  &lt;xup:remove select="/products/p:product/p:description/html:div/ref/@xl:href"/&gt;
+
+  &lt;!-- Task 9 --&gt;
+  &lt;xup:remove select="/products/p:product[1]/@id"/&gt;
+
+&lt;/xup:modifications&gt;</programlisting>
+
+    <para>If you're familiar with XSLT, then you'll see the resemblance of
+    XUpdate at first glance. The envelope element for modifications expressed
+    in XUpdate is <literal>xup:modifications</literal>, similar to
+    <literal>xsl:transform</literal> or <literal>xsl:stylesheet</literal>. The
+    namespace declarations on this element assign prefixes for use in the
+    XUpdate script and <emphasis role="strong">have no connection</emphasis>
+    to the prefixes used in the document being modified (the <emphasis
+    role="strong">source document</emphasis>), even though they happen to be
+    the same. If you want to access elements in a namespace declared as the
+    default in the source document, then just as in XSLT you must declare and
+    use a prefix for the namespace in the XUpdate script.</para>
+
+    <para>Each modification request is expressed as an XUpdate instruction.
+    This example demonstrates <literal>xup:append</literal> and
+    <literal>xup:remove</literal>. There are other instructions providing
+    types of modification such as <literal>xup:insert-before</literal>
+    <literal>xup:update</literal> and there are also control constructs such
+    as <literal>xup:if</literal>, which is similar to
+    <literal>xsl:if</literal>. Instructions usually have a
+    <literal>select</literal> attribute containing an XPath expression that
+    specifies the node to be used as a reference for modification. In the case
+    of <literal>xup:append</literal>, <literal>select</literal> specifies a
+    node after which some new XML will be appended. In the case of
+    <literal>xup:remove</literal>, <literal>select</literal> identifies nodes
+    to be removed. When an instruction needs to specify a chunk of XML to be
+    used in the modification it is expressed as the content of the
+    instructions in a similar fashion to XSLT templates. In the case of
+    <literal>xup:append</literal> this template expresses the chunk of XML to
+    be inserted into the document. In order to generate elements and
+    attributes XUpdate provides output instructions such as
+    <literal>xup:element</literal> and <literal>xup:attribute</literal>, which
+    are very similar to their XSLT equivalents. In another idea borrowed from
+    XSLT, XUpdate allows you to create element by placing literal result
+    elements in the templates. If you'd like to get a closer look at XUpdate,
+    the best way is by browsing the very clear examples in the <ulink
+    url="http://www.xmldatabases.org/projects/XUpdate-UseCases/">XUpdate Use
+    Cases</ulink> compiled by Kimbro Staken. The following listing is a Python
+    code that can be used to apply an XUpdate script. It's a simplified
+    version of the code for the 4xupdate command line.</para>
+
+    <programlisting>import sys
+from Ft.Xml import XUpdate
+from Ft.Xml import Domlette, InputSource
+from Ft.Lib import Uri
+
+# Set up reader objects for parsing the XML files
+reader = Domlette.NonvalidatingReader
+xureader = XUpdate.Reader()
+
+# Parse the source file
+source_uri = Uri.OsPathToUri(sys.argv[1], attemptAbsolute=1)
+source = reader.parseUri(source_uri)
+
+# Parse the XUpdate file
+xupdate_uri = Uri.OsPathToUri(sys.argv[2], attemptAbsolute=1)
+isrc = InputSource.DefaultFactory.fromUri(xupdate_uri)
+xupdate = xureader.fromSrc(isrc)
+
+# Set up the XUpdate processor and run against the source file
+# The Domlette for the source is modified in place
+processor = XUpdate.Processor()
+processor.execute(source, xupdate)
+
+# Print the updated DOM node to standard output
+Domlette.Print(source)</programlisting>
+
+    <para>Notice the use of <literal>Uri.OsPathToUri</literal> to convert file
+    system paths to proper URIs for use in 4Suite. I strongly recommend this
+    convention as one way to help minimize confusion between file
+    specifications and URIs -- the basis of many frequently asked questions.
+    The <literal>XUpdate.Processor</literal> class defines the environment for
+    running XUpdate commands and <literal>execute()</literal> is the method
+    that actually kicks off the processing. It operates on a Domlette
+    instance, modifying it in place (so be careful when using using XUpdate in
+    this way). The updated document object is printed to standard output using
+    <literal>Domlette.Print</literal>.</para>
+
+    <para>The following snippet illustrates how to run the test script, and
+    the output result.</para>
+
+    <programlisting>$ python listing4.py products.xml listing3.xup
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;products xmlns:p="http://example.com/product-info"
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:xl="http://www.w3.org/1999/xlink"
+&gt;
+  &lt;product xmlns="http://example.com/product-info"&gt;
+    &lt;name xml:lang="en"&gt;Python Perfect IDE&lt;/name&gt;
+    &lt;description&gt;
+      Uses mind-reading technology to anticipate and accommodate
+      all user needs in Python development.  Implements all
+       features though
+      the year 3000.  Works well with &lt;code&gt;1166&lt;/code&gt;.
+    &lt;/description&gt;
+  &lt;launch-date/&gt;&lt;p:launch-date/&gt;&lt;island/&gt;&lt;/product&gt;
+  &lt;p:product id="1166"&gt;
+    &lt;p:name&gt;XSLT Perfect IDE&lt;/p:name&gt;
+    &lt;p:description&gt;
+      &lt;p:code&gt;red&lt;/p:code&gt;
+      &lt;html:code&gt;blue&lt;/html:code&gt;
+      &lt;html:div global="spam" class="eggs" xml:lang="en"&gt;
+        &lt;ref xl:type="simple"&gt;A link&lt;/ref&gt;
+      &lt;/html:div&gt;
+    &lt;/p:description&gt;
+  &lt;/p:product&gt;
+&lt;/products&gt;</programlisting>
+  </section>
+</section>

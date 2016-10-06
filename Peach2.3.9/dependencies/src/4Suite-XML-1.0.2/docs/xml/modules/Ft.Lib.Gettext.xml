@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Gettext">
+  <modification-date>2006-08-13 16:44:33</modification-date>
+  <abstract>Internationalization and localization support.</abstract>
+  <description>Copyright 2006 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="no" name="FindCatalogs" id="FindCatalogs">
+      <abstract># Locate a .mo file using the gettext strategy</abstract>
+      <description/>
+      <arguments>
+        <arg name="domain"/>
+        <arg default="None" name="localedir"/>
+        <arg default="None" name="languages"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetTranslation" id="GetTranslation">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="domain"/>
+        <arg default="None" name="localedir"/>
+        <arg default="None" name="languages"/>
+        <arg default="None" name="class_"/>
+        <arg default="False" name="fallback"/>
+        <arg default="None" name="codeset"/>
+        <arg default="None" name="bundle"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="__all__" id="__all__">
+      <value>['GetTranslation']</value>
+    </global>
+  </globals>
+</module>

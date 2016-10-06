@@ -1,0 +1,23 @@
+Metadata-Version: 1.2
+Name: 4Suite-XML
+Version: 1.0.2
+Summary: An open-source platform for XML processing
+Home-page: http://4suite.org/
+Author: Fourthought, Inc.
+Author-email: 4suite@4suite.org
+Description: XML tools and libraries for Python: Domlette, XPath, XSLT, XPointer, XLink, XUpdate
+Keywords: Python,4Suite,XML,XSLT,XPath,DOM,XInclude,XPointer,XLink,XUpdate,RELAX,XML Catalogs,DTD
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Markup :: XML
+Classifier: Development Status :: 5 - Production/Stable
+Requires: xml.sax
+Provides: Ft.Lib
+Provides: Ft.Xml
+Obsoletes: Ft.Xml (<=1.0b1)
+Requires-Python: >=2.2.1
+Copyright: Fourthought, Inc., 2006

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.CommandLine.CommandLineUtil">
+  <modification-date>2004-10-04 16:54:56</modification-date>
+  <abstract>Utility functions used by command-line scripts</abstract>
+  <description>Copyright 2004 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="ArgumentError" public="yes">
+      <bases>
+        <base documented="no" class="Exception"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="ArgumentError" module="Ft.Lib.CommandLine.CommandLineUtil"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="GetoptError" public="yes">
+      <bases>
+        <base documented="no" class="Exception"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="GetoptError" module="Ft.Lib.CommandLine.CommandLineUtil"/>
+        <base name="Exception"/>
+      </method-resolution-order>
+      <inherited-methods documented="no" class="Exception">
+        <member-reference name="__getitem__" public="no"/>
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="__str__" public="no"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="SourceArgToInputSource" id="SourceArgToInputSource">
+      <abstract>Some command-line scripts take an argument that is supposed to be
+either &quot;-&quot; (denoting standard input) or a URI reference that can be
+resolved against the URI equivalent of the current working
+directory. This function processes such an argument, given as a
+string, and returns an appropriate InputSource object.</abstract>
+      <description>Since users tend to expect local OS paths to work as URIs, this
+function will accept and use an OS path argument if does appear to
+point to an existing local file, even though this could interfere
+with catalog-based resolution.
+
+Raises a ValueError if arg is neither a local file nor a valid URI
+reference nor &quot;-&quot;. Raises a UriException if a stream for the
+InputSource could not be opened (e.g., when the URI refers to a
+directory or unreadable file).
+
+Extra arguments given to this function are passed to the
+InputSourceFactory method that creates the InputSource instance.
+The factory must support the methods fromStream() and fromUri(),
+as defined in Ft.Xml.InputSource.InputSourceFactory. The factory
+must also provide a resolver object with a normalize() method that
+can resolve a URI reference against a base URI, returning a URI.</description>
+      <arguments>
+        <arg name="arg"/>
+        <arg name="factory"/>
+        <var-args name="v_args"/>
+        <var-keywords name="kw_args"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SourceArgToUri" id="SourceArgToUri">
+      <abstract>Some command-line scripts take an argument that is supposed to be
+either &quot;-&quot; (denoting standard input) or a URI reference that can be
+resolved against the URI equivalent of the current working
+directory. This function processes such an argument, given as a
+string, and returns an appropriate URI.</abstract>
+      <description>Since users tend to expect local OS paths to work as URIs, this
+function will accept and use an OS path argument if does appear to
+point to an existing local file, even though this could interfere
+with catalog-based resolution.
+
+Raises a ValueError if arg is neither a local file nor a valid URI
+reference nor &quot;-&quot;.
+
+The resolver object must support a normalize() method that
+can resolve a URI reference against a base URI, returning a URI.</description>
+      <arguments>
+        <arg name="arg"/>
+        <arg default="&lt;Ft.Lib.Uri.FtUriResolver instance at 0xb7bda14c&gt;" name="resolver"/>
+      </arguments>
+    </function>
+    <function public="yes" name="wrap_text" id="wrap_text">
+      <abstract>Split 'text' into multiple lines of no more than 'width' characters
+each, and return the result as a list of strings.</abstract>
+      <description>This function differs from distutils.fancy_getopt.wrap_text() in
+that the distutils version collapses blank lines; this one doesn't.
+
+See also: Ft.Lib.Wrap()</description>
+      <arguments>
+        <arg name="text"/>
+        <arg name="width"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="__all__" id="__all__">
+      <value>['ArgumentError', 'GetoptError', 'wrap_text', 'SourceArgToUri', 'SourceArgToInputSource']</value>
+    </global>
+  </globals>
+</module>

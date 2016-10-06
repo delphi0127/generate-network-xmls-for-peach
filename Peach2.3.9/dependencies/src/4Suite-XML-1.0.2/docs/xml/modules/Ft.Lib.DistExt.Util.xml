@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.DistExt.Util">
+  <modification-date>2006-10-18 13:10:09</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="FindIncludes" id="FindIncludes">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="source"/>
+        <arg default="None" name="include_dirs"/>
+        <arg default="None" name="includes"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetConfigVars" id="GetConfigVars">
+      <abstract>Parse the installed pyconfig.h file.</abstract>
+      <description>A dictionary containing name/value pairs is returned.  If an
+optional dictionary is passed in as the second argument, it is
+used instead of a new dictionary.</description>
+      <arguments>
+        <var-args name="args"/>
+      </arguments>
+    </function>
+    <function public="yes" name="IterXml" id="IterXml">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="stream_or_string"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NormalizePath" id="NormalizePath">
+      <abstract>Normalize a file/dir name for comparison purposes</abstract>
+      <description/>
+      <arguments>
+        <arg name="path"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="no" name="__all__" id="__all__">
+      <value>['GetConfigVars', 'NormalizePath', 'IterXml', 'FindIncludes']</value>
+    </global>
+    <global public="no" name="generators" id="generators">
+      <value>_Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 0)</value>
+    </global>
+  </globals>
+</module>

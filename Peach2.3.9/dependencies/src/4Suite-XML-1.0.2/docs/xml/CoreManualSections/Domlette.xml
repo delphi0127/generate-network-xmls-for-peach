@@ -1,0 +1,1891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="domlette">
+  <title>DOM-like XML processing</title>
+
+  <para>Domlette is 4Suite's lightweight DOM implementation. It is optimized
+  for XPath operations, speed, and relatively low memory overhead. The
+  Domlette API is accessible through <systemitem
+  class="library">Ft.Xml.Domlette</systemitem>. This section describes how to
+  parse, manipulate, and then serialize XML documents using this API.</para>
+
+  <para>Below, we briefly summarize the various elements of the API that form
+  the basic life span of Domlette objects.</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Parsing XML documents</term>
+
+      <listitem>
+        <para>The <systemitem class="library">Ft.Xml</systemitem> module
+        contains the function <methodname>Parse</methodname> that gets the
+        job done quickly. See <xref linkend="quick_reader_access" /> for
+        details. For a bit more more advanced parsing, you will need a
+        combination of the reader instances in the
+        <systemitem class="library">Ft.Xml.Domlette</systemitem> module and
+        <methodname>Ft.Xml.CreateInputSource</methodname> for constructing
+        <classname>InputSource</classname> instances. In rare cases you
+        might need lower-level APIs in in the
+        <systemitem class="library">Ft.Xml.InputSource</systemitem> module.
+        Read <xref linkend="full_domlette_reader" /> if
+        <methodname>Ft.Xml.Parse</methodname> isn't enough.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Modifying and interacting with XML documents</term>
+
+      <listitem>
+        <para>The Domlette API for interacting with XML documents—accessible
+        as methods of the various Domlette objects—is similar to <ulink
+        url="http://www.w3.org/TR/DOM-Level-2-Core">the DOM Level 2
+        specification</ulink>. See <xref linkend="domlette_API" /> for more
+        information.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Serializing XML documents</term>
+
+      <listitem>
+        <para>The <systemitem class="library">Ft.Xml.Domlette</systemitem>
+        module provides two functions, <methodname>Print</methodname> and
+        <methodname>PrettyPrint</methodname>, for writing your XML documents.
+        The <methodname>Print</methodname> function writes the XML document
+        precisely as given in the model. On the other hand, the
+        <methodname>PrettyPrint</methodname> function adds whitespace nodes to
+        your document to try to indent the resulting output nicely. See <xref
+        linkend="domlette_serializing" /> for details.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <section>
+    <title>Parsing XML documents</title>
+
+    <para>We begin our discussion of the Domlette API by describing how to
+    obtain a model of your XML documents to manipulate further. Because XML
+    documents offer such rich functionality and exist in such varied
+    environments, there can be a surprising amount of work that you must do to
+    simply load your XML documents. We begin by providing a short-cut for easy
+    access. We will then dive into the full suite of document loading
+    utilities.</para>
+
+    <section id="quick_reader_access">
+      <title>Quick access to the Domlette reader API</title>
+
+      <para>For basic document manipulations or to get started quickly, the
+      <systemitem class="library">Ft.Xml</systemitem> module offers a quick
+      way to parse XML documents and directly obtain access to the Domlette
+      interface to those documents. Within this module the function of
+      interest is <methodname>Parse</methodname>.</para>
+
+      <warning>
+        <para>This function will get you started quickly because it
+        specifically chooses some default values for some of the more advanced
+        parsing features. If you are passing in a string or stream, and the
+        material in <xref linkend="base_URIs" />
+        applies to your parsing situation, then you will want to use the
+        full-featured API. In brief, if your XML document references external
+        resources, you should not use this convenience function. See <xref
+        linkend="full_domlette_reader"/> instead.</para>
+      </warning>
+
+      <para>This function returns a Domlette
+      <classname>Document</classname> representing the root of the document
+      from the argument.</para>
+
+      <variablelist>
+        <varlistentry>
+          <term><methodsynopsis>
+              <methodname>Parse</methodname>
+
+              <methodparam>
+                <parameter>source</parameter>
+              </methodparam>
+            </methodsynopsis></term>
+
+          <listitem>
+            <para>The <methodname>Parse</methodname> function takes a single
+            argument, which is a byte string (not unicode object), file-like
+            object (stream), file path or URI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <programlisting>XML = """
+&lt;ham&gt;
+&lt;eggs n='1'/&gt;
+This is the string content with &lt;em&gt;emphasized text&lt;/em&gt; text
+&lt;/ham&gt;"""
+
+from Ft.Xml import Parse
+
+doc = Parse(XML)
+# If the above XML document were located in the file
+# "target.xml", we could have used `Parse("target.xml")`.
+print doc.xpath('string(ham//em[1])')</programlisting>
+    </section>
+
+    <section id="full_domlette_reader">
+      <title>The full Domlette reader API</title>
+
+      <para>You create Domlette instances by parsing XML documents with the
+      reader system. For general use, the <systemitem
+      class="library">Ft.Xml.Domlette</systemitem> package contains instances
+      of the different reader classes that can be used directly after you
+      import them. These instances include
+      <constant>NonvalidatingReader</constant> and
+      <constant>ValidatingReader</constant>, which provide non-validating
+      parsing and validating parsing services, respectively. The validation in
+      this case refers to DTD validation. For RELAX NG validation, see <xref
+      linkend="RELAXNG" />. All the reader classes (and, hence, their bundled
+      instances) are described in later sections. After you have obtained one
+      of these reader instances, you feed your XML document entity's byte
+      stream to the reader. We summarize the available reader methods
+      below.</para>
+
+      <variablelist>
+        <varlistentry>
+          <term><methodsynopsis>
+              <methodname>parseUri</methodname>
+
+              <methodparam>
+                <parameter>uri</parameter>
+              </methodparam>
+            </methodsynopsis></term>
+
+          <listitem>
+            <para>The <methodname>parseUri</methodname> method takes a single
+            argument; this <parameter>uri</parameter> argument is the absolute
+            URI of the document entity to parse. The URI will be dereferenced
+            by the default resolver.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><methodsynopsis>
+              <methodname>parseString</methodname>
+
+              <methodparam>
+                <parameter>st</parameter>
+              </methodparam>
+
+              <methodparam>
+                <parameter>uri</parameter>
+              </methodparam>
+            </methodsynopsis></term>
+
+          <listitem>
+            <para>The <methodname>parseString</methodname> method takes two
+            arguments; <parameter>st</parameter> is the XML document entity in
+            the form of an encoded Python string (<emphasis role="bold">not a
+            Unicode string</emphasis>). See the next section for details on
+            the <parameter>uri</parameter> argument.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><methodsynopsis>
+              <methodname>parseStream</methodname>
+
+              <methodparam>
+                <parameter>stream</parameter>
+              </methodparam>
+
+              <methodparam>
+                <parameter>uri</parameter>
+              </methodparam>
+            </methodsynopsis></term>
+
+          <listitem>
+            <para>The <methodname>parseStream</methodname> method takes two
+            arguments; <parameter>stream</parameter> is a Python file-like
+            object that can supply the document entity's bytes via
+            <methodname>read</methodname>() calls. See the next section for
+            details on the <parameter>uri</parameter> argument.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><methodsynopsis>
+              <methodname>parse</methodname>
+
+              <methodparam>
+                <parameter>inputSource</parameter>
+              </methodparam>
+            </methodsynopsis></term>
+
+          <listitem>
+            <para>The <methodname>parse</methodname> method takes a single
+            argument; <parameter>inputSource</parameter> is an
+            <classname>Ft.Xml.InputSource.InputSource</classname> object,
+            described in <xref linkend="InputSources" />.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>The next two sections cover some of the issues that you should
+      understand before using these functions. Then we start seeing some
+      examples in <xref linkend="NonvalidatingReader" />.</para>
+    </section>
+
+    <section id="base_URIs">
+      <title>The importance of base URIs</title>
+
+      <para>In the first 3 methods listed in the previous section, the
+      <parameter>uri</parameter> argument is the URI of the document entity
+      that you are feeding to the parser. It is a very important—but often
+      overlooked—concept in document processing.</para>
+
+      <para>The URI gives the document entity a unique identifier that can
+      used to refer to the document as a whole. Also, each Domlette node
+      derived from a particular entity inherits that entity's URI as the
+      node's <varname>baseURI</varname> property, unless an alternative base
+      URI was indicated, such as with <sgmltag
+      class="attribute">xml:base</sgmltag>, or if part of the document was
+      loaded as an external entity or XInclude.</para>
+
+      <para>The document's URI is also used as the "base URI" for resolving
+      any relative URI references that may appear within the document itself.
+      Relative URI references may occur in a document in places like:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><markup>&lt;!DOCTYPE&gt;</markup> or
+          <markup>&lt;!ENTITY&gt;</markup>, immediately following the keyword
+          <markup>SYSTEM</markup></para>
+        </listitem>
+
+        <listitem>
+          <para><sgmltag class="element">&lt;xsl:import&gt;</sgmltag> and
+          <sgmltag class="element">&lt;xsl:include&gt;</sgmltag>, in the value
+          of the <sgmltag class="attribute">href</sgmltag> attribute</para>
+        </listitem>
+
+        <listitem>
+          <para><sgmltag class="element">&lt;xi:include&gt;</sgmltag>, in the
+          value of the <sgmltag class="attribute">href</sgmltag>
+          attribute</para>
+        </listitem>
+
+        <listitem>
+          <para><sgmltag class="element">&lt;exsl:document&gt;</sgmltag>, in
+          the value of the <sgmltag class="attribute">href</sgmltag>
+          attribute</para>
+        </listitem>
+
+        <listitem>
+          <para>the arguments to XSLT's <function>document()</function>
+          function</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>It is a common misconception that relative URI references in a
+      document's content are considered to be relative to the processor's
+      current working directory. They are actually resolved relative to the
+      URI of the document that contains the relative URI reference (more
+      specifically, relative to the URI of the <emphasis
+      role="em">entity</emphasis> in which the reference occurs, keeping in
+      mind that a document may be comprised of multiple entities, i.e.,
+      separate files).</para>
+
+      <para>In all cases, the document URI that you supply in the reader API
+      must be "absolute", which means that it has a scheme, e.g.
+      "<uri>http://spam/eggs.xml</uri>", not just
+      "<filename>/spam/eggs.xml</filename>" or
+      "<filename>eggs.xml</filename>".</para>
+
+      <para>If you know there are not going to be any relative URI references
+      to resolve during initial parsing or during processing of the Domlette
+      by other tools, then you can safely omit the argument, or, preferably,
+      supply a dummy URI like "<uri>urn:dummy</uri>" or
+      "<uri>http://spam/eggs.xml</uri>". If you choose to omit URI arguments
+      from APIs that need them, you may get a Python warning, and a random
+      URI—which is probably not what you want—will be assigned.</para>
+
+      <para>If you've understood all this and yet you want to just go ahead
+      and not specify a base URI, you may have to turn off the likely
+      warnings.  You can do so with code such as in the following example.</para>
+
+      <programlisting><![CDATA[import  Ft.Xml.Domlette
+import warnings
+def disable_warnings(*args): pass
+
+warnings.filterwarnings("ignore", category=Warning)
+warnings.showwarning = disable_warnings
+
+XML = "<spam/>"
+doc  = Ft.Xml.Domlette.NonvalidatingReader.parseString(XML)
+Ft.Xml.Domlette.Print(doc)
+]]></programlisting>
+
+      <para>You can also in such a case use the convenience function
+      <methodname>Ft.Xml.Parse</methodname> (see above).</para>
+
+    </section>
+
+    <section>
+      <title>Parsing XML that's already a Unicode string</title>
+
+      <para>Because 4Suite is trying to provide as thin a wrapper as possible
+      to the underlying parser, and due to complexities in the APIs of these
+      parsers, there is no API in 4Suite for parsing Python's Unicode
+      strings.</para>
+
+      <para>If your XML is in the form of a Unicode string, you must encode
+      the string as bytes so that the underlying parser can read it. Once you
+      have an encoded string, you can pass it to the reader's
+      <methodname>parseString</methodname>(), or wrap it in an
+      <classname>InputSource</classname> using
+      <methodname>Ft.Xml.CreateInputSource</methodname>, or the
+      <methodname>fromString</methodname>() method of an
+      <classname>InputSourceFactory</classname>. If the string is not UTF-16 or
+      UTF-8 encoded, then you must tell the reader what encoding it actually
+      uses. You can do this either by writing or replacing the XML declaration
+      in the string itself, or (much easier) setting the optional encoding
+      keyword argument in the reader's <methodname>parseString</methodname>()
+      method or the <classname>InputSourceFactory</classname>'s
+      <methodname>fromString</methodname>() method. For an example, see <ulink
+      url="http://uche.ogbuji.net/tech/akara/nodes/2004-06-12/external-encoding">the
+      Akara article on external encoding declarations</ulink>.</para>
+    </section>
+
+    <section id="NonvalidatingReader">
+      <title><varname>NonvalidatingReader</varname></title>
+
+      <para>Use <varname>NonvalidatingReader</varname> for basic parsing.
+      <varname>NonvalidatingReader</varname> performs its parsing without
+      validating against a DTD.</para>
+
+      <para>The following example will parse an XML source taken from the
+      supplied URI, which is treated as a URL by the default resolver.</para>
+
+      <programlisting>from Ft.Xml.Domlette import NonvalidatingReader
+doc = NonvalidatingReader.parseUri(
+  "http://www.w3.org/2000/08/w3c-synd/home.rss")</programlisting>
+
+      <para>The following example also parses an XML source taken from the
+      supplied URI, which is treated as a URL. In this case, the default
+      resolver tries to read the XML source from the filesystem.</para>
+
+      <programlisting>from Ft.Xml.Domlette import NonvalidatingReader
+doc = NonvalidatingReader.parseUri("file:///tmp/spam.xml")</programlisting>
+
+      <para>The following example parses XML from the filesystem. When given a
+      relative file path in the local OS's format, we must first convert that
+      path to a URI that our reader objects can use.</para>
+
+      <programlisting>from Ft.Xml.Domlette import NonvalidatingReader
+from Ft.Lib import Uri
+file_uri = Uri.OsPathToUri('spam.xml')
+doc = NonvalidatingReader.parseUri(file_uri)</programlisting>
+
+      <para>The following example parses XML from a string. Note that it does
+      not provide a document/base URI.</para>
+
+      <programlisting>from Ft.Xml.Domlette import NonvalidatingReader
+doc = NonvalidatingReader.parseString("&lt;spam&gt;eggs&lt;/spam&gt;")</programlisting>
+
+      <para>In the following example, we are parsing XML from a string in a
+      case where the document does need a base URI to be specified.</para>
+
+      <programlisting>from Ft.Xml.Domlette import NonvalidatingReader
+s = """&lt;!DOCTYPE spam [ &lt;!ENTITY eggs "eggs.xml"&gt; ]&gt;
+&lt;spam&gt;&amp;eggs;&lt;/spam&gt;"""
+doc = NonvalidatingReader.parseString(s, 'http://foo/test/spam.xml')
+# during parsing, the replacement text for &amp;eggs;
+# will be obtained from http://foo/test/eggs.xml</programlisting>
+
+      <para>In all of the above examples, doc is now a Domlette node object.
+      4Suite currently offers one Domlette implementation, written in C,
+      called cDomlette.</para>
+    </section>
+
+    <section>
+      <title><classname>EntityReader</classname> Examples</title>
+
+      <para>Sometimes you need to parse a fragment of XML rather than the full
+      document. If operating in non-validating mode is sufficient, Domlette
+      has a reader that can handle this case. When parsing such a fragment,
+      <property>EntityReader</property> returns a Domlette document fragment
+      rather than a document object.</para>
+
+      <programlisting>from Ft.Xml.Domlette import EntityReader
+s = """
+&lt;spam1&gt;eggs&lt;/spam1&gt;
+&lt;spam2&gt;more eggs&lt;/spam2&gt;
+"""
+docfrag = EntityReader.parseString(s, 'http://foo/test/spam.xml')</programlisting>
+
+      <note>
+        <para>The content parsed by <classname>EntityReader</classname> must
+        be an XML External Parsed Entity. This means that it can't be just any
+        XML document. The main limitation is that it must not have a
+        document type declaration.</para>
+      </note>
+    </section>
+
+    <section>
+      <title><classname>ValidatingReader</classname></title>
+
+      <para>If you want to validate a document with a DTD as you parse it, use
+      the <classname>ValidatingReader</classname> object instead. If
+      <classname>ValidatingReader</classname> discovers that the document that
+      it is currently parsing is invalid, then it throws a
+      <classname>Ft.Xml.ReaderException</classname> and does not finish
+      parsing the document. The following example illustrates these
+      concepts.</para>
+
+      <programlisting># ValidatingReader is a global instance
+from Ft.Xml.Domlette import ValidatingReader
+
+XML = """&lt;!DOCTYPE a [
+  &lt;!ELEMENT a (b, b)&gt;
+  &lt;!ELEMENT b EMPTY&gt;
+]&gt;
+&lt;a&gt;&lt;b/&gt;&lt;b/&gt;&lt;/a&gt;"""
+
+doc = ValidatingReader.parseString(XML, "urn:x-example:valid-a")
+# And of course, as with other readers, you can use `parse`, `parseUri`, and
+# `parseStream` as well.
+
+# The following document, however, is invalid because an `a` element can only
+# have two `b` children according to its DTD.
+XML = """&lt;!DOCTYPE a [
+  &lt;!ELEMENT a (b, b)&gt;
+  &lt;!ELEMENT b EMPTY&gt;
+]&gt;
+&lt;a&gt;&lt;b/&gt;&lt;b/&gt;&lt;b/&gt;&lt;/a&gt;"""
+
+# This throws a `Ft.Xml.ReaderException` when it encounters invalid structure,
+# and does not finish parsing the document into `doc`.
+doc = ValidatingReader.parseString(XML, "urn:x-example:invalid-a")</programlisting>
+    </section>
+
+    <section>
+      <title><classname>NoExtDtdReader</classname></title>
+
+      <para>When using <classname>NonvalidatingReader</classname> to parse a
+      document, that document's DTD is still opened and read to obtain
+      information such as entity declarations and default attribute values.
+      You cannot suppress reading of the internal DTD subset, but you can
+      prevent the external subset from being accessed by using
+      <classname>NoExtDtdReader</classname>. This won't affect the processing
+      of external parameter entities defined in the internal DTD subset. Use
+      this object as you would use
+      <classname>NonvalidatingReader</classname>.</para>
+    </section>
+
+    <section>
+      <title>Creating your own reader instance</title>
+
+      <para>In some cases you might not want to use the global reader
+      instances. For instance in multithreaded use, you might want a reader
+      per thread. Or you might want to change some of the parameters on the
+      readers. If so, you can create your own reader instance:</para>
+
+      <programlisting>from Ft.Xml.Domlette import NonvalidatingReaderBase
+reader = NonvalidatingReaderBase()
+doc = reader.parseUri("http://xmlhack.com/read.php?item=1560")</programlisting>
+
+      <para>Instead of <classname>NonvalidatingReaderBase</classname>, you
+      could instead use <classname>NoExtDtdReaderBase</classname> or
+      <classname>ValidatingReaderBase</classname>, depending on your needs.
+      Each of these 3 readers take an optional
+      <parameter>inputSourceFactory</parameter> constructor argument, which
+      you can use to supply a custom URI resolver.</para>
+    </section>
+
+    <section id="InputSources">
+      <title>InputSource objects</title>
+
+      <para>All of the previous examples involve parsing URIs or strings of
+      data. You can also handle <classname>InputSource</classname> objects. An
+      <classname>InputSource</classname> is an object that encapsulates a
+      source of encoded text for parsing, and a URI resolver. The advantage to
+      using an <classname>InputSource</classname> is that it provides a
+      standard API to the text stream, and—perhaps more importantly—allows you
+      to associate a custom URI resolver with the stream.</para>
+
+    <para>Normally, you can just get an <classname>InputSource</classname>
+by calling the convenience function <methodname>Ft.Xml.CreateInputSource</methodname> with a single
+argument, which is a string (not Unicode object), file-like
+object (stream), file path or URI.  You can then pass the
+      <classname>InputSource</classname> object to the reader's
+      <methodname>parse</methodname>() method, as in the following
+      example.
+</para>
+
+      <programlisting>from Ft.Xml import InputSource, CreateInputSource
+from Ft.Xml.Domlette import NonvalidatingReader
+
+#
+# Use CreateInputSource to parse a URL:
+#
+isrc = CreateInputSource("http://xmlhack.com/read.php?item=1560")
+doc1 = NonvalidatingReader.parse(isrc)
+#
+# Or a string:
+#
+isrc = CreateInputSource("&lt;spam&gt;eggs&lt;/spam&gt;", "http://spam.com/base")
+doc2 = NonvalidatingReader.parse(isrc)
+#
+# InputSource is a file-like object, so you can treat it as such:
+#
+isrc = CreateInputSource("http://xmlhack.com/read.php?item=1560")
+raw_text = isrc.read()
+#
+# The uri/system ID you used for it is maintained
+#
+print isrc.uri
+#
+# You can also create other InputSources from URIs relative to this one
+#
+isrc2 = isrc.resolve("read.php?item=1703")</programlisting>
+    <para></para>
+
+      <para>
+      If you need lower-level control you can use an
+      <classname>InputSourceFactory</classname> instance, calling the appropriate method:
+      <methodname>fromUri</methodname>(<parameter>uri</parameter>),
+      <methodname>fromString</methodname>(<parameter>st</parameter>), or
+      <methodname>fromStream</methodname>(<parameter>stream</parameter>), much
+      like the reader API described earlier.  The following listing is
+      functionally equivalent to the above one.</para>
+
+      <programlisting>from Ft.Xml import InputSource
+from Ft.Xml.Domlette import NonvalidatingReader
+
+factory = InputSource.DefaultFactory
+isrc = factory.fromUri("http://xmlhack.com/read.php?item=1560")
+doc1 = NonvalidatingReader.parse(isrc)
+#
+# The factory is reusable. Here we also parse a string:
+#
+isrc = factory.fromString("&lt;spam&gt;eggs&lt;/spam&gt;", "http://spam.com/base")
+doc2 = NonvalidatingReader.parse(isrc)
+#
+# InputSource is a file-like object, so you can treat it as such:
+#
+isrc = factory.fromUri("http://xmlhack.com/read.php?item=1560")
+raw_text = isrc.read()
+#
+# The uri/system ID you used for it is maintained
+#
+print isrc.uri
+#
+# You can also create other InputSources from URIs relative to this one
+#
+isrc2 = isrc.resolve("read.php?item=1703")</programlisting>
+    </section>
+
+    <section id="converting_DOM">
+      <title>Converting from other DOM libraries</title>
+
+      <para>You can convert another Python DOM object (e.g. 4DOM or minidom)
+      to a Domlette object using the function
+      <methodname>ConvertDocument</methodname>:</para>
+
+      <programlisting>from Ft.Xml.Domlette import ConvertDocument
+converted_document = ConvertDocument(oldDocument, documentURI=u'http://www.example.org/')</programlisting>
+
+      <para>The <parameter>DocumentURI</parameter> parameter provides a base
+      URI for the converted nodes. If not specified, attributes documentURI
+      and then baseURI are checked in the source DOM, as defined in <ulink
+      url="http://www.w3.org/TR/DOM-Level-3-Core">DOM Level 3</ulink>. If no
+      URI is found in this way, a warning is issued and a UUID URI is
+      generated for the new Domlette object.</para>
+    </section>
+  </section>
+
+  <section id="domlette_API">
+    <title>Domlette API summary</title>
+
+    <subtitle>Interacting with Domlette documents</subtitle>
+
+    <para>You will use a large part of the Domlette API to interact with the
+    model of your XML documents. The implementation of this part of the API is
+    found in the <systemitem class="library">Ft.Xml.cDomlette</systemitem>
+    module. This part of the API allows you to navigate around a document and
+    modify the content of that document. It is very similar to <ulink
+    url="http://www.w3.org/TR/DOM-Level-2-Core">the DOM Level 2
+    specification</ulink> and follows some of <ulink
+    url="http://www.w3.org/TR/DOM-Level-3-Core">the DOM Level 3
+    specification</ulink>; feel free to refer to those specifications and the
+    4Suite API documentation for details about the intended behavior of this
+    API. You can find brief descriptions of the methods and attributes
+    provided by this API listed below. This API is also nearly the same as the
+    API for <systemitem class="library">xml.dom</systemitem>, which is bundled
+    with Python. The node type constants are inherited directly from
+    <literal>xml.dom.Node</literal>.</para>
+
+    <para>Many objects that you will work with in the Domlette API are
+    descendents of the Domlette <classname>Node</classname> class.
+    <classname>Document</classname>s, document fragments (of class
+    <classname>DocumentFragment</classname>), <classname>Element</classname>s,
+    attributes (class <classname>Attr</classname>), text (class
+    <classname>Text</classname>), processing instructions (class
+    <classname>ProcessingInstruction</classname>), and comments (class
+    <classname>Comment</classname>) are all nodes; any node operations are
+    defined on objects of these types, as well. Some operations do not make
+    sense on some objects, however. For example, it does not make sense to add
+    children to an attribute node.</para>
+
+    <para>In the DOM model of XML documents, there is a
+    <classname>Document</classname> node which represents the starting point
+    for the other pieces of the document. This node is <emphasis
+    role="bold">not</emphasis> the root element of the document; rather, the
+    <classname>Document</classname> node <emphasis
+    role="bold">contains</emphasis> the root element as its only element
+    child. The <classname>Document</classname> node may have other children,
+    though, such as processing instructions and comments.</para>
+
+    <para>You can easily access properties of a node directly. The following
+    properties are available on any node. These properties generally store
+    information about the structure of the document in the near "vicinity" of
+    the target node.</para>
+
+    <variablelist>
+      <title>Properties available on every <classname>Node</classname>
+      object</title>
+
+      <varlistentry>
+        <term><property>attributes</property></term>
+
+        <listitem>
+          <para>This is a python dictionary containing the attributes defined
+          on the target node. The key for the dictionary is a tuple containing
+          the namespace and local name of the attribute. The value associated
+          with this attribute name tuple is the attribute (of class
+          <classname>Attr</classname>) itself.</para>
+
+          <programlisting>node = Parse("&lt;foo a='1'/&gt;")
+print node.childNodes[0].attributes</programlisting>
+
+          <screen>{(None, u'a'): &lt;Attr at 0x40870ecc: name u'a', value u'1'&gt;}</screen>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>baseURI</property></term>
+
+        <listitem>
+          <para>This is the base URI in scope for the target node as a Python
+          unicode string. It is read-only and is computed dynamically according
+          to DOM L3 Core.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>childNodes</property></term>
+
+        <listitem>
+          <para>This is the Python list of all the node children of the target
+          node. Note that in DOM terminology, the attributes of a node are
+          <emphasis role="bold">not</emphasis> children of that node.</para>
+
+          <programlisting>node = Parse("&lt;foo a='1'/&gt;")
+print node.childNodes</programlisting>
+
+          <screen>[&lt;Element at 0x4086052c: name u'foo', 1 attributes, 0 children&gt;]</screen>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>firstChild</property></term>
+
+        <listitem>
+          <para>This is the first child node of the target node. This is
+          equivalent to <code>childNodes[0]</code>, and is a useful property
+          for quickly walking the document tree.</para>
+
+          <programlisting>node = Parse("&lt;foo a='1'/&gt;")
+print node.firstChild</programlisting>
+
+          <screen>&lt;Element at 0x40860a6c: name u'foo', 1 attributes, 0 children&gt;</screen>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>lastChild</property></term>
+
+        <listitem>
+          <para>This is the last child node of the target node. This is
+          equivalent to <code>childNodes[-1]</code>.</para>
+
+          <programlisting>node = Parse("&lt;foo a='1'/&gt;&lt;!--Hi!--&gt;")
+print node.lastChild</programlisting>
+
+          <screen>&lt;Comment at 0x4087caf4: u'Hi!'&gt;</screen>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>localName</property></term>
+
+        <listitem>
+          <para>This is the local name of the target node as a Python unicode
+          string.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>namespaceURI</property></term>
+
+        <listitem>
+          <para>This is the namespace URI of the target node as a Python
+          unicode string.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>nextSibling</property></term>
+
+        <listitem>
+          <para>This is the node immediately following the target node, or
+          <literal>None</literal> if the target node is the last child of its parent
+          (or if the target node is an attribute, as attributes are
+          unordered).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>nodeValue</property></term>
+
+        <listitem>
+          <para>This is the value of the target node as a Python unicode
+          string, if the target node has a string value. If not, this is
+          <literal>None</literal>. To illustrate some of the possibilities,
+          attributes and text nodes have values, while elements and documents
+          do not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>ownerDocument</property></term>
+
+        <listitem>
+          <para>This is the <classname>Document</classname> node in which the
+          target node is contained.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>parentNode</property></term>
+
+        <listitem>
+          <para>This is the parent of the target node. If the target node is a
+          <classname>Document</classname> node, then this will be
+          <literal>None</literal>; <classname>Document</classname> nodes do not have
+          parents.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>prefix</property></term>
+
+        <listitem>
+          <para>This is the namespace prefix of the current node, or
+          <literal>None</literal> if the current node does not (or cannot) have a
+          namespace prefix.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>previousSibling</property></term>
+
+        <listitem>
+          <para>This is the node immediately preceding the target node, or
+          <literal>None</literal> if the target node is the first child of its
+          parent (or if the target node is an attribute, as attributes are
+          unordered).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>rootNode</property></term>
+
+        <listitem>
+          <para>This is a synonym for
+          <property>ownerDocument</property>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>xmlBase</property></term>
+
+        <listitem>
+          <para>This is a synonym for <property>baseURI</property>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>In addition to accessing the structure relative to a node, there are
+    also a set of operations that we can perform on these structures,
+    including a variety of operations for modifying the document. Some of
+    these methods allow you to add new nodes in various places; note that in
+    the DOM, only <classname>Document</classname> nodes can create new nodes. See <xref
+    linkend="Document_methods" /> for details. The following methods are
+    available on any node.</para>
+
+    <variablelist>
+      <title>Methods available to every <classname>Node</classname>
+      object</title>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>appendChild</methodname>
+
+            <methodparam>
+              <parameter>node</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method adds <parameter>node</parameter> as the last child
+          of the current instance. This is useful for manually building a
+          document in breadth-first document order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>insertBefore</methodname>
+
+            <methodparam>
+              <parameter>newChild</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>refChild</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method adds the node <parameter>newChild</parameter> to
+          the current instance immediately before child node
+          <parameter>refChild</parameter>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>replaceChild</methodname>
+
+            <methodparam>
+              <parameter>newChild</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>oldChild</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method replaces the child node
+          <parameter>oldChild</parameter> with the
+          <parameter>newChild</parameter> node.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>removeChild</methodname>
+
+            <methodparam>
+              <parameter>oldChild</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method removes the <parameter>oldChild</parameter> node
+          as a child of the instance node.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>cloneNode</methodname>
+
+            <methodparam>
+              <parameter>deep</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method returns a new copy of the current instance. If
+          (and only if) <parameter>deep</parameter> is true, then we copy
+          deeply: the node's attributes and children are also copied
+          deeply.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>isSameNode</methodname>
+
+            <methodparam>
+              <parameter>otherNode</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method determines whether the instance node and
+          <parameter>otherNode</parameter> are the same node based upon object
+          identity.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>normalize</methodname>
+
+            <void />
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method merges any adjacent text nodes in the attributes
+          or descendents of the current instance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>hasChildNodes</methodname>
+
+            <void />
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method returns true if and only if the instance node has
+          any child nodes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>xpath</methodname>
+
+            <methodparam>
+              <parameter>expr</parameter>
+            </methodparam>
+
+            <methodparam choice="opt">
+              <parameter>explicitNss</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method evaluates the XPath expression
+          <parameter>expr</parameter> with the current instance as the
+          expression context and returns an appropriately-valued result. The
+          <parameter>explicitNss</parameter> parameter is optional; it is a
+          Python dictionary mapping namespace prefixes to namespaces for use
+          in the expression. See <xref linkend="xpath_engine" /> for
+          details.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>In addition to their behavior as nodes,
+    <classname>Document</classname> nodes are uniquely responsible for a
+    number of tasks. For example, only <classname>Document</classname> nodes
+    can create other nodes. The following methods are availble only to
+    <classname>Document</classname> nodes.</para>
+
+    <variablelist id="Document_methods">
+      <title>Methods available to <classname>Document</classname>
+      objects</title>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createElementNS</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>qualifiedName</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method creates and returns a new
+          <classname>Element</classname> with the given namespace URI and
+          qualified name.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createAttributeNS</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>qualifiedName</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method creates and returns a new attribute
+          (<classname>Attr</classname> object) with the given namespace URI
+          and qualified name.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createTextNode</methodname>
+
+            <methodparam>
+              <parameter>data</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method creates and returns a new
+          <classname>Text</classname> node with the string value of
+          <parameter>data</parameter>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createProcessingInstruction</methodname>
+
+            <methodparam>
+              <parameter>target</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>data</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method creates and returns a new processing instruction
+          (<classname>ProcessingInstruction</classname> object) with the given
+          <parameter>target</parameter> name and contents taken from
+          <parameter>data</parameter>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createComment</methodname>
+
+            <methodparam>
+              <parameter>data</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method creates and returns a new
+          <classname>Comment</classname> with the string value of
+          <parameter>data</parameter>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createDocumentFragment</methodname>
+
+            <void />
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method creates and returns a new, empty document fragment
+          (<classname>DocumentFragment</classname> object).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>importNode</methodname>
+
+            <methodparam>
+              <parameter>importedNode</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>deep</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>Nodes can only belong to one document at a time. This method
+          creates a copy of the node <parameter>importedNode</parameter> that
+          belongs to the instance (but which does not yet have a parent). If
+          (and only if) <parameter>deep</parameter> is true, then we copy
+          deeply: the node's attributes and children are also copied deeply
+          and imported.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Document nodes also have a number of properties that are not found
+    on other nodes. These properties are summarized in the following
+    list.</para>
+
+    <variablelist id="Document_properties">
+      <title>Properties available on <classname>Document</classname>
+      objects</title>
+
+      <varlistentry>
+        <term><property>doctype</property></term>
+
+        <listitem>
+          <para>This is a <classname>DocumentType</classname> object that
+          encapsulates info about the document's "type", as described in its
+          DOCTYPE tag. In Domlette, which doesn't use such objects, the value
+          of the <property>doctype</property> property will always be
+          <literal>None</literal>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>documentElement</property></term>
+
+        <listitem>
+          <para>This is the root element of the document.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>documentURI</property></term>
+
+        <listitem>
+          <para>This is the URI that identifies the document.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>implementation</property></term>
+
+        <listitem>
+          <para>This is the <classname>DOMImplementation</classname> that
+          created the document.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>publicId</property></term>
+
+        <listitem>
+          <para>This Domlette-specific property is the public ID of the DTD of
+          this document.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>rootNode</property></term>
+
+        <listitem>
+          <para>This refers to the current instance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>systemId</property></term>
+
+        <listitem>
+          <para>This Domlette-specific property is the system ID of the DTD of
+          this document.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>unparsedEntities</property></term>
+
+        <listitem>
+          <para>This is the list of unparsed entities in the current
+          document.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Attributes (<classname>Attr</classname> objects) do not have any
+    special methods, but they do have a few additional properties. These
+    properties are summarized in the following list.</para>
+
+    <variablelist>
+      <title>Properties available on <classname>Attr</classname>
+      objects</title>
+
+      <varlistentry>
+        <term><property>name</property></term>
+
+        <listitem>
+          <para>This is the qualified name of the current instance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>nodeName</property></term>
+
+        <listitem>
+          <para>This is a synonym for the <property>name</property>
+          property.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>ownerElement</property></term>
+
+        <listitem>
+          <para>This is a synonym for the <property>parentNode</property>
+          property.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>specified</property></term>
+
+        <listitem>
+          <para>You will probably never need this property. It is always
+          <literal>1</literal>. DOM says it should be <literal>0</literal> if
+          it is present through defaulting, rather than explicitly specified
+          in the document. This is only possible if the DOM implementation
+          preserves certain details from DTD processing, which 4Suite never
+          does. Therefore the value is always <literal>0</literal>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>value</property></term>
+
+        <listitem>
+          <para>This is a synonym for the <property>nodeValue</property>
+          property.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Since attributes can only be attached to elements,
+    <classname>Element</classname> objects have a set of special methods for
+    managing which attributes are attached to them. We describe these methods
+    below.</para>
+
+    <variablelist>
+      <title>Methods available to <classname>Element</classname>
+      objects</title>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>hasAttributeNS</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>localName</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method returns true if the current instance has an
+          attribute with the given namespace URI and local name, and false
+          otherwise.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>getAttributeNS</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>localName</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method returns the attribute <emphasis
+          role="bold">value</emphasis> of the attribute with the given
+          namespace URI and local name, if one exists. If not, this returns
+          <literal>None</literal>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>getAttributeNodeNS</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>localName</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method returns the <classname>Attr</classname> object of
+          the attribute with the given namespace URI and local name, if one
+          exists. If not, this returns <literal>None</literal>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>removeAttributeNS</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>localName</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method removes the attribute with the given namespace URI
+          and local name from the current instance element.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>removeAttributeNode</methodname>
+
+            <methodparam>
+              <parameter>node</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method removes the attribute <parameter>node</parameter>
+          from the current instance element.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>setAttributeNS</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>qualifiedName</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>value</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method adds an attribute or replaces an attribute with
+          the specified namespace URI and qualified name and sets the content
+          of that attribute to <parameter>value</parameter>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>setAttributeNodeNS</methodname>
+
+            <methodparam>
+              <parameter>node</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method adds or replaces an attribute using the
+          <classname>Attr</classname> object
+          <parameter>node</parameter>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para><classname>Element</classname>s also have several properties above
+    and beyond what they get from being <classname>Node</classname>s. See the
+    list below for details.</para>
+
+    <variablelist>
+      <title>Properties available on <classname>Element</classname>
+      objects</title>
+
+      <varlistentry>
+        <term><property>nodeName</property></term>
+
+        <listitem>
+          <para>This is the qualified name of the current instance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>tagName</property></term>
+
+        <listitem>
+          <para>This is a synonym for <property>nodeName</property>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Both <classname>Text</classname> and <classname>Comment</classname>
+    nodes are also more general <classname>CharacterData</classname> nodes in
+    the DOM. <classname>CharacterData</classname> nodes have several
+    additional properties and methods for managing the string data that they
+    contain. The individual <classname>Text</classname> and
+    <classname>Comment</classname> nodes, however, do not add any
+    functionality to their general <classname>CharacterData</classname> parent
+    class. You can find descriptions of the properties and methods offered by
+    <classname>CharacterData</classname> objects below.</para>
+
+    <variablelist>
+      <title>Properties available on <classname>CharacterData</classname>
+      objects</title>
+
+      <varlistentry>
+        <term><property>data</property></term>
+
+        <listitem>
+          <para>This is the string content of the current instance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>length</property></term>
+
+        <listitem>
+          <para>This is the length of the string content of the current
+          instance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><property>nodeValue</property></term>
+
+        <listitem>
+          <para>This is a synonym for <property>data</property>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <variablelist>
+      <title>Methods available to <classname>CharacterData</classname>
+      objects</title>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>insertData</methodname>
+
+            <methodparam>
+              <parameter>offset</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>data</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method inserts the string <parameter>data</parameter>
+          into the content of the current instance at the index specified by
+          <parameter>offset</parameter>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>appendData</methodname>
+
+            <methodparam>
+              <parameter>data</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method appends the string <parameter>data</parameter> to
+          the end of the value of the current instance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>replaceData</methodname>
+
+            <methodparam>
+              <parameter>offset</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>count</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>data</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method replaces <parameter>count</parameter> number of
+          characters found at index <parameter>offset</parameter> in the
+          current instance with the string <parameter>data</parameter>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>substringData</methodname>
+
+            <methodparam>
+              <parameter>offset</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>count</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method retrieves and returns the part of the string value
+          of the current instance that begins at index
+          <parameter>offset</parameter> and extends
+          <parameter>count</parameter> characters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>deleteData</methodname>
+
+            <methodparam>
+              <parameter>offset</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>count</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method deletes the part of the string value of the
+          current instance that begins at index <parameter>offset</parameter>
+          and extends <parameter>count</parameter> characters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>A few DOM actions are not "owned" by any individual document. In
+    effect, they are general-purpose operations. They can be found in
+    <classname>DOMImplementation</classname> objects. One such precreated
+    instance can be conveniently found at and used from
+    <property>Ft.Xml.Domlette.implementation</property>. The general methods
+    that such a <classname>DOMImplementation</classname> object offers are
+    listed below.</para>
+
+    <variablelist>
+      <title><classname>DOMImplementation</classname> methods:</title>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createDocument</methodname>
+
+            <methodparam>
+              <parameter>namespaceURI</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>qualifiedName</parameter>
+            </methodparam>
+
+            <methodparam choice="opt">
+              <parameter>doctype</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This standard DOM method creates and returns a
+          <classname>Document</classname> object associated with the given
+          <classname>DocumentTyype</classname> object, and having a single
+          element child with the given QName and namespace. Since Domlette
+          does not use <classname>DocumentTyype</classname> objects, the
+          <parameter>doctype</parameter> argument must be given as <literal>None</literal>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>createRootNode</methodname>
+
+            <methodparam>
+              <parameter>documentURI</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This Domlette-specific method creates a
+          <classname>Document</classname> object with the specified document
+          (base) URI. No document element is created. This method is generally
+          preferred over <methodname>createDocument</methodname>(); see the
+          following section, 'Building a DOM from scratch'.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><methodsynopsis>
+            <methodname>hasFeature</methodname>
+
+            <methodparam>
+              <parameter>feature</parameter>
+            </methodparam>
+
+            <methodparam>
+              <parameter>version</parameter>
+            </methodparam>
+          </methodsynopsis></term>
+
+        <listitem>
+          <para>This method tests whether the DOM implementation implements a
+          specific feature.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <section>
+      <title>What about
+      <methodname>getElementsByTagName</methodname>()?</title>
+
+      <para>The <methodname>getElementsByTagName</methodname>() method isn't
+      supported, because there are better options. In particular, you can just
+      use XPath:</para>
+
+      <programlisting>doc.xpath(u"//tagname")</programlisting>
+
+      <para>For more possibilities, see <ulink
+      url="http://uche.ogbuji.net/tech/akara/nodes/2004-06-19/get-elements"><methodname>getElementsByTagName</methodname>
+      Alternatives</ulink>.</para>
+    </section>
+  </section>
+
+  <section id="domlette_serializing">
+    <title>Serializing Domlette nodes</title>
+
+    <para>Domlette comes with a couple of very fast printer functions which
+    also go to great pains to correctly handle character encoding issues:
+    <methodname>Print</methodname> and <methodname>PrettyPrint</methodname>.
+    Here are some serialization examples using the Domlette printers, given a
+    node '<literal>node</literal>' (it doesn't have to be a document
+    node).</para>
+
+    <programlisting>from Ft.Xml.Domlette import Print, PrettyPrint
+
+# basic serialization to sys.stdout
+Print(node)
+
+# ... with extra whitespace (indenting)
+PrettyPrint(node)
+
+# ... using a single tab, rather than 2 spaces, to indent at each level
+PrettyPrint(node, indent='\t')
+
+# serializing to a utf-8 encoded file
+f = open('output.xml','w')
+Print(node, stream=f)
+f.close()
+
+# ... to an iso-8859-1 encoded file
+f = open('output.xml','w')
+Print(node, stream=f, encoding='iso-8859-1')
+f.close()
+
+# ... to an ascii encoded string
+import cStringIO
+buf = cStringIO.StringIO()
+Print(node, stream=buf, encoding='us-ascii')
+buf.close()
+s = buf.getvalue()
+
+# Normally, output syntax (XML or HTML) is chosen based on the DOM type,
+# which is automatically detected. A Domlette or XML DOM can be output in
+# HTML syntax if the asHtml=1 argument is given.
+PrettyPrint(node, asHtml=1)</programlisting>
+
+    <para>See also: <citetitle><ulink
+    url="http://uche.ogbuji.net/tech/akara/nodes/2003-01-01/dom-printing">Serializing
+    XML from DOM or Domlette documents</ulink></citetitle></para>
+  </section>
+
+  <section>
+    <title>Building a DOM from scratch</title>
+
+    <para>As an alternative to parsing a preexisting XML document, you can
+    also build a document model, with certain limitations, from the ground up.
+    W3C and Python DOM facilities for doing this are intended mainly for creating
+    a temporary document whose nodes will be imported into an existing document,
+    and while Domlette does offer a more convenient document creation method,
+    it has many of the same limitations. However, for most documents, its
+    capabilities should be sufficient.</para>
+
+    <para>The <systemitem class="library">Ft.Xml.Domlette</systemitem> module
+    contains a <classname>DOMImplementation</classname> instance named
+    <property>implementation</property> which provides a set of methods for
+    initializing new <classname>Document</classname>s. The
+    <methodname>implementation.createRootNode</methodname> method takes a base URI
+    argument and provides a natural approach for creating an XPath model root node.
+    This is similar to the DOM idea of a document node and even closer to a DOM
+    document fragment (multiple element children are allowed). The
+    <methodname>implementation.createDocument</methodname> method, on the
+    other hand, is designed to come close to the DOM interface, although its
+    doctype argument must be <literal>None</literal>.</para>
+
+    <programlisting>doc = implementation.createRootNode('file:///article.xml')</programlisting>
+
+    <para>is the equivalent of</para>
+
+    <programlisting>from Ft.Xml import EMPTY_NAMESPACE
+doc = implementation.createDocument(EMPTY_NAMESPACE, None, None)</programlisting>
+
+    <para>with the added advantage of doc.baseURI being set to
+    'file:///article.xml', which is not possible to set via standard DOM interfaces
+    (the baseURI attribute is read-only).</para>
+
+    <para>Similarly,</para>
+
+    <programlisting>from Ft.Xml import EMPTY_NAMESPACE
+doc = implementation.createRootNode('file:///article.xml')
+docelement = doc.createElementNS(EMPTY_NAMESPACE, 'article')
+doc.appendChild(docelement)</programlisting>
+
+    <para>is the equivalent of</para>
+
+    <programlisting>from Ft.Xml import EMPTY_NAMESPACE
+doc = implementation.createDocument(EMPTY_NAMESPACE, 'article', None)</programlisting>
+
+    <para>plus doc.baseURI being set to 'file:///article.xml'.</para>
+
+    <para>If you want as much fidelity to the DOM API as Domlette offers, use
+    <literal>implementation.createDocument</literal>. If you just want to
+    create a document or other such root-level node, and never mind the
+    strange parameters, use
+    <methodname>implementation.createRootNode</methodname>.</para>
+  </section>
+
+  <section id="xpath_query">
+    <title>XPath query</title>
+
+    <para>You can easily perform XPath queries by use the
+    <methodname>xpath</methodname> method for cDomlette nodes as
+    follows:</para>
+
+    <programlisting>from Ft.Xml.Domlette import NonvalidatingReader
+doc = NonvalidatingReader.parseString("&lt;spam&gt;eggs&lt;a/&gt;&lt;a/&gt;&lt;/spam&gt;")
+print doc.xpath(u'//a')
+print doc.xpath(u'string(/spam)')</programlisting>
+
+    <para>Notice: this is nothing like W3C DOM's XPath query module. The
+    emphasis, as usual with Domlette, is on speed, simplicity and
+    pythonic-ness.</para>
+
+    <para>The API, in brief:</para>
+
+    <para><literal>node.xpath(expr[, explicitNss])</literal></para>
+
+    <itemizedlist>
+      <listitem>
+        <para>node - will be used as core of the context for evaluating the
+        XPath</para>
+      </listitem>
+
+      <listitem>
+        <para>expr - XPath expression in string or compiled form</para>
+      </listitem>
+
+      <listitem>
+        <para>explicitNss - (optional) any additional or overriding namespace
+        mappings in the form of a dictionary that maps prefixes to namespace
+        URIs. The base namespace mappings are taken from in-scope declarations
+        on the given node. This explicit dictionary is superimposed on the
+        base mappings.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>For additional details, see <xref linkend="xpath_engine" />.</para>
+  </section>
+
+  <section>
+    <title>More on base URIs</title>
+
+    <para>For some users, always specifying a base URI feels like an
+    inconvenience. Perhaps they always generate XML sources from text or
+    streams without naturally associated URIs, and they have to figure out
+    schemes to come up with base URIs for the parse. But there is good reason
+    for this pickiness. Just ask one of the users <ulink
+    url="http://lists.fourthought.com/pipermail/4suite/2004-January/006064.html">who
+    got bitten by carelessness with base URIs in practice</ulink>. It's better
+    to always put some amount of thought into base URIs when processing XML,
+    and 4Suite encourages this.</para>
+
+    <para>Note that 4Suite only enforces the requirement for base URIs in
+    cases where they are needed to make sense of a requested operation. Your
+    document must have a valid base URI if you use external entities,
+    XInclude, xsl:import, xsl:include, the XSLT document() function, the EXSLT
+    exsl:document element, or any other operations that require access to an
+    external resource. If your main use for URI resolution is XSLT import and
+    includes, you can avoid having to give valid base URIs by using XSLT
+    include paths.<!-- FIXME: add internal link--></para>
+
+    <para>A valid base URI starts with a scheme, such as
+    <literal>http:</literal>. A simple name, such as "spam" is a valid
+    relative URI reference, but not a valid base URI. Without a base URI, a
+    relative reference is no more useful than an apartment number given
+    without the address of the entire apartment building. Merging a base URI
+    with a relative reference is a string operation that is undertaken in a
+    standard manner, and is generally only useful when the base URI is
+    hierarchical; that is, it is a URL using one of the common schemes that
+    have slashes as path separators (e.g., http:, ftp:, gopher:, and most
+    file: URLs). The built-in 4Suite URI resolver
+    <systemitem class="library">Ft.Lib.Uri.BASIC_RESOLVER</systemitem> knows
+    how to perform such resolution.</para>
+
+    <!--The
+    discussion threads that lie behind the major re-write of the parsing and
+    URI resolution infrastructure in 4Suite are scattered all over the place,
+    but one instructive starting point is <ulink
+    url="http://lists.fourthought.com/pipermail/4suite/2002-May/003665.html">this
+    message to the 4Suite mailing list in May of 2002</ulink>. Also in this
+    thread, Mike Brown <ulink
+    url="http://lists.fourthought.com/pipermail/4suite/2002-May/003673.html">points
+    to</ulink> a similar situation when using the Saxon XSLT processor, which
+    has led to a FAQ for that community.
+-->
+  </section>
+
+  <section>
+    <title>Why does Domlette diverge from the DOM specification?</title>
+
+    <para>Domlette is not a complete or fully conformant DOM implementation,
+    but it does provide an interface very close to W3C DOM Level 2 and the
+    corresponding Python mapping as laid out in the
+    <systemitem class="library">xml.dom</systemitem> API docs.
+    </para>
+
+    <para>The areas of divergence are inconsequential for most users,
+    and generally reflect decisions made in the interest of eliminating
+    redundancy, inefficiency, and, to some degree, un-Pythonic design.
+    Also, one of the important design principles for Domlette is that
+    where DOM and XPath disagree, XPath wins; aside from making things
+    more efficient to implement, this behavior is generally what people
+    want in an XML document model.</para>
+
+    <para>It is also worth noting that in the interest of usability,
+    all DOM implementations exhibit some degree of variation from the
+    specs. Coding a completely implementation-agnostic DOM application
+    is difficult and usually unnecessary.</para>
+  </section>
+</section>

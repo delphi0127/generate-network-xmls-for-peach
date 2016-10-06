@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Peach.Generators.null</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Peach-module.html">Package&nbsp;Peach</a> ::
+        <a href="Peach.Generators-module.html">Package&nbsp;Generators</a> ::
+        Module&nbsp;null
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Peach.Generators.null-module.html">Module Peach.Generators.null</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">These Generators evaluate to empty strings but are usefull for displaying status</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">messages and other random stuff.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">@author: Michael Eddington</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">@version: $Id: null.py 2020 2010-04-14 23:13:14Z meddingt $</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Copyright (c) Michael Eddington</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Permission is hereby granted, free of charge, to any person obtaining a copy </tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># of this software and associated documentation files (the "Software"), to deal</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># in the Software without restriction, including without limitation the rights </tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell </tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># copies of the Software, and to permit persons to whom the Software is </tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># furnished to do so, subject to the following conditions:</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># The above copyright notice and this permission notice shall be included in    </tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># all copies or substantial portions of the Software.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR </tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, </tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE </tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER </tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># SOFTWARE.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"># Authors:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#   Michael Eddington (mike@phed.org)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># $Id: null.py 2020 2010-04-14 23:13:14Z meddingt $</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Peach=Peach-module.html,Class Peach.Engine.dom.Peach=Peach.Engine.dom.Peach-class.html"><a title="Peach
+Peach.Engine.dom.Peach" class="py-name" href="#" onclick="return doclink('link-0', 'Peach', 'link-0');">Peach</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module Peach.generator=Peach.generator-module.html"><a title="Peach.generator" class="py-name" href="#" onclick="return doclink('link-1', 'generator', 'link-1');">generator</a></tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment">#__all__ = ["PrintStdout", "PrintStderr"]</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="PrintStdout"></a><div id="PrintStdout-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="PrintStdout-toggle" onclick="return toggle('PrintStdout');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStdout-class.html">PrintStdout</a><tt class="py-op">(</tt><tt class="py-base-class">generator</tt><tt class="py-op">.</tt><tt class="py-base-class">Generator</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStdout-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PrintStdout-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        Logical value of empty string, but will display a value to stdout</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        when called.  Usefull for displaying status messages.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">         </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt id="link-2" class="py-name" targets="Variable Peach.Generators.null.PrintStderr._msg=Peach.Generators.null.PrintStderr-class.html#_msg,Variable Peach.Generators.null.PrintStdout._msg=Peach.Generators.null.PrintStdout-class.html#_msg"><a title="Peach.Generators.null.PrintStderr._msg
+Peach.Generators.null.PrintStdout._msg" class="py-name" href="#" onclick="return doclink('link-2', '_msg', 'link-2');">_msg</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt id="link-3" class="py-name" targets="Variable Peach.Generators.null.PrintStderr._generator=Peach.Generators.null.PrintStderr-class.html#_generator,Variable Peach.Generators.null.PrintStdout._generator=Peach.Generators.null.PrintStdout-class.html#_generator,Variable Peach.Generators.unicode.BadUnicode._generator=Peach.Generators.unicode.BadUnicode-class.html#_generator,Variable Peach.Generators.unicode.GoodUnicode._generator=Peach.Generators.unicode.GoodUnicode-class.html#_generator"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-3', '_generator', 'link-3');">_generator</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">         </tt>
+<a name="PrintStdout.__init__"></a><div id="PrintStdout.__init__-def"><a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="PrintStdout.__init__-toggle" onclick="return toggle('PrintStdout.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStdout-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">msg</tt><tt class="py-op">,</tt> <tt class="py-param">generator</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStdout.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PrintStdout.__init__-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">                @type   msg: string</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">                @param  msg: Value to output</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">                @type   generator: Generator</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">                @param  generator: Generator to wrap</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="Peach.Generators.null.PrintStderr._msg
+Peach.Generators.null.PrintStdout._msg" class="py-name" href="#" onclick="return doclink('link-4', '_msg', 'link-2');">_msg</a></tt> <tt class="py-op">=</tt> <tt class="py-name">msg</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-5', '_generator', 'link-3');">_generator</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="Peach.generator" class="py-name" href="#" onclick="return doclink('link-6', 'generator', 'link-1');">generator</a></tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">         </tt>
+<a name="PrintStdout.getRawValue"></a><div id="PrintStdout.getRawValue-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="PrintStdout.getRawValue-toggle" onclick="return toggle('PrintStdout.getRawValue');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStdout-class.html#getRawValue">getRawValue</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStdout.getRawValue-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PrintStdout.getRawValue-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Peach.Generators.null.PrintStderr._msg
+Peach.Generators.null.PrintStdout._msg" class="py-name" href="#" onclick="return doclink('link-7', '_msg', 'link-2');">_msg</a></tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                 </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-8', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-9', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method Peach.Engine.dom.Asn1Type.getRawValue()=Peach.Engine.dom.Asn1Type-class.html#getRawValue,Method Peach.Engine.dom.Blob.getRawValue()=Peach.Engine.dom.Blob-class.html#getRawValue,Method Peach.Engine.dom.Block.getRawValue()=Peach.Engine.dom.Block-class.html#getRawValue,Method Peach.Engine.dom.Choice.getRawValue()=Peach.Engine.dom.Choice-class.html#getRawValue,Method Peach.Engine.dom.Custom.getRawValue()=Peach.Engine.dom.Custom-class.html#getRawValue,Method Peach.Engine.dom.DataElement.getRawValue()=Peach.Engine.dom.DataElement-class.html#getRawValue,Method Peach.Engine.dom.Flag.getRawValue()=Peach.Engine.dom.Flag-class.html#getRawValue,Method Peach.Engine.dom.Flags.getRawValue()=Peach.Engine.dom.Flags-class.html#getRawValue,Method Peach.Engine.dom.Number.getRawValue()=Peach.Engine.dom.Number-class.html#getRawValue,Method Peach.Engine.dom.String.getRawValue()=Peach.Engine.dom.String-class.html#getRawValue,Method Peach.Engine.dom.Template.getRawValue()=Peach.Engine.dom.Template-class.html#getRawValue,Method Peach.Engine.dom.XmlAttribute.getRawValue()=Peach.Engine.dom.XmlAttribute-class.html#getRawValue,Method Peach.Engine.dom.XmlElement.getRawValue()=Peach.Engine.dom.XmlElement-class.html#getRawValue,Method Peach.Generators.block.Block.getRawValue()=Peach.Generators.block.Block-class.html#getRawValue,Method Peach.Generators.block.BlockRandomizer.getRawValue()=Peach.Generators.block.BlockRandomizer-class.html#getRawValue,Method Peach.Generators.block.BlockSize.getRawValue()=Peach.Generators.block.BlockSize-class.html#getRawValue,Method Peach.Generators.block.MultiBlock.getRawValue()=Peach.Generators.block.MultiBlock-class.html#getRawValue,Method Peach.Generators.block.MultiBlockCount.getRawValue()=Peach.Generators.block.MultiBlockCount-class.html#getRawValue,Method Peach.Generators.data.BadDerEncodedOctetString.getRawValue()=Peach.Generators.data.BadDerEncodedOctetString-class.html#getRawValue,Method Peach.Generators.data.BadNumbers16.getRawValue()=Peach.Generators.data.BadNumbers16-class.html#getRawValue,Method Peach.Generators.data.BadNumbers24.getRawValue()=Peach.Generators.data.BadNumbers24-class.html#getRawValue,Method Peach.Generators.data.BadNumbers32.getRawValue()=Peach.Generators.data.BadNumbers32-class.html#getRawValue,Method Peach.Generators.data.BadNumbers8.getRawValue()=Peach.Generators.data.BadNumbers8-class.html#getRawValue,Method Peach.Generators.data.BadNumbersAsString.getRawValue()=Peach.Generators.data.BadNumbersAsString-class.html#getRawValue,Method Peach.Generators.data.BadPositiveNumbers.getRawValue()=Peach.Generators.data.BadPositiveNumbers-class.html#getRawValue,Method Peach.Generators.data.BadPositiveNumbersSmaller.getRawValue()=Peach.Generators.data.BadPositiveNumbersSmaller-class.html#getRawValue,Method Peach.Generators.data.BadUnsignedNumbers.getRawValue()=Peach.Generators.data.BadUnsignedNumbers-class.html#getRawValue,Method Peach.Generators.data.BadUnsignedNumbers16.getRawValue()=Peach.Generators.data.BadUnsignedNumbers16-class.html#getRawValue,Method Peach.Generators.data.NumberVariance.getRawValue()=Peach.Generators.data.NumberVariance-class.html#getRawValue,Method Peach.Generators.data._AsInt.getRawValue()=Peach.Generators.data._AsInt-class.html#getRawValue,Method Peach.Generators.dictionary.BinaryList.getRawValue()=Peach.Generators.dictionary.BinaryList-class.html#getRawValue,Method Peach.Generators.dictionary.Dictionary.getRawValue()=Peach.Generators.dictionary.Dictionary-class.html#getRawValue,Method Peach.Generators.dictionary.Flags.getRawValue()=Peach.Generators.dictionary.Flags-class.html#getRawValue,Method Peach.Generators.dictionary.Flags2.getRawValue()=Peach.Generators.dictionary.Flags2-class.html#getRawValue,Method Peach.Generators.dictionary.GeneratorChoice.getRawValue()=Peach.Generators.dictionary.GeneratorChoice-class.html#getRawValue,Method Peach.Generators.dictionary.GeneratorList.getRawValue()=Peach.Generators.dictionary.GeneratorList-class.html#getRawValue,Method Peach.Generators.dictionary.List.getRawValue()=Peach.Generators.dictionary.List-class.html#getRawValue,Method Peach.Generators.dictionary._ArrayList.getRawValue()=Peach.Generators.dictionary._ArrayList-class.html#getRawValue,Method Peach.Generators.flipper.PartialFlipper.getRawValue()=Peach.Generators.flipper.PartialFlipper-class.html#getRawValue,Method Peach.Generators.flipper.SequentialFlipper.getRawValue()=Peach.Generators.flipper.SequentialFlipper-class.html#getRawValue,Method Peach.Generators.incrementor.Incrementor.getRawValue()=Peach.Generators.incrementor.Incrementor-class.html#getRawValue,Method Peach.Generators.incrementor.PerCallIncrementor.getRawValue()=Peach.Generators.incrementor.PerCallIncrementor-class.html#getRawValue,Method Peach.Generators.incrementor.PerRoundIncrementor.getRawValue()=Peach.Generators.incrementor.PerRoundIncrementor-class.html#getRawValue,Method Peach.Generators.null.PrintStderr.getRawValue()=Peach.Generators.null.PrintStderr-class.html#getRawValue,Method Peach.Generators.null.PrintStdout.getRawValue()=Peach.Generators.null.PrintStdout-class.html#getRawValue,Method Peach.Generators.repeater.Repeater.getRawValue()=Peach.Generators.repeater.Repeater-class.html#getRawValue,Method Peach.Generators.repeater.RepeaterGI.getRawValue()=Peach.Generators.repeater.RepeaterGI-class.html#getRawValue,Method Peach.Generators.static.Double.getRawValue()=Peach.Generators.static.Double-class.html#getRawValue,Method Peach.Generators.static.Float.getRawValue()=Peach.Generators.static.Float-class.html#getRawValue,Method Peach.Generators.static.Int16.getRawValue()=Peach.Generators.static.Int16-class.html#getRawValue,Method Peach.Generators.static.Int32.getRawValue()=Peach.Generators.static.Int32-class.html#getRawValue,Method Peach.Generators.static.Int64.getRawValue()=Peach.Generators.static.Int64-class.html#getRawValue,Method Peach.Generators.static.Int8.getRawValue()=Peach.Generators.static.Int8-class.html#getRawValue,Method Peach.Generators.static.Static.getRawValue()=Peach.Generators.static.Static-class.html#getRawValue,Method Peach.Generators.static._StaticAlwaysNone.getRawValue()=Peach.Generators.static._StaticAlwaysNone-class.html#getRawValue,Method Peach.Generators.static._StaticCurrentValueFromDom.getRawValue()=Peach.Generators.static._StaticCurrentValueFromDom-class.html#getRawValue,Method Peach.Generators.static._StaticFromTemplate.getRawValue()=Peach.Generators.static._StaticFromTemplate-class.html#getRawValue,Method Peach.Generators.unicode.OverLongUtf8.getRawValue()=Peach.Generators.unicode.OverLongUtf8-class.html#getRawValue,Method Peach.Generators.untidy.XmlFuzzer.getRawValue()=Peach.Generators.untidy.XmlFuzzer-class.html#getRawValue,Method Peach.Generators.xmlstuff.XmlCreateElements.getRawValue()=Peach.Generators.xmlstuff.XmlCreateElements-class.html#getRawValue,Method Peach.Generators.xmlstuff.XmlCreateNodes.getRawValue()=Peach.Generators.xmlstuff.XmlCreateNodes-class.html#getRawValue,Method Peach.Generators.xmlstuff.XmlParserTests.getRawValue()=Peach.Generators.xmlstuff.XmlParserTests-class.html#getRawValue,Method Peach.Generators.xmlstuff.XmlParserTestsGeneric.getRawValue()=Peach.Generators.xmlstuff.XmlParserTestsGeneric-class.html#getRawValue,Method Peach.generator.Generator.getRawValue()=Peach.generator.Generator-class.html#getRawValue,Method Peach.generator.SimpleGenerator.getRawValue()=Peach.generator.SimpleGenerator-class.html#getRawValue"><a title="Peach.Engine.dom.Asn1Type.getRawValue
+Peach.Engine.dom.Blob.getRawValue
+Peach.Engine.dom.Block.getRawValue
+Peach.Engine.dom.Choice.getRawValue
+Peach.Engine.dom.Custom.getRawValue
+Peach.Engine.dom.DataElement.getRawValue
+Peach.Engine.dom.Flag.getRawValue
+Peach.Engine.dom.Flags.getRawValue
+Peach.Engine.dom.Number.getRawValue
+Peach.Engine.dom.String.getRawValue
+Peach.Engine.dom.Template.getRawValue
+Peach.Engine.dom.XmlAttribute.getRawValue
+Peach.Engine.dom.XmlElement.getRawValue
+Peach.Generators.block.Block.getRawValue
+Peach.Generators.block.BlockRandomizer.getRawValue
+Peach.Generators.block.BlockSize.getRawValue
+Peach.Generators.block.MultiBlock.getRawValue
+Peach.Generators.block.MultiBlockCount.getRawValue
+Peach.Generators.data.BadDerEncodedOctetString.getRawValue
+Peach.Generators.data.BadNumbers16.getRawValue
+Peach.Generators.data.BadNumbers24.getRawValue
+Peach.Generators.data.BadNumbers32.getRawValue
+Peach.Generators.data.BadNumbers8.getRawValue
+Peach.Generators.data.BadNumbersAsString.getRawValue
+Peach.Generators.data.BadPositiveNumbers.getRawValue
+Peach.Generators.data.BadPositiveNumbersSmaller.getRawValue
+Peach.Generators.data.BadUnsignedNumbers.getRawValue
+Peach.Generators.data.BadUnsignedNumbers16.getRawValue
+Peach.Generators.data.NumberVariance.getRawValue
+Peach.Generators.data._AsInt.getRawValue
+Peach.Generators.dictionary.BinaryList.getRawValue
+Peach.Generators.dictionary.Dictionary.getRawValue
+Peach.Generators.dictionary.Flags.getRawValue
+Peach.Generators.dictionary.Flags2.getRawValue
+Peach.Generators.dictionary.GeneratorChoice.getRawValue
+Peach.Generators.dictionary.GeneratorList.getRawValue
+Peach.Generators.dictionary.List.getRawValue
+Peach.Generators.dictionary._ArrayList.getRawValue
+Peach.Generators.flipper.PartialFlipper.getRawValue
+Peach.Generators.flipper.SequentialFlipper.getRawValue
+Peach.Generators.incrementor.Incrementor.getRawValue
+Peach.Generators.incrementor.PerCallIncrementor.getRawValue
+Peach.Generators.incrementor.PerRoundIncrementor.getRawValue
+Peach.Generators.null.PrintStderr.getRawValue
+Peach.Generators.null.PrintStdout.getRawValue
+Peach.Generators.repeater.Repeater.getRawValue
+Peach.Generators.repeater.RepeaterGI.getRawValue
+Peach.Generators.static.Double.getRawValue
+Peach.Generators.static.Float.getRawValue
+Peach.Generators.static.Int16.getRawValue
+Peach.Generators.static.Int32.getRawValue
+Peach.Generators.static.Int64.getRawValue
+Peach.Generators.static.Int8.getRawValue
+Peach.Generators.static.Static.getRawValue
+Peach.Generators.static._StaticAlwaysNone.getRawValue
+Peach.Generators.static._StaticCurrentValueFromDom.getRawValue
+Peach.Generators.static._StaticFromTemplate.getRawValue
+Peach.Generators.unicode.OverLongUtf8.getRawValue
+Peach.Generators.untidy.XmlFuzzer.getRawValue
+Peach.Generators.xmlstuff.XmlCreateElements.getRawValue
+Peach.Generators.xmlstuff.XmlCreateNodes.getRawValue
+Peach.Generators.xmlstuff.XmlParserTests.getRawValue
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.getRawValue
+Peach.generator.Generator.getRawValue
+Peach.generator.SimpleGenerator.getRawValue" class="py-name" href="#" onclick="return doclink('link-10', 'getRawValue', 'link-10');">getRawValue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                 </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">         </tt>
+<a name="PrintStdout.next"></a><div id="PrintStdout.next-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="PrintStdout.next-toggle" onclick="return toggle('PrintStdout.next');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStdout-class.html#next">next</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStdout.next-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PrintStdout.next-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-11', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-12', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Peach.Engine.path.PathFinder.next()=Peach.Engine.path.PathFinder-class.html#next,Method Peach.Generators.block.Block.next()=Peach.Generators.block.Block-class.html#next,Method Peach.Generators.block.Block2.next()=Peach.Generators.block.Block2-class.html#next,Method Peach.Generators.block.Block3.next()=Peach.Generators.block.Block3-class.html#next,Method Peach.Generators.block.BlockRandomizer.next()=Peach.Generators.block.BlockRandomizer-class.html#next,Method Peach.Generators.block.MultiBlock.next()=Peach.Generators.block.MultiBlock-class.html#next,Method Peach.Generators.data.BadDerEncodedOctetString.next()=Peach.Generators.data.BadDerEncodedOctetString-class.html#next,Method Peach.Generators.data.NumberVariance.next()=Peach.Generators.data.NumberVariance-class.html#next,Method Peach.Generators.data._AsInt.next()=Peach.Generators.data._AsInt-class.html#next,Method Peach.Generators.dictionary.Dictionary.next()=Peach.Generators.dictionary.Dictionary-class.html#next,Method Peach.Generators.dictionary.Flags.next()=Peach.Generators.dictionary.Flags-class.html#next,Method Peach.Generators.dictionary.Flags2.next()=Peach.Generators.dictionary.Flags2-class.html#next,Method Peach.Generators.dictionary.GeneratorChoice.next()=Peach.Generators.dictionary.GeneratorChoice-class.html#next,Method Peach.Generators.dictionary.GeneratorList.next()=Peach.Generators.dictionary.GeneratorList-class.html#next,Method Peach.Generators.dictionary.GeneratorList2.next()=Peach.Generators.dictionary.GeneratorList2-class.html#next,Method Peach.Generators.dictionary.GeneratorListGroupMaster.next()=Peach.Generators.dictionary.GeneratorListGroupMaster-class.html#next,Method Peach.Generators.dictionary.GeneratorListGroupSlave.next()=Peach.Generators.dictionary.GeneratorListGroupSlave-class.html#next,Method Peach.Generators.dictionary.List.next()=Peach.Generators.dictionary.List-class.html#next,Method Peach.Generators.dictionary._ArrayList.next()=Peach.Generators.dictionary._ArrayList-class.html#next,Method Peach.Generators.flipper.PartialFlipper.next()=Peach.Generators.flipper.PartialFlipper-class.html#next,Method Peach.Generators.flipper.SequentialFlipper.next()=Peach.Generators.flipper.SequentialFlipper-class.html#next,Method Peach.Generators.incrementor.Incrementor.next()=Peach.Generators.incrementor.Incrementor-class.html#next,Method Peach.Generators.incrementor.PerCallIncrementor.next()=Peach.Generators.incrementor.PerCallIncrementor-class.html#next,Method Peach.Generators.incrementor.PerRoundIncrementor.next()=Peach.Generators.incrementor.PerRoundIncrementor-class.html#next,Method Peach.Generators.null.PrintStderr.next()=Peach.Generators.null.PrintStderr-class.html#next,Method Peach.Generators.null.PrintStdout.next()=Peach.Generators.null.PrintStdout-class.html#next,Method Peach.Generators.repeater.Repeater.next()=Peach.Generators.repeater.Repeater-class.html#next,Method Peach.Generators.repeater.RepeaterGI.next()=Peach.Generators.repeater.RepeaterGI-class.html#next,Method Peach.Generators.static.Static.next()=Peach.Generators.static.Static-class.html#next,Method Peach.Generators.unicode.OverLongUtf8.next()=Peach.Generators.unicode.OverLongUtf8-class.html#next,Method Peach.Generators.untidy.XmlFuzzer.next()=Peach.Generators.untidy.XmlFuzzer-class.html#next,Method Peach.Generators.xmlstuff.XmlCreateElements.next()=Peach.Generators.xmlstuff.XmlCreateElements-class.html#next,Method Peach.Generators.xmlstuff.XmlCreateNodes.next()=Peach.Generators.xmlstuff.XmlCreateNodes-class.html#next,Method Peach.Generators.xmlstuff.XmlParserTests.next()=Peach.Generators.xmlstuff.XmlParserTests-class.html#next,Method Peach.Generators.xmlstuff.XmlParserTestsGeneric.next()=Peach.Generators.xmlstuff.XmlParserTestsGeneric-class.html#next,Method Peach.MutateStrategies.rand.RandomMutationStrategy.next()=Peach.MutateStrategies.rand.RandomMutationStrategy-class.html#next,Method Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy.next()=Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy-class.html#next,Method Peach.MutateStrategies.sequencial.ReproStrategy.next()=Peach.MutateStrategies.sequencial.ReproStrategy-class.html#next,Method Peach.MutateStrategies.sequencial.SequencialMutationStrategy.next()=Peach.MutateStrategies.sequencial.SequencialMutationStrategy-class.html#next,Method Peach.Mutators.array.ArrayNumericalEdgeCasesMutator.next()=Peach.Mutators.array.ArrayNumericalEdgeCasesMutator-class.html#next,Method Peach.Mutators.array.ArrayRandomizeOrderMutator.next()=Peach.Mutators.array.ArrayRandomizeOrderMutator-class.html#next,Method Peach.Mutators.array.ArrayReverseOrderMutator.next()=Peach.Mutators.array.ArrayReverseOrderMutator-class.html#next,Method Peach.Mutators.array.ArrayVarianceMutator.next()=Peach.Mutators.array.ArrayVarianceMutator-class.html#next,Method Peach.Mutators.blob.BitFlipperMutator.next()=Peach.Mutators.blob.BitFlipperMutator-class.html#next,Method Peach.Mutators.blob.DWORDSliderMutator.next()=Peach.Mutators.blob.DWORDSliderMutator-class.html#next,Method Peach.Mutators.datatree.DataTreeDuplicateMutator.next()=Peach.Mutators.datatree.DataTreeDuplicateMutator-class.html#next,Method Peach.Mutators.datatree.DataTreeRemoveMutator.next()=Peach.Mutators.datatree.DataTreeRemoveMutator-class.html#next,Method Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.next()=Peach.Mutators.datatree.DataTreeSwapNearNodesMutator-class.html#next,Method Peach.Mutators.number.FiniteRandomNumbersMutator.next()=Peach.Mutators.number.FiniteRandomNumbersMutator-class.html#next,Method Peach.Mutators.number.NumericalEdgeCaseMutator.next()=Peach.Mutators.number.NumericalEdgeCaseMutator-class.html#next,Method Peach.Mutators.number.NumericalVarianceMutator.next()=Peach.Mutators.number.NumericalVarianceMutator-class.html#next,Method Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.next()=Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator-class.html#next,Method Peach.Mutators.size.SizedDataVaranceMutator.next()=Peach.Mutators.size.SizedDataVaranceMutator-class.html#next,Method Peach.Mutators.size.SizedNumericalEdgeCasesMutator.next()=Peach.Mutators.size.SizedNumericalEdgeCasesMutator-class.html#next,Method Peach.Mutators.size.SizedVaranceMutator.next()=Peach.Mutators.size.SizedVaranceMutator-class.html#next,Method Peach.Mutators.string.StringCaseMutator.next()=Peach.Mutators.string.StringCaseMutator-class.html#next,Method Peach.Mutators.string.StringMutator.next()=Peach.Mutators.string.StringMutator-class.html#next,Method Peach.Mutators.string.UnicodeBadUtf8Mutator.next()=Peach.Mutators.string.UnicodeBadUtf8Mutator-class.html#next,Method Peach.Mutators.string.UnicodeBomMutator.next()=Peach.Mutators.string.UnicodeBomMutator-class.html#next,Method Peach.Mutators.string.UnicodeStringsMutator.next()=Peach.Mutators.string.UnicodeStringsMutator-class.html#next,Method Peach.Mutators.string.ValidValuesMutator.next()=Peach.Mutators.string.ValidValuesMutator-class.html#next,Method Peach.Mutators.string._SimpleGeneratorMutator.next()=Peach.Mutators.string._SimpleGeneratorMutator-class.html#next,Method Peach.generator.Generator.next()=Peach.generator.Generator-class.html#next,Method Peach.generator.SimpleGenerator.next()=Peach.generator.SimpleGenerator-class.html#next,Method Peach.group.Group.next()=Peach.group.Group-class.html#next,Method Peach.group.GroupFixed.next()=Peach.group.GroupFixed-class.html#next,Method Peach.group.GroupForeachDo.next()=Peach.group.GroupForeachDo-class.html#next,Method Peach.group.GroupForever.next()=Peach.group.GroupForever-class.html#next,Method Peach.group.GroupSequence.next()=Peach.group.GroupSequence-class.html#next,Method Peach.mutatestrategies.MutationStrategy.next()=Peach.mutatestrategies.MutationStrategy-class.html#next,Method Peach.mutator.Mutator.next()=Peach.mutator.Mutator-class.html#next"><a title="Peach.Engine.path.PathFinder.next
+Peach.Generators.block.Block.next
+Peach.Generators.block.Block2.next
+Peach.Generators.block.Block3.next
+Peach.Generators.block.BlockRandomizer.next
+Peach.Generators.block.MultiBlock.next
+Peach.Generators.data.BadDerEncodedOctetString.next
+Peach.Generators.data.NumberVariance.next
+Peach.Generators.data._AsInt.next
+Peach.Generators.dictionary.Dictionary.next
+Peach.Generators.dictionary.Flags.next
+Peach.Generators.dictionary.Flags2.next
+Peach.Generators.dictionary.GeneratorChoice.next
+Peach.Generators.dictionary.GeneratorList.next
+Peach.Generators.dictionary.GeneratorList2.next
+Peach.Generators.dictionary.GeneratorListGroupMaster.next
+Peach.Generators.dictionary.GeneratorListGroupSlave.next
+Peach.Generators.dictionary.List.next
+Peach.Generators.dictionary._ArrayList.next
+Peach.Generators.flipper.PartialFlipper.next
+Peach.Generators.flipper.SequentialFlipper.next
+Peach.Generators.incrementor.Incrementor.next
+Peach.Generators.incrementor.PerCallIncrementor.next
+Peach.Generators.incrementor.PerRoundIncrementor.next
+Peach.Generators.null.PrintStderr.next
+Peach.Generators.null.PrintStdout.next
+Peach.Generators.repeater.Repeater.next
+Peach.Generators.repeater.RepeaterGI.next
+Peach.Generators.static.Static.next
+Peach.Generators.unicode.OverLongUtf8.next
+Peach.Generators.untidy.XmlFuzzer.next
+Peach.Generators.xmlstuff.XmlCreateElements.next
+Peach.Generators.xmlstuff.XmlCreateNodes.next
+Peach.Generators.xmlstuff.XmlParserTests.next
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.next
+Peach.MutateStrategies.rand.RandomMutationStrategy.next
+Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy.next
+Peach.MutateStrategies.sequencial.ReproStrategy.next
+Peach.MutateStrategies.sequencial.SequencialMutationStrategy.next
+Peach.Mutators.array.ArrayNumericalEdgeCasesMutator.next
+Peach.Mutators.array.ArrayRandomizeOrderMutator.next
+Peach.Mutators.array.ArrayReverseOrderMutator.next
+Peach.Mutators.array.ArrayVarianceMutator.next
+Peach.Mutators.blob.BitFlipperMutator.next
+Peach.Mutators.blob.DWORDSliderMutator.next
+Peach.Mutators.datatree.DataTreeDuplicateMutator.next
+Peach.Mutators.datatree.DataTreeRemoveMutator.next
+Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.next
+Peach.Mutators.number.FiniteRandomNumbersMutator.next
+Peach.Mutators.number.NumericalEdgeCaseMutator.next
+Peach.Mutators.number.NumericalVarianceMutator.next
+Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedDataVaranceMutator.next
+Peach.Mutators.size.SizedNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedVaranceMutator.next
+Peach.Mutators.string.StringCaseMutator.next
+Peach.Mutators.string.StringMutator.next
+Peach.Mutators.string.UnicodeBadUtf8Mutator.next
+Peach.Mutators.string.UnicodeBomMutator.next
+Peach.Mutators.string.UnicodeStringsMutator.next
+Peach.Mutators.string.ValidValuesMutator.next
+Peach.Mutators.string._SimpleGeneratorMutator.next
+Peach.generator.Generator.next
+Peach.generator.SimpleGenerator.next
+Peach.group.Group.next
+Peach.group.GroupFixed.next
+Peach.group.GroupForeachDo.next
+Peach.group.GroupForever.next
+Peach.group.GroupSequence.next
+Peach.mutatestrategies.MutationStrategy.next
+Peach.mutator.Mutator.next" class="py-name" href="#" onclick="return doclink('link-13', 'next', 'link-13');">next</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-14" class="py-name"><a title="Peach.generator" class="py-name" href="#" onclick="return doclink('link-14', 'generator', 'link-1');">generator</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Class Peach.generator.GeneratorCompleted=Peach.generator.GeneratorCompleted-class.html"><a title="Peach.generator.GeneratorCompleted" class="py-name" href="#" onclick="return doclink('link-15', 'GeneratorCompleted', 'link-15');">GeneratorCompleted</a></tt><tt class="py-op">(</tt><tt class="py-string">"PrintStdout"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="PrintStderr"></a><div id="PrintStderr-def"><a name="L77"></a><tt class="py-lineno"> 77</tt> <a class="py-toggle" href="#" id="PrintStderr-toggle" onclick="return toggle('PrintStderr');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStderr-class.html">PrintStderr</a><tt class="py-op">(</tt><tt class="py-base-class">generator</tt><tt class="py-op">.</tt><tt class="py-base-class">Generator</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStderr-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PrintStderr-expanded"><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">        Logical value of empty string, but will display a value to stderr</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">        when called.  Usefull for displaying status messages.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">         </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt id="link-16" class="py-name"><a title="Peach.Generators.null.PrintStderr._msg
+Peach.Generators.null.PrintStdout._msg" class="py-name" href="#" onclick="return doclink('link-16', '_msg', 'link-2');">_msg</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-17', '_generator', 'link-3');">_generator</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">         </tt>
+<a name="PrintStderr.__init__"></a><div id="PrintStderr.__init__-def"><a name="L86"></a><tt class="py-lineno"> 86</tt> <a class="py-toggle" href="#" id="PrintStderr.__init__-toggle" onclick="return toggle('PrintStderr.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStderr-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">msg</tt><tt class="py-op">,</tt> <tt class="py-param">generator</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStderr.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PrintStderr.__init__-expanded"><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt class="py-docstring">'''</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">                @type   msg: string</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">                @param  msg: Value to output</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">                @type   generator: Generator</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">                @param  generator: Generator to wrap</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">                '''</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Peach.Generators.null.PrintStderr._msg
+Peach.Generators.null.PrintStdout._msg" class="py-name" href="#" onclick="return doclink('link-18', '_msg', 'link-2');">_msg</a></tt> <tt class="py-op">=</tt> <tt class="py-name">msg</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-19', '_generator', 'link-3');">_generator</a></tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="Peach.generator" class="py-name" href="#" onclick="return doclink('link-20', 'generator', 'link-1');">generator</a></tt> </tt>
+</div><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">         </tt>
+<a name="PrintStderr.getRawValue"></a><div id="PrintStderr.getRawValue-def"><a name="L96"></a><tt class="py-lineno"> 96</tt> <a class="py-toggle" href="#" id="PrintStderr.getRawValue-toggle" onclick="return toggle('PrintStderr.getRawValue');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStderr-class.html#getRawValue">getRawValue</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStderr.getRawValue-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PrintStderr.getRawValue-expanded"><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method Peach.Engine.common.BitBuffer.write()=Peach.Engine.common.BitBuffer-class.html#write,Method Peach.Engine.common.StreamBuffer.write()=Peach.Engine.common.StreamBuffer-class.html#write"><a title="Peach.Engine.common.BitBuffer.write
+Peach.Engine.common.StreamBuffer.write" class="py-name" href="#" onclick="return doclink('link-21', 'write', 'link-21');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Peach.Generators.null.PrintStderr._msg
+Peach.Generators.null.PrintStdout._msg" class="py-name" href="#" onclick="return doclink('link-22', '_msg', 'link-2');">_msg</a></tt> <tt class="py-op">+</tt> <tt class="py-string">'\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                 </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-23', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-24', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Peach.Engine.dom.Asn1Type.getRawValue
+Peach.Engine.dom.Blob.getRawValue
+Peach.Engine.dom.Block.getRawValue
+Peach.Engine.dom.Choice.getRawValue
+Peach.Engine.dom.Custom.getRawValue
+Peach.Engine.dom.DataElement.getRawValue
+Peach.Engine.dom.Flag.getRawValue
+Peach.Engine.dom.Flags.getRawValue
+Peach.Engine.dom.Number.getRawValue
+Peach.Engine.dom.String.getRawValue
+Peach.Engine.dom.Template.getRawValue
+Peach.Engine.dom.XmlAttribute.getRawValue
+Peach.Engine.dom.XmlElement.getRawValue
+Peach.Generators.block.Block.getRawValue
+Peach.Generators.block.BlockRandomizer.getRawValue
+Peach.Generators.block.BlockSize.getRawValue
+Peach.Generators.block.MultiBlock.getRawValue
+Peach.Generators.block.MultiBlockCount.getRawValue
+Peach.Generators.data.BadDerEncodedOctetString.getRawValue
+Peach.Generators.data.BadNumbers16.getRawValue
+Peach.Generators.data.BadNumbers24.getRawValue
+Peach.Generators.data.BadNumbers32.getRawValue
+Peach.Generators.data.BadNumbers8.getRawValue
+Peach.Generators.data.BadNumbersAsString.getRawValue
+Peach.Generators.data.BadPositiveNumbers.getRawValue
+Peach.Generators.data.BadPositiveNumbersSmaller.getRawValue
+Peach.Generators.data.BadUnsignedNumbers.getRawValue
+Peach.Generators.data.BadUnsignedNumbers16.getRawValue
+Peach.Generators.data.NumberVariance.getRawValue
+Peach.Generators.data._AsInt.getRawValue
+Peach.Generators.dictionary.BinaryList.getRawValue
+Peach.Generators.dictionary.Dictionary.getRawValue
+Peach.Generators.dictionary.Flags.getRawValue
+Peach.Generators.dictionary.Flags2.getRawValue
+Peach.Generators.dictionary.GeneratorChoice.getRawValue
+Peach.Generators.dictionary.GeneratorList.getRawValue
+Peach.Generators.dictionary.List.getRawValue
+Peach.Generators.dictionary._ArrayList.getRawValue
+Peach.Generators.flipper.PartialFlipper.getRawValue
+Peach.Generators.flipper.SequentialFlipper.getRawValue
+Peach.Generators.incrementor.Incrementor.getRawValue
+Peach.Generators.incrementor.PerCallIncrementor.getRawValue
+Peach.Generators.incrementor.PerRoundIncrementor.getRawValue
+Peach.Generators.null.PrintStderr.getRawValue
+Peach.Generators.null.PrintStdout.getRawValue
+Peach.Generators.repeater.Repeater.getRawValue
+Peach.Generators.repeater.RepeaterGI.getRawValue
+Peach.Generators.static.Double.getRawValue
+Peach.Generators.static.Float.getRawValue
+Peach.Generators.static.Int16.getRawValue
+Peach.Generators.static.Int32.getRawValue
+Peach.Generators.static.Int64.getRawValue
+Peach.Generators.static.Int8.getRawValue
+Peach.Generators.static.Static.getRawValue
+Peach.Generators.static._StaticAlwaysNone.getRawValue
+Peach.Generators.static._StaticCurrentValueFromDom.getRawValue
+Peach.Generators.static._StaticFromTemplate.getRawValue
+Peach.Generators.unicode.OverLongUtf8.getRawValue
+Peach.Generators.untidy.XmlFuzzer.getRawValue
+Peach.Generators.xmlstuff.XmlCreateElements.getRawValue
+Peach.Generators.xmlstuff.XmlCreateNodes.getRawValue
+Peach.Generators.xmlstuff.XmlParserTests.getRawValue
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.getRawValue
+Peach.generator.Generator.getRawValue
+Peach.generator.SimpleGenerator.getRawValue" class="py-name" href="#" onclick="return doclink('link-25', 'getRawValue', 'link-10');">getRawValue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                 </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">         </tt>
+<a name="PrintStderr.next"></a><div id="PrintStderr.next-def"><a name="L104"></a><tt class="py-lineno">104</tt> <a class="py-toggle" href="#" id="PrintStderr.next-toggle" onclick="return toggle('PrintStderr.next');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="Peach.Generators.null.PrintStderr-class.html#next">next</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PrintStderr.next-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="PrintStderr.next-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-26', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Peach.Generators.null.PrintStderr._generator
+Peach.Generators.null.PrintStdout._generator
+Peach.Generators.unicode.BadUnicode._generator
+Peach.Generators.unicode.GoodUnicode._generator" class="py-name" href="#" onclick="return doclink('link-27', '_generator', 'link-3');">_generator</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="Peach.Engine.path.PathFinder.next
+Peach.Generators.block.Block.next
+Peach.Generators.block.Block2.next
+Peach.Generators.block.Block3.next
+Peach.Generators.block.BlockRandomizer.next
+Peach.Generators.block.MultiBlock.next
+Peach.Generators.data.BadDerEncodedOctetString.next
+Peach.Generators.data.NumberVariance.next
+Peach.Generators.data._AsInt.next
+Peach.Generators.dictionary.Dictionary.next
+Peach.Generators.dictionary.Flags.next
+Peach.Generators.dictionary.Flags2.next
+Peach.Generators.dictionary.GeneratorChoice.next
+Peach.Generators.dictionary.GeneratorList.next
+Peach.Generators.dictionary.GeneratorList2.next
+Peach.Generators.dictionary.GeneratorListGroupMaster.next
+Peach.Generators.dictionary.GeneratorListGroupSlave.next
+Peach.Generators.dictionary.List.next
+Peach.Generators.dictionary._ArrayList.next
+Peach.Generators.flipper.PartialFlipper.next
+Peach.Generators.flipper.SequentialFlipper.next
+Peach.Generators.incrementor.Incrementor.next
+Peach.Generators.incrementor.PerCallIncrementor.next
+Peach.Generators.incrementor.PerRoundIncrementor.next
+Peach.Generators.null.PrintStderr.next
+Peach.Generators.null.PrintStdout.next
+Peach.Generators.repeater.Repeater.next
+Peach.Generators.repeater.RepeaterGI.next
+Peach.Generators.static.Static.next
+Peach.Generators.unicode.OverLongUtf8.next
+Peach.Generators.untidy.XmlFuzzer.next
+Peach.Generators.xmlstuff.XmlCreateElements.next
+Peach.Generators.xmlstuff.XmlCreateNodes.next
+Peach.Generators.xmlstuff.XmlParserTests.next
+Peach.Generators.xmlstuff.XmlParserTestsGeneric.next
+Peach.MutateStrategies.rand.RandomMutationStrategy.next
+Peach.MutateStrategies.sequencial.RandomDeterministicMutationStrategy.next
+Peach.MutateStrategies.sequencial.ReproStrategy.next
+Peach.MutateStrategies.sequencial.SequencialMutationStrategy.next
+Peach.Mutators.array.ArrayNumericalEdgeCasesMutator.next
+Peach.Mutators.array.ArrayRandomizeOrderMutator.next
+Peach.Mutators.array.ArrayReverseOrderMutator.next
+Peach.Mutators.array.ArrayVarianceMutator.next
+Peach.Mutators.blob.BitFlipperMutator.next
+Peach.Mutators.blob.DWORDSliderMutator.next
+Peach.Mutators.datatree.DataTreeDuplicateMutator.next
+Peach.Mutators.datatree.DataTreeRemoveMutator.next
+Peach.Mutators.datatree.DataTreeSwapNearNodesMutator.next
+Peach.Mutators.number.FiniteRandomNumbersMutator.next
+Peach.Mutators.number.NumericalEdgeCaseMutator.next
+Peach.Mutators.number.NumericalVarianceMutator.next
+Peach.Mutators.size.SizedDataNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedDataVaranceMutator.next
+Peach.Mutators.size.SizedNumericalEdgeCasesMutator.next
+Peach.Mutators.size.SizedVaranceMutator.next
+Peach.Mutators.string.StringCaseMutator.next
+Peach.Mutators.string.StringMutator.next
+Peach.Mutators.string.UnicodeBadUtf8Mutator.next
+Peach.Mutators.string.UnicodeBomMutator.next
+Peach.Mutators.string.UnicodeStringsMutator.next
+Peach.Mutators.string.ValidValuesMutator.next
+Peach.Mutators.string._SimpleGeneratorMutator.next
+Peach.generator.Generator.next
+Peach.generator.SimpleGenerator.next
+Peach.group.Group.next
+Peach.group.GroupFixed.next
+Peach.group.GroupForeachDo.next
+Peach.group.GroupForever.next
+Peach.group.GroupSequence.next
+Peach.mutatestrategies.MutationStrategy.next
+Peach.mutator.Mutator.next" class="py-name" href="#" onclick="return doclink('link-28', 'next', 'link-13');">next</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-29" class="py-name"><a title="Peach.generator" class="py-name" href="#" onclick="return doclink('link-29', 'generator', 'link-1');">generator</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="Peach.generator.GeneratorCompleted" class="py-name" href="#" onclick="return doclink('link-30', 'GeneratorCompleted', 'link-15');">GeneratorCompleted</a></tt><tt class="py-op">(</tt><tt class="py-string">"PrintStderr"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">         </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-comment"># end</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://peachfuzzer.com">Peach API</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 15 18:19:38 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

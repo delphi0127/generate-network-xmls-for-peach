@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.XPath._conversions">
+  <modification-date>2006-12-16 15:51:32</modification-date>
+  <abstract/>
+  <description/>
+  <functions>
+    <function public="yes" name="BooleanValue" id="BooleanValue">
+      <abstract>BooleanValue(object) -&gt; XPath boolean</abstract>
+      <description>Implementation of the XPath 1.0 Recommendation's boolean function</description>
+      <arguments>
+        <unknown>object</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="NumberValue" id="NumberValue">
+      <abstract>NumberValue(object) -&gt; XPath number</abstract>
+      <description>Implementation of the XPath 1.0 Recommendation's number function</description>
+      <arguments>
+        <unknown>object</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="StringValue" id="StringValue">
+      <abstract>StringValue(object) -&gt; XPath string</abstract>
+      <description>Implementation of the XPath 1.0 Recommendation's string function</description>
+      <arguments>
+        <unknown>object</unknown>
+      </arguments>
+    </function>
+  </functions>
+</module>

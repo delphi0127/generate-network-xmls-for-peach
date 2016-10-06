@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section>
+  <title>Resources</title>
+
+  <para>Sources of additional information</para>
+
+  <para>More on DOMs in Python: <ulink
+  url="http://uche.ogbuji.net/tech/akara/nodes/2003-01-01/dom">Basic DOM
+  processing</ulink></para>
+
+  <para><ulink
+  url="http://uche.ogbuji.net/tech/akara/nodes/2004-06-12/external-encoding">External
+  encoding declarations</ulink></para>
+
+  <para>[XML
+  Catalogs|http://uche.ogbuji.net/tech/akara/nodes/2004-06-12/external-encoding]</para>
+
+  <para>There is more coverage of the 4Suite XPath package in this <ulink
+  url="http://www.xml.com/pub/a/2002/10/16/py-xml.html">Tour of
+  4Suite</ulink>.</para>
+
+  <para><ulink url="http://www.logilab.org/XMLTutorial/diap60.html">This slide
+  and the following</ulink> from Alexandre Fayolles' excellent <ulink
+  url="http://www.logilab.org/XMLTutorial/">EuroPython 2002 tutorial on
+  Python/XML processing</ulink> is an great introduction to XPath and XSLT
+  processing in Python.</para>
+
+  <para>This <ulink
+  url="http://www-105.ibm.com/developerworks/education.nsf/xml-onlinecourse-bytitle/BE1A7E60838F9F7686256AF400523C58">XPath
+  and 4XPath tutorial</ulink> is a bit dated, but very comprehensive. Free
+  registration is required.</para>
+
+  <para>You can use EXSLT's node-set extension to provide functionality much
+  like transform chaining. FOr more details see <ulink
+  url="http://www-128.ibm.com/developerworks/xml/library/x-tipxsltmp.html">"Tip:
+  Multi-pass XSLT"</ulink></para>
+
+  <para>For more on RELAX NG in general, see <ulink
+  url="http://www.oasis-open.org/committees/relax-ng/tutorial-20011203.html">The
+  official RELAX NG tutorial</ulink>.</para>
+
+  <para>For more on XVIF, see this <ulink
+  url="http://lists.fourthought.com/pipermail/4suite/2002-October/004442.html">follow-up
+  by Eric</ulink>.</para>
+
+  <para>I use 4xml's --rng option in examples in <ulink
+  url="http://www-106.ibm.com/developerworks/xml/library/x-xmptron/">my
+  article on Examplotron</ulink></para>
+
+  <para>If you want to try out online 4suite and RelaxNG, go to <ulink
+  url="http://www.defuze.org/oss/tree/">http://www.defuze.org/oss/tree/</ulink></para>
+
+  <para><ulink url="http://www.xml.com/pub/a/2005/04/20/py-xml.html">This
+  article</ulink> discusses MarkupWriter</para>
+
+  <para>For more examples of MarkupWriter, see:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><ulink
+      url="http://copia.ogbuji.net/blog/2005-08-01/Another_sm">"Another small
+      4Suite MarkupWriter example: XHTML 1.1"</ulink></para>
+    </listitem>
+
+    <listitem>
+      <para><ulink
+      url="http://copia.ogbuji.net/blog/2005-05-09/XML_recurs">"XML recursive
+      directory listing, part 2"</ulink></para>
+    </listitem>
+  </itemizedlist>
+
+  <para>See <ulink
+  url="http://uche.ogbuji.net/tech/akara/?xslt=irc.xslt&amp;date=2003-05-28#00:05:17">this
+  #4suite blog entry</ulink> for another example of XPath extensions.</para>
+
+  <para>Tamito KAJIYAMA responds to a thread discussing the grouped sorting
+  XSLT FAQ in 4XSLT, <ulink
+  url="http://mail.python.org/pipermail/xml-sig/2003-May/009430.html">offering
+  an extension function as a possible solution</ulink>.</para>
+</section>

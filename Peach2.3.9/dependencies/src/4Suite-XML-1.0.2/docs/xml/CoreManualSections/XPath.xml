@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="xpath_engine">
+  <title>XPath queries</title>
+
+  <para>4Suite provides an XPath processing engine, compliant with <ulink
+  url="http://www.w3.org/TR/xpath">the W3C XPath 1.0 specification</ulink>.
+  This query engine is accessible through <systemitem
+  class="library">Ft.Xml.XPath</systemitem>.</para>
+
+  <section id="xpath_quick">
+    <title>The quickest option</title>
+
+    <para>If you are using Domlette, as described above, the quickest and
+    easiest way to use the XPath facility in 4Suite is the
+    <methodname>xpath()</methodname> method, which any Domlette
+    <classname>Node</classname> supports:</para>
+
+    <programlisting>from Ft.Xml.Domlette import NonvalidatingReader
+doc = NonvalidatingReader.parseString("&lt;spam&gt;eggs&lt;a/&gt;&lt;a/&gt;&lt;/spam&gt;")
+doc2 = NonvalidatingReader.parseString("&lt;spam&gt;eggs&lt;eggs n='1'&gt; and ham&lt;/eggs&gt;&lt;/spam&gt;")
+print doc.xpath(u'(//a)[1]')
+print doc.xpath(u'string(/spam)')
+print doc2.xpath(u'string(//eggs/@n)')</programlisting>
+
+    <para>The line</para>
+
+    <programlisting>print doc.xpath(u'(//a)[1]')</programlisting>
+
+    <para>Is actually a shortcut for the following more involved construct,
+    which is described in detail in the next section:</para>
+
+    <programlisting>from Ft.Xml.XPath import Evaluate
+print Evaluate(u'(//a)[1]', contextNode=doc)</programlisting>
+
+    <para>This example prints three lines. The first line shows a string
+    representation of a list containing a single element. As we see from this
+    line, an XPath selection of nodes returns a Python list. In this case, it
+    is a list containing a single element—the first element with a local name
+    of <sgmltag class="element">a</sgmltag>, which has no attributes and no
+    children. The second line shows the correct string value of the selected
+    <sgmltag class="element">spam</sgmltag> element, and the third line shows
+    the correct string value of the <sgmltag class="attribute">n</sgmltag>
+    attribute.</para>
+
+    <screen>[&lt;Element at 0xb7d10bb4: name u'a', 0 attributes, 0 children&gt;]
+eggs
+1</screen>
+  </section>
+
+  <section id="typeMap">
+    <title>Type mappings</title>
+
+    <para>4Suite XPath functions return results with Python types that depend
+    on the XPath data model type of the query result. The following list shows
+    how the five XPath result types (String, number, boolean, node-set and
+    object) are mapped to Python types:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>XPath string: Python unicode type</para>
+      </listitem>
+
+      <listitem>
+        <para>XPath number: Python float type (int or long also accepted), or
+        instance of Ft.Lib.number.nan (for NaN) or Ft.Lib.number.inf (for
+        Infinity)</para>
+      </listitem>
+
+      <listitem>
+        <para>XPath boolean: Ft.Lib.boolean instance</para>
+      </listitem>
+
+      <listitem>
+        <para>XPath node-set: Python list of Domlette nodes, in document
+        order, with no duplicates</para>
+      </listitem>
+
+      <listitem>
+        <para>XPath foreign object: any other Python object (you will very
+        rarely encounter this case)</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Advanced use</title>
+
+    <para>XPath expressions can refer to both variables and qualified names
+    (QNames) that must be defined by the environment that is executing the
+    XPath expression. This section describes how to use these advanced
+    features of XPath using the 4Suite interface.</para>
+
+    <para>4Suite's XPath implementation uses a Domlette node as the context
+    node for XPath operations. The following example demonstrates the use of
+    XPath to extract content from an XML document. The document must be parsed
+    before Xpath can be used to access it. The following example parses the
+    XML document and explicitly sets up an XPath context to run an XPath
+    query.</para>
+
+    <programlisting>XML = """
+&lt;ham&gt;
+&lt;eggs n='1'/&gt;
+This is the string content with &lt;em&gt;emphasized text&lt;/em&gt; text
+&lt;/ham&gt;"""
+
+from Ft.Xml import Parse
+from Ft.Xml.XPath.Context import Context
+from Ft.Xml.XPath import Evaluate
+
+doc = Parse(XML)
+ctx = Context(doc)
+nodes = Evaluate(u'//em', ctx)
+
+# The return value, a node set, comes back as a Python list of nodes
+# which may be accessed using an iterator
+for n in nodes:
+    # print dir(n)
+    print n.tagName
+    print n.firstChild.nodeValue</programlisting>
+
+    <para>XPath always requires a context for execution; a common XPath
+    context is the root of the target document, such as we did in the above
+    example. Think about an XPath query being executed from some location in
+    an XML document. This location in the document is a necessary component of
+    using XPath.</para>
+
+    <para>There is more to an XPath context than just the context node, but if
+    your needs are as straightforward as that of the above example, there is
+    an abbreviated version of the <methodname>Evaluate</methodname> method for
+    this purpose. For example, the following fragment is equivalent to the two
+    lines creating a context and evaluating the expression in the above
+    example.</para>
+
+    <programlisting># No need to create a context object
+Evaluate(u'//em', contextNode=doc)</programlisting>
+
+    <para>If your source document uses XML Namespaces you will likely need to
+    use QNames in your XPath expressions. For this to work, you'll need to
+    introduce namespace mappings into your XPath context. For example, if the
+    elements of our XML document above are in an XML namespace, then we must
+    set up our context slightly differently.</para>
+
+    <programlisting>XML = """&lt;ham xmlns="http://example.com/ns#"&gt;
+&lt;eggs n='1'/&gt;
+This is the string content with &lt;em type='bold'&gt;emphasized Namespaced Text&lt;/em&gt; text
+&lt;/ham&gt;"""
+
+from Ft.Xml import Parse
+from Ft.Xml.XPath.Context import Context
+from Ft.Xml.XPath import Evaluate
+
+NSS = {u'ex': u'http://example.com/ns#'}
+doc = Parse(XML)
+ctx = Context(doc, processorNss=NSS)
+nodes = Evaluate(u'//ex:em', ctx)
+for n in nodes:
+    # print dir(n)
+    print n.tagName
+    print n.firstChild.nodeValue</programlisting>
+
+    <para>You define XPath namespace prefixes through a Python dictionary
+    (<varname>NSS</varname> in the above example) which maps these prefixes,
+    such as '<literal>ex</literal>' in the above example, to the appropriate
+    namespace URI, such as '<literal>http://example.com/ns#</literal>' in the
+    above example. This prefix mapping is added to your XPath context using
+    the <parameter>processorNss</parameter> parameter to the
+    <function>Context</function> function.</para>
+
+    <para>In a similar way, you can also pass in variable bindings which may
+    be used as values later in your XPath expressions. In this case, however,
+    variables are Python tuples containing the namespace URI and local name of
+    the variable.</para>
+
+    <programlisting>ctx = Context(node, varBindings=
+  {(EMPTY_NAMESPACE, u'date'): u'2003-06-20'})
+Evaluate('event[@date = $date]', context=ctx)</programlisting>
+
+    <para>This creates a variable in the default namespace named 'date', with
+    a value of '<literal>2003-06-20</literal>'; this is then used for
+    comparison with the date attribute in the Xpath expression.</para>
+
+    <para>XPath variables are Qnames, so you pass in variable names as
+    namespace/local name tuples. The values can be numbers, unicode objects or
+    boolean objects:</para>
+
+    <programlisting>from Ft.Xml.XPath import boolean
+ctx = Context(node, varBindings={(EMPTY_NAMESPACE, u'test'): boolean.true})</programlisting>
+
+    <para>This sets the variable 'test' to the boolean value true (remember
+    that this is for the XPath environment, not the Python one), and again
+    this may be used as in any XSLT stylesheet.</para>
+
+    <para>If you only want a value once, you may of course still use string
+    constants, as in</para>
+
+    <programlisting>nodes=Evaluate(u'//testPrefix:em[@type="bold"]',ctx)</programlisting>
+
+    <para>Note the quotes used? These must be balanced, hence the literal
+    value uses double quotes.</para>
+  </section>
+
+  <section>
+    <title>Reusing parsed XPath queries</title>
+
+    <para>Sometimes you want to re-use an XPath expression and namespace
+    mapping multiple times, for efficiency and convenience. The following
+    example shows an example of this:</para>
+
+    <programlisting>from Ft.Xml.XPath.Context import Context
+from Ft.Xml.XPath import Compile, Evaluate
+from Ft.Xml import Parse
+
+DOCS = ["&lt;spam xmlns='http://spam.com'&gt;eggs&lt;/spam&gt;",
+        "&lt;spam xmlns='http://spam.com'&gt;grail&lt;/spam&gt;",
+        "&lt;spam xmlns='http://spam.com'&gt;nicht&lt;/spam&gt;",
+       ]
+
+# Pre-compile for efficiency and convenience
+expr = Compile(u"/a:spam[contains(., 'i')]")
+ctx = Context(None, processorNss={u"a": u"http://spam.com"})
+
+i = 1
+for doc in DOCS:
+    doc = NonvalidatingReader.parseString(doc.encode('UTF-8'),
+                                          "http://spam.com/base")
+    retval = Evaluate(expr, doc, ctx)
+    if len(retval):
+        print "Document", i, "meets our criteria"
+    i += 1</programlisting>
+
+    <para>Which should display:</para>
+
+    <screen>Document 2 meets our criteria
+Document 3 meets our criteria</screen>
+  </section>
+
+  <section>
+    <title>Migration from PyXML's XPath</title>
+
+    <para>There is a usable XPath module in PyXML (warning: PyXML's XSLT
+    implementation is not usable: use 4Suite if you need XSLT), but there are
+    a lot of updates and improvements in the XPath library version in
+    4Suite.</para>
+
+    <para>If you are familiar with PyXML, you may have used a different form
+    of imports to load in XPath and XSLT features. The imports are different
+    under 4Suite.</para>
+
+    <para>Usage example:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>PyXML usage (do not use with 4Suite):</para>
+
+        <programlisting>import xml.xslt
+import xml.xpath</programlisting>
+      </listitem>
+
+      <listitem>
+        <para>4Suite usage (use these imports):</para>
+
+        <programlisting>import Ft.Xml.XPath
+import Ft.Xml.Xslt</programlisting>
+      </listitem>
+    </orderedlist>
+  </section>
+</section>

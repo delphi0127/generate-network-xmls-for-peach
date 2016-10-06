@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://phed.org/2008/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://phed.org/2008/Peach ../../../../../peach/peach.xsd" version="1.0"
+	author="Michael Eddington" description="Hello World Example">
+	
+ 	<Include src="file:defaults.xml" ns="default"/>
+ 
+	<DataModel name="TestTemplate">
+		<String isStatic="true" value="hello world" />
+		<String isStatic="true" length="10" value="hello world" />
+		<String isStatic="true" valueType="literal" value="'Hello World'" />
+		<String isStatic="true" padCharacter="A" length="100" value="Peachy" />
+		<Number isStatic="true" size="8" value="100" />
+		<Number isStatic="true" endian="little" size="32" signed="true" value="100" />
+		<Number isStatic="true" endian="big" size="32" signed="true" value="100" />
+		<Number isStatic="true" endian="network" size="32" signed="true" value="100" />
+		<Number isStatic="true" endian="network" size="32" signed="false" value="100" />
+		<Number size="8" value="100" />
+		<Number endian="little" size="32" signed="true" value="100" />
+		<Number endian="big" size="32" signed="true" value="100" />
+		<Number endian="network" size="32" signed="true" value="100" />
+		<Number endian="network" size="32" signed="false" value="100" />
+	</DataModel>
+	
+	<Test name="DictTest">
+		<Publisher class="stdout.Stdout"/>
+	</Test>
+
+	<Run name="DefaultRun">
+		<Test ref="DictTest"/>
+	</Run>
+</Peach>

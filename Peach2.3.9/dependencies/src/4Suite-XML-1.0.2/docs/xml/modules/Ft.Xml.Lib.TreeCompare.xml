@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Lib.TreeCompare">
+  <modification-date>2005-04-18 16:47:00</modification-date>
+  <abstract>Comparison functions for XML and HTML documents
+(mainly used in the test suites)</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="SGMLParserEventGenerator" public="yes">
+      <bases>
+        <base documented="no" class="SGMLParser" module="sgmllib"/>
+      </bases>
+      <abstract>An HTML parser that meets our needs better than Python's
+htmllib.HTMLParser, and that works with Python 2.1.</abstract>
+      <description>Used by CompareHTML().</description>
+      <method-resolution-order>
+        <base name="SGMLParserEventGenerator" module="Ft.Xml.Lib.TreeCompare"/>
+        <base name="SGMLParser" module="sgmllib"/>
+        <base name="ParserBase" module="markupbase"/>
+      </method-resolution-order>
+      <methods name="ParserBase" module="markupbase">
+        <method public="no" name="__init__" id="SGMLParserEventGenerator-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="0" name="verbose"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+        <method public="yes" name="close" id="SGMLParserEventGenerator-close">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+        <method public="yes" name="flush" id="SGMLParserEventGenerator-flush">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+        <method public="yes" name="handle_comment" id="SGMLParserEventGenerator-handle_comment">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+        <method public="yes" name="handle_data" id="SGMLParserEventGenerator-handle_data">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="data"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+        <method public="yes" name="unknown_charref" id="SGMLParserEventGenerator-unknown_charref">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="ref"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+        <method public="yes" name="unknown_endtag" id="SGMLParserEventGenerator-unknown_endtag">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tag"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+        <method public="yes" name="unknown_entityref" id="SGMLParserEventGenerator-unknown_entityref">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="ref"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+        <method public="yes" name="unknown_starttag" id="SGMLParserEventGenerator-unknown_starttag">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="tagname"/>
+            <arg name="attrs"/>
+          </arguments>
+          <overrides documented="no" class="SGMLParser" module="sgmllib"/>
+        </method>
+      </methods>
+      <members name="ParserBase" module="markupbase">
+        <member public="yes" name="CHARREF_EVENT" id="SGMLParserEventGenerator-CHARREF_EVENT">
+          <value>7</value>
+        </member>
+        <member public="yes" name="COMMENT_EVENT" id="SGMLParserEventGenerator-COMMENT_EVENT">
+          <value>2</value>
+        </member>
+        <member public="yes" name="END_TAG_EVENT" id="SGMLParserEventGenerator-END_TAG_EVENT">
+          <value>4</value>
+        </member>
+        <member public="yes" name="ENTITYREF_EVENT" id="SGMLParserEventGenerator-ENTITYREF_EVENT">
+          <value>6</value>
+        </member>
+        <member public="yes" name="START_TAG_EVENT" id="SGMLParserEventGenerator-START_TAG_EVENT">
+          <value>3</value>
+        </member>
+        <member public="yes" name="TEXT_EVENT" id="SGMLParserEventGenerator-TEXT_EVENT">
+          <value>1</value>
+        </member>
+      </members>
+      <inherited-methods documented="no" class="SGMLParser" module="sgmllib">
+        <member-reference name="error" public="yes"/>
+        <member-reference name="feed" public="yes"/>
+        <member-reference name="finish_endtag" public="yes"/>
+        <member-reference name="finish_shorttag" public="yes"/>
+        <member-reference name="finish_starttag" public="yes"/>
+        <member-reference name="get_starttag_text" public="yes"/>
+        <member-reference name="goahead" public="yes"/>
+        <member-reference name="handle_charref" public="yes"/>
+        <member-reference name="handle_decl" public="yes"/>
+        <member-reference name="handle_endtag" public="yes"/>
+        <member-reference name="handle_entityref" public="yes"/>
+        <member-reference name="handle_pi" public="yes"/>
+        <member-reference name="handle_starttag" public="yes"/>
+        <member-reference name="parse_endtag" public="yes"/>
+        <member-reference name="parse_pi" public="yes"/>
+        <member-reference name="parse_starttag" public="yes"/>
+        <member-reference name="report_unbalanced" public="yes"/>
+        <member-reference name="reset" public="yes"/>
+        <member-reference name="setliteral" public="yes"/>
+        <member-reference name="setnomoretags" public="yes"/>
+      </inherited-methods>
+      <inherited-members documented="no" class="SGMLParser" module="sgmllib">
+        <member-reference name="entitydefs" public="yes"/>
+      </inherited-members>
+      <inherited-methods documented="no" class="ParserBase" module="markupbase">
+        <member-reference name="getpos" public="yes"/>
+        <member-reference name="parse_comment" public="yes"/>
+        <member-reference name="parse_declaration" public="yes"/>
+        <member-reference name="parse_marked_section" public="yes"/>
+        <member-reference name="unknown_decl" public="yes"/>
+        <member-reference name="updatepos" public="yes"/>
+      </inherited-methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="CompareHTML" id="CompareHTML">
+      <abstract>A cmp()-like function that compares two HTML strings by parsing
+with sgmllib.SGMLParser and comparing events until a mismatch is
+found. It has the side effect of reporting differences to stdout.</abstract>
+      <description>ignoreWhitespace controls whether whitespace differences in text
+events are ignored.</description>
+      <arguments>
+        <arg name="html1"/>
+        <arg name="html2"/>
+        <arg default="0" name="ignoreWhitespace"/>
+      </arguments>
+    </function>
+    <function public="yes" name="HtmlTreeCompare" id="HtmlTreeCompare">
+      <abstract>Compare two HTML strings.  The result is similar to the builtin cmp()
+function such that non-zero indicates non equal and zero means equal.</abstract>
+      <description/>
+      <arguments>
+        <arg name="expected"/>
+        <arg name="compared"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NoWsTreeCompare" id="NoWsTreeCompare">
+      <abstract>Equivalent to calling TreeCompare() with ignoreWhitespace=1.</abstract>
+      <description/>
+      <arguments>
+        <arg name="expected"/>
+        <arg name="compared"/>
+      </arguments>
+    </function>
+    <function public="yes" name="NodeCompare" id="NodeCompare">
+      <abstract>A function that compares two XML DOM nodes by traversing their
+attributes and descendants recursively until a mismatch is found.
+It has the side effect of reporting differences to stdout. Returns
+true if the nodes compare equal.</abstract>
+      <description>ignoreWhitespace controls whether whitespace differences in text
+nodes are ignored.
+
+ignoreComments controls whether comment nodes are ignored.
+
+ignoreNsDecls controls whether namespace declarations are ignored.</description>
+      <arguments>
+        <arg name="node1"/>
+        <arg name="node2"/>
+        <arg default="0" name="ignoreWhitespace"/>
+        <arg default="0" name="ignoreComments"/>
+        <arg default="0" name="ignoreNsDecls"/>
+      </arguments>
+    </function>
+    <function public="yes" name="TreeCompare" id="TreeCompare">
+      <abstract>A cmp()-like function that compares two XML or HTML strings and
+has the side effect of reporting differences to stdout. Returns
+false if the nodes compare equal.</abstract>
+      <description>XML strings are parsed into a Domlette and compared node-by-node.
+HTML strings are parsed with an SGML parser and are compared
+event-by-event. The markup type is guessed based on clues in the
+expected string.
+
+ignoreWhitespace controls whether whitespace differences in text
+nodes are ignored.
+
+'file:' URIs based on the current working directory are generated
+for each document. The baseUri argument is an optional absolute URI
+to use as the basis of the generated URIs, if a 'file' URI is
+undesirable.
+
+readExtDtd controls whether the external DTD subset is read
+when parsing XML. It does not affect the reading of external
+entities declared in the internal DTD subset.
+
+ignoreNsDecls controls whether namespace declarations are ignored
+when comparing XML documents.</description>
+      <arguments>
+        <arg name="expected"/>
+        <arg name="compared"/>
+        <arg default="0" name="ignoreWhitespace"/>
+        <arg default="None" name="baseUri"/>
+        <arg default="True" name="readExtDtd"/>
+        <arg default="0" name="ignoreNsDecls"/>
+        <arg default="False" name="asEntity"/>
+      </arguments>
+    </function>
+    <function public="yes" name="XmlTreeCompare" id="XmlTreeCompare">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="expected"/>
+        <arg name="compared"/>
+      </arguments>
+    </function>
+    <function public="no" name="_TryEntityAsDocumentEntity" id="_TryEntityAsDocumentEntity">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="entity"/>
+      </arguments>
+    </function>
+    <function public="no" name="__PrintParentage" id="__PrintParentage">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="node"/>
+      </arguments>
+    </function>
+    <function public="no" name="__PrintStack" id="__PrintStack">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="stack"/>
+      </arguments>
+    </function>
+    <function public="no" name="__ReportError" id="__ReportError">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="node1"/>
+        <arg name="node2"/>
+        <arg name="attribute"/>
+      </arguments>
+    </function>
+    <function public="no" name="__ReportEventError" id="__ReportEventError">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="event1"/>
+        <arg name="event2"/>
+        <arg name="stack"/>
+        <arg name="attribute"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="BASIC_RESOLVER" id="BASIC_RESOLVER">
+      <value>&lt;Ft.Lib.Uri.FtUriResolver instance&gt;</value>
+    </global>
+    <global public="yes" name="FORBIDDEN_END_ELEMENTS" id="FORBIDDEN_END_ELEMENTS">
+      <value>['img', 'area', 'basefont', 'frame', 'isindex', 'meta', 'param', 'hr', 'base', 'link', 'br', 'input', 'col']</value>
+    </global>
+    <global public="yes" name="READ_EXTERNAL_DTD" id="READ_EXTERNAL_DTD">
+      <value>True</value>
+    </global>
+    <global public="yes" name="XMLNS_NAMESPACE" id="XMLNS_NAMESPACE">
+      <value>u'http://www.w3.org/2000/xmlns/'</value>
+    </global>
+    <global public="yes" name="g_doctypeTest" id="g_doctypeTest">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="yes" name="g_htmlTest" id="g_htmlTest">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="yes" name="g_xmlEmptyTagPattern" id="g_xmlEmptyTagPattern">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+    <global public="yes" name="g_xmlTest" id="g_xmlTest">
+      <abstract>Compiled regular expression objects</abstract>
+      <description/>
+      <value>&lt;_sre.SRE_Pattern object&gt;</value>
+    </global>
+  </globals>
+</module>

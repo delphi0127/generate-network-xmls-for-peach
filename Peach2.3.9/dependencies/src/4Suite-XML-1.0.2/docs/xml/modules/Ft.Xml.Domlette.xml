@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Xml.Domlette">
+  <modification-date>2006-08-21 18:35:20</modification-date>
+  <abstract>Abstraction module for Domlette usage.
+Domlette is a DOM-like library tailored for use in XPath/XSLT.</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <classes>
+    <class name="DEFAULT_NONVALIDATING_READER" public="no">
+      <bases>
+        <base documented="yes" class="DeprecatedReader" module="Ft.Xml.Domlette"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DEFAULT_NONVALIDATING_READER" module="Ft.Xml.Domlette"/>
+        <base name="DeprecatedReader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="DeprecatedReader" module="Ft.Xml.Domlette">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="fromStream" public="no"/>
+        <member-reference name="fromString" public="no"/>
+        <member-reference name="fromUri" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="DEFAULT_VALIDATING_READER" public="no">
+      <bases>
+        <base documented="yes" class="DeprecatedReader" module="Ft.Xml.Domlette"/>
+      </bases>
+      <abstract/>
+      <description/>
+      <method-resolution-order>
+        <base name="DEFAULT_VALIDATING_READER" module="Ft.Xml.Domlette"/>
+        <base name="DeprecatedReader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <inherited-methods documented="yes" class="DeprecatedReader" module="Ft.Xml.Domlette">
+        <member-reference name="__init__" public="no"/>
+        <member-reference name="fromStream" public="no"/>
+        <member-reference name="fromString" public="no"/>
+        <member-reference name="fromUri" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="DeprecatedReader" public="no">
+      <abstract>Defined to support the old interfaces.
+If you're still using this, please upgrade to the newer API.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="DeprecatedReader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="DeprecatedReader" module="Ft.Xml.Domlette">
+        <method public="no" name="__init__" id="DeprecatedReader-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="resolveEntity"/>
+            <arg default="1" name="processIncludes"/>
+          </arguments>
+        </method>
+        <method public="no" name="fromStream" id="DeprecatedReader-fromStream">
+          <abstract>Creates a default InputSource from a python file-like object
+(the stream argument). The document URI should be provided as
+the refUri argument. This will be used in the resolution of
+system IDs in the DTD and document type declaration, and will
+be embedded in the Domlette nodes for use by the application,
+such as for resolution of relative URI references in XSLT's
+document(), xsl:import, and xsl:include, among others.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg default="''" name="refUri"/>
+            <arg default="None" name="ownerDoc"/>
+            <arg default="None" name="stripElements"/>
+          </arguments>
+        </method>
+        <method public="no" name="fromString" id="DeprecatedReader-fromString">
+          <abstract>Creates a default InputSource from an ordinary python byte
+string (the st argument). The document URI should be provided as
+the refUri argument. This will be used in the resolution of
+system IDs in the DTD and document type declaration, and will
+be embedded in the Domlette nodes for use by the application,
+such as for resolution of relative URI references in XSLT's
+document(), xsl:import, and xsl:include, among others.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="st"/>
+            <arg default="''" name="refUri"/>
+            <arg default="None" name="ownerDoc"/>
+            <arg default="None" name="stripElements"/>
+          </arguments>
+        </method>
+        <method public="no" name="fromUri" id="DeprecatedReader-fromUri">
+          <abstract>Creates a default InputSource from a URI (the uri argument).
+The baseUri and ownerDoc arguments are ignored.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <arg default="''" name="baseUri"/>
+            <arg default="None" name="ownerDoc"/>
+            <arg default="None" name="stripElements"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="EntityReaderBase" public="yes">
+      <bases>
+        <base documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+      </bases>
+      <abstract>Base class to be used by all readers which can accept well-formed EPEs.
+Non-validating only.
+Allows an InputSource factory to be specified.
+Allows control over whether the external DTD subset is read.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="EntityReaderBase" module="Ft.Xml.Domlette"/>
+        <base name="_Reader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="_Reader" module="Ft.Xml.Domlette">
+        <method public="no" name="__init__" id="EntityReaderBase-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="inputSourceFactory"/>
+          </arguments>
+          <overrides documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Reader" module="Ft.Xml.Domlette">
+        <member-reference name="parse" public="no"/>
+        <member-reference name="parseStream" public="no"/>
+        <member-reference name="parseString" public="no"/>
+        <member-reference name="parseUri" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="NoExtDtdReaderBase" public="yes">
+      <bases>
+        <base documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+      </bases>
+      <abstract>Base class to be used by all non-validating readers
+that do not need to read the external DTD subset.
+Allows an InputSource factory to be specified.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="NoExtDtdReaderBase" module="Ft.Xml.Domlette"/>
+        <base name="_Reader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="_Reader" module="Ft.Xml.Domlette">
+        <method public="no" name="__init__" id="NoExtDtdReaderBase-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="inputSourceFactory"/>
+          </arguments>
+          <overrides documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Reader" module="Ft.Xml.Domlette">
+        <member-reference name="parse" public="no"/>
+        <member-reference name="parseStream" public="no"/>
+        <member-reference name="parseString" public="no"/>
+        <member-reference name="parseUri" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="NonvalidatingReaderBase" public="yes">
+      <bases>
+        <base documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+      </bases>
+      <abstract>Base class to be used by all non-validating readers.
+Allows an InputSource factory to be specified.
+Allows control over whether the external DTD subset is read.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="NonvalidatingReaderBase" module="Ft.Xml.Domlette"/>
+        <base name="_Reader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="_Reader" module="Ft.Xml.Domlette">
+        <method public="no" name="__init__" id="NonvalidatingReaderBase-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="inputSourceFactory"/>
+          </arguments>
+          <overrides documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Reader" module="Ft.Xml.Domlette">
+        <member-reference name="parse" public="no"/>
+        <member-reference name="parseStream" public="no"/>
+        <member-reference name="parseString" public="no"/>
+        <member-reference name="parseUri" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="SaxWalker" public="no">
+      <abstract>Wrapper for a Saxlette parser that allows you to walk a Domlette
+tree and fire off SAX2 events as if parsing an XML source.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="SaxWalker" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="SaxWalker" module="Ft.Xml.Domlette">
+        <method public="no" name="__getattr__" id="SaxWalker-__getattr__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="value"/>
+          </arguments>
+        </method>
+        <method public="no" name="__init__" id="SaxWalker-__init__">
+          <abstract>node - the Domlette node to be walked
+baseUri - optional override for the baseUri to use in parsing
+          by default this is retrieved from the Domlette node</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="node"/>
+            <arg default="''" name="baseUri"/>
+          </arguments>
+        </method>
+        <method public="no" name="parse" id="SaxWalker-parse">
+          <abstract>Execute the SAX2 parse phase (using Saxlette)</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+    <class name="ValidatingReaderBase" public="yes">
+      <bases>
+        <base documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+      </bases>
+      <abstract>Base class to be used by all validating readers.
+Allows an InputSource factory to be specified.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="ValidatingReaderBase" module="Ft.Xml.Domlette"/>
+        <base name="_Reader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="_Reader" module="Ft.Xml.Domlette">
+        <method public="no" name="__init__" id="ValidatingReaderBase-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg default="None" name="inputSourceFactory"/>
+          </arguments>
+          <overrides documented="yes" class="_Reader" module="Ft.Xml.Domlette"/>
+        </method>
+      </methods>
+      <inherited-methods documented="yes" class="_Reader" module="Ft.Xml.Domlette">
+        <member-reference name="parse" public="no"/>
+        <member-reference name="parseStream" public="no"/>
+        <member-reference name="parseString" public="no"/>
+        <member-reference name="parseUri" public="no"/>
+      </inherited-methods>
+    </class>
+    <class name="_Reader" public="no">
+      <abstract>Base class for all XML readers.
+Subclassed by NonvalidatingReaderBase and ValidatingReaderBase.</abstract>
+      <description/>
+      <method-resolution-order>
+        <base name="_Reader" module="Ft.Xml.Domlette"/>
+      </method-resolution-order>
+      <methods name="_Reader" module="Ft.Xml.Domlette">
+        <method public="no" name="__init__" id="_Reader-__init__">
+          <abstract/>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="parseMethod"/>
+            <arg default="None" name="inputSourceFactory"/>
+            <arg default="()" name="args"/>
+            <arg default="None" name="kwargs"/>
+          </arguments>
+        </method>
+        <method public="no" name="parse" id="_Reader-parse">
+          <abstract>Reads XML from an Ft.Xml.Inputsource.InputSource, and
+returns a Domlette document node.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="inputSource"/>
+          </arguments>
+        </method>
+        <method public="no" name="parseStream" id="_Reader-parseStream">
+          <abstract>Reads an XML document entity from a python file-like object
+(the stream argument), and returns a Domlette document node.</abstract>
+          <description>The document URI should be provided as the uri argument.
+This will be used in the resolution of system IDs in the DTD
+and document type declaration, and will be embedded in the
+Domlette nodes for use by the application, such as for
+resolution of relative URI references in XSLT's document(),
+xsl:import, and xsl:include, among others.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="stream"/>
+            <arg default="None" name="uri"/>
+            <var-args name="v_args"/>
+            <var-keywords name="kw_args"/>
+          </arguments>
+        </method>
+        <method public="no" name="parseString" id="_Reader-parseString">
+          <abstract>Reads an XML document entity provided as an ordinary python
+byte string (the st argument), and returns a Domlette
+document node.  st cannot be a Unicode string.</abstract>
+          <description>The document URI should be provided as the uri argument.
+This will be used in the resolution of system IDs in the DTD
+and document type declaration, and will be embedded in the
+Domlette nodes for use by the application, such as for
+resolution of relative URI references in XSLT's document(),
+xsl:import, and xsl:include, among others.</description>
+          <arguments>
+            <arg name="self"/>
+            <arg name="st"/>
+            <arg default="None" name="uri"/>
+            <var-args name="v_args"/>
+            <var-keywords name="kw_args"/>
+          </arguments>
+        </method>
+        <method public="no" name="parseUri" id="_Reader-parseUri">
+          <abstract>Reads an XML document entity from a URI (the uri argument),
+and returns a Domlette document node.</abstract>
+          <description/>
+          <arguments>
+            <arg name="self"/>
+            <arg name="uri"/>
+            <var-args name="v_args"/>
+            <var-keywords name="kw_args"/>
+          </arguments>
+        </method>
+      </methods>
+    </class>
+  </classes>
+  <functions>
+    <function public="yes" name="CanonicalPrint" id="CanonicalPrint">
+      <abstract>Given a Node instance assumed to be the root of an XML DOM or Domlette
+tree, this function serializes the document to the given stream or
+stdout, using c14n serialization, according to
+http://www.w3.org/TR/xml-c14n (the default) or
+http://www.w3.org/TR/xml-exc-c14n/
+This function does nothing if root is not a Node.</abstract>
+      <description>exclusive - if true, apply exclusive c14n according to
+    http://www.w3.org/TR/xml-exc-c14n/
+inclusivePrefixes - if exclusive is True, use this as a list of namespaces
+    representing the &quot;InclusiveNamespacesPrefixList&quot; list in exclusive c14n
+
+Please import this from Ft.Xml.Domlette
+rather than directly from Ft.Xml.Lib.</description>
+      <arguments>
+        <arg name="root"/>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7ddd068&gt;" name="stream"/>
+        <arg default="False" name="exclusive"/>
+        <arg default="None" name="inclusivePrefixes"/>
+      </arguments>
+    </function>
+    <function public="yes" name="ConvertDocument" id="ConvertDocument">
+      <abstract>Since foreign DOMs are not supported within 4Suite, this function
+lets users create a Domlette DOM from whatever DOM they are using.</abstract>
+      <description>If the documentURI is not specified, it will try and get it from
+the document using DOM L3 attributes documentURI, then baseURI. If
+no URI is found, a warning is issued and a urn:uuid is generated
+for it.</description>
+      <arguments>
+        <arg name="oldDocument"/>
+        <arg default="u''" name="documentURI"/>
+      </arguments>
+    </function>
+    <function public="yes" name="GetAllNs" id="GetAllNs">
+      <abstract>GetAllNs(node) -&gt; dict</abstract>
+      <description>Get all of the namespaces defined in scope of this node.</description>
+      <arguments>
+        <unknown>node</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="NonvalParse" id="NonvalParse">
+      <abstract>NonvalParse(isrc[, readExtDtd]) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc[, readExtDtd]</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="PrettyPrint" id="PrettyPrint">
+      <abstract>Given a Node instance assumed to be the root of a DOM or Domlette
+tree, this function serializes the document to the given stream or
+stdout, using the given encoding (UTF-8 is the default). Extra
+whitespace is added to the output for visual formatting. The asHtml
+flag can be used to force HTML-style serialization of an XML DOM.
+Otherwise, the DOM type (HTML or XML) is automatically determined.
+This function does nothing if root is not a Node.</abstract>
+      <description>Please import this from Ft.Xml.Domlette
+rather than directly from Ft.Xml.Lib.</description>
+      <arguments>
+        <arg name="root"/>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7ddd068&gt;" name="stream"/>
+        <arg default="'UTF-8'" name="encoding"/>
+        <arg default="None" name="asHtml"/>
+      </arguments>
+    </function>
+    <function public="yes" name="Print" id="Print">
+      <abstract>Given a Node instance assumed to be the root of a DOM or Domlette
+tree, this function serializes the document to the given stream or
+stdout, using the given encoding (UTF-8 is the default). The asHtml
+flag can be used to force HTML-style serialization of an XML DOM.
+Otherwise, the DOM type (HTML or XML) is automatically determined.
+This function does nothing if root is not a Node.</abstract>
+      <description>It is preferable that users import this from Ft.Xml.Domlette
+rather than directly from Ft.Xml.Lib.</description>
+      <arguments>
+        <arg name="root"/>
+        <arg default="&lt;open file '&lt;stdout&gt;', mode 'w' at 0xb7ddd068&gt;" name="stream"/>
+        <arg default="'UTF-8'" name="encoding"/>
+        <arg default="None" name="asHtml"/>
+      </arguments>
+    </function>
+    <function public="yes" name="SeekNss" id="SeekNss">
+      <abstract>SeekNss(node) -&gt; dict</abstract>
+      <description>Traverses the tree to seek an approximate set of defined namespaces.</description>
+      <arguments>
+        <unknown>node</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="ValParse" id="ValParse">
+      <abstract>ValParse(isrc) -&gt; Document</abstract>
+      <description/>
+      <arguments>
+        <unknown>isrc</unknown>
+      </arguments>
+    </function>
+    <function public="no" name="nonvalParse" id="nonvalParse">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="isrc"/>
+        <arg default="True" name="readExtDtd"/>
+      </arguments>
+    </function>
+    <function public="no" name="parse" id="parse">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="isrc"/>
+        <arg default="True" name="readExtDtd"/>
+      </arguments>
+    </function>
+    <function public="no" name="valParse" id="valParse">
+      <abstract/>
+      <description/>
+      <arguments>
+        <arg name="isrc"/>
+        <arg default="True" name="readExtDtd"/>
+      </arguments>
+    </function>
+  </functions>
+  <globals>
+    <global public="yes" name="EntityReader" id="EntityReader">
+      <abstract>Non-validating reader instance that accepts well-formed
+XML External Parsed Entities, created from
+EntityReader() with no constructor arguments.</abstract>
+      <description>Uses the default InputSource factory. If you need to change it,
+reassign the inputSourceFactory attribute, or, preferably, just
+create a new EntityReader instance.</description>
+      <value>&lt;Ft.Xml.Domlette.EntityReaderBase instance&gt;</value>
+    </global>
+    <global public="yes" name="NoExtDtdReader" id="NoExtDtdReader">
+      <abstract>The default non-validating, external DTD subset-ignoring reader
+instance, created from NoExtDtdReaderBase() with no constructor
+arguments.</abstract>
+      <description>Uses the default InputSource factory. If you need to change it,
+reassign the inputSourceFactory attribute, or, preferably, just
+create a new NoExtDtdReaderBase instance.</description>
+      <value>&lt;Ft.Xml.Domlette.NoExtDtdReaderBase instance&gt;</value>
+    </global>
+    <global public="yes" name="NonvalidatingReader" id="NonvalidatingReader">
+      <abstract>The default non-validating reader instance, created from
+NonvalidatingReaderBase() with no constructor arguments.</abstract>
+      <description>Uses the default InputSource factory. If you need to change it,
+reassign the inputSourceFactory attribute, or, preferably, just
+create a new NonvalidatingReaderBase instance.</description>
+      <value>&lt;Ft.Xml.Domlette.NonvalidatingReaderBase instance&gt;</value>
+    </global>
+    <global public="no" name="READ_EXTERNAL_DTD" id="READ_EXTERNAL_DTD">
+      <value>True</value>
+    </global>
+    <global public="yes" name="ValidatingReader" id="ValidatingReader">
+      <abstract>The default validating reader instance, created from
+ValidatingReaderBase() with no constructor arguments.</abstract>
+      <description>Uses the default InputSource factory. If you need to change it,
+reassign the inputSourceFactory attribute, or, preferably, just
+create a new ValidatingReaderBase instance.</description>
+      <value>&lt;Ft.Xml.Domlette.ValidatingReaderBase instance&gt;</value>
+    </global>
+    <global public="no" name="__all__" id="__all__">
+      <value>['implementation', 'NonvalParse', 'ValParse', 'Print', 'PrettyPrint', 'CanonicalPrint', 'GetAllNs', 'SeekNss', 'ConvertDocument', 'ValidatingReaderBase', 'NonvalidatingReaderBase', 'NoExtDtdReaderBase', 'EntityReaderBase', 'ValidatingReader', 'NonvalidatingReader', 'NoExtDtdReader', 'EntityReader']</value>
+    </global>
+    <global public="yes" name="implementation" id="implementation">
+      <abstract>The DOMImplementation interface provides a number of methods for performing
+operations that are independent of any particular instance of the document
+object model.</abstract>
+      <description/>
+      <value>&lt;DOMImplementation&gt;</value>
+    </global>
+  </globals>
+</module>

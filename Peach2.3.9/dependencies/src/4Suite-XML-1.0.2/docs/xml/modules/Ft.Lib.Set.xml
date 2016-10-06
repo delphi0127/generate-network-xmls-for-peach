@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<module name="Ft.Lib.Set">
+  <modification-date>2006-12-16 15:51:25</modification-date>
+  <abstract>Operations on ordered sets</abstract>
+  <description>Copyright 2005 Fourthought, Inc. (USA).
+Detailed license and copyright information: http://4suite.org/COPYRIGHT
+Project home, documentation, distributions: http://4suite.org/</description>
+  <functions>
+    <function public="yes" name="Intersection" id="Intersection">
+      <abstract>Intersection(a, b) -&gt; ordered-set</abstract>
+      <description>Return the intersection of the two sets as a new set (i.e., all the elements
+that are in both sets).</description>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="Not" id="Not">
+      <abstract>Not(a, b) -&gt; ordered-set</abstract>
+      <description>Return the difference of the two sets as a new set (i.e., all the elements
+from set a that are not in set b).</description>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="Union" id="Union">
+      <abstract>Union(a, b) -&gt; ordered-set</abstract>
+      <description>Return the union of the two sets as a new set (i.e., all the elements
+that are in either set).</description>
+      <arguments>
+        <unknown>a, b</unknown>
+      </arguments>
+    </function>
+    <function public="yes" name="Unique" id="Unique">
+      <abstract>Unique(a) -&gt; ordered-set</abstract>
+      <description>Return a new set with any duplicates removed.</description>
+      <arguments>
+        <unknown>a</unknown>
+      </arguments>
+    </function>
+  </functions>
+</module>
