@@ -138,8 +138,8 @@ try:
 			Break()
 			print "aa _DbgEventHandler.ExitProcess: Target application has exitted"
 			print "ExitCode:%d"%ExitCode
-			#self.quit.set() #updated by delphi
-			return DbgEng.DEBUG_STATUS_NO_CHANGE #updated by delphi
+			self.quit.set() #updated by delphi
+			return DEBUG_STATUS_NO_CHANGE #updated by delphi
 		
 		def Exception(self, dbg, ExceptionCode, ExceptionFlags, ExceptionRecord,
 				ExceptionAddress, NumberParameters, ExceptionInformation0, ExceptionInformation1,
