@@ -79,7 +79,7 @@ class PageHeap(Monitor):
 	
 	def LocateWinDbg(self):
 		'''
-		NOTE: Update master copy in debugger.py if you change this!!!!
+		NOTE: Update main copy in debugger.py if you change this!!!!
 		'''
 		
 		import win32api, win32con

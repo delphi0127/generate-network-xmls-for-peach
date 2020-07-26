@@ -156,7 +156,7 @@ class Combine:
 	def __init__(self):
 		self.crackedModels = {}
 		self.peach = None
-		self.masterModel = None
+		self.mainModel = None
 		self.sampleFiles = []
 	
 	def getSampleFiles(self, folder):
@@ -180,10 +180,10 @@ class Combine:
 		
 		for n in self.peach:
 			if n.elementType == 'template' and n.name == modelName:
-				self.masterModel = n
+				self.mainModel = n
 				break
 		
-		if self.masterModel == None:
+		if self.mainModel == None:
 			raise Exception("Could not locate model named [%s]" % modelName)
 	
 	def crackAllSampleFiles(self):
@@ -198,7 +198,7 @@ class Combine:
 			
 			cracker = incoming.DataCracker(self.peach)
 			cracker.haveAllData = True
-			model = self.masterModel.copy(None)
+			model = self.mainModel.copy(None)
 			(rating, pos) = cracker.crackData(model, data, "setDefaultValue")
 			
 			if rating > 2:

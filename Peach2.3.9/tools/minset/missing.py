@@ -143,7 +143,7 @@ class Missing:
 	def __init__(self):
 		self.crackedModels = {}
 		self.peach = None
-		self.masterModel = None
+		self.mainModel = None
 		self.sampleFiles = []
 		self.pitFilename = None
 	
@@ -156,7 +156,7 @@ class Missing:
 	
 	def parsePitFile(self, pitFilename, modelName):
 		'''
-		Parse PIT file and load model into self.masterModel
+		Parse PIT file and load model into self.mainModel
 		'''
 		
 		print "[*] Parsing pit file:", pitFilename
@@ -168,10 +168,10 @@ class Missing:
 		
 		for n in self.peach:
 			if n.elementType == 'template' and n.name == modelName:
-				self.masterModel = n
+				self.mainModel = n
 				break
 		
-		if self.masterModel == None:
+		if self.mainModel == None:
 			raise Exception("Could not locate model named [%s]" % modelName)
 	
 	def pickleModel(self, model):
@@ -270,9 +270,9 @@ class Missing:
 				
 				buff = PublisherBuffer(None, data)
 				cracker = incoming.DataCracker(self.peach)
-				cracker.optmizeModelForCracking(self.masterModel)
+				cracker.optmizeModelForCracking(self.mainModel)
 				cracker.haveAllData = True
-				model = self.masterModel.copy(None)
+				model = self.mainModel.copy(None)
 				(rating, pos) = cracker.crackData(model, buff, "setDefaultValue")
 				
 				if rating > 2:
@@ -314,7 +314,7 @@ class Missing:
 	
 	def locateChoices(self):
 		self.choices = []
-		for node in self.masterModel.getAllChildDataElements():
+		for node in self.mainModel.getAllChildDataElements():
 			if isinstance(node, Choice):
 				self.choices.append(node)
 	
@@ -365,7 +365,7 @@ class Missing:
 					#print "Found: ", choice2.getFullDataName()
 					foundChoices.append(choice2.currentElement.name)
 			
-			# now check the master
+			# now check the main
 			for child in choice:
 				if isinstance(child, DataElement):
 					if child.name not in foundChoices:

@@ -2,7 +2,7 @@
 ########################################################################
 # $Header: /var/local/cvsroot/4Suite/setup.py,v 1.40.2.5 2006/10/20 18:26:15 jkloth Exp $
 """
-The master installation specification
+The main installation specification
 
 Copyright 2005 Fourthought, Inc. (USA).
 Detailed license and copyright information: http://4suite.org/COPYRIGHT

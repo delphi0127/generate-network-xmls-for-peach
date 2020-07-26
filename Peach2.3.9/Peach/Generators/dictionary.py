@@ -763,7 +763,7 @@ class GeneratorList2(GeneratorList):
 	
 	This generator differs from GeneratorList by allowing one group to
 	drive the rounds, but associating different sub groups to each generator.
-	When the master group is incremented the group for the current generator is
+	When the main group is incremented the group for the current generator is
 	also incremented.  This allows more complex control of how generators
 	create data.
 	
@@ -903,11 +903,11 @@ class GeneratorList2(GeneratorList):
 	unittest = staticmethod(unittest)
 
 
-class GeneratorListGroupMaster(GeneratorList2):
+class GeneratorListGroupMain(GeneratorList2):
 	'''
 	Provides a mechanism to create in effect a group of GeneratorList2's that
-	will progress and increment together drivin by the master of the group.  This
-	Generator is the Group Master generator and controls the slaves of the
+	will progress and increment together drivin by the main of the group.  This
+	Generator is the Group Main generator and controls the subordinates of the
 	group.
 	
 	This generator comes in handy when you have two bits of data that are
@@ -924,7 +924,7 @@ class GeneratorListGroupMaster(GeneratorList2):
 		>>> groupDoLength = Group()
 		>>> groupForeachBlockDoLength = GroupForeachDo(groupForeachBlock, groupDoLength)
 		>>> 
-		>>> genBlock = GeneratorListGroupMaster(None, [
+		>>> genBlock = GeneratorListGroupMain(None, [
 		... 	groupNormalBlock,
 		... 	groupForeachBlockDoLength
 		... 	], [
@@ -942,7 +942,7 @@ class GeneratorListGroupMaster(GeneratorList2):
 		... 		]),
 		... 	])
 		>>>
-		>>> genLength = GeneratorListGroupSlave([
+		>>> genLength = GeneratorListGroupSubordinate([
 		...		None,
 		... 	None,
 		... 	], [
@@ -974,10 +974,10 @@ class GeneratorListGroupMaster(GeneratorList2):
 	
 	'''
 	
-	_slaves = []
+	_subordinates = []
 	_completed = False
 	
-	def __init__(self, group, groupList, list, slaves = None, name = None):
+	def __init__(self, group, groupList, list, subordinates = None, name = None):
 		'''
 		@type	group: Group
 		@param	group: Group this Generator belongs to
@@ -990,15 +990,15 @@ class GeneratorListGroupMaster(GeneratorList2):
 		'''
 		GeneratorList2.__init__(self, group, groupList, list, name)
 		
-		if slaves != None:
-			self._slaves = slaves
+		if subordinates != None:
+			self._subordinates = subordinates
 		else:
-			self._slaves = []
+			self._subordinates = []
 	
 	def next(self):
 		
 		if self._completed:
-			raise generator.GeneratorCompleted("Peach.dictionary.GeneratorListGroupMaster")
+			raise generator.GeneratorCompleted("Peach.dictionary.GeneratorListGroupMain")
 		
 		moveNext = True
 		
@@ -1009,30 +1009,30 @@ class GeneratorListGroupMaster(GeneratorList2):
 		except group.GroupCompleted:
 			pass
 		
-		# next the generator for each of our slaves
-		for slave in self._slaves:
+		# next the generator for each of our subordinates
+		for subordinate in self._subordinates:
 			try:
-				slave.slaveNext()
+				subordinate.subordinateNext()
 				moveNext = False
 			except group.GroupCompleted:
 				pass
 		
 		if moveNext:
-			print "GeneratorListGroupMaster.next(): Next pos [%d]" % self._curPos
+			print "GeneratorListGroupMain.next(): Next pos [%d]" % self._curPos
 		
 			if (self._curPos+1) >= len(self._list):
 				self._completed = True
 				
-				# Let the slaves know we are done
-				for slave in self._slaves:
-					slave.slaveCompleted()
+				# Let the subordinates know we are done
+				for subordinate in self._subordinates:
+					subordinate.subordinateCompleted()
 				
-				raise generator.GeneratorCompleted("Peach.dictionary.GeneratorListGroupMaster")
+				raise generator.GeneratorCompleted("Peach.dictionary.GeneratorListGroupMain")
 			
 			# Move us and everyone else to next position
 			self._curPos += 1
-			for slave in self._slaves:
-				slave.slaveNextPosition()
+			for subordinate in self._subordinates:
+				subordinate.subordinateNextPosition()
 	
 	def reset(self):
 		self._completed = False
@@ -1044,19 +1044,19 @@ class GeneratorListGroupMaster(GeneratorList2):
 		for i in self._groupList:
 			i.reset()
 		
-		for slave in self._slaves:
-			slave.reset()
+		for subordinate in self._subordinates:
+			subordinate.reset()
 
-	def addSlave(self, slave):
-		self._slaves.append(slave)
+	def addSubordinate(self, subordinate):
+		self._subordinates.append(subordinate)
 
 
-class GeneratorListGroupSlave(GeneratorList2):
+class GeneratorListGroupSubordinate(GeneratorList2):
 	'''
 	Provides a mechanism to create in effect a group of GeneratorList2's that
-	will progress and increment together drivin by the master of the group.  This
-	Generator is the slave of ghr group and is controlled by the master.  More
-	then one slave can be part of the group.
+	will progress and increment together drivin by the main of the group.  This
+	Generator is the subordinate of ghr group and is controlled by the main.  More
+	then one subordinate can be part of the group.
 	
 	This generator comes in handy when you have two bits of data that are
 	logically linked but in separate places.  An example would be a length of
@@ -1072,7 +1072,7 @@ class GeneratorListGroupSlave(GeneratorList2):
 		>>> groupDoLength = Group()
 		>>> groupForeachBlockDoLength = GroupForeachDo(groupForeachBlock, groupDoLength)
 		>>> 
-		>>> genBlock = GeneratorListGroupMaster(None, [
+		>>> genBlock = GeneratorListGroupMain(None, [
 		... 	groupNormalBlock,
 		... 	groupForeachBlockDoLength
 		... 	], [
@@ -1090,7 +1090,7 @@ class GeneratorListGroupSlave(GeneratorList2):
 		... 		]),
 		... 	])
 		>>>
-		>>> genLength = GeneratorListGroupSlave([
+		>>> genLength = GeneratorListGroupSubordinate([
 		...		None,
 		... 	None,
 		... 	], [
@@ -1121,10 +1121,10 @@ class GeneratorListGroupSlave(GeneratorList2):
 		
 	'''
 	
-	_master = None
+	_main = None
 	_completed = False
 	
-	def __init__(self, groupList = None, list = None, master = None, name = None):
+	def __init__(self, groupList = None, list = None, main = None, name = None):
 		'''
 		@type	group: Group
 		@param	group: Group this Generator belongs to
@@ -1132,8 +1132,8 @@ class GeneratorListGroupSlave(GeneratorList2):
 		@param	groupList: List of Groups to use on generators
 		@type	list: list
 		@param	list: List of Generators to iterate through
-		@type	master: GeneratorListGroupMaster
-		@param	master: The master for this groupping.  Will register self with master
+		@type	main: GeneratorListGroupMain
+		@param	main: The main for this groupping.  Will register self with main
 		@type	name: String
 		@param	name: [optional] Name for this Generator.  Used for debugging.
 		'''
@@ -1146,29 +1146,29 @@ class GeneratorListGroupSlave(GeneratorList2):
 		GeneratorList2.__init__(self, None, groupList, list, name)
 		self._name = name
 		
-		if master != None:
-			master.addSlave(self)
+		if main != None:
+			main.addSubordinate(self)
 	
 	def next(self):
 		if self._completed:
-			raise generator.GeneratorCompleted("Peach.dictionary.GeneratorListGroupSlave")
+			raise generator.GeneratorCompleted("Peach.dictionary.GeneratorListGroupSubordinate")
 	
-	def slaveNext(self):
+	def subordinateNext(self):
 		if self._groupList[self._curPos] != None:
 			self._groupList[self._curPos].next()
 		else:
-			raise group.GroupCompleted("Peach.dictionary.GeneratorListGroupSlave")
+			raise group.GroupCompleted("Peach.dictionary.GeneratorListGroupSubordinate")
 	
 	
-	def slaveNextPosition(self):
-		print self._name, "slaveNextPosition"
+	def subordinateNextPosition(self):
+		print self._name, "subordinateNextPosition"
 		self._curPos += 1
 		
 		if self._curPos >= len(self._list):
 			print self._name
 			raise Exception("%s Ran off end of generator array!!: %d of %d" % (self._name, self._curPos, len(self._list)))
 	
-	def slaveCompleted(self):
+	def subordinateCompleted(self):
 		self._completed = True
 	
 	def reset(self):
