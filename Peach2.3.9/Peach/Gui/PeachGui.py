@@ -222,8 +222,8 @@ try:
             try:
                 self._ClearState()
                 
-                self.masterDoc = Ft.Xml.Domlette.NonvalidatingReader.parseUri("file:"+fileName)
-                self.doc = self.masterDoc.firstChild
+                self.mainDoc = Ft.Xml.Domlette.NonvalidatingReader.parseUri("file:"+fileName)
+                self.doc = self.mainDoc.firstChild
                 self.fileName = fileName
                 self.SetTitle(self.title % fileName)
                 
@@ -323,7 +323,7 @@ try:
             
             try:
                 fout = open(self.fileName, "wb+")
-                PrettyPrint(self.masterDoc, stream=fout)
+                PrettyPrint(self.mainDoc, stream=fout)
                 fout.close()
                 
             except Exception, e:
@@ -356,7 +356,7 @@ try:
             
             try:
                 fout = open(self.fileName, "wb+")
-                PrettyPrint(self.masterDoc, stream=fout)
+                PrettyPrint(self.mainDoc, stream=fout)
                 fout.close()
                 
             except:

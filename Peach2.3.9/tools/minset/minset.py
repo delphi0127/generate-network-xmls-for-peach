@@ -329,7 +329,7 @@ class PeachCoverage:
 				print "[-] %s hit %d new blocks" % (sampleFile, bbl)
 				
 			print ""
-			#print "[*] Master template is [%s] with a coverage of %d blocks" % (sampleFileMostCoverage, sampleFileMostCoverageCount)
+			#print "[*] Main template is [%s] with a coverage of %d blocks" % (sampleFileMostCoverage, sampleFileMostCoverageCount)
 			
 			# Set _traceFolder to None if we don't want
 			# cleanup to remove it
@@ -373,7 +373,7 @@ class PeachCoverage:
 						sampleFileMostCoverageCount = bbl
 				
 				print ""
-				#print "[*] Master template is [%s] with a coverage of %d blocks" % (sampleFileMostCoverage, sampleFileMostCoverageCount)
+				#print "[*] Main template is [%s] with a coverage of %d blocks" % (sampleFileMostCoverage, sampleFileMostCoverageCount)
 			
 			# Start with file with most coverage
 			minset = []
@@ -382,7 +382,7 @@ class PeachCoverage:
 			
 			for sampleFile in sampleFiles:
 				
-				# Don't repeat master file
+				# Don't repeat main file
 				if sampleFile == sampleFileMostCoverage:
 					continue
 				

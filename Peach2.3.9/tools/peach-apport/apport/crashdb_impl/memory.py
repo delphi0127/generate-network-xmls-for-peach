@@ -164,25 +164,25 @@ class CrashDatabase(apport.crashdb.CrashDatabase):
             return 'invalid'
 
     def duplicate_of(self, id):
-        '''Return master ID for a duplicate bug.
+        '''Return main ID for a duplicate bug.
 
         If the bug is not a duplicate, return None.
         '''
         return self.reports[id]['dup_of']
 
-    def close_duplicate(self, report, id, master):
-        '''Mark a crash id as duplicate of given master ID.
+    def close_duplicate(self, report, id, main):
+        '''Mark a crash id as duplicate of given main ID.
         
-        If master is None, id gets un-duplicated.
+        If main is None, id gets un-duplicated.
         '''
-        self.reports[id]['dup_of'] = master
+        self.reports[id]['dup_of'] = main
 
-    def mark_regression(self, id, master):
+    def mark_regression(self, id, main):
         '''Mark a crash id as reintroducing an earlier crash which is
-        already marked as fixed (having ID 'master').'''
+        already marked as fixed (having ID 'main').'''
 
-        assert self.reports[master]['fixed_version'] != None
-        self.reports[id]['comment'] = 'regression, already fixed in #%i' % master
+        assert self.reports[main]['fixed_version'] != None
+        self.reports[id]['comment'] = 'regression, already fixed in #%i' % main
 
     def _mark_dup_checked(self, id, report):
         '''Mark crash id as checked for being a duplicate.'''
@@ -559,7 +559,7 @@ databases = {
         self.assertEqual(self.crashes.known(self.crashes.download(2)), 
                 'http://bar.bugs.example.com/2')
 
-        # ID#3: no dup, master of ID#4
+        # ID#3: no dup, main of ID#4
         self.assertEqual(self.crashes.check_duplicate(3), None)
 
         # ID#4: dup of ID#3
@@ -606,7 +606,7 @@ databases = {
             'http://pygoo.bugs.example.com/6')
         self.assertEqual(self.crashes.check_duplicate(6), (4, None))
         self.assertEqual(self.crashes.duplicate_of(6), 4)
-        # not marked as regression, as it's now a dupe of new master bug 4
+        # not marked as regression, as it's now a dupe of new main bug 4
         self.assertFalse('comment' in self.crashes.reports[6])
 
         # check DB consistency; #5 and #6 are dupes of #3 and #4, so no new
@@ -806,7 +806,7 @@ databases = {
                 self.crashes.get_comment_url(r3, r_id))
 
         # changing ID also works on address signatures
-        self.crashes.duplicate_db_change_master_id(r_id, r3_id)
+        self.crashes.duplicate_db_change_main_id(r_id, r3_id)
         self.crashes.duplicate_db_publish(self.dupdb_dir)
         self.assertEqual(self.crashes.known(r), 
                 self.crashes.get_comment_url(r, r3_id))
@@ -821,8 +821,8 @@ databases = {
 
         self.assertEqual(self.crashes._duplicate_db_dump(), {})
 
-    def test_change_master_id(self):
-        '''duplicate_db_change_master_id()'''
+    def test_change_main_id(self):
+        '''duplicate_db_change_main_id()'''
 
         # db not yet initialized
         self.assertRaises(AssertionError, self.crashes.check_duplicate, 0)
@@ -838,7 +838,7 @@ databases = {
              self.crashes.download(2).crash_signature(): (2, None)})
 
         # invalid ID (raising KeyError is *hard*, so it's not done)
-        self.crashes.duplicate_db_change_master_id(5, 99)
+        self.crashes.duplicate_db_change_main_id(5, 99)
 
         # nevertheless, this should not change the DB
         self.assertEqual(self.crashes._duplicate_db_dump(), 
@@ -846,7 +846,7 @@ databases = {
              self.crashes.download(2).crash_signature(): (2, None)})
 
         # valid ID
-        self.crashes.duplicate_db_change_master_id(2, 99)
+        self.crashes.duplicate_db_change_main_id(2, 99)
 
         # check DB consistency
         self.assertEqual(self.crashes._duplicate_db_dump(), 

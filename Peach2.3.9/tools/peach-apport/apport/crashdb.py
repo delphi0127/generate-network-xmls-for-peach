@@ -147,7 +147,7 @@ class CrashDatabase:
             existing = self._duplicate_search_signature(sig, id)
 
             if existing:
-                # update status of existing master bugs
+                # update status of existing main bugs
                 for (ex_id, _) in existing:
                     self._duplicate_db_sync_status(ex_id)
                 existing = self._duplicate_search_signature(sig, id)
@@ -294,7 +294,7 @@ class CrashDatabase:
         cur.execute('DELETE FROM address_signatures WHERE crash_id = ?', [id])
         self.duplicate_db.commit()
 
-    def duplicate_db_change_master_id(self, old_id, new_id):
+    def duplicate_db_change_main_id(self, old_id, new_id):
         '''Change a crash ID.'''
 
         assert self.duplicate_db, 'init_duplicate_db() needs to be called before'
@@ -699,22 +699,22 @@ class CrashDatabase:
         raise NotImplementedError('this method must be implemented by a concrete subclass')
 
     def duplicate_of(self, id):
-        '''Return master ID for a duplicate bug.
+        '''Return main ID for a duplicate bug.
 
         If the bug is not a duplicate, return None.
         '''
         raise NotImplementedError('this method must be implemented by a concrete subclass')
 
-    def close_duplicate(self, report, id, master):
-        '''Mark a crash id as duplicate of given master ID.
+    def close_duplicate(self, report, id, main):
+        '''Mark a crash id as duplicate of given main ID.
         
-        If master is None, id gets un-duplicated.
+        If main is None, id gets un-duplicated.
         '''
         raise NotImplementedError('this method must be implemented by a concrete subclass')
 
-    def mark_regression(self, id, master):
+    def mark_regression(self, id, main):
         '''Mark a crash id as reintroducing an earlier crash which is
-        already marked as fixed (having ID 'master').'''
+        already marked as fixed (having ID 'main').'''
         
         raise NotImplementedError('this method must be implemented by a concrete subclass')
 

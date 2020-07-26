@@ -130,8 +130,8 @@ class Mutator(object):
 #		self._infiniteMutators = []
 #		self._mutator = None
 #		
-#		self._masterCount = 0
-#		self._stateMasterCount = -1
+#		self._mainCount = 0
+#		self._stateMainCount = -1
 #		
 #		for m in self._mutators:
 #			if m.isFinite():
@@ -260,7 +260,7 @@ class Mutator(object):
 #				else:
 #					self._mutator = self._finiteMutators[self._curFinite]
 #		
-#		self._masterCount += 1
+#		self._mainCount += 1
 #	
 #	def _getRandomInfiniteMutator(self):
 #		'''
@@ -279,7 +279,7 @@ class Mutator(object):
 #		and continue when setState() is called.
 #		'''
 #		
-#		return str(self._masterCount - 2)
+#		return str(self._mainCount - 2)
 #	
 #	def setState(self, statePickle):
 #		'''
@@ -287,9 +287,9 @@ class Mutator(object):
 #		back in the same place as when we said
 #		"getState()".
 #		'''
-#		self._stateMasterCount = int(statePickle)
+#		self._stateMainCount = int(statePickle)
 #		try:
-#			for i in xrange(self._masterCount, self._stateMasterCount):
+#			for i in xrange(self._mainCount, self._stateMainCount):
 #				self.next()
 #		except:
 #			pass

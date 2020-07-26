@@ -61,8 +61,8 @@ expected_1="""<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
       <xsl:otherwise>You should provide an email address for the managing editor of your channel</xsl:otherwise>
     </xsl:choose>
     <xsl:choose>
-      <xsl:when test='webMaster'/>
-      <xsl:otherwise>You should provide an email address for the webmaster of your channel</xsl:otherwise>
+      <xsl:when test='webMain'/>
+      <xsl:otherwise>You should provide an email address for the webmain of your channel</xsl:otherwise>
     </xsl:choose>
     <xsl:apply-templates mode='M0'/>
   </xsl:template>
@@ -299,7 +299,7 @@ expected_1="""<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
     <xsl:if test='parent::textinput and         (string-length(.) = 0 or          string-length(.) > 500)'>Textinput descriptions must be between 1-500 characters in length</xsl:if>
     <xsl:apply-templates mode='M2'/>
   </xsl:template>
-  <xsl:template match='copyright|pubDate|lastBuildDate|managingEditor|webMaster' mode='M2' priority='3994'>
+  <xsl:template match='copyright|pubDate|lastBuildDate|managingEditor|webMain' mode='M2' priority='3994'>
     <xsl:choose>
       <xsl:when test='string-length(.) > 1 and         string-length(.) &lt; 100'/>
       <xsl:otherwise>
